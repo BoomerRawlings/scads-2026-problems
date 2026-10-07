@@ -1,0 +1,33 @@
+{
+  "recorded_at": "2026-10-07T03:57:04.874310+00:00",
+  "version": "0.2.0",
+  "source": "https://data.cityofnewyork.us/resource/erm2-nwe9.json",
+  "request": {
+    "start": "2025-12-01",
+    "end": "2025-12-02",
+    "page_size": 200,
+    "max_rows": 20000,
+    "max_bytes": 50000000,
+    "max_storage_bytes": 150000000,
+    "max_seconds": 120
+  },
+  "observed_status": {
+    "status": "paused",
+    "rows": 0,
+    "bytes": 0,
+    "pages": 0,
+    "source_id": "erm2-nwe9",
+    "window": {
+      "gte": "2025-12-01T00:00:00",
+      "lt": "2025-12-02T00:00:00"
+    },
+    "observed_complete": false,
+    "error": {
+      "at": "2026-10-07T03:54:27.323669+00:00",
+      "code": "source_stale"
+    },
+    "file": null,
+    "manifest": null
+  },
+  "interpretation": "Live preflight rejected provider-marked stale query response; no records or completed artifact published. This is failure-handling evidence, not successful acquisition or coverage evidence."
+}

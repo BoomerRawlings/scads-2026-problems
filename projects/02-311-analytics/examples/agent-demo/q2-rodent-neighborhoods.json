@@ -1,0 +1,37 @@
+{
+  "schema_version": "1",
+  "dataset_version": "fixture-v1",
+  "timezone": "America/New_York",
+  "as_of": "2026-01-02T12:00:00-05:00",
+  "operation": "compare_periods",
+  "periods": {
+    "baseline": {
+      "gte": "2025-11-01T00:00:00-04:00",
+      "lt": "2025-12-01T00:00:00-05:00"
+    },
+    "current": {
+      "gte": "2025-12-01T00:00:00-05:00",
+      "lt": "2026-01-01T00:00:00-05:00"
+    }
+  },
+  "filters": {
+    "category_family": "rodent"
+  },
+  "group_by": [
+    {
+      "field": "nta2020"
+    },
+    {
+      "field": "ntaname"
+    }
+  ],
+  "metrics": [
+    "count",
+    "closed_count",
+    "mean_closure_hours"
+  ],
+  "minimum_count": 1,
+  "top_n": 100,
+  "rank_by": "rate_change",
+  "rank_order": "desc"
+}

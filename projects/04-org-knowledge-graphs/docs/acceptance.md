@@ -1,0 +1,55 @@
+# First development slice: acceptance status
+
+**Assessment: 7 October 2026.** A local profile/preview → import → infer → inspect → correct/undo → export/restore workflow exists. This is a software prototype with a fictional example. The full [completion specification](completion-spec.md) is not yet satisfied; research completion has not been claimed.
+
+“Fixture-tested” below means automated checks exercise the stated software behavior. It does not establish real-world inference quality, broad accessibility compliance, or performance outside the reported workload. “Partial” identifies required behavior still missing or insufficiently verified.
+
+## C01–C17 matrix
+
+| ID | Status | Implemented and tested evidence | Remaining work or limit |
+| --- | --- | --- | --- |
+| C01 · Repeat import, malformed records | Fixture-tested | Parser tests reconcile read/accepted/duplicate/quarantined/unsupported totals; stable IDs and repeated import/demo checks; missing senders and conflicting IDs quarantined. | No streaming parser or checkpointed incremental multi-source import; limited standard header mapping. |
+| C02 · Headers-only evidence | Fixture-tested | Behavioral candidates cite reproducible communication aggregates; absent body never generates a text span; default policy can abstain. | Headers-only manager accuracy unmeasured; this baseline is not a trained behavioral classifier. |
+| C03 · Shared names and mailboxes | **Partial** | Distinct emails remain distinct; ambiguous aliases are flagged; duplicate display names do not choose arbitrary managers; declared shared accounts are excluded from person inference. | No reversible identity merge/split UI or identity revision model. Unknown shared accounts are not automatically classified. |
+| C04 · Authority without direct reporting | Fixture-tested | Coordination/approval cues produce a separate authority relation, not a strong direct-manager claim; quoted, hypothetical, negative, and self-reporting edge cases tested. | Language rules are deliberately narrow; precision/recall on real language remains unmeasured. |
+| C05 · Sparse employee or absent manager | Fixture-tested | Sparse/unobserved people remain searchable and unresolved; missing evidence does not invent an outside-corpus manager. | Outside-corpus manager recovery requires actual evidence and audited labels; none supplied. |
+| C06 · Cross-team communication groups | **Partial** | Deterministic inferred groups remain separate from imported formal units; no automatic formal membership creation; communication coverage is exposed. | Analyst acceptance of dated group memberships and a full membership evaluation are not implemented. |
+| C07 · Connected nonmanager | **Partial** | Communication breadth, sent/received counts, and cross-unit counts remain descriptive; the fictional coordinator's project traffic cannot establish a direct-report edge by itself. | No analyst study verifies correct interpretation of hubs versus authority. |
+| C08 · Competing parents and dates | Fixture-tested | Competing direct claims abstain; source conflicts remain unresolved; primary projection prevents cycles; half-open intervals and exclusion of undated edges in dated views tested. | Rule-derived statement dates are not verified employment dates. The default undated view cannot establish a historical/current chart. |
+| C09 · Correction survives refresh | Fixture-tested | Replace/reject/accept/undo persist through model runs; changed human assertions have null model probabilities; rejection does not silently promote a runner-up. | Actor attribution is the single local analyst, not authenticated individual users. |
+| C10 · Stale edit or identity split | **Partial** | Base revisions reject stale writes with HTTP 409; conflicting idempotency keys, self-reporting, and cycle-causing edits rejected. | Identity split/merge reconciliation is not implemented; no multiuser concurrency model. |
+| C11 · Interrupted/cancelled run and retry | **Partial** | Durable job state and stored input checkpoint; failed or cancelled runs retain the prior published snapshot; retry publishes atomically. Failure/cancellation/retry and live-process job preservation tested. | Resume means replay from saved canonical input. Process-interruption handling exists but a forced process-kill/restart end-to-end check remains. No checkpoint within parsing/feature batches; no distributed job runner. |
+| C12 · Semantic snapshot comparison | Fixture-tested | Comparison uses relationship meaning; generated IDs alone do not count as organizational change; score/review/manager/validity differences are distinguished when observable. | Full causal attribution across identity revisions and all policy/evidence-only differences remains incomplete. |
+| C13 · 100,000 logical nodes | **Partial** | Synthetic storage benchmark exercises 10,000/100,000-person mixed hierarchies, a wide hierarchy, and a deep chain; selected page sequences, sibling completeness, snapshot binding, and ≤200-node graph payloads checked. | Store-method timings exclude HTTP, browser, network, inference, and dense traffic. End-to-end UI/frame-time targets and universal paging/scale claims remain unverified. |
+| C14 · Keyboard/table review | **Partial** | Native buttons/forms, focusable graph nodes, paged people table, evidence panel, review forms, and undo provide alternatives to pointer-only graph interaction; layout unit tests exist. | A full keyboard-only task audit, screen-reader audit, and representative analyst evaluation are still required. |
+| C15 · Canonical and lossy export | Fixture-tested | API/store round trips retain IDs, snapshots, original proposals, review history, corrected projection, evidence references, and explicit null probabilities. CSV declares omitted alternatives/evidence/history; reports identify uncertainty. Corrupt restore rolls back. | Package compatibility is version 1 and local. Source-term authorization is not enforced through a permission system; no production migration policy. |
+| C16 · Unlabeled target | **Partial** | UI/model records distinguish raw scores from probabilities. Gold fixture labels never enter inference. Offline calibrator requires explicit labels, checks overlap/scope, and stays fitted-unvalidated pending evaluation. | No real labeled source corpus, independent calibration/test split, measured manager accuracy, or actual unlabeled transfer corpus. No calibrated real-world edge claim. |
+| C17 · Source withdrawal | Fixture-tested | Withdrawal invalidates dependent model evidence/scores, redacts unavailable bodies in current/historical exports, preserves the reference, and excludes withdrawn messages from refreshed inference. | Withdrawal is an explicit local API action, not automatic upstream access reconciliation or a retention-policy service. |
+
+## What verification does and does not establish
+
+The [first-build verification report](verification.md) records final test counts, actual browser/export recovery, measured scale, and remaining UI limitations.
+
+The executable checks live in [parser tests](../tests/test_ingest.py), [inference/calibration tests](../tests/test_inference.py), [store tests](../tests/test_store.py), [API tests](../tests/test_api.py), and [frontend layout tests](../frontend/src/layout.test.ts). Run the commands in the [README](../README.md#verify) for the current counts and results. Checks use synthetic fixtures; no real organization is part of the repository.
+
+The [raw scale report](benchmark-results.json) includes environment, repetitions, first-call/warm timings, graph budgets, counts, and omissions. It measures Python store methods on local SQLite. It does not measure browser frame rates, frontend startup, HTTP round trips, model runtime, or multiuser performance. The earlier build-plan latency targets remain targets unless matched by the appropriate measurement.
+
+The subsequent [10,000-person communication corpus run](synthetic-10000-results.json) additionally exercised 76,680 messages through inference/publication and browser navigation. It preserves sparse, conflicting, quoted and nonmanager cases. This closes a communication-bearing workflow check at 10,000 people; it does not close C13's 100,000-person end-to-end or frame-time targets.
+
+## Current decisions and limitations
+
+- **Semantic SVG zoom:** the browser moves from aggregate departments/communication groups to reporting branches, positions and individual connections, capped at 200 cards per context. Full metadata memberships, snapshot-bound paging and explicit unassigned buckets preserve reachability. Wheel/buttons, breadcrumbs and person focus were verified on the 10k corpus. Touch-device, accessibility and frame-time qualification remain open; no renderer superiority claim is made.
+- **Baseline before advanced models:** sparse candidates, conservative direct-report language rules, communication aggregates, and deterministic community detection work locally. No LLM/GNN pipeline or reproduction of a published trained model is claimed.
+- **Calibration is an offline utility:** fitting, applicability checks, and evaluation helpers exist, but the baseline browser flow remains uncalibrated. A synthetic fit is not a substitute for independent real calibration data.
+- **Single analyst:** SQLite persistence and revision checks protect local edits. There is no login, multiuser collaboration, row-level security, or source-specific permission enforcement. The server is intended for a local machine.
+- **Identity and intake scope:** staged inspection measures source size, identity/record counts, field coverage and quality before saving. A bounded graph preview and explicit review checkpoint precede import/inference. IDs, normalized emails, aliases, source references, duplicates, and quarantine are handled. Reversible identity editing, arbitrary column-mapping UI, attachment/document processing, enterprise connectors, and incremental source reconciliation are still missing.
+- **Research blocked by data:** no real dataset has been selected or ingested. Training, calibration, accuracy, team validity, transfer, and analyst utility require independent evidence and predeclared acceptance criteria.
+
+## Next release gates
+
+1. Finish identity reconciliation, membership review, arbitrary import mapping, and keyboard/screen-reader checks against the target workflow.
+2. Measure browser and HTTP behavior on declared wide/deep/mixed workloads; compare renderers only if the bounded SVG scene fails a needed interaction or budget.
+3. Qualify permitted source and transfer corpora; define direct-report semantics, dates, provenance, and independently audited train/calibration/test splits.
+4. Evaluate candidate retrieval, manager ranking, structured selection, calibration, abstention, communities, and analyst task outcomes separately.
+
+The current slice can support implementation review and workflow testing. Calling the full solution complete requires closing the partial scenarios and the real-data research gates above.

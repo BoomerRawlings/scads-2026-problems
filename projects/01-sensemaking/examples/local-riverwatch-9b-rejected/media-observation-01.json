@@ -1,0 +1,9 @@
+{
+  "media_observations": [
+    {
+      "evidence_id": "img-note-001",
+      "locator": "image",
+      "observation": "A presentation slide with a dark green header reading 'CBRI / RIVERWATCH'. The main body text states 'Planning board: DELAYED' and 'Riverwatch - delayed. Field release blocked pending sensor acceptance.' A footer indicates '2026-09-05 / Authored board fixture' and 'SYNTHETIC FIXTURE / Caption board / No real event'. The text is black on a light background."
+    }
+  ]
+}

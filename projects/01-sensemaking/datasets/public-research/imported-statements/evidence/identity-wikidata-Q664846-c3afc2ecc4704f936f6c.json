@@ -1,0 +1,469 @@
+{
+  "caution": "Source assertions, not independently verified facts. Edit/retrieval dates are not relationship validity dates. Projection records a captured assertion, not present-day truth. Crosswalks never merge identities; reciprocity does not establish independent corroboration. Linked media was not imported.",
+  "record_type": "identity",
+  "source_fragments": [
+    {
+      "json_pointer": "/entities/Q664846/id",
+      "value": "Q664846"
+    },
+    {
+      "json_pointer": "/entities/Q664846/type",
+      "value": "item"
+    },
+    {
+      "json_pointer": "/entities/Q664846/lastrevid",
+      "value": 2550610368
+    },
+    {
+      "json_pointer": "/entities/Q664846/modified",
+      "value": "2026-09-28T20:00:41Z"
+    },
+    {
+      "json_pointer": "/entities/Q664846/labels",
+      "value": {
+        "ar": {
+          "language": "ar",
+          "value": "المعهد القومي للسرطان"
+        },
+        "be-tarask": {
+          "language": "be-tarask",
+          "value": "Нацыянальны інстытут раку"
+        },
+        "ca": {
+          "language": "ca",
+          "value": "Institut Nacional del Càncer"
+        },
+        "de": {
+          "language": "de",
+          "value": "National Cancer Institute"
+        },
+        "el": {
+          "language": "el",
+          "value": "Εθνικό Ινστιτούτο Καρκίνου"
+        },
+        "en": {
+          "language": "en",
+          "value": "National Cancer Institute"
+        },
+        "eo": {
+          "language": "eo",
+          "value": "Nacia Kancera Instituto"
+        },
+        "es": {
+          "language": "es",
+          "value": "Instituto Nacional del Cáncer"
+        },
+        "et": {
+          "language": "et",
+          "value": "Riiklik Vähiinstituut"
+        },
+        "fa": {
+          "language": "fa",
+          "value": "انستیتو ملی سرطان ایالات متحده آمریکا"
+        },
+        "fr": {
+          "language": "fr",
+          "value": "Institut national du cancer"
+        },
+        "he": {
+          "language": "he",
+          "value": "המכון הלאומי לסרטן"
+        },
+        "hy": {
+          "language": "hy",
+          "value": "Քաղցկեղի ազգային ինստիտուտ"
+        },
+        "id": {
+          "language": "id",
+          "value": "Institut Kanker Nasional"
+        },
+        "it": {
+          "language": "it",
+          "value": "National Cancer Institute"
+        },
+        "ja": {
+          "language": "ja",
+          "value": "アメリカ国立がん研究所"
+        },
+        "ka": {
+          "language": "ka",
+          "value": "აშშ-ის ონკოლოგიის ეროვნული ინსტიტუტი"
+        },
+        "ko": {
+          "language": "ko",
+          "value": "미국 암연구소"
+        },
+        "la": {
+          "language": "la",
+          "value": "Institutum Nationale Cancri"
+        },
+        "ms": {
+          "language": "ms",
+          "value": "Institut Kanser Kebangsaan"
+        },
+        "nl": {
+          "language": "nl",
+          "value": "National Cancer Institute"
+        },
+        "nn": {
+          "language": "nn",
+          "value": "National Cancer Institute"
+        },
+        "pl": {
+          "language": "pl",
+          "value": "National Cancer Institute"
+        },
+        "pt": {
+          "language": "pt",
+          "value": "National Cancer Institute"
+        },
+        "ru": {
+          "language": "ru",
+          "value": "Национальный институт онкологии (США)"
+        },
+        "sh": {
+          "language": "sh",
+          "value": "Nacionalni institut za rak"
+        },
+        "sl": {
+          "language": "sl",
+          "value": "Nacionalni inštitut za raka"
+        },
+        "sr": {
+          "language": "sr",
+          "value": "Nacionalni institut za rak"
+        },
+        "sr-ec": {
+          "language": "sr-ec",
+          "value": "National Cancer Institute"
+        },
+        "sv": {
+          "language": "sv",
+          "value": "National Cancer Institute"
+        },
+        "tr": {
+          "language": "tr",
+          "value": "Ulusal Kanser Enstitüsü"
+        },
+        "uk": {
+          "language": "uk",
+          "value": "Національний інститут раку"
+        },
+        "zh": {
+          "language": "zh",
+          "value": "國家癌症研究中心"
+        }
+      }
+    },
+    {
+      "json_pointer": "/entities/Q664846/aliases",
+      "value": {
+        "ar": [
+          {
+            "language": "ar",
+            "value": "NCI"
+          }
+        ],
+        "be-tarask": [
+          {
+            "language": "be-tarask",
+            "value": "NCI"
+          }
+        ],
+        "ca": [
+          {
+            "language": "ca",
+            "value": "National Cancer Institute"
+          },
+          {
+            "language": "ca",
+            "value": "NCI"
+          }
+        ],
+        "de": [
+          {
+            "language": "de",
+            "value": "NCI"
+          }
+        ],
+        "en": [
+          {
+            "language": "en",
+            "value": "NCI"
+          },
+          {
+            "language": "en",
+            "value": "National Cancer Institute (U.S.)"
+          }
+        ],
+        "eo": [
+          {
+            "language": "eo",
+            "value": "NCI"
+          }
+        ],
+        "es": [
+          {
+            "language": "es",
+            "value": "National Cancer Institute"
+          },
+          {
+            "language": "es",
+            "value": "Instituto Nacional del Cancer"
+          },
+          {
+            "language": "es",
+            "value": "NCI"
+          }
+        ],
+        "et": [
+          {
+            "language": "et",
+            "value": "NCI"
+          }
+        ],
+        "fa": [
+          {
+            "language": "fa",
+            "value": "NCI"
+          }
+        ],
+        "fr": [
+          {
+            "language": "fr",
+            "value": "NCI"
+          },
+          {
+            "language": "fr",
+            "value": "Institut national du cancer (États-Unis)"
+          }
+        ],
+        "he": [
+          {
+            "language": "he",
+            "value": "NCI"
+          }
+        ],
+        "hy": [
+          {
+            "language": "hy",
+            "value": "NCI"
+          }
+        ],
+        "id": [
+          {
+            "language": "id",
+            "value": "NCI"
+          }
+        ],
+        "it": [
+          {
+            "language": "it",
+            "value": "NCI"
+          }
+        ],
+        "ja": [
+          {
+            "language": "ja",
+            "value": "NCI"
+          }
+        ],
+        "ka": [
+          {
+            "language": "ka",
+            "value": "NCI"
+          }
+        ],
+        "ko": [
+          {
+            "language": "ko",
+            "value": "NCI"
+          }
+        ],
+        "ms": [
+          {
+            "language": "ms",
+            "value": "NCI"
+          }
+        ],
+        "nl": [
+          {
+            "language": "nl",
+            "value": "NCI"
+          }
+        ],
+        "nn": [
+          {
+            "language": "nn",
+            "value": "NCI"
+          }
+        ],
+        "pl": [
+          {
+            "language": "pl",
+            "value": "NCI"
+          }
+        ],
+        "pt": [
+          {
+            "language": "pt",
+            "value": "NCI"
+          }
+        ],
+        "ru": [
+          {
+            "language": "ru",
+            "value": "Национальный институт рака (США)"
+          },
+          {
+            "language": "ru",
+            "value": "NCI"
+          }
+        ],
+        "sh": [
+          {
+            "language": "sh",
+            "value": "NCI"
+          }
+        ],
+        "sk": [
+          {
+            "language": "sk",
+            "value": "NCI"
+          }
+        ],
+        "sl": [
+          {
+            "language": "sl",
+            "value": "NCI"
+          }
+        ],
+        "sr": [
+          {
+            "language": "sr",
+            "value": "NCI"
+          },
+          {
+            "language": "sr",
+            "value": "Nacionalni institut za kancer"
+          }
+        ],
+        "sr-ec": [
+          {
+            "language": "sr-ec",
+            "value": "NCI"
+          },
+          {
+            "language": "sr-ec",
+            "value": "Национални институт за рак (САД)"
+          }
+        ],
+        "sv": [
+          {
+            "language": "sv",
+            "value": "NCI"
+          }
+        ],
+        "tr": [
+          {
+            "language": "tr",
+            "value": "NCI"
+          }
+        ],
+        "uk": [
+          {
+            "language": "uk",
+            "value": "NCI"
+          }
+        ],
+        "zh": [
+          {
+            "language": "zh",
+            "value": "美國國家癌症中心"
+          },
+          {
+            "language": "zh",
+            "value": "NCI"
+          }
+        ]
+      }
+    },
+    {
+      "json_pointer": "/entities/Q664846/descriptions",
+      "value": {
+        "ar": {
+          "language": "ar",
+          "value": "مؤسسة بحثية طبية تعنى بالبحث في مرض السرطان، وهو يتبع معاهد الصحة الوطنية الأمريكية"
+        },
+        "be-tarask": {
+          "language": "be-tarask",
+          "value": "дасьледніцкі інстытут ЗША"
+        },
+        "de": {
+          "language": "de",
+          "value": "Krebsforschungszentrum in den Vereinigten Staaten"
+        },
+        "el": {
+          "language": "el",
+          "value": "Ερευνητικό ινστιτούτο των ΗΠΑ, μέρος των Εθνικών Ινστιτούτων Υγείας"
+        },
+        "en": {
+          "language": "en",
+          "value": "US research institute, part of National Institutes of Health"
+        },
+        "eo": {
+          "language": "eo",
+          "value": "organizaĵo en Usono"
+        },
+        "es": {
+          "language": "es",
+          "value": "organismo del Instituto Nacional de la Salud de Estados Unidos"
+        },
+        "fr": {
+          "language": "fr",
+          "value": "organisation américaine"
+        },
+        "id": {
+          "language": "id",
+          "value": "universitas di Amerika Serikat"
+        },
+        "ko": {
+          "language": "ko",
+          "value": "미국 보건복지부의 산하 기관"
+        },
+        "sr": {
+          "language": "sr",
+          "value": "američki istraživački institut, deo Nacionalnih instituta za zdravlje"
+        },
+        "sr-ec": {
+          "language": "sr-ec",
+          "value": "Амерички истраживачки институт, део Националног института за здравље"
+        },
+        "sv": {
+          "language": "sv",
+          "value": "amerikanskt forskningsinstitut"
+        },
+        "zh": {
+          "language": "zh",
+          "value": "美国研究机构"
+        }
+      }
+    }
+  ],
+  "source_provenance": {
+    "capture_manifest_path": "sources/capture-manifest.json",
+    "entity_id": "Q664846",
+    "id": "wikidata-Q664846",
+    "path": "sources/raw/wikidata-Q664846.json",
+    "provider": "wikidata",
+    "request_attempts": 1,
+    "retrieved_at_utc": "2026-10-07T04:14:11Z",
+    "revision": {
+      "lastrevid": 2550610368,
+      "modified": "2026-09-28T20:00:41Z"
+    },
+    "sha256": "cf4e1e4bb29c44ea339df53734f4396ba551b7a7863383ac3f90a324fac53695",
+    "size_bytes": 102418,
+    "url": "https://www.wikidata.org/wiki/Special:EntityData/Q664846.json?revision=2550610368"
+  }
+}

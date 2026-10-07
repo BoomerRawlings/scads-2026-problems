@@ -1,0 +1,9 @@
+.venv/
+*.egg-info/
+__pycache__/
+runs/
+data/
+dist/
+build/
+.env*
+!config/*.example.json

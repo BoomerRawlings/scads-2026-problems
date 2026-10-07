@@ -1,0 +1,62 @@
+{
+  "purpose": "Frozen opt-in catalog and text-context admission implementation before the first public NCI model run. Known source-inspected development case; no public analytic acceptance.",
+  "files": {
+    "local_agent.py": "6898f0b4251ce446fb3a8959cca471688b2fb1aba5ee231f35fa0ef9adaed1b5",
+    "run_agent.py": "af4bcf2254215838243689b385981e4ac7a18263350080bae88338db4de19163",
+    "mcp_server.py": "f75fc46d89891ed9fa8a9cd374f2e67b98110d1bae553727b78bf9b91199d9a6",
+    "media_tools.py": "9a4ef7606e38604c847b7d7ec2e56717226ed329435b7c0692ed08501779d0a5",
+    "sensemaking.py": "7835a62406122792cd2adec53c130ea33b0d24b33bfa7c9bb0fd6e23decd375c",
+    "evidence_catalog.py": "52bb3c6f041ef192a970da135a8ac7e30ae54719635ed054a32962963ca9f3fd",
+    "local_context.py": "3416ca67e969e27363a7473183ae7e5dbf5c25762bbc17f4f58e6b4f8006d50f",
+    "report.schema.json": "77598873abd47b44a29e9a4ad2b82ca5ff22c9b296b7634699bfd07f40770182",
+    "requirements.txt": "8bfb947304e95687c9cedd1cb3520901d7d63e7d60e51ca4633e40cd9481d1d5",
+    "runtime-candidate-qwen35-9b.json": "b355b525da2840eb5c2b72a3ee612277f5554657db34b243fcd506fabdfdc43f",
+    "import_public_statements.py": "26eb018f67c8e0581efb7f3300ca55d2f650683eaf13e7e87c0a20f96f7e1198",
+    "import_public_data.py": "e9510616feb9e7ba35d4208e5a86f2bf82f5fd2c33c1369eed148659fabf7cf3",
+    "capture_public_data.py": "59b6f801cbdf9f6125faabca9617cc2d4d0e2a4db2792998b5aeedf72c74d4c9"
+  },
+  "file_origins": {
+    "local_agent.py": "local_agent.py",
+    "run_agent.py": "run_agent.py",
+    "mcp_server.py": "mcp_server.py",
+    "media_tools.py": "media_tools.py",
+    "sensemaking.py": "sensemaking.py",
+    "evidence_catalog.py": "evidence_catalog.py",
+    "local_context.py": "local_context.py",
+    "report.schema.json": "report.schema.json",
+    "requirements.txt": "requirements.txt",
+    "runtime-candidate-qwen35-9b.json": "docs/runtime-candidate-qwen35-9b.json",
+    "import_public_statements.py": "scripts/import_public_statements.py",
+    "import_public_data.py": "scripts/import_public_data.py",
+    "capture_public_data.py": "scripts/capture_public_data.py"
+  },
+  "dataset": "6f73d422781738700473016818d3e3de011f1082b5ba4b4df1b54481e4f72aa5",
+  "dataset_import_manifest_sha256": "bf051f384b4fba6d944f470464995a437f6c953067fc577529f3f7ec1944a580",
+  "protocol_sha256": "cc7bc6723ed026ad88cb667b07392988d801fab1840a68a252dc6bf14a0f4837",
+  "profile": "../runtime-profile-qwen35-9b-text-01.json",
+  "profile_sha256": "dc25a6cb0b97449b5623124b89adf738d270ce3bd8ade8b357d311b17f641558",
+  "question": "Using only the captured sources, which ROR child relationships are recorded\nfor the National Cancer Institute (ror:040gcmg81), and what do the captured\nWikidata statements and identifier crosswalks support or leave unresolved\nabout its identity and hierarchy? Distinguish source assertions from current\ntruth, preserve qualifications, and explain coverage limits. Cite retrieved\nsource records for claims and links. Use at most six findings, up to two genuine\nconflicts, and 350 words of model-authored analysis.",
+  "target": "ror:040gcmg81",
+  "schema_policy": "catalog-selective-read-v13",
+  "synthesis_guidance_policy": "question-path-and-qualification-v12",
+  "budgets": {
+    "max_steps": 40,
+    "timeout_seconds": 3600,
+    "request_timeout_seconds": 1200,
+    "report_thinking_budget": 1024,
+    "context_token_limit": 16384,
+    "catalog_context_bytes": 131072
+  },
+  "flags": {
+    "retrieval_profile": "catalog",
+    "grounded_media": true,
+    "compact_synthesis": true,
+    "evidence_summary": true
+  },
+  "verification": {
+    "full_suite": 245,
+    "skips": 0,
+    "seconds": 77.415,
+    "note": "Catalog policy metadata descriptions changed afterward; no behavior change. Separate review verified final labels. Legacy trial14 compact messages reconstruct exactly."
+  }
+}

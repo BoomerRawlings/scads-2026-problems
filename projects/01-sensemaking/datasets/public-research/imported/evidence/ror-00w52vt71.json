@@ -1,0 +1,174 @@
+{
+  "caution": "Source assertions, not independently verified facts. Edit/retrieval dates are not relationship validity dates. Projection records a captured assertion, not present-day truth. Crosswalks never merge identities; reciprocity does not establish independent corroboration. Linked media was not imported.",
+  "crosswalk_candidates": [
+    {
+      "claims": [
+        {
+          "evidence_id": "claims-ror-00w52vt71",
+          "exclusion_reasons": [],
+          "ror": "ror:00w52vt71",
+          "source_assertion": {
+            "all": [
+              "Q30264299"
+            ],
+            "preferred": "Q30264299",
+            "type": "wikidata"
+          },
+          "source_entity": "ror:00w52vt71",
+          "source_path": "/external_ids/3",
+          "wikidata": "wikidata:q30264299"
+        }
+      ],
+      "merged": false,
+      "note": "Identifier assertions only; no equivalence edge or independence claim.",
+      "ror": "ror:00w52vt71",
+      "status": "endpoint_not_captured",
+      "wikidata": "wikidata:q30264299"
+    }
+  ],
+  "literal_source_extract": {
+    "admin": {
+      "created": {
+        "date": "2018-11-14",
+        "schema_version": "1.0"
+      },
+      "last_modified": {
+        "date": "2024-12-11",
+        "schema_version": "2.1"
+      }
+    },
+    "established": 1993,
+    "external_ids": [
+      {
+        "all": [
+          "100006806"
+        ],
+        "preferred": null,
+        "type": "fundref"
+      },
+      {
+        "all": [
+          "grid.467988.c"
+        ],
+        "preferred": "grid.467988.c",
+        "type": "grid"
+      },
+      {
+        "all": [
+          "0000 0004 0390 5438"
+        ],
+        "preferred": null,
+        "type": "isni"
+      },
+      {
+        "all": [
+          "Q30264299"
+        ],
+        "preferred": "Q30264299",
+        "type": "wikidata"
+      }
+    ],
+    "id": "https://ror.org/00w52vt71",
+    "names": [
+      {
+        "lang": null,
+        "types": [
+          "acronym"
+        ],
+        "value": "HCC"
+      },
+      {
+        "lang": "en",
+        "types": [
+          "alias"
+        ],
+        "value": "Hollings Cancer Center"
+      },
+      {
+        "lang": "en",
+        "types": [
+          "ror_display",
+          "label"
+        ],
+        "value": "MUSC Hollings Cancer Center"
+      },
+      {
+        "lang": "en",
+        "types": [
+          "alias"
+        ],
+        "value": "Medical University of South Carolina Cancer Center"
+      },
+      {
+        "lang": "en",
+        "types": [
+          "alias"
+        ],
+        "value": "Medical University of South Carolina Hollings Cancer Center"
+      }
+    ],
+    "relationships": [
+      {
+        "id": "https://ror.org/012jban78",
+        "label": "Medical University of South Carolina",
+        "type": "related"
+      },
+      {
+        "id": "https://ror.org/040gcmg81",
+        "label": "National Cancer Institute",
+        "type": "related"
+      }
+    ],
+    "status": "active"
+  },
+  "projection_decisions": [
+    {
+      "evidence_id": "claims-ror-00w52vt71",
+      "exclusion_reasons": [
+        "predicate_not_projected_to_contains",
+        "endpoint_not_captured"
+      ],
+      "predicate": "related",
+      "source_assertion": {
+        "id": "https://ror.org/012jban78",
+        "label": "Medical University of South Carolina",
+        "type": "related"
+      },
+      "source_entity": "ror:00w52vt71",
+      "source_path": "/relationships/0",
+      "target": "ror:012jban78"
+    },
+    {
+      "evidence_id": "claims-ror-00w52vt71",
+      "exclusion_reasons": [
+        "predicate_not_projected_to_contains"
+      ],
+      "predicate": "related",
+      "source_assertion": {
+        "id": "https://ror.org/040gcmg81",
+        "label": "National Cancer Institute",
+        "type": "related"
+      },
+      "source_entity": "ror:00w52vt71",
+      "source_path": "/relationships/1",
+      "target": "ror:040gcmg81"
+    }
+  ],
+  "source_provenance": {
+    "capture_manifest_path": "sources/capture-manifest.json",
+    "entity_id": "00w52vt71",
+    "id": "ror-00w52vt71",
+    "path": "sources/raw/ror-00w52vt71.json",
+    "provider": "ror",
+    "request_attempts": 1,
+    "retrieved_at_utc": "2026-10-07T04:14:09Z",
+    "revision": {
+      "record_modified": "2024-12-11",
+      "schema_version": "2.1"
+    },
+    "sha256": "4f62d30c9110c91a2ecd4089e3c467f4fb10a9e3e1be09c0ad9e1f73d8023e29",
+    "size_bytes": 1486,
+    "url": "https://api.ror.org/v2/organizations/00w52vt71"
+  },
+  "unindexed_statement_count": 0
+}

@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "analytics311"
+version = "0.6.0"
+description = "Local-first, provider-neutral NYC 311 analytical tools"
+requires-python = ">=3.11"
+dependencies = ["tzdata>=2025.2"]
+
+[project.optional-dependencies]
+mcp = ["mcp==1.30.0"]
+geo = ["shapely>=2,<3"]
+
+[project.scripts]
+analytics311 = "analytics311.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["analytics311*"]
+namespaces = false
+
+[tool.setuptools.package-data]
+analytics311 = ["assets/config/*.json", "assets/fixtures/*.json", "assets/fixtures/*.jsonl"]

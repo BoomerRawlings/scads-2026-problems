@@ -1,0 +1,51 @@
+[
+  {
+    "doc_id": "tm9-617-m18-1944",
+    "pages": 158,
+    "pages_with_embedded_images": 158,
+    "pages_with_40_plus_text_characters": 158,
+    "admission_status": "admitted"
+  },
+  {
+    "doc_id": "tm9-618-m7-1943",
+    "pages": 178,
+    "pages_with_embedded_images": 178,
+    "pages_with_40_plus_text_characters": 177,
+    "admission_status": "admitted"
+  },
+  {
+    "doc_id": "tm9-1752-homelite-1942",
+    "pages": 51,
+    "pages_with_embedded_images": 51,
+    "pages_with_40_plus_text_characters": 50,
+    "admission_status": "admitted"
+  },
+  {
+    "doc_id": "tm9-834-workshop-1944",
+    "pages": 110,
+    "pages_with_embedded_images": 110,
+    "pages_with_40_plus_text_characters": 110,
+    "admission_status": "admitted"
+  },
+  {
+    "doc_id": "tm5-2036-economy-1943",
+    "pages": 127,
+    "pages_with_embedded_images": 127,
+    "pages_with_40_plus_text_characters": 119,
+    "admission_status": "candidate"
+  },
+  {
+    "doc_id": "tm5-1154-littleford-1943",
+    "pages": 126,
+    "pages_with_embedded_images": 126,
+    "pages_with_40_plus_text_characters": 114,
+    "admission_status": "candidate"
+  },
+  {
+    "doc_id": "tm9-867-hand-tools-1945",
+    "pages": 119,
+    "pages_with_embedded_images": 119,
+    "pages_with_40_plus_text_characters": 119,
+    "admission_status": "admitted"
+  }
+]

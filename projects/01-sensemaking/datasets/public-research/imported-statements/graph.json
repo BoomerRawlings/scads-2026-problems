@@ -1,0 +1,206 @@
+{
+  "edges": [
+    {
+      "evidence_ids": [
+        "relationship-ror-01cwqze88-1443a9025e0db226b9b1",
+        "relationship-ror-040gcmg81-160dc322686560cceef3"
+      ],
+      "relation": "contains",
+      "semantics": "Conservative projection of source assertions; no validity-date inference.",
+      "source": "ror:01cwqze88",
+      "target": "ror:040gcmg81"
+    },
+    {
+      "evidence_ids": [
+        "relationship-ror-00vkwep27-faa3d6c20428c9c5200b",
+        "relationship-ror-040gcmg81-d7313ad93a187159052d"
+      ],
+      "relation": "contains",
+      "semantics": "Conservative projection of source assertions; no validity-date inference.",
+      "source": "ror:040gcmg81",
+      "target": "ror:00vkwep27"
+    },
+    {
+      "evidence_ids": [
+        "relationship-ror-03v6m3209-6ade712716c7a627e2ee",
+        "relationship-ror-040gcmg81-1432a8d62794148e0f4c"
+      ],
+      "relation": "contains",
+      "semantics": "Conservative projection of source assertions; no validity-date inference.",
+      "source": "ror:040gcmg81",
+      "target": "ror:03v6m3209"
+    },
+    {
+      "evidence_ids": [
+        "relationship-ror-040gcmg81-6f1ec97a766504fc55f2",
+        "relationship-ror-05bjen692-dca7654da50b94c9e61c"
+      ],
+      "relation": "contains",
+      "semantics": "Conservative projection of source assertions; no validity-date inference.",
+      "source": "ror:040gcmg81",
+      "target": "ror:05bjen692"
+    },
+    {
+      "evidence_ids": [
+        "relationship-ror-040gcmg81-573adb44d1c211ec21bb",
+        "relationship-ror-05n6zrm60-02bb9bb1c26a8574e10d"
+      ],
+      "relation": "contains",
+      "semantics": "Conservative projection of source assertions; no validity-date inference.",
+      "source": "ror:040gcmg81",
+      "target": "ror:05n6zrm60"
+    }
+  ],
+  "nodes": [
+    {
+      "aliases": [
+        "00vkwep27",
+        "DCEG",
+        "Division of Cancer Epidemiology & Genetics at the National Cancer Institute",
+        "Division of Cancer Epidemiology and Genetics at the National Cancer Institute",
+        "Division of Cancer Epidemiology and Genetics, National Cancer Institute",
+        "NCI Division of Cancer Epidemiology and Genetics",
+        "National Cancer Institute Division of Cancer Epidemiology and Genetics"
+      ],
+      "id": "ror:00vkwep27",
+      "identity_policy": "Source-specific identity; no cross-database merge.",
+      "name": "Division of Cancer Epidemiology and Genetics",
+      "provider": "ror",
+      "source_entity_id": "00vkwep27"
+    },
+    {
+      "aliases": [
+        "00w52vt71",
+        "HCC",
+        "Hollings Cancer Center",
+        "Medical University of South Carolina Cancer Center",
+        "Medical University of South Carolina Hollings Cancer Center"
+      ],
+      "id": "ror:00w52vt71",
+      "identity_policy": "Source-specific identity; no cross-database merge.",
+      "name": "MUSC Hollings Cancer Center",
+      "provider": "ror",
+      "source_entity_id": "00w52vt71"
+    },
+    {
+      "aliases": [
+        "01cwqze88",
+        "NIH",
+        "US National Institutes of Health",
+        "United States National Institutes of Health"
+      ],
+      "id": "ror:01cwqze88",
+      "identity_policy": "Source-specific identity; no cross-database merge.",
+      "name": "National Institutes of Health",
+      "provider": "ror",
+      "source_entity_id": "01cwqze88"
+    },
+    {
+      "aliases": [
+        "02qyzaf42",
+        "TCIA"
+      ],
+      "id": "ror:02qyzaf42",
+      "identity_policy": "Source-specific identity; no cross-database merge.",
+      "name": "The Cancer Imaging Archive",
+      "provider": "ror",
+      "source_entity_id": "02qyzaf42"
+    },
+    {
+      "aliases": [
+        "03v6m3209"
+      ],
+      "id": "ror:03v6m3209",
+      "identity_policy": "Source-specific identity; no cross-database merge.",
+      "name": "Frederick National Laboratory for Cancer Research",
+      "provider": "ror",
+      "source_entity_id": "03v6m3209"
+    },
+    {
+      "aliases": [
+        "040gcmg81",
+        "Institut National du Cancer",
+        "Instituto Nacional del Cáncer",
+        "NCI"
+      ],
+      "id": "ror:040gcmg81",
+      "identity_policy": "Source-specific identity; no cross-database merge.",
+      "name": "National Cancer Institute",
+      "provider": "ror",
+      "source_entity_id": "040gcmg81"
+    },
+    {
+      "aliases": [
+        "05bjen692",
+        "CCR"
+      ],
+      "id": "ror:05bjen692",
+      "identity_policy": "Source-specific identity; no cross-database merge.",
+      "name": "Center for Cancer Research",
+      "provider": "ror",
+      "source_entity_id": "05bjen692"
+    },
+    {
+      "aliases": [
+        "05n6zrm60",
+        "Southwest Oncology Group"
+      ],
+      "id": "ror:05n6zrm60",
+      "identity_policy": "Source-specific identity; no cross-database merge.",
+      "name": "SWOG Cancer Research Network",
+      "provider": "ror",
+      "source_entity_id": "05n6zrm60"
+    },
+    {
+      "aliases": [
+        "NIH",
+        "NIH US",
+        "National Institutes of Health",
+        "National Institutes of Health (U.S.)",
+        "Q390551",
+        "U.S. National Institutes of Health",
+        "US National Institutes of Health",
+        "USNIH"
+      ],
+      "id": "wikidata:q390551",
+      "identity_policy": "Source-specific identity; no cross-database merge.",
+      "name": "United States National Institutes of Health",
+      "provider": "wikidata",
+      "source_entity_id": "Q390551"
+    },
+    {
+      "aliases": [
+        "European Organization for Nuclear Research",
+        "Q42944",
+        "home.cern"
+      ],
+      "id": "wikidata:q42944",
+      "identity_policy": "Source-specific identity; no cross-database merge.",
+      "name": "CERN",
+      "provider": "wikidata",
+      "source_entity_id": "Q42944"
+    },
+    {
+      "aliases": [
+        "NCI",
+        "National Cancer Institute (U.S.)",
+        "Q664846"
+      ],
+      "id": "wikidata:q664846",
+      "identity_policy": "Source-specific identity; no cross-database merge.",
+      "name": "National Cancer Institute",
+      "provider": "wikidata",
+      "source_entity_id": "Q664846"
+    },
+    {
+      "aliases": [
+        "Q6973636"
+      ],
+      "id": "wikidata:q6973636",
+      "identity_policy": "Source-specific identity; no cross-database merge.",
+      "name": "list of institutes and centers of the National Institutes of Health",
+      "provider": "wikidata",
+      "source_entity_id": "Q6973636"
+    }
+  ]
+}

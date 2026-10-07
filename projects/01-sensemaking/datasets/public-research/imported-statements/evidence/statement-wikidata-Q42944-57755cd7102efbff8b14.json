@@ -1,0 +1,58 @@
+{
+  "caution": "Source assertions, not independently verified facts. Edit/retrieval dates are not relationship validity dates. Projection records a captured assertion, not present-day truth. Crosswalks never merge identities; reciprocity does not establish independent corroboration. Linked media was not imported.",
+  "projection_decision": {
+    "evidence_id": "statement-wikidata-Q42944-57755cd7102efbff8b14",
+    "exclusion_reasons": [
+      "predicate_not_projected_to_contains",
+      "endpoint_not_captured"
+    ],
+    "indexed": true,
+    "predicate": "P527",
+    "raw_source_path": "sources/raw/wikidata-Q42944.json",
+    "source_entity": "wikidata:q42944",
+    "source_path": "/entities/Q42944/claims/P527/0",
+    "statement_guid": "Q42944$79464fa7-4418-6c15-2fde-5c3c817a4b70",
+    "target": "wikidata:q27485150"
+  },
+  "record_type": "statement",
+  "source_fragments": [
+    {
+      "json_pointer": "/entities/Q42944/claims/P527/0",
+      "value": {
+        "id": "Q42944$79464fa7-4418-6c15-2fde-5c3c817a4b70",
+        "mainsnak": {
+          "datatype": "wikibase-item",
+          "datavalue": {
+            "type": "wikibase-entityid",
+            "value": {
+              "entity-type": "item",
+              "id": "Q27485150",
+              "numeric-id": 27485150
+            }
+          },
+          "hash": "783cdd9358bc0843910e9f3c9b9eb1134f53c108",
+          "property": "P527",
+          "snaktype": "value"
+        },
+        "rank": "normal",
+        "type": "statement"
+      }
+    }
+  ],
+  "source_provenance": {
+    "capture_manifest_path": "sources/capture-manifest.json",
+    "entity_id": "Q42944",
+    "id": "wikidata-Q42944",
+    "path": "sources/raw/wikidata-Q42944.json",
+    "provider": "wikidata",
+    "request_attempts": 1,
+    "retrieved_at_utc": "2026-10-07T04:14:13Z",
+    "revision": {
+      "lastrevid": 2541849285,
+      "modified": "2026-09-07T19:19:58Z"
+    },
+    "sha256": "54cf521d65388a2d127a3410217886a4aded68bffa2b29a6c25f9e1a743f4e96",
+    "size_bytes": 205654,
+    "url": "https://www.wikidata.org/wiki/Special:EntityData/Q42944.json?revision=2541849285"
+  }
+}

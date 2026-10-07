@@ -1,0 +1,17 @@
+{
+  "dataset_version": "fixture-v1",
+  "kind": "synthetic_fixture",
+  "source": "authored fixture; not real NYC service requests",
+  "row_count": 32,
+  "coverage": {
+    "gte": "2025-11-01T00:00:00-04:00",
+    "lt": "2026-01-01T00:00:00-05:00",
+    "complete": true
+  },
+  "notes": [
+    "Complete coverage means the full authored fixture, not source coverage of NYC.",
+    "Neighborhood identifiers and locations are synthetic labels, not official NTA assignments.",
+    "Closed FIX-013 deliberately lacks closed_date and closure_hours.",
+    "Two November records exercise repeated local DST time with distinct offsets."
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "status": "complete",
+  "title": "Riverwatch Readiness and Dependencies Analysis",
+  "target": "riverwatch",
+  "summary": "Host-constructed evidence overview: 9 scope-eligible retrieved source IDs. Returned target-rooted graph scope: [\"northline\", \"riverwatch\", \"silt_sensors\"]; inventoried scope: [\"northline\", \"riverwatch\", \"silt_sensors\"]. The dataset declares synthetic content; this is not independent real-world verification. 2 groups contain different supplied assertion values; these remain unresolved candidates, not adjudicated contradictions. Quoted strings below are source data; dates are record/source dates, not inferred event times. Subject \"riverwatch\", predicate \"readiness\": value \"delayed\" (source \"img-note-001\", record date \"2026-09-05\"; source \"memo-001\", record date \"2026-09-05\"; source \"video-tx-001\", record date \"2026-09-05\"); value \"ready\" (source \"tbl-003\", record date \"2026-09-03\"). Subject \"northline\", predicate \"expected_arrival\": value \"2026-09-19\" (source \"memo-004\", record date \"2026-09-05\"); value \"2026-09-14\" (source \"tbl-006\", record date \"2026-09-02\"). Compared 9 complete string-valued assertions; 0 malformed or incomplete entries were not comparable; 0 record variants supplied no nonempty assertion list. This overview covers supplied scope-eligible structured assertions only; it neither interprets all source text nor resolves truth by recency. Model-authored findings still require separate source review.",
+  "findings": [
+    {
+      "claim": "Riverwatch Pilot readiness is recorded as delayed due to pending sensor acceptance.",
+      "evidence_ids": [
+        "img-note-001",
+        "memo-001",
+        "video-tx-001"
+      ],
+      "qualification": "Readiness status varies by date; the 2026-09-03 register states 'ready', while 2026-09-05 sources state 'delayed'."
+    },
+    {
+      "claim": "Riverwatch deployment depends on the Silt Sensor Batch supplied by Northline Instruments.",
+      "evidence_ids": [
+        "memo-001",
+        "memo-003"
+      ],
+      "qualification": "Dependency is explicit in memos; sensor acceptance is pending."
+    },
+    {
+      "claim": "Northline Instruments revised shipping date for Silt Sensor Batch is reported as 2026-09-19.",
+      "evidence_ids": [
+        "memo-004",
+        "tbl-006"
+      ],
+      "qualification": "Earlier register reported 2026-09-14; both represent plans, not confirmed delivery."
+    },
+    {
+      "claim": "Pending acceptance does not establish defective components.",
+      "evidence_ids": [
+        "memo-003",
+        "tbl-005"
+      ],
+      "qualification": "Calibration check is required; no defect rate or count is implied."
+    }
+  ],
+  "conflicts": [
+    {
+      "subject": "riverwatch",
+      "predicate": "readiness",
+      "description": "Readiness status differs between dated records.",
+      "evidence_ids": [
+        "tbl-003",
+        "img-note-001",
+        "video-tx-001",
+        "memo-001"
+      ]
+    },
+    {
+      "subject": "northline",
+      "predicate": "expected_arrival",
+      "description": "Shipping dates differ between planning registers and revised notices.",
+      "evidence_ids": [
+        "tbl-006",
+        "memo-004"
+      ]
+    }
+  ],
+  "media_observations": [
+    {
+      "evidence_id": "img-note-001",
+      "locator": "image",
+      "observation": "A presentation slide with a dark green header reading 'CBRI / RIVERWATCH'. The main body text states 'Planning board: DELAYED' and 'Riverwatch - delayed. Field release blocked pending sensor acceptance.' A footer indicates '2026-09-05 / Authored board fixture' and 'SYNTHETIC FIXTURE / Caption board / No real event'. The text is black on a light background."
+    },
+    {
+      "evidence_id": "video-tx-001",
+      "locator": "00:00",
+      "observation": "A caption board displays text under the header 'CBRI / RIVERWATCH'. The text reads: 'Coordination review / caption-only video' and 'Riverwatch readiness is delayed. Keep field release on hold until the Silt Sensor Batch passes acceptance.' The footer indicates '2026-09-05 / Video frame 00:00 / No audio' and 'SYNTHETIC FIXTURE / Caption board / No real event'."
+    },
+    {
+      "evidence_id": "video-tx-001",
+      "locator": "00:15",
+      "observation": "A caption board displays text under the header 'CBRI / RIVERWATCH'. The text reads: 'Coordination review / caption-only video' and 'The register still says ready. Show that dated entry next to the dependency review when preparing the status report.' The footer indicates '2026-09-05 / Video frame 00:15 / No audio' and 'SYNTHETIC FIXTURE / Caption board / No real event'."
+    },
+    {
+      "evidence_id": "video-tx-001",
+      "locator": "00:29",
+      "observation": "A caption board displays text under the header 'CBRI / RIVERWATCH'. The text reads: 'Coordination review / caption-only video' and 'Scope the concern to Riverwatch deployment. We have not established that other institute activities are delayed.' The footer indicates '2026-09-05 / Video frame 00:29 / No audio' and 'SYNTHETIC FIXTURE / Caption board / No real event'."
+    }
+  ],
+  "limitations": [
+    "Pixels returned in this run: \"img-note-001\": image; \"video-tx-001\": 00:00, 00:15, 00:29.",
+    "No audio was processed. Video coverage is sampled frames only, not a full viewing.",
+    "Observed media gaps: \"img-note-002\": no attachment declared; inspection reported unavailable; no pixels returned. These are record/inspection facts, not claims about media elsewhere.",
+    "Exploration is bounded to returned graph scope [\"northline\", \"riverwatch\", \"silt_sensors\"]; unfiltered inventories covered [\"northline\", \"riverwatch\", \"silt_sensors\"]. This does not establish full organizational coverage.",
+    "Dataset declares synthetic content. Shared-origin materials are not independent corroboration; this run provides no independent real-world verification."
+  ],
+  "follow_up": []
+}

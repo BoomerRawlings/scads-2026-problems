@@ -1,0 +1,30 @@
+[
+  {
+    "id": "img-note-001",
+    "source": "annotations/riverwatch_planning_board.txt",
+    "date": "2026-09-05",
+    "sha256": "66d670d0bf5794e6b5c5285588ee100d0ebcf5833f412c08ed83cdb92326261c",
+    "media_path": "media/riverwatch-board.png",
+    "media_sha256": "48c53e82faa004de5e1f1784913208b78f335980d8e75fe8af05a570f9376678"
+  },
+  {
+    "id": "memo-001",
+    "source": "documents/riverwatch_dependency_review.txt",
+    "date": "2026-09-05",
+    "sha256": "b9ad6f2af741870c74ccaa91ccf6f5b564d329c1f6bed6b7c1dc4a007a84697a"
+  },
+  {
+    "id": "tbl-003",
+    "source": "records.csv#row=4",
+    "date": "2026-09-03",
+    "sha256": "6c73d8e86ed799ca56e3a1610bc86380608dc858a30e58efa646776591c61c5f"
+  },
+  {
+    "id": "video-tx-001",
+    "source": "transcripts/riverwatch_coordination.txt",
+    "date": "2026-09-05",
+    "sha256": "415a3aace94a7d376311152c2b0f2c236dd849bb187737d818e8fd8ce7ab886f",
+    "media_path": "media/riverwatch-review.mp4",
+    "media_sha256": "12570bc12c69eb2ef39e1097aeacbcac95b708b7bcba9c949f25f256239086d9"
+  }
+]

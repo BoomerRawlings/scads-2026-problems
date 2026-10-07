@@ -1,0 +1,4 @@
+{
+  "code": "model_http_error",
+  "message": "Local model returned HTTP 503; check its context and runtime settings."
+}

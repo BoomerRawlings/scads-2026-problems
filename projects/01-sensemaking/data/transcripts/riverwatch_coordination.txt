@@ -1,0 +1,15 @@
+AGENT-AUTHORED SYNTHETIC VIDEO TRANSCRIPT — NO VIDEO OR AUDIO WAS PROCESSED.
+Source ID: video-tx-001
+Date: 2026-09-05
+Fictional subject: Riverwatch coordination meeting
+
+These invented role labels and timestamps exercise transcript handling. They
+do not represent actual people, a recording, speech recognition, or independent
+corroboration of other fixture sources.
+
+[00:00] Project coordinator: Riverwatch readiness is delayed. Keep field release
+on hold until the Silt Sensor Batch passes acceptance.
+[00:14] Logistics coordinator: The register still says ready. Show that dated
+entry next to the dependency review when preparing the status report.
+[00:27] Project coordinator: Scope the concern to Riverwatch deployment. We have
+not established that other institute activities are delayed.

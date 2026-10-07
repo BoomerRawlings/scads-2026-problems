@@ -1,0 +1,155 @@
+{
+  "caution": "Source assertions, not independently verified facts. Edit/retrieval dates are not relationship validity dates. Projection records a captured assertion, not present-day truth. Crosswalks never merge identities; reciprocity does not establish independent corroboration. Linked media was not imported.",
+  "crosswalk_candidates": [
+    {
+      "claims": [
+        {
+          "evidence_id": "claims-ror-00vkwep27",
+          "exclusion_reasons": [],
+          "ror": "ror:00vkwep27",
+          "source_assertion": {
+            "all": [
+              "Q45134916"
+            ],
+            "preferred": "Q45134916",
+            "type": "wikidata"
+          },
+          "source_entity": "ror:00vkwep27",
+          "source_path": "/external_ids/1",
+          "wikidata": "wikidata:q45134916"
+        }
+      ],
+      "merged": false,
+      "note": "Identifier assertions only; no equivalence edge or independence claim.",
+      "ror": "ror:00vkwep27",
+      "status": "endpoint_not_captured",
+      "wikidata": "wikidata:q45134916"
+    }
+  ],
+  "literal_source_extract": {
+    "admin": {
+      "created": {
+        "date": "2024-01-10",
+        "schema_version": "1.0"
+      },
+      "last_modified": {
+        "date": "2024-12-11",
+        "schema_version": "2.1"
+      }
+    },
+    "established": null,
+    "external_ids": [
+      {
+        "all": [
+          "100011541"
+        ],
+        "preferred": "100011541",
+        "type": "fundref"
+      },
+      {
+        "all": [
+          "Q45134916"
+        ],
+        "preferred": "Q45134916",
+        "type": "wikidata"
+      }
+    ],
+    "id": "https://ror.org/00vkwep27",
+    "names": [
+      {
+        "lang": null,
+        "types": [
+          "acronym"
+        ],
+        "value": "DCEG"
+      },
+      {
+        "lang": "en",
+        "types": [
+          "alias"
+        ],
+        "value": "Division of Cancer Epidemiology & Genetics at the National Cancer Institute"
+      },
+      {
+        "lang": "en",
+        "types": [
+          "ror_display",
+          "label"
+        ],
+        "value": "Division of Cancer Epidemiology and Genetics"
+      },
+      {
+        "lang": "en",
+        "types": [
+          "alias"
+        ],
+        "value": "Division of Cancer Epidemiology and Genetics at the National Cancer Institute"
+      },
+      {
+        "lang": "en",
+        "types": [
+          "alias"
+        ],
+        "value": "Division of Cancer Epidemiology and Genetics, National Cancer Institute"
+      },
+      {
+        "lang": "en",
+        "types": [
+          "alias"
+        ],
+        "value": "NCI Division of Cancer Epidemiology and Genetics"
+      },
+      {
+        "lang": "en",
+        "types": [
+          "alias"
+        ],
+        "value": "National Cancer Institute Division of Cancer Epidemiology and Genetics"
+      }
+    ],
+    "relationships": [
+      {
+        "id": "https://ror.org/040gcmg81",
+        "label": "National Cancer Institute",
+        "type": "parent"
+      }
+    ],
+    "status": "active"
+  },
+  "projection_decisions": [
+    {
+      "evidence_id": "claims-ror-00vkwep27",
+      "exclusion_reasons": [],
+      "predicate": "parent",
+      "projected_edge": [
+        "ror:040gcmg81",
+        "ror:00vkwep27"
+      ],
+      "source_assertion": {
+        "id": "https://ror.org/040gcmg81",
+        "label": "National Cancer Institute",
+        "type": "parent"
+      },
+      "source_entity": "ror:00vkwep27",
+      "source_path": "/relationships/0",
+      "target": "ror:040gcmg81"
+    }
+  ],
+  "source_provenance": {
+    "capture_manifest_path": "sources/capture-manifest.json",
+    "entity_id": "00vkwep27",
+    "id": "ror-00vkwep27",
+    "path": "sources/raw/ror-00vkwep27.json",
+    "provider": "ror",
+    "request_attempts": 1,
+    "retrieved_at_utc": "2026-10-07T04:14:07Z",
+    "revision": {
+      "record_modified": "2024-12-11",
+      "schema_version": "2.1"
+    },
+    "sha256": "83d0cd788a65e22c22719fdc23e37894b3e94aaca0a41ea61351109365a8798d",
+    "size_bytes": 1565,
+    "url": "https://api.ror.org/v2/organizations/00vkwep27"
+  },
+  "unindexed_statement_count": 0
+}

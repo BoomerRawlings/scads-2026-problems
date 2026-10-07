@@ -1,0 +1,281 @@
+{
+  "schema_version": 1,
+  "scope": "bounded public source acquisition; not an imported analysis corpus",
+  "plan": [
+    {
+      "id": "ror-040gcmg81",
+      "provider": "ror",
+      "entity_id": "040gcmg81",
+      "url": "https://api.ror.org/v2/organizations/040gcmg81"
+    },
+    {
+      "id": "ror-05bjen692",
+      "provider": "ror",
+      "entity_id": "05bjen692",
+      "url": "https://api.ror.org/v2/organizations/05bjen692"
+    },
+    {
+      "id": "ror-03v6m3209",
+      "provider": "ror",
+      "entity_id": "03v6m3209",
+      "url": "https://api.ror.org/v2/organizations/03v6m3209"
+    },
+    {
+      "id": "ror-05n6zrm60",
+      "provider": "ror",
+      "entity_id": "05n6zrm60",
+      "url": "https://api.ror.org/v2/organizations/05n6zrm60"
+    },
+    {
+      "id": "ror-00vkwep27",
+      "provider": "ror",
+      "entity_id": "00vkwep27",
+      "url": "https://api.ror.org/v2/organizations/00vkwep27"
+    },
+    {
+      "id": "ror-01cwqze88",
+      "provider": "ror",
+      "entity_id": "01cwqze88",
+      "url": "https://api.ror.org/v2/organizations/01cwqze88"
+    },
+    {
+      "id": "ror-00w52vt71",
+      "provider": "ror",
+      "entity_id": "00w52vt71",
+      "url": "https://api.ror.org/v2/organizations/00w52vt71"
+    },
+    {
+      "id": "ror-02qyzaf42",
+      "provider": "ror",
+      "entity_id": "02qyzaf42",
+      "url": "https://api.ror.org/v2/organizations/02qyzaf42"
+    },
+    {
+      "id": "wikidata-Q664846",
+      "provider": "wikidata",
+      "entity_id": "Q664846",
+      "revision": 2550610368,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q664846.json?revision=2550610368"
+    },
+    {
+      "id": "wikidata-Q390551",
+      "provider": "wikidata",
+      "entity_id": "Q390551",
+      "revision": 2543960225,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    {
+      "id": "wikidata-Q42944",
+      "provider": "wikidata",
+      "entity_id": "Q42944",
+      "revision": 2541849285,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q42944.json?revision=2541849285"
+    },
+    {
+      "id": "wikidata-Q6973636",
+      "provider": "wikidata",
+      "entity_id": "Q6973636",
+      "revision": 2216204992,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q6973636.json?revision=2216204992"
+    }
+  ],
+  "policy": {
+    "minimum_request_interval_seconds": 1,
+    "maximum_attempts_per_source": 3,
+    "socket_timeout_seconds": 20,
+    "run_budget_seconds": 180,
+    "maximum_retry_wait_seconds": 30,
+    "maximum_source_bytes": 2097152,
+    "maximum_received_bytes_per_run": 8388608,
+    "redirects": "rejected"
+  },
+  "user_agent": "SCADS-Sensemaking-PublicCapture/0.1 (https://boomerrawlings.com)",
+  "license": "CC0 structured data; linked media excluded",
+  "status": "complete",
+  "sources": [
+    {
+      "id": "ror-040gcmg81",
+      "provider": "ror",
+      "entity_id": "040gcmg81",
+      "url": "https://api.ror.org/v2/organizations/040gcmg81",
+      "path": "raw/ror-040gcmg81.json",
+      "retrieved_at_utc": "2026-10-07T04:14:03Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "8073d4137c55295dc2a11bfb71fbac38783534754709e472735a206ea95fdf9d",
+      "size_bytes": 1927,
+      "request_attempts": 1
+    },
+    {
+      "id": "ror-05bjen692",
+      "provider": "ror",
+      "entity_id": "05bjen692",
+      "url": "https://api.ror.org/v2/organizations/05bjen692",
+      "path": "raw/ror-05bjen692.json",
+      "retrieved_at_utc": "2026-10-07T04:14:04Z",
+      "revision": {
+        "record_modified": "2026-07-20",
+        "schema_version": "2.1"
+      },
+      "sha256": "8e35b4d38a56b234db715a03ae9a8cc41f6676afd44d971251ec17cb5ef121f8",
+      "size_bytes": 1044,
+      "request_attempts": 1
+    },
+    {
+      "id": "ror-03v6m3209",
+      "provider": "ror",
+      "entity_id": "03v6m3209",
+      "url": "https://api.ror.org/v2/organizations/03v6m3209",
+      "path": "raw/ror-03v6m3209.json",
+      "retrieved_at_utc": "2026-10-07T04:14:05Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "9a9209e0ed894ce81439c17d9b9c071c8dab8db4f57cbb8838e77da858a7b591",
+      "size_bytes": 1392,
+      "request_attempts": 1
+    },
+    {
+      "id": "ror-05n6zrm60",
+      "provider": "ror",
+      "entity_id": "05n6zrm60",
+      "url": "https://api.ror.org/v2/organizations/05n6zrm60",
+      "path": "raw/ror-05n6zrm60.json",
+      "retrieved_at_utc": "2026-10-07T04:14:06Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "adef7a62ab6c618b7db53701d4604029297bfd72236fab641fe6a26fbb329e06",
+      "size_bytes": 1047,
+      "request_attempts": 1
+    },
+    {
+      "id": "ror-00vkwep27",
+      "provider": "ror",
+      "entity_id": "00vkwep27",
+      "url": "https://api.ror.org/v2/organizations/00vkwep27",
+      "path": "raw/ror-00vkwep27.json",
+      "retrieved_at_utc": "2026-10-07T04:14:07Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "83d0cd788a65e22c22719fdc23e37894b3e94aaca0a41ea61351109365a8798d",
+      "size_bytes": 1565,
+      "request_attempts": 1
+    },
+    {
+      "id": "ror-01cwqze88",
+      "provider": "ror",
+      "entity_id": "01cwqze88",
+      "url": "https://api.ror.org/v2/organizations/01cwqze88",
+      "path": "raw/ror-01cwqze88.json",
+      "retrieved_at_utc": "2026-10-07T04:14:08Z",
+      "revision": {
+        "record_modified": "2026-08-25",
+        "schema_version": "2.1"
+      },
+      "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+      "size_bytes": 4516,
+      "request_attempts": 1
+    },
+    {
+      "id": "ror-00w52vt71",
+      "provider": "ror",
+      "entity_id": "00w52vt71",
+      "url": "https://api.ror.org/v2/organizations/00w52vt71",
+      "path": "raw/ror-00w52vt71.json",
+      "retrieved_at_utc": "2026-10-07T04:14:09Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "4f62d30c9110c91a2ecd4089e3c467f4fb10a9e3e1be09c0ad9e1f73d8023e29",
+      "size_bytes": 1486,
+      "request_attempts": 1
+    },
+    {
+      "id": "ror-02qyzaf42",
+      "provider": "ror",
+      "entity_id": "02qyzaf42",
+      "url": "https://api.ror.org/v2/organizations/02qyzaf42",
+      "path": "raw/ror-02qyzaf42.json",
+      "retrieved_at_utc": "2026-10-07T04:14:10Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "17f1e24342747e318eef90f3083ff02d73bd5c88d8102378b9d2e19b815a8cf7",
+      "size_bytes": 1239,
+      "request_attempts": 1
+    },
+    {
+      "id": "wikidata-Q664846",
+      "provider": "wikidata",
+      "entity_id": "Q664846",
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q664846.json?revision=2550610368",
+      "path": "raw/wikidata-Q664846.json",
+      "retrieved_at_utc": "2026-10-07T04:14:11Z",
+      "revision": {
+        "lastrevid": 2550610368,
+        "modified": "2026-09-28T20:00:41Z"
+      },
+      "sha256": "cf4e1e4bb29c44ea339df53734f4396ba551b7a7863383ac3f90a324fac53695",
+      "size_bytes": 102418,
+      "request_attempts": 1
+    },
+    {
+      "id": "wikidata-Q390551",
+      "provider": "wikidata",
+      "entity_id": "Q390551",
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225",
+      "path": "raw/wikidata-Q390551.json",
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "request_attempts": 1
+    },
+    {
+      "id": "wikidata-Q42944",
+      "provider": "wikidata",
+      "entity_id": "Q42944",
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q42944.json?revision=2541849285",
+      "path": "raw/wikidata-Q42944.json",
+      "retrieved_at_utc": "2026-10-07T04:14:13Z",
+      "revision": {
+        "lastrevid": 2541849285,
+        "modified": "2026-09-07T19:19:58Z"
+      },
+      "sha256": "54cf521d65388a2d127a3410217886a4aded68bffa2b29a6c25f9e1a743f4e96",
+      "size_bytes": 205654,
+      "request_attempts": 1
+    },
+    {
+      "id": "wikidata-Q6973636",
+      "provider": "wikidata",
+      "entity_id": "Q6973636",
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q6973636.json?revision=2216204992",
+      "path": "raw/wikidata-Q6973636.json",
+      "retrieved_at_utc": "2026-10-07T04:14:14Z",
+      "revision": {
+        "lastrevid": 2216204992,
+        "modified": "2024-07-30T09:50:14Z"
+      },
+      "sha256": "d24bc337fd25e3b27ddc51603453a582b155f17ba2faee28509989bb59e08473",
+      "size_bytes": 11672,
+      "request_attempts": 1
+    }
+  ],
+  "totals": {
+    "source_count": 12,
+    "raw_bytes": 595488
+  }
+}

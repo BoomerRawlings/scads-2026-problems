@@ -1,0 +1,53 @@
+{
+  "caution": "Source assertions, not independently verified facts. Edit/retrieval dates are not relationship validity dates. Projection records a captured assertion, not present-day truth. Crosswalks never merge identities; reciprocity does not establish independent corroboration. Linked media was not imported.",
+  "projection_decision": {
+    "evidence_id": "statement-wikidata-Q390551-ef140d2c3b8b8285b760",
+    "exclusion_reasons": [
+      "predicate_not_projected_to_contains"
+    ],
+    "indexed": true,
+    "predicate": "P6782",
+    "raw_source_path": "sources/raw/wikidata-Q390551.json",
+    "source_entity": "wikidata:q390551",
+    "source_path": "/entities/Q390551/claims/P6782/0",
+    "statement_guid": "Q390551$459DC88E-0B6B-487F-BEB5-EE24AA6D1548",
+    "target": null
+  },
+  "record_type": "statement",
+  "source_fragments": [
+    {
+      "json_pointer": "/entities/Q390551/claims/P6782/0",
+      "value": {
+        "id": "Q390551$459DC88E-0B6B-487F-BEB5-EE24AA6D1548",
+        "mainsnak": {
+          "datatype": "external-id",
+          "datavalue": {
+            "type": "string",
+            "value": "01cwqze88"
+          },
+          "hash": "b22a9c7942f9c3c58fa9a715a354472c9cb54307",
+          "property": "P6782",
+          "snaktype": "value"
+        },
+        "rank": "normal",
+        "type": "statement"
+      }
+    }
+  ],
+  "source_provenance": {
+    "capture_manifest_path": "sources/capture-manifest.json",
+    "entity_id": "Q390551",
+    "id": "wikidata-Q390551",
+    "path": "sources/raw/wikidata-Q390551.json",
+    "provider": "wikidata",
+    "request_attempts": 1,
+    "retrieved_at_utc": "2026-10-07T04:14:12Z",
+    "revision": {
+      "lastrevid": 2543960225,
+      "modified": "2026-09-11T12:24:24Z"
+    },
+    "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+    "size_bytes": 261528,
+    "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+  }
+}

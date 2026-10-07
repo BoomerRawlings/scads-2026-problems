@@ -1,0 +1,15 @@
+{
+  "purpose": "Exact implementation used by Riverwatch07; source code for inspection and reproduction, not an accepted analytic result.",
+  "files": {
+    "local_agent.py": "b01b953baf576142726537ef94d33ca633de8a5c2e94ecc95ce828be77129d92",
+    "run_agent.py": "d68057a1dfd8dbd74d6cac4e31b24f5722d4e913ac62eae1bb760432cb3d6f36",
+    "mcp_server.py": "71ea9cb39041122ccdefff89d8f8de88cde58f71ed8fb36f1ce1c2a4ec0dafd1",
+    "media_tools.py": "9a4ef7606e38604c847b7d7ec2e56717226ed329435b7c0692ed08501779d0a5",
+    "sensemaking.py": "7835a62406122792cd2adec53c130ea33b0d24b33bfa7c9bb0fd6e23decd375c",
+    "report.schema.json": "77598873abd47b44a29e9a4ad2b82ca5ff22c9b296b7634699bfd07f40770182",
+    "requirements.txt": "8bfb947304e95687c9cedd1cb3520901d7d63e7d60e51ca4633e40cd9481d1d5",
+    "runtime-manifest.json": "568d9c413ddb15d5caf7212d24292e36c19fe3111e446ea2055af6fd81e7d7c0"
+  },
+  "dataset": "7328e186691e7956ac440b1acd28391b6a2e022292b2c28c0104af6d0139cd67",
+  "profile": "../runtime-profile-06.json"
+}

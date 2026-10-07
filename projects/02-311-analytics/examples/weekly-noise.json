@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "dataset_version": "fixture-v1",
+  "as_of": "2026-01-02T12:00:00-05:00",
+  "timezone": "America/New_York",
+  "operation": "aggregate",
+  "time": {
+    "field": "created_date",
+    "gte": "2025-12-01T00:00:00-05:00",
+    "lt": "2026-01-01T00:00:00-05:00"
+  },
+  "filters": {
+    "category_family": "noise"
+  },
+  "group_by": [
+    {
+      "field": "created_date",
+      "interval": "week"
+    },
+    {
+      "field": "borough"
+    }
+  ],
+  "metrics": [
+    "count",
+    "closed_count"
+  ]
+}

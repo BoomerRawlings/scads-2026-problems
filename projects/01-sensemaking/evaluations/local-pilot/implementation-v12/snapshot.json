@@ -1,0 +1,17 @@
+{
+  "purpose": "Exact v12 report-synthesis guidance snapshot for a subsequent 9B development trial. Same question/model/profile as Riverwatch13; schemas, guards, planner and constrained fields unchanged. No analytic acceptance claim.",
+  "files": {
+    "local_agent.py": "ac422d30296a19f4496e296141a5390850e6b7aeff7e0af7e5e617d5ba4f6af4",
+    "run_agent.py": "aed2aad867c33bb95b3c25859ab57787aeadc482779c64902ee225b20cf6792b",
+    "mcp_server.py": "20c60a089fc9f0296d9badffd98a3afaabfc6431fc54cd1e148ab683ff135fd1",
+    "media_tools.py": "9a4ef7606e38604c847b7d7ec2e56717226ed329435b7c0692ed08501779d0a5",
+    "sensemaking.py": "7835a62406122792cd2adec53c130ea33b0d24b33bfa7c9bb0fd6e23decd375c",
+    "report.schema.json": "77598873abd47b44a29e9a4ad2b82ca5ff22c9b296b7634699bfd07f40770182",
+    "requirements.txt": "8bfb947304e95687c9cedd1cb3520901d7d63e7d60e51ca4633e40cd9481d1d5",
+    "runtime-candidate-qwen35-9b.json": "b355b525da2840eb5c2b72a3ee612277f5554657db34b243fcd506fabdfdc43f"
+  },
+  "dataset": "7328e186691e7956ac440b1acd28391b6a2e022292b2c28c0104af6d0139cd67",
+  "profile": "../runtime-profile-qwen35-9b-01.json",
+  "schema_policy": "evidence-overview-opt-in-v11",
+  "synthesis_guidance_policy": "question-path-and-qualification-v12"
+}

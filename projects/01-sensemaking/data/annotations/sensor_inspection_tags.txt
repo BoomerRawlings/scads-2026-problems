@@ -1,0 +1,13 @@
+AGENT-AUTHORED SYNTHETIC IMAGE ANNOTATION — NO IMAGE WAS PROCESSED.
+Source ID: img-note-002
+Date: 2026-09-04
+Fictional subject: Silt Sensor Batch inspection tags
+
+This text describes invented tags. It is a test fixture, not OCR, image-model
+output, or an annotation of an actual photograph.
+
+Annotated fictional tag text: "Silt Sensor Batch. Acceptance: pending.
+Calibration check required before field release."
+
+Normalized fixture claim: Silt Sensor Batch acceptance is pending. No count,
+confidence percentage, defect rate, or completed inspection is implied.

@@ -1,0 +1,127 @@
+{
+  "caution": "Source assertions, not independently verified facts. Edit/retrieval dates are not relationship validity dates. Projection records a captured assertion, not present-day truth. Crosswalks never merge identities; reciprocity does not establish independent corroboration. Linked media was not imported.",
+  "record_type": "identity",
+  "source_fragments": [
+    {
+      "json_pointer": "/admin",
+      "value": {
+        "created": {
+          "date": "2018-11-14",
+          "schema_version": "1.0"
+        },
+        "last_modified": {
+          "date": "2024-12-11",
+          "schema_version": "2.1"
+        }
+      }
+    },
+    {
+      "json_pointer": "/domains",
+      "value": []
+    },
+    {
+      "json_pointer": "/established",
+      "value": 1993
+    },
+    {
+      "json_pointer": "/id",
+      "value": "https://ror.org/00w52vt71"
+    },
+    {
+      "json_pointer": "/links",
+      "value": [
+        {
+          "type": "website",
+          "value": "https://hollingscancercenter.musc.edu"
+        }
+      ]
+    },
+    {
+      "json_pointer": "/locations",
+      "value": [
+        {
+          "geonames_details": {
+            "continent_code": "NA",
+            "continent_name": "North America",
+            "country_code": "US",
+            "country_name": "United States",
+            "country_subdivision_code": "SC",
+            "country_subdivision_name": "South Carolina",
+            "lat": 32.77657,
+            "lng": -79.93092,
+            "name": "Charleston"
+          },
+          "geonames_id": 4574324
+        }
+      ]
+    },
+    {
+      "json_pointer": "/names",
+      "value": [
+        {
+          "lang": null,
+          "types": [
+            "acronym"
+          ],
+          "value": "HCC"
+        },
+        {
+          "lang": "en",
+          "types": [
+            "alias"
+          ],
+          "value": "Hollings Cancer Center"
+        },
+        {
+          "lang": "en",
+          "types": [
+            "ror_display",
+            "label"
+          ],
+          "value": "MUSC Hollings Cancer Center"
+        },
+        {
+          "lang": "en",
+          "types": [
+            "alias"
+          ],
+          "value": "Medical University of South Carolina Cancer Center"
+        },
+        {
+          "lang": "en",
+          "types": [
+            "alias"
+          ],
+          "value": "Medical University of South Carolina Hollings Cancer Center"
+        }
+      ]
+    },
+    {
+      "json_pointer": "/status",
+      "value": "active"
+    },
+    {
+      "json_pointer": "/types",
+      "value": [
+        "funder",
+        "healthcare"
+      ]
+    }
+  ],
+  "source_provenance": {
+    "capture_manifest_path": "sources/capture-manifest.json",
+    "entity_id": "00w52vt71",
+    "id": "ror-00w52vt71",
+    "path": "sources/raw/ror-00w52vt71.json",
+    "provider": "ror",
+    "request_attempts": 1,
+    "retrieved_at_utc": "2026-10-07T04:14:09Z",
+    "revision": {
+      "record_modified": "2024-12-11",
+      "schema_version": "2.1"
+    },
+    "sha256": "4f62d30c9110c91a2ecd4089e3c467f4fb10a9e3e1be09c0ad9e1f73d8023e29",
+    "size_bytes": 1486,
+    "url": "https://api.ror.org/v2/organizations/00w52vt71"
+  }
+}

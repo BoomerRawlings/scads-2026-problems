@@ -1,0 +1,14 @@
+[
+  {
+    "id": "tbl-004",
+    "source": "records.csv#row=5",
+    "date": "2026-09-05",
+    "sha256": "fc532b9d9d274bf5abe2afa5b6600b9ecc7e675473f0c4bff4960c27f28f9088"
+  },
+  {
+    "id": "video-tx-002",
+    "source": "transcripts/clearair_coordination.txt",
+    "date": "2026-09-05",
+    "sha256": "77051117b6c42f39788bd01853b2952dcb2b6cd57ace702b5d50db1057f2e843"
+  }
+]

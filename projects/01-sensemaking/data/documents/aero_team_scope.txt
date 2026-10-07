@@ -1,0 +1,13 @@
+SYNTHETIC FIXTURE — fictional organization, event, and claims.
+Source ID: memo-005
+Date: 2026-09-05
+Subject: Aero Monitoring Team ownership and instruments
+
+The Air Quality Division contains the Aero Monitoring Team. The Aero Monitoring
+Team contains and operates ClearAir Survey. ClearAir uses a separate accepted
+instrument batch. This corpus records no ClearAir dependency on the Silt Sensor
+Batch or Northline Instruments.
+
+The Riverwatch deployment issue provides no evidence that ClearAir is delayed.
+Absence of a dependency in this small fixture is not a general proof that no
+other dependencies exist.

@@ -1,0 +1,16 @@
+{
+  "backend": "fixture",
+  "fixture_path": "../fixtures/requests.jsonl",
+  "manifest_path": "../fixtures/manifest.json",
+  "catalog_path": "catalog.json",
+  "runs_dir": "../runs",
+  "budgets": {
+    "max_fixture_rows": 100000,
+    "max_groups": 50000,
+    "page_size": 500,
+    "deadline_seconds": 30,
+    "max_export_rows": 1000000,
+    "max_export_bytes": 268435456,
+    "export_deadline_seconds": 300
+  }
+}

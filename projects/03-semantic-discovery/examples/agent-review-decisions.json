@@ -1,0 +1,257 @@
+{
+  "schema_version": 1,
+  "reviewer_kind": "agent",
+  "human_gold": false,
+  "evaluation_split": "development-source-inspected",
+  "workspace": "runs/real-workspace",
+  "purpose": "Exact source-inspected development approvals of actual extraction candidates. This is corrected metadata, not raw extraction performance, independent human labels, or a held-out evaluation.",
+  "source_leads_canonical_sha256": "5e12affc219a76de0342a998c37b492d0ec8d16ad329ca921d59932a4a062503",
+  "documents": [
+    {
+      "doc_id": "tm9-1752-homelite-1942",
+      "document_sha256": "0f5b91e0f637231687478997fc3eaddc8398b8041616af8891977e76bbc9cf54",
+      "record_fingerprint": "ae594b5b9c4a1fac1d39a026b5abc9cf77682a60efc9ec4acffbbfa14a5a87f3",
+      "processing_version": "vopt-ingest-2:cf488f5fba39d182ed7e+targeted-ocr:6ca97b4bad9702e6+layout-rules-2:220e080a269d5e2c4495",
+      "decisions": [
+        {
+          "assertion_id": "a-7f041e4c9ac357cb9e13f609",
+          "candidate_sha256": "791ee66570e57c1cab2be2aa80dc710b9da13675ca4887bc01ee125c04d206fc",
+          "lead_id": "lead-007",
+          "source_page": 3,
+          "evidence_image_sha256": "e877117292f7f935c68acea76e990e926a166ccafe5b4014b98b26e657d79beb",
+          "decision": "correct",
+          "correction": {
+            "conditions": [
+              "DC"
+            ]
+          },
+          "reason": "Agent inspected source pixels on PDF page 3; Pixels confirm R in HRH-28; embedded OCR incorrectly reads HEH-28. Documented whole assembly output. Controlled conditions normalized where needed. Development observation, not human gold."
+        },
+        {
+          "assertion_id": "a-861184f1c5aa376322679f76",
+          "candidate_sha256": "730ffc84733a7ab427cbc37e7ef1f45bc630308a90f3809bc882222b8d81210d",
+          "lead_id": "lead-008",
+          "source_page": 3,
+          "evidence_image_sha256": "e877117292f7f935c68acea76e990e926a166ccafe5b4014b98b26e657d79beb",
+          "decision": "correct",
+          "correction": {
+            "conditions": [
+              "DC"
+            ]
+          },
+          "reason": "Agent inspected source pixels on PDF page 3; Distinct subcomponent of HRH-28 assembly; do not duplicate as independently corroborating source. Controlled conditions normalized where needed. Development observation, not human gold."
+        },
+        {
+          "assertion_id": "a-97f26060c46f4c80034fb1e6",
+          "candidate_sha256": "d6d41311d50ba62968acddada6e2beab17a59705dfa3b74ac2f3701ecf98d67a",
+          "lead_id": "lead-009",
+          "source_page": 3,
+          "evidence_image_sha256": "e877117292f7f935c68acea76e990e926a166ccafe5b4014b98b26e657d79beb",
+          "decision": "correct",
+          "correction": {
+            "conditions": [
+              "DC"
+            ]
+          },
+          "reason": "Agent inspected source pixels on PDF page 3; DC output; no 50/60Hz assumption. Controlled conditions normalized where needed. Development observation, not human gold."
+        },
+        {
+          "assertion_id": "a-6091e4de33b4556bf6a6bb0a",
+          "candidate_sha256": "599659d04bf732230bfa4b652bba40fdcadf9697c207d94a75f950170112038c",
+          "lead_id": "lead-010",
+          "source_page": 3,
+          "evidence_image_sha256": "e877117292f7f935c68acea76e990e926a166ccafe5b4014b98b26e657d79beb",
+          "decision": "accept",
+          "correction": {},
+          "reason": "Agent inspected source pixels on PDF page 3; Pixels confirm HR; source engine speed range, distinct from generator power. Controlled conditions normalized where needed. Development observation, not human gold."
+        }
+      ]
+    },
+    {
+      "doc_id": "tm9-617-m18-1944",
+      "document_sha256": "f96cee3714b8186300762f4b608d20dd6eeea071eed37a4b6a1a19f20bdc7568",
+      "record_fingerprint": "827a83cd2a5c3d8850eba13f407331343ce1ef9f4fc6ccc3f63f23513718d67e",
+      "processing_version": "vopt-ingest-2:277774255b62a86ea95a+layout-rules-2:220e080a269d5e2c4495",
+      "decisions": [
+        {
+          "assertion_id": "a-9feb0d417dfc4d2070694ea9",
+          "candidate_sha256": "72a8d464760bbe514749a26f91eb00290fb7148051388775eb8bd4b54585ce64",
+          "lead_id": "lead-001",
+          "source_page": 12,
+          "evidence_image_sha256": "6845c08d19a80c4e371d9f2d97dfd4366528abd39a6540d0a93234b7997325d5",
+          "decision": "correct",
+          "correction": {
+            "conditions": [
+              "power factor 0.8",
+              "three-phase AC"
+            ],
+            "variant": null
+          },
+          "reason": "Agent inspected source pixels on PDF page 12; Same rated power for two voltage configurations; do not infer an input-power rating. Controlled conditions normalized where needed. Development observation, not human gold. Both documented voltage configurations share this quantity; model-level invariant approved; voltage alternatives remain pending."
+        },
+        {
+          "assertion_id": "a-69262c6dbb6584292b2f959d",
+          "candidate_sha256": "cb08b486d7b8ca9ed97afd08c42659320c9c5c483ec74b90e28efcc38539e2dc",
+          "lead_id": "lead-002",
+          "source_page": 12,
+          "evidence_image_sha256": "6845c08d19a80c4e371d9f2d97dfd4366528abd39a6540d0a93234b7997325d5",
+          "decision": "correct",
+          "correction": {
+            "conditions": [
+              "three-phase AC"
+            ],
+            "variant": null
+          },
+          "reason": "Agent inspected source pixels on PDF page 12; Generator AC output frequency. Controlled conditions normalized where needed. Development observation, not human gold. Both documented voltage configurations share this quantity; model-level invariant approved; voltage alternatives remain pending."
+        },
+        {
+          "assertion_id": "a-fdc5bb255b99760f82db2e0a",
+          "candidate_sha256": "2024aa5d297a8538359e57c67bc5b3903fd51ad27df5a5217f5946c8740578b5",
+          "lead_id": "lead-003",
+          "source_page": 12,
+          "evidence_image_sha256": "6845c08d19a80c4e371d9f2d97dfd4366528abd39a6540d0a93234b7997325d5",
+          "decision": "correct",
+          "correction": {
+            "value": 1902.3663997800002
+          },
+          "reason": "Agent inspected source pixels on PDF page 12; Dry mass qualifier must remain available to the reviewer. Controlled conditions normalized where needed. Development observation, not human gold."
+        }
+      ]
+    },
+    {
+      "doc_id": "tm9-618-m7-1943",
+      "document_sha256": "e100cb387ab6d637aea53d0d06c3634621b7744e55f2f3d76f25d6376fc15284",
+      "record_fingerprint": "17d7148be35d32b6cf1e3a61eccffa2dd77bd748b1ccb355c7d27660fd45c720",
+      "processing_version": "vopt-ingest-2:96e30584e6dcfbdf05c4+layout-rules-2:220e080a269d5e2c4495",
+      "decisions": [
+        {
+          "assertion_id": "a-2a44e54e946b09df348d1f1f",
+          "candidate_sha256": "d1ef85d8169a8629c6942e99f85f1d5d09fe69d1b7df6d5f23c0a91bdb193b3a",
+          "lead_id": "lead-004",
+          "source_page": 6,
+          "evidence_image_sha256": "2b382be79f009a642da9ab027e24d7e2b09fd7c9d42448f9c78e9058fd0373f2",
+          "decision": "correct",
+          "correction": {
+            "conditions": [
+              "three-phase AC"
+            ]
+          },
+          "reason": "Agent inspected source pixels on PDF page 6; 35 kVA is apparent power; it is not 35 kW. Appended changes introduce other variants; do not blindly apply to M15A1. Controlled conditions normalized where needed. Development observation, not human gold."
+        },
+        {
+          "assertion_id": "a-57416e59ad0f245d4e01335e",
+          "candidate_sha256": "ca8122b1b30873864d4f8f8d2352363cab2b3978c17d687a7b5c56ac3d7adac1",
+          "lead_id": "lead-005",
+          "source_page": 6,
+          "evidence_image_sha256": "2b382be79f009a642da9ab027e24d7e2b09fd7c9d42448f9c78e9058fd0373f2",
+          "decision": "correct",
+          "correction": {
+            "conditions": [
+              "three-phase AC"
+            ]
+          },
+          "reason": "Agent inspected source pixels on PDF page 6; Output, not input voltage. Controlled conditions normalized where needed. Development observation, not human gold."
+        },
+        {
+          "assertion_id": "a-67dfbc094615426cc99eb561",
+          "candidate_sha256": "62e3813860841e48c7ae8794cff59668353d60b01748867921d8afe07f9f99c1",
+          "lead_id": "lead-006",
+          "source_page": 6,
+          "evidence_image_sha256": "2b382be79f009a642da9ab027e24d7e2b09fd7c9d42448f9c78e9058fd0373f2",
+          "decision": "correct",
+          "correction": {
+            "value": 1949.0864138900001
+          },
+          "reason": "Agent inspected source pixels on PDF page 6; Data occurs below M7A1 discussion; full scope and revisions needed before extending to variants. Controlled conditions normalized where needed. Development observation, not human gold."
+        }
+      ]
+    },
+    {
+      "doc_id": "tm9-834-workshop-1944",
+      "document_sha256": "25f82158163171ac0645158887d2122d0012961c90633db2e7ac7d343de7875b",
+      "record_fingerprint": "aabd87af087f6240967760aa9c88b29b65dbe57b514ce5189eca61a8d8ec297d",
+      "processing_version": "vopt-ingest-2:cf488f5fba39d182ed7e+layout-rules-2:220e080a269d5e2c4495",
+      "decisions": [
+        {
+          "assertion_id": "a-79d5c0ae0f1cee2663785963",
+          "candidate_sha256": "242c899bb2c4fe08ca4b868c2dac6d09062fd787c8357ccfafc28f763247c160",
+          "lead_id": "lead-011",
+          "source_page": 52,
+          "evidence_image_sha256": "9905866d230517909f5526bad907ea74c6aea4fc52b4fe3b28db8cd014612d9b",
+          "decision": "correct",
+          "correction": {
+            "value": 1.5,
+            "conditions": [
+              "driving engine"
+            ]
+          },
+          "reason": "Agent inspected source pixels on PDF page 52; This is the driving engine power for compressor model221207; preserve component role. Controlled conditions normalized where needed. Development observation, not human gold. Pixels show one and one-half horsepower: resolve ambiguous OCR 11/2 as 1.5, retaining driving-engine role."
+        },
+        {
+          "assertion_id": "a-4f74885404097f5ba1c753b6",
+          "candidate_sha256": "53666b3c94747f43d28cc0472c4429a093c8db87a92e9aa11d2ca3c6843744fd",
+          "lead_id": "lead-014",
+          "source_page": 39,
+          "evidence_image_sha256": "993fc5ab9e62470f421d24655ec48bc91276da0745adabbc35d2eeb846eb28c4",
+          "decision": "correct",
+          "correction": {
+            "conditions": [
+              "as shown"
+            ]
+          },
+          "reason": "Agent inspected source pixels on PDF page 39; Assembly mass, not engine-only mass. Controlled conditions normalized where needed. Development observation, not human gold."
+        },
+        {
+          "assertion_id": "a-6c29b768c8441256827b8809",
+          "candidate_sha256": "8bea4e4fe17943cfa00a4a4d9d7696f309adc1805f5548f54680a290b3dcde27",
+          "lead_id": "lead-016",
+          "source_page": 93,
+          "evidence_image_sha256": "18da5e3b30afce5a1e5eb658741f5e6a474386dcd8b04ed28acd9ca23a05899f",
+          "decision": "correct",
+          "correction": {
+            "conditions": [
+              "DC"
+            ]
+          },
+          "reason": "Agent inspected source pixels on PDF page 93; Page heading says12-volts; data says15V output. Preserve battery nominal vs output distinction. Controlled conditions normalized where needed. Development observation, not human gold."
+        },
+        {
+          "assertion_id": "a-599369356e48a0d5d6bf6881",
+          "candidate_sha256": "f23ab6ca3c495c14f638d8f179f2141efb29c19bdd718205ede4b3be0284d53e",
+          "lead_id": "lead-017",
+          "source_page": 93,
+          "evidence_image_sha256": "18da5e3b30afce5a1e5eb658741f5e6a474386dcd8b04ed28acd9ca23a05899f",
+          "decision": "accept",
+          "correction": {},
+          "reason": "Agent inspected source pixels on PDF page 93; Governed speed is not no-load speed. Controlled conditions normalized where needed. Development observation, not human gold."
+        }
+      ]
+    },
+    {
+      "doc_id": "tm9-867-hand-tools-1945",
+      "document_sha256": "e14bba586e1db86bdfb6531f30cce0523172caefb9d62435380332d05a3a219d",
+      "record_fingerprint": "88d325ced52fcdc4a9e58b61c32b5f99d72bf09e08bf2b6da395ff2cfd66af1a",
+      "processing_version": "vopt-ingest-2:33880d460a704538e023+layout-rules-2:220e080a269d5e2c4495",
+      "decisions": []
+    }
+  ],
+  "missing_admitted_leads": [
+    {
+      "lead_id": "lead-012",
+      "reason": "No actual candidate for this inspected lead in the frozen extraction; no assertion fabricated."
+    },
+    {
+      "lead_id": "lead-013",
+      "reason": "No actual candidate for this inspected lead in the frozen extraction; no assertion fabricated."
+    },
+    {
+      "lead_id": "lead-015",
+      "reason": "No actual candidate for this inspected lead in the frozen extraction; no assertion fabricated."
+    }
+  ],
+  "scope_notes": [
+    "M18 power and frequency are invariant across both explicitly documented voltage configurations; reviewed at model scope. Voltage alternative candidates stay pending.",
+    "Only source-inspected selected candidates approved. Remaining candidates stay pending, including valid observations not included in this reference set.",
+    "Default human/all-reviewed export remains unchanged; this development helper opts into agent/selected-only release."
+  ]
+}

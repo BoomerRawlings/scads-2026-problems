@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "reviewer_kind": "agent",
+  "human_gold": false,
+  "purpose": "Source-inspected development model categories. This file alone does not modify extraction records, manifest admissions, or review fingerprints.",
+  "documents": {
+    "tm9-834-workshop-1944": {
+      "document_sha256": "25f82158163171ac0645158887d2122d0012961c90633db2e7ac7d343de7875b",
+      "model_categories": {
+        "221207": "compressor",
+        "GE320": "compressor",
+        "VG-959 QMC": "compressor",
+        "GR-300-S": "welder",
+        "T-118-502": "engine",
+        "L-62": "battery charger",
+        "L-122": "battery charger",
+        "L-322": "battery charger",
+        "OTC-33B": "battery charger"
+      },
+      "source_pages": {
+        "221207": [52], "GE320": [62], "VG-959 QMC": [68],
+        "GR-300-S": [39], "T-118-502": [39],
+        "L-62": [87, 89], "L-122": [87, 89], "L-322": [87, 89], "OTC-33B": [93]
+      },
+      "notes": "Only inspected models mapped. T-118-502 is the Chrysler engine, separate from the Hobart GR-300-S welder assembly. Other document models remain unspecified by this map."
+    },
+    "tm9-1752-homelite-1942": {
+      "document_sha256": "0f5b91e0f637231687478997fc3eaddc8398b8041616af8891977e76bbc9cf54",
+      "model_categories": {"HRH-28": "generator", "HR-28": "generator", "HR": "engine"},
+      "source_pages": {"HRH-28": [3], "HR-28": [3], "HR": [3]},
+      "notes": "Assembly, generator subcomponent and engine are explicitly distinguished in the original description. Pixels confirm R where embedded OCR reads E."
+    }
+  }
+}

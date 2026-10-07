@@ -1,0 +1,4 @@
+{
+  "code": "model_timeout",
+  "message": "Local model request timed out; check available resources and the request time limit."
+}

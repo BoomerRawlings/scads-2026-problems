@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "engine": "local",
+  "temperature": 0,
+  "seed": 0,
+  "started_at": "2026-10-07T03:10:25.536094+00:00",
+  "max_steps": 18,
+  "question": "What do the available sources establish about this organization, its relationships, changes, and conflicting claims?",
+  "requested_target": "Delta",
+  "steps": 0,
+  "report_rejections": 0,
+  "timeout_seconds": 600.0,
+  "request_timeout_seconds": 120.0,
+  "max_response_bytes": 2097152,
+  "max_result_bytes": 8388608,
+  "max_context_bytes": 25165824,
+  "validation_errors": [],
+  "status": "failed",
+  "elapsed_seconds": 0.11
+}

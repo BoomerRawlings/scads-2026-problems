@@ -1,0 +1,13 @@
+{
+  "case": "Qwen3.5-9B capacity probe",
+  "profile": "runtime-profile-qwen35-9b-01.json",
+  "captured_utc": "2026-10-07T10:29:34.8100193Z",
+  "phase": "idle after completed source-only probe",
+  "working_set_bytes": 5654065152,
+  "peak_working_set_since_server_start_bytes": 5687668736,
+  "host_free_physical_kib": 712128,
+  "host_total_physical_kib": 16364512,
+  "free_disk_bytes": 5736058880,
+  "method": "Windows Get-Process WorkingSet64/PeakWorkingSet64 for the path-verified task-owned server; Win32_OperatingSystem memory fields; Get-PSDrive disk free.",
+  "interpretation": "One point on a shared host after startup and one short text-only request. Peak includes startup. No full analytic or media run completed. Not an isolated benchmark or minimum RAM specification."
+}

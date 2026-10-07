@@ -1,0 +1,27 @@
+{
+  "backend": "elastic",
+  "elastic_url": "http://127.0.0.1:9200",
+  "allow_insecure_local": true,
+  "index": "nyc311-demo-v1",
+  "manifest_path": "../data/manifest.json",
+  "catalog_path": "catalog.json",
+  "runs_dir": "../runs/elastic",
+  "budgets": {
+    "max_groups": 50000,
+    "page_size": 500,
+    "deadline_seconds": 30,
+    "max_export_rows": 1000000,
+    "max_export_bytes": 268435456,
+    "export_deadline_seconds": 300
+  },
+  "kibana": {
+    "url": "http://127.0.0.1:5601",
+    "map_id": "CONFIGURE_SAVED_MAP_ID",
+    "data_view_id": "CONFIGURE_DATA_VIEW_ID",
+    "result_index": "nyc311-trend-results-v1",
+    "trend_map_id": "CONFIGURE_TREND_MAP_ID",
+    "trend_data_view_id": "CONFIGURE_TREND_DATA_VIEW_ID",
+    "trend_metric": "relative_change",
+    "allow_insecure_local": true
+  }
+}

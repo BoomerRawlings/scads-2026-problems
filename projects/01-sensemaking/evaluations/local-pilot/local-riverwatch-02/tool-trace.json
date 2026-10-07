@@ -1,0 +1,80 @@
+[
+  {
+    "name": "entity_search",
+    "args": {
+      "query": "riverwatch"
+    },
+    "status": "completed"
+  },
+  {
+    "name": "traverse_relationships",
+    "args": {
+      "target": "riverwatch",
+      "max_hops": 3
+    },
+    "status": "completed"
+  },
+  {
+    "name": "search_evidence",
+    "args": {
+      "query": "riverwatch",
+      "entity_ids": [
+        "riverwatch"
+      ]
+    },
+    "status": "completed"
+  },
+  {
+    "name": "read_evidence",
+    "args": {
+      "evidence_id": "img-note-001"
+    },
+    "status": "completed"
+  },
+  {
+    "name": "inspect_media",
+    "args": {
+      "evidence_id": "media/riverwatch-board.png"
+    },
+    "status": "failed"
+  },
+  {
+    "name": "read_media",
+    "args": {
+      "evidence_id": "media/riverwatch-board.png"
+    },
+    "status": "failed"
+  },
+  {
+    "name": "inspect_media",
+    "args": {
+      "evidence_id": "media/riverwatch-board.png"
+    },
+    "status": "failed"
+  },
+  {
+    "name": "read_evidence",
+    "args": {
+      "evidence_id": "memo-001"
+    },
+    "status": "completed"
+  },
+  {
+    "name": "search_evidence",
+    "args": {
+      "query": "riverwatch",
+      "entity_ids": [
+        "riverwatch"
+      ]
+    },
+    "status": "completed"
+  },
+  {
+    "name": "traverse_relationships",
+    "args": {
+      "target": "riverwatch",
+      "max_hops": 3
+    },
+    "status": "completed"
+  }
+]

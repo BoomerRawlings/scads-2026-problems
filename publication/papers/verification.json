@@ -1,0 +1,393 @@
+{
+  "edition": "2026-10-07",
+  "scope": "Five implementation research papers; automated text/geometry/hash checks complement Poppler visual review.",
+  "papers": [
+    {
+      "file": "pdf/01-sensemaking.pdf",
+      "sha256": "fe17c45c93a8e792df8446929bc9ea8ec5edeb3ccdcc6976c38c7097fd307ffb",
+      "pages": [
+        {
+          "page": 1,
+          "words": 316,
+          "links": 6,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 2,
+          "words": 329,
+          "links": 5,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 3,
+          "words": 325,
+          "links": 7,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 4,
+          "words": 345,
+          "links": 6,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 5,
+          "words": 301,
+          "links": 6,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 6,
+          "words": 316,
+          "links": 7,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 7,
+          "words": 288,
+          "links": 0,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 8,
+          "words": 306,
+          "links": 0,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 9,
+          "words": 321,
+          "links": 5,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 10,
+          "words": 149,
+          "links": 12,
+          "geometry_issues": [],
+          "glyph_issues": []
+        }
+      ],
+      "words": 2996
+    },
+    {
+      "file": "pdf/02-311-analytics.pdf",
+      "sha256": "c0368e9577425796fe7c8c7038e5c2da9c25e0bf23d4032581225d997799993a",
+      "pages": [
+        {
+          "page": 1,
+          "words": 313,
+          "links": 11,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 2,
+          "words": 277,
+          "links": 6,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 3,
+          "words": 306,
+          "links": 6,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 4,
+          "words": 312,
+          "links": 5,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 5,
+          "words": 301,
+          "links": 5,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 6,
+          "words": 301,
+          "links": 9,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 7,
+          "words": 281,
+          "links": 2,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 8,
+          "words": 290,
+          "links": 6,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 9,
+          "words": 319,
+          "links": 5,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 10,
+          "words": 143,
+          "links": 12,
+          "geometry_issues": [],
+          "glyph_issues": []
+        }
+      ],
+      "words": 2843
+    },
+    {
+      "file": "pdf/03-semantic-discovery.pdf",
+      "sha256": "be7d2701429e4efa7415a42cfbde2d9c2e0b98d4c3f5d74051857cb41e894682",
+      "pages": [
+        {
+          "page": 1,
+          "words": 303,
+          "links": 6,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 2,
+          "words": 289,
+          "links": 7,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 3,
+          "words": 291,
+          "links": 9,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 4,
+          "words": 324,
+          "links": 8,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 5,
+          "words": 328,
+          "links": 8,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 6,
+          "words": 282,
+          "links": 10,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 7,
+          "words": 270,
+          "links": 2,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 8,
+          "words": 302,
+          "links": 4,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 9,
+          "words": 324,
+          "links": 6,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 10,
+          "words": 127,
+          "links": 11,
+          "geometry_issues": [],
+          "glyph_issues": []
+        }
+      ],
+      "words": 2840
+    },
+    {
+      "file": "pdf/04-org-knowledge-graphs.pdf",
+      "sha256": "c687db24b159393604fa8912d048f11830adc9dfda48b986d3bc931738086aee",
+      "pages": [
+        {
+          "page": 1,
+          "words": 304,
+          "links": 9,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 2,
+          "words": 293,
+          "links": 4,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 3,
+          "words": 305,
+          "links": 8,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 4,
+          "words": 307,
+          "links": 6,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 5,
+          "words": 291,
+          "links": 5,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 6,
+          "words": 246,
+          "links": 4,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 7,
+          "words": 286,
+          "links": 1,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 8,
+          "words": 304,
+          "links": 5,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 9,
+          "words": 314,
+          "links": 5,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 10,
+          "words": 141,
+          "links": 12,
+          "geometry_issues": [],
+          "glyph_issues": []
+        }
+      ],
+      "words": 2791
+    },
+    {
+      "file": "pdf/05-graphrag-discovery.pdf",
+      "sha256": "6c7be5134d2608b4557f906ec7ece889fca4fa37b3258b176cc8a4ebb87ea61c",
+      "pages": [
+        {
+          "page": 1,
+          "words": 292,
+          "links": 10,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 2,
+          "words": 295,
+          "links": 7,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 3,
+          "words": 277,
+          "links": 6,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 4,
+          "words": 299,
+          "links": 6,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 5,
+          "words": 290,
+          "links": 5,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 6,
+          "words": 295,
+          "links": 5,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 7,
+          "words": 280,
+          "links": 3,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 8,
+          "words": 318,
+          "links": 5,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 9,
+          "words": 316,
+          "links": 5,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 10,
+          "words": 146,
+          "links": 12,
+          "geometry_issues": [],
+          "glyph_issues": []
+        }
+      ],
+      "words": 2808
+    }
+  ],
+  "errors": [],
+  "status": "passed"
+}

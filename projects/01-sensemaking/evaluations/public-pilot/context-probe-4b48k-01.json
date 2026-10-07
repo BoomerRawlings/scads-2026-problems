@@ -1,0 +1,53 @@
+{
+  "purpose": "Neutral text-only compatibility probe for expanded-context4B profile; not full-window fit, analytic acceptance or capacity measurement.",
+  "timestamp_utc": "2026-10-07T13:19:39.686999+00:00",
+  "profile": "runtime-profile-qwen35-4b-text-48k-01.json",
+  "profile_sha256": "d4dd4cbbdc8d49af59acb9216c7aeab8034294e628832e01caed1b6036a31a56",
+  "implementation_snapshot_sha256": "b83be396e34763732485d261f2923b0c823ee46836c8837a1b204bde02f7c6ef",
+  "model": {
+    "model": "Qwen3.5-4B-Q4_K_M",
+    "model_identifier_source": "/v1/models",
+    "model_path_redacted": false,
+    "model_identifier_sha256": "8f7fb5d5ef99e11fe87359b3a8c140e8490fe58a9e97b122c82f35dc92886500",
+    "backend": "llama.cpp-compatible loopback HTTP"
+  },
+  "status": "passed",
+  "expected_boolean_match": true,
+  "elapsed_seconds": 1.656,
+  "context_admission": {
+    "policy": "llama-b11457-text-context-admission-v1",
+    "admitted": true,
+    "exact_model_fit_verified": false,
+    "token_limit": 49152,
+    "safety_margin": 128,
+    "max_request_bytes": 262144,
+    "max_response_bytes": 2097152,
+    "timeout_seconds": 180,
+    "max_tokens": 32,
+    "canonical_request_bytes": 449,
+    "canonical_request_sha256": "766506edc5b73dc426a855200fce906fdc73347c1bc0830a89641c05673dbf22",
+    "generation_request_bytes": 484,
+    "template_request_bytes": 484,
+    "template_response_canonical_bytes": 209,
+    "rendered_prompt_bytes": 187,
+    "rendered_prompt_sha256": "dc2798eeb13c5c4edd5b617f7e441329baf65c60b7fa5ab471be7a97edf0e9b5",
+    "tokenize_request_bytes": 278,
+    "tokenize_response_canonical_bytes": 184,
+    "prompt_tokens": 35,
+    "reserved_tokens": 195,
+    "remaining_tokens": 48957,
+    "usage_prompt_tokens": 35,
+    "actual_usage_prompt_tokens_minus_preflight": 0
+  },
+  "response_metadata": {
+    "usage": {
+      "prompt_tokens": 35,
+      "completion_tokens": 10,
+      "total_tokens": 45,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "reasoning_returned": false
+  }
+}

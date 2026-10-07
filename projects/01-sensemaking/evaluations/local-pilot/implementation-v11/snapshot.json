@@ -1,0 +1,15 @@
+{
+  "purpose": "Exact v11 implementation frozen for Riverwatch12. Opt-in host-constructed evidence overview quotes target-eligible supplied assertion differences without adjudication; model findings remain subject to source review.",
+  "files": {
+    "local_agent.py": "a364043ac0617bab8d94ef21f4fabe79e9096ba67b9456c8fb2b457f11f86d82",
+    "run_agent.py": "aed2aad867c33bb95b3c25859ab57787aeadc482779c64902ee225b20cf6792b",
+    "mcp_server.py": "20c60a089fc9f0296d9badffd98a3afaabfc6431fc54cd1e148ab683ff135fd1",
+    "media_tools.py": "9a4ef7606e38604c847b7d7ec2e56717226ed329435b7c0692ed08501779d0a5",
+    "sensemaking.py": "7835a62406122792cd2adec53c130ea33b0d24b33bfa7c9bb0fd6e23decd375c",
+    "report.schema.json": "77598873abd47b44a29e9a4ad2b82ca5ff22c9b296b7634699bfd07f40770182",
+    "requirements.txt": "8bfb947304e95687c9cedd1cb3520901d7d63e7d60e51ca4633e40cd9481d1d5",
+    "runtime-candidate-qwen35.json": "d69ec69654b82e4510898b99a5a0a1d744cdf2db6e7de3f8099b5f92405765e6"
+  },
+  "dataset": "7328e186691e7956ac440b1acd28391b6a2e022292b2c28c0104af6d0139cd67",
+  "profile": "../runtime-profile-qwen35-01.json"
+}

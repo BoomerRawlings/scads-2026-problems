@@ -1,0 +1,24 @@
+{
+  "purpose": "Known-fixture text reconciliation development probe, not an agent workflow or held-out accuracy evaluation",
+  "model": {
+    "model": "Qwen3.5-4B-Q4_K_M",
+    "model_identifier_source": "/v1/models",
+    "model_path_redacted": false,
+    "model_identifier_sha256": "8f7fb5d5ef99e11fe87359b3a8c140e8490fe58a9e97b122c82f35dc92886500",
+    "backend": "llama.cpp-compatible loopback HTTP"
+  },
+  "question": "Using only these fictional records, explain the readiness disagreement with dates and what the video text establishes about other institute activities. Do not resolve uncertainty without evidence. At most 100 words.",
+  "source_ids": [
+    "tbl-003",
+    "memo-001",
+    "video-tx-001"
+  ],
+  "source_text_sha256": {
+    "tbl-003": "6c73d8e86ed799ca56e3a1610bc86380608dc858a30e58efa646776591c61c5f",
+    "memo-001": "b9ad6f2af741870c74ccaa91ccf6f5b564d329c1f6bed6b7c1dc4a007a84697a",
+    "video-tx-001": "415a3aace94a7d376311152c2b0f2c236dd849bb187737d818e8fd8ce7ab886f"
+  },
+  "elapsed_seconds": 23.015,
+  "text": "The readiness disagreement centers on Riverwatch Pilot status: the 2026-09-03 register claims \"ready,\" while the 2026-09-05 dependency review and video transcript establish \"delayed\" due to pending Silt Sensor Batch acceptance.\n\nThe video transcript clarifies that this delay applies only to the Riverwatch field deployment. It explicitly states that the institute has not established that other activities are delayed. The transcript further notes that the register's \"ready\" entry should be retained alongside the review rather than replaced, treating both dated claims as valid for review.",
+  "finish_reason": "stop"
+}

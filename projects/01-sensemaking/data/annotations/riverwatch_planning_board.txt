@@ -1,0 +1,13 @@
+AGENT-AUTHORED SYNTHETIC IMAGE ANNOTATION — NO IMAGE WAS PROCESSED.
+Source ID: img-note-001
+Date: 2026-09-05
+Fictional subject: Riverwatch Pilot planning board
+
+This text describes an invented planning-board view. It is a test fixture,
+not OCR, image-model output, or an annotation of an actual photograph.
+
+Annotated fictional board text: "Riverwatch — delayed. Field release blocked
+pending sensor acceptance."
+
+Normalized fixture claim: Riverwatch Pilot readiness is delayed. This annotation
+does not independently verify the memo or supply evidence of actual conditions.

@@ -1,0 +1,68 @@
+{
+  "version": "0.5.0",
+  "evidence_level": "measured_windows_metadata_io_and_bounded_local_processes",
+  "python": "3.12.14",
+  "platform": "Windows",
+  "finding": "Concurrent JSON readers and atomic replacement can fail under ordinary Windows file-sharing semantics.",
+  "captured_before_fix": [
+    {
+      "experiment": "Held ordinary reader during atomic_json replacement; actual OS call",
+      "operation": "atomic_json",
+      "exception": "PermissionError",
+      "errno": 13,
+      "winerror": 5
+    },
+    {
+      "experiment": "Two real export workers while parent polls get_result every 50 ms; failed second batch",
+      "operation": "read_json",
+      "exception": "AnalyticsError",
+      "error_code": "invalid_configuration",
+      "cause": "PermissionError",
+      "errno": 13,
+      "winerror": null
+    }
+  ],
+  "preserved_failed_trial": "examples/evidence/export-stress-v0.5-initial.json",
+  "subsequent_launcher_probe": {
+    "experiment": "Popen current venv interpreter running a child that reports os.getpid(); wait for normal exit",
+    "popen_pid_differs_from_runtime_pid": true,
+    "normal_exit_code": 0,
+    "implication": "Killing and waiting for the launcher handle does not by itself prove the executing worker has released its handles."
+  },
+  "remediation": {
+    "implementation": "analytics311/metadata_io.py",
+    "scope": "Windows EACCES PermissionError with absent winerror or winerror 5, 32, 33 around JSON read and metadata replacement only",
+    "maximum_attempts": 8,
+    "maximum_nominal_sleep_seconds": 0.225,
+    "json_decoding_retried": false,
+    "nonpermission_errors_retried": false,
+    "persistent_permission_errors_suppressed": false,
+    "csv_final_rename_retried": false
+  },
+  "verification": {
+    "test_module": "tests/test_metadata_io.py",
+    "targeted_tests_passed": 5,
+    "actual_held_reader_released_then_publication_passed": true,
+    "bounded_process_trial_passed": true,
+    "explicit_batches": 10,
+    "concurrency": 2,
+    "owned_workers_started": 25,
+    "peak_owned_workers_alive": 2,
+    "completed_exports": 24,
+    "rows_per_completed_export": 4,
+    "csv_ids_and_hashes_verified": true,
+    "active_worker_preserved_by_recovery": true,
+    "owned_process_handle_killed_after_first_row": true,
+    "partial_removed_and_reservation_released": true,
+    "reexport_verified": true,
+    "elapsed_seconds": 7.719
+  },
+  "limits": [
+    "The unexplained v0.4 timeout was not reproduced and its cause remains unknown.",
+    "This early trial killed the owned Popen handle. A later probe confirmed Windows venv launcher PID differs from interpreter PID; direct interpreter-death fault injection is required for the final recovery evidence.",
+    "Blocking filesystem calls may exceed the nominal sleep budget; cooperative export deadlines are still checked before publication.",
+    "Finite tiny-fixture process trials are not Elasticsearch, large-dataset throughput, tail-latency or agent-accuracy evidence.",
+    "Desktop load and filesystem cache uncontrolled; diagnosis receipts contain no raw records, exception messages or machine paths."
+  ],
+  "final_corrected_trial_receipt": "examples/evidence/export-stress-v0.5.json"
+}

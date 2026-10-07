@@ -1,0 +1,24 @@
+{
+  "schema_version": "1",
+  "dataset_version": "fixture-v1",
+  "timezone": "America/New_York",
+  "as_of": "2026-01-02T12:00:00-05:00",
+  "operation": "records",
+  "time": {
+    "field": "created_date",
+    "preset": "last_month"
+  },
+  "filters": {
+    "all": [
+      {
+        "field": "borough",
+        "op": "eq",
+        "value": "BROOKLYN"
+      },
+      {
+        "category_family": "noise"
+      }
+    ]
+  },
+  "preview_limit": 2
+}

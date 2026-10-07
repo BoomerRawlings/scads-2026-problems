@@ -1,0 +1,168 @@
+[
+  {
+    "id": "memo-001",
+    "entity_ids": [
+      "riverwatch"
+    ],
+    "kind": "text",
+    "title": "Riverwatch dependency review",
+    "date": "2026-09-05",
+    "path": "documents/riverwatch_dependency_review.txt",
+    "assertions": [
+      {
+        "subject": "riverwatch",
+        "predicate": "readiness",
+        "value": "delayed"
+      }
+    ],
+    "extraction": "agent_authored_synthetic"
+  },
+  {
+    "id": "memo-002",
+    "entity_ids": [
+      "delta_team"
+    ],
+    "kind": "text",
+    "title": "Delta team ownership and scope",
+    "date": "2026-09-05",
+    "path": "documents/delta_team_scope.txt",
+    "assertions": [
+      {
+        "subject": "delta_team",
+        "predicate": "owns_project",
+        "value": "riverwatch"
+      }
+    ],
+    "extraction": "agent_authored_synthetic"
+  },
+  {
+    "id": "memo-003",
+    "entity_ids": [
+      "silt_sensors"
+    ],
+    "kind": "text",
+    "title": "Sensor supply and acceptance note",
+    "date": "2026-09-04",
+    "path": "documents/sensor_supply_note.txt",
+    "assertions": [
+      {
+        "subject": "silt_sensors",
+        "predicate": "acceptance",
+        "value": "pending"
+      }
+    ],
+    "extraction": "agent_authored_synthetic"
+  },
+  {
+    "id": "memo-004",
+    "entity_ids": [
+      "northline"
+    ],
+    "kind": "text",
+    "title": "Northline revised shipping notice",
+    "date": "2026-09-05",
+    "path": "documents/northline_shipping_notice.txt",
+    "assertions": [
+      {
+        "subject": "northline",
+        "predicate": "expected_arrival",
+        "value": "2026-09-19"
+      }
+    ],
+    "extraction": "agent_authored_synthetic"
+  },
+  {
+    "id": "memo-005",
+    "entity_ids": [
+      "aero_team"
+    ],
+    "kind": "text",
+    "title": "Aero team ownership and instrument note",
+    "date": "2026-09-05",
+    "path": "documents/aero_team_scope.txt",
+    "assertions": [
+      {
+        "subject": "aero_team",
+        "predicate": "owns_project",
+        "value": "clearair"
+      }
+    ],
+    "extraction": "agent_authored_synthetic"
+  },
+  {
+    "id": "img-note-001",
+    "entity_ids": [
+      "riverwatch"
+    ],
+    "kind": "image_annotation",
+    "title": "Synthetic planning-board annotation",
+    "date": "2026-09-05",
+    "path": "annotations/riverwatch_planning_board.txt",
+    "assertions": [
+      {
+        "subject": "riverwatch",
+        "predicate": "readiness",
+        "value": "delayed"
+      }
+    ],
+    "extraction": "agent_authored_synthetic_annotation_no_image_processed",
+    "media_path": "media/riverwatch-board.png",
+    "media_provenance": "Synthetic caption media rendered from authored fixture text; not independent corroboration. No recorded people or audio."
+  },
+  {
+    "id": "img-note-002",
+    "entity_ids": [
+      "silt_sensors"
+    ],
+    "kind": "image_annotation",
+    "title": "Synthetic inspection-tag annotation",
+    "date": "2026-09-04",
+    "path": "annotations/sensor_inspection_tags.txt",
+    "assertions": [
+      {
+        "subject": "silt_sensors",
+        "predicate": "acceptance",
+        "value": "pending"
+      }
+    ],
+    "extraction": "agent_authored_synthetic_annotation_no_image_processed"
+  },
+  {
+    "id": "video-tx-001",
+    "entity_ids": [
+      "riverwatch"
+    ],
+    "kind": "video_transcript",
+    "title": "Synthetic Riverwatch coordination transcript",
+    "date": "2026-09-05",
+    "path": "transcripts/riverwatch_coordination.txt",
+    "assertions": [
+      {
+        "subject": "riverwatch",
+        "predicate": "readiness",
+        "value": "delayed"
+      }
+    ],
+    "extraction": "agent_authored_synthetic_transcript_no_video_processed",
+    "media_path": "media/riverwatch-review.mp4",
+    "media_provenance": "Synthetic caption media rendered from authored fixture text; not independent corroboration. No recorded people or audio."
+  },
+  {
+    "id": "video-tx-002",
+    "entity_ids": [
+      "clearair"
+    ],
+    "kind": "video_transcript",
+    "title": "Synthetic ClearAir coordination transcript",
+    "date": "2026-09-05",
+    "path": "transcripts/clearair_coordination.txt",
+    "assertions": [
+      {
+        "subject": "clearair",
+        "predicate": "readiness",
+        "value": "ready"
+      }
+    ],
+    "extraction": "agent_authored_synthetic_transcript_no_video_processed"
+  }
+]

@@ -1,0 +1,833 @@
+{
+  "schema_version": 1,
+  "kind": "capacity_scenario_report",
+  "evidence_kind": "modeled_capacity",
+  "package_version": "0.3.0",
+  "generated_at": "2026-10-07T04:20:47.896408+00:00",
+  "input_sha256": "bfb89a53e4524260090b3b423ea956a3f7cc86fe27eea3c5878a30886b22c299",
+  "input_bytes": 2123,
+  "combination_count": 9,
+  "summary": {
+    "modeled_fit": 6,
+    "insufficient": 3,
+    "unknown": 0
+  },
+  "results": [
+    {
+      "host": "constrained-desktop",
+      "profile": "development",
+      "target_rows": 1000,
+      "plan": {
+        "schema_version": 1,
+        "evidence_kind": "modeled_capacity",
+        "profile": "development",
+        "target_rows": 1000,
+        "backend": "fixture",
+        "status": "modeled_fit",
+        "ready_for_production": false,
+        "assumptions": {
+          "raw_bytes_per_record": 1200,
+          "staging_bytes_per_record": 2000,
+          "normalized_bytes_per_record": 900,
+          "index_bytes_per_record": 1600,
+          "fixture_memory_bytes_per_record": 4096,
+          "raw_copies": 1,
+          "normalized_copies": 1,
+          "replicas": 0,
+          "merge_overhead_fraction": 0.5,
+          "free_disk_fraction": 0.25,
+          "fixed_disk_bytes": 1073741824
+        },
+        "storage": {
+          "raw_bytes": 1200000,
+          "staging_bytes": 2000000,
+          "normalized_bytes": 900000,
+          "index_including_replicas_bytes": 0,
+          "merge_extra_bytes": 0,
+          "fixed_bytes": 1073741824,
+          "peak_before_headroom_bytes": 1077841824,
+          "required_free_bytes": 1437122432
+        },
+        "memory": {
+          "workflow_floor_bytes": 268435456,
+          "buffer_estimate_bytes": 1680000,
+          "required_available_bytes": 274211456
+        },
+        "checks": [
+          {
+            "resource": "available_memory_bytes",
+            "observed": 629145600,
+            "required": 274211456,
+            "status": "modeled_fit"
+          },
+          {
+            "resource": "free_disk_bytes",
+            "observed": 17179869184,
+            "required": 1437122432,
+            "status": "modeled_fit"
+          },
+          {
+            "resource": "effective_cpu_count",
+            "observed": 2,
+            "required": 1,
+            "status": "modeled_fit"
+          }
+        ],
+        "suggestions": {
+          "budgets": {
+            "page_size": 100,
+            "max_concurrent_exports": 1
+          },
+          "capture": {
+            "page_size": 100
+          },
+          "ingest": {
+            "batch_size": 100
+          }
+        },
+        "next_steps": [
+          "Review and explicitly apply desired budgets to your configuration.",
+          "Measure indexed bytes/record and representative queries on the intended engine/host.",
+          "Repeat at increasing real row counts; record correctness, latency, memory, disk and failure recovery."
+        ],
+        "warnings": [
+          "Sizing assumptions are estimates, not measured dataset sizes or throughput.",
+          "Modeled fit does not validate Elasticsearch/Kibana, latency, concurrency, coverage or production readiness.",
+          "Memory is a workflow floor; query cardinality, shards, JVM heap and filesystem cache require real measurements.",
+          "Storage models all capture/staging/normalized/index copies coexisting on the probed filesystem; backups/LLM/assets are additional.",
+          "No rows are sampled or removed; configured analytical/export limits remain unchanged."
+        ],
+        "inventory_warnings": [
+          "Hypothetical desktop under load; these are authored inputs, not a current host measurement."
+        ]
+      }
+    },
+    {
+      "host": "constrained-desktop",
+      "profile": "full-demo",
+      "target_rows": 2000000,
+      "plan": {
+        "schema_version": 1,
+        "evidence_kind": "modeled_capacity",
+        "profile": "full-demo",
+        "target_rows": 2000000,
+        "backend": "elasticsearch",
+        "status": "insufficient",
+        "ready_for_production": false,
+        "assumptions": {
+          "raw_bytes_per_record": 1200,
+          "staging_bytes_per_record": 2000,
+          "normalized_bytes_per_record": 900,
+          "index_bytes_per_record": 1600,
+          "fixture_memory_bytes_per_record": 4096,
+          "raw_copies": 1,
+          "normalized_copies": 1,
+          "replicas": 1,
+          "merge_overhead_fraction": 0.5,
+          "free_disk_fraction": 0.25,
+          "fixed_disk_bytes": 5368709120
+        },
+        "storage": {
+          "raw_bytes": 2400000000,
+          "staging_bytes": 4000000000,
+          "normalized_bytes": 1800000000,
+          "index_including_replicas_bytes": 6400000000,
+          "merge_extra_bytes": 3200000000,
+          "fixed_bytes": 5368709120,
+          "peak_before_headroom_bytes": 23168709120,
+          "required_free_bytes": 30891612160
+        },
+        "memory": {
+          "workflow_floor_bytes": 12884901888,
+          "buffer_estimate_bytes": 1680000,
+          "required_available_bytes": 12886581888
+        },
+        "checks": [
+          {
+            "resource": "available_memory_bytes",
+            "observed": 629145600,
+            "required": 12886581888,
+            "status": "insufficient"
+          },
+          {
+            "resource": "free_disk_bytes",
+            "observed": 17179869184,
+            "required": 30891612160,
+            "status": "insufficient"
+          },
+          {
+            "resource": "effective_cpu_count",
+            "observed": 2,
+            "required": 4,
+            "status": "insufficient"
+          }
+        ],
+        "suggestions": {
+          "budgets": {
+            "page_size": 100,
+            "max_concurrent_exports": 1
+          },
+          "capture": {
+            "page_size": 100
+          },
+          "ingest": {
+            "batch_size": 100
+          }
+        },
+        "next_steps": [
+          "Review and explicitly apply desired budgets to your configuration.",
+          "Measure indexed bytes/record and representative queries on the intended engine/host.",
+          "Repeat at increasing real row counts; record correctness, latency, memory, disk and failure recovery."
+        ],
+        "warnings": [
+          "Sizing assumptions are estimates, not measured dataset sizes or throughput.",
+          "Modeled fit does not validate Elasticsearch/Kibana, latency, concurrency, coverage or production readiness.",
+          "Memory is a workflow floor; query cardinality, shards, JVM heap and filesystem cache require real measurements.",
+          "Storage models all capture/staging/normalized/index copies coexisting on the probed filesystem; backups/LLM/assets are additional.",
+          "No rows are sampled or removed; configured analytical/export limits remain unchanged.",
+          "Replica assumption requires at least 2 suitable Elasticsearch data nodes; combined disk is not per-node sizing."
+        ],
+        "inventory_warnings": [
+          "Hypothetical desktop under load; these are authored inputs, not a current host measurement."
+        ]
+      }
+    },
+    {
+      "host": "constrained-desktop",
+      "profile": "scale-lab",
+      "target_rows": 1000000000,
+      "plan": {
+        "schema_version": 1,
+        "evidence_kind": "modeled_capacity",
+        "profile": "scale-lab",
+        "target_rows": 1000000000,
+        "backend": "elasticsearch",
+        "status": "insufficient",
+        "ready_for_production": false,
+        "assumptions": {
+          "raw_bytes_per_record": 1200,
+          "staging_bytes_per_record": 2000,
+          "normalized_bytes_per_record": 900,
+          "index_bytes_per_record": 1600,
+          "fixture_memory_bytes_per_record": 4096,
+          "raw_copies": 1,
+          "normalized_copies": 1,
+          "replicas": 1,
+          "merge_overhead_fraction": 0.5,
+          "free_disk_fraction": 0.25,
+          "fixed_disk_bytes": 5368709120
+        },
+        "storage": {
+          "raw_bytes": 1200000000000,
+          "staging_bytes": 2000000000000,
+          "normalized_bytes": 900000000000,
+          "index_including_replicas_bytes": 3200000000000,
+          "merge_extra_bytes": 1600000000000,
+          "fixed_bytes": 5368709120,
+          "peak_before_headroom_bytes": 8905368709120,
+          "required_free_bytes": 11873824945494
+        },
+        "memory": {
+          "workflow_floor_bytes": 34359738368,
+          "buffer_estimate_bytes": 1680000,
+          "required_available_bytes": 34361418368
+        },
+        "checks": [
+          {
+            "resource": "available_memory_bytes",
+            "observed": 629145600,
+            "required": 34361418368,
+            "status": "insufficient"
+          },
+          {
+            "resource": "free_disk_bytes",
+            "observed": 17179869184,
+            "required": 11873824945494,
+            "status": "insufficient"
+          },
+          {
+            "resource": "effective_cpu_count",
+            "observed": 2,
+            "required": 8,
+            "status": "insufficient"
+          }
+        ],
+        "suggestions": {
+          "budgets": {
+            "page_size": 100,
+            "max_concurrent_exports": 1
+          },
+          "capture": {
+            "page_size": 100
+          },
+          "ingest": {
+            "batch_size": 100
+          }
+        },
+        "next_steps": [
+          "Review and explicitly apply desired budgets to your configuration.",
+          "Measure indexed bytes/record and representative queries on the intended engine/host.",
+          "Repeat at increasing real row counts; record correctness, latency, memory, disk and failure recovery."
+        ],
+        "warnings": [
+          "Sizing assumptions are estimates, not measured dataset sizes or throughput.",
+          "Modeled fit does not validate Elasticsearch/Kibana, latency, concurrency, coverage or production readiness.",
+          "Memory is a workflow floor; query cardinality, shards, JVM heap and filesystem cache require real measurements.",
+          "Storage models all capture/staging/normalized/index copies coexisting on the probed filesystem; backups/LLM/assets are additional.",
+          "No rows are sampled or removed; configured analytical/export limits remain unchanged.",
+          "Replica assumption requires at least 2 suitable Elasticsearch data nodes; combined disk is not per-node sizing.",
+          "Scale-lab is a planning scenario only; distributed topology and physical scaling remain unvalidated."
+        ],
+        "inventory_warnings": [
+          "Hypothetical desktop under load; these are authored inputs, not a current host measurement."
+        ]
+      }
+    },
+    {
+      "host": "32-gib-workstation",
+      "profile": "development",
+      "target_rows": 1000,
+      "plan": {
+        "schema_version": 1,
+        "evidence_kind": "modeled_capacity",
+        "profile": "development",
+        "target_rows": 1000,
+        "backend": "fixture",
+        "status": "modeled_fit",
+        "ready_for_production": false,
+        "assumptions": {
+          "raw_bytes_per_record": 1200,
+          "staging_bytes_per_record": 2000,
+          "normalized_bytes_per_record": 900,
+          "index_bytes_per_record": 1600,
+          "fixture_memory_bytes_per_record": 4096,
+          "raw_copies": 1,
+          "normalized_copies": 1,
+          "replicas": 0,
+          "merge_overhead_fraction": 0.5,
+          "free_disk_fraction": 0.25,
+          "fixed_disk_bytes": 1073741824
+        },
+        "storage": {
+          "raw_bytes": 1200000,
+          "staging_bytes": 2000000,
+          "normalized_bytes": 900000,
+          "index_including_replicas_bytes": 0,
+          "merge_extra_bytes": 0,
+          "fixed_bytes": 1073741824,
+          "peak_before_headroom_bytes": 1077841824,
+          "required_free_bytes": 1437122432
+        },
+        "memory": {
+          "workflow_floor_bytes": 268435456,
+          "buffer_estimate_bytes": 16800000,
+          "required_available_bytes": 289331456
+        },
+        "checks": [
+          {
+            "resource": "available_memory_bytes",
+            "observed": 25769803776,
+            "required": 289331456,
+            "status": "modeled_fit"
+          },
+          {
+            "resource": "free_disk_bytes",
+            "observed": 966367641600,
+            "required": 1437122432,
+            "status": "modeled_fit"
+          },
+          {
+            "resource": "effective_cpu_count",
+            "observed": 8,
+            "required": 1,
+            "status": "modeled_fit"
+          }
+        ],
+        "suggestions": {
+          "budgets": {
+            "page_size": 1000,
+            "max_concurrent_exports": 1
+          },
+          "capture": {
+            "page_size": 1000
+          },
+          "ingest": {
+            "batch_size": 1000
+          }
+        },
+        "next_steps": [
+          "Review and explicitly apply desired budgets to your configuration.",
+          "Measure indexed bytes/record and representative queries on the intended engine/host.",
+          "Repeat at increasing real row counts; record correctness, latency, memory, disk and failure recovery."
+        ],
+        "warnings": [
+          "Sizing assumptions are estimates, not measured dataset sizes or throughput.",
+          "Modeled fit does not validate Elasticsearch/Kibana, latency, concurrency, coverage or production readiness.",
+          "Memory is a workflow floor; query cardinality, shards, JVM heap and filesystem cache require real measurements.",
+          "Storage models all capture/staging/normalized/index copies coexisting on the probed filesystem; backups/LLM/assets are additional.",
+          "No rows are sampled or removed; configured analytical/export limits remain unchanged."
+        ],
+        "inventory_warnings": [
+          "Hypothetical workstation; node count, engine installation and actual query performance remain unverified."
+        ]
+      }
+    },
+    {
+      "host": "32-gib-workstation",
+      "profile": "full-demo",
+      "target_rows": 2000000,
+      "plan": {
+        "schema_version": 1,
+        "evidence_kind": "modeled_capacity",
+        "profile": "full-demo",
+        "target_rows": 2000000,
+        "backend": "elasticsearch",
+        "status": "modeled_fit",
+        "ready_for_production": false,
+        "assumptions": {
+          "raw_bytes_per_record": 1200,
+          "staging_bytes_per_record": 2000,
+          "normalized_bytes_per_record": 900,
+          "index_bytes_per_record": 1600,
+          "fixture_memory_bytes_per_record": 4096,
+          "raw_copies": 1,
+          "normalized_copies": 1,
+          "replicas": 1,
+          "merge_overhead_fraction": 0.5,
+          "free_disk_fraction": 0.25,
+          "fixed_disk_bytes": 5368709120
+        },
+        "storage": {
+          "raw_bytes": 2400000000,
+          "staging_bytes": 4000000000,
+          "normalized_bytes": 1800000000,
+          "index_including_replicas_bytes": 6400000000,
+          "merge_extra_bytes": 3200000000,
+          "fixed_bytes": 5368709120,
+          "peak_before_headroom_bytes": 23168709120,
+          "required_free_bytes": 30891612160
+        },
+        "memory": {
+          "workflow_floor_bytes": 12884901888,
+          "buffer_estimate_bytes": 33600000,
+          "required_available_bytes": 12918501888
+        },
+        "checks": [
+          {
+            "resource": "available_memory_bytes",
+            "observed": 25769803776,
+            "required": 12918501888,
+            "status": "modeled_fit"
+          },
+          {
+            "resource": "free_disk_bytes",
+            "observed": 966367641600,
+            "required": 30891612160,
+            "status": "modeled_fit"
+          },
+          {
+            "resource": "effective_cpu_count",
+            "observed": 8,
+            "required": 4,
+            "status": "modeled_fit"
+          }
+        ],
+        "suggestions": {
+          "budgets": {
+            "page_size": 1000,
+            "max_concurrent_exports": 2
+          },
+          "capture": {
+            "page_size": 1000
+          },
+          "ingest": {
+            "batch_size": 1000
+          }
+        },
+        "next_steps": [
+          "Review and explicitly apply desired budgets to your configuration.",
+          "Measure indexed bytes/record and representative queries on the intended engine/host.",
+          "Repeat at increasing real row counts; record correctness, latency, memory, disk and failure recovery."
+        ],
+        "warnings": [
+          "Sizing assumptions are estimates, not measured dataset sizes or throughput.",
+          "Modeled fit does not validate Elasticsearch/Kibana, latency, concurrency, coverage or production readiness.",
+          "Memory is a workflow floor; query cardinality, shards, JVM heap and filesystem cache require real measurements.",
+          "Storage models all capture/staging/normalized/index copies coexisting on the probed filesystem; backups/LLM/assets are additional.",
+          "No rows are sampled or removed; configured analytical/export limits remain unchanged.",
+          "Replica assumption requires at least 2 suitable Elasticsearch data nodes; combined disk is not per-node sizing."
+        ],
+        "inventory_warnings": [
+          "Hypothetical workstation; node count, engine installation and actual query performance remain unverified."
+        ]
+      }
+    },
+    {
+      "host": "32-gib-workstation",
+      "profile": "scale-lab",
+      "target_rows": 1000000000,
+      "plan": {
+        "schema_version": 1,
+        "evidence_kind": "modeled_capacity",
+        "profile": "scale-lab",
+        "target_rows": 1000000000,
+        "backend": "elasticsearch",
+        "status": "insufficient",
+        "ready_for_production": false,
+        "assumptions": {
+          "raw_bytes_per_record": 1200,
+          "staging_bytes_per_record": 2000,
+          "normalized_bytes_per_record": 900,
+          "index_bytes_per_record": 1600,
+          "fixture_memory_bytes_per_record": 4096,
+          "raw_copies": 1,
+          "normalized_copies": 1,
+          "replicas": 1,
+          "merge_overhead_fraction": 0.5,
+          "free_disk_fraction": 0.25,
+          "fixed_disk_bytes": 5368709120
+        },
+        "storage": {
+          "raw_bytes": 1200000000000,
+          "staging_bytes": 2000000000000,
+          "normalized_bytes": 900000000000,
+          "index_including_replicas_bytes": 3200000000000,
+          "merge_extra_bytes": 1600000000000,
+          "fixed_bytes": 5368709120,
+          "peak_before_headroom_bytes": 8905368709120,
+          "required_free_bytes": 11873824945494
+        },
+        "memory": {
+          "workflow_floor_bytes": 34359738368,
+          "buffer_estimate_bytes": 67200000,
+          "required_available_bytes": 34426938368
+        },
+        "checks": [
+          {
+            "resource": "available_memory_bytes",
+            "observed": 25769803776,
+            "required": 34426938368,
+            "status": "insufficient"
+          },
+          {
+            "resource": "free_disk_bytes",
+            "observed": 966367641600,
+            "required": 11873824945494,
+            "status": "insufficient"
+          },
+          {
+            "resource": "effective_cpu_count",
+            "observed": 8,
+            "required": 8,
+            "status": "modeled_fit"
+          }
+        ],
+        "suggestions": {
+          "budgets": {
+            "page_size": 1000,
+            "max_concurrent_exports": 4
+          },
+          "capture": {
+            "page_size": 1000
+          },
+          "ingest": {
+            "batch_size": 1000
+          }
+        },
+        "next_steps": [
+          "Review and explicitly apply desired budgets to your configuration.",
+          "Measure indexed bytes/record and representative queries on the intended engine/host.",
+          "Repeat at increasing real row counts; record correctness, latency, memory, disk and failure recovery."
+        ],
+        "warnings": [
+          "Sizing assumptions are estimates, not measured dataset sizes or throughput.",
+          "Modeled fit does not validate Elasticsearch/Kibana, latency, concurrency, coverage or production readiness.",
+          "Memory is a workflow floor; query cardinality, shards, JVM heap and filesystem cache require real measurements.",
+          "Storage models all capture/staging/normalized/index copies coexisting on the probed filesystem; backups/LLM/assets are additional.",
+          "No rows are sampled or removed; configured analytical/export limits remain unchanged.",
+          "Replica assumption requires at least 2 suitable Elasticsearch data nodes; combined disk is not per-node sizing.",
+          "Scale-lab is a planning scenario only; distributed topology and physical scaling remain unvalidated."
+        ],
+        "inventory_warnings": [
+          "Hypothetical workstation; node count, engine installation and actual query performance remain unverified."
+        ]
+      }
+    },
+    {
+      "host": "large-server-model",
+      "profile": "development",
+      "target_rows": 1000,
+      "plan": {
+        "schema_version": 1,
+        "evidence_kind": "modeled_capacity",
+        "profile": "development",
+        "target_rows": 1000,
+        "backend": "fixture",
+        "status": "modeled_fit",
+        "ready_for_production": false,
+        "assumptions": {
+          "raw_bytes_per_record": 1200,
+          "staging_bytes_per_record": 2000,
+          "normalized_bytes_per_record": 900,
+          "index_bytes_per_record": 1600,
+          "fixture_memory_bytes_per_record": 4096,
+          "raw_copies": 1,
+          "normalized_copies": 1,
+          "replicas": 0,
+          "merge_overhead_fraction": 0.5,
+          "free_disk_fraction": 0.25,
+          "fixed_disk_bytes": 1073741824
+        },
+        "storage": {
+          "raw_bytes": 1200000,
+          "staging_bytes": 2000000,
+          "normalized_bytes": 900000,
+          "index_including_replicas_bytes": 0,
+          "merge_extra_bytes": 0,
+          "fixed_bytes": 1073741824,
+          "peak_before_headroom_bytes": 1077841824,
+          "required_free_bytes": 1437122432
+        },
+        "memory": {
+          "workflow_floor_bytes": 268435456,
+          "buffer_estimate_bytes": 16800000,
+          "required_available_bytes": 289331456
+        },
+        "checks": [
+          {
+            "resource": "available_memory_bytes",
+            "observed": 206158430208,
+            "required": 289331456,
+            "status": "modeled_fit"
+          },
+          {
+            "resource": "free_disk_bytes",
+            "observed": 17592186044416,
+            "required": 1437122432,
+            "status": "modeled_fit"
+          },
+          {
+            "resource": "effective_cpu_count",
+            "observed": 64,
+            "required": 1,
+            "status": "modeled_fit"
+          }
+        ],
+        "suggestions": {
+          "budgets": {
+            "page_size": 1000,
+            "max_concurrent_exports": 1
+          },
+          "capture": {
+            "page_size": 1000
+          },
+          "ingest": {
+            "batch_size": 1000
+          }
+        },
+        "next_steps": [
+          "Review and explicitly apply desired budgets to your configuration.",
+          "Measure indexed bytes/record and representative queries on the intended engine/host.",
+          "Repeat at increasing real row counts; record correctness, latency, memory, disk and failure recovery."
+        ],
+        "warnings": [
+          "Sizing assumptions are estimates, not measured dataset sizes or throughput.",
+          "Modeled fit does not validate Elasticsearch/Kibana, latency, concurrency, coverage or production readiness.",
+          "Memory is a workflow floor; query cardinality, shards, JVM heap and filesystem cache require real measurements.",
+          "Storage models all capture/staging/normalized/index copies coexisting on the probed filesystem; backups/LLM/assets are additional.",
+          "No rows are sampled or removed; configured analytical/export limits remain unchanged."
+        ],
+        "inventory_warnings": [
+          "Hypothetical combined storage envelope; replica allocation still requires distinct nodes and per-node topology review. This is not a validated cluster."
+        ]
+      }
+    },
+    {
+      "host": "large-server-model",
+      "profile": "full-demo",
+      "target_rows": 2000000,
+      "plan": {
+        "schema_version": 1,
+        "evidence_kind": "modeled_capacity",
+        "profile": "full-demo",
+        "target_rows": 2000000,
+        "backend": "elasticsearch",
+        "status": "modeled_fit",
+        "ready_for_production": false,
+        "assumptions": {
+          "raw_bytes_per_record": 1200,
+          "staging_bytes_per_record": 2000,
+          "normalized_bytes_per_record": 900,
+          "index_bytes_per_record": 1600,
+          "fixture_memory_bytes_per_record": 4096,
+          "raw_copies": 1,
+          "normalized_copies": 1,
+          "replicas": 1,
+          "merge_overhead_fraction": 0.5,
+          "free_disk_fraction": 0.25,
+          "fixed_disk_bytes": 5368709120
+        },
+        "storage": {
+          "raw_bytes": 2400000000,
+          "staging_bytes": 4000000000,
+          "normalized_bytes": 1800000000,
+          "index_including_replicas_bytes": 6400000000,
+          "merge_extra_bytes": 3200000000,
+          "fixed_bytes": 5368709120,
+          "peak_before_headroom_bytes": 23168709120,
+          "required_free_bytes": 30891612160
+        },
+        "memory": {
+          "workflow_floor_bytes": 12884901888,
+          "buffer_estimate_bytes": 33600000,
+          "required_available_bytes": 12918501888
+        },
+        "checks": [
+          {
+            "resource": "available_memory_bytes",
+            "observed": 206158430208,
+            "required": 12918501888,
+            "status": "modeled_fit"
+          },
+          {
+            "resource": "free_disk_bytes",
+            "observed": 17592186044416,
+            "required": 30891612160,
+            "status": "modeled_fit"
+          },
+          {
+            "resource": "effective_cpu_count",
+            "observed": 64,
+            "required": 4,
+            "status": "modeled_fit"
+          }
+        ],
+        "suggestions": {
+          "budgets": {
+            "page_size": 1000,
+            "max_concurrent_exports": 2
+          },
+          "capture": {
+            "page_size": 1000
+          },
+          "ingest": {
+            "batch_size": 1000
+          }
+        },
+        "next_steps": [
+          "Review and explicitly apply desired budgets to your configuration.",
+          "Measure indexed bytes/record and representative queries on the intended engine/host.",
+          "Repeat at increasing real row counts; record correctness, latency, memory, disk and failure recovery."
+        ],
+        "warnings": [
+          "Sizing assumptions are estimates, not measured dataset sizes or throughput.",
+          "Modeled fit does not validate Elasticsearch/Kibana, latency, concurrency, coverage or production readiness.",
+          "Memory is a workflow floor; query cardinality, shards, JVM heap and filesystem cache require real measurements.",
+          "Storage models all capture/staging/normalized/index copies coexisting on the probed filesystem; backups/LLM/assets are additional.",
+          "No rows are sampled or removed; configured analytical/export limits remain unchanged.",
+          "Replica assumption requires at least 2 suitable Elasticsearch data nodes; combined disk is not per-node sizing."
+        ],
+        "inventory_warnings": [
+          "Hypothetical combined storage envelope; replica allocation still requires distinct nodes and per-node topology review. This is not a validated cluster."
+        ]
+      }
+    },
+    {
+      "host": "large-server-model",
+      "profile": "scale-lab",
+      "target_rows": 1000000000,
+      "plan": {
+        "schema_version": 1,
+        "evidence_kind": "modeled_capacity",
+        "profile": "scale-lab",
+        "target_rows": 1000000000,
+        "backend": "elasticsearch",
+        "status": "modeled_fit",
+        "ready_for_production": false,
+        "assumptions": {
+          "raw_bytes_per_record": 1200,
+          "staging_bytes_per_record": 2000,
+          "normalized_bytes_per_record": 900,
+          "index_bytes_per_record": 1600,
+          "fixture_memory_bytes_per_record": 4096,
+          "raw_copies": 1,
+          "normalized_copies": 1,
+          "replicas": 1,
+          "merge_overhead_fraction": 0.5,
+          "free_disk_fraction": 0.25,
+          "fixed_disk_bytes": 5368709120
+        },
+        "storage": {
+          "raw_bytes": 1200000000000,
+          "staging_bytes": 2000000000000,
+          "normalized_bytes": 900000000000,
+          "index_including_replicas_bytes": 3200000000000,
+          "merge_extra_bytes": 1600000000000,
+          "fixed_bytes": 5368709120,
+          "peak_before_headroom_bytes": 8905368709120,
+          "required_free_bytes": 11873824945494
+        },
+        "memory": {
+          "workflow_floor_bytes": 34359738368,
+          "buffer_estimate_bytes": 67200000,
+          "required_available_bytes": 34426938368
+        },
+        "checks": [
+          {
+            "resource": "available_memory_bytes",
+            "observed": 206158430208,
+            "required": 34426938368,
+            "status": "modeled_fit"
+          },
+          {
+            "resource": "free_disk_bytes",
+            "observed": 17592186044416,
+            "required": 11873824945494,
+            "status": "modeled_fit"
+          },
+          {
+            "resource": "effective_cpu_count",
+            "observed": 64,
+            "required": 8,
+            "status": "modeled_fit"
+          }
+        ],
+        "suggestions": {
+          "budgets": {
+            "page_size": 1000,
+            "max_concurrent_exports": 4
+          },
+          "capture": {
+            "page_size": 1000
+          },
+          "ingest": {
+            "batch_size": 1000
+          }
+        },
+        "next_steps": [
+          "Review and explicitly apply desired budgets to your configuration.",
+          "Measure indexed bytes/record and representative queries on the intended engine/host.",
+          "Repeat at increasing real row counts; record correctness, latency, memory, disk and failure recovery."
+        ],
+        "warnings": [
+          "Sizing assumptions are estimates, not measured dataset sizes or throughput.",
+          "Modeled fit does not validate Elasticsearch/Kibana, latency, concurrency, coverage or production readiness.",
+          "Memory is a workflow floor; query cardinality, shards, JVM heap and filesystem cache require real measurements.",
+          "Storage models all capture/staging/normalized/index copies coexisting on the probed filesystem; backups/LLM/assets are additional.",
+          "No rows are sampled or removed; configured analytical/export limits remain unchanged.",
+          "Replica assumption requires at least 2 suitable Elasticsearch data nodes; combined disk is not per-node sizing.",
+          "Scale-lab is a planning scenario only; distributed topology and physical scaling remain unvalidated."
+        ],
+        "inventory_warnings": [
+          "Hypothetical combined storage envelope; replica allocation still requires distinct nodes and per-node topology review. This is not a validated cluster."
+        ]
+      }
+    }
+  ],
+  "ready_for_production": false,
+  "limitations": [
+    "Authored hypothetical resource inventories; no live host or engine validation.",
+    "Only sizing arithmetic replayed; no records allocated, service launched or throughput measured.",
+    "A modeled fit does not establish per-node cluster capacity or million/billion-row correctness."
+  ]
+}

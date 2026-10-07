@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "real_development_catalog": true,
+  "human_gold": false,
+  "catalog": {
+    "catalog_id": "vopt-development-values",
+    "active_sequence": 1,
+    "profile": "values",
+    "integrity": "0b6023277987429fb11b57058bd6ffe34a5f17ceed1332f854957f134bcc390f",
+    "highest_sequence": 1,
+    "effective_policy": {
+      "revoked_assertion_ids": [],
+      "revoked_doc_ids": [],
+      "version": 1
+    },
+    "permitted_profile": "values",
+    "document_count": 5,
+    "assertion_count": 14,
+    "eligible_snapshots": [
+      1
+    ]
+  },
+  "query": "model HR-28 and output power >= 1.4 kW and output voltage >= 30 V and condition \"DC\"",
+  "models": [
+    "HR-28"
+  ],
+  "extraction_packages_absent": true,
+  "input_files": [
+    "released.json"
+  ],
+  "limits": "Catalog-only directory and dependency-free runtime; not an OS filesystem sandbox."
+}

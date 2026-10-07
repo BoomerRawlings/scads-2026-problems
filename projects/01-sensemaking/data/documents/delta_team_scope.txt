@@ -1,0 +1,14 @@
+SYNTHETIC FIXTURE — fictional organization, event, and claims.
+Source ID: memo-002
+Date: 2026-09-05
+Subject: Delta Field Team ownership and scope
+
+The Watershed Division contains the Delta Field Team. The Delta Field Team
+contains and operates Riverwatch Pilot. Delta is a short alias for this team.
+
+The Riverwatch deployment depends on sensor acceptance. The documented risk is
+specific to that project; this note provides no evidence that the team's other
+activities or the institute as a whole are delayed.
+
+Cedar Basin Arts Collective also uses Delta as an alias. It is a separate
+organization and must not be merged into this team's identity.

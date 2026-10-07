@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>VOPT · Manual search</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/guide.js" defer></script><script src="/app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to search</a>
+<header class="site-header"><a class="brand" href="/">VOPT <span>Manual search</span></a><span id="mode" class="connection">Offline</span></header>
+<main id="main">
+  <div id="error" role="alert" tabindex="-1" hidden></div>
+  <p id="loading" role="status">Loading catalog…</p>
+  <section id="discovery" hidden>
+    <div class="page-heading"><h1>Find a manual</h1><button id="saved-toggle" class="text-button" aria-expanded="false" aria-controls="saved-panel">Request list <span id="saved-count">0</span></button></div>
+    <section id="saved-panel" class="saved-panel" aria-label="Request list" hidden>
+      <div class="section-top"><h2>Request list</h2><button id="download" class="secondary" disabled>Export list</button></div>
+      <p class="muted">Save references here, then export a document request. Kept until this page closes.</p><div id="saved-items"></div>
+    </section>
+    <nav class="steps" aria-label="Search progress">
+      <button id="step-1" aria-current="step"><span>1</span>Equipment</button>
+      <button id="step-2" disabled><span>2</span>Specification</button>
+      <button id="step-3" disabled><span>3</span>Results</button>
+    </nav>
+    <section id="equipment-step" class="step-panel" aria-labelledby="equipment-heading">
+      <div class="step-intro"><p class="step-count">STEP 1 OF 3</p><h2 id="equipment-heading" tabindex="-1">What equipment?</h2><p class="muted">Choose a type, or continue to search by specification.</p></div>
+      <div id="categories" class="category-grid" role="group" aria-label="Equipment type"></div>
+      <div class="model-field"><label for="model">Model <span class="optional">optional</span></label><select id="model"><option value="">Any model</option></select></div>
+      <div class="step-actions"><span id="catalog-summary" class="muted"></span><button id="continue">Continue <span aria-hidden="true">→</span></button></div>
+      <details id="text-search" class="text-search"><summary>Search by text</summary>
+        <form id="search-form"><label for="query">Equipment or specification</label><div class="search-row"><input id="query" name="query" placeholder="e.g. generators with output power above 20 kW" maxlength="2000" required><button type="submit">Search</button></div></form>
+      </details>
+    </section>
+    <section id="specification-step" class="step-panel" aria-labelledby="specification-heading" hidden>
+      <div class="step-intro"><p class="step-count">STEP 2 OF 3</p><h2 id="specification-heading" tabindex="-1">Which specifications?</h2><p class="muted">Add requirements, or search all manuals for your equipment.</p></div>
+      <div id="selection-summary" class="selection-summary"></div>
+      <p id="coverage-note" class="notice" hidden>This catalog lists specifications without values.</p>
+      <form id="guided-form" novalidate>
+        <div id="requirements"></div>
+        <button id="add-requirement" class="text-button add-button" type="button">+ Add specification</button>
+        <details id="scope-filters" class="scope-filters" hidden><summary>Rating and operating conditions</summary><div id="scope-fields"></div><p class="muted small">Applies to every specification in this search.</p></details>
+        <p id="search-hint" class="muted" aria-live="polite"></p>
+        <div class="step-actions"><button id="back-equipment" class="text-button" type="button">← Back</button><button id="find-manuals" type="submit">Find manuals <span aria-hidden="true">→</span></button></div>
+      </form>
+    </section>
+    <section id="results-step" class="step-panel results-panel" aria-labelledby="result-heading" hidden>
+      <div class="results-heading"><div><p class="step-count">STEP 3 OF 3</p><h2 id="result-heading" tabindex="-1">Results</h2><p id="result-message" class="muted" role="status"></p></div><button id="edit-search" class="secondary">Edit search</button></div>
+      <div id="result-criteria" class="result-criteria"></div>
+      <div id="results"></div><section id="gaps" class="gaps" hidden><h3>Needs more detail</h3><p class="muted">These records lack enough consistent information to confirm a match.</p><div id="gap-items"></div></section>
+      <details id="plan-wrap" class="technical"><summary>Search details</summary><pre id="plan"></pre></details>
+      <div class="step-actions"><button id="new-search" class="text-button">← New search</button><button id="view-saved" class="secondary">View request list</button></div>
+    </section>
+    <p class="catalog-note">Searches the released catalog. Originals are requested separately.</p>
+  </section>
+  <section id="review" hidden>
+    <div class="page-heading"><h1>Review evidence</h1></div>
+    <div class="review-controls"><label>Document<select id="documents"></select></label><label>Reviewer name<input id="actor" placeholder="Your name" maxlength="100"></label></div><p id="review-summary" class="muted" aria-live="polite">Loading documents…</p>
+    <div class="review-grid"><aside><label>Show<select id="review-filter"><option value="pending">Pending / stale</option><option value="all">All candidates</option><option value="accepted">Accepted / corrected</option><option value="rejected">Rejected</option></select></label><div id="candidates"></div></aside>
+      <div><div id="candidate-detail"></div><div id="decision-form" hidden><label for="reason">Review note</label><input id="reason" maxlength="2000" placeholder="Reason for this decision"><details><summary>Correct fields</summary><textarea id="correction" rows="8" spellcheck="false" aria-label="JSON correction"></textarea></details><div class="decision-actions"><button id="accept">Accept</button><button id="correct" class="secondary">Save correction</button><button id="reject" class="danger">Reject</button></div></div></div>
+      <div class="source"><h2>Original page</h2><p id="page-label"></p><a id="page-full" target="_blank" rel="noopener" hidden>Open full size</a><img id="source-page" alt="Original scanned manual page with candidate evidence highlighted" hidden></div>
+    </div>
+  </section>
+</main>
+</body></html>

@@ -1,0 +1,24 @@
+{
+  "nodes": [
+    {"id": "cbri", "name": "Cedar Basin Research Institute", "kind": "organization", "aliases": ["CBRI"]},
+    {"id": "watershed", "name": "Watershed Division", "kind": "division", "aliases": ["Water Division"]},
+    {"id": "air_quality", "name": "Air Quality Division", "kind": "division", "aliases": ["Air Division"]},
+    {"id": "delta_team", "name": "Delta Field Team", "kind": "team", "aliases": ["Delta"]},
+    {"id": "aero_team", "name": "Aero Monitoring Team", "kind": "team", "aliases": ["Aero"]},
+    {"id": "riverwatch", "name": "Riverwatch Pilot", "kind": "project", "aliases": ["Riverwatch", "RWP"]},
+    {"id": "clearair", "name": "ClearAir Survey", "kind": "project", "aliases": ["ClearAir"]},
+    {"id": "silt_sensors", "name": "Silt Sensor Batch", "kind": "component", "aliases": ["SSB"]},
+    {"id": "northline", "name": "Northline Instruments", "kind": "supplier", "aliases": ["Northline"]},
+    {"id": "arts_collective", "name": "Cedar Basin Arts Collective", "kind": "unrelated_organization", "aliases": ["CBAC", "Delta"]}
+  ],
+  "edges": [
+    {"source": "cbri", "target": "watershed", "relation": "contains", "evidence_ids": ["tbl-001"]},
+    {"source": "cbri", "target": "air_quality", "relation": "contains", "evidence_ids": ["tbl-001"]},
+    {"source": "watershed", "target": "delta_team", "relation": "contains", "evidence_ids": ["tbl-002", "memo-002"]},
+    {"source": "air_quality", "target": "aero_team", "relation": "contains", "evidence_ids": ["memo-005"]},
+    {"source": "delta_team", "target": "riverwatch", "relation": "contains", "evidence_ids": ["memo-002"]},
+    {"source": "aero_team", "target": "clearair", "relation": "contains", "evidence_ids": ["memo-005"]},
+    {"source": "riverwatch", "target": "silt_sensors", "relation": "depends_on", "evidence_ids": ["memo-001", "memo-003"]},
+    {"source": "silt_sensors", "target": "northline", "relation": "supplied_by", "evidence_ids": ["memo-003"]}
+  ]
+}

@@ -1,0 +1,177 @@
+{
+  "candidate": {
+    "candidate_evidence_id": "crosswalk-40bbfa9a977b250d1063",
+    "claims": [
+      {
+        "evidence_id": "external-id-ror-01cwqze88-986ea8f4ee51e46c3a30",
+        "exclusion_reasons": [],
+        "ror": "ror:01cwqze88",
+        "source_assertion": {
+          "all": [
+            "Q390551",
+            "Q6973636"
+          ],
+          "preferred": null,
+          "type": "wikidata"
+        },
+        "source_entity": "ror:01cwqze88",
+        "source_path": "/external_ids/3",
+        "source_provenance": {
+          "capture_manifest_path": "sources/capture-manifest.json",
+          "entity_id": "01cwqze88",
+          "id": "ror-01cwqze88",
+          "path": "sources/raw/ror-01cwqze88.json",
+          "provider": "ror",
+          "request_attempts": 1,
+          "retrieved_at_utc": "2026-10-07T04:14:08Z",
+          "revision": {
+            "record_modified": "2026-08-25",
+            "schema_version": "2.1"
+          },
+          "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+          "size_bytes": 4516,
+          "url": "https://api.ror.org/v2/organizations/01cwqze88"
+        },
+        "wikidata": "wikidata:q390551"
+      },
+      {
+        "evidence_id": "statement-wikidata-Q390551-ef140d2c3b8b8285b760",
+        "exclusion_reasons": [],
+        "ror": "ror:01cwqze88",
+        "source_assertion": {
+          "id": "Q390551$459DC88E-0B6B-487F-BEB5-EE24AA6D1548",
+          "mainsnak": {
+            "datatype": "external-id",
+            "datavalue": {
+              "type": "string",
+              "value": "01cwqze88"
+            },
+            "hash": "b22a9c7942f9c3c58fa9a715a354472c9cb54307",
+            "property": "P6782",
+            "snaktype": "value"
+          },
+          "rank": "normal",
+          "type": "statement"
+        },
+        "source_entity": "wikidata:q390551",
+        "source_path": "/entities/Q390551/claims/P6782/0",
+        "source_provenance": {
+          "capture_manifest_path": "sources/capture-manifest.json",
+          "entity_id": "Q390551",
+          "id": "wikidata-Q390551",
+          "path": "sources/raw/wikidata-Q390551.json",
+          "provider": "wikidata",
+          "request_attempts": 1,
+          "retrieved_at_utc": "2026-10-07T04:14:12Z",
+          "revision": {
+            "lastrevid": 2543960225,
+            "modified": "2026-09-11T12:24:24Z"
+          },
+          "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+          "size_bytes": 261528,
+          "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+        },
+        "wikidata": "wikidata:q390551"
+      }
+    ],
+    "decision_inputs": [
+      {
+        "evidence_id": "identity-ror-01cwqze88-fb1111c368d22a7ecd85",
+        "role": "captured_endpoint",
+        "source_entity": "ror:01cwqze88",
+        "source_path": "",
+        "source_provenance": {
+          "capture_manifest_path": "sources/capture-manifest.json",
+          "entity_id": "01cwqze88",
+          "id": "ror-01cwqze88",
+          "path": "sources/raw/ror-01cwqze88.json",
+          "provider": "ror",
+          "request_attempts": 1,
+          "retrieved_at_utc": "2026-10-07T04:14:08Z",
+          "revision": {
+            "record_modified": "2026-08-25",
+            "schema_version": "2.1"
+          },
+          "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+          "size_bytes": 4516,
+          "url": "https://api.ror.org/v2/organizations/01cwqze88"
+        }
+      },
+      {
+        "evidence_id": "identity-wikidata-Q390551-3eea7e7f07988ca88891",
+        "role": "captured_endpoint",
+        "source_entity": "wikidata:q390551",
+        "source_path": "/entities/Q390551",
+        "source_provenance": {
+          "capture_manifest_path": "sources/capture-manifest.json",
+          "entity_id": "Q390551",
+          "id": "wikidata-Q390551",
+          "path": "sources/raw/wikidata-Q390551.json",
+          "provider": "wikidata",
+          "request_attempts": 1,
+          "retrieved_at_utc": "2026-10-07T04:14:12Z",
+          "revision": {
+            "lastrevid": 2543960225,
+            "modified": "2026-09-11T12:24:24Z"
+          },
+          "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+          "size_bytes": 261528,
+          "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+        }
+      },
+      {
+        "admissibility_reasons": [],
+        "evidence_id": "statement-wikidata-Q390551-63d668bac65739239fb2",
+        "role": "wikidata_type_check",
+        "source_entity": "wikidata:q390551",
+        "source_path": "/entities/Q390551/claims/P31/0",
+        "source_provenance": {
+          "capture_manifest_path": "sources/capture-manifest.json",
+          "entity_id": "Q390551",
+          "id": "wikidata-Q390551",
+          "path": "sources/raw/wikidata-Q390551.json",
+          "provider": "wikidata",
+          "request_attempts": 1,
+          "retrieved_at_utc": "2026-10-07T04:14:12Z",
+          "revision": {
+            "lastrevid": 2543960225,
+            "modified": "2026-09-11T12:24:24Z"
+          },
+          "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+          "size_bytes": 261528,
+          "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+        }
+      },
+      {
+        "admissibility_reasons": [],
+        "evidence_id": "statement-wikidata-Q390551-0106d28d8826ea952951",
+        "role": "wikidata_type_check",
+        "source_entity": "wikidata:q390551",
+        "source_path": "/entities/Q390551/claims/P31/1",
+        "source_provenance": {
+          "capture_manifest_path": "sources/capture-manifest.json",
+          "entity_id": "Q390551",
+          "id": "wikidata-Q390551",
+          "path": "sources/raw/wikidata-Q390551.json",
+          "provider": "wikidata",
+          "request_attempts": 1,
+          "retrieved_at_utc": "2026-10-07T04:14:12Z",
+          "revision": {
+            "lastrevid": 2543960225,
+            "modified": "2026-09-11T12:24:24Z"
+          },
+          "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+          "size_bytes": 261528,
+          "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+        }
+      }
+    ],
+    "merged": false,
+    "note": "Identifier assertions only; no equivalence edge or independence claim.",
+    "ror": "ror:01cwqze88",
+    "status": "reciprocal_candidate_requires_identity_review",
+    "wikidata": "wikidata:q390551"
+  },
+  "caution": "Source assertions, not independently verified facts. Edit/retrieval dates are not relationship validity dates. Projection records a captured assertion, not present-day truth. Crosswalks never merge identities; reciprocity does not establish independent corroboration. Linked media was not imported.",
+  "record_type": "crosswalk"
+}

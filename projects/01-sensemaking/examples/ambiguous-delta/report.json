@@ -1,0 +1,15 @@
+{
+  "status": "needs_clarification",
+  "title": "Ambiguous target identity",
+  "target": "Delta",
+  "summary": "“Delta” matches multiple entities; selecting one arbitrarily is not permitted.",
+  "findings": [],
+  "conflicts": [],
+  "media_observations": [],
+  "limitations": [
+    "No hierarchy, evidence, or media was inspected because target identity is unresolved."
+  ],
+  "follow_up": [
+    "Specify either canonical ID: delta_team (Delta Field Team) or arts_collective (Cedar Basin Arts Collective)."
+  ]
+}

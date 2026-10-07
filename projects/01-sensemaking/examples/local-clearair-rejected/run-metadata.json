@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0",
+  "engine": "local",
+  "temperature": 0,
+  "seed": 0,
+  "started_at": "2026-10-07T06:07:05.781941+00:00",
+  "max_steps": 24,
+  "question": "What do these sources establish about ClearAir readiness and coordination? Keep the report under 200 words.",
+  "requested_target": "clearair",
+  "steps": 11,
+  "report_rejections": 0,
+  "intent_rejections": 0,
+  "invalid_actions": 0,
+  "phase": "finished",
+  "decision_max_tokens": 512,
+  "report_max_tokens": 3072,
+  "synthesis_context_policy": "Exact question/target/dataset, every actual tool result, and safe prior report validation reasons; omit planner scaffolding and draft narratives",
+  "timeout_seconds": 1800.0,
+  "request_timeout_seconds": 900.0,
+  "max_response_bytes": 2097152,
+  "max_result_bytes": 8388608,
+  "max_context_bytes": 25165824,
+  "validation_errors": [],
+  "report_validation_errors": [],
+  "rejected_reports": [],
+  "scope_rejections": [],
+  "schema_policy": {
+    "version": "inspected-media-v5",
+    "finish": "Compact status/target intent checked before separate budgeted report synthesis; final guards remain required",
+    "read_ids": "Observed source IDs excluding successful read_evidence calls; full results retained",
+    "inspect_ids": "Observed media records excluding successful inspect_media calls",
+    "media_read_ids": "inspect_media available=true; images once, videos permit new successful-request offsets",
+    "video_offsets": "1-4 offsets per call; defaults from inspected suggestions; novelty enforced before MCP; failed reads consume none",
+    "citation_ids": "Successful evidence-tool retrieval only; graph proof IDs alone are not citable",
+    "media_locators": "Only actual audit evidence-ID/returned-PTS pairs; no observations when no pixels were inspected"
+  },
+  "implementation": {
+    "files": {
+      "local_agent.py": "77e5e9bf2c7cdbc414cf0a8bf291e0ed75212e2f3b754735407ecc33818d45aa",
+      "run_agent.py": "d68057a1dfd8dbd74d6cac4e31b24f5722d4e913ac62eae1bb760432cb3d6f36",
+      "mcp_server.py": "71ea9cb39041122ccdefff89d8f8de88cde58f71ed8fb36f1ce1c2a4ec0dafd1",
+      "media_tools.py": "9a4ef7606e38604c847b7d7ec2e56717226ed329435b7c0692ed08501779d0a5",
+      "sensemaking.py": "7835a62406122792cd2adec53c130ea33b0d24b33bfa7c9bb0fd6e23decd375c",
+      "report.schema.json": "77598873abd47b44a29e9a4ad2b82ca5ff22c9b296b7634699bfd07f40770182"
+    }
+  },
+  "status": "complete",
+  "elapsed_seconds": 335.75,
+  "model": "Qwen3-VL-2B-Instruct-Q4_K_M",
+  "model_identifier_source": "/v1/models",
+  "model_path_redacted": false,
+  "model_identifier_sha256": "1519f91a7fce582b730def01831bc2e989c4c24ba022a7c3085a0d137cec5048",
+  "backend": "llama.cpp-compatible loopback HTTP",
+  "endpoint": "http://127.0.0.1:18571/v1",
+  "dataset": {
+    "id": "cedar-basin-synthetic-v1",
+    "name": "Cedar Basin organizational sensemaking fixture",
+    "kind": "synthetic",
+    "version": "1.0",
+    "description": "Agent-authored demonstration with ten fictional entities, sixteen evidence records, dated disagreements, an unrelated-name decoy, and ambiguous aliases. Attached caption media derives from the same authored text and is not independent corroboration.",
+    "sha256": "7328e186691e7956ac440b1acd28391b6a2e022292b2c28c0104af6d0139cd67",
+    "files": {
+      "annotations/riverwatch_planning_board.txt": "638d0ef000fa5fd57a4f307e0b55e8253459d1b5173e4d0b5ecb4cba3c9ecefb",
+      "annotations/sensor_inspection_tags.txt": "e7517bf15ffa1d4536a96a25dd0e22cdf076472b28cf4b8df0d36e9db45def63",
+      "dataset.json": "3a92a79e4101574924147aa80e544a617ea481a6f8d4dd88161bcde8b08071d0",
+      "documents/aero_team_scope.txt": "12fa838097a7bdd0b3a996089563c02e49250bcf528541bfd4b9fa1adf37e3df",
+      "documents/delta_team_scope.txt": "57711bea89658bf501763d5d09556e6352377d5902e6a167ee104456963b9d95",
+      "documents/northline_shipping_notice.txt": "cb82086c19cc865331314e59803c2625d2f78e3ae899e70c0c6f84b0f0f9be18",
+      "documents/riverwatch_dependency_review.txt": "b9ad6f2af741870c74ccaa91ccf6f5b564d329c1f6bed6b7c1dc4a007a84697a",
+      "documents/sensor_supply_note.txt": "c7bb5aa249435692c819601a5ffc73ed42dd780de8b926021738f9b4bc6de41c",
+      "graph.json": "359832eed2285e43bee014f751f21292d2b0e938f4535b5d3310ea8a865097ba",
+      "manifest.json": "64b122aac0fb55085b9a3566022005e5daf186c94487c8ed9c8be91f1430bf7f",
+      "media/riverwatch-board.png": "48c53e82faa004de5e1f1784913208b78f335980d8e75fe8af05a570f9376678",
+      "media/riverwatch-review.mp4": "12570bc12c69eb2ef39e1097aeacbcac95b708b7bcba9c949f25f256239086d9",
+      "records.csv": "0d5f876ce13d3c986a6007d0537d4ca604d2f9b6c8ca89cf342f265a99253292",
+      "transcripts/clearair_coordination.txt": "bc3c83fbf786ed5d36f2748fdf93e96cb494ac2b7778c8b8dfa5eb93bd6b277c",
+      "transcripts/riverwatch_coordination.txt": "91b65d07e97cda4ff301f6415ba56651d77f1d966af4f4021a4f466853b893ae"
+    }
+  },
+  "prompt_sha256": "0ed88b9c02bcca95e6a87bbba9e7c1590ab890243d0e62067648b5db8eb80267",
+  "observed_evidence_ids": [
+    "tbl-004",
+    "video-tx-002"
+  ],
+  "retrieved_evidence_ids": [
+    "tbl-004",
+    "video-tx-002"
+  ],
+  "source_progress": {
+    "read_media": [],
+    "inspect_media": [
+      "video-tx-002"
+    ],
+    "read_evidence": [
+      "tbl-004",
+      "video-tx-002"
+    ],
+    "media_ids": [
+      "video-tx-002"
+    ],
+    "available_media": []
+  },
+  "media_progress": {},
+  "report_generations": 1
+}

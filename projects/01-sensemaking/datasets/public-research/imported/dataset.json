@@ -1,0 +1,8 @@
+{
+  "description": "Eight ROR records and four independently pinned Wikidata revisions. Separate source identities; conservative claim projection. Source assertions, not independently verified facts. Edit/retrieval dates are not relationship validity dates. Projection records a captured assertion, not present-day truth. Crosswalks never merge identities; reciprocity does not establish independent corroboration. Linked media was not imported.",
+  "id": "public-research-pilot",
+  "kind": "public_snapshot",
+  "license": "CC0 structured data; linked media excluded",
+  "name": "Captured ROR and Wikidata research identities",
+  "version": "1"
+}

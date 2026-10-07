@@ -1,0 +1,91 @@
+{
+  "status": "complete",
+  "title": "Cedar Basin Organizational Sensemaking Fixture Report",
+  "target": "riverwatch",
+  "summary": "Multiple synthetic records establish Riverwatch readiness as delayed due to pending Silt Sensor acceptance, contradicting an earlier registered 'ready' status from a prior date. Dependencies link Riverwatch deployment to Northline Instruments shipping schedules.",
+  "findings": [
+    {
+      "claim": "Riverwatch readiness status is recorded as delayed.",
+      "evidence_ids": [
+        "img-note-001",
+        "memo-001",
+        "video-tx-001"
+      ],
+      "qualification": "Synthetic annotations and text records state readiness is delayed pending sensor acceptance."
+    },
+    {
+      "claim": "Riverwatch Pilot depends on Silt Sensor Batch acceptance.",
+      "evidence_ids": [
+        "memo-001",
+        "memo-003"
+      ],
+      "qualification": "Dependency review explicitly links pilot deployment to sensor acceptance completion."
+    },
+    {
+      "claim": "Earlier readiness register indicates ready status.",
+      "evidence_ids": [
+        "tbl-003"
+      ],
+      "qualification": "Record from 2026-09-03 predates dependency review and has not been reconciled."
+    },
+    {
+      "claim": "Northline Instruments shipping schedule is revised.",
+      "evidence_ids": [
+        "memo-004",
+        "tbl-006"
+      ],
+      "qualification": "Expected arrival moved from 2026-09-14 to 2026-09-19; no physical delivery confirmed."
+    }
+  ],
+  "conflicts": [
+    {
+      "subject": "riverwatch",
+      "predicate": "readiness",
+      "description": "2026-09-03 readiness register claims 'ready' versus 2026-09-05 annotations claiming 'delayed'.",
+      "evidence_ids": [
+        "tbl-003",
+        "img-note-001",
+        "memo-001"
+      ]
+    },
+    {
+      "subject": "northline",
+      "predicate": "expected_arrival",
+      "description": "2026-09-02 shipping register claims 2026-09-14 versus 2026-09-05 revised notice claiming 2026-09-19.",
+      "evidence_ids": [
+        "tbl-006",
+        "memo-004"
+      ]
+    }
+  ],
+  "media_observations": [
+    {
+      "evidence_id": "video-tx-001",
+      "locator": "00:00",
+      "observation": "A caption-only video frame displays text on a light background with a dark green header. The header reads 'CBRI / RIVERWATCH'. The main text states: 'Coordination review / caption-only video' and 'Riverwatch readiness is delayed. Keep field release on hold until the Silt Sensor Batch passes acceptance.' A footer indicates '2026-09-05 / Video frame 00:00 / No audio' and 'SYNTHETIC FIXTURE / Caption board / No real event.' No other visual elements are present."
+    },
+    {
+      "evidence_id": "video-tx-001",
+      "locator": "00:15",
+      "observation": "A caption-only video frame shows text on a light background with a dark green header reading 'CBRI / RIVERWATCH'. The main text states: 'Coordination review / caption-only video' and 'The register still says ready. Show that dated entry next to the dependency review when preparing the status report.' A footer indicates '2026-09-05 / Video frame 00:15 / No audio' and 'SYNTHETIC FIXTURE / Caption board / No real event.' No other visual elements are present."
+    },
+    {
+      "evidence_id": "video-tx-001",
+      "locator": "00:29",
+      "observation": "A caption-only video frame displays text on a light background with a dark green header reading 'CBRI / RIVERWATCH'. The main text states: 'Coordination review / caption-only video' and 'Scope the concern to Riverwatch deployment. We have not established that other institute activities are delayed.' A footer indicates '2026-09-05 / Video frame 00:29 / No audio' and 'SYNTHETIC FIXTURE / Caption board / No real event.' No other visual elements are present."
+    },
+    {
+      "evidence_id": "img-note-001",
+      "locator": "image",
+      "observation": "A digital display showing a status board titled 'CBRI / RIVERWATCH'. The main text reads: 'Planning board: DELAYED' and 'Riverwatch - delayed. Field release blocked pending sensor acceptance.' At the bottom, metadata states: '2026-09-05 / Authored board fixture' and 'SYNTHETIC FIXTURE / Caption board / No real event'. The background is light gray with dark green header and footer bars. All text is legible and clearly presented as a synthetic fixture."
+    }
+  ],
+  "limitations": [
+    "Pixels returned in this run: \"img-note-001\": image; \"video-tx-001\": 00:00, 00:15, 00:29.",
+    "No audio was processed. Video coverage is sampled frames only, not a full viewing.",
+    "Observed media gaps: \"img-note-002\": no attachment declared; inspection reported unavailable; no pixels returned. These are record/inspection facts, not claims about media elsewhere.",
+    "Exploration is bounded to returned graph scope [\"northline\", \"riverwatch\", \"silt_sensors\"]; unfiltered inventories covered [\"northline\", \"riverwatch\", \"silt_sensors\"]. This does not establish full organizational coverage.",
+    "Dataset declares synthetic content. Shared-origin materials are not independent corroboration; this run provides no independent real-world verification."
+  ],
+  "follow_up": []
+}

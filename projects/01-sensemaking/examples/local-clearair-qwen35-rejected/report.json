@@ -1,0 +1,42 @@
+{
+  "status": "complete",
+  "title": "ClearAir Readiness and Coordination Analysis",
+  "target": "clearair",
+  "summary": "Sources confirm ClearAir readiness status as 'ready' with independent instrument batches. Coordination involves survey teams managing separate sensor acceptance. No Northline dependency exists. All evidence is dated 2026-09-05 and originates from a synthetic dataset with no independent verification.",
+  "findings": [
+    {
+      "claim": "ClearAir readiness status is ready",
+      "evidence_ids": [
+        "tbl-004",
+        "video-tx-002"
+      ],
+      "qualification": "Both sources assert readiness; video-tx-002 explicitly states it is synthetic and unverified."
+    },
+    {
+      "claim": "ClearAir instruments are a separate accepted batch with no Northline dependency",
+      "evidence_ids": [
+        "tbl-004",
+        "video-tx-002"
+      ],
+      "qualification": "Record confirms separation; transcript reiterates no dependency recorded."
+    },
+    {
+      "claim": "Coordination involves survey teams managing sensor acceptance",
+      "evidence_ids": [
+        "video-tx-002"
+      ],
+      "qualification": "Transcript describes coordination roles but notes lack of actual recording."
+    }
+  ],
+  "conflicts": [],
+  "media_observations": [],
+  "limitations": [
+    "All evidence derives from a synthetic dataset with no independent verification.",
+    "Video-tx-002 explicitly states no video or audio was processed.",
+    "No external corroboration exists for ClearAir readiness claims."
+  ],
+  "follow_up": [
+    "Future analysis should address fixture coverage for real-world ClearAir data.",
+    "Recommendation: Await qualified real data to validate synthetic readiness claims."
+  ]
+}

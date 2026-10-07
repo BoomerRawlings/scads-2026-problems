@@ -1,0 +1,13 @@
+AGENT-AUTHORED SYNTHETIC VIDEO TRANSCRIPT — NO VIDEO OR AUDIO WAS PROCESSED.
+Source ID: video-tx-002
+Date: 2026-09-05
+Fictional subject: ClearAir coordination meeting
+
+These invented role labels and timestamps exercise transcript handling. They
+do not represent actual people, a recording, speech recognition, or independent
+corroboration of other fixture sources.
+
+[00:00] Survey coordinator: ClearAir readiness is ready. Our separate instrument
+batch has passed acceptance.
+[00:12] Survey coordinator: The Riverwatch sensor issue is not evidence that
+ClearAir is delayed. No Northline dependency is recorded for this survey here.

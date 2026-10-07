@@ -1,0 +1,52 @@
+[
+  {
+    "name": "entity_search",
+    "args": {
+      "query": "Delta"
+    },
+    "status": "completed"
+  },
+  {
+    "name": "traverse_relationships",
+    "args": {
+      "target": "delta_team",
+      "max_hops": 3
+    },
+    "status": "completed"
+  },
+  {
+    "name": "search_evidence",
+    "args": {
+      "query": "Delta",
+      "entity_ids": [
+        "delta_team"
+      ]
+    },
+    "status": "completed"
+  },
+  {
+    "name": "read_evidence",
+    "args": {
+      "evidence_id": "memo-002"
+    },
+    "status": "completed"
+  },
+  {
+    "name": "inspect_media",
+    "args": {
+      "evidence_id": "memo-002"
+    },
+    "status": "completed"
+  },
+  {
+    "name": "read_media",
+    "args": {
+      "evidence_id": "memo-002",
+      "timestamps": [
+        0,
+        10
+      ]
+    },
+    "status": "failed"
+  }
+]

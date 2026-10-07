@@ -1,0 +1,197 @@
+[
+  {
+    "name": "entity_search",
+    "args": {
+      "query": "cbri"
+    },
+    "status": "completed"
+  },
+  {
+    "name": "traverse_relationships",
+    "args": {
+      "target": "cbri",
+      "max_hops": 3
+    },
+    "status": "completed"
+  },
+  {
+    "name": "search_evidence",
+    "args": {
+      "entity_ids": [
+        "cbri",
+        "watershed",
+        "air_quality",
+        "delta_team",
+        "aero_team",
+        "riverwatch",
+        "clearair"
+      ],
+      "query": ""
+    },
+    "status": "completed"
+  },
+  {
+    "name": "traverse_relationships",
+    "args": {
+      "target": "cbri",
+      "max_hops": 6
+    },
+    "status": "completed"
+  },
+  {
+    "name": "search_evidence",
+    "args": {
+      "entity_ids": [
+        "cbri",
+        "watershed",
+        "air_quality",
+        "delta_team",
+        "aero_team",
+        "riverwatch",
+        "clearair",
+        "silt_sensors",
+        "northline"
+      ],
+      "query": ""
+    },
+    "status": "completed"
+  },
+  {
+    "name": "read_evidence",
+    "args": {
+      "evidence_id": "tbl-001"
+    },
+    "status": "completed"
+  },
+  {
+    "name": "read_evidence",
+    "args": {
+      "evidence_id": "tbl-002"
+    },
+    "status": "completed"
+  },
+  {
+    "name": "read_evidence",
+    "args": {
+      "evidence_id": "memo-001"
+    },
+    "status": "completed"
+  },
+  {
+    "name": "read_evidence",
+    "args": {
+      "evidence_id": "memo-002"
+    },
+    "status": "completed"
+  },
+  {
+    "name": "read_evidence",
+    "args": {
+      "evidence_id": "memo-003"
+    },
+    "status": "completed"
+  },
+  {
+    "name": "read_evidence",
+    "args": {
+      "evidence_id": "memo-004"
+    },
+    "status": "completed"
+  },
+  {
+    "name": "read_evidence",
+    "args": {
+      "evidence_id": "tbl-003"
+    },
+    "status": "completed"
+  },
+  {
+    "name": "read_evidence",
+    "args": {
+      "evidence_id": "tbl-005"
+    },
+    "status": "completed"
+  },
+  {
+    "name": "read_evidence",
+    "args": {
+      "evidence_id": "memo-005"
+    },
+    "status": "completed"
+  },
+  {
+    "name": "read_evidence",
+    "args": {
+      "evidence_id": "tbl-004"
+    },
+    "status": "completed"
+  },
+  {
+    "name": "read_evidence",
+    "args": {
+      "evidence_id": "img-note-001"
+    },
+    "status": "completed"
+  },
+  {
+    "name": "read_evidence",
+    "args": {
+      "evidence_id": "video-tx-001"
+    },
+    "status": "completed"
+  },
+  {
+    "name": "read_evidence",
+    "args": {
+      "evidence_id": "tbl-006"
+    },
+    "status": "completed"
+  },
+  {
+    "name": "inspect_media",
+    "args": {
+      "evidence_id": "video-tx-001"
+    },
+    "status": "completed"
+  },
+  {
+    "name": "inspect_media",
+    "args": {
+      "evidence_id": "img-note-002"
+    },
+    "status": "completed"
+  },
+  {
+    "name": "inspect_media",
+    "args": {
+      "evidence_id": "img-note-001"
+    },
+    "status": "completed"
+  },
+  {
+    "name": "inspect_media",
+    "args": {
+      "evidence_id": "video-tx-002"
+    },
+    "status": "completed"
+  },
+  {
+    "name": "read_media",
+    "args": {
+      "evidence_id": "img-note-001"
+    },
+    "status": "completed"
+  },
+  {
+    "name": "read_media",
+    "args": {
+      "evidence_id": "video-tx-001",
+      "timestamps": [
+        0,
+        14,
+        27
+      ]
+    },
+    "status": "completed"
+  }
+]

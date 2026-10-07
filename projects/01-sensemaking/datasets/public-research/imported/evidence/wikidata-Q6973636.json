@@ -1,0 +1,122 @@
+{
+  "caution": "Source assertions, not independently verified facts. Edit/retrieval dates are not relationship validity dates. Projection records a captured assertion, not present-day truth. Crosswalks never merge identities; reciprocity does not establish independent corroboration. Linked media was not imported.",
+  "crosswalk_candidates": [
+    {
+      "claims": [
+        {
+          "evidence_id": "claims-ror-01cwqze88",
+          "exclusion_reasons": [],
+          "ror": "ror:01cwqze88",
+          "source_assertion": {
+            "all": [
+              "Q390551",
+              "Q6973636"
+            ],
+            "preferred": null,
+            "type": "wikidata"
+          },
+          "source_entity": "ror:01cwqze88",
+          "source_path": "/external_ids/3",
+          "wikidata": "wikidata:q6973636"
+        }
+      ],
+      "merged": false,
+      "note": "Identifier assertions only; no equivalence edge or independence claim.",
+      "ror": "ror:01cwqze88",
+      "status": "rejected_list_article_type",
+      "wikidata": "wikidata:q6973636"
+    }
+  ],
+  "literal_source_extract": {
+    "claims": {
+      "P31": [
+        {
+          "id": "Q6973636$7EA39D56-D8FD-4C40-91B9-B830FF30231E",
+          "mainsnak": {
+            "datatype": "wikibase-item",
+            "datavalue": {
+              "type": "wikibase-entityid",
+              "value": {
+                "entity-type": "item",
+                "id": "Q13406463",
+                "numeric-id": 13406463
+              }
+            },
+            "hash": "5ff6e63e2f39587f9d461b31cfc42484ea0330d1",
+            "property": "P31",
+            "snaktype": "value"
+          },
+          "rank": "normal",
+          "references": [
+            {
+              "hash": "fa278ebfc458360e5aed63d5058cca83c46134f1",
+              "snaks": {
+                "P143": [
+                  {
+                    "datatype": "wikibase-item",
+                    "datavalue": {
+                      "type": "wikibase-entityid",
+                      "value": {
+                        "entity-type": "item",
+                        "id": "Q328",
+                        "numeric-id": 328
+                      }
+                    },
+                    "hash": "e4f6d9441d0600513c4533c672b5ab472dc73694",
+                    "property": "P143",
+                    "snaktype": "value"
+                  }
+                ]
+              },
+              "snaks-order": [
+                "P143"
+              ]
+            }
+          ],
+          "type": "statement"
+        }
+      ]
+    },
+    "id": "Q6973636",
+    "labels": {
+      "en": {
+        "language": "en",
+        "value": "list of institutes and centers of the National Institutes of Health"
+      }
+    },
+    "lastrevid": 2216204992,
+    "modified": "2024-07-30T09:50:14Z"
+  },
+  "projection_decisions": [
+    {
+      "evidence_id": "claims-wikidata-Q6973636",
+      "exclusion_reasons": [
+        "predicate_not_projected_to_contains"
+      ],
+      "indexed": true,
+      "predicate": "P31",
+      "raw_source_path": "sources/raw/wikidata-Q6973636.json",
+      "source_entity": "wikidata:q6973636",
+      "source_path": "/entities/Q6973636/claims/P31/0",
+      "statement_guid": "Q6973636$7EA39D56-D8FD-4C40-91B9-B830FF30231E",
+      "target": "wikidata:q13406463"
+    }
+  ],
+  "source_provenance": {
+    "capture_manifest_path": "sources/capture-manifest.json",
+    "entity_id": "Q6973636",
+    "id": "wikidata-Q6973636",
+    "path": "sources/raw/wikidata-Q6973636.json",
+    "provider": "wikidata",
+    "request_attempts": 1,
+    "retrieved_at_utc": "2026-10-07T04:14:14Z",
+    "revision": {
+      "lastrevid": 2216204992,
+      "modified": "2024-07-30T09:50:14Z"
+    },
+    "sha256": "d24bc337fd25e3b27ddc51603453a582b155f17ba2faee28509989bb59e08473",
+    "size_bytes": 11672,
+    "url": "https://www.wikidata.org/wiki/Special:EntityData/Q6973636.json?revision=2216204992"
+  },
+  "unindexed_statement_count": 4
+}

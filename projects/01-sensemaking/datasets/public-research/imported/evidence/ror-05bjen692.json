@@ -1,0 +1,101 @@
+{
+  "caution": "Source assertions, not independently verified facts. Edit/retrieval dates are not relationship validity dates. Projection records a captured assertion, not present-day truth. Crosswalks never merge identities; reciprocity does not establish independent corroboration. Linked media was not imported.",
+  "literal_source_extract": {
+    "admin": {
+      "created": {
+        "date": "2018-11-14",
+        "schema_version": "1.0"
+      },
+      "last_modified": {
+        "date": "2026-07-20",
+        "schema_version": "2.1"
+      }
+    },
+    "established": null,
+    "external_ids": [
+      {
+        "all": [
+          "100031022"
+        ],
+        "preferred": "100031022",
+        "type": "fundref"
+      },
+      {
+        "all": [
+          "grid.417768.b"
+        ],
+        "preferred": "grid.417768.b",
+        "type": "grid"
+      },
+      {
+        "all": [
+          "0000 0004 0483 9129"
+        ],
+        "preferred": null,
+        "type": "isni"
+      }
+    ],
+    "id": "https://ror.org/05bjen692",
+    "names": [
+      {
+        "lang": null,
+        "types": [
+          "acronym"
+        ],
+        "value": "CCR"
+      },
+      {
+        "lang": "en",
+        "types": [
+          "ror_display",
+          "label"
+        ],
+        "value": "Center for Cancer Research"
+      }
+    ],
+    "relationships": [
+      {
+        "id": "https://ror.org/040gcmg81",
+        "label": "National Cancer Institute",
+        "type": "parent"
+      }
+    ],
+    "status": "active"
+  },
+  "projection_decisions": [
+    {
+      "evidence_id": "claims-ror-05bjen692",
+      "exclusion_reasons": [],
+      "predicate": "parent",
+      "projected_edge": [
+        "ror:040gcmg81",
+        "ror:05bjen692"
+      ],
+      "source_assertion": {
+        "id": "https://ror.org/040gcmg81",
+        "label": "National Cancer Institute",
+        "type": "parent"
+      },
+      "source_entity": "ror:05bjen692",
+      "source_path": "/relationships/0",
+      "target": "ror:040gcmg81"
+    }
+  ],
+  "source_provenance": {
+    "capture_manifest_path": "sources/capture-manifest.json",
+    "entity_id": "05bjen692",
+    "id": "ror-05bjen692",
+    "path": "sources/raw/ror-05bjen692.json",
+    "provider": "ror",
+    "request_attempts": 1,
+    "retrieved_at_utc": "2026-10-07T04:14:04Z",
+    "revision": {
+      "record_modified": "2026-07-20",
+      "schema_version": "2.1"
+    },
+    "sha256": "8e35b4d38a56b234db715a03ae9a8cc41f6676afd44d971251ec17cb5ef121f8",
+    "size_bytes": 1044,
+    "url": "https://api.ror.org/v2/organizations/05bjen692"
+  },
+  "unindexed_statement_count": 0
+}

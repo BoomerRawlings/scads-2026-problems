@@ -1,0 +1,362 @@
+{
+  "implementation_hashes": {
+    "scripts/evaluate_retrieval.py": "41b6cdd3581c5b2b6f961d24cf118a9ac56462ac695ef9351832233fbef19d06",
+    "vopt/ontology.py": "15452ecce0fa40636a666216ac2db5bf1553c0e7e67c6ff4c1d16dfb3fd62c62",
+    "vopt/query.py": "8a370bc9eab71e79ae517fd4772a17a14b3ca129e6c1ff438a3778d343ff27eb",
+    "vopt/search.py": "e03d2a1906fb04f99f806775066454004b22e47378b75ab138e748f0d5e76c40"
+  },
+  "label": "Synthetic local development scale measurements, not real-corpus coverage, throughput SLO, or production capacity",
+  "measurement": "One fresh subprocess per size; wall time and process peak working set. Shared host load uncontrolled; two runs/query/ranker; no confidence interval.",
+  "runs": [
+    {
+      "assertion_count": 3000,
+      "build_seconds": 0.987702,
+      "document_count": 1000,
+      "fixture": "Entirely synthetic, one model/document, three assertions/model, no source PDF processing",
+      "in_memory_sqlite_bytes": 2117632,
+      "model_scopes": 1000,
+      "process_peak_resident_bytes": 52596736,
+      "rankers": {
+        "lexical": {
+          "max_seconds": 0.089518,
+          "median_seconds": 0.070109,
+          "p95_seconds_nearest_rank": 0.089518,
+          "sample_count": 8,
+          "samples": [
+            {
+              "count_correct": true,
+              "expected_total_matches": 1,
+              "query": "model SYN-000500",
+              "repeat": 0,
+              "seconds": 0.052703,
+              "status": "ready",
+              "total_matches": 1
+            },
+            {
+              "count_correct": true,
+              "expected_total_matches": 500,
+              "query": "drills with input voltage >= 120 V and weight <= 5 kg",
+              "repeat": 0,
+              "seconds": 0.085299,
+              "status": "ready",
+              "total_matches": 500
+            },
+            {
+              "count_correct": true,
+              "expected_total_matches": 1000,
+              "query": "speed",
+              "repeat": 0,
+              "seconds": 0.068041,
+              "status": "ready",
+              "total_matches": 1000
+            },
+            {
+              "count_correct": true,
+              "expected_total_matches": 400,
+              "query": "weight below 3 kg or weight above 8 kg",
+              "repeat": 0,
+              "seconds": 0.083646,
+              "status": "ready",
+              "total_matches": 400
+            },
+            {
+              "count_correct": true,
+              "expected_total_matches": 1,
+              "query": "model SYN-000500",
+              "repeat": 1,
+              "seconds": 0.046628,
+              "status": "ready",
+              "total_matches": 1
+            },
+            {
+              "count_correct": true,
+              "expected_total_matches": 500,
+              "query": "drills with input voltage >= 120 V and weight <= 5 kg",
+              "repeat": 1,
+              "seconds": 0.089518,
+              "status": "ready",
+              "total_matches": 500
+            },
+            {
+              "count_correct": true,
+              "expected_total_matches": 1000,
+              "query": "speed",
+              "repeat": 1,
+              "seconds": 0.055482,
+              "status": "ready",
+              "total_matches": 1000
+            },
+            {
+              "count_correct": true,
+              "expected_total_matches": 400,
+              "query": "weight below 3 kg or weight above 8 kg",
+              "repeat": 1,
+              "seconds": 0.072177,
+              "status": "ready",
+              "total_matches": 400
+            }
+          ]
+        },
+        "semantic": {
+          "max_seconds": 0.097904,
+          "median_seconds": 0.09313750000000001,
+          "p95_seconds_nearest_rank": 0.097904,
+          "sample_count": 8,
+          "samples": [
+            {
+              "count_correct": true,
+              "expected_total_matches": 1,
+              "query": "model SYN-000500",
+              "repeat": 0,
+              "seconds": 0.070447,
+              "status": "ready",
+              "total_matches": 1
+            },
+            {
+              "count_correct": true,
+              "expected_total_matches": 500,
+              "query": "drills with input voltage >= 120 V and weight <= 5 kg",
+              "repeat": 0,
+              "seconds": 0.091534,
+              "status": "ready",
+              "total_matches": 500
+            },
+            {
+              "count_correct": true,
+              "expected_total_matches": 1000,
+              "query": "speed",
+              "repeat": 0,
+              "seconds": 0.076735,
+              "status": "ready",
+              "total_matches": 1000
+            },
+            {
+              "count_correct": true,
+              "expected_total_matches": 400,
+              "query": "weight below 3 kg or weight above 8 kg",
+              "repeat": 0,
+              "seconds": 0.094741,
+              "status": "ready",
+              "total_matches": 400
+            },
+            {
+              "count_correct": true,
+              "expected_total_matches": 1,
+              "query": "model SYN-000500",
+              "repeat": 1,
+              "seconds": 0.066846,
+              "status": "ready",
+              "total_matches": 1
+            },
+            {
+              "count_correct": true,
+              "expected_total_matches": 500,
+              "query": "drills with input voltage >= 120 V and weight <= 5 kg",
+              "repeat": 1,
+              "seconds": 0.095651,
+              "status": "ready",
+              "total_matches": 500
+            },
+            {
+              "count_correct": true,
+              "expected_total_matches": 1000,
+              "query": "speed",
+              "repeat": 1,
+              "seconds": 0.097904,
+              "status": "ready",
+              "total_matches": 1000
+            },
+            {
+              "count_correct": true,
+              "expected_total_matches": 400,
+              "query": "weight below 3 kg or weight above 8 kg",
+              "repeat": 1,
+              "seconds": 0.095913,
+              "status": "ready",
+              "total_matches": 400
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assertion_count": 30000,
+      "build_seconds": 12.604843,
+      "document_count": 10000,
+      "fixture": "Entirely synthetic, one model/document, three assertions/model, no source PDF processing",
+      "in_memory_sqlite_bytes": 20639744,
+      "model_scopes": 10000,
+      "process_peak_resident_bytes": 160399360,
+      "rankers": {
+        "lexical": {
+          "max_seconds": 0.905261,
+          "median_seconds": 0.7757054999999999,
+          "p95_seconds_nearest_rank": 0.905261,
+          "sample_count": 8,
+          "samples": [
+            {
+              "count_correct": true,
+              "expected_total_matches": 1,
+              "query": "model SYN-005000",
+              "repeat": 0,
+              "seconds": 0.660299,
+              "status": "ready",
+              "total_matches": 1
+            },
+            {
+              "count_correct": true,
+              "expected_total_matches": 5000,
+              "query": "drills with input voltage >= 120 V and weight <= 5 kg",
+              "repeat": 0,
+              "seconds": 0.767265,
+              "status": "ready",
+              "total_matches": 5000
+            },
+            {
+              "count_correct": true,
+              "expected_total_matches": 10000,
+              "query": "speed",
+              "repeat": 0,
+              "seconds": 0.784146,
+              "status": "ready",
+              "total_matches": 10000
+            },
+            {
+              "count_correct": true,
+              "expected_total_matches": 4000,
+              "query": "weight below 3 kg or weight above 8 kg",
+              "repeat": 0,
+              "seconds": 0.905261,
+              "status": "ready",
+              "total_matches": 4000
+            },
+            {
+              "count_correct": true,
+              "expected_total_matches": 1,
+              "query": "model SYN-005000",
+              "repeat": 1,
+              "seconds": 0.518036,
+              "status": "ready",
+              "total_matches": 1
+            },
+            {
+              "count_correct": true,
+              "expected_total_matches": 5000,
+              "query": "drills with input voltage >= 120 V and weight <= 5 kg",
+              "repeat": 1,
+              "seconds": 0.858348,
+              "status": "ready",
+              "total_matches": 5000
+            },
+            {
+              "count_correct": true,
+              "expected_total_matches": 10000,
+              "query": "speed",
+              "repeat": 1,
+              "seconds": 0.669573,
+              "status": "ready",
+              "total_matches": 10000
+            },
+            {
+              "count_correct": true,
+              "expected_total_matches": 4000,
+              "query": "weight below 3 kg or weight above 8 kg",
+              "repeat": 1,
+              "seconds": 0.864184,
+              "status": "ready",
+              "total_matches": 4000
+            }
+          ]
+        },
+        "semantic": {
+          "max_seconds": 1.080104,
+          "median_seconds": 0.9085920000000001,
+          "p95_seconds_nearest_rank": 1.080104,
+          "sample_count": 8,
+          "samples": [
+            {
+              "count_correct": true,
+              "expected_total_matches": 1,
+              "query": "model SYN-005000",
+              "repeat": 0,
+              "seconds": 0.699943,
+              "status": "ready",
+              "total_matches": 1
+            },
+            {
+              "count_correct": true,
+              "expected_total_matches": 5000,
+              "query": "drills with input voltage >= 120 V and weight <= 5 kg",
+              "repeat": 0,
+              "seconds": 1.070426,
+              "status": "ready",
+              "total_matches": 5000
+            },
+            {
+              "count_correct": true,
+              "expected_total_matches": 10000,
+              "query": "speed",
+              "repeat": 0,
+              "seconds": 0.872432,
+              "status": "ready",
+              "total_matches": 10000
+            },
+            {
+              "count_correct": true,
+              "expected_total_matches": 4000,
+              "query": "weight below 3 kg or weight above 8 kg",
+              "repeat": 0,
+              "seconds": 1.080104,
+              "status": "ready",
+              "total_matches": 4000
+            },
+            {
+              "count_correct": true,
+              "expected_total_matches": 1,
+              "query": "model SYN-005000",
+              "repeat": 1,
+              "seconds": 0.747015,
+              "status": "ready",
+              "total_matches": 1
+            },
+            {
+              "count_correct": true,
+              "expected_total_matches": 5000,
+              "query": "drills with input voltage >= 120 V and weight <= 5 kg",
+              "repeat": 1,
+              "seconds": 1.015303,
+              "status": "ready",
+              "total_matches": 5000
+            },
+            {
+              "count_correct": true,
+              "expected_total_matches": 10000,
+              "query": "speed",
+              "repeat": 1,
+              "seconds": 0.843169,
+              "status": "ready",
+              "total_matches": 10000
+            },
+            {
+              "count_correct": true,
+              "expected_total_matches": 4000,
+              "query": "weight below 3 kg or weight above 8 kg",
+              "repeat": 1,
+              "seconds": 0.944752,
+              "status": "ready",
+              "total_matches": 4000
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "system": {
+    "host_machine": "ARM64",
+    "interpreter_platform": "win-amd64",
+    "logical_cpus": 12,
+    "os": "Windows",
+    "python": "3.12.13",
+    "sqlite": "3.53.1"
+  }
+}

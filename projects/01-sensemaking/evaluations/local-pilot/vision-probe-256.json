@@ -1,0 +1,18 @@
+{
+  "purpose": "Development-only direct-pixel transcription probe; not an agent workflow or accuracy benchmark",
+  "model": {
+    "model": "Qwen3-VL-2B-Instruct-Q4_K_M",
+    "model_identifier_source": "/v1/models",
+    "model_path_redacted": false,
+    "model_identifier_sha256": "1519f91a7fce582b730def01831bc2e989c4c24ba022a7c3085a0d137cec5048",
+    "backend": "llama.cpp-compatible loopback HTTP"
+  },
+  "prompt": "Transcribe the visible text exactly. Omit anything you cannot read. Return plain text, at most 180 words.",
+  "image_min_tokens": 64,
+  "image_max_tokens": 256,
+  "source": "data/media/riverwatch-board.png",
+  "source_sha256": "48c53e82faa004de5e1f1784913208b78f335980d8e75fe8af05a570f9376678",
+  "elapsed_seconds": 11.609,
+  "text": "CBRI / RIVERWATCH\nPlanning board: DELAYED\nRiverwatch - delayed. Field release blocked pending sensor acceptance.\n\n2026-09-05 / Authored board fixture\nSYNTHETIC FIXTURE / Caption board / No real event",
+  "finish_reason": "stop"
+}

@@ -1,0 +1,12 @@
+SYNTHETIC FIXTURE — fictional organization, event, and claims.
+Source ID: memo-004
+Date: 2026-09-05
+Subject: Northline revised shipping notice
+
+Northline Instruments reports a revised expected arrival of 2026-09-19 for the
+Silt Sensor Batch. The 2026-09-02 shipping register reports 2026-09-14. Both are
+plans; neither source confirms physical delivery.
+
+The later notice may explain the older register's discrepancy. Retain the
+dates and source identifiers so a reviewer can reconcile the records. The
+source does not establish an institute-wide delay or a supplier fault rate.

@@ -1,0 +1,63 @@
+# Data, labels, and uncertainty
+
+Research checked 2026-10-06. Recommendations below are proposed study design, not measured results.
+
+**Recommendation:** bootstrap with Enron, make direct reporting the primary target, and freeze a separately documented unlabeled transfer experiment. Dataset access and label semantics are the first gates. Use synthetic organizations for unrestricted public demonstrations.
+
+## Evidence and dataset choices
+
+| Resource | Verified evidence | Project role / limitation |
+|---|---|---|
+| [CMU Enron release](https://www.cs.cmu.edu/~enron/) | About 150 mailboxes, mostly senior management; about 0.5M messages. Attachments absent; some messages redacted and addresses repaired. | Publicly downloadable communication corpus. Mailbox owners are not the full employee population. Freeze release and hashes; do not equate addresses, correspondents, employees, and custodians. |
+| [Agarwal et al., ACL 2012](https://aclanthology.org/P12-2032.pdf) | 1,518 employees, 2,155 immediate dominance relations; 13,724 relations after transitive closure. Linked release reports 279,844 messages and 93,421 people. Evaluation predicts direction **given that a hierarchy relation exists**. | Strongest starting label resource found. These counts describe its release, not CMU's current download. The reported 83.88% baseline is neither direct-manager accuracy nor unrestricted edge detection. Original charts supplied labels; censor those documents from inference-only benchmarks. |
+| [Columbia database documentation](https://www.cs.columbia.edu/~rambow/enron/Enron.html) | Distinguishes employees, units, positions, and relationship types; employees can have multiple position nodes. Documentation acknowledges identity-merging errors, including executive/assistant conflation. | Audit typed position edges before deriving person-to-person reporting labels. Preserve ambiguous identities. [Setup](https://www.cs.columbia.edu/~rambow/enron/Setup.html) documents BSON restoration, but actual archive retrieval was **not verified** in this research. |
+| [Prabhakaran et al., LREC 2012](https://www-cs.stanford.edu/~vinod/papers/2012_05_LREC_Annotations_for_Power_Relations_on_Email_Threads.pdf) | 122 conversations annotated for hierarchical power, situational power, influence, and communication control. | Auxiliary authority-language evaluation; these labels are not interchangeable with immediate reporting edges. |
+| [Avocado, LDC2015T03](https://catalog.ldc.upenn.edu/LDC2015T03) | 279 accounts, including shared/system accounts. [README §§3F, 6](https://catalog.ldc.upenn.edu/docs/LDC2015T03/README.txt): 938,035 email items; 614,461 after documented deduplication. Contact metadata includes `manager_name` in 91 records and department in roughly 700. | Preferred corporate transfer candidate if access exists. Those contact fields are clues, not independently validated current hierarchy truth; quarantine them for potential audit. No complete validated hierarchy benchmark was established here. |
+| [SNAP email-Eu-core](https://snap.stanford.edu/data/email-Eu-core.html) | 1,005 anonymized nodes, 25,571 directed communication links, 42 department labels. Listed downloads provide links and memberships. | Public fallback for structural transfer and team discovery. Department labels do not validate manager edges; lacks message bodies for NLP evaluation. [email-EuAll](https://snap.stanford.edu/data/email-EuAll.html), 265,214 nodes/420,045 edges, supports real communication-graph scale testing, not an equally large employee hierarchy. |
+| [W3C/TREC Enterprise](https://trec.nist.gov/pubs/trec15/papers/ENT06.OVERVIEW.pdf) | Public-web crawl includes mailing lists; 2006 tasks were discussion search and expert search. [Current W3C archives](https://www.w3.org/email/) contain public multi-organization discussion. | Optional textual out-of-domain stress test if Avocado unavailable. Participation, expertise, and standards leadership cannot be relabeled as corporate reporting. |
+
+Avocado's [organizational agreement](https://catalog.ldc.upenn.edu/license/Avocado%20Collection%20-%20Organization%20Agreement.pdf) requires controlled access and signed end-user agreements. Its [individual agreement §§1–4](https://catalog.ldc.upenn.edu/license/avocado-collection-individual-agreement.pdf) prohibits public reproduction of any collection excerpt and restricts Internet-accessible derived work to authenticated authorized organizational users. Therefore keep research data/results in the permitted environment; public demos use independently synthetic content. Do not assume third-party model uploads or public derived graphs are permitted. Applicable fees require login; no price verified.
+
+## Label contract and initial audit
+
+Primary label: `reports_to(employee, manager, valid_interval, reporting_type)`. Store direct reporting separately from ancestor authority, membership, project leadership, and influence. An apparent root can mean missing manager, external manager, genuine top executive, or unresolved identity. These states must remain distinct.
+
+Before modeling, inventory identities, relation types, dates, duplicates, disconnected components, cycles, and multiple managers. The published immediate-edge count exceeds a single tree's capacity for 1,518 people; this signals a schema/time audit, not proof of simultaneous matrix reporting. Do not force the source labels into one tree by silently deleting edges.
+
+Pilot a stratified employee/time audit spanning mailbox ownership, evidence volume, organizational unit, and ambiguous identity. Two reviewers independently label sampled cases; adjudicate disagreements. Record evidence, date validity, direct/indirect status, and `insufficient_evidence`; no forced binary answers. Use the pilot to estimate annotation effort and finalize sample size. Count unresolved cases and audit coverage alongside accuracy.
+
+**Unlabeled does not mean negative.** Treat missing chart edges as unknown. Negative labels require explicit contradictory evidence or an audited, complete local reporting scope. Alternative managers are negatives only when a single primary manager is established for that interval. Positive–unlabeled learning is an experiment, not an automatic fix: [Elkan and Noto](https://cseweb.ucsd.edu/~elkan/posonly.pdf) require randomly selected labeled positives for their probability correction; chart availability is plausibly biased. [Bekker and Davis](https://arxiv.org/abs/1808.08755) relax this under additional labeling assumptions. Document and stress-test those assumptions.
+
+## Evaluation that matches deployment
+
+1. **Freeze data and splits first.** Separate model fitting, model selection, probability calibration, and final test. If labels are scarce, use nested grouped cross-validation with out-of-fold predictions; retain an untouched final test.
+2. **Prevent content leakage.** Deduplicate mailbox copies; group thread/quote families across splits. Exclude gold-source charts and equivalent forwarded/quoted content. Fit text vocabularies and learned features on training data. Audit title/signature inclusion with explicit-feature and masked-feature runs. Pseudonymize identities for LLM experiments to reduce famous-Enron-person memorization; this cannot prove pretraining contamination absent.
+3. **Report separate generalization regimes.** Pair-held-out testing measures new relations among familiar people; employee/group-held-out testing measures unfamiliar people; time-held-out testing requires date-valid labels and past-only features. Do not call a static chart plus later messages a validated temporal benchmark. For transductive graph models, explicitly declare which unlabeled test communication is visible; never expose test reporting labels or their transitive closure.
+4. **Evaluate retrieval before ranking.** Measure true-manager candidate recall@K, including sparse/no-direct-email cases. End-to-end reporting recall cannot exceed candidate recall. Rank an explicit unresolved/outside-candidate option; an unknown outcome is not evidence that someone has no manager.
+5. **Score the complete pipeline.** On audited scopes report direct-edge precision/recall/F1; per-employee manager top-1 and MRR; abstention coverage; candidate misses; and ancestor consistency separately. Report core/non-core, sparse/dense, and temporal slices. AUROC on sampled easy nonedges is insufficient. Preserve deployment-like candidate prevalence for probability evaluation; record sampling weights when annotating stratified samples.
+6. **Show uncertainty in measurements.** Report employee/unit-cluster bootstrap intervals and variation across grouped splits, acknowledging that one organization's correlated graph cannot establish cross-company generality. Invalid-cycle counts and edit usability are engineering measures, not evidence of factual correctness.
+
+## Confidence with an explicit meaning
+
+Keep separate fields for:
+
+| Field | Meaning |
+|---|---|
+| Evidence provenance/quality | Origin, date, extraction/identity ambiguity, and supporting or conflicting documents. |
+| Model score | Ranking output; never automatically a probability. |
+| Calibrated correctness estimate | Empirical estimate for a specified relation, candidate population, pipeline version, time scope, and calibration cohort. |
+| Analyst verification | Who accepted/rejected/revised the assertion, evidence and timestamp; acceptance does not change model probability to 1. |
+
+[Guo et al.](https://proceedings.mlr.press/v70/guo17a.html) motivate temperature scaling as a simple calibration baseline; compare logistic scaling and, only with enough labels, isotonic calibration. An LLM's self-reported confidence is an uncalibrated feature.
+
+Calibrate **candidate edges** and audit **selected displayed edges** separately. Candidate pruning, maximum-parent selection, cycle repair, and analyst constraints alter which predictions reach the screen. Proposed sequence: freeze retrieval/scoring/decoder; run complete pipeline on held-out calibration groups; fit a correctness calibrator to resulting selected edges; then assess on untouched groups. Store raw and selected estimates separately. Post-decoder calibration describes selected-edge correctness, not a coherent probability distribution over entire org charts. Revalidate whenever retrieval, decoder, or constraints change; use grouped cross-fitting if tuning and calibration data would otherwise overlap.
+
+Report Brier score, log loss, reliability diagrams with counts, and calibration error across bins/slices. Missing gold labels cannot supply reliable negative outcomes for these metrics. Pair them with **risk–coverage curves**: among displayed predictions, how often are edges wrong as abstention increases? [Selective classification](https://papers.nips.cc/paper_files/paper/2017/hash/4a8423d5e91fda00bb7e46540e2b0cf1-Abstract.html) supplies the framing. Set thresholds using held-out data and a stated error tolerance; show sample uncertainty rather than promise a fixed error rate.
+
+Conformal manager sets are optional research: standard coverage relies on exchangeability and applies marginally, not automatically to each employee, selected edge, or shifted company. Candidate omissions and graph dependence need explicit treatment; see [Angelopoulos and Bates](https://arxiv.org/abs/2107.07511). Do not present conformal coverage as edge probability.
+
+## Unlabeled transfer protocol
+
+Freeze source model, calibration, prompts, candidates, and thresholds before target inspection. Report target coverage, abstention, conflicts, identity quality, evidence availability, drift, and perturbation stability. Stability and structural plausibility do **not** demonstrate accuracy. [Ovadia et al.](https://papers.neurips.cc/paper_files/paper/2019/hash/8558cb408c1d76621371888657d2eb1d-Abstract.html) show that source calibration need not survive dataset shift; label displayed target confidence as source-calibrated and target-unvalidated.
+
+Then, if authorized, create a blinded target audit sampled across score bands, unresolved cases, and evidence volume. Keep its test portion untouched. Report frozen zero-shot performance first; use a separate adaptation/calibration subset for a subsequent model and label that result distinctly. Separate random audit sampling from active-learning selections, recording inclusion probabilities. Avocado contact-manager fields can support adjudication only after identity/date verification and only if withheld from the evaluated model. Without target labels, make no empirical target-accuracy or target-calibration claim.

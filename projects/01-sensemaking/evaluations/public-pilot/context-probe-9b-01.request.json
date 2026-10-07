@@ -1,0 +1,44 @@
+{
+  "purpose": "Reconstructed neutral public probe request; verified byte-for-byte canonical digest against the original recorded admission. Not a raw HTTP capture or independently attested model answer.",
+  "request": {
+    "model": "Qwen3.5-9B-Q3_K_M",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Return the requested JSON object."
+      },
+      {
+        "role": "user",
+        "content": "Return an object with the boolean field ok set to true."
+      }
+    ],
+    "stream": false,
+    "temperature": 0,
+    "seed": 0,
+    "max_tokens": 32,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_object",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "ok": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "ok"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "canonical_request_sha256": "4d2bf5bcf4e58e2200d1c3adf2697b4884bd27fac05a4d35f8f47b8b26c36a08",
+  "expected_answer": {
+    "ok": true
+  },
+  "result_record": "context-probe-9b-01.json",
+  "result_record_sha256": "9d1d7d6a280ef099c8b48debd9c0fba7c58c7249c898eb473da08a1b3bb14c69"
+}

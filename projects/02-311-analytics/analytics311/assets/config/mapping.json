@@ -1,0 +1,31 @@
+{
+  "settings": {"number_of_shards": 1, "number_of_replicas": 0},
+  "mappings": {
+    "dynamic": "strict",
+    "_meta": {"schema_version": "1", "timezone_policy": "Naive source times are America/New_York; ambiguous and nonexistent timestamps remain unmapped with quality flags."},
+    "properties": {
+      "unique_key": {"type": "keyword"},
+      "complaint_type": {"type": "keyword"},
+      "descriptor": {"type": "keyword"},
+      "borough": {"type": "keyword"},
+      "agency": {"type": "keyword"},
+      "agency_name": {"type": "keyword"},
+      "status": {"type": "keyword"},
+      "incident_zip": {"type": "keyword"},
+      "community_board": {"type": "keyword"},
+      "council_district": {"type": "keyword"},
+      "police_precinct": {"type": "keyword"},
+      "nta2020": {"type": "keyword"},
+      "ntaname": {"type": "keyword"},
+      "nta_join_status": {"type": "keyword"},
+      "created_date": {"type": "date", "format": "strict_date_optional_time"},
+      "closed_date": {"type": "date", "format": "strict_date_optional_time"},
+      "source_created_date": {"type": "keyword", "index": false, "doc_values": false},
+      "source_closed_date": {"type": "keyword", "index": false, "doc_values": false},
+      "location": {"type": "geo_point", "ignore_malformed": false},
+      "is_closed": {"type": "boolean"},
+      "closure_hours": {"type": "double"},
+      "quality_flags": {"type": "keyword"}
+    }
+  }
+}

@@ -1,0 +1,290 @@
+{
+  "schema_version": 1,
+  "reviewer_kind": "agent",
+  "human_gold": false,
+  "evaluation_split": "development-source-inspected",
+  "scope": "All seven surviving M18 candidates after development-driven parser repairs; same previously inspected PDF.",
+  "rubric": "Same essential numeric/unit, model/component, configuration and operating-condition rubric as original audit. Not blinded or held out.",
+  "document_sha256": "f96cee3714b8186300762f4b608d20dd6eeea071eed37a4b6a1a19f20bdc7568",
+  "record_fingerprint": "827a83cd2a5c3d8850eba13f407331343ce1ef9f4fc6ccc3f63f23513718d67e",
+  "processing_version": "vopt-ingest-2:277774255b62a86ea95a+layout-rules-2:220e080a269d5e2c4495",
+  "extraction_version": "layout-rules-2:220e080a269d5e2c4495",
+  "document_id": "tm9-617-m18-1944",
+  "processing_status": "partial",
+  "original_audit": "data/corpus/m18-candidate-audit-v1.json",
+  "counts": {
+    "emitted": 7,
+    "supported": 7,
+    "needs_scope": 0,
+    "wrong_entity": 0
+  },
+  "scoped_candidate_precision": 1.0,
+  "important_limit": "7/7 is source-inspected agent development precision for emitted claims on this repaired manual only, not human gold or generalization. Ten former observations are no longer emitted; no recall estimate. Original 5/17 result remains preserved.",
+  "items": [
+    {
+      "assertion": {
+        "assertion_id": "a-fdc5bb255b99760f82db2e0a",
+        "attribute": "weight",
+        "conditions": [
+          "less fuel and water"
+        ],
+        "confidence": 0.9,
+        "doc_id": "tm9-617-m18-1944",
+        "evidence": {
+          "bbox": [
+            73.0,
+            236.53,
+            377.158,
+            250.17
+          ],
+          "page": 12,
+          "text": "Weight, less fuel and water ....... .................... 4,194 lb"
+        },
+        "method": "layout-rules-2",
+        "model": "M18",
+        "qualifier": "unspecified",
+        "raw_value": "4,194 lb",
+        "status": "candidate",
+        "unit": "kg",
+        "value": 1902.36639978,
+        "value_max": null,
+        "variant": null
+      },
+      "candidate_sha256": "2024aa5d297a8538359e57c67bc5b3903fd51ad27df5a5217f5946c8740578b5",
+      "numeric_value_and_unit_present_in_source": true,
+      "scoped_claim_verdict": "supported",
+      "failure_type": null,
+      "review_note": "Assembly weight 4194 lb, less fuel and water; canonical kg conversion is correct.",
+      "source_image": "data/corpus/evidence/TM9-617-page-12.png",
+      "source_image_sha256": "6845c08d19a80c4e371d9f2d97dfd4366528abd39a6540d0a93234b7997325d5"
+    },
+    {
+      "assertion": {
+        "assertion_id": "a-9feb0d417dfc4d2070694ea9",
+        "attribute": "output_power",
+        "conditions": [
+          "80 percent power factor",
+          "3-phase"
+        ],
+        "confidence": 0.9,
+        "doc_id": "tm9-617-m18-1944",
+        "evidence": {
+          "bbox": [
+            73.0,
+            280.83,
+            216.039,
+            294.27
+          ],
+          "page": 12,
+          "text": "Rated generator output . 30-kw (80 percent power factor), 3-phase, 60-cycle, 125-v or 30-kw (80 percent power factor), 3-phase, 60-cycle, 250-v"
+        },
+        "method": "layout-rules-2",
+        "model": "M18",
+        "qualifier": "rated",
+        "raw_value": "30-kw",
+        "status": "candidate",
+        "unit": "W",
+        "value": 30000,
+        "value_max": null,
+        "variant": "output configuration: 125 V"
+      },
+      "candidate_sha256": "72a8d464760bbe514749a26f91eb00290fb7148051388775eb8bd4b54585ce64",
+      "numeric_value_and_unit_present_in_source": true,
+      "scoped_claim_verdict": "supported",
+      "failure_type": null,
+      "review_note": "Source explicitly lists this voltage configuration with 30 kW, 60 Hz, 80 percent power factor and three-phase output. Alternative configuration now preserved.",
+      "source_image": "data/corpus/evidence/TM9-617-page-12.png",
+      "source_image_sha256": "6845c08d19a80c4e371d9f2d97dfd4366528abd39a6540d0a93234b7997325d5"
+    },
+    {
+      "assertion": {
+        "assertion_id": "a-69262c6dbb6584292b2f959d",
+        "attribute": "frequency",
+        "conditions": [
+          "80 percent power factor",
+          "3-phase"
+        ],
+        "confidence": 0.9,
+        "doc_id": "tm9-617-m18-1944",
+        "evidence": {
+          "bbox": [
+            73.0,
+            280.83,
+            231.191,
+            305.07
+          ],
+          "page": 12,
+          "text": "Rated generator output . 30-kw (80 percent power factor), 3-phase, 60-cycle, 125-v or 30-kw (80 percent power factor), 3-phase, 60-cycle, 250-v"
+        },
+        "method": "layout-rules-2",
+        "model": "M18",
+        "qualifier": "rated",
+        "raw_value": "60-cycle",
+        "status": "candidate",
+        "unit": "Hz",
+        "value": 60,
+        "value_max": null,
+        "variant": "output configuration: 125 V"
+      },
+      "candidate_sha256": "cb08b486d7b8ca9ed97afd08c42659320c9c5c483ec74b90e28efcc38539e2dc",
+      "numeric_value_and_unit_present_in_source": true,
+      "scoped_claim_verdict": "supported",
+      "failure_type": null,
+      "review_note": "Source explicitly lists this voltage configuration with 30 kW, 60 Hz, 80 percent power factor and three-phase output. Alternative configuration now preserved.",
+      "source_image": "data/corpus/evidence/TM9-617-page-12.png",
+      "source_image_sha256": "6845c08d19a80c4e371d9f2d97dfd4366528abd39a6540d0a93234b7997325d5"
+    },
+    {
+      "assertion": {
+        "assertion_id": "a-1bb1e7c0125d1988161ed83d",
+        "attribute": "output_voltage",
+        "conditions": [
+          "80 percent power factor",
+          "3-phase"
+        ],
+        "confidence": 0.9,
+        "doc_id": "tm9-617-m18-1944",
+        "evidence": {
+          "bbox": [
+            73.0,
+            280.83,
+            263.397,
+            305.07
+          ],
+          "page": 12,
+          "text": "Rated generator output . 30-kw (80 percent power factor), 3-phase, 60-cycle, 125-v or 30-kw (80 percent power factor), 3-phase, 60-cycle, 250-v"
+        },
+        "method": "layout-rules-2",
+        "model": "M18",
+        "qualifier": "rated",
+        "raw_value": "125-v",
+        "status": "candidate",
+        "unit": "V",
+        "value": 125,
+        "value_max": null,
+        "variant": "output configuration: 125 V"
+      },
+      "candidate_sha256": "67664e8ecdd0a16255cb64d8b7ca5111df6b50a1e3785346ec425e73ecfec86a",
+      "numeric_value_and_unit_present_in_source": true,
+      "scoped_claim_verdict": "supported",
+      "failure_type": null,
+      "review_note": "Source explicitly lists this voltage configuration with 30 kW, 60 Hz, 80 percent power factor and three-phase output. Alternative configuration now preserved.",
+      "source_image": "data/corpus/evidence/TM9-617-page-12.png",
+      "source_image_sha256": "6845c08d19a80c4e371d9f2d97dfd4366528abd39a6540d0a93234b7997325d5"
+    },
+    {
+      "assertion": {
+        "assertion_id": "a-1e3ca26f4f772cefec4c74a4",
+        "attribute": "output_power",
+        "conditions": [
+          "80 percent power factor",
+          "3-phase"
+        ],
+        "confidence": 0.9,
+        "doc_id": "tm9-617-m18-1944",
+        "evidence": {
+          "bbox": [
+            73.0,
+            280.83,
+            313.295,
+            304.97
+          ],
+          "page": 12,
+          "text": "Rated generator output . 30-kw (80 percent power factor), 3-phase, 60-cycle, 125-v or 30-kw (80 percent power factor), 3-phase, 60-cycle, 250-v"
+        },
+        "method": "layout-rules-2",
+        "model": "M18",
+        "qualifier": "rated",
+        "raw_value": "30-kw",
+        "status": "candidate",
+        "unit": "W",
+        "value": 30000,
+        "value_max": null,
+        "variant": "output configuration: 250 V"
+      },
+      "candidate_sha256": "d99dd62b11620ea95eeeebe1d23ffebbc6838604c608705f6c28cf7011892537",
+      "numeric_value_and_unit_present_in_source": true,
+      "scoped_claim_verdict": "supported",
+      "failure_type": null,
+      "review_note": "Source explicitly lists this voltage configuration with 30 kW, 60 Hz, 80 percent power factor and three-phase output. Alternative configuration now preserved.",
+      "source_image": "data/corpus/evidence/TM9-617-page-12.png",
+      "source_image_sha256": "6845c08d19a80c4e371d9f2d97dfd4366528abd39a6540d0a93234b7997325d5"
+    },
+    {
+      "assertion": {
+        "assertion_id": "a-ac93e88dcbfae807554a25a3",
+        "attribute": "frequency",
+        "conditions": [
+          "80 percent power factor",
+          "3-phase"
+        ],
+        "confidence": 0.9,
+        "doc_id": "tm9-617-m18-1944",
+        "evidence": {
+          "bbox": [
+            73.0,
+            280.83,
+            335.191,
+            316.37
+          ],
+          "page": 12,
+          "text": "Rated generator output . 30-kw (80 percent power factor), 3-phase, 60-cycle, 125-v or 30-kw (80 percent power factor), 3-phase, 60-cycle, 250-v"
+        },
+        "method": "layout-rules-2",
+        "model": "M18",
+        "qualifier": "rated",
+        "raw_value": "60-cycle",
+        "status": "candidate",
+        "unit": "Hz",
+        "value": 60,
+        "value_max": null,
+        "variant": "output configuration: 250 V"
+      },
+      "candidate_sha256": "3324144f77059c06c4b7d96e4eeb8ac379710a6b7897e65f9dc05f0ca60ad0f0",
+      "numeric_value_and_unit_present_in_source": true,
+      "scoped_claim_verdict": "supported",
+      "failure_type": null,
+      "review_note": "Source explicitly lists this voltage configuration with 30 kW, 60 Hz, 80 percent power factor and three-phase output. Alternative configuration now preserved.",
+      "source_image": "data/corpus/evidence/TM9-617-page-12.png",
+      "source_image_sha256": "6845c08d19a80c4e371d9f2d97dfd4366528abd39a6540d0a93234b7997325d5"
+    },
+    {
+      "assertion": {
+        "assertion_id": "a-96ad69414ebce78280ff8040",
+        "attribute": "output_voltage",
+        "conditions": [
+          "80 percent power factor",
+          "3-phase"
+        ],
+        "confidence": 0.9,
+        "doc_id": "tm9-617-m18-1944",
+        "evidence": {
+          "bbox": [
+            73.0,
+            280.83,
+            363.563,
+            316.37
+          ],
+          "page": 12,
+          "text": "Rated generator output . 30-kw (80 percent power factor), 3-phase, 60-cycle, 125-v or 30-kw (80 percent power factor), 3-phase, 60-cycle, 250-v"
+        },
+        "method": "layout-rules-2",
+        "model": "M18",
+        "qualifier": "rated",
+        "raw_value": "250-v",
+        "status": "candidate",
+        "unit": "V",
+        "value": 250,
+        "value_max": null,
+        "variant": "output configuration: 250 V"
+      },
+      "candidate_sha256": "2a41e50a6743cbe29d763e285d8532a8375876db189848c4113cf82db18024fb",
+      "numeric_value_and_unit_present_in_source": true,
+      "scoped_claim_verdict": "supported",
+      "failure_type": null,
+      "review_note": "Source explicitly lists this voltage configuration with 30 kW, 60 Hz, 80 percent power factor and three-phase output. Alternative configuration now preserved.",
+      "source_image": "data/corpus/evidence/TM9-617-page-12.png",
+      "source_image_sha256": "6845c08d19a80c4e371d9f2d97dfd4366528abd39a6540d0a93234b7997325d5"
+    }
+  ]
+}

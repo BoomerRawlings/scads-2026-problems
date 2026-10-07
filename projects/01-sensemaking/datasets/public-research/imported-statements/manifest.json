@@ -1,0 +1,4549 @@
+[
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "earliest contributing capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q42944"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "crosswalk-05325c9e1d75a5de8164",
+    "kind": "text",
+    "path": "evidence/crosswalk-05325c9e1d75a5de8164.json",
+    "provenance": [
+      {
+        "capture_manifest_path": "sources/capture-manifest.json",
+        "entity_id": "Q42944",
+        "id": "wikidata-Q42944",
+        "path": "sources/raw/wikidata-Q42944.json",
+        "provider": "wikidata",
+        "request_attempts": 1,
+        "retrieved_at_utc": "2026-10-07T04:14:13Z",
+        "revision": {
+          "lastrevid": 2541849285,
+          "modified": "2026-09-07T19:19:58Z"
+        },
+        "sha256": "54cf521d65388a2d127a3410217886a4aded68bffa2b29a6c25f9e1a743f4e96",
+        "size_bytes": 205654,
+        "url": "https://www.wikidata.org/wiki/Special:EntityData/Q42944.json?revision=2541849285"
+      }
+    ],
+    "title": "ror:01ggx4157 / wikidata:q42944 — identity candidate"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "earliest contributing capture date; not assertion validity or event time",
+    "entity_association": "Explicitly co-mentioned captured identities; relevance only, not identity equivalence or a graph edge.",
+    "entity_ids": [
+      "ror:040gcmg81",
+      "wikidata:q664846"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "crosswalk-0ae56f2abe9915b040ed",
+    "kind": "text",
+    "path": "evidence/crosswalk-0ae56f2abe9915b040ed.json",
+    "provenance": [
+      {
+        "capture_manifest_path": "sources/capture-manifest.json",
+        "entity_id": "040gcmg81",
+        "id": "ror-040gcmg81",
+        "path": "sources/raw/ror-040gcmg81.json",
+        "provider": "ror",
+        "request_attempts": 1,
+        "retrieved_at_utc": "2026-10-07T04:14:03Z",
+        "revision": {
+          "record_modified": "2024-12-11",
+          "schema_version": "2.1"
+        },
+        "sha256": "8073d4137c55295dc2a11bfb71fbac38783534754709e472735a206ea95fdf9d",
+        "size_bytes": 1927,
+        "url": "https://api.ror.org/v2/organizations/040gcmg81"
+      },
+      {
+        "capture_manifest_path": "sources/capture-manifest.json",
+        "entity_id": "Q664846",
+        "id": "wikidata-Q664846",
+        "path": "sources/raw/wikidata-Q664846.json",
+        "provider": "wikidata",
+        "request_attempts": 1,
+        "retrieved_at_utc": "2026-10-07T04:14:11Z",
+        "revision": {
+          "lastrevid": 2550610368,
+          "modified": "2026-09-28T20:00:41Z"
+        },
+        "sha256": "cf4e1e4bb29c44ea339df53734f4396ba551b7a7863383ac3f90a324fac53695",
+        "size_bytes": 102418,
+        "url": "https://www.wikidata.org/wiki/Special:EntityData/Q664846.json?revision=2550610368"
+      }
+    ],
+    "title": "ror:040gcmg81 / wikidata:q664846 — identity candidate"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "earliest contributing capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:02qyzaf42"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "crosswalk-1e6922c65185c731d007",
+    "kind": "text",
+    "path": "evidence/crosswalk-1e6922c65185c731d007.json",
+    "provenance": [
+      {
+        "capture_manifest_path": "sources/capture-manifest.json",
+        "entity_id": "02qyzaf42",
+        "id": "ror-02qyzaf42",
+        "path": "sources/raw/ror-02qyzaf42.json",
+        "provider": "ror",
+        "request_attempts": 1,
+        "retrieved_at_utc": "2026-10-07T04:14:10Z",
+        "revision": {
+          "record_modified": "2024-12-11",
+          "schema_version": "2.1"
+        },
+        "sha256": "17f1e24342747e318eef90f3083ff02d73bd5c88d8102378b9d2e19b815a8cf7",
+        "size_bytes": 1239,
+        "url": "https://api.ror.org/v2/organizations/02qyzaf42"
+      }
+    ],
+    "title": "ror:02qyzaf42 / wikidata:q25339822 — identity candidate"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "earliest contributing capture date; not assertion validity or event time",
+    "entity_association": "Explicitly co-mentioned captured identities; relevance only, not identity equivalence or a graph edge.",
+    "entity_ids": [
+      "ror:01cwqze88",
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "crosswalk-40bbfa9a977b250d1063",
+    "kind": "text",
+    "path": "evidence/crosswalk-40bbfa9a977b250d1063.json",
+    "provenance": [
+      {
+        "capture_manifest_path": "sources/capture-manifest.json",
+        "entity_id": "01cwqze88",
+        "id": "ror-01cwqze88",
+        "path": "sources/raw/ror-01cwqze88.json",
+        "provider": "ror",
+        "request_attempts": 1,
+        "retrieved_at_utc": "2026-10-07T04:14:08Z",
+        "revision": {
+          "record_modified": "2026-08-25",
+          "schema_version": "2.1"
+        },
+        "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+        "size_bytes": 4516,
+        "url": "https://api.ror.org/v2/organizations/01cwqze88"
+      },
+      {
+        "capture_manifest_path": "sources/capture-manifest.json",
+        "entity_id": "Q390551",
+        "id": "wikidata-Q390551",
+        "path": "sources/raw/wikidata-Q390551.json",
+        "provider": "wikidata",
+        "request_attempts": 1,
+        "retrieved_at_utc": "2026-10-07T04:14:12Z",
+        "revision": {
+          "lastrevid": 2543960225,
+          "modified": "2026-09-11T12:24:24Z"
+        },
+        "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+        "size_bytes": 261528,
+        "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+      }
+    ],
+    "title": "ror:01cwqze88 / wikidata:q390551 — identity candidate"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "earliest contributing capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:00w52vt71"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "crosswalk-5bcc6c06ae773adfa59f",
+    "kind": "text",
+    "path": "evidence/crosswalk-5bcc6c06ae773adfa59f.json",
+    "provenance": [
+      {
+        "capture_manifest_path": "sources/capture-manifest.json",
+        "entity_id": "00w52vt71",
+        "id": "ror-00w52vt71",
+        "path": "sources/raw/ror-00w52vt71.json",
+        "provider": "ror",
+        "request_attempts": 1,
+        "retrieved_at_utc": "2026-10-07T04:14:09Z",
+        "revision": {
+          "record_modified": "2024-12-11",
+          "schema_version": "2.1"
+        },
+        "sha256": "4f62d30c9110c91a2ecd4089e3c467f4fb10a9e3e1be09c0ad9e1f73d8023e29",
+        "size_bytes": 1486,
+        "url": "https://api.ror.org/v2/organizations/00w52vt71"
+      }
+    ],
+    "title": "ror:00w52vt71 / wikidata:q30264299 — identity candidate"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "earliest contributing capture date; not assertion validity or event time",
+    "entity_association": "Explicitly co-mentioned captured identities; relevance only, not identity equivalence or a graph edge.",
+    "entity_ids": [
+      "ror:01cwqze88",
+      "wikidata:q6973636"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "crosswalk-5ecae71edf049ba3551d",
+    "kind": "text",
+    "path": "evidence/crosswalk-5ecae71edf049ba3551d.json",
+    "provenance": [
+      {
+        "capture_manifest_path": "sources/capture-manifest.json",
+        "entity_id": "01cwqze88",
+        "id": "ror-01cwqze88",
+        "path": "sources/raw/ror-01cwqze88.json",
+        "provider": "ror",
+        "request_attempts": 1,
+        "retrieved_at_utc": "2026-10-07T04:14:08Z",
+        "revision": {
+          "record_modified": "2026-08-25",
+          "schema_version": "2.1"
+        },
+        "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+        "size_bytes": 4516,
+        "url": "https://api.ror.org/v2/organizations/01cwqze88"
+      },
+      {
+        "capture_manifest_path": "sources/capture-manifest.json",
+        "entity_id": "Q6973636",
+        "id": "wikidata-Q6973636",
+        "path": "sources/raw/wikidata-Q6973636.json",
+        "provider": "wikidata",
+        "request_attempts": 1,
+        "retrieved_at_utc": "2026-10-07T04:14:14Z",
+        "revision": {
+          "lastrevid": 2216204992,
+          "modified": "2024-07-30T09:50:14Z"
+        },
+        "sha256": "d24bc337fd25e3b27ddc51603453a582b155f17ba2faee28509989bb59e08473",
+        "size_bytes": 11672,
+        "url": "https://www.wikidata.org/wiki/Special:EntityData/Q6973636.json?revision=2216204992"
+      }
+    ],
+    "title": "ror:01cwqze88 / wikidata:q6973636 — identity candidate"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "earliest contributing capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:05n6zrm60"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "crosswalk-cb638e9365b354e5cea5",
+    "kind": "text",
+    "path": "evidence/crosswalk-cb638e9365b354e5cea5.json",
+    "provenance": [
+      {
+        "capture_manifest_path": "sources/capture-manifest.json",
+        "entity_id": "05n6zrm60",
+        "id": "ror-05n6zrm60",
+        "path": "sources/raw/ror-05n6zrm60.json",
+        "provider": "ror",
+        "request_attempts": 1,
+        "retrieved_at_utc": "2026-10-07T04:14:06Z",
+        "revision": {
+          "record_modified": "2024-12-11",
+          "schema_version": "2.1"
+        },
+        "sha256": "adef7a62ab6c618b7db53701d4604029297bfd72236fab641fe6a26fbb329e06",
+        "size_bytes": 1047,
+        "url": "https://api.ror.org/v2/organizations/05n6zrm60"
+      }
+    ],
+    "title": "ror:05n6zrm60 / wikidata:q7395195 — identity candidate"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "earliest contributing capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:03v6m3209"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "crosswalk-da204d8ddb80666698e5",
+    "kind": "text",
+    "path": "evidence/crosswalk-da204d8ddb80666698e5.json",
+    "provenance": [
+      {
+        "capture_manifest_path": "sources/capture-manifest.json",
+        "entity_id": "03v6m3209",
+        "id": "ror-03v6m3209",
+        "path": "sources/raw/ror-03v6m3209.json",
+        "provider": "ror",
+        "request_attempts": 1,
+        "retrieved_at_utc": "2026-10-07T04:14:05Z",
+        "revision": {
+          "record_modified": "2024-12-11",
+          "schema_version": "2.1"
+        },
+        "sha256": "9a9209e0ed894ce81439c17d9b9c071c8dab8db4f57cbb8838e77da858a7b591",
+        "size_bytes": 1392,
+        "url": "https://api.ror.org/v2/organizations/03v6m3209"
+      }
+    ],
+    "title": "ror:03v6m3209 / wikidata:q28405614 — identity candidate"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "earliest contributing capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:00vkwep27"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "crosswalk-f49a366cf6e18c1ee6ed",
+    "kind": "text",
+    "path": "evidence/crosswalk-f49a366cf6e18c1ee6ed.json",
+    "provenance": [
+      {
+        "capture_manifest_path": "sources/capture-manifest.json",
+        "entity_id": "00vkwep27",
+        "id": "ror-00vkwep27",
+        "path": "sources/raw/ror-00vkwep27.json",
+        "provider": "ror",
+        "request_attempts": 1,
+        "retrieved_at_utc": "2026-10-07T04:14:07Z",
+        "revision": {
+          "record_modified": "2024-12-11",
+          "schema_version": "2.1"
+        },
+        "sha256": "83d0cd788a65e22c22719fdc23e37894b3e94aaca0a41ea61351109365a8798d",
+        "size_bytes": 1565,
+        "url": "https://api.ror.org/v2/organizations/00vkwep27"
+      }
+    ],
+    "title": "ror:00vkwep27 / wikidata:q45134916 — identity candidate"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:00vkwep27"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "external-id-ror-00vkwep27-3f9313d1ecd20d492eb8",
+    "kind": "text",
+    "path": "evidence/external-id-ror-00vkwep27-3f9313d1ecd20d492eb8.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "00vkwep27",
+      "id": "ror-00vkwep27",
+      "path": "sources/raw/ror-00vkwep27.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:07Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "83d0cd788a65e22c22719fdc23e37894b3e94aaca0a41ea61351109365a8798d",
+      "size_bytes": 1565,
+      "url": "https://api.ror.org/v2/organizations/00vkwep27"
+    },
+    "title": "Division of Cancer Epidemiology and Genetics — fundref identifiers"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:00vkwep27"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "external-id-ror-00vkwep27-5a1c13b8ebd6bba1e363",
+    "kind": "text",
+    "path": "evidence/external-id-ror-00vkwep27-5a1c13b8ebd6bba1e363.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "00vkwep27",
+      "id": "ror-00vkwep27",
+      "path": "sources/raw/ror-00vkwep27.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:07Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "83d0cd788a65e22c22719fdc23e37894b3e94aaca0a41ea61351109365a8798d",
+      "size_bytes": 1565,
+      "url": "https://api.ror.org/v2/organizations/00vkwep27"
+    },
+    "title": "Division of Cancer Epidemiology and Genetics — wikidata identifiers"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:00w52vt71"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "external-id-ror-00w52vt71-957b98b03642cdb1197f",
+    "kind": "text",
+    "path": "evidence/external-id-ror-00w52vt71-957b98b03642cdb1197f.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "00w52vt71",
+      "id": "ror-00w52vt71",
+      "path": "sources/raw/ror-00w52vt71.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:09Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "4f62d30c9110c91a2ecd4089e3c467f4fb10a9e3e1be09c0ad9e1f73d8023e29",
+      "size_bytes": 1486,
+      "url": "https://api.ror.org/v2/organizations/00w52vt71"
+    },
+    "title": "MUSC Hollings Cancer Center — fundref identifiers"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:00w52vt71"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "external-id-ror-00w52vt71-9860f224bcb8e723699b",
+    "kind": "text",
+    "path": "evidence/external-id-ror-00w52vt71-9860f224bcb8e723699b.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "00w52vt71",
+      "id": "ror-00w52vt71",
+      "path": "sources/raw/ror-00w52vt71.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:09Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "4f62d30c9110c91a2ecd4089e3c467f4fb10a9e3e1be09c0ad9e1f73d8023e29",
+      "size_bytes": 1486,
+      "url": "https://api.ror.org/v2/organizations/00w52vt71"
+    },
+    "title": "MUSC Hollings Cancer Center — grid identifiers"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:00w52vt71"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "external-id-ror-00w52vt71-b3042ab2f678a2417e8c",
+    "kind": "text",
+    "path": "evidence/external-id-ror-00w52vt71-b3042ab2f678a2417e8c.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "00w52vt71",
+      "id": "ror-00w52vt71",
+      "path": "sources/raw/ror-00w52vt71.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:09Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "4f62d30c9110c91a2ecd4089e3c467f4fb10a9e3e1be09c0ad9e1f73d8023e29",
+      "size_bytes": 1486,
+      "url": "https://api.ror.org/v2/organizations/00w52vt71"
+    },
+    "title": "MUSC Hollings Cancer Center — wikidata identifiers"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:00w52vt71"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "external-id-ror-00w52vt71-ce7277faec7aca722eee",
+    "kind": "text",
+    "path": "evidence/external-id-ror-00w52vt71-ce7277faec7aca722eee.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "00w52vt71",
+      "id": "ror-00w52vt71",
+      "path": "sources/raw/ror-00w52vt71.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:09Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "4f62d30c9110c91a2ecd4089e3c467f4fb10a9e3e1be09c0ad9e1f73d8023e29",
+      "size_bytes": 1486,
+      "url": "https://api.ror.org/v2/organizations/00w52vt71"
+    },
+    "title": "MUSC Hollings Cancer Center — isni identifiers"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:01cwqze88"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "external-id-ror-01cwqze88-7ea30b7812e89cfbd83a",
+    "kind": "text",
+    "path": "evidence/external-id-ror-01cwqze88-7ea30b7812e89cfbd83a.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "01cwqze88",
+      "id": "ror-01cwqze88",
+      "path": "sources/raw/ror-01cwqze88.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:08Z",
+      "revision": {
+        "record_modified": "2026-08-25",
+        "schema_version": "2.1"
+      },
+      "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+      "size_bytes": 4516,
+      "url": "https://api.ror.org/v2/organizations/01cwqze88"
+    },
+    "title": "National Institutes of Health — fundref identifiers"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:01cwqze88"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "external-id-ror-01cwqze88-85de072cff74b582ac3f",
+    "kind": "text",
+    "path": "evidence/external-id-ror-01cwqze88-85de072cff74b582ac3f.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "01cwqze88",
+      "id": "ror-01cwqze88",
+      "path": "sources/raw/ror-01cwqze88.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:08Z",
+      "revision": {
+        "record_modified": "2026-08-25",
+        "schema_version": "2.1"
+      },
+      "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+      "size_bytes": 4516,
+      "url": "https://api.ror.org/v2/organizations/01cwqze88"
+    },
+    "title": "National Institutes of Health — grid identifiers"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_association": "Explicitly co-mentioned captured identities; relevance only, not identity equivalence or a graph edge.",
+    "entity_ids": [
+      "ror:01cwqze88",
+      "wikidata:q390551",
+      "wikidata:q6973636"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "external-id-ror-01cwqze88-986ea8f4ee51e46c3a30",
+    "kind": "text",
+    "path": "evidence/external-id-ror-01cwqze88-986ea8f4ee51e46c3a30.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "01cwqze88",
+      "id": "ror-01cwqze88",
+      "path": "sources/raw/ror-01cwqze88.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:08Z",
+      "revision": {
+        "record_modified": "2026-08-25",
+        "schema_version": "2.1"
+      },
+      "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+      "size_bytes": 4516,
+      "url": "https://api.ror.org/v2/organizations/01cwqze88"
+    },
+    "title": "National Institutes of Health — wikidata identifiers"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:01cwqze88"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "external-id-ror-01cwqze88-af511a03d993e224f19b",
+    "kind": "text",
+    "path": "evidence/external-id-ror-01cwqze88-af511a03d993e224f19b.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "01cwqze88",
+      "id": "ror-01cwqze88",
+      "path": "sources/raw/ror-01cwqze88.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:08Z",
+      "revision": {
+        "record_modified": "2026-08-25",
+        "schema_version": "2.1"
+      },
+      "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+      "size_bytes": 4516,
+      "url": "https://api.ror.org/v2/organizations/01cwqze88"
+    },
+    "title": "National Institutes of Health — isni identifiers"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:02qyzaf42"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "external-id-ror-02qyzaf42-de9da9ce90c2fc5a3268",
+    "kind": "text",
+    "path": "evidence/external-id-ror-02qyzaf42-de9da9ce90c2fc5a3268.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "02qyzaf42",
+      "id": "ror-02qyzaf42",
+      "path": "sources/raw/ror-02qyzaf42.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:10Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "17f1e24342747e318eef90f3083ff02d73bd5c88d8102378b9d2e19b815a8cf7",
+      "size_bytes": 1239,
+      "url": "https://api.ror.org/v2/organizations/02qyzaf42"
+    },
+    "title": "The Cancer Imaging Archive — wikidata identifiers"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:03v6m3209"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "external-id-ror-03v6m3209-3be9c96f64476b51850b",
+    "kind": "text",
+    "path": "evidence/external-id-ror-03v6m3209-3be9c96f64476b51850b.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "03v6m3209",
+      "id": "ror-03v6m3209",
+      "path": "sources/raw/ror-03v6m3209.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:05Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "9a9209e0ed894ce81439c17d9b9c071c8dab8db4f57cbb8838e77da858a7b591",
+      "size_bytes": 1392,
+      "url": "https://api.ror.org/v2/organizations/03v6m3209"
+    },
+    "title": "Frederick National Laboratory for Cancer Research — grid identifiers"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:03v6m3209"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "external-id-ror-03v6m3209-4a7f497305935bb367cc",
+    "kind": "text",
+    "path": "evidence/external-id-ror-03v6m3209-4a7f497305935bb367cc.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "03v6m3209",
+      "id": "ror-03v6m3209",
+      "path": "sources/raw/ror-03v6m3209.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:05Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "9a9209e0ed894ce81439c17d9b9c071c8dab8db4f57cbb8838e77da858a7b591",
+      "size_bytes": 1392,
+      "url": "https://api.ror.org/v2/organizations/03v6m3209"
+    },
+    "title": "Frederick National Laboratory for Cancer Research — isni identifiers"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:03v6m3209"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "external-id-ror-03v6m3209-b70fed0ca7f1c5400b23",
+    "kind": "text",
+    "path": "evidence/external-id-ror-03v6m3209-b70fed0ca7f1c5400b23.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "03v6m3209",
+      "id": "ror-03v6m3209",
+      "path": "sources/raw/ror-03v6m3209.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:05Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "9a9209e0ed894ce81439c17d9b9c071c8dab8db4f57cbb8838e77da858a7b591",
+      "size_bytes": 1392,
+      "url": "https://api.ror.org/v2/organizations/03v6m3209"
+    },
+    "title": "Frederick National Laboratory for Cancer Research — wikidata identifiers"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:03v6m3209"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "external-id-ror-03v6m3209-bc49f245e8d39ff99775",
+    "kind": "text",
+    "path": "evidence/external-id-ror-03v6m3209-bc49f245e8d39ff99775.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "03v6m3209",
+      "id": "ror-03v6m3209",
+      "path": "sources/raw/ror-03v6m3209.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:05Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "9a9209e0ed894ce81439c17d9b9c071c8dab8db4f57cbb8838e77da858a7b591",
+      "size_bytes": 1392,
+      "url": "https://api.ror.org/v2/organizations/03v6m3209"
+    },
+    "title": "Frederick National Laboratory for Cancer Research — fundref identifiers"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:040gcmg81"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "external-id-ror-040gcmg81-43da390245f0666593bc",
+    "kind": "text",
+    "path": "evidence/external-id-ror-040gcmg81-43da390245f0666593bc.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "040gcmg81",
+      "id": "ror-040gcmg81",
+      "path": "sources/raw/ror-040gcmg81.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:03Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "8073d4137c55295dc2a11bfb71fbac38783534754709e472735a206ea95fdf9d",
+      "size_bytes": 1927,
+      "url": "https://api.ror.org/v2/organizations/040gcmg81"
+    },
+    "title": "National Cancer Institute — isni identifiers"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:040gcmg81"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "external-id-ror-040gcmg81-c1a90bd982623c73efbb",
+    "kind": "text",
+    "path": "evidence/external-id-ror-040gcmg81-c1a90bd982623c73efbb.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "040gcmg81",
+      "id": "ror-040gcmg81",
+      "path": "sources/raw/ror-040gcmg81.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:03Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "8073d4137c55295dc2a11bfb71fbac38783534754709e472735a206ea95fdf9d",
+      "size_bytes": 1927,
+      "url": "https://api.ror.org/v2/organizations/040gcmg81"
+    },
+    "title": "National Cancer Institute — grid identifiers"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:040gcmg81"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "external-id-ror-040gcmg81-d68d45c239b736293af7",
+    "kind": "text",
+    "path": "evidence/external-id-ror-040gcmg81-d68d45c239b736293af7.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "040gcmg81",
+      "id": "ror-040gcmg81",
+      "path": "sources/raw/ror-040gcmg81.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:03Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "8073d4137c55295dc2a11bfb71fbac38783534754709e472735a206ea95fdf9d",
+      "size_bytes": 1927,
+      "url": "https://api.ror.org/v2/organizations/040gcmg81"
+    },
+    "title": "National Cancer Institute — fundref identifiers"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_association": "Explicitly co-mentioned captured identities; relevance only, not identity equivalence or a graph edge.",
+    "entity_ids": [
+      "ror:040gcmg81",
+      "wikidata:q664846"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "external-id-ror-040gcmg81-fa16bede6b326acd5c3e",
+    "kind": "text",
+    "path": "evidence/external-id-ror-040gcmg81-fa16bede6b326acd5c3e.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "040gcmg81",
+      "id": "ror-040gcmg81",
+      "path": "sources/raw/ror-040gcmg81.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:03Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "8073d4137c55295dc2a11bfb71fbac38783534754709e472735a206ea95fdf9d",
+      "size_bytes": 1927,
+      "url": "https://api.ror.org/v2/organizations/040gcmg81"
+    },
+    "title": "National Cancer Institute — wikidata identifiers"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:05bjen692"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "external-id-ror-05bjen692-1435202621bc5cd9ab63",
+    "kind": "text",
+    "path": "evidence/external-id-ror-05bjen692-1435202621bc5cd9ab63.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "05bjen692",
+      "id": "ror-05bjen692",
+      "path": "sources/raw/ror-05bjen692.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:04Z",
+      "revision": {
+        "record_modified": "2026-07-20",
+        "schema_version": "2.1"
+      },
+      "sha256": "8e35b4d38a56b234db715a03ae9a8cc41f6676afd44d971251ec17cb5ef121f8",
+      "size_bytes": 1044,
+      "url": "https://api.ror.org/v2/organizations/05bjen692"
+    },
+    "title": "Center for Cancer Research — isni identifiers"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:05bjen692"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "external-id-ror-05bjen692-5ccd65d31ba40d1e317e",
+    "kind": "text",
+    "path": "evidence/external-id-ror-05bjen692-5ccd65d31ba40d1e317e.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "05bjen692",
+      "id": "ror-05bjen692",
+      "path": "sources/raw/ror-05bjen692.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:04Z",
+      "revision": {
+        "record_modified": "2026-07-20",
+        "schema_version": "2.1"
+      },
+      "sha256": "8e35b4d38a56b234db715a03ae9a8cc41f6676afd44d971251ec17cb5ef121f8",
+      "size_bytes": 1044,
+      "url": "https://api.ror.org/v2/organizations/05bjen692"
+    },
+    "title": "Center for Cancer Research — grid identifiers"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:05bjen692"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "external-id-ror-05bjen692-f7fcf354d2e1c3cb25b7",
+    "kind": "text",
+    "path": "evidence/external-id-ror-05bjen692-f7fcf354d2e1c3cb25b7.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "05bjen692",
+      "id": "ror-05bjen692",
+      "path": "sources/raw/ror-05bjen692.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:04Z",
+      "revision": {
+        "record_modified": "2026-07-20",
+        "schema_version": "2.1"
+      },
+      "sha256": "8e35b4d38a56b234db715a03ae9a8cc41f6676afd44d971251ec17cb5ef121f8",
+      "size_bytes": 1044,
+      "url": "https://api.ror.org/v2/organizations/05bjen692"
+    },
+    "title": "Center for Cancer Research — fundref identifiers"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:05n6zrm60"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "external-id-ror-05n6zrm60-3c72bf8f6427d0afe999",
+    "kind": "text",
+    "path": "evidence/external-id-ror-05n6zrm60-3c72bf8f6427d0afe999.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "05n6zrm60",
+      "id": "ror-05n6zrm60",
+      "path": "sources/raw/ror-05n6zrm60.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:06Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "adef7a62ab6c618b7db53701d4604029297bfd72236fab641fe6a26fbb329e06",
+      "size_bytes": 1047,
+      "url": "https://api.ror.org/v2/organizations/05n6zrm60"
+    },
+    "title": "SWOG Cancer Research Network — wikidata identifiers"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:05n6zrm60"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "external-id-ror-05n6zrm60-6e5d7672e05fc56395b5",
+    "kind": "text",
+    "path": "evidence/external-id-ror-05n6zrm60-6e5d7672e05fc56395b5.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "05n6zrm60",
+      "id": "ror-05n6zrm60",
+      "path": "sources/raw/ror-05n6zrm60.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:06Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "adef7a62ab6c618b7db53701d4604029297bfd72236fab641fe6a26fbb329e06",
+      "size_bytes": 1047,
+      "url": "https://api.ror.org/v2/organizations/05n6zrm60"
+    },
+    "title": "SWOG Cancer Research Network — grid identifiers"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:05n6zrm60"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "external-id-ror-05n6zrm60-e9f124df2f54fa420042",
+    "kind": "text",
+    "path": "evidence/external-id-ror-05n6zrm60-e9f124df2f54fa420042.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "05n6zrm60",
+      "id": "ror-05n6zrm60",
+      "path": "sources/raw/ror-05n6zrm60.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:06Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "adef7a62ab6c618b7db53701d4604029297bfd72236fab641fe6a26fbb329e06",
+      "size_bytes": 1047,
+      "url": "https://api.ror.org/v2/organizations/05n6zrm60"
+    },
+    "title": "SWOG Cancer Research Network — isni identifiers"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:00vkwep27"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "identity-ror-00vkwep27-4ca6996bab5b52af2f32",
+    "kind": "text",
+    "path": "evidence/identity-ror-00vkwep27-4ca6996bab5b52af2f32.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "00vkwep27",
+      "id": "ror-00vkwep27",
+      "path": "sources/raw/ror-00vkwep27.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:07Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "83d0cd788a65e22c22719fdc23e37894b3e94aaca0a41ea61351109365a8798d",
+      "size_bytes": 1565,
+      "url": "https://api.ror.org/v2/organizations/00vkwep27"
+    },
+    "title": "Division of Cancer Epidemiology and Genetics — source identity"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:00w52vt71"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "identity-ror-00w52vt71-752bc43c3e9c04d6148b",
+    "kind": "text",
+    "path": "evidence/identity-ror-00w52vt71-752bc43c3e9c04d6148b.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "00w52vt71",
+      "id": "ror-00w52vt71",
+      "path": "sources/raw/ror-00w52vt71.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:09Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "4f62d30c9110c91a2ecd4089e3c467f4fb10a9e3e1be09c0ad9e1f73d8023e29",
+      "size_bytes": 1486,
+      "url": "https://api.ror.org/v2/organizations/00w52vt71"
+    },
+    "title": "MUSC Hollings Cancer Center — source identity"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:01cwqze88"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "identity-ror-01cwqze88-fb1111c368d22a7ecd85",
+    "kind": "text",
+    "path": "evidence/identity-ror-01cwqze88-fb1111c368d22a7ecd85.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "01cwqze88",
+      "id": "ror-01cwqze88",
+      "path": "sources/raw/ror-01cwqze88.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:08Z",
+      "revision": {
+        "record_modified": "2026-08-25",
+        "schema_version": "2.1"
+      },
+      "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+      "size_bytes": 4516,
+      "url": "https://api.ror.org/v2/organizations/01cwqze88"
+    },
+    "title": "National Institutes of Health — source identity"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:02qyzaf42"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "identity-ror-02qyzaf42-553c2ddb9cf0c2160098",
+    "kind": "text",
+    "path": "evidence/identity-ror-02qyzaf42-553c2ddb9cf0c2160098.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "02qyzaf42",
+      "id": "ror-02qyzaf42",
+      "path": "sources/raw/ror-02qyzaf42.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:10Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "17f1e24342747e318eef90f3083ff02d73bd5c88d8102378b9d2e19b815a8cf7",
+      "size_bytes": 1239,
+      "url": "https://api.ror.org/v2/organizations/02qyzaf42"
+    },
+    "title": "The Cancer Imaging Archive — source identity"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:03v6m3209"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "identity-ror-03v6m3209-48cb9d5a069fc86a3178",
+    "kind": "text",
+    "path": "evidence/identity-ror-03v6m3209-48cb9d5a069fc86a3178.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "03v6m3209",
+      "id": "ror-03v6m3209",
+      "path": "sources/raw/ror-03v6m3209.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:05Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "9a9209e0ed894ce81439c17d9b9c071c8dab8db4f57cbb8838e77da858a7b591",
+      "size_bytes": 1392,
+      "url": "https://api.ror.org/v2/organizations/03v6m3209"
+    },
+    "title": "Frederick National Laboratory for Cancer Research — source identity"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:040gcmg81"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "identity-ror-040gcmg81-fbb4309ce4a38eca71a4",
+    "kind": "text",
+    "path": "evidence/identity-ror-040gcmg81-fbb4309ce4a38eca71a4.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "040gcmg81",
+      "id": "ror-040gcmg81",
+      "path": "sources/raw/ror-040gcmg81.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:03Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "8073d4137c55295dc2a11bfb71fbac38783534754709e472735a206ea95fdf9d",
+      "size_bytes": 1927,
+      "url": "https://api.ror.org/v2/organizations/040gcmg81"
+    },
+    "title": "National Cancer Institute — source identity"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:05bjen692"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "identity-ror-05bjen692-94e19c2bb6d409dc0351",
+    "kind": "text",
+    "path": "evidence/identity-ror-05bjen692-94e19c2bb6d409dc0351.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "05bjen692",
+      "id": "ror-05bjen692",
+      "path": "sources/raw/ror-05bjen692.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:04Z",
+      "revision": {
+        "record_modified": "2026-07-20",
+        "schema_version": "2.1"
+      },
+      "sha256": "8e35b4d38a56b234db715a03ae9a8cc41f6676afd44d971251ec17cb5ef121f8",
+      "size_bytes": 1044,
+      "url": "https://api.ror.org/v2/organizations/05bjen692"
+    },
+    "title": "Center for Cancer Research — source identity"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:05n6zrm60"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "identity-ror-05n6zrm60-f1b83b849f289e439035",
+    "kind": "text",
+    "path": "evidence/identity-ror-05n6zrm60-f1b83b849f289e439035.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "05n6zrm60",
+      "id": "ror-05n6zrm60",
+      "path": "sources/raw/ror-05n6zrm60.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:06Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "adef7a62ab6c618b7db53701d4604029297bfd72236fab641fe6a26fbb329e06",
+      "size_bytes": 1047,
+      "url": "https://api.ror.org/v2/organizations/05n6zrm60"
+    },
+    "title": "SWOG Cancer Research Network — source identity"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "identity-wikidata-Q390551-3eea7e7f07988ca88891",
+    "kind": "text",
+    "path": "evidence/identity-wikidata-Q390551-3eea7e7f07988ca88891.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q390551",
+      "id": "wikidata-Q390551",
+      "path": "sources/raw/wikidata-Q390551.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    "title": "United States National Institutes of Health — source identity"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q42944"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "identity-wikidata-Q42944-d06bd1252d6f5e1cecb2",
+    "kind": "text",
+    "path": "evidence/identity-wikidata-Q42944-d06bd1252d6f5e1cecb2.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q42944",
+      "id": "wikidata-Q42944",
+      "path": "sources/raw/wikidata-Q42944.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:13Z",
+      "revision": {
+        "lastrevid": 2541849285,
+        "modified": "2026-09-07T19:19:58Z"
+      },
+      "sha256": "54cf521d65388a2d127a3410217886a4aded68bffa2b29a6c25f9e1a743f4e96",
+      "size_bytes": 205654,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q42944.json?revision=2541849285"
+    },
+    "title": "CERN — source identity"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q664846"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "identity-wikidata-Q664846-c3afc2ecc4704f936f6c",
+    "kind": "text",
+    "path": "evidence/identity-wikidata-Q664846-c3afc2ecc4704f936f6c.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q664846",
+      "id": "wikidata-Q664846",
+      "path": "sources/raw/wikidata-Q664846.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:11Z",
+      "revision": {
+        "lastrevid": 2550610368,
+        "modified": "2026-09-28T20:00:41Z"
+      },
+      "sha256": "cf4e1e4bb29c44ea339df53734f4396ba551b7a7863383ac3f90a324fac53695",
+      "size_bytes": 102418,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q664846.json?revision=2550610368"
+    },
+    "title": "National Cancer Institute — source identity"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q6973636"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "identity-wikidata-Q6973636-7f385e972e2f7964c7d2",
+    "kind": "text",
+    "path": "evidence/identity-wikidata-Q6973636-7f385e972e2f7964c7d2.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q6973636",
+      "id": "wikidata-Q6973636",
+      "path": "sources/raw/wikidata-Q6973636.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:14Z",
+      "revision": {
+        "lastrevid": 2216204992,
+        "modified": "2024-07-30T09:50:14Z"
+      },
+      "sha256": "d24bc337fd25e3b27ddc51603453a582b155f17ba2faee28509989bb59e08473",
+      "size_bytes": 11672,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q6973636.json?revision=2216204992"
+    },
+    "title": "list of institutes and centers of the National Institutes of Health — source identity"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:00vkwep27"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-00vkwep27-faa3d6c20428c9c5200b",
+    "kind": "text",
+    "path": "evidence/relationship-ror-00vkwep27-faa3d6c20428c9c5200b.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "00vkwep27",
+      "id": "ror-00vkwep27",
+      "path": "sources/raw/ror-00vkwep27.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:07Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "83d0cd788a65e22c22719fdc23e37894b3e94aaca0a41ea61351109365a8798d",
+      "size_bytes": 1565,
+      "url": "https://api.ror.org/v2/organizations/00vkwep27"
+    },
+    "title": "Division of Cancer Epidemiology and Genetics — ROR parent"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:00w52vt71"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-00w52vt71-15518f458a758b5a7759",
+    "kind": "text",
+    "path": "evidence/relationship-ror-00w52vt71-15518f458a758b5a7759.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "00w52vt71",
+      "id": "ror-00w52vt71",
+      "path": "sources/raw/ror-00w52vt71.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:09Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "4f62d30c9110c91a2ecd4089e3c467f4fb10a9e3e1be09c0ad9e1f73d8023e29",
+      "size_bytes": 1486,
+      "url": "https://api.ror.org/v2/organizations/00w52vt71"
+    },
+    "title": "MUSC Hollings Cancer Center — ROR related"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:00w52vt71"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-00w52vt71-1df01ae4b3a893058f17",
+    "kind": "text",
+    "path": "evidence/relationship-ror-00w52vt71-1df01ae4b3a893058f17.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "00w52vt71",
+      "id": "ror-00w52vt71",
+      "path": "sources/raw/ror-00w52vt71.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:09Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "4f62d30c9110c91a2ecd4089e3c467f4fb10a9e3e1be09c0ad9e1f73d8023e29",
+      "size_bytes": 1486,
+      "url": "https://api.ror.org/v2/organizations/00w52vt71"
+    },
+    "title": "MUSC Hollings Cancer Center — ROR related"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:01cwqze88"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-01cwqze88-04d52d0363a6331c3c1a",
+    "kind": "text",
+    "path": "evidence/relationship-ror-01cwqze88-04d52d0363a6331c3c1a.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "01cwqze88",
+      "id": "ror-01cwqze88",
+      "path": "sources/raw/ror-01cwqze88.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:08Z",
+      "revision": {
+        "record_modified": "2026-08-25",
+        "schema_version": "2.1"
+      },
+      "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+      "size_bytes": 4516,
+      "url": "https://api.ror.org/v2/organizations/01cwqze88"
+    },
+    "title": "National Institutes of Health — ROR child"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:01cwqze88"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-01cwqze88-06434825406ee9400a8c",
+    "kind": "text",
+    "path": "evidence/relationship-ror-01cwqze88-06434825406ee9400a8c.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "01cwqze88",
+      "id": "ror-01cwqze88",
+      "path": "sources/raw/ror-01cwqze88.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:08Z",
+      "revision": {
+        "record_modified": "2026-08-25",
+        "schema_version": "2.1"
+      },
+      "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+      "size_bytes": 4516,
+      "url": "https://api.ror.org/v2/organizations/01cwqze88"
+    },
+    "title": "National Institutes of Health — ROR child"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:01cwqze88"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-01cwqze88-067257f0be2b711906b4",
+    "kind": "text",
+    "path": "evidence/relationship-ror-01cwqze88-067257f0be2b711906b4.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "01cwqze88",
+      "id": "ror-01cwqze88",
+      "path": "sources/raw/ror-01cwqze88.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:08Z",
+      "revision": {
+        "record_modified": "2026-08-25",
+        "schema_version": "2.1"
+      },
+      "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+      "size_bytes": 4516,
+      "url": "https://api.ror.org/v2/organizations/01cwqze88"
+    },
+    "title": "National Institutes of Health — ROR child"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:01cwqze88"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-01cwqze88-0714b5471f4b2e3b34e0",
+    "kind": "text",
+    "path": "evidence/relationship-ror-01cwqze88-0714b5471f4b2e3b34e0.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "01cwqze88",
+      "id": "ror-01cwqze88",
+      "path": "sources/raw/ror-01cwqze88.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:08Z",
+      "revision": {
+        "record_modified": "2026-08-25",
+        "schema_version": "2.1"
+      },
+      "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+      "size_bytes": 4516,
+      "url": "https://api.ror.org/v2/organizations/01cwqze88"
+    },
+    "title": "National Institutes of Health — ROR child"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:01cwqze88"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-01cwqze88-0de72aa84198434b50e1",
+    "kind": "text",
+    "path": "evidence/relationship-ror-01cwqze88-0de72aa84198434b50e1.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "01cwqze88",
+      "id": "ror-01cwqze88",
+      "path": "sources/raw/ror-01cwqze88.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:08Z",
+      "revision": {
+        "record_modified": "2026-08-25",
+        "schema_version": "2.1"
+      },
+      "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+      "size_bytes": 4516,
+      "url": "https://api.ror.org/v2/organizations/01cwqze88"
+    },
+    "title": "National Institutes of Health — ROR child"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:01cwqze88"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-01cwqze88-1271d4f8b7f01b48fe70",
+    "kind": "text",
+    "path": "evidence/relationship-ror-01cwqze88-1271d4f8b7f01b48fe70.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "01cwqze88",
+      "id": "ror-01cwqze88",
+      "path": "sources/raw/ror-01cwqze88.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:08Z",
+      "revision": {
+        "record_modified": "2026-08-25",
+        "schema_version": "2.1"
+      },
+      "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+      "size_bytes": 4516,
+      "url": "https://api.ror.org/v2/organizations/01cwqze88"
+    },
+    "title": "National Institutes of Health — ROR child"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:01cwqze88"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-01cwqze88-1443a9025e0db226b9b1",
+    "kind": "text",
+    "path": "evidence/relationship-ror-01cwqze88-1443a9025e0db226b9b1.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "01cwqze88",
+      "id": "ror-01cwqze88",
+      "path": "sources/raw/ror-01cwqze88.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:08Z",
+      "revision": {
+        "record_modified": "2026-08-25",
+        "schema_version": "2.1"
+      },
+      "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+      "size_bytes": 4516,
+      "url": "https://api.ror.org/v2/organizations/01cwqze88"
+    },
+    "title": "National Institutes of Health — ROR child"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:01cwqze88"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-01cwqze88-189727e309e3d3ac90cd",
+    "kind": "text",
+    "path": "evidence/relationship-ror-01cwqze88-189727e309e3d3ac90cd.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "01cwqze88",
+      "id": "ror-01cwqze88",
+      "path": "sources/raw/ror-01cwqze88.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:08Z",
+      "revision": {
+        "record_modified": "2026-08-25",
+        "schema_version": "2.1"
+      },
+      "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+      "size_bytes": 4516,
+      "url": "https://api.ror.org/v2/organizations/01cwqze88"
+    },
+    "title": "National Institutes of Health — ROR child"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:01cwqze88"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-01cwqze88-1c9162ad61899e0df0af",
+    "kind": "text",
+    "path": "evidence/relationship-ror-01cwqze88-1c9162ad61899e0df0af.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "01cwqze88",
+      "id": "ror-01cwqze88",
+      "path": "sources/raw/ror-01cwqze88.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:08Z",
+      "revision": {
+        "record_modified": "2026-08-25",
+        "schema_version": "2.1"
+      },
+      "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+      "size_bytes": 4516,
+      "url": "https://api.ror.org/v2/organizations/01cwqze88"
+    },
+    "title": "National Institutes of Health — ROR child"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:01cwqze88"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-01cwqze88-35945b483b609cc4e843",
+    "kind": "text",
+    "path": "evidence/relationship-ror-01cwqze88-35945b483b609cc4e843.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "01cwqze88",
+      "id": "ror-01cwqze88",
+      "path": "sources/raw/ror-01cwqze88.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:08Z",
+      "revision": {
+        "record_modified": "2026-08-25",
+        "schema_version": "2.1"
+      },
+      "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+      "size_bytes": 4516,
+      "url": "https://api.ror.org/v2/organizations/01cwqze88"
+    },
+    "title": "National Institutes of Health — ROR child"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:01cwqze88"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-01cwqze88-36a1f32bf0162f47998b",
+    "kind": "text",
+    "path": "evidence/relationship-ror-01cwqze88-36a1f32bf0162f47998b.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "01cwqze88",
+      "id": "ror-01cwqze88",
+      "path": "sources/raw/ror-01cwqze88.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:08Z",
+      "revision": {
+        "record_modified": "2026-08-25",
+        "schema_version": "2.1"
+      },
+      "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+      "size_bytes": 4516,
+      "url": "https://api.ror.org/v2/organizations/01cwqze88"
+    },
+    "title": "National Institutes of Health — ROR child"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:01cwqze88"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-01cwqze88-3c3312fb8fc51fee92c7",
+    "kind": "text",
+    "path": "evidence/relationship-ror-01cwqze88-3c3312fb8fc51fee92c7.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "01cwqze88",
+      "id": "ror-01cwqze88",
+      "path": "sources/raw/ror-01cwqze88.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:08Z",
+      "revision": {
+        "record_modified": "2026-08-25",
+        "schema_version": "2.1"
+      },
+      "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+      "size_bytes": 4516,
+      "url": "https://api.ror.org/v2/organizations/01cwqze88"
+    },
+    "title": "National Institutes of Health — ROR child"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:01cwqze88"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-01cwqze88-5e396bad1bcb632e091d",
+    "kind": "text",
+    "path": "evidence/relationship-ror-01cwqze88-5e396bad1bcb632e091d.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "01cwqze88",
+      "id": "ror-01cwqze88",
+      "path": "sources/raw/ror-01cwqze88.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:08Z",
+      "revision": {
+        "record_modified": "2026-08-25",
+        "schema_version": "2.1"
+      },
+      "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+      "size_bytes": 4516,
+      "url": "https://api.ror.org/v2/organizations/01cwqze88"
+    },
+    "title": "National Institutes of Health — ROR child"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:01cwqze88"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-01cwqze88-70016e9e45458cea04a2",
+    "kind": "text",
+    "path": "evidence/relationship-ror-01cwqze88-70016e9e45458cea04a2.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "01cwqze88",
+      "id": "ror-01cwqze88",
+      "path": "sources/raw/ror-01cwqze88.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:08Z",
+      "revision": {
+        "record_modified": "2026-08-25",
+        "schema_version": "2.1"
+      },
+      "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+      "size_bytes": 4516,
+      "url": "https://api.ror.org/v2/organizations/01cwqze88"
+    },
+    "title": "National Institutes of Health — ROR child"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:01cwqze88"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-01cwqze88-7a327e940734d7f9ac17",
+    "kind": "text",
+    "path": "evidence/relationship-ror-01cwqze88-7a327e940734d7f9ac17.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "01cwqze88",
+      "id": "ror-01cwqze88",
+      "path": "sources/raw/ror-01cwqze88.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:08Z",
+      "revision": {
+        "record_modified": "2026-08-25",
+        "schema_version": "2.1"
+      },
+      "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+      "size_bytes": 4516,
+      "url": "https://api.ror.org/v2/organizations/01cwqze88"
+    },
+    "title": "National Institutes of Health — ROR child"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:01cwqze88"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-01cwqze88-7d1d526faf2e8f029d14",
+    "kind": "text",
+    "path": "evidence/relationship-ror-01cwqze88-7d1d526faf2e8f029d14.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "01cwqze88",
+      "id": "ror-01cwqze88",
+      "path": "sources/raw/ror-01cwqze88.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:08Z",
+      "revision": {
+        "record_modified": "2026-08-25",
+        "schema_version": "2.1"
+      },
+      "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+      "size_bytes": 4516,
+      "url": "https://api.ror.org/v2/organizations/01cwqze88"
+    },
+    "title": "National Institutes of Health — ROR child"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:01cwqze88"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-01cwqze88-848cda4ad4b7cdece649",
+    "kind": "text",
+    "path": "evidence/relationship-ror-01cwqze88-848cda4ad4b7cdece649.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "01cwqze88",
+      "id": "ror-01cwqze88",
+      "path": "sources/raw/ror-01cwqze88.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:08Z",
+      "revision": {
+        "record_modified": "2026-08-25",
+        "schema_version": "2.1"
+      },
+      "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+      "size_bytes": 4516,
+      "url": "https://api.ror.org/v2/organizations/01cwqze88"
+    },
+    "title": "National Institutes of Health — ROR child"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:01cwqze88"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-01cwqze88-8fa83b6cb2ddf4b9e4e2",
+    "kind": "text",
+    "path": "evidence/relationship-ror-01cwqze88-8fa83b6cb2ddf4b9e4e2.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "01cwqze88",
+      "id": "ror-01cwqze88",
+      "path": "sources/raw/ror-01cwqze88.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:08Z",
+      "revision": {
+        "record_modified": "2026-08-25",
+        "schema_version": "2.1"
+      },
+      "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+      "size_bytes": 4516,
+      "url": "https://api.ror.org/v2/organizations/01cwqze88"
+    },
+    "title": "National Institutes of Health — ROR child"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:01cwqze88"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-01cwqze88-9db460b6050ff9e2b939",
+    "kind": "text",
+    "path": "evidence/relationship-ror-01cwqze88-9db460b6050ff9e2b939.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "01cwqze88",
+      "id": "ror-01cwqze88",
+      "path": "sources/raw/ror-01cwqze88.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:08Z",
+      "revision": {
+        "record_modified": "2026-08-25",
+        "schema_version": "2.1"
+      },
+      "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+      "size_bytes": 4516,
+      "url": "https://api.ror.org/v2/organizations/01cwqze88"
+    },
+    "title": "National Institutes of Health — ROR child"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:01cwqze88"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-01cwqze88-9e8a40cbbdd5915c3416",
+    "kind": "text",
+    "path": "evidence/relationship-ror-01cwqze88-9e8a40cbbdd5915c3416.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "01cwqze88",
+      "id": "ror-01cwqze88",
+      "path": "sources/raw/ror-01cwqze88.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:08Z",
+      "revision": {
+        "record_modified": "2026-08-25",
+        "schema_version": "2.1"
+      },
+      "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+      "size_bytes": 4516,
+      "url": "https://api.ror.org/v2/organizations/01cwqze88"
+    },
+    "title": "National Institutes of Health — ROR parent"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:01cwqze88"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-01cwqze88-a584c57ae46278a0ece7",
+    "kind": "text",
+    "path": "evidence/relationship-ror-01cwqze88-a584c57ae46278a0ece7.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "01cwqze88",
+      "id": "ror-01cwqze88",
+      "path": "sources/raw/ror-01cwqze88.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:08Z",
+      "revision": {
+        "record_modified": "2026-08-25",
+        "schema_version": "2.1"
+      },
+      "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+      "size_bytes": 4516,
+      "url": "https://api.ror.org/v2/organizations/01cwqze88"
+    },
+    "title": "National Institutes of Health — ROR child"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:01cwqze88"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-01cwqze88-b7e98ca1b795b1c06dca",
+    "kind": "text",
+    "path": "evidence/relationship-ror-01cwqze88-b7e98ca1b795b1c06dca.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "01cwqze88",
+      "id": "ror-01cwqze88",
+      "path": "sources/raw/ror-01cwqze88.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:08Z",
+      "revision": {
+        "record_modified": "2026-08-25",
+        "schema_version": "2.1"
+      },
+      "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+      "size_bytes": 4516,
+      "url": "https://api.ror.org/v2/organizations/01cwqze88"
+    },
+    "title": "National Institutes of Health — ROR child"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:01cwqze88"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-01cwqze88-c263648aeaf92cc752e1",
+    "kind": "text",
+    "path": "evidence/relationship-ror-01cwqze88-c263648aeaf92cc752e1.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "01cwqze88",
+      "id": "ror-01cwqze88",
+      "path": "sources/raw/ror-01cwqze88.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:08Z",
+      "revision": {
+        "record_modified": "2026-08-25",
+        "schema_version": "2.1"
+      },
+      "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+      "size_bytes": 4516,
+      "url": "https://api.ror.org/v2/organizations/01cwqze88"
+    },
+    "title": "National Institutes of Health — ROR child"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:01cwqze88"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-01cwqze88-d33d9d5f5f41712d8dcf",
+    "kind": "text",
+    "path": "evidence/relationship-ror-01cwqze88-d33d9d5f5f41712d8dcf.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "01cwqze88",
+      "id": "ror-01cwqze88",
+      "path": "sources/raw/ror-01cwqze88.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:08Z",
+      "revision": {
+        "record_modified": "2026-08-25",
+        "schema_version": "2.1"
+      },
+      "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+      "size_bytes": 4516,
+      "url": "https://api.ror.org/v2/organizations/01cwqze88"
+    },
+    "title": "National Institutes of Health — ROR child"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:01cwqze88"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-01cwqze88-d9864ffbfeb8c6991d0d",
+    "kind": "text",
+    "path": "evidence/relationship-ror-01cwqze88-d9864ffbfeb8c6991d0d.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "01cwqze88",
+      "id": "ror-01cwqze88",
+      "path": "sources/raw/ror-01cwqze88.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:08Z",
+      "revision": {
+        "record_modified": "2026-08-25",
+        "schema_version": "2.1"
+      },
+      "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+      "size_bytes": 4516,
+      "url": "https://api.ror.org/v2/organizations/01cwqze88"
+    },
+    "title": "National Institutes of Health — ROR child"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:01cwqze88"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-01cwqze88-dfac193295bc670d43d0",
+    "kind": "text",
+    "path": "evidence/relationship-ror-01cwqze88-dfac193295bc670d43d0.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "01cwqze88",
+      "id": "ror-01cwqze88",
+      "path": "sources/raw/ror-01cwqze88.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:08Z",
+      "revision": {
+        "record_modified": "2026-08-25",
+        "schema_version": "2.1"
+      },
+      "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+      "size_bytes": 4516,
+      "url": "https://api.ror.org/v2/organizations/01cwqze88"
+    },
+    "title": "National Institutes of Health — ROR child"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:01cwqze88"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-01cwqze88-e3a5b16921d97abd206b",
+    "kind": "text",
+    "path": "evidence/relationship-ror-01cwqze88-e3a5b16921d97abd206b.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "01cwqze88",
+      "id": "ror-01cwqze88",
+      "path": "sources/raw/ror-01cwqze88.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:08Z",
+      "revision": {
+        "record_modified": "2026-08-25",
+        "schema_version": "2.1"
+      },
+      "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+      "size_bytes": 4516,
+      "url": "https://api.ror.org/v2/organizations/01cwqze88"
+    },
+    "title": "National Institutes of Health — ROR child"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:01cwqze88"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-01cwqze88-e3e57dcf0bae92914af3",
+    "kind": "text",
+    "path": "evidence/relationship-ror-01cwqze88-e3e57dcf0bae92914af3.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "01cwqze88",
+      "id": "ror-01cwqze88",
+      "path": "sources/raw/ror-01cwqze88.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:08Z",
+      "revision": {
+        "record_modified": "2026-08-25",
+        "schema_version": "2.1"
+      },
+      "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+      "size_bytes": 4516,
+      "url": "https://api.ror.org/v2/organizations/01cwqze88"
+    },
+    "title": "National Institutes of Health — ROR child"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:01cwqze88"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-01cwqze88-ed3b49545a88fb69dfc9",
+    "kind": "text",
+    "path": "evidence/relationship-ror-01cwqze88-ed3b49545a88fb69dfc9.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "01cwqze88",
+      "id": "ror-01cwqze88",
+      "path": "sources/raw/ror-01cwqze88.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:08Z",
+      "revision": {
+        "record_modified": "2026-08-25",
+        "schema_version": "2.1"
+      },
+      "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+      "size_bytes": 4516,
+      "url": "https://api.ror.org/v2/organizations/01cwqze88"
+    },
+    "title": "National Institutes of Health — ROR child"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:01cwqze88"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-01cwqze88-fde9c0e03069386f3fd8",
+    "kind": "text",
+    "path": "evidence/relationship-ror-01cwqze88-fde9c0e03069386f3fd8.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "01cwqze88",
+      "id": "ror-01cwqze88",
+      "path": "sources/raw/ror-01cwqze88.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:08Z",
+      "revision": {
+        "record_modified": "2026-08-25",
+        "schema_version": "2.1"
+      },
+      "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+      "size_bytes": 4516,
+      "url": "https://api.ror.org/v2/organizations/01cwqze88"
+    },
+    "title": "National Institutes of Health — ROR child"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:02qyzaf42"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-02qyzaf42-064d8329b7bb76ea9bac",
+    "kind": "text",
+    "path": "evidence/relationship-ror-02qyzaf42-064d8329b7bb76ea9bac.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "02qyzaf42",
+      "id": "ror-02qyzaf42",
+      "path": "sources/raw/ror-02qyzaf42.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:10Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "17f1e24342747e318eef90f3083ff02d73bd5c88d8102378b9d2e19b815a8cf7",
+      "size_bytes": 1239,
+      "url": "https://api.ror.org/v2/organizations/02qyzaf42"
+    },
+    "title": "The Cancer Imaging Archive — ROR related"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:02qyzaf42"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-02qyzaf42-446c00b3b1bf88209bc3",
+    "kind": "text",
+    "path": "evidence/relationship-ror-02qyzaf42-446c00b3b1bf88209bc3.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "02qyzaf42",
+      "id": "ror-02qyzaf42",
+      "path": "sources/raw/ror-02qyzaf42.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:10Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "17f1e24342747e318eef90f3083ff02d73bd5c88d8102378b9d2e19b815a8cf7",
+      "size_bytes": 1239,
+      "url": "https://api.ror.org/v2/organizations/02qyzaf42"
+    },
+    "title": "The Cancer Imaging Archive — ROR related"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:02qyzaf42"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-02qyzaf42-ff3ab6b9d504d3134251",
+    "kind": "text",
+    "path": "evidence/relationship-ror-02qyzaf42-ff3ab6b9d504d3134251.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "02qyzaf42",
+      "id": "ror-02qyzaf42",
+      "path": "sources/raw/ror-02qyzaf42.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:10Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "17f1e24342747e318eef90f3083ff02d73bd5c88d8102378b9d2e19b815a8cf7",
+      "size_bytes": 1239,
+      "url": "https://api.ror.org/v2/organizations/02qyzaf42"
+    },
+    "title": "The Cancer Imaging Archive — ROR related"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:03v6m3209"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-03v6m3209-19839e6ab45c7138ee01",
+    "kind": "text",
+    "path": "evidence/relationship-ror-03v6m3209-19839e6ab45c7138ee01.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "03v6m3209",
+      "id": "ror-03v6m3209",
+      "path": "sources/raw/ror-03v6m3209.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:05Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "9a9209e0ed894ce81439c17d9b9c071c8dab8db4f57cbb8838e77da858a7b591",
+      "size_bytes": 1392,
+      "url": "https://api.ror.org/v2/organizations/03v6m3209"
+    },
+    "title": "Frederick National Laboratory for Cancer Research — ROR related"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:03v6m3209"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-03v6m3209-6ade712716c7a627e2ee",
+    "kind": "text",
+    "path": "evidence/relationship-ror-03v6m3209-6ade712716c7a627e2ee.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "03v6m3209",
+      "id": "ror-03v6m3209",
+      "path": "sources/raw/ror-03v6m3209.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:05Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "9a9209e0ed894ce81439c17d9b9c071c8dab8db4f57cbb8838e77da858a7b591",
+      "size_bytes": 1392,
+      "url": "https://api.ror.org/v2/organizations/03v6m3209"
+    },
+    "title": "Frederick National Laboratory for Cancer Research — ROR parent"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:03v6m3209"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-03v6m3209-dbc9d18b1884d57c19a8",
+    "kind": "text",
+    "path": "evidence/relationship-ror-03v6m3209-dbc9d18b1884d57c19a8.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "03v6m3209",
+      "id": "ror-03v6m3209",
+      "path": "sources/raw/ror-03v6m3209.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:05Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "9a9209e0ed894ce81439c17d9b9c071c8dab8db4f57cbb8838e77da858a7b591",
+      "size_bytes": 1392,
+      "url": "https://api.ror.org/v2/organizations/03v6m3209"
+    },
+    "title": "Frederick National Laboratory for Cancer Research — ROR related"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:040gcmg81"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-040gcmg81-1432a8d62794148e0f4c",
+    "kind": "text",
+    "path": "evidence/relationship-ror-040gcmg81-1432a8d62794148e0f4c.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "040gcmg81",
+      "id": "ror-040gcmg81",
+      "path": "sources/raw/ror-040gcmg81.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:03Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "8073d4137c55295dc2a11bfb71fbac38783534754709e472735a206ea95fdf9d",
+      "size_bytes": 1927,
+      "url": "https://api.ror.org/v2/organizations/040gcmg81"
+    },
+    "title": "National Cancer Institute — ROR child"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:040gcmg81"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-040gcmg81-160dc322686560cceef3",
+    "kind": "text",
+    "path": "evidence/relationship-ror-040gcmg81-160dc322686560cceef3.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "040gcmg81",
+      "id": "ror-040gcmg81",
+      "path": "sources/raw/ror-040gcmg81.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:03Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "8073d4137c55295dc2a11bfb71fbac38783534754709e472735a206ea95fdf9d",
+      "size_bytes": 1927,
+      "url": "https://api.ror.org/v2/organizations/040gcmg81"
+    },
+    "title": "National Cancer Institute — ROR parent"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:040gcmg81"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-040gcmg81-573adb44d1c211ec21bb",
+    "kind": "text",
+    "path": "evidence/relationship-ror-040gcmg81-573adb44d1c211ec21bb.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "040gcmg81",
+      "id": "ror-040gcmg81",
+      "path": "sources/raw/ror-040gcmg81.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:03Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "8073d4137c55295dc2a11bfb71fbac38783534754709e472735a206ea95fdf9d",
+      "size_bytes": 1927,
+      "url": "https://api.ror.org/v2/organizations/040gcmg81"
+    },
+    "title": "National Cancer Institute — ROR child"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:040gcmg81"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-040gcmg81-6f1ec97a766504fc55f2",
+    "kind": "text",
+    "path": "evidence/relationship-ror-040gcmg81-6f1ec97a766504fc55f2.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "040gcmg81",
+      "id": "ror-040gcmg81",
+      "path": "sources/raw/ror-040gcmg81.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:03Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "8073d4137c55295dc2a11bfb71fbac38783534754709e472735a206ea95fdf9d",
+      "size_bytes": 1927,
+      "url": "https://api.ror.org/v2/organizations/040gcmg81"
+    },
+    "title": "National Cancer Institute — ROR child"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:040gcmg81"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-040gcmg81-7fc81c6cb570010ade66",
+    "kind": "text",
+    "path": "evidence/relationship-ror-040gcmg81-7fc81c6cb570010ade66.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "040gcmg81",
+      "id": "ror-040gcmg81",
+      "path": "sources/raw/ror-040gcmg81.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:03Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "8073d4137c55295dc2a11bfb71fbac38783534754709e472735a206ea95fdf9d",
+      "size_bytes": 1927,
+      "url": "https://api.ror.org/v2/organizations/040gcmg81"
+    },
+    "title": "National Cancer Institute — ROR related"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:040gcmg81"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-040gcmg81-b2b85cca07b03ab5df61",
+    "kind": "text",
+    "path": "evidence/relationship-ror-040gcmg81-b2b85cca07b03ab5df61.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "040gcmg81",
+      "id": "ror-040gcmg81",
+      "path": "sources/raw/ror-040gcmg81.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:03Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "8073d4137c55295dc2a11bfb71fbac38783534754709e472735a206ea95fdf9d",
+      "size_bytes": 1927,
+      "url": "https://api.ror.org/v2/organizations/040gcmg81"
+    },
+    "title": "National Cancer Institute — ROR related"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:040gcmg81"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-040gcmg81-d7313ad93a187159052d",
+    "kind": "text",
+    "path": "evidence/relationship-ror-040gcmg81-d7313ad93a187159052d.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "040gcmg81",
+      "id": "ror-040gcmg81",
+      "path": "sources/raw/ror-040gcmg81.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:03Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "8073d4137c55295dc2a11bfb71fbac38783534754709e472735a206ea95fdf9d",
+      "size_bytes": 1927,
+      "url": "https://api.ror.org/v2/organizations/040gcmg81"
+    },
+    "title": "National Cancer Institute — ROR child"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:05bjen692"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-05bjen692-dca7654da50b94c9e61c",
+    "kind": "text",
+    "path": "evidence/relationship-ror-05bjen692-dca7654da50b94c9e61c.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "05bjen692",
+      "id": "ror-05bjen692",
+      "path": "sources/raw/ror-05bjen692.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:04Z",
+      "revision": {
+        "record_modified": "2026-07-20",
+        "schema_version": "2.1"
+      },
+      "sha256": "8e35b4d38a56b234db715a03ae9a8cc41f6676afd44d971251ec17cb5ef121f8",
+      "size_bytes": 1044,
+      "url": "https://api.ror.org/v2/organizations/05bjen692"
+    },
+    "title": "Center for Cancer Research — ROR parent"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "ror:05n6zrm60"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "relationship-ror-05n6zrm60-02bb9bb1c26a8574e10d",
+    "kind": "text",
+    "path": "evidence/relationship-ror-05n6zrm60-02bb9bb1c26a8574e10d.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "05n6zrm60",
+      "id": "ror-05n6zrm60",
+      "path": "sources/raw/ror-05n6zrm60.json",
+      "provider": "ror",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:06Z",
+      "revision": {
+        "record_modified": "2024-12-11",
+        "schema_version": "2.1"
+      },
+      "sha256": "adef7a62ab6c618b7db53701d4604029297bfd72236fab641fe6a26fbb329e06",
+      "size_bytes": 1047,
+      "url": "https://api.ror.org/v2/organizations/05n6zrm60"
+    },
+    "title": "SWOG Cancer Research Network — ROR parent"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q390551-0106d28d8826ea952951",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q390551-0106d28d8826ea952951.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q390551",
+      "id": "wikidata-Q390551",
+      "path": "sources/raw/wikidata-Q390551.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    "title": "United States National Institutes of Health — Wikidata P31"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q390551-0482e85fcc0109c314b2",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q390551-0482e85fcc0109c314b2.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q390551",
+      "id": "wikidata-Q390551",
+      "path": "sources/raw/wikidata-Q390551.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    "title": "United States National Institutes of Health — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q390551-0b2de25c284977d70b32",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q390551-0b2de25c284977d70b32.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q390551",
+      "id": "wikidata-Q390551",
+      "path": "sources/raw/wikidata-Q390551.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    "title": "United States National Institutes of Health — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q390551-15dbf7b03b88a1a4d3ae",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q390551-15dbf7b03b88a1a4d3ae.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q390551",
+      "id": "wikidata-Q390551",
+      "path": "sources/raw/wikidata-Q390551.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    "title": "United States National Institutes of Health — Wikidata P749"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q390551-17094fc67d8325a67b9a",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q390551-17094fc67d8325a67b9a.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q390551",
+      "id": "wikidata-Q390551",
+      "path": "sources/raw/wikidata-Q390551.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    "title": "United States National Institutes of Health — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q390551-1887814c79f3307054d0",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q390551-1887814c79f3307054d0.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q390551",
+      "id": "wikidata-Q390551",
+      "path": "sources/raw/wikidata-Q390551.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    "title": "United States National Institutes of Health — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q390551-1b1272bd7762b2406887",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q390551-1b1272bd7762b2406887.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q390551",
+      "id": "wikidata-Q390551",
+      "path": "sources/raw/wikidata-Q390551.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    "title": "United States National Institutes of Health — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q390551-23173fc4714a5f222692",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q390551-23173fc4714a5f222692.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q390551",
+      "id": "wikidata-Q390551",
+      "path": "sources/raw/wikidata-Q390551.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    "title": "United States National Institutes of Health — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q390551-23bb27ea17ae88a661ca",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q390551-23bb27ea17ae88a661ca.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q390551",
+      "id": "wikidata-Q390551",
+      "path": "sources/raw/wikidata-Q390551.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    "title": "United States National Institutes of Health — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q390551-35cc12dfc74ebeedfc42",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q390551-35cc12dfc74ebeedfc42.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q390551",
+      "id": "wikidata-Q390551",
+      "path": "sources/raw/wikidata-Q390551.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    "title": "United States National Institutes of Health — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q390551-47390e9e237788097957",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q390551-47390e9e237788097957.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q390551",
+      "id": "wikidata-Q390551",
+      "path": "sources/raw/wikidata-Q390551.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    "title": "United States National Institutes of Health — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q390551-4bde5c53dc224b0bb78b",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q390551-4bde5c53dc224b0bb78b.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q390551",
+      "id": "wikidata-Q390551",
+      "path": "sources/raw/wikidata-Q390551.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    "title": "United States National Institutes of Health — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q390551-4c7c54a417ef17488e95",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q390551-4c7c54a417ef17488e95.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q390551",
+      "id": "wikidata-Q390551",
+      "path": "sources/raw/wikidata-Q390551.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    "title": "United States National Institutes of Health — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q390551-4c9d800029da59d687b7",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q390551-4c9d800029da59d687b7.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q390551",
+      "id": "wikidata-Q390551",
+      "path": "sources/raw/wikidata-Q390551.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    "title": "United States National Institutes of Health — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q390551-4f6931203509423a8ac8",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q390551-4f6931203509423a8ac8.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q390551",
+      "id": "wikidata-Q390551",
+      "path": "sources/raw/wikidata-Q390551.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    "title": "United States National Institutes of Health — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q390551-565ff6fc444574afdde7",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q390551-565ff6fc444574afdde7.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q390551",
+      "id": "wikidata-Q390551",
+      "path": "sources/raw/wikidata-Q390551.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    "title": "United States National Institutes of Health — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q390551-59469d2de6452bfdbf5d",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q390551-59469d2de6452bfdbf5d.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q390551",
+      "id": "wikidata-Q390551",
+      "path": "sources/raw/wikidata-Q390551.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    "title": "United States National Institutes of Health — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q390551-63d668bac65739239fb2",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q390551-63d668bac65739239fb2.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q390551",
+      "id": "wikidata-Q390551",
+      "path": "sources/raw/wikidata-Q390551.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    "title": "United States National Institutes of Health — Wikidata P31"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q390551-72b1bd2136b2425190e0",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q390551-72b1bd2136b2425190e0.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q390551",
+      "id": "wikidata-Q390551",
+      "path": "sources/raw/wikidata-Q390551.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    "title": "United States National Institutes of Health — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q390551-74bb832a9d19e02ba61b",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q390551-74bb832a9d19e02ba61b.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q390551",
+      "id": "wikidata-Q390551",
+      "path": "sources/raw/wikidata-Q390551.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    "title": "United States National Institutes of Health — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q390551-760eee264fb872dee6e4",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q390551-760eee264fb872dee6e4.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q390551",
+      "id": "wikidata-Q390551",
+      "path": "sources/raw/wikidata-Q390551.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    "title": "United States National Institutes of Health — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q390551-77ed86856011ee26de6b",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q390551-77ed86856011ee26de6b.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q390551",
+      "id": "wikidata-Q390551",
+      "path": "sources/raw/wikidata-Q390551.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    "title": "United States National Institutes of Health — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q390551-7ac73453426184fc45d7",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q390551-7ac73453426184fc45d7.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q390551",
+      "id": "wikidata-Q390551",
+      "path": "sources/raw/wikidata-Q390551.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    "title": "United States National Institutes of Health — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q390551-8533eb8eb1be16a4d958",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q390551-8533eb8eb1be16a4d958.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q390551",
+      "id": "wikidata-Q390551",
+      "path": "sources/raw/wikidata-Q390551.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    "title": "United States National Institutes of Health — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q390551-8c1c63836a4ddb7c2aa3",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q390551-8c1c63836a4ddb7c2aa3.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q390551",
+      "id": "wikidata-Q390551",
+      "path": "sources/raw/wikidata-Q390551.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    "title": "United States National Institutes of Health — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q390551-a40f6ae0b3d9ecd3bd12",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q390551-a40f6ae0b3d9ecd3bd12.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q390551",
+      "id": "wikidata-Q390551",
+      "path": "sources/raw/wikidata-Q390551.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    "title": "United States National Institutes of Health — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q390551-a9f8dc006ff39828be70",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q390551-a9f8dc006ff39828be70.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q390551",
+      "id": "wikidata-Q390551",
+      "path": "sources/raw/wikidata-Q390551.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    "title": "United States National Institutes of Health — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q390551-aec6e6e4f459aa87414d",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q390551-aec6e6e4f459aa87414d.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q390551",
+      "id": "wikidata-Q390551",
+      "path": "sources/raw/wikidata-Q390551.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    "title": "United States National Institutes of Health — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q390551-b2f39186d27f61636e75",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q390551-b2f39186d27f61636e75.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q390551",
+      "id": "wikidata-Q390551",
+      "path": "sources/raw/wikidata-Q390551.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    "title": "United States National Institutes of Health — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q390551-b3c77ff41688652bc150",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q390551-b3c77ff41688652bc150.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q390551",
+      "id": "wikidata-Q390551",
+      "path": "sources/raw/wikidata-Q390551.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    "title": "United States National Institutes of Health — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q390551-b7847df37582a0266b0a",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q390551-b7847df37582a0266b0a.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q390551",
+      "id": "wikidata-Q390551",
+      "path": "sources/raw/wikidata-Q390551.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    "title": "United States National Institutes of Health — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q390551-baa689ab937250848c9c",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q390551-baa689ab937250848c9c.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q390551",
+      "id": "wikidata-Q390551",
+      "path": "sources/raw/wikidata-Q390551.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    "title": "United States National Institutes of Health — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q390551-c6405614d06ea36197df",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q390551-c6405614d06ea36197df.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q390551",
+      "id": "wikidata-Q390551",
+      "path": "sources/raw/wikidata-Q390551.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    "title": "United States National Institutes of Health — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q390551-c6aa1f246a3cffb7a75e",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q390551-c6aa1f246a3cffb7a75e.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q390551",
+      "id": "wikidata-Q390551",
+      "path": "sources/raw/wikidata-Q390551.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    "title": "United States National Institutes of Health — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q390551-c6b3e8efc7d74d2cd38f",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q390551-c6b3e8efc7d74d2cd38f.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q390551",
+      "id": "wikidata-Q390551",
+      "path": "sources/raw/wikidata-Q390551.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    "title": "United States National Institutes of Health — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q390551-ca751c3034b3aeaeec14",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q390551-ca751c3034b3aeaeec14.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q390551",
+      "id": "wikidata-Q390551",
+      "path": "sources/raw/wikidata-Q390551.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    "title": "United States National Institutes of Health — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q390551-d2ad304e192e44fc0949",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q390551-d2ad304e192e44fc0949.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q390551",
+      "id": "wikidata-Q390551",
+      "path": "sources/raw/wikidata-Q390551.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    "title": "United States National Institutes of Health — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q390551-da5e8394368922ab045f",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q390551-da5e8394368922ab045f.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q390551",
+      "id": "wikidata-Q390551",
+      "path": "sources/raw/wikidata-Q390551.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    "title": "United States National Institutes of Health — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_association": "Explicitly co-mentioned captured identities; relevance only, not identity equivalence or a graph edge.",
+    "entity_ids": [
+      "ror:01cwqze88",
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q390551-ef140d2c3b8b8285b760",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q390551-ef140d2c3b8b8285b760.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q390551",
+      "id": "wikidata-Q390551",
+      "path": "sources/raw/wikidata-Q390551.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    "title": "United States National Institutes of Health — Wikidata P6782"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q390551-f0e91de14c30766489bf",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q390551-f0e91de14c30766489bf.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q390551",
+      "id": "wikidata-Q390551",
+      "path": "sources/raw/wikidata-Q390551.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    "title": "United States National Institutes of Health — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q390551-f1381076e2b81bcbc165",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q390551-f1381076e2b81bcbc165.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q390551",
+      "id": "wikidata-Q390551",
+      "path": "sources/raw/wikidata-Q390551.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    "title": "United States National Institutes of Health — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q390551"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q390551-fb628a67a81e0507937a",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q390551-fb628a67a81e0507937a.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q390551",
+      "id": "wikidata-Q390551",
+      "path": "sources/raw/wikidata-Q390551.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:12Z",
+      "revision": {
+        "lastrevid": 2543960225,
+        "modified": "2026-09-11T12:24:24Z"
+      },
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+    },
+    "title": "United States National Institutes of Health — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q42944"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q42944-4a79342782dc93bc394b",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q42944-4a79342782dc93bc394b.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q42944",
+      "id": "wikidata-Q42944",
+      "path": "sources/raw/wikidata-Q42944.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:13Z",
+      "revision": {
+        "lastrevid": 2541849285,
+        "modified": "2026-09-07T19:19:58Z"
+      },
+      "sha256": "54cf521d65388a2d127a3410217886a4aded68bffa2b29a6c25f9e1a743f4e96",
+      "size_bytes": 205654,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q42944.json?revision=2541849285"
+    },
+    "title": "CERN — Wikidata P31"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q42944"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q42944-4b8eed3279795b4b8872",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q42944-4b8eed3279795b4b8872.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q42944",
+      "id": "wikidata-Q42944",
+      "path": "sources/raw/wikidata-Q42944.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:13Z",
+      "revision": {
+        "lastrevid": 2541849285,
+        "modified": "2026-09-07T19:19:58Z"
+      },
+      "sha256": "54cf521d65388a2d127a3410217886a4aded68bffa2b29a6c25f9e1a743f4e96",
+      "size_bytes": 205654,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q42944.json?revision=2541849285"
+    },
+    "title": "CERN — Wikidata P6782"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q42944"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q42944-57755cd7102efbff8b14",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q42944-57755cd7102efbff8b14.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q42944",
+      "id": "wikidata-Q42944",
+      "path": "sources/raw/wikidata-Q42944.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:13Z",
+      "revision": {
+        "lastrevid": 2541849285,
+        "modified": "2026-09-07T19:19:58Z"
+      },
+      "sha256": "54cf521d65388a2d127a3410217886a4aded68bffa2b29a6c25f9e1a743f4e96",
+      "size_bytes": 205654,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q42944.json?revision=2541849285"
+    },
+    "title": "CERN — Wikidata P527"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q42944"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q42944-9cbdae79836fb9a6f709",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q42944-9cbdae79836fb9a6f709.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q42944",
+      "id": "wikidata-Q42944",
+      "path": "sources/raw/wikidata-Q42944.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:13Z",
+      "revision": {
+        "lastrevid": 2541849285,
+        "modified": "2026-09-07T19:19:58Z"
+      },
+      "sha256": "54cf521d65388a2d127a3410217886a4aded68bffa2b29a6c25f9e1a743f4e96",
+      "size_bytes": 205654,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q42944.json?revision=2541849285"
+    },
+    "title": "CERN — Wikidata P31"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q664846"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q664846-0bb3aaf0848aa3bb182b",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q664846-0bb3aaf0848aa3bb182b.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q664846",
+      "id": "wikidata-Q664846",
+      "path": "sources/raw/wikidata-Q664846.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:11Z",
+      "revision": {
+        "lastrevid": 2550610368,
+        "modified": "2026-09-28T20:00:41Z"
+      },
+      "sha256": "cf4e1e4bb29c44ea339df53734f4396ba551b7a7863383ac3f90a324fac53695",
+      "size_bytes": 102418,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q664846.json?revision=2550610368"
+    },
+    "title": "National Cancer Institute — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_association": "Explicitly co-mentioned captured identities; relevance only, not identity equivalence or a graph edge.",
+    "entity_ids": [
+      "ror:040gcmg81",
+      "wikidata:q664846"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q664846-1cccea13b07ba3364e29",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q664846-1cccea13b07ba3364e29.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q664846",
+      "id": "wikidata-Q664846",
+      "path": "sources/raw/wikidata-Q664846.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:11Z",
+      "revision": {
+        "lastrevid": 2550610368,
+        "modified": "2026-09-28T20:00:41Z"
+      },
+      "sha256": "cf4e1e4bb29c44ea339df53734f4396ba551b7a7863383ac3f90a324fac53695",
+      "size_bytes": 102418,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q664846.json?revision=2550610368"
+    },
+    "title": "National Cancer Institute — Wikidata P6782"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q664846"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q664846-26d96af48610d7ff5cd7",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q664846-26d96af48610d7ff5cd7.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q664846",
+      "id": "wikidata-Q664846",
+      "path": "sources/raw/wikidata-Q664846.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:11Z",
+      "revision": {
+        "lastrevid": 2550610368,
+        "modified": "2026-09-28T20:00:41Z"
+      },
+      "sha256": "cf4e1e4bb29c44ea339df53734f4396ba551b7a7863383ac3f90a324fac53695",
+      "size_bytes": 102418,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q664846.json?revision=2550610368"
+    },
+    "title": "National Cancer Institute — Wikidata P749"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q664846"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q664846-2f76f98daf83d79cbba1",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q664846-2f76f98daf83d79cbba1.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q664846",
+      "id": "wikidata-Q664846",
+      "path": "sources/raw/wikidata-Q664846.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:11Z",
+      "revision": {
+        "lastrevid": 2550610368,
+        "modified": "2026-09-28T20:00:41Z"
+      },
+      "sha256": "cf4e1e4bb29c44ea339df53734f4396ba551b7a7863383ac3f90a324fac53695",
+      "size_bytes": 102418,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q664846.json?revision=2550610368"
+    },
+    "title": "National Cancer Institute — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q664846"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q664846-33235d984b73bbb4a057",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q664846-33235d984b73bbb4a057.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q664846",
+      "id": "wikidata-Q664846",
+      "path": "sources/raw/wikidata-Q664846.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:11Z",
+      "revision": {
+        "lastrevid": 2550610368,
+        "modified": "2026-09-28T20:00:41Z"
+      },
+      "sha256": "cf4e1e4bb29c44ea339df53734f4396ba551b7a7863383ac3f90a324fac53695",
+      "size_bytes": 102418,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q664846.json?revision=2550610368"
+    },
+    "title": "National Cancer Institute — Wikidata P31"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q664846"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q664846-353bd1a51eefc48dbd7c",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q664846-353bd1a51eefc48dbd7c.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q664846",
+      "id": "wikidata-Q664846",
+      "path": "sources/raw/wikidata-Q664846.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:11Z",
+      "revision": {
+        "lastrevid": 2550610368,
+        "modified": "2026-09-28T20:00:41Z"
+      },
+      "sha256": "cf4e1e4bb29c44ea339df53734f4396ba551b7a7863383ac3f90a324fac53695",
+      "size_bytes": 102418,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q664846.json?revision=2550610368"
+    },
+    "title": "National Cancer Institute — Wikidata P749"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q664846"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q664846-46ed63b44245129985e4",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q664846-46ed63b44245129985e4.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q664846",
+      "id": "wikidata-Q664846",
+      "path": "sources/raw/wikidata-Q664846.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:11Z",
+      "revision": {
+        "lastrevid": 2550610368,
+        "modified": "2026-09-28T20:00:41Z"
+      },
+      "sha256": "cf4e1e4bb29c44ea339df53734f4396ba551b7a7863383ac3f90a324fac53695",
+      "size_bytes": 102418,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q664846.json?revision=2550610368"
+    },
+    "title": "National Cancer Institute — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q664846"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q664846-4acd472518a901bdb650",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q664846-4acd472518a901bdb650.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q664846",
+      "id": "wikidata-Q664846",
+      "path": "sources/raw/wikidata-Q664846.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:11Z",
+      "revision": {
+        "lastrevid": 2550610368,
+        "modified": "2026-09-28T20:00:41Z"
+      },
+      "sha256": "cf4e1e4bb29c44ea339df53734f4396ba551b7a7863383ac3f90a324fac53695",
+      "size_bytes": 102418,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q664846.json?revision=2550610368"
+    },
+    "title": "National Cancer Institute — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q664846"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q664846-9c4c434c846cb08ac932",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q664846-9c4c434c846cb08ac932.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q664846",
+      "id": "wikidata-Q664846",
+      "path": "sources/raw/wikidata-Q664846.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:11Z",
+      "revision": {
+        "lastrevid": 2550610368,
+        "modified": "2026-09-28T20:00:41Z"
+      },
+      "sha256": "cf4e1e4bb29c44ea339df53734f4396ba551b7a7863383ac3f90a324fac53695",
+      "size_bytes": 102418,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q664846.json?revision=2550610368"
+    },
+    "title": "National Cancer Institute — Wikidata P527"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q664846"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q664846-bc639644b0a71bbedece",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q664846-bc639644b0a71bbedece.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q664846",
+      "id": "wikidata-Q664846",
+      "path": "sources/raw/wikidata-Q664846.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:11Z",
+      "revision": {
+        "lastrevid": 2550610368,
+        "modified": "2026-09-28T20:00:41Z"
+      },
+      "sha256": "cf4e1e4bb29c44ea339df53734f4396ba551b7a7863383ac3f90a324fac53695",
+      "size_bytes": 102418,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q664846.json?revision=2550610368"
+    },
+    "title": "National Cancer Institute — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q664846"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q664846-c720e77afb5c474a0b88",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q664846-c720e77afb5c474a0b88.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q664846",
+      "id": "wikidata-Q664846",
+      "path": "sources/raw/wikidata-Q664846.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:11Z",
+      "revision": {
+        "lastrevid": 2550610368,
+        "modified": "2026-09-28T20:00:41Z"
+      },
+      "sha256": "cf4e1e4bb29c44ea339df53734f4396ba551b7a7863383ac3f90a324fac53695",
+      "size_bytes": 102418,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q664846.json?revision=2550610368"
+    },
+    "title": "National Cancer Institute — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q664846"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q664846-cd766f2ab3c2a12c8333",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q664846-cd766f2ab3c2a12c8333.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q664846",
+      "id": "wikidata-Q664846",
+      "path": "sources/raw/wikidata-Q664846.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:11Z",
+      "revision": {
+        "lastrevid": 2550610368,
+        "modified": "2026-09-28T20:00:41Z"
+      },
+      "sha256": "cf4e1e4bb29c44ea339df53734f4396ba551b7a7863383ac3f90a324fac53695",
+      "size_bytes": 102418,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q664846.json?revision=2550610368"
+    },
+    "title": "National Cancer Institute — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q664846"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q664846-d5a68a386c99582ac6fc",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q664846-d5a68a386c99582ac6fc.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q664846",
+      "id": "wikidata-Q664846",
+      "path": "sources/raw/wikidata-Q664846.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:11Z",
+      "revision": {
+        "lastrevid": 2550610368,
+        "modified": "2026-09-28T20:00:41Z"
+      },
+      "sha256": "cf4e1e4bb29c44ea339df53734f4396ba551b7a7863383ac3f90a324fac53695",
+      "size_bytes": 102418,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q664846.json?revision=2550610368"
+    },
+    "title": "National Cancer Institute — Wikidata P355"
+  },
+  {
+    "assertions": [],
+    "date": "2026-10-07",
+    "date_meaning": "capture date; not assertion validity or event time",
+    "entity_ids": [
+      "wikidata:q6973636"
+    ],
+    "extraction": "complete literal source unit; deterministic provenance and projection metadata",
+    "id": "statement-wikidata-Q6973636-7ea1201a7ff94e01069d",
+    "kind": "text",
+    "path": "evidence/statement-wikidata-Q6973636-7ea1201a7ff94e01069d.json",
+    "provenance": {
+      "capture_manifest_path": "sources/capture-manifest.json",
+      "entity_id": "Q6973636",
+      "id": "wikidata-Q6973636",
+      "path": "sources/raw/wikidata-Q6973636.json",
+      "provider": "wikidata",
+      "request_attempts": 1,
+      "retrieved_at_utc": "2026-10-07T04:14:14Z",
+      "revision": {
+        "lastrevid": 2216204992,
+        "modified": "2024-07-30T09:50:14Z"
+      },
+      "sha256": "d24bc337fd25e3b27ddc51603453a582b155f17ba2faee28509989bb59e08473",
+      "size_bytes": 11672,
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q6973636.json?revision=2216204992"
+    },
+    "title": "list of institutes and centers of the National Institutes of Health — Wikidata P31"
+  }
+]

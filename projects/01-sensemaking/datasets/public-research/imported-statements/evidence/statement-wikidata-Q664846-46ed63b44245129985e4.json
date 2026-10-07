@@ -1,0 +1,57 @@
+{
+  "caution": "Source assertions, not independently verified facts. Edit/retrieval dates are not relationship validity dates. Projection records a captured assertion, not present-day truth. Crosswalks never merge identities; reciprocity does not establish independent corroboration. Linked media was not imported.",
+  "projection_decision": {
+    "evidence_id": "statement-wikidata-Q664846-46ed63b44245129985e4",
+    "exclusion_reasons": [
+      "endpoint_not_captured"
+    ],
+    "indexed": true,
+    "predicate": "P355",
+    "raw_source_path": "sources/raw/wikidata-Q664846.json",
+    "source_entity": "wikidata:q664846",
+    "source_path": "/entities/Q664846/claims/P355/7",
+    "statement_guid": "Q664846$c8622fb1-4bff-fff6-bba8-1cc1b4d75b10",
+    "target": "wikidata:q5031412"
+  },
+  "record_type": "statement",
+  "source_fragments": [
+    {
+      "json_pointer": "/entities/Q664846/claims/P355/7",
+      "value": {
+        "id": "Q664846$c8622fb1-4bff-fff6-bba8-1cc1b4d75b10",
+        "mainsnak": {
+          "datatype": "wikibase-item",
+          "datavalue": {
+            "type": "wikibase-entityid",
+            "value": {
+              "entity-type": "item",
+              "id": "Q5031412",
+              "numeric-id": 5031412
+            }
+          },
+          "hash": "8618cc80d62cab853a7e1efbef1390d289b77a22",
+          "property": "P355",
+          "snaktype": "value"
+        },
+        "rank": "normal",
+        "type": "statement"
+      }
+    }
+  ],
+  "source_provenance": {
+    "capture_manifest_path": "sources/capture-manifest.json",
+    "entity_id": "Q664846",
+    "id": "wikidata-Q664846",
+    "path": "sources/raw/wikidata-Q664846.json",
+    "provider": "wikidata",
+    "request_attempts": 1,
+    "retrieved_at_utc": "2026-10-07T04:14:11Z",
+    "revision": {
+      "lastrevid": 2550610368,
+      "modified": "2026-09-28T20:00:41Z"
+    },
+    "sha256": "cf4e1e4bb29c44ea339df53734f4396ba551b7a7863383ac3f90a324fac53695",
+    "size_bytes": 102418,
+    "url": "https://www.wikidata.org/wiki/Special:EntityData/Q664846.json?revision=2550610368"
+  }
+}

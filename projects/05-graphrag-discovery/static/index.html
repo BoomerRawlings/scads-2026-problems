@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080f1b">
+  <title>GraphRAG Discovery</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to workspace</a>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Workspace navigation">
+      <div class="brand">
+        <span class="brand-monogram" aria-hidden="true">G</span>
+        <div><span class="brand-name">GraphRAG</span><span class="brand-subtitle">Discovery · Project 5</span></div>
+      </div>
+      <nav class="tabs" aria-label="Workspace sections">
+        <button class="tab" data-panel="start-panel"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h8M4 12h5M4 18h8m3-13 6 7-6 7"/></svg><span>Start here</span></button>
+        <button class="tab active" data-panel="search-panel" aria-current="page"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><span>Explore</span></button>
+        <button class="tab" data-panel="compare-panel"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3v18M18 3v18M3 8h6M15 16h6M9 8l6 8"/><circle cx="6" cy="8" r="2"/><circle cx="18" cy="16" r="2"/></svg><span>Compare</span></button>
+        <button class="tab" data-panel="investigation-panel"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h11l3 3v15H5Z M9 9h6M9 13h6M9 17h4"/></svg><span>Investigations</span></button>
+        <button class="tab" data-panel="import-panel"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V3m-4 4 4-4 4 4M4 14v6h16v-6"/></svg><span>Import sources</span></button>
+        <button class="tab" data-panel="instructions-panel"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v16M12 5C9 3 5 3 3 4v15c3-1 6-1 9 2 3-3 6-3 9-2V4c-2-1-6-1-9 1Z"/></svg><span>Instructions</span></button>
+      </nav>
+    </aside>
+
+    <div class="main-shell">
+      <header class="masthead"><h1 id="workspace-title">Explore</h1><div class="connection"><span class="status-dot"></span><span id="connection-status">Connecting</span></div></header>
+      <main id="main-content" tabindex="-1">
+        <section class="scope-bar" aria-label="Corpus and snapshot">
+          <label><span class="field-label">Corpus</span><select id="corpus"><option value="">No corpus loaded</option></select></label>
+          <label><span class="field-label">Pinned snapshot</span><select id="snapshot"><option value="">Choose a corpus</option></select></label>
+          <button id="refresh" class="secondary"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5M5.5 7a7 7 0 0 1 11.7-2L20 8M4 16l2.8 3A7 7 0 0 0 18.5 17"/></svg>Refresh</button>
+          <p id="corpus-status" class="subtle scope-status">Load a corpus through Import to begin.</p>
+        </section>
+        <div class="timeline-shell"><span class="timeline-label">SNAPSHOT HISTORY</span><div id="snapshot-timeline" class="snapshot-timeline" role="group" aria-label="Published snapshot history"></div></div>
+        <div id="message" role="status" aria-live="polite" class="message" hidden></div>
+
+        <section id="start-panel" class="panel start-panel" aria-label="Guided discovery" hidden>
+          <div class="start-heading"><div><p class="guide-eyebrow">GUIDED DISCOVERY</p><h2>Follow the evidence, step by step</h2></div><button id="guide-explore" class="secondary" type="button">Explore on your own</button></div>
+          <p id="guide-corpus-note" class="subtle">Choose a corpus above to begin.</p>
+          <div id="guide-overview" class="guide-overview" aria-live="polite"></div>
+          <nav id="guide-steps" class="guide-steps" aria-label="Walkthrough steps"></nav>
+          <div class="guide-task">
+            <div class="guide-task-copy"><p id="guide-step-label" class="guide-eyebrow">STEP 1 OF 5</p><h3 id="guide-step-title">Choose a question</h3><p id="guide-step-copy">Start with one topic, then follow its connections to the source documents.</p></div>
+            <div id="guide-question-controls"><label for="guide-query">What do you want to explore?</label><input id="guide-query" maxlength="4000" placeholder="An organization, asset, or research topic"><div id="guide-scenarios" class="guide-scenarios" aria-label="Suggested questions"></div><p id="guide-snapshot-hint" class="subtle"></p></div>
+            <div id="guide-target-controls" hidden><label for="guide-target">Compare against this snapshot</label><select id="guide-target"></select><p class="subtle">Knowledge change keeps the event scope fixed. Inspect both sources to understand what changed.</p></div>
+            <div class="guide-task-actions"><button id="guide-primary" type="button">Find connections</button><button id="guide-back" type="button" class="link-button" disabled>Previous step</button><span id="guide-progress" class="subtle" role="status"></span></div>
+          </div>
+          <details id="guide-hubs" class="guide-hubs"><summary>Explore highly connected entities</summary><p class="subtle">Connection counts describe this snapshot. Select a topic to use it as your question.</p><div id="guide-hub-list" class="guide-hub-list"></div></details>
+        </section>
+
+        <section id="search-panel" class="panel search-panel" aria-label="Search evidence">
+          <form id="search-form">
+            <div class="query-row">
+              <label class="grow"><span class="field-label">Research question</span><span class="query-input"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><input id="query" required maxlength="4000" placeholder="Which relationships are changing?"></span></label>
+              <label class="retrieval-control"><span class="field-label">Retrieval</span><select id="mode"><option value="lexical">Source passages · lexical</option><option value="dense">Source passages · local dense</option><option value="hybrid">Source passages · local hybrid</option><option value="graphrag">Graph relationships</option></select></label>
+              <button type="submit" class="search-submit">Search evidence<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></button>
+            </div>
+            <div class="live-feedback" id="live-feedback" data-phase="idle"><button id="live-toggle" type="button" class="link-button" aria-pressed="true">Live preview</button><span id="live-status" role="status" aria-live="polite">Type to trace matching evidence.</span></div>
+            <details id="advanced-search" class="advanced-search"><summary><span>Time &amp; model controls</span></summary>
+              <div class="control-grid"><label>Known by · UTC<input id="knowledge" placeholder="2025-02-05T00:00:00Z" aria-describedby="time-help"></label><label>Applies at · UTC<input id="valid-time" placeholder="2025-02-02T00:00:00Z" aria-describedby="time-help"></label><label>Local vector index<select id="vector-index"><option value="">None · lexical search only</option></select></label></div>
+              <p id="time-help" class="subtle">Known by: evidence available by this time. Applies at: reported or planned event intervals. Blank: snapshot boundary, no event-time filter.</p>
+              <p class="subtle">Dense/hybrid requires a local index built through the CLI. Queries use its local embedding model.</p>
+            </details>
+          </form>
+        </section>
+
+        <section id="compare-panel" class="panel" hidden>
+          <div class="split-controls">
+            <div class="baseline-builder"><h2>Save a baseline</h2><p class="subtle">Freeze selected findings or a graph neighborhood for comparison.</p><label>Baseline scope<select id="baseline-kind"><option value="saved_findings">Selected findings</option><option value="entity_neighborhood">Selected entity neighborhood · 1 hop</option></select></label><p id="seeds" class="subtle">No seed entities selected.</p><button id="save-baseline" class="secondary">Save current baseline</button></div>
+            <form id="compare-form"><h2>Review changes</h2><label>Saved baseline<select id="baseline"><option value="">No baseline saved</option></select></label><label>Comparison<select id="compare-mode"><option value="knowledge_change">Knowledge change · same event scope</option><option value="source_change">Source revisions &amp; withdrawals</option><option value="world_state_change">World state · one knowledge boundary</option></select></label><div class="control-grid"><label>Knowledge boundary · UTC<input id="compare-knowledge" placeholder="Target snapshot boundary"></label><label>Earlier event time · UTC<input id="compare-from" placeholder="2025-01-31T00:00:00Z"></label><label>Later event time · UTC<input id="compare-to" placeholder="2025-02-04T00:00:00Z"></label></div><p class="subtle">Compare against the pinned snapshot. World-state mode holds knowledge fixed across two event times; planned dates remain plans.</p><button type="submit">Compare evidence<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></button></form>
+          </div>
+        </section>
+
+        <section id="investigation-panel" class="panel" hidden>
+          
+          <div class="query-row"><label class="grow">Saved investigation<select id="investigation"><option value="">New investigation</option></select></label><button id="load-investigation" class="secondary">Open</button><button id="new-investigation" class="secondary">New</button></div>
+          <form id="investigation-form"><div class="control-grid"><label>Title<input id="investigation-title" required maxlength="200" placeholder="Supplier relationships under review"></label><label>Question<input id="investigation-question" required maxlength="4000" placeholder="What changed, and what supports it?"></label><label>Status<select id="investigation-status"><option value="active">Active</option><option value="concluded">Concluded</option></select></label></div><label>Notes &amp; working hypotheses<textarea id="notes" rows="5" placeholder="Analyst notes; not source facts."></textarea></label><p id="investigation-context" class="subtle">Saves notes with the current snapshot, results, and baseline.</p><button type="submit">Save investigation</button></form>
+        </section>
+
+        <section id="import-panel" class="panel" hidden>
+          
+          <p class="subtle">Stage and review before publishing. Public text only. Browser limit: 1 MiB; use the CLI for larger batches.</p>
+          <div class="import-step"><span class="step-number">01</span><h3>Stage a document batch</h3></div>
+          <form id="ingest-form"><div class="control-grid"><label>Corpus ID<input id="import-corpus" required placeholder="pump-fixture"></label><label>Idempotency key<input id="import-key" required placeholder="batch-01"></label><label>JSONL file<input id="document-file" type="file" accept=".jsonl,.json,application/json,text/plain"></label></div><label>Document-version JSONL<textarea id="records-jsonl" rows="5" required spellcheck="false" placeholder="One document-version object per line. Exact text hashes and public scope are required."></textarea></label><div class="actions"><button type="submit">Stage documents</button></div></form>
+          <div class="import-step"><span class="step-number">02</span><h3>Review &amp; publish</h3></div>
+          <div class="control-grid"><label>Job ID<input id="job-id" placeholder="Returned after staging"></label><label>Authored assertion file<input id="assertion-file" type="file" accept=".json,application/json"></label><label>Snapshot label<input id="publish-label" placeholder="Reviewed source batch"></label></div><label>Authored assertion array<textarea id="assertions-json" rows="4" spellcheck="false" placeholder="Optional JSON array. [] records successful extraction with zero assertions."></textarea></label><div class="actions"><button id="stage-assertions" class="secondary">Stage authored assertions</button><button id="job-status" class="secondary">Inspect job</button><button id="cancel-job" class="secondary">Cancel unpublished job</button></div><label class="check"><input id="allow-exclusions" type="checkbox">Explicitly allow rejected-record exclusions shown in the job report</label><button id="publish">Publish snapshot</button><pre id="job-report" class="details" aria-label="Import job report">No import job selected.</pre>
+        </section>
+
+        <section id="instructions-panel" class="panel instructions-panel" aria-label="Program instructions" hidden>
+          <section class="guide-start" aria-labelledby="guide-start-title">
+            <h2 id="guide-start-title">Quick start</h2>
+            <ol>
+              <li>Open <strong>Explore</strong>. Choose a corpus and a published snapshot.</li>
+              <li>Type a research question. <strong>Live preview</strong> traces matching evidence as you type.</li>
+              <li>Select <strong>Search evidence</strong> to retain results. Open a finding or graph edge to read its exact source.</li>
+              <li>Use <strong>Compare</strong> to review changes, or <strong>Investigations</strong> to save your question and notes.</li>
+            </ol>
+            <p class="subtle">With the included pump-fixture corpus, try <strong>Pump P</strong>. Its sources and assertions are authored examples.</p>
+          </section>
+          <div class="guide-grid">
+            <section><h2>Read the graph</h2><p>Circles represent entities; arrows represent retrieved relationships. Dashed arrows are planned relationships; disputed ones are marked separately. Dotted preview links connect relationships to source revisions.</p><p>In preview, select a node, link, or source to trace support. After Search, select nodes as baseline seeds. The graph shows a retrieved subset, not the entire corpus.</p></section>
+            <section><h2>Preview and search</h2><p>Preview uses local keywords, including a partial final word. It creates no saved run and calls no model. <strong>Search evidence</strong> uses your selected retrieval method.</p><p>Press <kbd>Esc</kbd> in the question field, clear it, or toggle <strong>Live preview</strong> off to restore your preceding analysis. Reduced-motion settings disable animation.</p></section>
+            <section><h2>Choose a time</h2><p>Under <strong>Time &amp; model controls</strong>, <strong>Known by</strong> limits when evidence was available to the system. <strong>Applies at</strong> filters reported or planned event intervals in graph mode.</p><p>Use UTC timestamps, such as <code>2025-02-02T00:00:00Z</code>. Blank fields use the snapshot boundary with no event-time filter. Snapshot history tracks publication, not world events.</p></section>
+            <section><h2>Compare changes</h2><p>Run a search, select findings or graph seeds, then open <strong>Compare</strong> and <strong>Save current baseline</strong>. Choose a target snapshot and comparison mode.</p><ul><li><strong>Knowledge change:</strong> newly available support within the same event scope.</li><li><strong>Source revisions &amp; withdrawals:</strong> changes to sources behind saved findings.</li><li><strong>World state:</strong> compare two event times at one knowledge boundary; requires graph evidence with known intervals.</li></ul><p>Inspect both source versions. A withdrawal does not establish that a real-world relationship ended; a plan remains a plan.</p></section>
+            <section><h2>Save and export</h2><p>In <strong>Investigations</strong>, enter a title, question, and notes, then save. Reopening restores the saved evidence run and selections. Notes are your observations, separate from source facts.</p><p><strong>Export evidence</strong> downloads the current search or comparison as a ZIP with findings, provenance, and scope. Preview must become a Search before export.</p></section>
+            <section><h2>Add sources</h2><p>In <strong>Import sources</strong>, provide a corpus ID, a unique idempotency key per batch, and public-text document-version JSONL. Stage the batch, inspect rejected records, then publish a snapshot. Browser requests are limited to 1 MiB.</p><p>Graph relationships require authored assertions or extraction through the local-model CLI before publication. Raw text alone supports source-passage search. Select the published corpus and snapshot in Explore.</p></section>
+          </div>
+          <details class="guide-models"><summary>Local models and troubleshooting</summary><p>Lexical search and the authored demo need no model. Dense/hybrid search requires a local llama.cpp embedding server and a vector index built through the CLI. Use the same database as the running workspace, then <strong>Refresh</strong> and select the index under <strong>Time &amp; model controls</strong>. No paid API is required.</p><p>For command options, run these in your installed Python environment:</p><pre><code>python -m graphrag_discovery extract --help
+python -m graphrag_discovery index-vectors --help</code></pre><p><strong>No results?</strong> Check the snapshot, time filters, and retrieval mode. <strong>Connection unavailable?</strong> Start the local workspace service, then Refresh. A partial result means a query limit was reached; inspect <strong>Scope, coverage &amp; execution</strong>.</p></details>
+          <p class="guide-shortcuts"><kbd>Ctrl</kbd> / <kbd>Cmd</kbd> + <kbd>K</kbd> opens Explore and focuses the question. <kbd>Tab</kbd> moves between controls; <kbd>Enter</kbd> or <kbd>Space</kbd> activates graph nodes and links.</p>
+        </section>
+
+        <section class="results-header" aria-labelledby="results-title"><div><h2 id="results-title">Results</h2><p id="result-summary" class="subtle" aria-live="polite">No search run.</p></div><button id="download" class="secondary" disabled><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M4 17v4h16v-4"/></svg>Export evidence</button></section>
+        <div class="workspace-grid">
+          <section class="results-column" aria-label="Retrieved findings"><div class="column-heading"><h3>Findings</h3></div><div class="selection-bar"><span id="selection-count">No findings selected</span><button id="clear-selection" class="link-button" disabled>Clear</button></div><div id="results" class="results"><p id="results-empty" class="empty">Search the selected snapshot.</p></div><button id="more" class="secondary" hidden>Load next saved page</button></section>
+          <section class="graph-column" aria-label="Evidence graph"><div class="column-heading"><h3>Graph neighborhood</h3><button id="clear-seeds" class="link-button">Clear seeds</button></div><div class="graph-stage"><div class="graph-controls" role="group" aria-label="Graph view"><button id="graph-zoom-in" class="graph-control" aria-label="Zoom in" title="Zoom in">+</button><button id="graph-zoom-out" class="graph-control" aria-label="Zoom out" title="Zoom out">−</button><button id="graph-reset" class="graph-control" aria-label="Reset view" title="Reset view"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4H4v4m12-4h4v4M4 16v4h4m12-4v4h-4"/></svg></button></div><svg id="graph" viewBox="0 0 640 430" role="group" aria-label="Select an entity as a baseline seed, or an edge to inspect its evidence"></svg><div id="graph-empty" class="graph-empty"><p>No graph results.</p></div><div class="graph-legend" aria-label="Graph legend"><span><i></i>Reported</span><span><i class="planned"></i>Planned</span><span><i class="disputed"></i>Disputed</span></div></div><p id="graph-note" class="subtle">Retrieved relationships only.</p><p class="graph-help subtle">Select nodes for a baseline; select edges for source evidence.</p></section>
+          <aside class="evidence-column" aria-labelledby="evidence-title"><div class="column-heading"><h3 id="evidence-title">Source evidence</h3></div><div class="evidence-body"><p id="evidence-meta" class="subtle">Select a finding or edge.</p><dl id="evidence-facts" class="evidence-facts"></dl><blockquote id="evidence-text"></blockquote><details><summary>Version, provenance &amp; time</summary><pre id="evidence-details" class="details">No evidence selected.</pre></details></div></aside>
+        </div>
+        <details class="run-details"><summary><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7 3 12l5 5m8-10 5 5-5 5M14 4l-4 16"/></svg><span>Scope, coverage &amp; execution</span></summary><pre id="run-details" class="details">No run selected.</pre><p class="subtle">Reference prototype. Discovery quality and scale remain unvalidated.</p></details>
+        
+      </main>
+      
+    </div>
+  </div>
+  <dialog id="draft-dialog" aria-labelledby="draft-dialog-title" aria-describedby="draft-dialog-description"><div class="dialog-symbol" aria-hidden="true">!</div><h2 id="draft-dialog-title">Unsaved investigation</h2><p id="draft-dialog-description">Discard unsaved changes to this investigation?</p><div class="actions"><button id="draft-keep">Keep editing</button><button id="draft-discard" class="secondary">Discard changes</button></div></dialog>
+</body>
+</html>
+
+

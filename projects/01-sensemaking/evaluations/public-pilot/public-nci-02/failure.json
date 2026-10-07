@@ -1,0 +1,4 @@
+{
+  "code": "model_timeout",
+  "message": "Local model request reached its wall-clock deadline."
+}

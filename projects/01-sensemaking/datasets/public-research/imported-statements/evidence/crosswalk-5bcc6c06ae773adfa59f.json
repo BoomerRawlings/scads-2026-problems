@@ -1,0 +1,69 @@
+{
+  "candidate": {
+    "candidate_evidence_id": "crosswalk-5bcc6c06ae773adfa59f",
+    "claims": [
+      {
+        "evidence_id": "external-id-ror-00w52vt71-b3042ab2f678a2417e8c",
+        "exclusion_reasons": [],
+        "ror": "ror:00w52vt71",
+        "source_assertion": {
+          "all": [
+            "Q30264299"
+          ],
+          "preferred": "Q30264299",
+          "type": "wikidata"
+        },
+        "source_entity": "ror:00w52vt71",
+        "source_path": "/external_ids/3",
+        "source_provenance": {
+          "capture_manifest_path": "sources/capture-manifest.json",
+          "entity_id": "00w52vt71",
+          "id": "ror-00w52vt71",
+          "path": "sources/raw/ror-00w52vt71.json",
+          "provider": "ror",
+          "request_attempts": 1,
+          "retrieved_at_utc": "2026-10-07T04:14:09Z",
+          "revision": {
+            "record_modified": "2024-12-11",
+            "schema_version": "2.1"
+          },
+          "sha256": "4f62d30c9110c91a2ecd4089e3c467f4fb10a9e3e1be09c0ad9e1f73d8023e29",
+          "size_bytes": 1486,
+          "url": "https://api.ror.org/v2/organizations/00w52vt71"
+        },
+        "wikidata": "wikidata:q30264299"
+      }
+    ],
+    "decision_inputs": [
+      {
+        "evidence_id": "identity-ror-00w52vt71-752bc43c3e9c04d6148b",
+        "role": "captured_endpoint",
+        "source_entity": "ror:00w52vt71",
+        "source_path": "",
+        "source_provenance": {
+          "capture_manifest_path": "sources/capture-manifest.json",
+          "entity_id": "00w52vt71",
+          "id": "ror-00w52vt71",
+          "path": "sources/raw/ror-00w52vt71.json",
+          "provider": "ror",
+          "request_attempts": 1,
+          "retrieved_at_utc": "2026-10-07T04:14:09Z",
+          "revision": {
+            "record_modified": "2024-12-11",
+            "schema_version": "2.1"
+          },
+          "sha256": "4f62d30c9110c91a2ecd4089e3c467f4fb10a9e3e1be09c0ad9e1f73d8023e29",
+          "size_bytes": 1486,
+          "url": "https://api.ror.org/v2/organizations/00w52vt71"
+        }
+      }
+    ],
+    "merged": false,
+    "note": "Identifier assertions only; no equivalence edge or independence claim.",
+    "ror": "ror:00w52vt71",
+    "status": "endpoint_not_captured",
+    "wikidata": "wikidata:q30264299"
+  },
+  "caution": "Source assertions, not independently verified facts. Edit/retrieval dates are not relationship validity dates. Projection records a captured assertion, not present-day truth. Crosswalks never merge identities; reciprocity does not establish independent corroboration. Linked media was not imported.",
+  "record_type": "crosswalk"
+}

@@ -1,0 +1,347 @@
+{
+  "caution": "Source assertions, not independently verified facts. Edit/retrieval dates are not relationship validity dates. Projection records a captured assertion, not present-day truth. Crosswalks never merge identities; reciprocity does not establish independent corroboration. Linked media was not imported.",
+  "record_type": "identity",
+  "source_fragments": [
+    {
+      "json_pointer": "/entities/Q6973636/id",
+      "value": "Q6973636"
+    },
+    {
+      "json_pointer": "/entities/Q6973636/type",
+      "value": "item"
+    },
+    {
+      "json_pointer": "/entities/Q6973636/lastrevid",
+      "value": 2216204992
+    },
+    {
+      "json_pointer": "/entities/Q6973636/modified",
+      "value": "2024-07-30T09:50:14Z"
+    },
+    {
+      "json_pointer": "/entities/Q6973636/labels",
+      "value": {
+        "en": {
+          "language": "en",
+          "value": "list of institutes and centers of the National Institutes of Health"
+        },
+        "fa": {
+          "language": "fa",
+          "value": "مؤسسه ملی دیابت و بیماری‌های کلیوی و گوارشی ایالات متحده آمریکا"
+        }
+      }
+    },
+    {
+      "json_pointer": "/entities/Q6973636/aliases",
+      "value": {
+        "fa": [
+          {
+            "language": "fa",
+            "value": "موسسه ملی دیابت و بیماری های کلیوی و گوارشی ایالات متحده آمریکا"
+          },
+          {
+            "language": "fa",
+            "value": "موسسه ملی دیابت و بیماری‌های کلیوی و گوارشی ایالات متحده آمریکا"
+          },
+          {
+            "language": "fa",
+            "value": "مؤسسه ملی دیابت و بیماری های کلیوی و گوارشی ایالات متحده آمریکا"
+          },
+          {
+            "language": "fa",
+            "value": "مؤسسه ملی دیابت و بیماری‌های کلیوی و گوارشی ایالات متحده امریکا"
+          },
+          {
+            "language": "fa",
+            "value": "مؤسسهٔ ملی دیابت و بیماری‌های کلیوی و گوارشی ایالات متحدهٔ آمریکا"
+          },
+          {
+            "language": "fa",
+            "value": "مؤسسه ملی دیابت و بیماری‌های کلیوی و گوارشی ایالات متحده"
+          }
+        ]
+      }
+    },
+    {
+      "json_pointer": "/entities/Q6973636/descriptions",
+      "value": {
+        "ace": {
+          "language": "ace",
+          "value": "teunuléh dapeuta Wikimèdia"
+        },
+        "af": {
+          "language": "af",
+          "value": "Wikimedia lysartikel"
+        },
+        "ar": {
+          "language": "ar",
+          "value": "قائمة ويكيميديا"
+        },
+        "as": {
+          "language": "as",
+          "value": "ৱিকিপিডিয়া:ৰচনাশৈলীৰ হাতপুথি"
+        },
+        "ast": {
+          "language": "ast",
+          "value": "artículu de llista de Wikimedia"
+        },
+        "ba": {
+          "language": "ba",
+          "value": "Wikimedia-Listn"
+        },
+        "be": {
+          "language": "be",
+          "value": "спіс артыкулаў у адным з праектаў Вікімедыя"
+        },
+        "bg": {
+          "language": "bg",
+          "value": "Уикимедия списък"
+        },
+        "bn": {
+          "language": "bn",
+          "value": "উইকিমিডিয়ার তালিকা নিবন্ধ"
+        },
+        "bs": {
+          "language": "bs",
+          "value": "spisak na Wikimediji"
+        },
+        "ca": {
+          "language": "ca",
+          "value": "article de llista de Wikimedia"
+        },
+        "cs": {
+          "language": "cs",
+          "value": "seznam na projektech Wikimedia"
+        },
+        "da": {
+          "language": "da",
+          "value": "Wikimedia liste"
+        },
+        "de": {
+          "language": "de",
+          "value": "Wikimedia-Liste"
+        },
+        "de-at": {
+          "language": "de-at",
+          "value": "Wikimedia-Liste"
+        },
+        "de-ch": {
+          "language": "de-ch",
+          "value": "Wikimedia-Liste"
+        },
+        "el": {
+          "language": "el",
+          "value": "κατάλογος εγχειρήματος Wikimedia"
+        },
+        "en": {
+          "language": "en",
+          "value": "Wikimedia list article"
+        },
+        "en-ca": {
+          "language": "en-ca",
+          "value": "Wikimedia list article"
+        },
+        "en-gb": {
+          "language": "en-gb",
+          "value": "Wikimedia list article"
+        },
+        "eo": {
+          "language": "eo",
+          "value": "Listartikolo en Vikipedio"
+        },
+        "es": {
+          "language": "es",
+          "value": "artículo de lista de Wikimedia"
+        },
+        "eu": {
+          "language": "eu",
+          "value": "Wikimediako zerrenda artikulua"
+        },
+        "fi": {
+          "language": "fi",
+          "value": "Wikimedia-luetteloartikkeli"
+        },
+        "fr": {
+          "language": "fr",
+          "value": "page de liste de Wikimédia"
+        },
+        "gl": {
+          "language": "gl",
+          "value": "artigo de listas da Wikimedia"
+        },
+        "he": {
+          "language": "he",
+          "value": "רשימת ערכים"
+        },
+        "hr": {
+          "language": "hr",
+          "value": "popis na Wikimediji"
+        },
+        "hy": {
+          "language": "hy",
+          "value": "Վիքիմեդիայի նախագծի ցանկ"
+        },
+        "ia": {
+          "language": "ia",
+          "value": "lista de un projecto de Wikimedia"
+        },
+        "it": {
+          "language": "it",
+          "value": "lista di un progetto Wikimedia"
+        },
+        "ja": {
+          "language": "ja",
+          "value": "ウィキメディアの一覧記事"
+        },
+        "ko": {
+          "language": "ko",
+          "value": "위키미디어 목록 항목"
+        },
+        "lb": {
+          "language": "lb",
+          "value": "Wikimedia-Lëschtenartikel"
+        },
+        "mk": {
+          "language": "mk",
+          "value": "список на статии на Викимедија"
+        },
+        "ms": {
+          "language": "ms",
+          "value": "rencana senarai Wikimedia"
+        },
+        "nb": {
+          "language": "nb",
+          "value": "Wikimedia-listeartikkel"
+        },
+        "nl": {
+          "language": "nl",
+          "value": "Wikimedia-lijst"
+        },
+        "oc": {
+          "language": "oc",
+          "value": "lista d'un projècte Wikimèdia"
+        },
+        "pap": {
+          "language": "pap",
+          "value": "lista di Wikimedia"
+        },
+        "pl": {
+          "language": "pl",
+          "value": "lista w projekcie Wikimedia"
+        },
+        "ro": {
+          "language": "ro",
+          "value": "articol-listă în cadrul unui proiect Wikimedia"
+        },
+        "ru": {
+          "language": "ru",
+          "value": "статья-список в проекте Викимедиа"
+        },
+        "sco": {
+          "language": "sco",
+          "value": "Wikimedia leet airticle"
+        },
+        "si": {
+          "language": "si",
+          "value": "විකිමීඩියා ලැයිස්තු ලිපිය"
+        },
+        "sk": {
+          "language": "sk",
+          "value": "zoznamový článok projektov Wikimedia"
+        },
+        "sl": {
+          "language": "sl",
+          "value": "seznam Wikimedie"
+        },
+        "sr": {
+          "language": "sr",
+          "value": "списак на Викимедији"
+        },
+        "sv": {
+          "language": "sv",
+          "value": "Wikimedia-listartikel"
+        },
+        "ta": {
+          "language": "ta",
+          "value": "விக்கிப்பீடியா:பட்டியலிடல்"
+        },
+        "tg": {
+          "language": "tg",
+          "value": "саҳифаи феҳристӣ"
+        },
+        "th": {
+          "language": "th",
+          "value": "บทความรายชื่อวิกิมีเดีย"
+        },
+        "tr": {
+          "language": "tr",
+          "value": "Vikimedya liste maddesi"
+        },
+        "uk": {
+          "language": "uk",
+          "value": "стаття-список у проєкті Вікімедіа"
+        },
+        "vi": {
+          "language": "vi",
+          "value": "bài viết danh sách Wikimedia"
+        },
+        "yi": {
+          "language": "yi",
+          "value": "וויקימעדיע ליסטע"
+        },
+        "zh": {
+          "language": "zh",
+          "value": "维基媒体列表条目"
+        },
+        "zh-cn": {
+          "language": "zh-cn",
+          "value": "维基媒体列表条目"
+        },
+        "zh-hans": {
+          "language": "zh-hans",
+          "value": "维基媒体列表条目"
+        },
+        "zh-hant": {
+          "language": "zh-hant",
+          "value": "維基媒體列表條目"
+        },
+        "zh-hk": {
+          "language": "zh-hk",
+          "value": "維基媒體列表條目"
+        },
+        "zh-mo": {
+          "language": "zh-mo",
+          "value": "維基媒體列表條目"
+        },
+        "zh-my": {
+          "language": "zh-my",
+          "value": "维基媒体列表条目"
+        },
+        "zh-sg": {
+          "language": "zh-sg",
+          "value": "维基媒体列表条目"
+        },
+        "zh-tw": {
+          "language": "zh-tw",
+          "value": "維基媒體列表條目"
+        }
+      }
+    }
+  ],
+  "source_provenance": {
+    "capture_manifest_path": "sources/capture-manifest.json",
+    "entity_id": "Q6973636",
+    "id": "wikidata-Q6973636",
+    "path": "sources/raw/wikidata-Q6973636.json",
+    "provider": "wikidata",
+    "request_attempts": 1,
+    "retrieved_at_utc": "2026-10-07T04:14:14Z",
+    "revision": {
+      "lastrevid": 2216204992,
+      "modified": "2024-07-30T09:50:14Z"
+    },
+    "sha256": "d24bc337fd25e3b27ddc51603453a582b155f17ba2faee28509989bb59e08473",
+    "size_bytes": 11672,
+    "url": "https://www.wikidata.org/wiki/Special:EntityData/Q6973636.json?revision=2216204992"
+  }
+}

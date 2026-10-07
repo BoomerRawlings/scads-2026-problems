@@ -1,0 +1,79 @@
+{
+  "caution": "Source assertions, not independently verified facts. Edit/retrieval dates are not relationship validity dates. Projection records a captured assertion, not present-day truth. Crosswalks never merge identities; reciprocity does not establish independent corroboration. Linked media was not imported.",
+  "projection_decision": {
+    "evidence_id": "statement-wikidata-Q664846-c720e77afb5c474a0b88",
+    "exclusion_reasons": [
+      "endpoint_not_captured"
+    ],
+    "indexed": true,
+    "predicate": "P355",
+    "raw_source_path": "sources/raw/wikidata-Q664846.json",
+    "source_entity": "wikidata:q664846",
+    "source_path": "/entities/Q664846/claims/P355/4",
+    "statement_guid": "Q664846$6C076C45-61F5-4F30-9FD2-BC4DA09A76EE",
+    "target": "wikidata:q30296659"
+  },
+  "record_type": "statement",
+  "source_fragments": [
+    {
+      "json_pointer": "/entities/Q664846/claims/P355/4",
+      "value": {
+        "id": "Q664846$6C076C45-61F5-4F30-9FD2-BC4DA09A76EE",
+        "mainsnak": {
+          "datatype": "wikibase-item",
+          "datavalue": {
+            "type": "wikibase-entityid",
+            "value": {
+              "entity-type": "item",
+              "id": "Q30296659",
+              "numeric-id": 30296659
+            }
+          },
+          "hash": "97c80195c762901c66b045be03570573910ae9ab",
+          "property": "P355",
+          "snaktype": "value"
+        },
+        "rank": "normal",
+        "references": [
+          {
+            "hash": "0b3e98e723e68955ef83f25b837ec2fadfbf0327",
+            "snaks": {
+              "P2427": [
+                {
+                  "datatype": "external-id",
+                  "datavalue": {
+                    "type": "string",
+                    "value": "grid.453337.5"
+                  },
+                  "hash": "c7738701e256a303a7732aef4c8bee96952e44cf",
+                  "property": "P2427",
+                  "snaktype": "value"
+                }
+              ]
+            },
+            "snaks-order": [
+              "P2427"
+            ]
+          }
+        ],
+        "type": "statement"
+      }
+    }
+  ],
+  "source_provenance": {
+    "capture_manifest_path": "sources/capture-manifest.json",
+    "entity_id": "Q664846",
+    "id": "wikidata-Q664846",
+    "path": "sources/raw/wikidata-Q664846.json",
+    "provider": "wikidata",
+    "request_attempts": 1,
+    "retrieved_at_utc": "2026-10-07T04:14:11Z",
+    "revision": {
+      "lastrevid": 2550610368,
+      "modified": "2026-09-28T20:00:41Z"
+    },
+    "sha256": "cf4e1e4bb29c44ea339df53734f4396ba551b7a7863383ac3f90a324fac53695",
+    "size_bytes": 102418,
+    "url": "https://www.wikidata.org/wiki/Special:EntityData/Q664846.json?revision=2550610368"
+  }
+}

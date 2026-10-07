@@ -1,0 +1,148 @@
+{
+  "schema_version": 1,
+  "evidence_kind": "observed_host_preflight_with_separate_modeled_capacity",
+  "scope": "Current development host only; no engine or bulk dataset started.",
+  "inventory": {
+    "schema_version": 1,
+    "evidence_kind": "observed_inventory",
+    "observed_at": "2026-10-07T11:25:56.191256+00:00",
+    "platform": "Windows",
+    "cpu": {
+      "logical_count": 12,
+      "effective_count": 12
+    },
+    "memory": {
+      "total_bytes": 16757260288,
+      "available_bytes": 640290816,
+      "effective_total_bytes": 16757260288,
+      "effective_available_bytes": 640290816,
+      "source": "GlobalMemoryStatusEx"
+    },
+    "disk": {
+      "total_bytes": 509671895040,
+      "free_bytes": 5766598656,
+      "source": "shutil.disk_usage"
+    },
+    "cgroup": null,
+    "warnings": [
+      "Inventory is a point-in-time observation, not a resource reservation.",
+      "Disk quotas, remote nodes, GPU/LLM memory and Docker VM limits are not probed.",
+      "Windows job-object/process resource restrictions are not probed."
+    ]
+  },
+  "runtime": {
+    "docker": false,
+    "podman": false,
+    "java": false
+  },
+  "wsl_installed": false,
+  "loopback_tcp_ports": {
+    "9200": "closed",
+    "5601": "closed"
+  },
+  "configured_remote_target_discovered": false,
+  "remote_discovery_scope": "Project configuration and available app project hosts; no remote execution target configured. This is not a network-wide scan.",
+  "capacity_model": {
+    "schema_version": 1,
+    "evidence_kind": "modeled_capacity",
+    "profile": "full-demo",
+    "target_rows": 2000000,
+    "backend": "elasticsearch",
+    "status": "insufficient",
+    "ready_for_production": false,
+    "assumptions": {
+      "raw_bytes_per_record": 1200,
+      "staging_bytes_per_record": 2000,
+      "normalized_bytes_per_record": 900,
+      "index_bytes_per_record": 1600,
+      "fixture_memory_bytes_per_record": 4096,
+      "raw_copies": 1,
+      "normalized_copies": 1,
+      "replicas": 1,
+      "merge_overhead_fraction": 0.5,
+      "free_disk_fraction": 0.25,
+      "fixed_disk_bytes": 5368709120
+    },
+    "storage": {
+      "raw_bytes": 2400000000,
+      "staging_bytes": 4000000000,
+      "normalized_bytes": 1800000000,
+      "index_including_replicas_bytes": 6400000000,
+      "merge_extra_bytes": 3200000000,
+      "fixed_bytes": 5368709120,
+      "peak_before_headroom_bytes": 23168709120,
+      "required_free_bytes": 30891612160
+    },
+    "memory": {
+      "workflow_floor_bytes": 12884901888,
+      "buffer_estimate_bytes": 1680000,
+      "required_available_bytes": 12886581888
+    },
+    "checks": [
+      {
+        "resource": "available_memory_bytes",
+        "observed": 640290816,
+        "required": 12886581888,
+        "status": "insufficient"
+      },
+      {
+        "resource": "free_disk_bytes",
+        "observed": 5766598656,
+        "required": 30891612160,
+        "status": "insufficient"
+      },
+      {
+        "resource": "effective_cpu_count",
+        "observed": 12,
+        "required": 4,
+        "status": "modeled_fit"
+      }
+    ],
+    "suggestions": {
+      "budgets": {
+        "page_size": 100,
+        "max_concurrent_exports": 1
+      },
+      "capture": {
+        "page_size": 100
+      },
+      "ingest": {
+        "batch_size": 100
+      }
+    },
+    "next_steps": [
+      "Review and explicitly apply desired budgets to your configuration.",
+      "Measure indexed bytes/record and representative queries on the intended engine/host.",
+      "Repeat at increasing real row counts; record correctness, latency, memory, disk and failure recovery."
+    ],
+    "warnings": [
+      "Sizing assumptions are estimates, not measured dataset sizes or throughput.",
+      "Modeled fit does not validate Elasticsearch/Kibana, latency, concurrency, coverage or production readiness.",
+      "Memory is a workflow floor; query cardinality, shards, JVM heap and filesystem cache require real measurements.",
+      "Storage models all capture/staging/normalized/index copies coexisting on the probed filesystem; backups/LLM/assets are additional.",
+      "No rows are sampled or removed; configured analytical/export limits remain unchanged.",
+      "Replica assumption requires at least 2 suitable Elasticsearch data nodes; combined disk is not per-node sizing."
+    ],
+    "inventory_warnings": [
+      "Inventory is a point-in-time observation, not a resource reservation.",
+      "Disk quotas, remote nodes, GPU/LLM memory and Docker VM limits are not probed.",
+      "Windows job-object/process resource restrictions are not probed."
+    ]
+  },
+  "live_elasticsearch_verified": false,
+  "live_kibana_rendering_verified": false,
+  "real_million_record_gate_complete": false,
+  "blockers": [
+    "No installed Docker/Podman/Java or reachable local Elastic/Kibana service.",
+    "Available RAM and disk below existing full-demo planning assumptions.",
+    "No usable alternative host or Elastic/Kibana endpoint provided."
+  ],
+  "execution_target_planning_guidance": {
+    "os": "Linux amd64 or arm64",
+    "cpu_count": 4,
+    "total_memory_gib": 32,
+    "free_data_disk_gib": 100,
+    "scope": "Conservative allowance from the live runbook for the full 2025 capture, coexisting copies and local lab assets; not a measured minimum or throughput guarantee. Re-probe available resources before running."
+  },
+  "next_action": "Run the live kit on a supplied capable target; retain independent coverage and rendered-map verification gates."
+}

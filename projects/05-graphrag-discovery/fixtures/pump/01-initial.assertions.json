@@ -1,0 +1,29 @@
+[
+  {
+    "assertion_id": "a-initial",
+    "document_id": "operator-notice",
+    "version_id": "v1",
+    "processing_version": "plain-text-v1",
+    "subject_id": "operator-a",
+    "subject_label": "Operator A",
+    "object_id": "pump-p",
+    "object_label": "Pump P",
+    "text": "Operator A operates Pump P from January 1, 2025, with no stated end date.",
+    "start": 0,
+    "end": 73,
+    "modality": "reported",
+    "valid_from": "2025-01-01T00:00:00Z",
+    "valid_to": null,
+    "temporal_status": {
+      "from": "known",
+      "to": "open"
+    },
+    "supersedes": [],
+    "method": "authored-fixture",
+    "relation_group": "pump-p-operator",
+    "qualifiers": {
+      "exclusive": true,
+      "scope": "One actual operator of Pump P at a time; authored fixture premise."
+    }
+  }
+]

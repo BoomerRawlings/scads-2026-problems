@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "observed_at_utc": "2026-10-07T11:20:51.353333+00:00",
+  "scope": "Bounded official NYC 311 preflight; no bulk capture, no completed data artifact.",
+  "source_id": "erm2-nwe9",
+  "requested_window": {
+    "gte": "2025-01-01T00:00:00",
+    "lt": "2026-01-01T00:00:00"
+  },
+  "limits": {
+    "max_record_rows": 50,
+    "max_response_bytes_total": 4784128,
+    "request_timeout_seconds": 30
+  },
+  "observations": [
+    {
+      "request": "metadata",
+      "url": "https://data.cityofnewyork.us/api/views/erm2-nwe9.json",
+      "http_status": 200,
+      "response_bytes": 25591,
+      "response_sha256": "9b061939fb408dbbb0f1af269b3e16c63e65ec98de96d52ffade9ba51acc74cb",
+      "headers": {
+        "date": "Wed, 07 Oct 2026 11:20:50 GMT"
+      },
+      "metadata": {
+        "id": "erm2-nwe9",
+        "name": "311 Service Requests from 2020 to Present",
+        "rowsUpdatedAt": 1791337130,
+        "viewLastModified": 1767021900
+      },
+      "capture_schema_matches": true,
+      "elapsed_seconds": 0.797
+    },
+    {
+      "request": "annual_count",
+      "url": "https://data.cityofnewyork.us/resource/erm2-nwe9.json?%24select=count%28%2A%29+as+row_count%2Ccount%28distinct+unique_key%29+as+unique_count%2Cmax%28%3Aupdated_at%29+as+max_updated_at&%24where=created_date+%3E%3D+%272025-01-01T00%3A00%3A00%27+AND+created_date+%3C+%272026-01-01T00%3A00%3A00%27",
+      "http_status": 200,
+      "response_bytes": 95,
+      "response_sha256": "4fef27622c95f97b2d0c7fe915bef6700b9b134fee67f11bd9ce741b13b11c97",
+      "headers": {
+        "date": "Wed, 07 Oct 2026 11:21:17 GMT",
+        "etag": "W/\"Zm94dHJvdC4xNTY1NV8xODNfMTkzOTQ4Wk00WGpkd3V6ZEUyeGNJeUxvc0huZWlBMVRB---gzipJs-_kr3E1dIcNWJj1vR1mOfBSIA--gzip--gzip\"",
+        "x-soda2-data-out-of-date": "false",
+        "x-soda2-truth-last-modified": "Wed, 07 Oct 2026 02:28:09 GMT",
+        "x-soda2-secondary-last-modified": "Wed, 07 Oct 2026 02:28:09 GMT",
+        "last-modified": "Wed, 07 Oct 2026 02:28:09 GMT"
+      },
+      "capture_revision_validation": {
+        "status": "accepted",
+        "revisions": {
+          "x-soda2-truth-last-modified": "2026-10-07T02:28:09+00:00",
+          "x-soda2-secondary-last-modified": "2026-10-07T02:28:09+00:00"
+        }
+      },
+      "reported_aggregate": [
+        {
+          "row_count": "3655041",
+          "unique_count": "3655041",
+          "max_updated_at": "2026-10-07T01:33:31.682Z"
+        }
+      ],
+      "elapsed_seconds": 26.047
+    },
+    {
+      "request": "first_50_records",
+      "url": "https://data.cityofnewyork.us/resource/erm2-nwe9.json?%24select=unique_key%2Ccreated_date%2Cclosed_date%2Ccomplaint_type%2Cdescriptor%2Cagency%2Cagency_name%2Cstatus%2Cborough%2Cincident_zip%2Ccommunity_board%2Ccouncil_district%2Cpolice_precinct%2Clatitude%2Clongitude%2Clocation%2C%3Aid+as+source_row_id%2C%3Aupdated_at+as+source_updated_at&%24where=created_date+%3E%3D+%272025-01-01T00%3A00%3A00%27+AND+created_date+%3C+%272026-01-01T00%3A00%3A00%27&%24order=unique_key+ASC&%24limit=50",
+      "http_status": 200,
+      "response_bytes": 31456,
+      "response_sha256": "c79596f4b7d922490b67cb942f89dc60f1e54d66f588b660ba10b6d0b63abc93",
+      "headers": {
+        "date": "Wed, 07 Oct 2026 11:21:17 GMT",
+        "etag": "W/\"Zm94dHJvdC4xNTY1NV8xODNfMTkzOTQ4LWtUY1d1UzU5cEFRTldNOTAtbGF6TzhTNkI0---gzipebc6tv673Ygulyy6iXUpbbh7YrA--gzip--gzip\"",
+        "x-soda2-data-out-of-date": "false",
+        "x-soda2-truth-last-modified": "Wed, 07 Oct 2026 02:28:09 GMT",
+        "x-soda2-secondary-last-modified": "Wed, 07 Oct 2026 02:28:09 GMT",
+        "last-modified": "Wed, 07 Oct 2026 02:28:09 GMT"
+      },
+      "capture_revision_validation": {
+        "status": "accepted",
+        "revisions": {
+          "x-soda2-truth-last-modified": "2026-10-07T02:28:09+00:00",
+          "x-soda2-secondary-last-modified": "2026-10-07T02:28:09+00:00"
+        }
+      },
+      "sample": {
+        "rows": 50,
+        "unique_keys": 50,
+        "strictly_ordered_keys": true,
+        "created_date_min": "2025-10-31T07:59:00.000",
+        "created_date_max": "2025-10-31T17:59:09.000",
+        "canonical_jsonl_mean_bytes": 628.1
+      },
+      "elapsed_seconds": 0.609
+    }
+  ],
+  "coverage_complete": false,
+  "real_million_record_gate_complete": false,
+  "total_response_bytes": 57142,
+  "interpretation": {
+    "previous_stale_condition_observed": false,
+    "capture_preflight_ready": true,
+    "million_record_dataset_downloaded": false,
+    "source_snapshot_isolation_established": false,
+    "unique_count_scope": "Provider aggregate for the requested 2025 window; local unique-row capture not performed.",
+    "sample_scope": "First 50 unique_key-ordered rows only; not a random or representative sample.",
+    "upstream_revisions": "Aggregate and sample both reported 2026-10-07T02:28:09+00:00; a later capture must recheck."
+  },
+  "next_capture_request_on_capable_host": {
+    "start": "2025-01-01",
+    "end": "2026-01-01",
+    "output": "data/nyc311-2025.jsonl",
+    "page_size": 1000,
+    "max_rows": 4000000,
+    "max_bytes": 4000000000,
+    "max_storage_bytes": 10000000000,
+    "max_pages": 10000,
+    "max_seconds": 7200,
+    "min_free_bytes": 5000000000,
+    "retries": 3,
+    "caveat": "These explicit limits are proposed safety budgets, not verified capacity or a duration prediction. Reserve additional space for normalization and Elasticsearch. Resume after interruption only while initial metadata/count/revisions still match; provider revision changes quarantine this capture."
+  },
+  "remaining_gates": [
+    "Provision storage and memory for acquisition plus normalization and Elasticsearch/Kibana.",
+    "Complete a capture and reconcile local unique row count, source observations, and output SHA-256.",
+    "Preserve coverage.complete=false until an independently reviewed source-coverage procedure justifies analytical completeness; current capture does not certify transaction isolation.",
+    "Run real Elasticsearch ingestion, frozen-index checks, independent API/CSV semantics and rendered map verification."
+  ]
+}

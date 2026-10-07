@@ -1,0 +1,123 @@
+{
+  "candidate": {
+    "candidate_evidence_id": "crosswalk-05325c9e1d75a5de8164",
+    "claims": [
+      {
+        "evidence_id": "statement-wikidata-Q42944-4b8eed3279795b4b8872",
+        "exclusion_reasons": [],
+        "ror": "ror:01ggx4157",
+        "source_assertion": {
+          "id": "Q42944$6194DD62-D63E-4B36-BCEE-3178329A87C9",
+          "mainsnak": {
+            "datatype": "external-id",
+            "datavalue": {
+              "type": "string",
+              "value": "01ggx4157"
+            },
+            "hash": "b06d29517034e224316c800d7d07c61835901206",
+            "property": "P6782",
+            "snaktype": "value"
+          },
+          "rank": "normal",
+          "type": "statement"
+        },
+        "source_entity": "wikidata:q42944",
+        "source_path": "/entities/Q42944/claims/P6782/0",
+        "source_provenance": {
+          "capture_manifest_path": "sources/capture-manifest.json",
+          "entity_id": "Q42944",
+          "id": "wikidata-Q42944",
+          "path": "sources/raw/wikidata-Q42944.json",
+          "provider": "wikidata",
+          "request_attempts": 1,
+          "retrieved_at_utc": "2026-10-07T04:14:13Z",
+          "revision": {
+            "lastrevid": 2541849285,
+            "modified": "2026-09-07T19:19:58Z"
+          },
+          "sha256": "54cf521d65388a2d127a3410217886a4aded68bffa2b29a6c25f9e1a743f4e96",
+          "size_bytes": 205654,
+          "url": "https://www.wikidata.org/wiki/Special:EntityData/Q42944.json?revision=2541849285"
+        },
+        "wikidata": "wikidata:q42944"
+      }
+    ],
+    "decision_inputs": [
+      {
+        "evidence_id": "identity-wikidata-Q42944-d06bd1252d6f5e1cecb2",
+        "role": "captured_endpoint",
+        "source_entity": "wikidata:q42944",
+        "source_path": "/entities/Q42944",
+        "source_provenance": {
+          "capture_manifest_path": "sources/capture-manifest.json",
+          "entity_id": "Q42944",
+          "id": "wikidata-Q42944",
+          "path": "sources/raw/wikidata-Q42944.json",
+          "provider": "wikidata",
+          "request_attempts": 1,
+          "retrieved_at_utc": "2026-10-07T04:14:13Z",
+          "revision": {
+            "lastrevid": 2541849285,
+            "modified": "2026-09-07T19:19:58Z"
+          },
+          "sha256": "54cf521d65388a2d127a3410217886a4aded68bffa2b29a6c25f9e1a743f4e96",
+          "size_bytes": 205654,
+          "url": "https://www.wikidata.org/wiki/Special:EntityData/Q42944.json?revision=2541849285"
+        }
+      },
+      {
+        "admissibility_reasons": [],
+        "evidence_id": "statement-wikidata-Q42944-4a79342782dc93bc394b",
+        "role": "wikidata_type_check",
+        "source_entity": "wikidata:q42944",
+        "source_path": "/entities/Q42944/claims/P31/0",
+        "source_provenance": {
+          "capture_manifest_path": "sources/capture-manifest.json",
+          "entity_id": "Q42944",
+          "id": "wikidata-Q42944",
+          "path": "sources/raw/wikidata-Q42944.json",
+          "provider": "wikidata",
+          "request_attempts": 1,
+          "retrieved_at_utc": "2026-10-07T04:14:13Z",
+          "revision": {
+            "lastrevid": 2541849285,
+            "modified": "2026-09-07T19:19:58Z"
+          },
+          "sha256": "54cf521d65388a2d127a3410217886a4aded68bffa2b29a6c25f9e1a743f4e96",
+          "size_bytes": 205654,
+          "url": "https://www.wikidata.org/wiki/Special:EntityData/Q42944.json?revision=2541849285"
+        }
+      },
+      {
+        "admissibility_reasons": [],
+        "evidence_id": "statement-wikidata-Q42944-9cbdae79836fb9a6f709",
+        "role": "wikidata_type_check",
+        "source_entity": "wikidata:q42944",
+        "source_path": "/entities/Q42944/claims/P31/1",
+        "source_provenance": {
+          "capture_manifest_path": "sources/capture-manifest.json",
+          "entity_id": "Q42944",
+          "id": "wikidata-Q42944",
+          "path": "sources/raw/wikidata-Q42944.json",
+          "provider": "wikidata",
+          "request_attempts": 1,
+          "retrieved_at_utc": "2026-10-07T04:14:13Z",
+          "revision": {
+            "lastrevid": 2541849285,
+            "modified": "2026-09-07T19:19:58Z"
+          },
+          "sha256": "54cf521d65388a2d127a3410217886a4aded68bffa2b29a6c25f9e1a743f4e96",
+          "size_bytes": 205654,
+          "url": "https://www.wikidata.org/wiki/Special:EntityData/Q42944.json?revision=2541849285"
+        }
+      }
+    ],
+    "merged": false,
+    "note": "Identifier assertions only; no equivalence edge or independence claim.",
+    "ror": "ror:01ggx4157",
+    "status": "endpoint_not_captured",
+    "wikidata": "wikidata:q42944"
+  },
+  "caution": "Source assertions, not independently verified facts. Edit/retrieval dates are not relationship validity dates. Projection records a captured assertion, not present-day truth. Crosswalks never merge identities; reciprocity does not establish independent corroboration. Linked media was not imported.",
+  "record_type": "crosswalk"
+}

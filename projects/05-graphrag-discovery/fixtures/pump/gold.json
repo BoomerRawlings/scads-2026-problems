@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "corpus_id": "pump-fixture",
+  "kind": "independently_authored_expected_behavior",
+  "query": "Pump P",
+  "states": [
+    {
+      "id": "initial_report",
+      "knowledge_cutoff": "2025-01-10T00:00:00Z",
+      "valid_time": "2025-01-10T00:00:00Z",
+      "assertion_ids": ["a-initial"],
+      "modalities": {"a-initial": "reported"},
+      "disputed_ids": []
+    },
+    {
+      "id": "plan_does_not_confirm_itself",
+      "knowledge_cutoff": "2025-02-05T00:00:00Z",
+      "valid_time": "2025-02-02T00:00:00Z",
+      "assertion_ids": ["b-planned"],
+      "modalities": {"b-planned": "planned"},
+      "disputed_ids": []
+    },
+    {
+      "id": "late_correction_changes_retrospective_state",
+      "knowledge_cutoff": "2025-02-11T00:00:00Z",
+      "valid_time": "2025-02-02T00:00:00Z",
+      "assertion_ids": ["a-corrected"],
+      "modalities": {"a-corrected": "reported"},
+      "disputed_ids": []
+    },
+    {
+      "id": "reported_successor",
+      "knowledge_cutoff": "2025-02-11T00:00:00Z",
+      "valid_time": "2025-02-04T00:00:00Z",
+      "assertion_ids": ["b-corrected"],
+      "modalities": {"b-corrected": "reported"},
+      "disputed_ids": []
+    },
+    {
+      "id": "half_open_transition_boundary",
+      "knowledge_cutoff": "2025-02-11T00:00:00Z",
+      "valid_time": "2025-02-03T00:00:00Z",
+      "assertion_ids": ["b-corrected"],
+      "modalities": {"b-corrected": "reported"},
+      "disputed_ids": []
+    },
+    {
+      "id": "independent_conflicting_reports",
+      "knowledge_cutoff": "2025-02-13T00:00:00Z",
+      "valid_time": "2025-02-04T00:00:00Z",
+      "assertion_ids": ["b-corrected", "c-report"],
+      "modalities": {"b-corrected": "reported", "c-report": "reported"},
+      "disputed_ids": ["b-corrected", "c-report"]
+    },
+    {
+      "id": "withdrawal_leaves_independent_support",
+      "knowledge_cutoff": "2025-02-15T10:05:00Z",
+      "valid_time": "2025-02-04T00:00:00Z",
+      "assertion_ids": ["b-corrected"],
+      "modalities": {"b-corrected": "reported"},
+      "disputed_ids": []
+    },
+    {
+      "id": "no_supported_state_before_interval",
+      "knowledge_cutoff": "2025-02-15T10:05:00Z",
+      "valid_time": "2024-12-31T00:00:00Z",
+      "assertion_ids": [],
+      "modalities": {},
+      "disputed_ids": []
+    }
+  ],
+  "world_state_comparisons": [
+    {
+      "id": "fixed_knowledge_reported_transition",
+      "analysis_batch": "03-corrected",
+      "knowledge_cutoff": "2025-02-10T10:05:00Z",
+      "valid_from_time": "2025-01-31T00:00:00Z",
+      "valid_to_time": "2025-02-04T00:00:00Z",
+      "before_assertion_ids": ["a-corrected"],
+      "after_assertion_ids": ["b-corrected"],
+      "after_modality": "reported"
+    },
+    {
+      "id": "fixed_knowledge_planned_transition",
+      "analysis_batch": "02-planned",
+      "knowledge_cutoff": "2025-01-20T10:05:00Z",
+      "valid_from_time": "2025-01-31T00:00:00Z",
+      "valid_to_time": "2025-02-04T00:00:00Z",
+      "before_assertion_ids": ["a-planned"],
+      "after_assertion_ids": ["b-planned"],
+      "after_modality": "planned"
+    }
+  ]
+}

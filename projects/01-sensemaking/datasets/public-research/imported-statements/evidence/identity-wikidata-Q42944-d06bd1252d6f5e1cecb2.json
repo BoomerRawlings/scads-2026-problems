@@ -1,0 +1,1255 @@
+{
+  "caution": "Source assertions, not independently verified facts. Edit/retrieval dates are not relationship validity dates. Projection records a captured assertion, not present-day truth. Crosswalks never merge identities; reciprocity does not establish independent corroboration. Linked media was not imported.",
+  "record_type": "identity",
+  "source_fragments": [
+    {
+      "json_pointer": "/entities/Q42944/id",
+      "value": "Q42944"
+    },
+    {
+      "json_pointer": "/entities/Q42944/type",
+      "value": "item"
+    },
+    {
+      "json_pointer": "/entities/Q42944/lastrevid",
+      "value": 2541849285
+    },
+    {
+      "json_pointer": "/entities/Q42944/modified",
+      "value": "2026-09-07T19:19:58Z"
+    },
+    {
+      "json_pointer": "/entities/Q42944/labels",
+      "value": {
+        "af": {
+          "language": "af",
+          "value": "CERN"
+        },
+        "an": {
+          "language": "an",
+          "value": "Organización Europea t'a Investigación Nuclear"
+        },
+        "ar": {
+          "language": "ar",
+          "value": "سيرن"
+        },
+        "ast": {
+          "language": "ast",
+          "value": "Organización Europea pa la Investigación Nuclear"
+        },
+        "az": {
+          "language": "az",
+          "value": "CERN"
+        },
+        "be": {
+          "language": "be",
+          "value": "CERN"
+        },
+        "be-tarask": {
+          "language": "be-tarask",
+          "value": "CERN"
+        },
+        "bg": {
+          "language": "bg",
+          "value": "Европейска организация за ядрени изследвания"
+        },
+        "bn": {
+          "language": "bn",
+          "value": "নিউক্লীয় গবেষণার জন্য ইউরোপীয় সংস্থা"
+        },
+        "br": {
+          "language": "br",
+          "value": "CERN"
+        },
+        "bs": {
+          "language": "bs",
+          "value": "CERN"
+        },
+        "ca": {
+          "language": "ca",
+          "value": "Organització Europea per a la Recerca Nuclear"
+        },
+        "ceb": {
+          "language": "ceb",
+          "value": "CERN"
+        },
+        "ckb": {
+          "language": "ckb",
+          "value": "سێرن"
+        },
+        "cs": {
+          "language": "cs",
+          "value": "Evropská organizace pro jaderný výzkum"
+        },
+        "cv": {
+          "language": "cv",
+          "value": "CERN"
+        },
+        "cy": {
+          "language": "cy",
+          "value": "CERN"
+        },
+        "da": {
+          "language": "da",
+          "value": "CERN"
+        },
+        "de": {
+          "language": "de",
+          "value": "CERN"
+        },
+        "de-ch": {
+          "language": "de-ch",
+          "value": "CERN"
+        },
+        "diq": {
+          "language": "diq",
+          "value": "CERN"
+        },
+        "el": {
+          "language": "el",
+          "value": "CERN"
+        },
+        "en": {
+          "language": "en",
+          "value": "CERN"
+        },
+        "en-ca": {
+          "language": "en-ca",
+          "value": "CERN"
+        },
+        "en-gb": {
+          "language": "en-gb",
+          "value": "CERN"
+        },
+        "eo": {
+          "language": "eo",
+          "value": "CERN"
+        },
+        "es": {
+          "language": "es",
+          "value": "Organización Europea para la Investigación Nuclear"
+        },
+        "et": {
+          "language": "et",
+          "value": "CERN"
+        },
+        "eu": {
+          "language": "eu",
+          "value": "CERN"
+        },
+        "fa": {
+          "language": "fa",
+          "value": "سرن"
+        },
+        "fi": {
+          "language": "fi",
+          "value": "CERN"
+        },
+        "fr": {
+          "language": "fr",
+          "value": "CERN"
+        },
+        "fy": {
+          "language": "fy",
+          "value": "CERN"
+        },
+        "ga": {
+          "language": "ga",
+          "value": "CERN"
+        },
+        "gl": {
+          "language": "gl",
+          "value": "Consello Europeo para a Investigación Nuclear"
+        },
+        "haw": {
+          "language": "haw",
+          "value": "CERN"
+        },
+        "he": {
+          "language": "he",
+          "value": "CERN"
+        },
+        "hi": {
+          "language": "hi",
+          "value": "सर्न"
+        },
+        "hr": {
+          "language": "hr",
+          "value": "CERN"
+        },
+        "hu": {
+          "language": "hu",
+          "value": "CERN"
+        },
+        "hy": {
+          "language": "hy",
+          "value": "ՑԵՌՆ"
+        },
+        "id": {
+          "language": "id",
+          "value": "CERN"
+        },
+        "io": {
+          "language": "io",
+          "value": "Europana Organizuro por Nukleara Serchado"
+        },
+        "is": {
+          "language": "is",
+          "value": "CERN"
+        },
+        "it": {
+          "language": "it",
+          "value": "CERN"
+        },
+        "ja": {
+          "language": "ja",
+          "value": "欧州原子核研究機構"
+        },
+        "ka": {
+          "language": "ka",
+          "value": "ატომური კვლევების ევროპული ორგანიზაცია"
+        },
+        "kk": {
+          "language": "kk",
+          "value": "CERN"
+        },
+        "km": {
+          "language": "km",
+          "value": "CERN"
+        },
+        "ko": {
+          "language": "ko",
+          "value": "유럽 입자 물리 연구소"
+        },
+        "ku": {
+          "language": "ku",
+          "value": "CERN"
+        },
+        "la": {
+          "language": "la",
+          "value": "CERN"
+        },
+        "lb": {
+          "language": "lb",
+          "value": "CERN"
+        },
+        "li": {
+          "language": "li",
+          "value": "CERN"
+        },
+        "lld": {
+          "language": "lld",
+          "value": "CERN"
+        },
+        "lt": {
+          "language": "lt",
+          "value": "CERN"
+        },
+        "lv": {
+          "language": "lv",
+          "value": "CERN"
+        },
+        "mk": {
+          "language": "mk",
+          "value": "ЦЕРН"
+        },
+        "ml": {
+          "language": "ml",
+          "value": "യൂറോപ്യൻ ഓർഗനൈസേഷൻ ഫോർ ന്യൂക്ലിയർ റിസർച്ച്"
+        },
+        "mn": {
+          "language": "mn",
+          "value": "Европын Цөмийн Судалгааны Байгууллага"
+        },
+        "mr": {
+          "language": "mr",
+          "value": "युरोपीय अणुकेंद्रीय संशोधन संस्था"
+        },
+        "ms": {
+          "language": "ms",
+          "value": "CERN"
+        },
+        "nan": {
+          "language": "nan",
+          "value": "CERN"
+        },
+        "nb": {
+          "language": "nb",
+          "value": "CERN"
+        },
+        "nl": {
+          "language": "nl",
+          "value": "CERN"
+        },
+        "nn": {
+          "language": "nn",
+          "value": "CERN"
+        },
+        "oc": {
+          "language": "oc",
+          "value": "Organizacion Europèa per la Recèrca Nucleara"
+        },
+        "pl": {
+          "language": "pl",
+          "value": "CERN"
+        },
+        "pnb": {
+          "language": "pnb",
+          "value": "سرن"
+        },
+        "pt": {
+          "language": "pt",
+          "value": "CERN"
+        },
+        "pt-br": {
+          "language": "pt-br",
+          "value": "Organização Europeia para a Pesquisa Nuclear"
+        },
+        "ro": {
+          "language": "ro",
+          "value": "CERN"
+        },
+        "ru": {
+          "language": "ru",
+          "value": "ЦЕРН"
+        },
+        "sa": {
+          "language": "sa",
+          "value": "सी.इ.आर्.एन्"
+        },
+        "scn": {
+          "language": "scn",
+          "value": "CERN"
+        },
+        "sco": {
+          "language": "sco",
+          "value": "CERN"
+        },
+        "se": {
+          "language": "se",
+          "value": "CERN"
+        },
+        "sh": {
+          "language": "sh",
+          "value": "CERN"
+        },
+        "sk": {
+          "language": "sk",
+          "value": "Európska organizácia pre jadrový výskum"
+        },
+        "sl": {
+          "language": "sl",
+          "value": "Evropska organizacija za jedrske raziskave"
+        },
+        "sq": {
+          "language": "sq",
+          "value": "CERN"
+        },
+        "sr": {
+          "language": "sr",
+          "value": "ЦЕРН"
+        },
+        "sv": {
+          "language": "sv",
+          "value": "CERN"
+        },
+        "sw": {
+          "language": "sw",
+          "value": "Shirika la Ulaya la Utafiti wa Nyuklia"
+        },
+        "ta": {
+          "language": "ta",
+          "value": "ஐரோப்பிய அணு ஆராய்ச்சி நிறுவனம்"
+        },
+        "te": {
+          "language": "te",
+          "value": "సెర్న్"
+        },
+        "th": {
+          "language": "th",
+          "value": "องค์การวิจัยนิวเคลียร์ยุโรป"
+        },
+        "tr": {
+          "language": "tr",
+          "value": "Avrupa Nükleer Araştırma Merkezi"
+        },
+        "tt": {
+          "language": "tt",
+          "value": "Аурупа төш тикшеренүләре оешмасы"
+        },
+        "uk": {
+          "language": "uk",
+          "value": "CERN"
+        },
+        "ur": {
+          "language": "ur",
+          "value": "سرن"
+        },
+        "uz": {
+          "language": "uz",
+          "value": "CERN"
+        },
+        "vec": {
+          "language": "vec",
+          "value": "Organizasion Eoropèa par ła Investigasion Nuclear"
+        },
+        "vi": {
+          "language": "vi",
+          "value": "CERN"
+        },
+        "war": {
+          "language": "war",
+          "value": "CERN"
+        },
+        "wuu": {
+          "language": "wuu",
+          "value": "欧洲核子研究中心"
+        },
+        "xmf": {
+          "language": "xmf",
+          "value": "CERN"
+        },
+        "yi": {
+          "language": "yi",
+          "value": "CERN"
+        },
+        "yo": {
+          "language": "yo",
+          "value": "CERN"
+        },
+        "yue": {
+          "language": "yue",
+          "value": "歐洲核研究組織"
+        },
+        "zh": {
+          "language": "zh",
+          "value": "歐洲核子研究組織"
+        },
+        "zh-hant": {
+          "language": "zh-hant",
+          "value": "歐洲核子研究組織"
+        }
+      }
+    },
+    {
+      "json_pointer": "/entities/Q42944/aliases",
+      "value": {
+        "ar": [
+          {
+            "language": "ar",
+            "value": "المنظمة الأوروبية للبحث النووي"
+          },
+          {
+            "language": "ar",
+            "value": "المنظمة الأوروبية للأبحاث النووية"
+          },
+          {
+            "language": "ar",
+            "value": "المختبر الأوروبي لفيزياء الجسيمات"
+          }
+        ],
+        "be-tarask": [
+          {
+            "language": "be-tarask",
+            "value": "Эўрапейская арганізацыя па ядзерных дасьледваньнях"
+          }
+        ],
+        "bg": [
+          {
+            "language": "bg",
+            "value": "ЦЕРН"
+          }
+        ],
+        "bs": [
+          {
+            "language": "bs",
+            "value": "Brže od svjetlosti"
+          }
+        ],
+        "ca": [
+          {
+            "language": "ca",
+            "value": "CERN"
+          },
+          {
+            "language": "ca",
+            "value": "Consell Europeu per a la Recerca Nuclear"
+          }
+        ],
+        "ckb": [
+          {
+            "language": "ckb",
+            "value": "ڕێکخراوی ئەورووپی بۆ توێژینەوەی ناووکی"
+          }
+        ],
+        "cs": [
+          {
+            "language": "cs",
+            "value": "CERN"
+          }
+        ],
+        "cy": [
+          {
+            "language": "cy",
+            "value": "Cyfundrefn Ewropeaidd dros Ymchwil Niwclear"
+          }
+        ],
+        "de": [
+          {
+            "language": "de",
+            "value": "Europäische Organisation für Kernforschung"
+          },
+          {
+            "language": "de",
+            "value": "Europäisches Kernforschungslabor"
+          },
+          {
+            "language": "de",
+            "value": "Europäisches Labor für Teilchenphysik"
+          }
+        ],
+        "el": [
+          {
+            "language": "el",
+            "value": "Ευρωπαϊκό Συμβούλιο Πυρηνικής Έρευνας"
+          },
+          {
+            "language": "el",
+            "value": "Ευρωπαϊκός Οργανισμός Πυρηνικής Έρευνας"
+          }
+        ],
+        "en": [
+          {
+            "language": "en",
+            "value": "European Organization for Nuclear Research"
+          },
+          {
+            "language": "en",
+            "value": "home.cern"
+          }
+        ],
+        "en-gb": [
+          {
+            "language": "en-gb",
+            "value": "European Organisation for Nuclear Research"
+          }
+        ],
+        "eo": [
+          {
+            "language": "eo",
+            "value": "Eŭropea Organizaĵo por Nuklea Esploro"
+          },
+          {
+            "language": "eo",
+            "value": "Eŭropa Organizaĵo por Nuklea Esploro"
+          }
+        ],
+        "es": [
+          {
+            "language": "es",
+            "value": "Organizacion Europea para la Investigacion Nuclear"
+          },
+          {
+            "language": "es",
+            "value": "Centro Europeo de Investigación Nuclear"
+          },
+          {
+            "language": "es",
+            "value": "Consejo Europea para la Investigación Nuclear"
+          },
+          {
+            "language": "es",
+            "value": "Centro Europeo para la Investigación Nuclear"
+          },
+          {
+            "language": "es",
+            "value": "Laboratorio Europeo de Física de Partículas"
+          },
+          {
+            "language": "es",
+            "value": "Consejo Europeo para la Investigacion Nuclear"
+          },
+          {
+            "language": "es",
+            "value": "Centro Europeo para la Investigacion Nuclear"
+          },
+          {
+            "language": "es",
+            "value": "Organizacion Europea para la Investigación Nuclear"
+          },
+          {
+            "language": "es",
+            "value": "Laboratorio Europeo de Fisica de Particulas"
+          },
+          {
+            "language": "es",
+            "value": "CEIN"
+          },
+          {
+            "language": "es",
+            "value": "Consejo Europeo para la Investigación Nuclear"
+          },
+          {
+            "language": "es",
+            "value": "Consejo Europea para la Investigacion Nuclear"
+          },
+          {
+            "language": "es",
+            "value": "Laboratorio Europeo de Fisica de Partículas"
+          },
+          {
+            "language": "es",
+            "value": "CERN"
+          },
+          {
+            "language": "es",
+            "value": "Centro Europeo de Investigacion Nuclear"
+          }
+        ],
+        "fa": [
+          {
+            "language": "fa",
+            "value": "سی‌ای‌آران"
+          },
+          {
+            "language": "fa",
+            "value": "سازمان اروپایی پژوهش هسته‌ای"
+          },
+          {
+            "language": "fa",
+            "value": "سازمان اروپایی پژوهش هسته ای"
+          },
+          {
+            "language": "fa",
+            "value": "CERN"
+          }
+        ],
+        "fr": [
+          {
+            "language": "fr",
+            "value": "Centre européen pour la recherche nucléaire"
+          },
+          {
+            "language": "fr",
+            "value": "Centre Européen De Recherches Nucléaires"
+          },
+          {
+            "language": "fr",
+            "value": "Conseil européen pour la recherche nucléaire"
+          },
+          {
+            "language": "fr",
+            "value": "Organisation europeenne pour la recherche nucleaire"
+          },
+          {
+            "language": "fr",
+            "value": "Organisation européenne pour la recherche nucléaire"
+          }
+        ],
+        "fy": [
+          {
+            "language": "fy",
+            "value": "Jeropeesk Sintrum foar Kearnûndersyk"
+          }
+        ],
+        "gl": [
+          {
+            "language": "gl",
+            "value": "CERN"
+          }
+        ],
+        "he": [
+          {
+            "language": "he",
+            "value": "צרן"
+          },
+          {
+            "language": "he",
+            "value": "המכון האירופי למחקר גרעיני"
+          }
+        ],
+        "hi": [
+          {
+            "language": "hi",
+            "value": "यूरोपीय नाभिकीय अनुसंधान संगठन"
+          }
+        ],
+        "hu": [
+          {
+            "language": "hu",
+            "value": "Európai Nukleáris Kutatási Szervezet"
+          },
+          {
+            "language": "hu",
+            "value": "Európai Nukleáris Kutatóintézet"
+          },
+          {
+            "language": "hu",
+            "value": "Európai Atomenergia-kutató Szervezet"
+          }
+        ],
+        "id": [
+          {
+            "language": "id",
+            "value": "Organisasi Penelitian Nuklir Eropa"
+          },
+          {
+            "language": "id",
+            "value": "Organisation europeenne pour la recherche nucleaire"
+          },
+          {
+            "language": "id",
+            "value": "Organisation européenne pour la recherche nucléaire"
+          }
+        ],
+        "it": [
+          {
+            "language": "it",
+            "value": "Centro europeo di ricerca nucleare"
+          },
+          {
+            "language": "it",
+            "value": "Conseil européen pour la recherche nucléaire"
+          },
+          {
+            "language": "it",
+            "value": "Organizzazione europea per la ricerca nucleare"
+          }
+        ],
+        "ja": [
+          {
+            "language": "ja",
+            "value": "欧州合同原子核研究機関"
+          },
+          {
+            "language": "ja",
+            "value": "欧州合同原子核研究所"
+          },
+          {
+            "language": "ja",
+            "value": "欧州原子核共同研究所"
+          },
+          {
+            "language": "ja",
+            "value": "欧州合同素粒子原子核研究機構"
+          },
+          {
+            "language": "ja",
+            "value": "欧州合同原子核研究機構"
+          },
+          {
+            "language": "ja",
+            "value": "欧州素粒子原子核研究機構"
+          },
+          {
+            "language": "ja",
+            "value": "ヨーロッパ合同原子核研究機構"
+          },
+          {
+            "language": "ja",
+            "value": "ヨーロッパ素粒子物理学研究所"
+          },
+          {
+            "language": "ja",
+            "value": "CERN"
+          }
+        ],
+        "ka": [
+          {
+            "language": "ka",
+            "value": "ცერნი"
+          },
+          {
+            "language": "ka",
+            "value": "CERN"
+          }
+        ],
+        "ko": [
+          {
+            "language": "ko",
+            "value": "세른"
+          },
+          {
+            "language": "ko",
+            "value": "유럽입자물리연구소"
+          },
+          {
+            "language": "ko",
+            "value": "CERN"
+          }
+        ],
+        "la": [
+          {
+            "language": "la",
+            "value": "Organizatio Europaea pro Recircationem Nuclearem"
+          }
+        ],
+        "lt": [
+          {
+            "language": "lt",
+            "value": "Europos branduolinių mokslinių tyrimų organizacija"
+          },
+          {
+            "language": "lt",
+            "value": "European Organization for Nuclear Research"
+          }
+        ],
+        "lv": [
+          {
+            "language": "lv",
+            "value": "Organisation Européenne pour la Recherche Nucléaire"
+          },
+          {
+            "language": "lv",
+            "value": "European Organization for Nuclear Research"
+          },
+          {
+            "language": "lv",
+            "value": "Conseil Européen pour la Recherche Nucléaire"
+          },
+          {
+            "language": "lv",
+            "value": "Eiropas kodolpētījumu organizācija"
+          }
+        ],
+        "mk": [
+          {
+            "language": "mk",
+            "value": "CERN"
+          },
+          {
+            "language": "mk",
+            "value": "Европска организација за нуклеарно истражување"
+          }
+        ],
+        "ml": [
+          {
+            "language": "ml",
+            "value": "സേൺ"
+          },
+          {
+            "language": "ml",
+            "value": "European Organization for Nuclear Research"
+          },
+          {
+            "language": "ml",
+            "value": "CERN"
+          }
+        ],
+        "mr": [
+          {
+            "language": "mr",
+            "value": "सर्न"
+          },
+          {
+            "language": "mr",
+            "value": "युरोपीय अणुकेंद्रिय संशोधन संस्था"
+          }
+        ],
+        "nb": [
+          {
+            "language": "nb",
+            "value": "Den europeiske organisasjon for kjernefysisk forskning"
+          }
+        ],
+        "nl": [
+          {
+            "language": "nl",
+            "value": "Europees Centrum voor Kernonderzoek"
+          },
+          {
+            "language": "nl",
+            "value": "Europees Kernonderzoekscentrum"
+          }
+        ],
+        "nn": [
+          {
+            "language": "nn",
+            "value": "Conseil Européen pour la Recherche Nucléaire"
+          },
+          {
+            "language": "nn",
+            "value": "Conseil Europeen pour la Recherche Nucléaire"
+          }
+        ],
+        "pl": [
+          {
+            "language": "pl",
+            "value": "Europejska Organizacja Badań Jądrowych"
+          },
+          {
+            "language": "pl",
+            "value": "CERN Genewa"
+          }
+        ],
+        "pt": [
+          {
+            "language": "pt",
+            "value": "Organização Europeia para a Investigação Nuclear"
+          },
+          {
+            "language": "pt",
+            "value": "Conselho Europeu para a Investigação Nuclear"
+          }
+        ],
+        "pt-br": [
+          {
+            "language": "pt-br",
+            "value": "CERN"
+          }
+        ],
+        "ro": [
+          {
+            "language": "ro",
+            "value": "Centrul European de Cercetări Nucleare"
+          }
+        ],
+        "ru": [
+          {
+            "language": "ru",
+            "value": "Европейский центр ядерных исследований"
+          },
+          {
+            "language": "ru",
+            "value": "Европейская организация ядерных исследований"
+          },
+          {
+            "language": "ru",
+            "value": "Европейская организация по ядерным исследованиям"
+          },
+          {
+            "language": "ru",
+            "value": "CERN"
+          }
+        ],
+        "sk": [
+          {
+            "language": "sk",
+            "value": "Cern"
+          },
+          {
+            "language": "sk",
+            "value": "Európske laboratórium časticovej fyziky"
+          },
+          {
+            "language": "sk",
+            "value": "Európska organizácia jadrového výskumu"
+          },
+          {
+            "language": "sk",
+            "value": "Conseil Européen pour la Recherche Nucléaire"
+          },
+          {
+            "language": "sk",
+            "value": "Európske laboratórium pre časticovú fyziku"
+          },
+          {
+            "language": "sk",
+            "value": "Organisation Européenne pour la Recherche Nucléaire"
+          },
+          {
+            "language": "sk",
+            "value": "European Organization for Nuclear Research"
+          }
+        ],
+        "sl": [
+          {
+            "language": "sl",
+            "value": "CERN"
+          },
+          {
+            "language": "sl",
+            "value": "Evropska organizacija za raziskavo jedrske fizike"
+          }
+        ],
+        "sr": [
+          {
+            "language": "sr",
+            "value": "Evropska organizacija za nuklearno istraživanje"
+          },
+          {
+            "language": "sr",
+            "value": "OERN"
+          },
+          {
+            "language": "sr",
+            "value": "European Organization for Nuclear Research"
+          }
+        ],
+        "sv": [
+          {
+            "language": "sv",
+            "value": "Conseil Européenne pour la Recherche Nucléaire"
+          },
+          {
+            "language": "sv",
+            "value": "Europeiska organisationen för kärnforskning"
+          }
+        ],
+        "ta": [
+          {
+            "language": "ta",
+            "value": "செர்ன்"
+          }
+        ],
+        "te": [
+          {
+            "language": "te",
+            "value": "యూరోపియన్ అణు పరిశోధన సంస్థ"
+          }
+        ],
+        "th": [
+          {
+            "language": "th",
+            "value": "เซิร์น"
+          },
+          {
+            "language": "th",
+            "value": "Conseil Européen pour la Recherche Nucléaire"
+          },
+          {
+            "language": "th",
+            "value": "องค์กรวิจัยนิวเคลียร์แห่งยุโรป"
+          },
+          {
+            "language": "th",
+            "value": "ซีอีอาร์เอ็น"
+          },
+          {
+            "language": "th",
+            "value": "Organisation Européenne pour la Recherche Nucléaire"
+          },
+          {
+            "language": "th",
+            "value": "European Organization for Nuclear Research"
+          },
+          {
+            "language": "th",
+            "value": "CERN"
+          }
+        ],
+        "tr": [
+          {
+            "language": "tr",
+            "value": "CERN"
+          }
+        ],
+        "uk": [
+          {
+            "language": "uk",
+            "value": "ЦЕРН"
+          },
+          {
+            "language": "uk",
+            "value": "Європейська організація з ядерних досліджень"
+          }
+        ],
+        "vi": [
+          {
+            "language": "vi",
+            "value": "Organisation Européenne pour la Recherche Nucléaire"
+          },
+          {
+            "language": "vi",
+            "value": "Tổ chức Nghiên cứu Nguyên tử châu Âu"
+          }
+        ],
+        "zh": [
+          {
+            "language": "zh",
+            "value": "歐洲核研究組織"
+          },
+          {
+            "language": "zh",
+            "value": "欧洲核子研究委员会"
+          },
+          {
+            "language": "zh",
+            "value": "歐洲核子研究中心"
+          },
+          {
+            "language": "zh",
+            "value": "欧洲粒子物理研究所"
+          },
+          {
+            "language": "zh",
+            "value": "欧洲原子能研究机构"
+          },
+          {
+            "language": "zh",
+            "value": "歐洲粒子物理研究中心"
+          }
+        ]
+      }
+    },
+    {
+      "json_pointer": "/entities/Q42944/descriptions",
+      "value": {
+        "af": {
+          "language": "af",
+          "value": "internasionale organisasie wat die wêreld se grootste deeltjiefisika-laboratorium bedryf"
+        },
+        "ar": {
+          "language": "ar",
+          "value": "المنظمة الدولية المشغلة لأكبر مختبر لفيزياء الجسيمات في العالم"
+        },
+        "ary": {
+          "language": "ary",
+          "value": "المنظمة الدولية المشغلة لأكبر مختبر لفيزياء الجسيمات في العالم"
+        },
+        "az": {
+          "language": "az",
+          "value": "Avropa nüvə araşdırmaları təşkilatı, dünyanın ən iri yüksək enerji fizikası laboratoriyası"
+        },
+        "ca": {
+          "language": "ca",
+          "value": "CERN, centre de recerca en física de partícules"
+        },
+        "cs": {
+          "language": "cs",
+          "value": "mezinárodní organizace"
+        },
+        "de": {
+          "language": "de",
+          "value": "Großforschungseinrichtung für physikalische Grundlagen bei Genf"
+        },
+        "el": {
+          "language": "el",
+          "value": "διεθνής οργανισμός που διαχειρίζεται το μεγαλύτερο εργαστήριο σωματιδιακής φυσικής στον κόσμο"
+        },
+        "en": {
+          "language": "en",
+          "value": "international organization which operates the world's largest particle physics laboratory"
+        },
+        "en-gb": {
+          "language": "en-gb",
+          "value": "international organisation which operates the world's largest particle physics laboratory"
+        },
+        "eo": {
+          "language": "eo",
+          "value": "internacia partiklo-fizika laboratorio en Francio kaj Svislando"
+        },
+        "es": {
+          "language": "es",
+          "value": "centro de investigación multinacional"
+        },
+        "fi": {
+          "language": "fi",
+          "value": "kansainvälinen järjestö, joka hallinnoi maailman suurinta hiukkaskiihdytintä"
+        },
+        "fr": {
+          "language": "fr",
+          "value": "laboratoire international de recherche de la physique des particules"
+        },
+        "he": {
+          "language": "he",
+          "value": "המרכז הגדול בעולם לחקר חלקיקים"
+        },
+        "hi": {
+          "language": "hi",
+          "value": "अंतरराष्ट्रीय संगठन जो दुनिया की सबसे बड़ी कण भौतिकी प्रयोगशाला संचालित करता है"
+        },
+        "id": {
+          "language": "id",
+          "value": "laboratorium pemercepat partikel"
+        },
+        "it": {
+          "language": "it",
+          "value": "organizzazione internazionale che gestisce il più grande laboratorio di fisica delle particelle al mondo"
+        },
+        "ja": {
+          "language": "ja",
+          "value": "世界最大の素粒子物理学実験施設を運営する国際組織"
+        },
+        "ko": {
+          "language": "ko",
+          "value": "세계 최대의 입자 물리학 연구소"
+        },
+        "lb": {
+          "language": "lb",
+          "value": "Europäesch Organisatioun fir Kärfuerschung"
+        },
+        "nb": {
+          "language": "nb",
+          "value": "europeisk organisasjon for forskning på partikkelfysikk, kjernefysikk og kjernekjemi"
+        },
+        "nl": {
+          "language": "nl",
+          "value": "Internationale organisatie die onderzoek doet naar elementaire deeltjes nabij Geneve, Zwitserland"
+        },
+        "oc": {
+          "language": "oc",
+          "value": "Mai coneguda jos l'acorcha CERN"
+        },
+        "pl": {
+          "language": "pl",
+          "value": "międzynarodowy ośrodek naukowo-badawczy z największym na świecie akceleratorem cząstek elementarnych (Wielki Zderzacz Hadronów)"
+        },
+        "pt": {
+          "language": "pt",
+          "value": "organização internacional para investigação de física de partículas"
+        },
+        "pt-br": {
+          "language": "pt-br",
+          "value": "organização internacional para investigação de física de partículas"
+        },
+        "ro": {
+          "language": "ro",
+          "value": "organizație internațională ce operează cel mai mare laborator de fizică a particulelor din lume"
+        },
+        "ru": {
+          "language": "ru",
+          "value": "Европейская организация по ядерным исследованиям, крупнейшая в мире лаборатория физики высоких энергий"
+        },
+        "scn": {
+          "language": "scn",
+          "value": "organizzazzioni intirnazziunali pâ ricerca nucliari"
+        },
+        "sv": {
+          "language": "sv",
+          "value": "internationell organisation inom partikelfysikforskning"
+        },
+        "te": {
+          "language": "te",
+          "value": "ప్రపంచంలోనే అతిపెద్ద కణ భౌతిక ప్రయోగశాలను నిర్వహించే అంతర్జాతీయ సంస్థ"
+        },
+        "th": {
+          "language": "th",
+          "value": "องค์การความร่วมมือระหว่างประเทศในทวีปยุโรป"
+        },
+        "tr": {
+          "language": "tr",
+          "value": "Avrupa Nükleer Araştırma Merkezi veya Fransızca adı olan Conseil Européen pour la Recherche Nucléaire'in kısaltmasıyla CERN, İsviçre ve Fransa sınırında yer alan, dünyanın en büyük parçacık fiziği laboratuvarını yöneten araştırma kuruluşudur"
+        },
+        "uk": {
+          "language": "uk",
+          "value": "міжнародна організація, яка керує найбільшою у світі лабораторією фізики елементарних частинок"
+        },
+        "yi": {
+          "language": "yi",
+          "value": "צענטער פאר פארשונג אין טיילעכלעך"
+        },
+        "zh": {
+          "language": "zh",
+          "value": "欧洲粒子物理实验室组织"
+        }
+      }
+    }
+  ],
+  "source_provenance": {
+    "capture_manifest_path": "sources/capture-manifest.json",
+    "entity_id": "Q42944",
+    "id": "wikidata-Q42944",
+    "path": "sources/raw/wikidata-Q42944.json",
+    "provider": "wikidata",
+    "request_attempts": 1,
+    "retrieved_at_utc": "2026-10-07T04:14:13Z",
+    "revision": {
+      "lastrevid": 2541849285,
+      "modified": "2026-09-07T19:19:58Z"
+    },
+    "sha256": "54cf521d65388a2d127a3410217886a4aded68bffa2b29a6c25f9e1a743f4e96",
+    "size_bytes": 205654,
+    "url": "https://www.wikidata.org/wiki/Special:EntityData/Q42944.json?revision=2541849285"
+  }
+}

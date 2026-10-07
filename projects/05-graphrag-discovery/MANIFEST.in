@@ -1,0 +1,6 @@
+recursive-include scripts *.py
+recursive-include tests *.cjs
+recursive-include docs *.md
+recursive-include research *.md
+include BUILD_SPEC.md ROADMAP.md .gitignore
+global-exclude __pycache__ *.py[cod]

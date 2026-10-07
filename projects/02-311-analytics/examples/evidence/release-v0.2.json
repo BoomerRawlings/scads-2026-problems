@@ -1,0 +1,50 @@
+{
+  "name": "analytics311",
+  "version": "0.2.0",
+  "distribution": "core",
+  "requires_python": ">=3.11",
+  "artifacts": [
+    {
+      "file": "analytics311-0.2.0-py3-none-any.whl",
+      "sha256": "55be1747f481564ec7e304c33ab4896eee6db0ffbb7e32fa8aeb39ec63ad4eeb",
+      "bytes": 74556
+    },
+    {
+      "file": "dependencies/tzdata-2026.5-py2.py3-none-any.whl",
+      "sha256": "b683bd1b6659ddcd810ff02ad09ba821d4bf1065072805063eb35c49617905ac",
+      "bytes": 347996
+    }
+  ],
+  "bundled_assets_sha256": {
+    "config/development.json": "ebeeb4cd9f05c2aae513b4f6b2395ac542e60de56cfcb0f50503e97529190988",
+    "config/catalog.json": "589b4dd202aa5d69315dc920499bcc0d75e130e8d164e1dfb927c3f2c1d66736",
+    "config/mapping.json": "3c1d6db8fa1fe597ca43a23a8e00df168beffe4f2ecbc0b99165d8b0a0ccca95",
+    "fixtures/manifest.json": "f2e3831e6a350f7fabb0a1f3eaa44c5dbff46684ce9baf6721b831f66b7b6668",
+    "fixtures/requests.jsonl": "e34bba882616d4e04d9994642c2cc66effed110e3fa544039ef967d6da36997c"
+  },
+  "build_network_disabled": true,
+  "verification": {
+    "status": "passed",
+    "fresh_venv": true,
+    "outside_checkout": true,
+    "installation": "pip --no-index",
+    "network_audit_guard": true,
+    "package_version": "0.2.0",
+    "dataset_version": "fixture-v1",
+    "evidence_level": "fixture_only",
+    "matching_records": 4,
+    "preview_records": 2,
+    "export_rows": 4,
+    "export_sha256": "ba7c22b1effcd036aea35031df3d0c6edfe8274a8d9aa911a7ddd0c461b29381",
+    "default_output": "work/runs",
+    "installed_assets_unchanged": true,
+    "mcp_tested": false,
+    "elastic_kibana_tested": false
+  },
+  "extras_bundled": [],
+  "limits": [
+    "MCP and geo optional dependencies are not bundled or tested by this release smoke.",
+    "Fixture execution is software evidence, not live Elasticsearch/Kibana or real NYC evidence.",
+    "Install wheels with pip; direct zip-import execution is not a supported deployment."
+  ]
+}

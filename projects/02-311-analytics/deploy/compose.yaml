@@ -1,0 +1,80 @@
+# Opt-in public-data development lab. No authentication; host ports are loopback only.
+# Set STACK_VERSION explicitly and use --profile local. Compatibility is unverified.
+name: analytics311-local
+
+services:
+  elasticsearch:
+    profiles: [local]
+    image: "docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION:?Set STACK_VERSION to an explicit matching Elastic Stack version}"
+    environment:
+      cluster.name: analytics311-local
+      node.name: analytics311-es01
+      discovery.type: single-node
+      xpack.security.enabled: "false"
+      xpack.security.enrollment.enabled: "false"
+      xpack.security.autoconfiguration.enabled: "false"
+      xpack.ml.enabled: "false"
+      ingest.geoip.downloader.enabled: "false"
+      node.store.allow_mmap: "false"
+      ES_JAVA_OPTS: "-Xms${ES_HEAP:-1g} -Xmx${ES_HEAP:-1g}"
+    mem_limit: "${ES_MEMORY:-2g}"
+    memswap_limit: "${ES_MEMORY:-2g}"
+    cpus: "${ES_CPUS:-2}"
+    ports:
+      - "127.0.0.1:${ES_HTTP_PORT:-9200}:9200"
+    volumes:
+      - elasticsearch-data:/usr/share/elasticsearch/data
+    networks: [analytics-local]
+    healthcheck:
+      test: [CMD, curl, --fail, --silent, "http://localhost:9200/_cluster/health?wait_for_status=yellow&timeout=5s"]
+      interval: 15s
+      timeout: 10s
+      retries: 20
+      start_period: 60s
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: "3"
+
+  kibana:
+    profiles: [local]
+    image: "docker.elastic.co/kibana/kibana:${STACK_VERSION:?Set STACK_VERSION to an explicit matching Elastic Stack version}"
+    environment:
+      SERVER_NAME: analytics311-kibana
+      SERVER_HOST: 0.0.0.0
+      ELASTICSEARCH_HOSTS: '["http://elasticsearch:9200"]'
+      TELEMETRY_OPTIN: "false"
+      TELEMETRY_ALLOWCHANGINGOPTINSTATUS: "false"
+      MAP_INCLUDEELASTICMAPSSERVICE: "false"
+      NODE_OPTIONS: "--max-old-space-size=${KIBANA_HEAP_MB:-768}"
+    mem_limit: "${KIBANA_MEMORY:-1g}"
+    memswap_limit: "${KIBANA_MEMORY:-1g}"
+    cpus: "${KIBANA_CPUS:-1}"
+    ports:
+      - "127.0.0.1:${KIBANA_HTTP_PORT:-5601}:5601"
+    volumes:
+      - kibana-data:/usr/share/kibana/data
+    networks: [analytics-local]
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+    healthcheck:
+      test: [CMD, curl, --fail, --silent, "http://localhost:5601/api/status"]
+      interval: 15s
+      timeout: 10s
+      retries: 30
+      start_period: 120s
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: "3"
+
+networks:
+  analytics-local:
+    driver: bridge
+
+volumes:
+  elasticsearch-data:
+  kibana-data:

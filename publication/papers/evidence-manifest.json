@@ -1,0 +1,337 @@
+{
+  "edition": "2026-10-07",
+  "scope": "Evidence-linked publication of recorded development results; no new model or scale experiments.",
+  "papers": [
+    {
+      "file": "pdf/01-sensemaking.pdf",
+      "pages": 10,
+      "bytes": 168521,
+      "sha256": "fe17c45c93a8e792df8446929bc9ea8ec5edeb3ccdcc6976c38c7097fd307ffb",
+      "sources": [
+        {
+          "path": "projects/01-sensemaking/IMPLEMENTATION.md",
+          "publication_path": "projects/01-sensemaking/IMPLEMENTATION.md",
+          "sha256": "681431d2a2daf7ec307ee0ab9e7c79001f9c0f9e2e71a55c8e41778bc5ebd06f"
+        },
+        {
+          "path": "projects/01-sensemaking/examples/local-riverwatch-guidance-accepted/REVIEW.md",
+          "publication_path": "projects/01-sensemaking/examples/local-riverwatch-guidance-accepted/REVIEW.md",
+          "sha256": "10145ab332f7aeec9fb4e4552dc3a832b58535da95b57f5af127ada485b53dba"
+        },
+        {
+          "path": "projects/01-sensemaking/examples/local-riverwatch-guidance-accepted/report.md",
+          "publication_path": "projects/01-sensemaking/examples/local-riverwatch-guidance-accepted/report.md",
+          "sha256": "a0450d3491eb699477f800fde07ed41e740938fc1577264e01b6fd02d3dc3df7"
+        },
+        {
+          "path": "projects/01-sensemaking/examples/local-riverwatch-guidance-accepted/run-metadata.json",
+          "publication_path": "projects/01-sensemaking/examples/local-riverwatch-guidance-accepted/run-metadata.json",
+          "sha256": "b7fff638ed8cca49fda6776ed0ec5f1b385acda9b8ab90d64fa0d9d49ee333ee"
+        },
+        {
+          "path": "projects/01-sensemaking/evaluations/local-pilot/implementation-v12/README.md",
+          "publication_path": "projects/01-sensemaking/evaluations/local-pilot/implementation-v12/README.md",
+          "sha256": "c46a91672f361b9b570641e1e3208e76f0eca81f67f9c2517ababe10034a71f2"
+        },
+        {
+          "path": "projects/01-sensemaking/docs/package-reproduction.md",
+          "publication_path": "projects/01-sensemaking/docs/package-reproduction.md",
+          "sha256": "65ba93287d0ca922090a5f47ad6d006f8cfd76bb17df0bbfc725030d440a94b0"
+        },
+        {
+          "path": "projects/01-sensemaking/docs/evidence-catalog.md",
+          "publication_path": "projects/01-sensemaking/docs/evidence-catalog.md",
+          "sha256": "9b03444bb28bdcd321c2b3a4054ef2e2094731c1c41f7800e4e9b82649b99509"
+        },
+        {
+          "title": "Yao et al. (2023). ReAct: Synergizing Reasoning and Acting in Language Models. ICLR; arXiv:2210.03629.",
+          "url": "https://arxiv.org/abs/2210.03629",
+          "verified": "2026-10-07",
+          "kind": "primary external source"
+        },
+        {
+          "title": "Liu et al. (2024). Lost in the Middle: How Language Models Use Long Contexts. TACL; arXiv:2307.03172.",
+          "url": "https://arxiv.org/abs/2307.03172",
+          "verified": "2026-10-07",
+          "kind": "primary external source"
+        },
+        {
+          "title": "Moreau and Missier, eds. (2013). PROV-DM: The PROV Data Model. W3C Recommendation.",
+          "url": "https://www.w3.org/TR/prov-dm/",
+          "verified": "2026-10-07",
+          "kind": "primary external source"
+        },
+        {
+          "path": "projects/01-sensemaking/docs/integration.md",
+          "publication_path": "projects/01-sensemaking/docs/integration.md",
+          "sha256": "3e4ea50399417e25beef22322afea12a30f4e3bb36f79e0525f72ea36c939cac"
+        },
+        {
+          "path": "projects/01-sensemaking/sensemaking.py",
+          "publication_path": "projects/01-sensemaking/sensemaking.py",
+          "sha256": "70b691f94ecbf40ea9b607d947e9d17d4b36afad4438659f55fad6f69419951a"
+        }
+      ]
+    },
+    {
+      "file": "pdf/02-311-analytics.pdf",
+      "pages": 10,
+      "bytes": 171431,
+      "sha256": "c0368e9577425796fe7c8c7038e5c2da9c25e0bf23d4032581225d997799993a",
+      "sources": [
+        {
+          "path": "projects/02-311-analytics/IMPLEMENTATION.md",
+          "publication_path": "projects/02-311-analytics/IMPLEMENTATION.md",
+          "sha256": "69b18e348d7f8321751b2ddcaf556cf2372e4c4128b277d23c95f26b2c4fd677"
+        },
+        {
+          "path": "projects/02-311-analytics/docs/tool-contract.md",
+          "publication_path": "projects/02-311-analytics/docs/tool-contract.md",
+          "sha256": "390d76eee43fb37de1d49bd5ae275248d29d5c590deefd4d3ffe1f3ab6c06702"
+        },
+        {
+          "path": "projects/02-311-analytics/examples/agent-demo/answer.md",
+          "publication_path": "projects/02-311-analytics/examples/agent-demo/answer.md",
+          "sha256": "8d2a2c877cad134ee49cac7ed50a77ec78667cda91604d6f80b12dce50a623c4"
+        },
+        {
+          "path": "projects/02-311-analytics/examples/evidence/generated-100000-benchmark.json",
+          "publication_path": "projects/02-311-analytics/examples/evidence/generated-100000-benchmark.json",
+          "sha256": "287a914704141e36db8ae54a74286b9d23ae252ecb5204413b3e011ff9b5a5c2"
+        },
+        {
+          "path": "projects/02-311-analytics/examples/evidence/test-report-v0.6-focused.json",
+          "publication_path": "projects/02-311-analytics/examples/evidence/test-report-v0.6-focused.json",
+          "sha256": "ca85075b5ce8b95d6fc97318bb74bd067f6accecec781ae94ec76f838fa2051a"
+        },
+        {
+          "path": "projects/02-311-analytics/docs/forecast-v0.6.md",
+          "publication_path": "projects/02-311-analytics/docs/forecast-v0.6.md",
+          "sha256": "50a71a99e463186a7bdebb1403bb1f5a8d270f46c002dacdf934e7d76f784e0e"
+        },
+        {
+          "path": "projects/02-311-analytics/docs/runtime.md",
+          "publication_path": "projects/02-311-analytics/docs/runtime.md",
+          "sha256": "52fed1d9d584b3f1257a513c5edfdd6a5cee9892a23f7b025016f55e9d6ee410"
+        },
+        {
+          "title": "Yu et al. (2018). Spider: A Large-Scale Human-Labeled Dataset for Complex and Cross-Domain Semantic Parsing and Text-to-SQL Task. EMNLP.",
+          "url": "https://arxiv.org/abs/1809.08887",
+          "verified": "2026-10-07",
+          "kind": "primary external source"
+        },
+        {
+          "title": "Elastic. Paginate search results. Elasticsearch reference, accessed October 7, 2026.",
+          "url": "https://www.elastic.co/docs/reference/elasticsearch/rest-apis/paginate-search-results",
+          "verified": "2026-10-07",
+          "kind": "primary external source"
+        },
+        {
+          "path": "projects/02-311-analytics/docs/acceptance.md",
+          "publication_path": "projects/02-311-analytics/docs/acceptance.md",
+          "sha256": "3e4f8148d0e7f2b612a5247fd67b4d8006fe2c522c78cc9a1b55251840643bdf"
+        },
+        {
+          "path": "projects/02-311-analytics/docs/reliability.md",
+          "publication_path": "projects/02-311-analytics/docs/reliability.md",
+          "sha256": "375d340a497ca83057330aa21bfef9d6b0cf6ac8691d5765432760419e907c3c"
+        }
+      ]
+    },
+    {
+      "file": "pdf/03-semantic-discovery.pdf",
+      "pages": 10,
+      "bytes": 173263,
+      "sha256": "be7d2701429e4efa7415a42cfbde2d9c2e0b98d4c3f5d74051857cb41e894682",
+      "sources": [
+        {
+          "path": "projects/03-semantic-discovery/IMPLEMENTATION.md",
+          "publication_path": "projects/03-semantic-discovery/IMPLEMENTATION.md",
+          "sha256": "9905331f37df9ac985c8f50fd8d009d255dd50fb98e4a823ab44e1919223f257"
+        },
+        {
+          "path": "projects/03-semantic-discovery/reports/extraction-development.md",
+          "publication_path": "projects/03-semantic-discovery/reports/extraction-development.md",
+          "sha256": "e16a7f93113d08af6d1df99048df50792efffd7dbef6c3d3cb376ba733584044"
+        },
+        {
+          "path": "projects/03-semantic-discovery/reports/retrieval-development.md",
+          "publication_path": "projects/03-semantic-discovery/reports/retrieval-development.md",
+          "sha256": "686d1d0f361f246c3d2ae9f200e32a58af41c96a877fb7a41b45b98c68b10d14"
+        },
+        {
+          "path": "projects/03-semantic-discovery/reports/interface-verification.md",
+          "publication_path": "projects/03-semantic-discovery/reports/interface-verification.md",
+          "sha256": "541e325149d2196248ef13f42d820c3dc0afbcb10dc0f21d26106a575be7b286"
+        },
+        {
+          "path": "projects/03-semantic-discovery/reports/build-verification.json",
+          "publication_path": "projects/03-semantic-discovery/reports/build-verification.json",
+          "sha256": "638bb00e8e548c7f19a2aa16c8419b33499d2b94f974b652337d85e81a439cd8"
+        },
+        {
+          "path": "projects/03-semantic-discovery/RUNBOOK.md",
+          "publication_path": "projects/03-semantic-discovery/RUNBOOK.md",
+          "sha256": "33ae29f38ac2b66371b650f77fc448d5f203b4b70263a954481d5cd208528cfd"
+        },
+        {
+          "path": "projects/03-semantic-discovery/reports/acceptance-status.md",
+          "publication_path": "projects/03-semantic-discovery/reports/acceptance-status.md",
+          "sha256": "7ea7f73acb0db3c8c2d2ca87ff867aa36d7e15524441bf63d1a82d5bab8d58c4"
+        },
+        {
+          "title": "Pfitzmann et al. (2022). DocLayNet: A Large Human-Annotated Dataset for Document-Layout Analysis. KDD; arXiv:2206.01062.",
+          "url": "https://arxiv.org/abs/2206.01062",
+          "verified": "2026-10-07",
+          "kind": "primary external source"
+        },
+        {
+          "title": "Auer et al. (2024). Docling Technical Report. arXiv:2408.09869.",
+          "url": "https://arxiv.org/abs/2408.09869",
+          "verified": "2026-10-07",
+          "kind": "primary external source"
+        },
+        {
+          "path": "projects/03-semantic-discovery/docs/implementation-contract.md",
+          "publication_path": "projects/03-semantic-discovery/docs/implementation-contract.md",
+          "sha256": "4307fbdbd371c245d0b34fffe173b3aab43b2354c3448fffc935787fdaa8ee63"
+        },
+        {
+          "path": "projects/03-semantic-discovery/eval/protocol.md",
+          "publication_path": "projects/03-semantic-discovery/eval/protocol.md",
+          "sha256": "e173da3b898234d5f3147e7037b8cf5a3abea6ba0864f8de48e5864cca56f2e0"
+        }
+      ]
+    },
+    {
+      "file": "pdf/04-org-knowledge-graphs.pdf",
+      "pages": 10,
+      "bytes": 169402,
+      "sha256": "c687db24b159393604fa8912d048f11830adc9dfda48b986d3bc931738086aee",
+      "sources": [
+        {
+          "path": "projects/04-org-knowledge-graphs/IMPLEMENTATION.md",
+          "publication_path": "projects/04-org-knowledge-graphs/IMPLEMENTATION.md",
+          "sha256": "aa27d0c24923a4bfcd826c21773992c616645319dd978cb9ff7454b0b9c0446f"
+        },
+        {
+          "path": "projects/04-org-knowledge-graphs/docs/implementation-contract.md",
+          "publication_path": "projects/04-org-knowledge-graphs/docs/implementation-contract.md",
+          "sha256": "08312fffb3c5320bca7d5219d77aa2a8480f12b0c610a928ee498c6413e8849d"
+        },
+        {
+          "path": "projects/04-org-knowledge-graphs/docs/verification.md",
+          "publication_path": "projects/04-org-knowledge-graphs/docs/verification.md",
+          "sha256": "825ad0cd742ac0bd7fcb7e34aae6791d9c7770e663156659061eb66f1eed5eb4"
+        },
+        {
+          "path": "projects/04-org-knowledge-graphs/docs/synthetic-10000-results.json",
+          "publication_path": "projects/04-org-knowledge-graphs/docs/synthetic-10000-results.json",
+          "sha256": "3261023cc0fbdf76fd79d6eb92c0b899829dbb5341bd74e5240d03684087c24e"
+        },
+        {
+          "path": "projects/04-org-knowledge-graphs/docs/benchmark-results.json",
+          "publication_path": "projects/04-org-knowledge-graphs/docs/benchmark-results.json",
+          "sha256": "304c3c3682ff90d61aaedc42045ecefecd36563f152b534069987258bedd7f92"
+        },
+        {
+          "path": "projects/04-org-knowledge-graphs/research/inference.md",
+          "publication_path": "projects/04-org-knowledge-graphs/research/inference.md",
+          "sha256": "30d9d17971a01635233170c6ed27e309903185c0dfda5f4cc879257baaf35caf"
+        },
+        {
+          "path": "projects/04-org-knowledge-graphs/docs/acceptance.md",
+          "publication_path": "projects/04-org-knowledge-graphs/docs/acceptance.md",
+          "sha256": "fb7e90cc3b96c6d83759d147c96984b9b83a750d670d8205cdb61c6870e9d545"
+        },
+        {
+          "title": "Prabhakaran and Rambow (2014). Predicting Power Relations between Participants in Written Dialog from a Single Thread. ACL, pp. 339-344.",
+          "url": "https://aclanthology.org/P14-2056/",
+          "verified": "2026-10-07",
+          "kind": "primary external source"
+        },
+        {
+          "title": "Guo et al. (2017). On Calibration of Modern Neural Networks. ICML; arXiv:1706.04599.",
+          "url": "https://arxiv.org/abs/1706.04599",
+          "verified": "2026-10-07",
+          "kind": "primary external source"
+        },
+        {
+          "path": "projects/04-org-knowledge-graphs/orggraph/inference.py",
+          "publication_path": "projects/04-org-knowledge-graphs/orggraph/inference.py",
+          "sha256": "5ad83873cf47b6deb83f323fbbda1b410f2275324e821c26593ae53a6578a877"
+        },
+        {
+          "path": "projects/04-org-knowledge-graphs/research/data-and-evaluation.md",
+          "publication_path": "projects/04-org-knowledge-graphs/research/data-and-evaluation.md",
+          "sha256": "0eec1a94871e5d71ac55b3803eef79d37a1307a3c37a7b7409434a7b0f20b3f0"
+        }
+      ]
+    },
+    {
+      "file": "pdf/05-graphrag-discovery.pdf",
+      "pages": 10,
+      "bytes": 170595,
+      "sha256": "6c7be5134d2608b4557f906ec7ece889fca4fa37b3258b176cc8a4ebb87ea61c",
+      "sources": [
+        {
+          "path": "projects/05-graphrag-discovery/IMPLEMENTATION.md",
+          "publication_path": "projects/05-graphrag-discovery/IMPLEMENTATION.md",
+          "sha256": "db4f4ba56d3f9f6f6641f05a672588ec98a57671b79294624a62406e2746dcd3"
+        },
+        {
+          "path": "projects/05-graphrag-discovery/docs/implementation-status.md",
+          "publication_path": "projects/05-graphrag-discovery/docs/implementation-status.md",
+          "sha256": "4d5ebdf8400b9da541b78a1af2b662ae381c1b5fe2d7d366fe397e9a4a28d6ee"
+        },
+        {
+          "path": "projects/05-graphrag-discovery/fixtures/pump/README.md",
+          "publication_path": "projects/05-graphrag-discovery/fixtures/pump/README.md",
+          "sha256": "01e7750f38db49f324fd1672dc28b65302c356b48153c93b689c43d2194b9a3e"
+        },
+        {
+          "path": "projects/05-graphrag-discovery/fixtures/pump/gold.json",
+          "publication_path": "projects/05-graphrag-discovery/fixtures/pump/gold.json",
+          "sha256": "4b8d17a72087220fd2162854b981aa8431780901cd6ffd15da94b055ecd422de"
+        },
+        {
+          "path": "projects/05-graphrag-discovery/docs/local-model-validation.md",
+          "publication_path": "projects/05-graphrag-discovery/docs/local-model-validation.md",
+          "sha256": "497a8096269f2a7bbf661abfd8248c0a43b9e259e3d206f7e9bae41dc60de501"
+        },
+        {
+          "path": "projects/05-graphrag-discovery/docs/installation.md",
+          "publication_path": "projects/05-graphrag-discovery/docs/installation.md",
+          "sha256": "e43bed38b7b7b3704917906701c98531429cacd1479e2093f8920c507f0b198d"
+        },
+        {
+          "path": "projects/05-graphrag-discovery/docs/temporal-workflow.md",
+          "publication_path": "projects/05-graphrag-discovery/docs/temporal-workflow.md",
+          "sha256": "10aaa9765a746071acd39d11b850c444f3f2f8e5d22ffc443f41a1bd4423c7a1"
+        },
+        {
+          "title": "Edge et al. (2024; revised 2025). From Local to Global: A Graph RAG Approach to Query-Focused Summarization. arXiv:2404.16130.",
+          "url": "https://arxiv.org/abs/2404.16130",
+          "verified": "2026-10-07",
+          "kind": "primary external source"
+        },
+        {
+          "title": "Moreau and Missier, eds. (2013). PROV-DM: The PROV Data Model. W3C Recommendation.",
+          "url": "https://www.w3.org/TR/prov-dm/",
+          "verified": "2026-10-07",
+          "kind": "primary external source"
+        },
+        {
+          "path": "projects/05-graphrag-discovery/graphrag_discovery/vectors.py",
+          "publication_path": "projects/05-graphrag-discovery/graphrag_discovery/vectors.py",
+          "sha256": "a1c36888a80c0137533822b2edeb961001368b09221585613ed72d4e2f363868"
+        },
+        {
+          "path": "projects/05-graphrag-discovery/research/data-and-evaluation.md",
+          "publication_path": "projects/05-graphrag-discovery/research/data-and-evaluation.md",
+          "sha256": "f44a96c23646ce35141cbf1ee2947299e1977098f1dc219fd73da6f8585bf039"
+        }
+      ]
+    }
+  ]
+}

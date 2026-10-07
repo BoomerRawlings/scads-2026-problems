@@ -1,0 +1,168 @@
+{
+  "caution": "Source assertions, not independently verified facts. Edit/retrieval dates are not relationship validity dates. Projection records a captured assertion, not present-day truth. Crosswalks never merge identities; reciprocity does not establish independent corroboration. Linked media was not imported.",
+  "crosswalk_candidates": [
+    {
+      "claims": [
+        {
+          "evidence_id": "claims-ror-03v6m3209",
+          "exclusion_reasons": [],
+          "ror": "ror:03v6m3209",
+          "source_assertion": {
+            "all": [
+              "Q28405614"
+            ],
+            "preferred": null,
+            "type": "wikidata"
+          },
+          "source_entity": "ror:03v6m3209",
+          "source_path": "/external_ids/3",
+          "wikidata": "wikidata:q28405614"
+        }
+      ],
+      "merged": false,
+      "note": "Identifier assertions only; no equivalence edge or independence claim.",
+      "ror": "ror:03v6m3209",
+      "status": "endpoint_not_captured",
+      "wikidata": "wikidata:q28405614"
+    }
+  ],
+  "literal_source_extract": {
+    "admin": {
+      "created": {
+        "date": "2018-11-14",
+        "schema_version": "1.0"
+      },
+      "last_modified": {
+        "date": "2024-12-11",
+        "schema_version": "2.1"
+      }
+    },
+    "established": 1972,
+    "external_ids": [
+      {
+        "all": [
+          "100012728"
+        ],
+        "preferred": "100012728",
+        "type": "fundref"
+      },
+      {
+        "all": [
+          "grid.418021.e"
+        ],
+        "preferred": "grid.418021.e",
+        "type": "grid"
+      },
+      {
+        "all": [
+          "0000 0004 0535 8394"
+        ],
+        "preferred": null,
+        "type": "isni"
+      },
+      {
+        "all": [
+          "Q28405614"
+        ],
+        "preferred": null,
+        "type": "wikidata"
+      }
+    ],
+    "id": "https://ror.org/03v6m3209",
+    "names": [
+      {
+        "lang": "en",
+        "types": [
+          "ror_display",
+          "label"
+        ],
+        "value": "Frederick National Laboratory for Cancer Research"
+      }
+    ],
+    "relationships": [
+      {
+        "id": "https://ror.org/040gcmg81",
+        "label": "National Cancer Institute",
+        "type": "parent"
+      },
+      {
+        "id": "https://ror.org/02qyzaf42",
+        "label": "The Cancer Imaging Archive",
+        "type": "related"
+      },
+      {
+        "id": "https://ror.org/00bardy64",
+        "label": "Leidos Biomedical Research Inc. (United States)",
+        "type": "related"
+      }
+    ],
+    "status": "active"
+  },
+  "projection_decisions": [
+    {
+      "evidence_id": "claims-ror-03v6m3209",
+      "exclusion_reasons": [],
+      "predicate": "parent",
+      "projected_edge": [
+        "ror:040gcmg81",
+        "ror:03v6m3209"
+      ],
+      "source_assertion": {
+        "id": "https://ror.org/040gcmg81",
+        "label": "National Cancer Institute",
+        "type": "parent"
+      },
+      "source_entity": "ror:03v6m3209",
+      "source_path": "/relationships/0",
+      "target": "ror:040gcmg81"
+    },
+    {
+      "evidence_id": "claims-ror-03v6m3209",
+      "exclusion_reasons": [
+        "predicate_not_projected_to_contains"
+      ],
+      "predicate": "related",
+      "source_assertion": {
+        "id": "https://ror.org/02qyzaf42",
+        "label": "The Cancer Imaging Archive",
+        "type": "related"
+      },
+      "source_entity": "ror:03v6m3209",
+      "source_path": "/relationships/1",
+      "target": "ror:02qyzaf42"
+    },
+    {
+      "evidence_id": "claims-ror-03v6m3209",
+      "exclusion_reasons": [
+        "predicate_not_projected_to_contains",
+        "endpoint_not_captured"
+      ],
+      "predicate": "related",
+      "source_assertion": {
+        "id": "https://ror.org/00bardy64",
+        "label": "Leidos Biomedical Research Inc. (United States)",
+        "type": "related"
+      },
+      "source_entity": "ror:03v6m3209",
+      "source_path": "/relationships/2",
+      "target": "ror:00bardy64"
+    }
+  ],
+  "source_provenance": {
+    "capture_manifest_path": "sources/capture-manifest.json",
+    "entity_id": "03v6m3209",
+    "id": "ror-03v6m3209",
+    "path": "sources/raw/ror-03v6m3209.json",
+    "provider": "ror",
+    "request_attempts": 1,
+    "retrieved_at_utc": "2026-10-07T04:14:05Z",
+    "revision": {
+      "record_modified": "2024-12-11",
+      "schema_version": "2.1"
+    },
+    "sha256": "9a9209e0ed894ce81439c17d9b9c071c8dab8db4f57cbb8838e77da858a7b591",
+    "size_bytes": 1392,
+    "url": "https://api.ror.org/v2/organizations/03v6m3209"
+  },
+  "unindexed_statement_count": 0
+}

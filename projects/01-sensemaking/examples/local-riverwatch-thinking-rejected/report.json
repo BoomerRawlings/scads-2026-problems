@@ -1,0 +1,97 @@
+{
+  "status": "complete",
+  "title": "Riverwatch Readiness and Dependency Analysis",
+  "target": "riverwatch",
+  "summary": "Sources establish conflicting readiness statuses for Riverwatch Pilot, with a 2026-09-05 dependency review stating readiness is delayed due to pending sensor acceptance, while a 2026-09-03 register records it as ready. Riverwatch Pilot depends on the Silt Sensor Batch, which is supplied by Northline Instruments and currently has pending acceptance status. Media observations confirm the delayed status text in synthetic fixtures but lack independent video verification.",
+  "findings": [
+    {
+      "claim": "Riverwatch Pilot readiness is delayed as of 2026-09-05.",
+      "evidence_ids": [
+        "img-note-001",
+        "memo-001",
+        "video-tx-001"
+      ],
+      "qualification": "Synthetic fixtures; pixel observations confirm text 'DELAYED' but media lacks independent corroboration."
+    },
+    {
+      "claim": "Riverwatch Pilot readiness was recorded as ready on 2026-09-03.",
+      "evidence_ids": [
+        "tbl-003"
+      ],
+      "qualification": "Structured record predates dependency review; claims have not been reconciled."
+    },
+    {
+      "claim": "Riverwatch Pilot depends on Silt Sensor Batch for field deployment.",
+      "evidence_ids": [
+        "memo-001",
+        "memo-003"
+      ],
+      "qualification": "Dependency relation established in synthetic text sources."
+    },
+    {
+      "claim": "Silt Sensor Batch acceptance is pending.",
+      "evidence_ids": [
+        "memo-003",
+        "tbl-005",
+        "img-note-002"
+      ],
+      "qualification": "Consistent claim across text records and synthetic annotations."
+    }
+  ],
+  "conflicts": [
+    {
+      "subject": "riverwatch",
+      "predicate": "readiness",
+      "description": "2026-09-05 sources state readiness is delayed, while 2026-09-03 register states ready.",
+      "evidence_ids": [
+        "img-note-001",
+        "memo-001",
+        "video-tx-001",
+        "tbl-003"
+      ]
+    },
+    {
+      "subject": "northline",
+      "predicate": "expected_arrival",
+      "description": "2026-09-02 register lists 2026-09-14; 2026-09-05 memo suggests revised date 2026-09-19.",
+      "evidence_ids": [
+        "tbl-006",
+        "memo-004"
+      ]
+    }
+  ],
+  "media_observations": [
+    {
+      "evidence_id": "img-note-001",
+      "locator": "image",
+      "observation": "Pixel text reads 'Planning board: DELAYED' and 'Riverwatch - delayed. Field release blocked pending sensor acceptance.'."
+    },
+    {
+      "evidence_id": "video-tx-001",
+      "locator": "00:00",
+      "observation": "Pixel text reads 'Riverwatch readiness is delayed. Keep field release on hold until the Silt Sensor Batch passes acceptance.'."
+    },
+    {
+      "evidence_id": "video-tx-001",
+      "locator": "00:15",
+      "observation": "Pixel text reads 'The register still says ready. Show that dated entry next to the dependency review when preparing the status report.'."
+    },
+    {
+      "evidence_id": "video-tx-001",
+      "locator": "00:29",
+      "observation": "Pixel text reads 'Scope the concern to Riverwatch deployment. We have not established that other institute activities are delayed.'."
+    }
+  ],
+  "limitations": [
+    "All media is synthetic caption media rendered from authored fixture text with no independent corroboration.",
+    "No audio processing available for video evidence.",
+    "Role labels in transcripts do not establish organizational functions or workflows.",
+    "Shared-origin repeats (memo-003, tbl-005, img-note-002) are not independent corroboration of each other.",
+    "Missing raw media for video-tx-001 (only transcript text provided)."
+  ],
+  "follow_up": [
+    "Reconcile the 2026-09-03 readiness register with 2026-09-05 dependency review.",
+    "Verify Northline shipping date discrepancy between 2026-09-14 and 2026-09-19.",
+    "Transfer workflow to qualified real entities to improve fixture coverage."
+  ]
+}

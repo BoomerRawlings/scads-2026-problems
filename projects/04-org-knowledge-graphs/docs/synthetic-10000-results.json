@@ -1,0 +1,64 @@
+{
+  "synthetic": true,
+  "person_count": 10000,
+  "entities_by_type": {
+    "person": 10000,
+    "unit": 45,
+    "shared_mailbox": 2
+  },
+  "messages": 76680,
+  "source_assertions": 10038,
+  "fixture_labels": 9993,
+  "corpus_sha256": "49553004934f23fbf0dc609914737a7c52e3e4a14249604bc03fbc52e1f0e6cc",
+  "corpus_bytes": 39033431,
+  "generation_seconds": 0.711,
+  "import_seconds": 9.199,
+  "inference_and_publication_seconds": 46.979,
+  "published_counts": {
+    "assertions": 63550,
+    "entities": 10047,
+    "groups": 107,
+    "people": 10000,
+    "reviewed": 0,
+    "selected": 7489,
+    "unresolved": 2511
+  },
+  "model_id": "communication-self-report-v1",
+  "calibration_status": "uncalibrated",
+  "original_snapshot_preserved": true,
+  "first_middle_last_pages_checked": true,
+  "focused_graph_budget_checked": true,
+  "limitations": [
+    "Single local run on Windows ARM64; not an isolated performance benchmark.",
+    "Authored language and graph templates verify workflow/scale, not real-world accuracy or calibration."
+  ],
+  "generator": {
+    "version": "meridian-expansion-v1",
+    "seed": 17,
+    "randomized": false,
+    "algorithm": "Deterministic index-based eight-way division hierarchy and communication scenario schedule.",
+    "person_count": 10000,
+    "internal_people": 9998,
+    "external_people": 2,
+    "base_people": 72,
+    "added_people": 9928,
+    "maximum_added_reports_per_manager": 8,
+    "message_count": 76680,
+    "formal_unit_count": 45,
+    "added_reporting_anchors": 36,
+    "added_evidence_profiles": {
+      "explicit_self_report": 7444,
+      "sparse_header_only": 497,
+      "behavior_only": 497,
+      "conflicting_self_reports": 497,
+      "quoted_claim_only": 497,
+      "approval_only": 496
+    },
+    "label_count": 9993,
+    "limits": [
+      "Authored language patterns are intentionally simple; this is a workflow and scale fixture, not an accuracy benchmark.",
+      "Counts include two external people; units and shared mailboxes are additional entities.",
+      "Base sparse people and external correspondents have no asserted gold manager; added sparse people have gold labels withheld from model input."
+    ]
+  }
+}

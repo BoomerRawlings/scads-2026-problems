@@ -1,0 +1,53 @@
+{
+  "purpose": "Neutral text-only template/tokenizer/generation compatibility probe; not analytic acceptance or capacity measurement.",
+  "timestamp_utc": "2026-10-07T12:39:17.550285+00:00",
+  "profile": "runtime-profile-qwen35-9b-text-01.json",
+  "profile_sha256": "dc25a6cb0b97449b5623124b89adf738d270ce3bd8ade8b357d311b17f641558",
+  "implementation_snapshot_sha256": "0025c6760daa2b30b500a10688b71874cc591fe7c15e91f46f434e675d3f13ba",
+  "model": {
+    "model": "Qwen3.5-9B-Q3_K_M",
+    "model_identifier_source": "/v1/models",
+    "model_path_redacted": false,
+    "model_identifier_sha256": "3d280446c93166aeb19240b8dc018ad1602868022f88654fa88e1f2bdcd3ad4a",
+    "backend": "llama.cpp-compatible loopback HTTP"
+  },
+  "status": "passed",
+  "expected_boolean_match": true,
+  "elapsed_seconds": 3.454,
+  "context_admission": {
+    "policy": "llama-b11457-text-context-admission-v1",
+    "admitted": true,
+    "exact_model_fit_verified": false,
+    "token_limit": 16384,
+    "safety_margin": 128,
+    "max_request_bytes": 131072,
+    "max_response_bytes": 2097152,
+    "timeout_seconds": 180,
+    "max_tokens": 32,
+    "canonical_request_bytes": 449,
+    "canonical_request_sha256": "4d2bf5bcf4e58e2200d1c3adf2697b4884bd27fac05a4d35f8f47b8b26c36a08",
+    "generation_request_bytes": 484,
+    "template_request_bytes": 484,
+    "template_response_canonical_bytes": 209,
+    "rendered_prompt_bytes": 187,
+    "rendered_prompt_sha256": "dc2798eeb13c5c4edd5b617f7e441329baf65c60b7fa5ab471be7a97edf0e9b5",
+    "tokenize_request_bytes": 278,
+    "tokenize_response_canonical_bytes": 184,
+    "prompt_tokens": 35,
+    "reserved_tokens": 195,
+    "remaining_tokens": 16189,
+    "usage_prompt_tokens": 35,
+    "actual_usage_prompt_tokens_minus_preflight": 0
+  },
+  "response_metadata": {
+    "usage": {
+      "prompt_tokens": 35,
+      "completion_tokens": 10,
+      "total_tokens": 45,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "reasoning_returned": false
+  }
+}

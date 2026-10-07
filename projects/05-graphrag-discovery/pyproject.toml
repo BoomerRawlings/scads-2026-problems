@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "scads-graphrag-discovery"
+version = "0.3.2"
+description = "Local reference engine for versioned evidence and temporal graph discovery"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[project.scripts]
+graphrag-discovery = "graphrag_discovery.cli:main"
+
+[tool.setuptools]
+packages = [
+  "graphrag_discovery",
+  "graphrag_discovery.fixtures",
+  "graphrag_discovery.fixtures.pump",
+  "graphrag_discovery.schemas",
+  "graphrag_discovery.static",
+]
+include-package-data = true
+
+# Resource namespaces map existing source directories into the installed package.
+# No generated asset copies or installation-prefix lookups are needed.
+[tool.setuptools.package-dir]
+graphrag_discovery = "graphrag_discovery"
+"graphrag_discovery.fixtures" = "fixtures"
+"graphrag_discovery.fixtures.pump" = "fixtures/pump"
+"graphrag_discovery.schemas" = "schemas"
+"graphrag_discovery.static" = "static"
+
+[tool.setuptools.package-data]
+"graphrag_discovery.fixtures.pump" = ["*.json", "*.jsonl", "*.md"]
+"graphrag_discovery.schemas" = ["*.json"]
+"graphrag_discovery.static" = ["**/*"]

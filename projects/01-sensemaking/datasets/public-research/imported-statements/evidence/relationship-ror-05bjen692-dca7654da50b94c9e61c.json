@@ -1,0 +1,42 @@
+{
+  "caution": "Source assertions, not independently verified facts. Edit/retrieval dates are not relationship validity dates. Projection records a captured assertion, not present-day truth. Crosswalks never merge identities; reciprocity does not establish independent corroboration. Linked media was not imported.",
+  "projection_decision": {
+    "evidence_id": "relationship-ror-05bjen692-dca7654da50b94c9e61c",
+    "exclusion_reasons": [],
+    "predicate": "parent",
+    "projected_edge": [
+      "ror:040gcmg81",
+      "ror:05bjen692"
+    ],
+    "source_entity": "ror:05bjen692",
+    "source_path": "/relationships/0",
+    "target": "ror:040gcmg81"
+  },
+  "record_type": "relationship",
+  "source_fragments": [
+    {
+      "json_pointer": "/relationships/0",
+      "value": {
+        "id": "https://ror.org/040gcmg81",
+        "label": "National Cancer Institute",
+        "type": "parent"
+      }
+    }
+  ],
+  "source_provenance": {
+    "capture_manifest_path": "sources/capture-manifest.json",
+    "entity_id": "05bjen692",
+    "id": "ror-05bjen692",
+    "path": "sources/raw/ror-05bjen692.json",
+    "provider": "ror",
+    "request_attempts": 1,
+    "retrieved_at_utc": "2026-10-07T04:14:04Z",
+    "revision": {
+      "record_modified": "2026-07-20",
+      "schema_version": "2.1"
+    },
+    "sha256": "8e35b4d38a56b234db715a03ae9a8cc41f6676afd44d971251ec17cb5ef121f8",
+    "size_bytes": 1044,
+    "url": "https://api.ror.org/v2/organizations/05bjen692"
+  }
+}

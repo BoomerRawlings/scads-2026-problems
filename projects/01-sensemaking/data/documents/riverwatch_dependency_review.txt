@@ -1,0 +1,14 @@
+SYNTHETIC FIXTURE — fictional organization, event, and claims.
+Source ID: memo-001
+Date: 2026-09-05
+Subject: Riverwatch Pilot dependency review
+
+Riverwatch Pilot depends on the Silt Sensor Batch for its planned field deployment.
+Readiness is delayed while sensor acceptance remains pending. The 2026-09-03
+readiness register still says ready; retain both dated claims for review rather
+than silently replacing one with the other.
+
+This review concerns Riverwatch field deployment. It does not say that all work
+in the Delta Field Team, Watershed Division, or institute has stopped. A revised
+shipping date is evidence of schedule risk, not proof of misconduct or a failed
+sensor batch.

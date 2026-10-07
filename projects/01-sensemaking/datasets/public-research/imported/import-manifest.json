@@ -1,0 +1,189 @@
+{
+  "capture_manifest_sha256": "1c39c58153991b3321cb3dea5bc5b5ca059627d281c9d1614e45fb438ce9779e",
+  "files": [
+    {
+      "path": "dataset.json",
+      "sha256": "fe170f6ebaba9a878adc5803a64978c2dc3aee8f8e99d117ab1f7cd964c6fe79",
+      "size_bytes": 647
+    },
+    {
+      "path": "evidence/ror-00vkwep27.json",
+      "sha256": "58e51e17e56a30081eec0f406b85c1ddcdd72dfb1a198cc93b0c7d025946043c",
+      "size_bytes": 4099
+    },
+    {
+      "path": "evidence/ror-00w52vt71.json",
+      "sha256": "e434d682f40c8934475231e70bc81bd0a8bb0927cd93d03783d7ed792de1607f",
+      "size_bytes": 4505
+    },
+    {
+      "path": "evidence/ror-01cwqze88.json",
+      "sha256": "20a8df087c6018788e6de59d3fccbb2bf72c41edc866662fc978f1dc55a75e69",
+      "size_bytes": 22569
+    },
+    {
+      "path": "evidence/ror-02qyzaf42.json",
+      "sha256": "9b85990002a31ccfa598b2b6345e7a2f670b3839adaf3e19eecf9a99d0e4beae",
+      "size_bytes": 4305
+    },
+    {
+      "path": "evidence/ror-03v6m3209.json",
+      "sha256": "cda7384ba70b559aa2ef982fca4840b4c514339f608507317422f7c2150ced17",
+      "size_bytes": 4577
+    },
+    {
+      "path": "evidence/ror-040gcmg81.json",
+      "sha256": "a9c13ecce99ebe6c9965dc53aebac352c99bc8fdd5a5d917742ebf5b56329353",
+      "size_bytes": 8201
+    },
+    {
+      "path": "evidence/ror-05bjen692.json",
+      "sha256": "c4c34709e90cfe1c926a2c674d463e6db5302fbc61175ae1421a346b3ff9d402",
+      "size_bytes": 2597
+    },
+    {
+      "path": "evidence/ror-05n6zrm60.json",
+      "sha256": "c09a68f22f2057599439f4066e3c81bfc79ab513d8ff561b46d19af39efa2fde",
+      "size_bytes": 3339
+    },
+    {
+      "path": "evidence/wikidata-Q390551.json",
+      "sha256": "f60de274a5312fc594d38d4213300c14ab3db377e976c4b8145c33dafc96c8d8",
+      "size_bytes": 186978
+    },
+    {
+      "path": "evidence/wikidata-Q42944.json",
+      "sha256": "aa7b0807f9df14e13a2fd1f83fc5cb6435580e56189993cc3c8a30163d72b444",
+      "size_bytes": 8021
+    },
+    {
+      "path": "evidence/wikidata-Q664846.json",
+      "sha256": "d82f95fae2cf25d004654a1e28763859ccea113bbdb997e658242a569d194e65",
+      "size_bytes": 26787
+    },
+    {
+      "path": "evidence/wikidata-Q6973636.json",
+      "sha256": "8f418449fdd2ad871b5b430c160263f1e0821b3550be470b5b761566671ed3a4",
+      "size_bytes": 3954
+    },
+    {
+      "path": "graph.json",
+      "sha256": "ff1bc48196dce867e2c151998e491c7a24a84110cf53c2f828cf94844a6b7b86",
+      "size_bytes": 6185
+    },
+    {
+      "path": "manifest.json",
+      "sha256": "a2a1fc24c5b909a158a3f3a244c60dbb12c68208442edc46733facaf667d3cca",
+      "size_bytes": 14515
+    },
+    {
+      "path": "projection-ledger.json",
+      "sha256": "2e760ff7d61ff1436211f4ec1141819e979d335bd8569aabf773b180f21e6f31",
+      "size_bytes": 278734
+    },
+    {
+      "path": "records.csv",
+      "sha256": "7d3e34a84dab3234918551d896e419c53df9ef4ec669a199bb1cd8ef31c4ba4c",
+      "size_bytes": 17061
+    },
+    {
+      "path": "sources/capture-manifest.json",
+      "sha256": "1c39c58153991b3321cb3dea5bc5b5ca059627d281c9d1614e45fb438ce9779e",
+      "size_bytes": 9287
+    },
+    {
+      "path": "sources/raw/ror-00vkwep27.json",
+      "sha256": "83d0cd788a65e22c22719fdc23e37894b3e94aaca0a41ea61351109365a8798d",
+      "size_bytes": 1565
+    },
+    {
+      "path": "sources/raw/ror-00w52vt71.json",
+      "sha256": "4f62d30c9110c91a2ecd4089e3c467f4fb10a9e3e1be09c0ad9e1f73d8023e29",
+      "size_bytes": 1486
+    },
+    {
+      "path": "sources/raw/ror-01cwqze88.json",
+      "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+      "size_bytes": 4516
+    },
+    {
+      "path": "sources/raw/ror-02qyzaf42.json",
+      "sha256": "17f1e24342747e318eef90f3083ff02d73bd5c88d8102378b9d2e19b815a8cf7",
+      "size_bytes": 1239
+    },
+    {
+      "path": "sources/raw/ror-03v6m3209.json",
+      "sha256": "9a9209e0ed894ce81439c17d9b9c071c8dab8db4f57cbb8838e77da858a7b591",
+      "size_bytes": 1392
+    },
+    {
+      "path": "sources/raw/ror-040gcmg81.json",
+      "sha256": "8073d4137c55295dc2a11bfb71fbac38783534754709e472735a206ea95fdf9d",
+      "size_bytes": 1927
+    },
+    {
+      "path": "sources/raw/ror-05bjen692.json",
+      "sha256": "8e35b4d38a56b234db715a03ae9a8cc41f6676afd44d971251ec17cb5ef121f8",
+      "size_bytes": 1044
+    },
+    {
+      "path": "sources/raw/ror-05n6zrm60.json",
+      "sha256": "adef7a62ab6c618b7db53701d4604029297bfd72236fab641fe6a26fbb329e06",
+      "size_bytes": 1047
+    },
+    {
+      "path": "sources/raw/wikidata-Q390551.json",
+      "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+      "size_bytes": 261528
+    },
+    {
+      "path": "sources/raw/wikidata-Q42944.json",
+      "sha256": "54cf521d65388a2d127a3410217886a4aded68bffa2b29a6c25f9e1a743f4e96",
+      "size_bytes": 205654
+    },
+    {
+      "path": "sources/raw/wikidata-Q664846.json",
+      "sha256": "cf4e1e4bb29c44ea339df53734f4396ba551b7a7863383ac3f90a324fac53695",
+      "size_bytes": 102418
+    },
+    {
+      "path": "sources/raw/wikidata-Q6973636.json",
+      "sha256": "d24bc337fd25e3b27ddc51603453a582b155f17ba2faee28509989bb59e08473",
+      "size_bytes": 11672
+    }
+  ],
+  "importer_sha256": "e9510616feb9e7ba35d4208e5a86f2bf82f5fd2c33c1369eed148659fabf7cf3",
+  "importer_version": "1",
+  "policy": {
+    "identity_merging": "none",
+    "indexed_wikidata_properties": [
+      "P1365",
+      "P1366",
+      "P31",
+      "P355",
+      "P361",
+      "P527",
+      "P6782",
+      "P749"
+    ],
+    "maximum_output_bytes": 16777216,
+    "network": "none",
+    "rank_note": "No best-rank collapse; all statements retained. Eligible statements are claims, never asserted current truth.",
+    "raw_evidence": "Byte-exact files under sources/raw; not automatically indexed or returned to models.",
+    "ror_projection": "Active captured endpoints; parent/child only. Related and succession claims excluded.",
+    "wikidata_projection": "P749/P355 only; captured endpoints; normal/preferred rank; value snak; no qualifiers. Qualified claims retained, not flattened."
+  },
+  "schema_version": 1,
+  "totals": {
+    "crosswalk_candidates": 9,
+    "edges": 5,
+    "frontier_entities": 86,
+    "indexed_evidence_records": 24,
+    "nodes": 12,
+    "projected_source_assertions": 10,
+    "raw_bytes": 595488,
+    "relationship_and_statement_decisions": 624,
+    "source_records": 12,
+    "unindexed_wikidata_statements": 516
+  }
+}

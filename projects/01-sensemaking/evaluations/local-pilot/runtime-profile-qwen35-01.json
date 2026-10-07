@@ -1,0 +1,23 @@
+{
+  "status": "development_candidate_not_yet_qualified",
+  "runtime_manifest": "../../docs/runtime-candidate-qwen35.json",
+  "launch_settings_source": "operator-recorded arguments; not server attestation",
+  "model": "Qwen3.5-4B-Q4_K_M",
+  "revision": "e87f176479d0855a907a41277aca2f8ee7a09523",
+  "context_tokens": 16384,
+  "threads": 8,
+  "threads_batch": 8,
+  "parallel_slots": 1,
+  "gpu_layers": 0,
+  "batch_size": 256,
+  "microbatch_size": 64,
+  "key_value_cache": "q8_0",
+  "flash_attention": true,
+  "image_min_tokens": 64,
+  "image_max_tokens": 256,
+  "enable_thinking": false,
+  "context_shift": false,
+  "binding": "127.0.0.1:18571",
+  "webui": false,
+  "built_in_agent": false
+}

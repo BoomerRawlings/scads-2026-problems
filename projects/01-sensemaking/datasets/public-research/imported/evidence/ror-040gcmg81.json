@@ -1,0 +1,301 @@
+{
+  "caution": "Source assertions, not independently verified facts. Edit/retrieval dates are not relationship validity dates. Projection records a captured assertion, not present-day truth. Crosswalks never merge identities; reciprocity does not establish independent corroboration. Linked media was not imported.",
+  "crosswalk_candidates": [
+    {
+      "claims": [
+        {
+          "evidence_id": "claims-ror-040gcmg81",
+          "exclusion_reasons": [],
+          "ror": "ror:040gcmg81",
+          "source_assertion": {
+            "all": [
+              "Q664846"
+            ],
+            "preferred": null,
+            "type": "wikidata"
+          },
+          "source_entity": "ror:040gcmg81",
+          "source_path": "/external_ids/3",
+          "wikidata": "wikidata:q664846"
+        },
+        {
+          "evidence_id": "claims-wikidata-Q664846",
+          "exclusion_reasons": [],
+          "ror": "ror:040gcmg81",
+          "source_assertion": {
+            "id": "Q664846$7308E30E-C818-4091-804C-1000DE7C0462",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "040gcmg81"
+              },
+              "hash": "35da93be61db87d32d3563897254fbb32107205b",
+              "property": "P6782",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          },
+          "source_entity": "wikidata:q664846",
+          "source_path": "/entities/Q664846/claims/P6782/0",
+          "wikidata": "wikidata:q664846"
+        }
+      ],
+      "merged": false,
+      "note": "Identifier assertions only; no equivalence edge or independence claim.",
+      "ror": "ror:040gcmg81",
+      "status": "reciprocal_candidate_requires_identity_review",
+      "wikidata": "wikidata:q664846"
+    }
+  ],
+  "literal_source_extract": {
+    "admin": {
+      "created": {
+        "date": "2018-11-14",
+        "schema_version": "1.0"
+      },
+      "last_modified": {
+        "date": "2024-12-11",
+        "schema_version": "2.1"
+      }
+    },
+    "established": 1937,
+    "external_ids": [
+      {
+        "all": [
+          "100000054",
+          "100008637",
+          "100007316"
+        ],
+        "preferred": "100000054",
+        "type": "fundref"
+      },
+      {
+        "all": [
+          "grid.48336.3a"
+        ],
+        "preferred": "grid.48336.3a",
+        "type": "grid"
+      },
+      {
+        "all": [
+          "0000 0004 1936 8075"
+        ],
+        "preferred": null,
+        "type": "isni"
+      },
+      {
+        "all": [
+          "Q664846"
+        ],
+        "preferred": null,
+        "type": "wikidata"
+      }
+    ],
+    "id": "https://ror.org/040gcmg81",
+    "names": [
+      {
+        "lang": "fr",
+        "types": [
+          "label"
+        ],
+        "value": "Institut National du Cancer"
+      },
+      {
+        "lang": "es",
+        "types": [
+          "label"
+        ],
+        "value": "Instituto Nacional del Cáncer"
+      },
+      {
+        "lang": null,
+        "types": [
+          "acronym"
+        ],
+        "value": "NCI"
+      },
+      {
+        "lang": "en",
+        "types": [
+          "ror_display",
+          "label"
+        ],
+        "value": "National Cancer Institute"
+      }
+    ],
+    "relationships": [
+      {
+        "id": "https://ror.org/05bjen692",
+        "label": "Center for Cancer Research",
+        "type": "child"
+      },
+      {
+        "id": "https://ror.org/03v6m3209",
+        "label": "Frederick National Laboratory for Cancer Research",
+        "type": "child"
+      },
+      {
+        "id": "https://ror.org/05n6zrm60",
+        "label": "SWOG Cancer Research Network",
+        "type": "child"
+      },
+      {
+        "id": "https://ror.org/00vkwep27",
+        "label": "Division of Cancer Epidemiology and Genetics",
+        "type": "child"
+      },
+      {
+        "id": "https://ror.org/01cwqze88",
+        "label": "National Institutes of Health",
+        "type": "parent"
+      },
+      {
+        "id": "https://ror.org/00w52vt71",
+        "label": "MUSC Hollings Cancer Center",
+        "type": "related"
+      },
+      {
+        "id": "https://ror.org/02qyzaf42",
+        "label": "The Cancer Imaging Archive",
+        "type": "related"
+      }
+    ],
+    "status": "active"
+  },
+  "projection_decisions": [
+    {
+      "evidence_id": "claims-ror-040gcmg81",
+      "exclusion_reasons": [],
+      "predicate": "child",
+      "projected_edge": [
+        "ror:040gcmg81",
+        "ror:05bjen692"
+      ],
+      "source_assertion": {
+        "id": "https://ror.org/05bjen692",
+        "label": "Center for Cancer Research",
+        "type": "child"
+      },
+      "source_entity": "ror:040gcmg81",
+      "source_path": "/relationships/0",
+      "target": "ror:05bjen692"
+    },
+    {
+      "evidence_id": "claims-ror-040gcmg81",
+      "exclusion_reasons": [],
+      "predicate": "child",
+      "projected_edge": [
+        "ror:040gcmg81",
+        "ror:03v6m3209"
+      ],
+      "source_assertion": {
+        "id": "https://ror.org/03v6m3209",
+        "label": "Frederick National Laboratory for Cancer Research",
+        "type": "child"
+      },
+      "source_entity": "ror:040gcmg81",
+      "source_path": "/relationships/1",
+      "target": "ror:03v6m3209"
+    },
+    {
+      "evidence_id": "claims-ror-040gcmg81",
+      "exclusion_reasons": [],
+      "predicate": "child",
+      "projected_edge": [
+        "ror:040gcmg81",
+        "ror:05n6zrm60"
+      ],
+      "source_assertion": {
+        "id": "https://ror.org/05n6zrm60",
+        "label": "SWOG Cancer Research Network",
+        "type": "child"
+      },
+      "source_entity": "ror:040gcmg81",
+      "source_path": "/relationships/2",
+      "target": "ror:05n6zrm60"
+    },
+    {
+      "evidence_id": "claims-ror-040gcmg81",
+      "exclusion_reasons": [],
+      "predicate": "child",
+      "projected_edge": [
+        "ror:040gcmg81",
+        "ror:00vkwep27"
+      ],
+      "source_assertion": {
+        "id": "https://ror.org/00vkwep27",
+        "label": "Division of Cancer Epidemiology and Genetics",
+        "type": "child"
+      },
+      "source_entity": "ror:040gcmg81",
+      "source_path": "/relationships/3",
+      "target": "ror:00vkwep27"
+    },
+    {
+      "evidence_id": "claims-ror-040gcmg81",
+      "exclusion_reasons": [],
+      "predicate": "parent",
+      "projected_edge": [
+        "ror:01cwqze88",
+        "ror:040gcmg81"
+      ],
+      "source_assertion": {
+        "id": "https://ror.org/01cwqze88",
+        "label": "National Institutes of Health",
+        "type": "parent"
+      },
+      "source_entity": "ror:040gcmg81",
+      "source_path": "/relationships/4",
+      "target": "ror:01cwqze88"
+    },
+    {
+      "evidence_id": "claims-ror-040gcmg81",
+      "exclusion_reasons": [
+        "predicate_not_projected_to_contains"
+      ],
+      "predicate": "related",
+      "source_assertion": {
+        "id": "https://ror.org/00w52vt71",
+        "label": "MUSC Hollings Cancer Center",
+        "type": "related"
+      },
+      "source_entity": "ror:040gcmg81",
+      "source_path": "/relationships/5",
+      "target": "ror:00w52vt71"
+    },
+    {
+      "evidence_id": "claims-ror-040gcmg81",
+      "exclusion_reasons": [
+        "predicate_not_projected_to_contains"
+      ],
+      "predicate": "related",
+      "source_assertion": {
+        "id": "https://ror.org/02qyzaf42",
+        "label": "The Cancer Imaging Archive",
+        "type": "related"
+      },
+      "source_entity": "ror:040gcmg81",
+      "source_path": "/relationships/6",
+      "target": "ror:02qyzaf42"
+    }
+  ],
+  "source_provenance": {
+    "capture_manifest_path": "sources/capture-manifest.json",
+    "entity_id": "040gcmg81",
+    "id": "ror-040gcmg81",
+    "path": "sources/raw/ror-040gcmg81.json",
+    "provider": "ror",
+    "request_attempts": 1,
+    "retrieved_at_utc": "2026-10-07T04:14:03Z",
+    "revision": {
+      "record_modified": "2024-12-11",
+      "schema_version": "2.1"
+    },
+    "sha256": "8073d4137c55295dc2a11bfb71fbac38783534754709e472735a206ea95fdf9d",
+    "size_bytes": 1927,
+    "url": "https://api.ror.org/v2/organizations/040gcmg81"
+  },
+  "unindexed_statement_count": 0
+}

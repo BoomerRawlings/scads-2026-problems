@@ -1,0 +1,4 @@
+{
+  "code": "model_unavailable",
+  "message": "Local model connection failed; check llama-server and its port."
+}

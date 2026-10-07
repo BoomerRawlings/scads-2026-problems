@@ -1,0 +1,96 @@
+[
+  {
+    "id": "img-note-001",
+    "source": "annotations/riverwatch_planning_board.txt",
+    "date": "2026-09-05",
+    "sha256": "66d670d0bf5794e6b5c5285588ee100d0ebcf5833f412c08ed83cdb92326261c",
+    "media_path": "media/riverwatch-board.png",
+    "media_sha256": "48c53e82faa004de5e1f1784913208b78f335980d8e75fe8af05a570f9376678"
+  },
+  {
+    "id": "img-note-002",
+    "source": "annotations/sensor_inspection_tags.txt",
+    "date": "2026-09-04",
+    "sha256": "1f1520117852562bed244978c318a255c68f76cbdd92404fe6480eb590c80d96"
+  },
+  {
+    "id": "memo-001",
+    "source": "documents/riverwatch_dependency_review.txt",
+    "date": "2026-09-05",
+    "sha256": "b9ad6f2af741870c74ccaa91ccf6f5b564d329c1f6bed6b7c1dc4a007a84697a"
+  },
+  {
+    "id": "memo-002",
+    "source": "documents/delta_team_scope.txt",
+    "date": "2026-09-05",
+    "sha256": "57711bea89658bf501763d5d09556e6352377d5902e6a167ee104456963b9d95"
+  },
+  {
+    "id": "memo-003",
+    "source": "documents/sensor_supply_note.txt",
+    "date": "2026-09-04",
+    "sha256": "c7bb5aa249435692c819601a5ffc73ed42dd780de8b926021738f9b4bc6de41c"
+  },
+  {
+    "id": "memo-004",
+    "source": "documents/northline_shipping_notice.txt",
+    "date": "2026-09-05",
+    "sha256": "cb82086c19cc865331314e59803c2625d2f78e3ae899e70c0c6f84b0f0f9be18"
+  },
+  {
+    "id": "memo-005",
+    "source": "documents/aero_team_scope.txt",
+    "date": "2026-09-05",
+    "sha256": "12fa838097a7bdd0b3a996089563c02e49250bcf528541bfd4b9fa1adf37e3df"
+  },
+  {
+    "id": "tbl-001",
+    "source": "records.csv#row=2",
+    "date": "2026-09-01",
+    "sha256": "4ba57538823f4f62b2c612ae9de9e93b820d6a5bd183d73750d64b8c44a181ce"
+  },
+  {
+    "id": "tbl-002",
+    "source": "records.csv#row=3",
+    "date": "2026-09-01",
+    "sha256": "54c15c94087f29d9a400b66ea675a62984fd449d9cfe7a439f399ee6c1569a2a"
+  },
+  {
+    "id": "tbl-003",
+    "source": "records.csv#row=4",
+    "date": "2026-09-03",
+    "sha256": "6c73d8e86ed799ca56e3a1610bc86380608dc858a30e58efa646776591c61c5f"
+  },
+  {
+    "id": "tbl-004",
+    "source": "records.csv#row=5",
+    "date": "2026-09-05",
+    "sha256": "fc532b9d9d274bf5abe2afa5b6600b9ecc7e675473f0c4bff4960c27f28f9088"
+  },
+  {
+    "id": "tbl-005",
+    "source": "records.csv#row=6",
+    "date": "2026-09-04",
+    "sha256": "6bfc0b767d8cb2f78735b3a56c923ef04af07e10cf5d64a3ff68325b0e1b515e"
+  },
+  {
+    "id": "tbl-006",
+    "source": "records.csv#row=7",
+    "date": "2026-09-02",
+    "sha256": "d592bf22c8f58d18916ea2174bad370ab321c16afc3045dda5c540edc69ee1f9"
+  },
+  {
+    "id": "video-tx-001",
+    "source": "transcripts/riverwatch_coordination.txt",
+    "date": "2026-09-05",
+    "sha256": "415a3aace94a7d376311152c2b0f2c236dd849bb187737d818e8fd8ce7ab886f",
+    "media_path": "media/riverwatch-review.mp4",
+    "media_sha256": "12570bc12c69eb2ef39e1097aeacbcac95b708b7bcba9c949f25f256239086d9"
+  },
+  {
+    "id": "video-tx-002",
+    "source": "transcripts/clearair_coordination.txt",
+    "date": "2026-09-05",
+    "sha256": "77051117b6c42f39788bd01853b2952dcb2b6cd57ace702b5d50db1057f2e843"
+  }
+]

@@ -1,0 +1,12 @@
+SYNTHETIC FIXTURE — fictional organization, event, and claims.
+Source ID: memo-003
+Date: 2026-09-04
+Subject: Silt Sensor Batch supply and acceptance
+
+Riverwatch Pilot depends on the Silt Sensor Batch. The Silt Sensor Batch is
+supplied by Northline Instruments. It requires calibration and acceptance
+before field release. Acceptance is pending.
+
+The supplier is external to Cedar Basin Research Institute. This dependency
+does not place the supplier within the institute's organizational hierarchy.
+Pending acceptance alone is not evidence of a defective component.

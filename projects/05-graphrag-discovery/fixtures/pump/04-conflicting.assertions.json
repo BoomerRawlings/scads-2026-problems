@@ -1,0 +1,29 @@
+[
+  {
+    "assertion_id": "c-report",
+    "document_id": "independent-report",
+    "version_id": "v1",
+    "processing_version": "plain-text-v1",
+    "subject_id": "operator-c",
+    "subject_label": "Operator C",
+    "object_id": "pump-p",
+    "object_label": "Pump P",
+    "text": "Independent report: Operator C began operating Pump P on February 3, 2025, with no stated end date.",
+    "start": 0,
+    "end": 99,
+    "modality": "reported",
+    "valid_from": "2025-02-03T00:00:00Z",
+    "valid_to": null,
+    "temporal_status": {
+      "from": "known",
+      "to": "open"
+    },
+    "supersedes": [],
+    "method": "authored-fixture",
+    "relation_group": "pump-p-operator",
+    "qualifiers": {
+      "exclusive": true,
+      "scope": "One actual operator of Pump P at a time; authored fixture premise."
+    }
+  }
+]

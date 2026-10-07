@@ -1,0 +1,7 @@
+Employee ID,Full Name,Email,Role,Department,Manager ID,Valid From,Aliases,Entity Type
+morgan,Morgan Bell,morgan@example.org,Research Director,Research,,2026-01-01,,person
+taylor,Taylor Reed,taylor@example.org,Research Analyst,Research,morgan,2026-01-01,t.reed@example.org,person
+casey,Casey Vale,casey@example.org,Program Coordinator,Operations,,2026-01-01,,person
+alex-r,Alex Morgan,alex.research@example.org,Research Analyst,Research,morgan,2026-01-01,,person
+alex-o,Alex Morgan,alex.operations@example.org,Operations Specialist,Operations,casey,2026-01-01,,person
+help,Shared Help Desk,help@example.org,Shared service,Operations,,2026-01-01,,shared_mailbox

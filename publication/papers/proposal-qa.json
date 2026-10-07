@@ -1,0 +1,38 @@
+[
+  {
+    "file": "06-agentic-retrieval.pdf",
+    "pages": 8,
+    "words": 2398,
+    "missing_glyph_markers": 0,
+    "bounds_violations": [],
+    "sha256": "77f0a0d03b82d7e098e4cc8afe150435aeb231a233db05a1edae29ac70508498",
+    "visual_review": "All32pages inspected at contact-sheet scale; final reference pages rerendered after removing unlinked brief citation hyperlink."
+  },
+  {
+    "file": "07-efficient-agentic-rag.pdf",
+    "pages": 8,
+    "words": 2277,
+    "missing_glyph_markers": 0,
+    "bounds_violations": [],
+    "sha256": "ea794fb06df1423110126917974739a797593b479339886db78d336b386c2107",
+    "visual_review": "All32pages inspected at contact-sheet scale; final reference pages rerendered after removing unlinked brief citation hyperlink."
+  },
+  {
+    "file": "08-capability-benchmarks.pdf",
+    "pages": 8,
+    "words": 2323,
+    "missing_glyph_markers": 0,
+    "bounds_violations": [],
+    "sha256": "d9f9d459aa6f683a1e00226c653318f84b3d4f5e58abf6bd30be35e6303f7d14",
+    "visual_review": "All32pages inspected at contact-sheet scale; final reference pages rerendered after removing unlinked brief citation hyperlink."
+  },
+  {
+    "file": "09-core-to-edge.pdf",
+    "pages": 8,
+    "words": 2358,
+    "missing_glyph_markers": 0,
+    "bounds_violations": [],
+    "sha256": "ac007277925131b557ee8c70e857f119fea6adc2e990f78ea1d3587f43c1980a",
+    "visual_review": "All32pages inspected at contact-sheet scale; final reference pages rerendered after removing unlinked brief citation hyperlink."
+  }
+]

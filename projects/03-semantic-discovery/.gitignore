@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.egg-info/
+runs/
+wheelhouse/
+dist/
+data/corpus/*.pdf
+data/corpus/*.png
+data/corpus/**/*.pdf
+data/corpus/**/*.png
+

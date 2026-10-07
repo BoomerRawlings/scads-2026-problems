@@ -1,0 +1,3 @@
+# Official MCP SDK v1 FastMCP API; keep the tested version reproducible.
+mcp==1.30.0
+Pillow==12.3.0

@@ -1,0 +1,8 @@
+{
+  "description": "Complete individually addressable selected statements, relationships and identity candidates. Source assertions, not independently verified facts. Edit/retrieval dates are not relationship validity dates. Projection records a captured assertion, not present-day truth. Crosswalks never merge identities; reciprocity does not establish independent corroboration. Linked media was not imported.",
+  "id": "public-research-statement-pilot",
+  "kind": "public_snapshot",
+  "license": "CC0 structured data; linked media excluded",
+  "name": "Captured ROR/Wikidata source units",
+  "version": "statement-units-v1"
+}

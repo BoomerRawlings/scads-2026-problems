@@ -1,0 +1,115 @@
+{
+  "candidate": {
+    "candidate_evidence_id": "crosswalk-5ecae71edf049ba3551d",
+    "claims": [
+      {
+        "evidence_id": "external-id-ror-01cwqze88-986ea8f4ee51e46c3a30",
+        "exclusion_reasons": [],
+        "ror": "ror:01cwqze88",
+        "source_assertion": {
+          "all": [
+            "Q390551",
+            "Q6973636"
+          ],
+          "preferred": null,
+          "type": "wikidata"
+        },
+        "source_entity": "ror:01cwqze88",
+        "source_path": "/external_ids/3",
+        "source_provenance": {
+          "capture_manifest_path": "sources/capture-manifest.json",
+          "entity_id": "01cwqze88",
+          "id": "ror-01cwqze88",
+          "path": "sources/raw/ror-01cwqze88.json",
+          "provider": "ror",
+          "request_attempts": 1,
+          "retrieved_at_utc": "2026-10-07T04:14:08Z",
+          "revision": {
+            "record_modified": "2026-08-25",
+            "schema_version": "2.1"
+          },
+          "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+          "size_bytes": 4516,
+          "url": "https://api.ror.org/v2/organizations/01cwqze88"
+        },
+        "wikidata": "wikidata:q6973636"
+      }
+    ],
+    "decision_inputs": [
+      {
+        "evidence_id": "identity-ror-01cwqze88-fb1111c368d22a7ecd85",
+        "role": "captured_endpoint",
+        "source_entity": "ror:01cwqze88",
+        "source_path": "",
+        "source_provenance": {
+          "capture_manifest_path": "sources/capture-manifest.json",
+          "entity_id": "01cwqze88",
+          "id": "ror-01cwqze88",
+          "path": "sources/raw/ror-01cwqze88.json",
+          "provider": "ror",
+          "request_attempts": 1,
+          "retrieved_at_utc": "2026-10-07T04:14:08Z",
+          "revision": {
+            "record_modified": "2026-08-25",
+            "schema_version": "2.1"
+          },
+          "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+          "size_bytes": 4516,
+          "url": "https://api.ror.org/v2/organizations/01cwqze88"
+        }
+      },
+      {
+        "evidence_id": "identity-wikidata-Q6973636-7f385e972e2f7964c7d2",
+        "role": "captured_endpoint",
+        "source_entity": "wikidata:q6973636",
+        "source_path": "/entities/Q6973636",
+        "source_provenance": {
+          "capture_manifest_path": "sources/capture-manifest.json",
+          "entity_id": "Q6973636",
+          "id": "wikidata-Q6973636",
+          "path": "sources/raw/wikidata-Q6973636.json",
+          "provider": "wikidata",
+          "request_attempts": 1,
+          "retrieved_at_utc": "2026-10-07T04:14:14Z",
+          "revision": {
+            "lastrevid": 2216204992,
+            "modified": "2024-07-30T09:50:14Z"
+          },
+          "sha256": "d24bc337fd25e3b27ddc51603453a582b155f17ba2faee28509989bb59e08473",
+          "size_bytes": 11672,
+          "url": "https://www.wikidata.org/wiki/Special:EntityData/Q6973636.json?revision=2216204992"
+        }
+      },
+      {
+        "admissibility_reasons": [],
+        "evidence_id": "statement-wikidata-Q6973636-7ea1201a7ff94e01069d",
+        "role": "wikidata_type_check",
+        "source_entity": "wikidata:q6973636",
+        "source_path": "/entities/Q6973636/claims/P31/0",
+        "source_provenance": {
+          "capture_manifest_path": "sources/capture-manifest.json",
+          "entity_id": "Q6973636",
+          "id": "wikidata-Q6973636",
+          "path": "sources/raw/wikidata-Q6973636.json",
+          "provider": "wikidata",
+          "request_attempts": 1,
+          "retrieved_at_utc": "2026-10-07T04:14:14Z",
+          "revision": {
+            "lastrevid": 2216204992,
+            "modified": "2024-07-30T09:50:14Z"
+          },
+          "sha256": "d24bc337fd25e3b27ddc51603453a582b155f17ba2faee28509989bb59e08473",
+          "size_bytes": 11672,
+          "url": "https://www.wikidata.org/wiki/Special:EntityData/Q6973636.json?revision=2216204992"
+        }
+      }
+    ],
+    "merged": false,
+    "note": "Identifier assertions only; no equivalence edge or independence claim.",
+    "ror": "ror:01cwqze88",
+    "status": "rejected_list_article_type",
+    "wikidata": "wikidata:q6973636"
+  },
+  "caution": "Source assertions, not independently verified facts. Edit/retrieval dates are not relationship validity dates. Projection records a captured assertion, not present-day truth. Crosswalks never merge identities; reciprocity does not establish independent corroboration. Linked media was not imported.",
+  "record_type": "crosswalk"
+}

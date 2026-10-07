@@ -1,0 +1,67 @@
+[
+  {
+    "name": "entity_search",
+    "args": {
+      "query": "riverwatch"
+    },
+    "status": "completed"
+  },
+  {
+    "name": "traverse_relationships",
+    "args": {
+      "target": "riverwatch",
+      "max_hops": 3
+    },
+    "status": "completed"
+  },
+  {
+    "name": "search_evidence",
+    "args": {
+      "query": "ready",
+      "entity_ids": [
+        "riverwatch"
+      ]
+    },
+    "status": "completed"
+  },
+  {
+    "name": "read_evidence",
+    "args": {
+      "evidence_id": "memo-001"
+    },
+    "status": "completed"
+  },
+  {
+    "name": "read_evidence",
+    "args": {
+      "evidence_id": "tbl-003"
+    },
+    "status": "completed"
+  },
+  {
+    "name": "read_evidence",
+    "args": {
+      "evidence_id": "video-tx-001"
+    },
+    "status": "completed"
+  },
+  {
+    "name": "inspect_media",
+    "args": {
+      "evidence_id": "video-tx-001"
+    },
+    "status": "completed"
+  },
+  {
+    "name": "read_media",
+    "args": {
+      "evidence_id": "video-tx-001",
+      "timestamps": [
+        0.0,
+        14.5,
+        29.0
+      ]
+    },
+    "status": "completed"
+  }
+]

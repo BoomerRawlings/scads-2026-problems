@@ -1,0 +1,109 @@
+{
+  "caution": "Source assertions, not independently verified facts. Edit/retrieval dates are not relationship validity dates. Projection records a captured assertion, not present-day truth. Crosswalks never merge identities; reciprocity does not establish independent corroboration. Linked media was not imported.",
+  "record_type": "identity",
+  "source_fragments": [
+    {
+      "json_pointer": "/admin",
+      "value": {
+        "created": {
+          "date": "2022-03-17",
+          "schema_version": "1.0"
+        },
+        "last_modified": {
+          "date": "2024-12-11",
+          "schema_version": "2.1"
+        }
+      }
+    },
+    {
+      "json_pointer": "/domains",
+      "value": []
+    },
+    {
+      "json_pointer": "/established",
+      "value": 2010
+    },
+    {
+      "json_pointer": "/id",
+      "value": "https://ror.org/02qyzaf42"
+    },
+    {
+      "json_pointer": "/links",
+      "value": [
+        {
+          "type": "website",
+          "value": "https://www.cancerimagingarchive.net"
+        },
+        {
+          "type": "wikipedia",
+          "value": "https://en.wikipedia.org/wiki/The_Cancer_Imaging_Archive_%28TCIA%29"
+        }
+      ]
+    },
+    {
+      "json_pointer": "/locations",
+      "value": [
+        {
+          "geonames_details": {
+            "continent_code": "NA",
+            "continent_name": "North America",
+            "country_code": "US",
+            "country_name": "United States",
+            "country_subdivision_code": "AR",
+            "country_subdivision_name": "Arkansas",
+            "lat": 34.74648,
+            "lng": -92.28959,
+            "name": "Little Rock"
+          },
+          "geonames_id": 4119403
+        }
+      ]
+    },
+    {
+      "json_pointer": "/names",
+      "value": [
+        {
+          "lang": null,
+          "types": [
+            "acronym"
+          ],
+          "value": "TCIA"
+        },
+        {
+          "lang": "en",
+          "types": [
+            "ror_display",
+            "label"
+          ],
+          "value": "The Cancer Imaging Archive"
+        }
+      ]
+    },
+    {
+      "json_pointer": "/status",
+      "value": "active"
+    },
+    {
+      "json_pointer": "/types",
+      "value": [
+        "archive"
+      ]
+    }
+  ],
+  "source_provenance": {
+    "capture_manifest_path": "sources/capture-manifest.json",
+    "entity_id": "02qyzaf42",
+    "id": "ror-02qyzaf42",
+    "path": "sources/raw/ror-02qyzaf42.json",
+    "provider": "ror",
+    "request_attempts": 1,
+    "retrieved_at_utc": "2026-10-07T04:14:10Z",
+    "revision": {
+      "record_modified": "2024-12-11",
+      "schema_version": "2.1"
+    },
+    "sha256": "17f1e24342747e318eef90f3083ff02d73bd5c88d8102378b9d2e19b815a8cf7",
+    "size_bytes": 1239,
+    "url": "https://api.ror.org/v2/organizations/02qyzaf42"
+  }
+}

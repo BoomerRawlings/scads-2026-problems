@@ -1,0 +1,11 @@
+{
+  "timestamp_utc": "2026-10-07T13:15:21.6787128Z",
+  "profile": "runtime-profile-qwen35-9b-text-01.json",
+  "case": "public-nci-01",
+  "phase": "finished_context_limit_failure",
+  "working_set_bytes": 5026734080,
+  "startup_inclusive_peak_working_set_bytes": 5087371264,
+  "free_physical_memory_kib": 712128,
+  "total_visible_memory_kib": 16364512,
+  "qualification": "Shared host. Peak includes server startup, neutral context probe and public NCI01. Not a per-run isolated benchmark or minimum RAM requirement."
+}

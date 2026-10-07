@@ -1,0 +1,7 @@
+Message ID,From,To,Sent At,Subject,Body
+sample-001,Taylor Reed <taylor@example.org>,Morgan Bell <morgan@example.org>,2026-01-05T09:00:00-08:00,Reporting line,"I report directly to Morgan Bell. Please add that to the directory."
+sample-002,Morgan Bell <morgan@example.org>,Taylor Reed <taylor@example.org>,2026-01-05T18:00:00Z,Re: Reporting line,Thanks for confirming. Please send your weekly update tomorrow.
+sample-003,Casey Vale <casey@example.org>,Taylor Reed <taylor@example.org>,2026-01-06T17:00:00Z,Project coordination,"Please send me the workshop slides. I coordinate this temporary project; your formal reporting line is unchanged."
+sample-001,Taylor Reed <taylor@example.org>,Morgan Bell <morgan@example.org>,2026-01-05T09:00:00-08:00,Reporting line,"I report directly to Morgan Bell. Please add that to the directory."
+sample-004,Taylor Reed <taylor@example.org>,Casey Vale <casey@example.org>,,Missing date,The original export did not retain a date for this message.
+sample-005,,Morgan Bell <morgan@example.org>,2026-01-07T17:00:00Z,Missing sender,This intentionally malformed record should appear in quarantine.

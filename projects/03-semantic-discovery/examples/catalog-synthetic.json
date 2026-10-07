@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "catalog_id": "portfolio-synthetic",
+  "sequence": 1,
+  "profile": "values",
+  "policy": {
+    "version": 1,
+    "revoked_doc_ids": [],
+    "revoked_assertion_ids": []
+  },
+  "documents": [
+    {
+      "doc_id": "fixture-generator",
+      "title": "Fictional DEMO-G30 demonstration manual",
+      "manufacturer": "Authored fixture",
+      "models": [
+        "DEMO-G30"
+      ],
+      "category": "generator",
+      "language": "en",
+      "revision": "synthetic-1",
+      "request_ref": "fixture:fixture-generator",
+      "processing_status": "complete"
+    },
+    {
+      "doc_id": "fixture-drill",
+      "title": "Fictional DEMO-D120 demonstration manual",
+      "manufacturer": "Authored fixture",
+      "models": [
+        "DEMO-D120"
+      ],
+      "category": "drill",
+      "language": "en",
+      "revision": "synthetic-1",
+      "request_ref": "fixture:fixture-drill",
+      "processing_status": "complete"
+    },
+    {
+      "doc_id": "fixture-pump",
+      "title": "Fictional DEMO-P200 demonstration manual",
+      "manufacturer": "Authored fixture",
+      "models": [
+        "DEMO-P200"
+      ],
+      "category": "pump",
+      "language": "en",
+      "revision": "synthetic-1",
+      "request_ref": "fixture:fixture-pump",
+      "processing_status": "complete"
+    }
+  ],
+  "assertions": [
+    {
+      "assertion_id": "fixture-generator-rating",
+      "doc_id": "fixture-generator",
+      "model": "DEMO-G30",
+      "variant": null,
+      "attribute": "output_power",
+      "qualifier": "rated",
+      "status": "reviewed",
+      "value": 30000,
+      "value_max": null,
+      "unit": "W"
+    },
+    {
+      "assertion_id": "fixture-drill-rating",
+      "doc_id": "fixture-drill",
+      "model": "DEMO-D120",
+      "variant": null,
+      "attribute": "input_voltage",
+      "qualifier": "rated",
+      "status": "reviewed",
+      "value": 120,
+      "value_max": null,
+      "unit": "V"
+    },
+    {
+      "assertion_id": "fixture-pump-rating",
+      "doc_id": "fixture-pump",
+      "model": "DEMO-P200",
+      "variant": null,
+      "attribute": "pressure",
+      "qualifier": "rated",
+      "status": "reviewed",
+      "value": 200,
+      "value_max": null,
+      "unit": "kPa"
+    }
+  ],
+  "integrity": "12f71b6e4ae33563a483983852f80ebcdfbf6673422deb643ec9fd76c89cd8cf"
+}

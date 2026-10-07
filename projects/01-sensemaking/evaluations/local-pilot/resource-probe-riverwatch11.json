@@ -1,0 +1,12 @@
+{
+  "case": "Riverwatch11",
+  "profile": "runtime-profile-qwen35-01.json",
+  "captured_utc": "2026-10-07T09:30:31.8645467Z",
+  "phase": "report synthesis",
+  "working_set_bytes": 5119201280,
+  "peak_working_set_since_server_start_bytes": 6777589760,
+  "host_free_physical_kib": 1036796,
+  "host_total_physical_kib": 16364512,
+  "method": "Windows Get-Process WorkingSet64/PeakWorkingSet64 for the path-verified task-owned server, and Win32_OperatingSystem memory fields.",
+  "interpretation": "One point during generation on a shared host. Peak includes model startup and this run; it is not an isolated per-investigation memory benchmark or a minimum-RAM specification. Downloads/startup are excluded from runner elapsed time."
+}

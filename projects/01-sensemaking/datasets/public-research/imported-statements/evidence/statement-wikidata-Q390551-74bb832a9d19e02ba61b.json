@@ -1,0 +1,262 @@
+{
+  "caution": "Source assertions, not independently verified facts. Edit/retrieval dates are not relationship validity dates. Projection records a captured assertion, not present-day truth. Crosswalks never merge identities; reciprocity does not establish independent corroboration. Linked media was not imported.",
+  "projection_decision": {
+    "evidence_id": "statement-wikidata-Q390551-74bb832a9d19e02ba61b",
+    "exclusion_reasons": [
+      "qualified_claim_requires_scope_review",
+      "endpoint_not_captured"
+    ],
+    "indexed": true,
+    "predicate": "P355",
+    "raw_source_path": "sources/raw/wikidata-Q390551.json",
+    "source_entity": "wikidata:q390551",
+    "source_path": "/entities/Q390551/claims/P355/16",
+    "statement_guid": "Q390551$C3CE0428-F108-4504-ABE6-C5A48E7EC1E8",
+    "target": "wikidata:q1967405"
+  },
+  "record_type": "statement",
+  "source_fragments": [
+    {
+      "json_pointer": "/entities/Q390551/claims/P355/16",
+      "value": {
+        "id": "Q390551$C3CE0428-F108-4504-ABE6-C5A48E7EC1E8",
+        "mainsnak": {
+          "datatype": "wikibase-item",
+          "datavalue": {
+            "type": "wikibase-entityid",
+            "value": {
+              "entity-type": "item",
+              "id": "Q1967405",
+              "numeric-id": 1967405
+            }
+          },
+          "hash": "afcae0a0867107c7895a6510e82e7358a6d91d4f",
+          "property": "P355",
+          "snaktype": "value"
+        },
+        "qualifiers": {
+          "P580": [
+            {
+              "datatype": "time",
+              "datavalue": {
+                "type": "time",
+                "value": {
+                  "after": 0,
+                  "before": 0,
+                  "calendarmodel": "http://www.wikidata.org/entity/Q1985727",
+                  "precision": 11,
+                  "time": "+1949-04-15T00:00:00Z",
+                  "timezone": 0
+                }
+              },
+              "hash": "d4e19a6f4b06277bd87f931b8f11ed7bddfbc5d4",
+              "property": "P580",
+              "snaktype": "value"
+            }
+          ]
+        },
+        "qualifiers-order": [
+          "P580"
+        ],
+        "rank": "normal",
+        "references": [
+          {
+            "hash": "a13a3d66812fd1e1b27b7158879d3c888d319c86",
+            "snaks": {
+              "P2427": [
+                {
+                  "datatype": "external-id",
+                  "datavalue": {
+                    "type": "string",
+                    "value": "grid.416868.5"
+                  },
+                  "hash": "81d03d2d1f2ceef9337d20796f7837bacdee310c",
+                  "property": "P2427",
+                  "snaktype": "value"
+                }
+              ]
+            },
+            "snaks-order": [
+              "P2427"
+            ]
+          },
+          {
+            "hash": "efdde2d51b03b96e599c137de86afaade5dcc545",
+            "snaks": {
+              "P248": [
+                {
+                  "datatype": "wikibase-item",
+                  "datavalue": {
+                    "type": "wikibase-entityid",
+                    "value": {
+                      "entity-type": "item",
+                      "id": "Q110235640",
+                      "numeric-id": 110235640
+                    }
+                  },
+                  "hash": "22a0a4a5f1d5b951200e8ca287cbad3aab708ce1",
+                  "property": "P248",
+                  "snaktype": "value"
+                }
+              ],
+              "P6782": [
+                {
+                  "datatype": "external-id",
+                  "datavalue": {
+                    "type": "string",
+                    "value": "01cwqze88"
+                  },
+                  "hash": "b22a9c7942f9c3c58fa9a715a354472c9cb54307",
+                  "property": "P6782",
+                  "snaktype": "value"
+                }
+              ],
+              "P813": [
+                {
+                  "datatype": "time",
+                  "datavalue": {
+                    "type": "time",
+                    "value": {
+                      "after": 0,
+                      "before": 0,
+                      "calendarmodel": "http://www.wikidata.org/entity/Q1985727",
+                      "precision": 11,
+                      "time": "+2023-02-08T00:00:00Z",
+                      "timezone": 0
+                    }
+                  },
+                  "hash": "8922e76de82a30a4a03eec8a8f1e30211812e075",
+                  "property": "P813",
+                  "snaktype": "value"
+                }
+              ]
+            },
+            "snaks-order": [
+              "P248",
+              "P6782",
+              "P813"
+            ]
+          },
+          {
+            "hash": "544981a328858e4d188cb0c0804ce56c5f2de6a0",
+            "snaks": {
+              "P1476": [
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "en",
+                      "text": "Chronology of Events"
+                    }
+                  },
+                  "hash": "9149e4cbdc5b3b95f6d8eac8e1abcefd15ab934d",
+                  "property": "P1476",
+                  "snaktype": "value"
+                }
+              ],
+              "P1683": [
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "en",
+                      "text": "1949 ; The National Institute of Mental Health was established on April 15, with the abolishment of the Division of Mental Hygiene"
+                    }
+                  },
+                  "hash": "ab33ce3ec3456c7bb8cf16df6158acc3965073a3",
+                  "property": "P1683",
+                  "snaktype": "value"
+                }
+              ],
+              "P6333": [
+                {
+                  "datatype": "monolingualtext",
+                  "datavalue": {
+                    "type": "monolingualtext",
+                    "value": {
+                      "language": "en",
+                      "text": "The NIH Almanac"
+                    }
+                  },
+                  "hash": "8fbe898800e44ac1da780e5b91067f368cc9760a",
+                  "property": "P6333",
+                  "snaktype": "value"
+                }
+              ],
+              "P813": [
+                {
+                  "datatype": "time",
+                  "datavalue": {
+                    "type": "time",
+                    "value": {
+                      "after": 0,
+                      "before": 0,
+                      "calendarmodel": "http://www.wikidata.org/entity/Q1985727",
+                      "precision": 11,
+                      "time": "+2023-02-08T00:00:00Z",
+                      "timezone": 0
+                    }
+                  },
+                  "hash": "8922e76de82a30a4a03eec8a8f1e30211812e075",
+                  "property": "P813",
+                  "snaktype": "value"
+                }
+              ],
+              "P854": [
+                {
+                  "datatype": "url",
+                  "datavalue": {
+                    "type": "string",
+                    "value": "https://www.nih.gov/about-nih/what-we-do/nih-almanac/chronology-events"
+                  },
+                  "hash": "b84abfbeb0f09e6c275e3bf10fb291c2040a4a4b",
+                  "property": "P854",
+                  "snaktype": "value"
+                }
+              ],
+              "P958": [
+                {
+                  "datatype": "string",
+                  "datavalue": {
+                    "type": "string",
+                    "value": "1940"
+                  },
+                  "hash": "125156071025f9364ef52818b3566eb9e1b3044d",
+                  "property": "P958",
+                  "snaktype": "value"
+                }
+              ]
+            },
+            "snaks-order": [
+              "P854",
+              "P1476",
+              "P6333",
+              "P958",
+              "P1683",
+              "P813"
+            ]
+          }
+        ],
+        "type": "statement"
+      }
+    }
+  ],
+  "source_provenance": {
+    "capture_manifest_path": "sources/capture-manifest.json",
+    "entity_id": "Q390551",
+    "id": "wikidata-Q390551",
+    "path": "sources/raw/wikidata-Q390551.json",
+    "provider": "wikidata",
+    "request_attempts": 1,
+    "retrieved_at_utc": "2026-10-07T04:14:12Z",
+    "revision": {
+      "lastrevid": 2543960225,
+      "modified": "2026-09-11T12:24:24Z"
+    },
+    "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+    "size_bytes": 261528,
+    "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+  }
+}

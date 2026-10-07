@@ -1,0 +1,44 @@
+[
+  {
+    "id": "riverwatch-direct", "target": "Riverwatch", "max_hops": 0,
+    "expected_evidence_ids": ["tbl-003", "memo-001", "img-note-001", "video-tx-001"],
+    "expected_conflicts": [{"subject": "riverwatch", "predicate": "readiness"}],
+    "note": "Alias resolves to riverwatch. Direct evidence retains the dated ready/delayed disagreement. The arts decoy is excluded."
+  },
+  {
+    "id": "riverwatch-component", "target": "riverwatch", "max_hops": 1,
+    "expected_evidence_ids": ["tbl-003", "memo-001", "img-note-001", "video-tx-001", "tbl-005", "memo-003", "img-note-002"],
+    "expected_conflicts": [{"subject": "riverwatch", "predicate": "readiness"}],
+    "note": "One directed dependency hop includes component evidence but not the external supplier's records."
+  },
+  {
+    "id": "riverwatch-supplier", "target": "RWP", "max_hops": 2,
+    "expected_evidence_ids": ["tbl-003", "memo-001", "img-note-001", "video-tx-001", "tbl-005", "memo-003", "img-note-002", "tbl-006", "memo-004"],
+    "expected_conflicts": [{"subject": "riverwatch", "predicate": "readiness"}, {"subject": "northline", "predicate": "expected_arrival"}],
+    "note": "Two directed dependency hops reveal the supplier and dated shipping disagreement. Neither discrepancy proves wrongdoing or institute-wide failure."
+  },
+  {
+    "id": "institute-through-teams", "target": "CBRI", "max_hops": 2,
+    "expected_evidence_ids": ["tbl-001", "tbl-002", "memo-002", "memo-005"],
+    "expected_conflicts": [],
+    "note": "Organization, divisions, and teams are in scope. Project-linked records start at hop three and are excluded despite mentions in team notes."
+  },
+  {
+    "id": "institute-through-projects", "target": "cbri", "max_hops": 3,
+    "expected_evidence_ids": ["tbl-001", "tbl-002", "memo-002", "memo-005", "tbl-003", "memo-001", "img-note-001", "video-tx-001", "tbl-004", "video-tx-002"],
+    "expected_conflicts": [{"subject": "riverwatch", "predicate": "readiness"}],
+    "note": "Three hierarchy hops reach both projects. Component and supplier records remain out of scope. A child conflict must retain its riverwatch subject."
+  },
+  {
+    "id": "independent-sibling", "target": "ClearAir", "max_hops": 5,
+    "expected_evidence_ids": ["tbl-004", "video-tx-002"],
+    "expected_conflicts": [],
+    "note": "Traversal does not ascend containment edges or jump to siblings. Mentions of Riverwatch in ClearAir text do not make its records relevant."
+  },
+  {
+    "id": "unrelated-arts", "target": "CBAC", "max_hops": 5,
+    "expected_evidence_ids": ["tbl-007"],
+    "expected_conflicts": [],
+    "note": "The unrelated arts organization's Riverwatch performance is relevant only to this entity, not the environmental project."
+  }
+]

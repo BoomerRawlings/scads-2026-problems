@@ -1,0 +1,718 @@
+{
+  "schema_version": 1,
+  "version": "0.6.0",
+  "recorded_at": "2026-10-07T11:45:54.809107+00:00",
+  "evidence_kind": "offline_build_and_static_artifact_verification",
+  "status": "build_only",
+  "ready_for_production": false,
+  "build_network_disabled": true,
+  "installation_status": "not_run",
+  "benchmarks_or_stress_executed": false,
+  "live_elasticsearch_verified": false,
+  "real_million_record_gate_complete": false,
+  "focused_test_receipt": {
+    "file": "examples/evidence/test-report-v0.6-focused.json",
+    "sha256": "ca85075b5ce8b95d6fc97318bb74bd067f6accecec781ae94ec76f838fa2051a",
+    "tests_passed": 119,
+    "source_hashes_still_current": true
+  },
+  "runtime_python_files": 22,
+  "bundled_assets": 5,
+  "runtime_files_sha256": {
+    "analytics311/__init__.py": "0b2b126b6e4b61e88463625fbe9c961e1a002f4f8b79f90ab85490cf020f31e5",
+    "analytics311/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "analytics311/assets/config/catalog.json": "589b4dd202aa5d69315dc920499bcc0d75e130e8d164e1dfb927c3f2c1d66736",
+    "analytics311/assets/config/development.json": "ebeeb4cd9f05c2aae513b4f6b2395ac542e60de56cfcb0f50503e97529190988",
+    "analytics311/assets/config/mapping.json": "3c1d6db8fa1fe597ca43a23a8e00df168beffe4f2ecbc0b99165d8b0a0ccca95",
+    "analytics311/assets/fixtures/manifest.json": "f2e3831e6a350f7fabb0a1f3eaa44c5dbff46684ce9baf6721b831f66b7b6668",
+    "analytics311/assets/fixtures/requests.jsonl": "e34bba882616d4e04d9994642c2cc66effed110e3fa544039ef967d6da36997c",
+    "analytics311/capacity.py": "35d9ff679dffc7d02c314d4f71984240341bb42e1983d2029cfe00bd7bd00224",
+    "analytics311/capture.py": "a9ab794bdf726d882b9356650c0ef9355e8f44fcd07b68410d498451ebb4fac2",
+    "analytics311/cli.py": "91063d8aef42edf672f6dda0e5140b891a5fd2751c9822ab881e1a332e3c6ae5",
+    "analytics311/compiler.py": "d64685b83ddb6727145c8166f87586226d10f348147e094da124d780572390b2",
+    "analytics311/contracts.py": "77380332b2dd25e2aa367cc9f08680b5ece02d29bfe5bd9cd9eb22b77b58e596",
+    "analytics311/elastic.py": "4bbbe82d73038c3fff69cbcdae1f1ed4d86292b57706158c0bebe5f1cac1bcc7",
+    "analytics311/errors.py": "d61e9b5d5b14716720477a9cf1005f377ca79ab4b61f6ca61d6822c7d51d5414",
+    "analytics311/fixture.py": "b4f303e4fa7e53e9974491964c9524187ba485283d75e12a5c3d48ae5b8a6487",
+    "analytics311/geography.py": "b066038c1105047fbb1025cba4efb2ca82e35679fd27afadb51e30734621baf5",
+    "analytics311/guide.py": "a02a807e26736c034f4d15f4214362b015079af861d4e3e234fdf561d6149c03",
+    "analytics311/ingest.py": "632caee86a4230d4ba50c05d782902d7d1f7782fe348526f63872ded7a7585e4",
+    "analytics311/jobs.py": "93ce4a241abe484408ce1f606a120b6cd614c8f8757e2cedb3a9155d28da7b75",
+    "analytics311/maps.py": "f97d2dfda8fc7b1fa410a5ad0f7751ca1c9c55bfb81d79415e1bb12ce5b0f287",
+    "analytics311/mcp_server.py": "72d7794ec72782b1b0198327a20ff20210abe1febeef7736a22edccefcc55526",
+    "analytics311/metadata_io.py": "7a765bd91b5275f76e743a78c869a99c7c3d3736a21c15b7ed789c73c71ba556",
+    "analytics311/resources.py": "b89b3e2b8561593561d72b31994ff4072b149c8f9df764b26161e972511aa6b3",
+    "analytics311/service.py": "9eea4d57e66c4b4ff4ff90597395d9753896fd16ad9357c19d3ada5183c56d7e",
+    "analytics311/settings.py": "70a9422e36659bcd9f2e6b9e00615b098e147bc55e06497a8abc3c898c5eb3d4",
+    "analytics311/trend_maps.py": "8d0fe301a0a6f0165998965d2660ae2a5bee5cf4ba9bc59065dfb8f43698393b",
+    "analytics311/workloads.py": "c6bb07249809da81052745aa8e1eaf4d8884acf000aff1b414b05b0136f82fc8"
+  },
+  "core_agent_project_wheel_member_bytes_identical": true,
+  "builds": [
+    {
+      "flavor": "core",
+      "directory": "dist/release-core-v0.6-build-only",
+      "command": ".venv/Scripts/python.exe tools/build_release.py --output dist/release-core-v0.6-build-only --wheelhouse dist/release-core-v0.5/dependencies --no-network --skip-smoke",
+      "manifest": {
+        "file": "dist/release-core-v0.6-build-only/release-manifest.json",
+        "bytes": 2911,
+        "sha256": "bf67da21069e9f9ace0d015f662b2357eb240285ab989ae4252ab4bec4b6682a"
+      },
+      "checksum_file": {
+        "file": "dist/release-core-v0.6-build-only/SHA256SUMS",
+        "bytes": 216,
+        "sha256": "9909d244647443602a432718ff15f537dd0a42db0041339ddac1617b61fae121"
+      },
+      "target": {
+        "os": "Windows",
+        "architecture": "ARM64",
+        "python_implementation": "CPython",
+        "python_version": "3.12.14",
+        "python_platform": "win-amd64",
+        "python_cache_tag": "cpython-312",
+        "dependency_target": "current interpreter and platform only"
+      },
+      "extras_bundled": [],
+      "wheel_count": 2,
+      "dependency_count": 1,
+      "total_wheel_bytes": 435664,
+      "all_files_bytes": 438791,
+      "runtime_files_match_source": 27,
+      "installation_status": "not_run",
+      "smoke_status": "not_run",
+      "mcp_execution_status": "not_run",
+      "geo_execution_status": "not_run",
+      "artifacts": [
+        {
+          "file": "analytics311-0.6.0-py3-none-any.whl",
+          "sha256": "fa533ac8ffb6c2d98f04092bff615fca468e9b544a02ffc473ca62cb8a2ee923",
+          "bytes": 87668,
+          "wheel_tags": {
+            "python": "py3",
+            "abi": "none",
+            "platform": "any"
+          },
+          "distribution_name": "analytics311",
+          "distribution_version": "0.6.0",
+          "zip_crc": "passed",
+          "wheel_record_hashes": "passed",
+          "record_hashed_entries": 31,
+          "copied_from_previous_build": false
+        },
+        {
+          "file": "dependencies/tzdata-2026.5-py2.py3-none-any.whl",
+          "sha256": "b683bd1b6659ddcd810ff02ad09ba821d4bf1065072805063eb35c49617905ac",
+          "bytes": 347996,
+          "wheel_tags": {
+            "python": "py2.py3",
+            "abi": "none",
+            "platform": "any"
+          },
+          "distribution_name": "tzdata",
+          "distribution_version": "2026.5",
+          "zip_crc": "passed",
+          "wheel_record_hashes": "passed",
+          "record_hashed_entries": 632,
+          "copied_from_previous_build": true
+        }
+      ]
+    },
+    {
+      "flavor": "agent",
+      "directory": "dist/release-agent-v0.6-build-only",
+      "command": ".venv/Scripts/python.exe tools/build_release.py --output dist/release-agent-v0.6-build-only --wheelhouse dist/release-agent-v0.5/dependencies --extras mcp,geo --no-network --skip-smoke",
+      "manifest": {
+        "file": "dist/release-agent-v0.6-build-only/release-manifest.json",
+        "bytes": 12277,
+        "sha256": "0d90c335ceb14c35f56da8a88e269701cccffda56ee3624a5549e6f02c63324a"
+      },
+      "checksum_file": {
+        "file": "dist/release-agent-v0.6-build-only/SHA256SUMS",
+        "bytes": 3895,
+        "sha256": "2f2b6ce071c0bbcc372b167df67887e78b5c64e0ec266f177cabc91890d9c8ce"
+      },
+      "target": {
+        "os": "Windows",
+        "architecture": "ARM64",
+        "python_implementation": "CPython",
+        "python_version": "3.12.14",
+        "python_platform": "win-amd64",
+        "python_cache_tag": "cpython-312",
+        "dependency_target": "current interpreter and platform only"
+      },
+      "extras_bundled": [
+        "geo",
+        "mcp"
+      ],
+      "wheel_count": 34,
+      "dependency_count": 33,
+      "total_wheel_bytes": 29953406,
+      "all_files_bytes": 29969578,
+      "runtime_files_match_source": 27,
+      "installation_status": "not_run",
+      "smoke_status": "not_run",
+      "mcp_execution_status": "not_run",
+      "geo_execution_status": "not_run",
+      "artifacts": [
+        {
+          "file": "analytics311-0.6.0-py3-none-any.whl",
+          "sha256": "0ef802ddaa001b89a7f434f1022de72c0aea07179f69a6842e9924d37a5d46b8",
+          "bytes": 87668,
+          "wheel_tags": {
+            "python": "py3",
+            "abi": "none",
+            "platform": "any"
+          },
+          "distribution_name": "analytics311",
+          "distribution_version": "0.6.0",
+          "zip_crc": "passed",
+          "wheel_record_hashes": "passed",
+          "record_hashed_entries": 31,
+          "copied_from_previous_build": false
+        },
+        {
+          "file": "dependencies/annotated_types-0.8.0-py3-none-any.whl",
+          "sha256": "f072f4d804ea359e4eaf198b1af7a8b0943881a87f31bb764f8bf219bb9419e0",
+          "bytes": 13427,
+          "wheel_tags": {
+            "python": "py3",
+            "abi": "none",
+            "platform": "any"
+          },
+          "distribution_name": "annotated-types",
+          "distribution_version": "0.8.0",
+          "zip_crc": "passed",
+          "wheel_record_hashes": "passed",
+          "record_hashed_entries": 6,
+          "copied_from_previous_build": true
+        },
+        {
+          "file": "dependencies/anyio-4.15.1-py3-none-any.whl",
+          "sha256": "6152fdbbf9a77fdec97731721bebf7c4c44f7c29b424b0065826173efc7ed101",
+          "bytes": 132079,
+          "wheel_tags": {
+            "python": "py3",
+            "abi": "none",
+            "platform": "any"
+          },
+          "distribution_name": "anyio",
+          "distribution_version": "4.15.1",
+          "zip_crc": "passed",
+          "wheel_record_hashes": "passed",
+          "record_hashed_entries": 52,
+          "copied_from_previous_build": true
+        },
+        {
+          "file": "dependencies/attrs-26.1.0-py3-none-any.whl",
+          "sha256": "c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309",
+          "bytes": 67548,
+          "wheel_tags": {
+            "python": "py3",
+            "abi": "none",
+            "platform": "any"
+          },
+          "distribution_name": "attrs",
+          "distribution_version": "26.1.0",
+          "zip_crc": "passed",
+          "wheel_record_hashes": "passed",
+          "record_hashed_entries": 34,
+          "copied_from_previous_build": true
+        },
+        {
+          "file": "dependencies/certifi-2026.7.22-py3-none-any.whl",
+          "sha256": "62f22742b58a1a33014a2b6b706588a8d7e2a88ae7bd1a6ebe8c992928483775",
+          "bytes": 136983,
+          "wheel_tags": {
+            "python": "py3",
+            "abi": "none",
+            "platform": "any"
+          },
+          "distribution_name": "certifi",
+          "distribution_version": "2026.7.22",
+          "zip_crc": "passed",
+          "wheel_record_hashes": "passed",
+          "record_hashed_entries": 11,
+          "copied_from_previous_build": true
+        },
+        {
+          "file": "dependencies/cffi-2.1.1-cp312-cp312-win_amd64.whl",
+          "sha256": "f53e442b08449d42821fa4a4fba000095af9f62742a500f978a9f557ec44339a",
+          "bytes": 185919,
+          "wheel_tags": {
+            "python": "cp312",
+            "abi": "cp312",
+            "platform": "win_amd64"
+          },
+          "distribution_name": "cffi",
+          "distribution_version": "2.1.1",
+          "zip_crc": "passed",
+          "wheel_record_hashes": "passed",
+          "record_hashed_entries": 30,
+          "copied_from_previous_build": true
+        },
+        {
+          "file": "dependencies/click-8.5.0-py3-none-any.whl",
+          "sha256": "255bc9599cf7748b4b1a446ccc735421bd08a2ae529a8b88597d3de5664ee360",
+          "bytes": 125251,
+          "wheel_tags": {
+            "python": "py3",
+            "abi": "none",
+            "platform": "any"
+          },
+          "distribution_name": "click",
+          "distribution_version": "8.5.0",
+          "zip_crc": "passed",
+          "wheel_record_hashes": "passed",
+          "record_hashed_entries": 21,
+          "copied_from_previous_build": true
+        },
+        {
+          "file": "dependencies/cryptography-50.0.2-cp311-abi3-win_amd64.whl",
+          "sha256": "7afa5a6602a9f29af1f3a2965f831bae7c9d5d597b7cbb716d41ab3b7d89879c",
+          "bytes": 3824692,
+          "wheel_tags": {
+            "python": "cp311",
+            "abi": "abi3",
+            "platform": "win_amd64"
+          },
+          "distribution_name": "cryptography",
+          "distribution_version": "50.0.2",
+          "zip_crc": "passed",
+          "wheel_record_hashes": "passed",
+          "record_hashed_entries": 119,
+          "copied_from_previous_build": true
+        },
+        {
+          "file": "dependencies/h11-0.16.0-py3-none-any.whl",
+          "sha256": "63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86",
+          "bytes": 37515,
+          "wheel_tags": {
+            "python": "py3",
+            "abi": "none",
+            "platform": "any"
+          },
+          "distribution_name": "h11",
+          "distribution_version": "0.16.0",
+          "zip_crc": "passed",
+          "wheel_record_hashes": "passed",
+          "record_hashed_entries": 16,
+          "copied_from_previous_build": true
+        },
+        {
+          "file": "dependencies/httpcore-1.0.9-py3-none-any.whl",
+          "sha256": "2d400746a40668fc9dec9810239072b40b4484b640a8c38fd654a024c7a1bf55",
+          "bytes": 78784,
+          "wheel_tags": {
+            "python": "py3",
+            "abi": "none",
+            "platform": "any"
+          },
+          "distribution_name": "httpcore",
+          "distribution_version": "1.0.9",
+          "zip_crc": "passed",
+          "wheel_record_hashes": "passed",
+          "record_hashed_entries": 35,
+          "copied_from_previous_build": true
+        },
+        {
+          "file": "dependencies/httpx-0.28.1-py3-none-any.whl",
+          "sha256": "d909fcccc110f8c7faf814ca82a9a4d816bc5a6dbfea25d6591d6985b8ba59ad",
+          "bytes": 73517,
+          "wheel_tags": {
+            "python": "py3",
+            "abi": "none",
+            "platform": "any"
+          },
+          "distribution_name": "httpx",
+          "distribution_version": "0.28.1",
+          "zip_crc": "passed",
+          "wheel_record_hashes": "passed",
+          "record_hashed_entries": 28,
+          "copied_from_previous_build": true
+        },
+        {
+          "file": "dependencies/httpx_sse-0.4.3-py3-none-any.whl",
+          "sha256": "0ac1c9fe3c0afad2e0ebb25a934a59f4c7823b60792691f779fad2c5568830fc",
+          "bytes": 8960,
+          "wheel_tags": {
+            "python": "py3",
+            "abi": "none",
+            "platform": "any"
+          },
+          "distribution_name": "httpx-sse",
+          "distribution_version": "0.4.3",
+          "zip_crc": "passed",
+          "wheel_record_hashes": "passed",
+          "record_hashed_entries": 10,
+          "copied_from_previous_build": true
+        },
+        {
+          "file": "dependencies/idna-3.20-py3-none-any.whl",
+          "sha256": "ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c",
+          "bytes": 69583,
+          "wheel_tags": {
+            "python": "py3",
+            "abi": "none",
+            "platform": "any"
+          },
+          "distribution_name": "idna",
+          "distribution_version": "3.20",
+          "zip_crc": "passed",
+          "wheel_record_hashes": "passed",
+          "record_hashed_entries": 15,
+          "copied_from_previous_build": true
+        },
+        {
+          "file": "dependencies/jsonschema-4.26.0-py3-none-any.whl",
+          "sha256": "d489f15263b8d200f8387e64b4c3a75f06629559fb73deb8fdfb525f2dab50ce",
+          "bytes": 90630,
+          "wheel_tags": {
+            "python": "py3",
+            "abi": "none",
+            "platform": "any"
+          },
+          "distribution_name": "jsonschema",
+          "distribution_version": "4.26.0",
+          "zip_crc": "passed",
+          "wheel_record_hashes": "passed",
+          "record_hashed_entries": 42,
+          "copied_from_previous_build": true
+        },
+        {
+          "file": "dependencies/jsonschema_specifications-2025.9.1-py3-none-any.whl",
+          "sha256": "98802fee3a11ee76ecaca44429fda8a41bff98b00a0f2838151b113f210cc6fe",
+          "bytes": 18437,
+          "wheel_tags": {
+            "python": "py3",
+            "abi": "none",
+            "platform": "any"
+          },
+          "distribution_name": "jsonschema-specifications",
+          "distribution_version": "2025.9.1",
+          "zip_crc": "passed",
+          "wheel_record_hashes": "passed",
+          "record_hashed_entries": 27,
+          "copied_from_previous_build": true
+        },
+        {
+          "file": "dependencies/mcp-1.30.0-py3-none-any.whl",
+          "sha256": "666edb5009503e1047c9d60346a756f94b261f05cc2625f23d41c728ffc484d0",
+          "bytes": 234581,
+          "wheel_tags": {
+            "python": "py3",
+            "abi": "none",
+            "platform": "any"
+          },
+          "distribution_name": "mcp",
+          "distribution_version": "1.30.0",
+          "zip_crc": "passed",
+          "wheel_record_hashes": "passed",
+          "record_hashed_entries": 115,
+          "copied_from_previous_build": true
+        },
+        {
+          "file": "dependencies/numpy-2.5.3-cp312-cp312-win_amd64.whl",
+          "sha256": "0a59a421a32580a009e8a1751345bf829631b990dc1794b80514ab722b435def",
+          "bytes": 12567828,
+          "wheel_tags": {
+            "python": "cp312",
+            "abi": "cp312",
+            "platform": "win_amd64"
+          },
+          "distribution_name": "numpy",
+          "distribution_version": "2.5.3",
+          "zip_crc": "passed",
+          "wheel_record_hashes": "passed",
+          "record_hashed_entries": 944,
+          "copied_from_previous_build": true
+        },
+        {
+          "file": "dependencies/pycparser-3.0-py3-none-any.whl",
+          "sha256": "b727414169a36b7d524c1c3e31839a521725078d7b2ff038656844266160a992",
+          "bytes": 48172,
+          "wheel_tags": {
+            "python": "py3",
+            "abi": "none",
+            "platform": "any"
+          },
+          "distribution_name": "pycparser",
+          "distribution_version": "3.0",
+          "zip_crc": "passed",
+          "wheel_record_hashes": "passed",
+          "record_hashed_entries": 12,
+          "copied_from_previous_build": true
+        },
+        {
+          "file": "dependencies/pydantic-2.13.5-py3-none-any.whl",
+          "sha256": "346a034f080da3755d8e9cb5e00e8b07de1d39e4f6e2c87d8ab7cafa0b269a73",
+          "bytes": 472589,
+          "wheel_tags": {
+            "python": "py3",
+            "abi": "none",
+            "platform": "any"
+          },
+          "distribution_name": "pydantic",
+          "distribution_version": "2.13.5",
+          "zip_crc": "passed",
+          "wheel_record_hashes": "passed",
+          "record_hashed_entries": 110,
+          "copied_from_previous_build": true
+        },
+        {
+          "file": "dependencies/pydantic_core-2.46.5-cp312-cp312-win_amd64.whl",
+          "sha256": "5e81740c09e310f5aa5cbd3e434a01c154d4bef93241c7877b39f211d2b78ba8",
+          "bytes": 2043140,
+          "wheel_tags": {
+            "python": "cp312",
+            "abi": "cp312",
+            "platform": "win_amd64"
+          },
+          "distribution_name": "pydantic_core",
+          "distribution_version": "2.46.5",
+          "zip_crc": "passed",
+          "wheel_record_hashes": "passed",
+          "record_hashed_entries": 9,
+          "copied_from_previous_build": true
+        },
+        {
+          "file": "dependencies/pydantic_settings-2.15.0-py3-none-any.whl",
+          "sha256": "0ba092c291c94baceb5eff768aa0d56400a457585bc0175925a5a5510303da42",
+          "bytes": 69413,
+          "wheel_tags": {
+            "python": "py3",
+            "abi": "none",
+            "platform": "any"
+          },
+          "distribution_name": "pydantic-settings",
+          "distribution_version": "2.15.0",
+          "zip_crc": "passed",
+          "wheel_record_hashes": "passed",
+          "record_hashed_entries": 26,
+          "copied_from_previous_build": true
+        },
+        {
+          "file": "dependencies/pyjwt-2.15.1-py3-none-any.whl",
+          "sha256": "42d59d631f7768a1028a64c7ff581a9bf7519804daf91fc5b6c56e30eec5e193",
+          "bytes": 33860,
+          "wheel_tags": {
+            "python": "py3",
+            "abi": "none",
+            "platform": "any"
+          },
+          "distribution_name": "PyJWT",
+          "distribution_version": "2.15.1",
+          "zip_crc": "passed",
+          "wheel_record_hashes": "passed",
+          "record_hashed_entries": 18,
+          "copied_from_previous_build": true
+        },
+        {
+          "file": "dependencies/python_dotenv-1.2.4-py3-none-any.whl",
+          "sha256": "42269a8a5b3fd54ffa6f3d84b18abed50064717576b4ecf03dc4a55d8aa04fdc",
+          "bytes": 23266,
+          "wheel_tags": {
+            "python": "py3",
+            "abi": "none",
+            "platform": "any"
+          },
+          "distribution_name": "python-dotenv",
+          "distribution_version": "1.2.4",
+          "zip_crc": "passed",
+          "wheel_record_hashes": "passed",
+          "record_hashed_entries": 14,
+          "copied_from_previous_build": true
+        },
+        {
+          "file": "dependencies/python_multipart-0.0.32-py3-none-any.whl",
+          "sha256": "ff6d3f776f16878c894e52e107296ffc890e913c611b1a4ec6c44e2821fe2e23",
+          "bytes": 30042,
+          "wheel_tags": {
+            "python": "py3",
+            "abi": "none",
+            "platform": "any"
+          },
+          "distribution_name": "python-multipart",
+          "distribution_version": "0.0.32",
+          "zip_crc": "passed",
+          "wheel_record_hashes": "passed",
+          "record_hashed_entries": 12,
+          "copied_from_previous_build": true
+        },
+        {
+          "file": "dependencies/pywin32-312-cp312-cp312-win_amd64.whl",
+          "sha256": "b457f6d628a47e8a7346ce22acb7e1a46a4a78b52e1d17e1af56871bd19a93bc",
+          "bytes": 6914841,
+          "wheel_tags": {
+            "python": "cp312",
+            "abi": "cp312",
+            "platform": "win_amd64"
+          },
+          "distribution_name": "pywin32",
+          "distribution_version": "312",
+          "zip_crc": "passed",
+          "wheel_record_hashes": "passed",
+          "record_hashed_entries": 610,
+          "copied_from_previous_build": true
+        },
+        {
+          "file": "dependencies/referencing-0.37.0-py3-none-any.whl",
+          "sha256": "381329a9f99628c9069361716891d34ad94af76e461dcb0335825aecc7692231",
+          "bytes": 26766,
+          "wheel_tags": {
+            "python": "py3",
+            "abi": "none",
+            "platform": "any"
+          },
+          "distribution_name": "referencing",
+          "distribution_version": "0.37.0",
+          "zip_crc": "passed",
+          "wheel_record_hashes": "passed",
+          "record_hashed_entries": 18,
+          "copied_from_previous_build": true
+        },
+        {
+          "file": "dependencies/rpds_py-2026.9.1-cp312-cp312-win_amd64.whl",
+          "sha256": "5ce8943f79c2210f7abcc28e86367b03b28d95027fd01c46d2472373ae70c86f",
+          "bytes": 222923,
+          "wheel_tags": {
+            "python": "cp312",
+            "abi": "cp312",
+            "platform": "win_amd64"
+          },
+          "distribution_name": "rpds-py",
+          "distribution_version": "2026.9.1",
+          "zip_crc": "passed",
+          "wheel_record_hashes": "passed",
+          "record_hashed_entries": 8,
+          "copied_from_previous_build": true
+        },
+        {
+          "file": "dependencies/shapely-2.1.2-cp312-cp312-win_amd64.whl",
+          "sha256": "743044b4cfb34f9a67205cee9279feaf60ba7d02e69febc2afc609047cb49179",
+          "bytes": 1722861,
+          "wheel_tags": {
+            "python": "cp312",
+            "abi": "cp312",
+            "platform": "win_amd64"
+          },
+          "distribution_name": "shapely",
+          "distribution_version": "2.1.2",
+          "zip_crc": "passed",
+          "wheel_record_hashes": "passed",
+          "record_hashed_entries": 141,
+          "copied_from_previous_build": true
+        },
+        {
+          "file": "dependencies/sse_starlette-3.5.0-py3-none-any.whl",
+          "sha256": "3e6e1070df3f0f5d9cea81496de92dbb72f6721871d99748ece67441dd8b7997",
+          "bytes": 17407,
+          "wheel_tags": {
+            "python": "py3",
+            "abi": "none",
+            "platform": "any"
+          },
+          "distribution_name": "sse-starlette",
+          "distribution_version": "3.5.0",
+          "zip_crc": "passed",
+          "wheel_record_hashes": "passed",
+          "record_hashed_entries": 10,
+          "copied_from_previous_build": true
+        },
+        {
+          "file": "dependencies/starlette-1.7.0-py3-none-any.whl",
+          "sha256": "67f8e99895493dd2911a03f11314af6ceebeae4e704bb9f43dfc6a9db151c93e",
+          "bytes": 78980,
+          "wheel_tags": {
+            "python": "py3",
+            "abi": "none",
+            "platform": "any"
+          },
+          "distribution_name": "starlette",
+          "distribution_version": "1.7.0",
+          "zip_crc": "passed",
+          "wheel_record_hashes": "passed",
+          "record_hashed_entries": 40,
+          "copied_from_previous_build": true
+        },
+        {
+          "file": "dependencies/typing_extensions-4.16.0-py3-none-any.whl",
+          "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8",
+          "bytes": 45571,
+          "wheel_tags": {
+            "python": "py3",
+            "abi": "none",
+            "platform": "any"
+          },
+          "distribution_name": "typing_extensions",
+          "distribution_version": "4.16.0",
+          "zip_crc": "passed",
+          "wheel_record_hashes": "passed",
+          "record_hashed_entries": 4,
+          "copied_from_previous_build": true
+        },
+        {
+          "file": "dependencies/typing_inspection-0.4.4-py3-none-any.whl",
+          "sha256": "65b8397ba37ccbce054456aaccddfc91e6e3083c92824df348d96ca832f3f147",
+          "bytes": 14750,
+          "wheel_tags": {
+            "python": "py3",
+            "abi": "none",
+            "platform": "any"
+          },
+          "distribution_name": "typing-inspection",
+          "distribution_version": "0.4.4",
+          "zip_crc": "passed",
+          "wheel_record_hashes": "passed",
+          "record_hashed_entries": 8,
+          "copied_from_previous_build": true
+        },
+        {
+          "file": "dependencies/tzdata-2026.5-py2.py3-none-any.whl",
+          "sha256": "b683bd1b6659ddcd810ff02ad09ba821d4bf1065072805063eb35c49617905ac",
+          "bytes": 347996,
+          "wheel_tags": {
+            "python": "py2.py3",
+            "abi": "none",
+            "platform": "any"
+          },
+          "distribution_name": "tzdata",
+          "distribution_version": "2026.5",
+          "zip_crc": "passed",
+          "wheel_record_hashes": "passed",
+          "record_hashed_entries": 632,
+          "copied_from_previous_build": true
+        },
+        {
+          "file": "dependencies/uvicorn-0.54.0-py3-none-any.whl",
+          "sha256": "505bdb0f318731d45f1f712071fc781a8981f6847a31c902c9f5e652d4f67faf",
+          "bytes": 87427,
+          "wheel_tags": {
+            "python": "py3",
+            "abi": "none",
+            "platform": "any"
+          },
+          "distribution_name": "uvicorn",
+          "distribution_version": "0.54.0",
+          "zip_crc": "passed",
+          "wheel_record_hashes": "passed",
+          "record_hashed_entries": 50,
+          "copied_from_previous_build": true
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Builds only: no new installation, CLI smoke, MCP/geometry execution, benchmark, stress, or live service checks.",
+    "Artifact CRC, RECORD, manifest hashes and source-byte equality establish package integrity, not runtime compatibility.",
+    "Core project and tzdata wheels are platform independent; optional native dependencies target CPython3.12 Windows x64.",
+    "No verified release transfer ZIP was produced; the bundler requires installation and smoke checks omitted at user request.",
+    "Python, Elasticsearch, Kibana, datasets, and models are not included.",
+    "The two project wheel archive hashes differ; every uncompressed member is byte-identical."
+  ],
+  "independent_parent_verification": {
+    "all_wheel_manifest_sha256_size_crc": true,
+    "all_packaged_runtime_and_assets_match_current_source": true,
+    "focused_test_source_hashes_still_match": true,
+    "installation_and_workloads_executed": false
+  }
+}

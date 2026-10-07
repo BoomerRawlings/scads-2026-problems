@@ -1,0 +1,25 @@
+{
+  "version": "nyc311-v1",
+  "description": "Explicit starter category families. Validate against each real snapshot vocabulary before making completeness claims.",
+  "families": {
+    "noise": ["Noise - Residential", "Noise - Street/Sidewalk", "Noise - Commercial", "Noise - Vehicle", "Noise - Park", "Noise - Helicopter", "Noise", "Noise - House of Worship"],
+    "rodent": ["Rodent"],
+    "sanitation": ["Dirty Conditions", "Sanitation Condition", "Missed Collection (All Materials)", "Missed Collection", "Illegal Dumping", "Overflowing Litter Baskets", "Derelict Vehicles"]
+  },
+  "metric_definitions": {
+    "count": "Number of matching service requests; exact when execution is complete.",
+    "closed_count": "Requests with is_closed=true, including records whose closure duration is invalid or absent.",
+    "open_count": "Requests with is_closed=false. Administrative non-closed status, not proof that a case remains actionable.",
+    "mean_closure_hours": "Arithmetic mean of valid nonnegative created-to-closed hours in closed requests; excludes missing durations.",
+    "median_closure_hours": "50th percentile of valid closure hours. Elasticsearch percentiles are approximate.",
+    "p90_closure_hours": "90th percentile of valid closure hours. Elasticsearch percentiles are approximate."
+  },
+  "semantics": {
+    "closure": "Administrative time to closure; not first response, confirmed resolution, or repair time.",
+    "neighborhood": "nta2020 and ntaname require versioned official NTA polygon enrichment; never substitute ZIP codes.",
+    "trend": "Descriptive reported-request counts and rates; not incidence, causality, or statistical significance.",
+    "relative_change": "(current - baseline) / baseline; null when baseline is zero.",
+    "minimum_count": "Aggregate threshold uses group count; comparison threshold uses combined baseline/current count. Applied before ranking; not statistical significance.",
+    "last_month": "Previous complete calendar month in the requested timezone, anchored to as_of."
+  }
+}

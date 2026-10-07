@@ -1,0 +1,152 @@
+{
+  "caution": "Source assertions, not independently verified facts. Edit/retrieval dates are not relationship validity dates. Projection records a captured assertion, not present-day truth. Crosswalks never merge identities; reciprocity does not establish independent corroboration. Linked media was not imported.",
+  "crosswalk_candidates": [
+    {
+      "claims": [
+        {
+          "evidence_id": "claims-ror-02qyzaf42",
+          "exclusion_reasons": [],
+          "ror": "ror:02qyzaf42",
+          "source_assertion": {
+            "all": [
+              "Q25339822"
+            ],
+            "preferred": "Q25339822",
+            "type": "wikidata"
+          },
+          "source_entity": "ror:02qyzaf42",
+          "source_path": "/external_ids/0",
+          "wikidata": "wikidata:q25339822"
+        }
+      ],
+      "merged": false,
+      "note": "Identifier assertions only; no equivalence edge or independence claim.",
+      "ror": "ror:02qyzaf42",
+      "status": "endpoint_not_captured",
+      "wikidata": "wikidata:q25339822"
+    }
+  ],
+  "literal_source_extract": {
+    "admin": {
+      "created": {
+        "date": "2022-03-17",
+        "schema_version": "1.0"
+      },
+      "last_modified": {
+        "date": "2024-12-11",
+        "schema_version": "2.1"
+      }
+    },
+    "established": 2010,
+    "external_ids": [
+      {
+        "all": [
+          "Q25339822"
+        ],
+        "preferred": "Q25339822",
+        "type": "wikidata"
+      }
+    ],
+    "id": "https://ror.org/02qyzaf42",
+    "names": [
+      {
+        "lang": null,
+        "types": [
+          "acronym"
+        ],
+        "value": "TCIA"
+      },
+      {
+        "lang": "en",
+        "types": [
+          "ror_display",
+          "label"
+        ],
+        "value": "The Cancer Imaging Archive"
+      }
+    ],
+    "relationships": [
+      {
+        "id": "https://ror.org/00xcryt71",
+        "label": "University of Arkansas for Medical Sciences",
+        "type": "related"
+      },
+      {
+        "id": "https://ror.org/040gcmg81",
+        "label": "National Cancer Institute",
+        "type": "related"
+      },
+      {
+        "id": "https://ror.org/03v6m3209",
+        "label": "Frederick National Laboratory for Cancer Research",
+        "type": "related"
+      }
+    ],
+    "status": "active"
+  },
+  "projection_decisions": [
+    {
+      "evidence_id": "claims-ror-02qyzaf42",
+      "exclusion_reasons": [
+        "predicate_not_projected_to_contains",
+        "endpoint_not_captured"
+      ],
+      "predicate": "related",
+      "source_assertion": {
+        "id": "https://ror.org/00xcryt71",
+        "label": "University of Arkansas for Medical Sciences",
+        "type": "related"
+      },
+      "source_entity": "ror:02qyzaf42",
+      "source_path": "/relationships/0",
+      "target": "ror:00xcryt71"
+    },
+    {
+      "evidence_id": "claims-ror-02qyzaf42",
+      "exclusion_reasons": [
+        "predicate_not_projected_to_contains"
+      ],
+      "predicate": "related",
+      "source_assertion": {
+        "id": "https://ror.org/040gcmg81",
+        "label": "National Cancer Institute",
+        "type": "related"
+      },
+      "source_entity": "ror:02qyzaf42",
+      "source_path": "/relationships/1",
+      "target": "ror:040gcmg81"
+    },
+    {
+      "evidence_id": "claims-ror-02qyzaf42",
+      "exclusion_reasons": [
+        "predicate_not_projected_to_contains"
+      ],
+      "predicate": "related",
+      "source_assertion": {
+        "id": "https://ror.org/03v6m3209",
+        "label": "Frederick National Laboratory for Cancer Research",
+        "type": "related"
+      },
+      "source_entity": "ror:02qyzaf42",
+      "source_path": "/relationships/2",
+      "target": "ror:03v6m3209"
+    }
+  ],
+  "source_provenance": {
+    "capture_manifest_path": "sources/capture-manifest.json",
+    "entity_id": "02qyzaf42",
+    "id": "ror-02qyzaf42",
+    "path": "sources/raw/ror-02qyzaf42.json",
+    "provider": "ror",
+    "request_attempts": 1,
+    "retrieved_at_utc": "2026-10-07T04:14:10Z",
+    "revision": {
+      "record_modified": "2024-12-11",
+      "schema_version": "2.1"
+    },
+    "sha256": "17f1e24342747e318eef90f3083ff02d73bd5c88d8102378b9d2e19b815a8cf7",
+    "size_bytes": 1239,
+    "url": "https://api.ror.org/v2/organizations/02qyzaf42"
+  },
+  "unindexed_statement_count": 0
+}

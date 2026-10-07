@@ -1,0 +1,219 @@
+{
+  "schema_version": 1,
+  "purpose": "Numerical planner-context diagnosis from exact offline reconstruction of public NCI01; no implementation change or new model call.",
+  "case": "public-nci-01",
+  "review_scope": "Separate AI review of a known source-inspected development case. Failed execution; no analytic report or public acceptance.",
+  "analytic_report": null,
+  "bindings": [
+    {
+      "path": "implementation-v13/snapshot.json",
+      "sha256": "0025c6760daa2b30b500a10688b71874cc591fe7c15e91f46f434e675d3f13ba"
+    },
+    {
+      "path": "runtime-profile-qwen35-9b-text-01.json",
+      "sha256": "dc25a6cb0b97449b5623124b89adf738d270ce3bd8ade8b357d311b17f641558"
+    },
+    {
+      "path": "public-nci-01/failure.json",
+      "sha256": "50bbbe48513efd567baf74f617306f32bb17da44b692f9bee54c1b5d0bb9d76b"
+    },
+    {
+      "path": "public-nci-01/run-metadata.json",
+      "sha256": "875711afe2aa5342f04435818742fbcc5149d38d49c3a0c20d48faf94b0cba6a"
+    },
+    {
+      "path": "public-nci-01/tool-trace.json",
+      "sha256": "ce18943cccecd23bdf8d06570147a24834d82132aac2b926b460a33f66b463c6"
+    },
+    {
+      "path": "public-nci-01/REVIEW.md",
+      "sha256": "41bffca5292c4803edebe332b1617caa0b96299e17d401bba4826eeddd39c9f4"
+    }
+  ],
+  "dataset_sha256": "6f73d422781738700473016818d3e3de011f1082b5ba4b4df1b54481e4f72aa5",
+  "frozen_code_references": [
+    {
+      "path": "implementation-v13/local_agent.py",
+      "sha256": "6898f0b4251ce446fb3a8959cca471688b2fb1aba5ee231f35fa0ef9adaed1b5",
+      "lines": {
+        "result_message": 482,
+        "exact_result_reuse": 499,
+        "compact_synthesis_messages": 835,
+        "full_records_in_final_packet": 964,
+        "tools_json_in_system_prompt": 1144,
+        "dynamic_action_schema": 1153,
+        "planner_append": 1362
+      }
+    },
+    {
+      "path": "implementation-v13/run_agent.py",
+      "sha256": "af4bcf2254215838243689b385981e4ac7a18263350080bae88338db4de19163",
+      "lines": {
+        "collect_actual_records": 292,
+        "record_versions": 304
+      }
+    }
+  ],
+  "method": {
+    "exact_request_replay": "Saved actions replayed through actual local stdio MCP against bound data; model transport replaced by non-network replay returning only saved actions. All ten canonical full-generation-request hashes and canonical/wire byte counts matched original records. Temporary reconstruction checkpoints discarded.",
+    "source_results": "Actual complete tool results reconstructed from hash-bound sources; original trace, observed/retrieved IDs, progress and initial prompt hash matched.",
+    "token_counts": "Original runtime preflight counts and reported generation usage only; no new tokenizer or model call. Nine completed prompt counts matched exactly.",
+    "delta_scope": "Each difference is between successive full-request prompt counts. It includes the prior action, returned result, feedback and any changed response schema; it is not an isolated source-text or tool-result tokenizer benchmark.",
+    "byte_encoding": "Canonical compact sorted JSON, ensure_ascii=false, UTF-8 unless a narrower measurement explicitly states otherwise. Source-text strings remain exact.",
+    "saving_limits": "Candidate layouts measured offline only, not implemented or model-tested. Byte changes are not measured token/latency savings. Candidate measurements use different representation layers and are not additive as a measured combined-request saving."
+  },
+  "run": {
+    "attempted_mcp_calls": 9,
+    "successful_mcp_calls": 8,
+    "complete_source_reads": 5,
+    "completed_generations": 9,
+    "blocked_request_step": 10,
+    "exact_whole_result_repeats": 0,
+    "complete_catalog_receipts": 0,
+    "metadata_cards_returned": 21,
+    "catalog_matching_items": 39
+  },
+  "context": {
+    "initial_prompt_tokens": 2326,
+    "blocked_prompt_tokens": 16823,
+    "generation_allowance_tokens": 512,
+    "safety_margin_tokens": 128,
+    "reserved_tokens": 17463,
+    "token_limit": 16384,
+    "excess_tokens": 1079,
+    "blocked_canonical_request_bytes": 52693,
+    "blocked_serialized_request_bytes": 53061,
+    "request_byte_limit": 131072,
+    "five_read_following_request_deltas_tokens": 7926,
+    "first_catalog_following_request_delta_tokens": 4775,
+    "combined_deltas_tokens": 12701,
+    "combined_fraction_of_blocked_prompt": 0.754978
+  },
+  "final_request_components": {
+    "qualification": "These nested measurements overlap or exclude container punctuation; do not sum as a partition of total bytes.",
+    "messages_array_canonical_bytes": 49391,
+    "system_prompt_text_utf8_bytes": 10714,
+    "initial_user_message_canonical_bytes": 127,
+    "response_format_canonical_bytes": 3136,
+    "response_format_growth_from_initial_bytes": 1429,
+    "assistant_action_messages_sum_canonical_bytes": 1442,
+    "tool_result_messages_sum_canonical_bytes": 36685,
+    "five_read_result_messages_sum_canonical_bytes": 22389
+  },
+  "candidate_byte_measurements": [
+    {
+      "change": "Compact outer JSON in structured tool-result text blocks; preserve all original values, including exact source text strings.",
+      "layer": "Complete final canonical generation request",
+      "before_bytes": 52693,
+      "after_bytes": 51881,
+      "saved_bytes": 812,
+      "changed_blocks": 8
+    },
+    {
+      "change": "Replace catalog card objects by one column list plus value rows; exact round-trip back to every original card value checked.",
+      "layer": "Canonical first catalog response body, not complete model request",
+      "before_bytes": 8043,
+      "after_bytes": 6544,
+      "saved_bytes": 1499,
+      "cards": 21
+    },
+    {
+      "change": "Remove duplicated argument-schema fields from system TOOLS_JSON; retain tool names/descriptions and authoritative per-request action schema.",
+      "layer": "UTF-8 json.dumps tool-description list using default separators, before outer request string escaping",
+      "before_bytes": 3078,
+      "after_bytes": 1729,
+      "saved_bytes": 1349
+    }
+  ],
+  "diagnosis": "Exact-repeat deduplication and FastMCP text/structured payload selection already avoid whole-result duplication. Retained unique source records and metadata pages dominate growth. Compact final synthesis runs only after finish and still includes all unique full records. Large-context admission increases finite capacity but does not bound cumulative planner history.",
+  "next_boundary": "If needed, first qualify reversible planner presentation changes with exact reconstruction and actual token measurements. Sustained scale requires durable exact result/version storage, bounded planner working sets and explicit cache rereads. Beyond final-context capacity, chunked synthesis needs complete cited-source bundles and cross-chunk contradiction/qualification review. IDs/hashes preserve provenance, not semantic correctness.",
+  "request_reconstruction": {
+    "canonical_hashes_and_byte_counts_matched": 10,
+    "original_per_request_fingerprints": "public-nci-01/run-metadata.json#/context_admissions",
+    "blocked_request_sha256": "3e9ba04635a8bfc00e2bedd83a2f3b767b9adf3b5583d9a319ea709bf3dd9a8e"
+  },
+  "observed_request_deltas": {
+    "columns": [
+      "mcp_call",
+      "tool",
+      "status",
+      "following_request_step",
+      "prompt_token_delta",
+      "result_message_canonical_bytes"
+    ],
+    "rows": [
+      [
+        1,
+        "entity_search",
+        "completed",
+        2,
+        183,
+        593
+      ],
+      [
+        2,
+        "traverse_relationships",
+        "completed",
+        3,
+        1409,
+        4111
+      ],
+      [
+        3,
+        "catalog_evidence",
+        "completed",
+        4,
+        4775,
+        9285
+      ],
+      [
+        4,
+        "catalog_evidence",
+        "failed",
+        5,
+        204,
+        307
+      ],
+      [
+        5,
+        "read_evidence",
+        "completed",
+        6,
+        3319,
+        9638
+      ],
+      [
+        6,
+        "read_evidence",
+        "completed",
+        7,
+        1059,
+        2945
+      ],
+      [
+        7,
+        "read_evidence",
+        "completed",
+        8,
+        1168,
+        3274
+      ],
+      [
+        8,
+        "read_evidence",
+        "completed",
+        9,
+        1200,
+        3279
+      ],
+      [
+        9,
+        "read_evidence",
+        "completed",
+        10,
+        1180,
+        3253
+      ]
+    ]
+  }
+}

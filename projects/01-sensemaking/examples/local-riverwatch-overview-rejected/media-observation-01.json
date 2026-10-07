@@ -1,0 +1,19 @@
+{
+  "media_observations": [
+    {
+      "evidence_id": "video-tx-001",
+      "locator": "00:00",
+      "observation": "A caption-only video frame displays text on a light background with a dark green header. The header reads 'CBRI / RIVERWATCH'. The main text states: 'Coordination review / caption-only video' and 'Riverwatch readiness is delayed. Keep field release on hold until the Silt Sensor Batch passes acceptance.' A footer indicates '2026-09-05 / Video frame 00:00 / No audio' and 'SYNTHETIC FIXTURE / Caption board / No real event.' No other visual elements are present."
+    },
+    {
+      "evidence_id": "video-tx-001",
+      "locator": "00:15",
+      "observation": "A caption-only video frame shows text on a light background with a dark green header reading 'CBRI / RIVERWATCH'. The main text states: 'Coordination review / caption-only video' and 'The register still says ready. Show that dated entry next to the dependency review when preparing the status report.' A footer indicates '2026-09-05 / Video frame 00:15 / No audio' and 'SYNTHETIC FIXTURE / Caption board / No real event.' No other visual elements are present."
+    },
+    {
+      "evidence_id": "video-tx-001",
+      "locator": "00:29",
+      "observation": "A caption-only video frame displays text on a light background with a dark green header reading 'CBRI / RIVERWATCH'. The main text states: 'Coordination review / caption-only video' and 'Scope the concern to Riverwatch deployment. We have not established that other institute activities are delayed.' A footer indicates '2026-09-05 / Video frame 00:29 / No audio' and 'SYNTHETIC FIXTURE / Caption board / No real event.' No other visual elements are present."
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "schema_version": "1",
+  "dataset_version": "fixture-v1",
+  "timezone": "America/New_York",
+  "as_of": "2026-01-02T12:00:00-05:00",
+  "operation": "aggregate",
+  "time": {
+    "field": "created_date",
+    "gte": "2025-11-01T00:00:00-04:00",
+    "lt": "2026-01-01T00:00:00-05:00"
+  },
+  "filters": {
+    "all": [
+      {
+        "field": "borough",
+        "op": "eq",
+        "value": "BROOKLYN"
+      },
+      {
+        "field": "is_closed",
+        "op": "eq",
+        "value": true
+      },
+      {
+        "field": "closure_hours",
+        "op": "exists",
+        "value": false
+      }
+    ]
+  },
+  "group_by": [
+    {
+      "field": "agency"
+    }
+  ],
+  "metrics": [
+    "count"
+  ],
+  "top_n": 100
+}

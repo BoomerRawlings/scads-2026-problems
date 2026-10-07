@@ -1,0 +1,228 @@
+{
+  "evidence_level": "measured_bounded_reference_only",
+  "python": "3.12.14",
+  "platform": "Windows",
+  "records": 10000,
+  "seed": 7,
+  "repeats": 5,
+  "dataset_sha256": "bf0848d50e757367c6d7082db5e124b7bca78493b33bff015a32db7dd5f095d4",
+  "backend_source_sha256": "7df166cb1d1d2a327718e07a0053b0ba2ef924529106a032b74b623ca6c7ac08",
+  "measurements": {
+    "count_only": {
+      "spec": {
+        "operation": "aggregate",
+        "group_by": [
+          {
+            "field": "borough"
+          }
+        ],
+        "metrics": [
+          "count"
+        ]
+      },
+      "answer_sha256": "fcc596f4e28fcbd1c6b3527b2334340f1698e3f2953559bf70ee1caaadb60c81",
+      "total": 10000,
+      "groups": 5,
+      "seconds": [
+        0.0692793000198435,
+        0.06495080000604503,
+        0.05978450001566671,
+        0.05456710001453757,
+        0.0556085999996867
+      ],
+      "median_seconds": 0.05978450001566671,
+      "python_peak_bytes": 18404
+    },
+    "date_membership": {
+      "spec": {
+        "operation": "aggregate",
+        "group_by": [
+          {
+            "field": "borough"
+          }
+        ],
+        "filters": {
+          "field": "created_date",
+          "op": "in",
+          "value": [
+            "2025-06-01T00:00:00+00:00",
+            "2025-06-02T00:00:00+00:00",
+            "2025-06-03T00:00:00+00:00",
+            "2025-06-04T00:00:00+00:00",
+            "2025-06-05T00:00:00+00:00",
+            "2025-06-06T00:00:00+00:00",
+            "2025-06-07T00:00:00+00:00",
+            "2025-06-08T00:00:00+00:00",
+            "2025-06-09T00:00:00+00:00",
+            "2025-06-10T00:00:00+00:00",
+            "2025-06-11T00:00:00+00:00",
+            "2025-06-12T00:00:00+00:00",
+            "2025-06-13T00:00:00+00:00",
+            "2025-06-14T00:00:00+00:00",
+            "2025-06-15T00:00:00+00:00",
+            "2025-06-16T00:00:00+00:00",
+            "2025-06-17T00:00:00+00:00",
+            "2025-06-18T00:00:00+00:00",
+            "2025-06-19T00:00:00+00:00",
+            "2025-06-20T00:00:00+00:00",
+            "2025-06-21T00:00:00+00:00",
+            "2025-06-22T00:00:00+00:00",
+            "2025-06-23T00:00:00+00:00",
+            "2025-06-24T00:00:00+00:00",
+            "2025-06-25T00:00:00+00:00",
+            "2025-06-26T00:00:00+00:00",
+            "2025-06-27T00:00:00+00:00",
+            "2025-06-28T00:00:00+00:00"
+          ]
+        }
+      },
+      "answer_sha256": "31eee9c3ada4a3c06d4ce4fa2da17748d1de78af343b6c7d18565ceea87f63ed",
+      "total": 0,
+      "groups": 0,
+      "seconds": [
+        0.06886769999982789,
+        0.06581420000293292,
+        0.061564500007079914,
+        0.06152170000132173,
+        0.0635599999804981
+      ],
+      "median_seconds": 0.0635599999804981,
+      "python_peak_bytes": 21876
+    },
+    "date_range": {
+      "spec": {
+        "operation": "aggregate",
+        "group_by": [
+          {
+            "field": "borough"
+          }
+        ],
+        "filters": {
+          "field": "created_date",
+          "op": "range",
+          "value": {
+            "gte": "2025-04-01T00:00:00+00:00",
+            "lt": "2025-10-01T00:00:00+00:00"
+          }
+        }
+      },
+      "answer_sha256": "78729bbc5b083b4a86a7c73de392cfe333cdf7a3c8c9049ae922cdc06cba5af1",
+      "total": 4986,
+      "groups": 5,
+      "seconds": [
+        0.07598339999094605,
+        0.08194559998810291,
+        0.07396380000864156,
+        0.07290840000496246,
+        0.13799440002185293
+      ],
+      "median_seconds": 0.07598339999094605,
+      "python_peak_bytes": 21049
+    },
+    "polygon": {
+      "spec": {
+        "operation": "aggregate",
+        "group_by": [
+          {
+            "field": "borough"
+          }
+        ],
+        "geo": {
+          "type": "polygon",
+          "points": [
+            {
+              "lat": 40.68,
+              "lon": -74.02
+            },
+            {
+              "lat": 40.8,
+              "lon": -74.02
+            },
+            {
+              "lat": 40.8,
+              "lon": -73.9
+            },
+            {
+              "lat": 40.68,
+              "lon": -73.9
+            }
+          ]
+        }
+      },
+      "answer_sha256": "5922c585cedfa833570444229416466ea74bd2c1ce9411e258cfeb67172c97dc",
+      "total": 6525,
+      "groups": 5,
+      "seconds": [
+        0.0785256999952253,
+        0.086632999998983,
+        0.07684269998571835,
+        0.1219383999996353,
+        0.07448209999711253
+      ],
+      "median_seconds": 0.0785256999952253,
+      "python_peak_bytes": 21163
+    },
+    "closure_statistics": {
+      "spec": {
+        "operation": "aggregate",
+        "group_by": [
+          {
+            "field": "borough"
+          }
+        ],
+        "metrics": [
+          "closed_count",
+          "open_count",
+          "mean_closure_hours",
+          "median_closure_hours",
+          "p90_closure_hours"
+        ]
+      },
+      "answer_sha256": "092e6c3fd45201164dd7a2e11b0b2eb890f93a64591c9d8ca14ad31c891fd534",
+      "total": 10000,
+      "groups": 5,
+      "seconds": [
+        0.05753069999627769,
+        0.056974499981151894,
+        0.056221799983177334,
+        0.05610720001277514,
+        0.057405700004892424
+      ],
+      "median_seconds": 0.056974499981151894,
+      "python_peak_bytes": 276546
+    }
+  },
+  "limits": [
+    "Generated input; no NYC findings or Elasticsearch throughput measured.",
+    "Warm filesystem cache; concurrent desktop load uncontrolled; five runs do not establish tail latency.",
+    "Tracemalloc measures Python allocations in a separate execution, not process RSS.",
+    "No large-dataset or multi-node extrapolation."
+  ],
+  "comparison": {
+    "count_only": {
+      "identical_answer": true,
+      "median_speedup": 1.3553345765847888,
+      "python_peak_ratio_after_before": 0.061753830254142314
+    },
+    "date_membership": {
+      "identical_answer": true,
+      "median_speedup": 4.835932977889601,
+      "python_peak_ratio_after_before": 0.5418472741683799
+    },
+    "date_range": {
+      "identical_answer": true,
+      "median_speedup": 1.3374605508680968,
+      "python_peak_ratio_after_before": 0.12353932023734762
+    },
+    "polygon": {
+      "identical_answer": true,
+      "median_speedup": 1.766114788204463,
+      "python_peak_ratio_after_before": 0.09992681256935099
+    },
+    "closure_statistics": {
+      "identical_answer": true,
+      "median_speedup": 1.5813671030511594,
+      "python_peak_ratio_after_before": 0.9270951715259829
+    }
+  }
+}

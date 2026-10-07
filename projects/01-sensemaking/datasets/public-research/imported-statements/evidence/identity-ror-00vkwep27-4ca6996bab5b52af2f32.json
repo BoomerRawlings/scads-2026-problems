@@ -1,0 +1,142 @@
+{
+  "caution": "Source assertions, not independently verified facts. Edit/retrieval dates are not relationship validity dates. Projection records a captured assertion, not present-day truth. Crosswalks never merge identities; reciprocity does not establish independent corroboration. Linked media was not imported.",
+  "record_type": "identity",
+  "source_fragments": [
+    {
+      "json_pointer": "/admin",
+      "value": {
+        "created": {
+          "date": "2024-01-10",
+          "schema_version": "1.0"
+        },
+        "last_modified": {
+          "date": "2024-12-11",
+          "schema_version": "2.1"
+        }
+      }
+    },
+    {
+      "json_pointer": "/domains",
+      "value": []
+    },
+    {
+      "json_pointer": "/established",
+      "value": null
+    },
+    {
+      "json_pointer": "/id",
+      "value": "https://ror.org/00vkwep27"
+    },
+    {
+      "json_pointer": "/links",
+      "value": [
+        {
+          "type": "website",
+          "value": "https://dceg.cancer.gov"
+        }
+      ]
+    },
+    {
+      "json_pointer": "/locations",
+      "value": [
+        {
+          "geonames_details": {
+            "continent_code": "NA",
+            "continent_name": "North America",
+            "country_code": "US",
+            "country_name": "United States",
+            "country_subdivision_code": "MD",
+            "country_subdivision_name": "Maryland",
+            "lat": 38.98067,
+            "lng": -77.10026,
+            "name": "Bethesda"
+          },
+          "geonames_id": 4348599
+        }
+      ]
+    },
+    {
+      "json_pointer": "/names",
+      "value": [
+        {
+          "lang": null,
+          "types": [
+            "acronym"
+          ],
+          "value": "DCEG"
+        },
+        {
+          "lang": "en",
+          "types": [
+            "alias"
+          ],
+          "value": "Division of Cancer Epidemiology & Genetics at the National Cancer Institute"
+        },
+        {
+          "lang": "en",
+          "types": [
+            "ror_display",
+            "label"
+          ],
+          "value": "Division of Cancer Epidemiology and Genetics"
+        },
+        {
+          "lang": "en",
+          "types": [
+            "alias"
+          ],
+          "value": "Division of Cancer Epidemiology and Genetics at the National Cancer Institute"
+        },
+        {
+          "lang": "en",
+          "types": [
+            "alias"
+          ],
+          "value": "Division of Cancer Epidemiology and Genetics, National Cancer Institute"
+        },
+        {
+          "lang": "en",
+          "types": [
+            "alias"
+          ],
+          "value": "NCI Division of Cancer Epidemiology and Genetics"
+        },
+        {
+          "lang": "en",
+          "types": [
+            "alias"
+          ],
+          "value": "National Cancer Institute Division of Cancer Epidemiology and Genetics"
+        }
+      ]
+    },
+    {
+      "json_pointer": "/status",
+      "value": "active"
+    },
+    {
+      "json_pointer": "/types",
+      "value": [
+        "facility",
+        "funder",
+        "government"
+      ]
+    }
+  ],
+  "source_provenance": {
+    "capture_manifest_path": "sources/capture-manifest.json",
+    "entity_id": "00vkwep27",
+    "id": "ror-00vkwep27",
+    "path": "sources/raw/ror-00vkwep27.json",
+    "provider": "ror",
+    "request_attempts": 1,
+    "retrieved_at_utc": "2026-10-07T04:14:07Z",
+    "revision": {
+      "record_modified": "2024-12-11",
+      "schema_version": "2.1"
+    },
+    "sha256": "83d0cd788a65e22c22719fdc23e37894b3e94aaca0a41ea61351109365a8798d",
+    "size_bytes": 1565,
+    "url": "https://api.ror.org/v2/organizations/00vkwep27"
+  }
+}

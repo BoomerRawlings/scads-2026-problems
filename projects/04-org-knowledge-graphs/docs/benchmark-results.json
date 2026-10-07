@@ -1,0 +1,227 @@
+{
+  "generated_at_utc": "2026-10-07T03:32:29.985717+00:00",
+  "environment": {
+    "os": "Windows",
+    "os_release": "11",
+    "machine": "ARM64",
+    "processor": "ARMv8 (64-bit) Family 8 Model 1 Revision 201, Qualcomm Technologies Inc",
+    "logical_cpus": 12,
+    "python": "3.12.14",
+    "sqlite": "3.53.1"
+  },
+  "method": {
+    "storage": "SQLite local temporary file; fresh database per profile",
+    "read_path": "Python Store methods; excludes HTTP/browser/network/rendering",
+    "warm_repetitions": 7,
+    "cache_policy": "OS caches not flushed; first call follows import and is not a cold-cache measurement",
+    "p95": "Nearest-rank percentile across warm repetitions; small descriptive sample",
+    "graph_budget": 200,
+    "source_dates": "2026-01-01",
+    "view": "undated exploration"
+  },
+  "limitations": [
+    "Synthetic source hierarchy only; no communication-density, inference-accuracy, calibration, or unlabeled-transfer measurement.",
+    "No browser frame-time, accessibility, network, multi-user concurrency, or end-to-end UI latency measurement.",
+    "Pagination checks cover first/second/last entity pages and complete root-child pages, not every possible search/page sequence.",
+    "Durations describe this local run; no universal scale claim."
+  ],
+  "cases": [
+    {
+      "profile": "mixed",
+      "people": 10000,
+      "source_reporting_assertions": 9989,
+      "communication_messages": 0,
+      "import_seconds": 2.749,
+      "database_mib": 19.562,
+      "list_page_50": {
+        "first_call_ms": 63.291,
+        "warm_median_ms": 10.284,
+        "warm_p95_ms": 27.311,
+        "warm_max_ms": 27.311,
+        "repetitions": 7
+      },
+      "substring_search_page_50": {
+        "first_call_ms": 21.775,
+        "warm_median_ms": 25.231,
+        "warm_p95_ms": 45.378,
+        "warm_max_ms": 45.378,
+        "repetitions": 7,
+        "query": "Person 000",
+        "matched": 1000
+      },
+      "focus_graph_budget_200": {
+        "first_call_ms": 47.469,
+        "warm_median_ms": 31.042,
+        "warm_p95_ms": 40.723,
+        "warm_max_ms": 40.723,
+        "repetitions": 7,
+        "returned_nodes": 200,
+        "returned_edges": 199,
+        "omitted_nodes": 9800
+      },
+      "children_page_200": {
+        "first_call_ms": 34.006,
+        "warm_median_ms": 21.442,
+        "warm_p95_ms": 34.826,
+        "warm_max_ms": 34.826,
+        "repetitions": 7,
+        "root_children": 2498
+      },
+      "checks": {
+        "population_and_selected_counts": "passed",
+        "first_second_last_entity_pages": "passed",
+        "all_root_sibling_pages_no_duplicates_or_skips": "passed",
+        "snapshot_consistency": "passed",
+        "bounded_graph_and_edge_closure": "passed"
+      }
+    },
+    {
+      "profile": "mixed",
+      "people": 100000,
+      "source_reporting_assertions": 99899,
+      "communication_messages": 0,
+      "import_seconds": 77.945,
+      "database_mib": 195.148,
+      "list_page_50": {
+        "first_call_ms": 142.194,
+        "warm_median_ms": 76.592,
+        "warm_p95_ms": 120.228,
+        "warm_max_ms": 120.228,
+        "repetitions": 7
+      },
+      "substring_search_page_50": {
+        "first_call_ms": 94.342,
+        "warm_median_ms": 154.796,
+        "warm_p95_ms": 754.73,
+        "warm_max_ms": 754.73,
+        "repetitions": 7,
+        "query": "Person 000",
+        "matched": 1000
+      },
+      "focus_graph_budget_200": {
+        "first_call_ms": 30.727,
+        "warm_median_ms": 17.795,
+        "warm_p95_ms": 42.893,
+        "warm_max_ms": 42.893,
+        "repetitions": 7,
+        "returned_nodes": 200,
+        "returned_edges": 199,
+        "omitted_nodes": 99800
+      },
+      "children_page_200": {
+        "first_call_ms": 32.535,
+        "warm_median_ms": 25.035,
+        "warm_p95_ms": 31.747,
+        "warm_max_ms": 31.747,
+        "repetitions": 7,
+        "root_children": 2498
+      },
+      "checks": {
+        "population_and_selected_counts": "passed",
+        "first_second_last_entity_pages": "passed",
+        "all_root_sibling_pages_no_duplicates_or_skips": "passed",
+        "snapshot_consistency": "passed",
+        "bounded_graph_and_edge_closure": "passed"
+      }
+    },
+    {
+      "profile": "wide",
+      "people": 10000,
+      "source_reporting_assertions": 9999,
+      "communication_messages": 0,
+      "import_seconds": 2.272,
+      "database_mib": 19.574,
+      "list_page_50": {
+        "first_call_ms": 23.186,
+        "warm_median_ms": 12.066,
+        "warm_p95_ms": 53.326,
+        "warm_max_ms": 53.326,
+        "repetitions": 7
+      },
+      "substring_search_page_50": {
+        "first_call_ms": 17.763,
+        "warm_median_ms": 18.327,
+        "warm_p95_ms": 48.132,
+        "warm_max_ms": 48.132,
+        "repetitions": 7,
+        "query": "Person 000",
+        "matched": 1000
+      },
+      "focus_graph_budget_200": {
+        "first_call_ms": 52.991,
+        "warm_median_ms": 48.017,
+        "warm_p95_ms": 68.967,
+        "warm_max_ms": 68.967,
+        "repetitions": 7,
+        "returned_nodes": 200,
+        "returned_edges": 199,
+        "omitted_nodes": 9800
+      },
+      "children_page_200": {
+        "first_call_ms": 137.34,
+        "warm_median_ms": 166.525,
+        "warm_p95_ms": 730.542,
+        "warm_max_ms": 730.542,
+        "repetitions": 7,
+        "root_children": 9999
+      },
+      "checks": {
+        "population_and_selected_counts": "passed",
+        "first_second_last_entity_pages": "passed",
+        "all_root_sibling_pages_no_duplicates_or_skips": "passed",
+        "snapshot_consistency": "passed",
+        "bounded_graph_and_edge_closure": "passed"
+      }
+    },
+    {
+      "profile": "deep",
+      "people": 1000,
+      "source_reporting_assertions": 999,
+      "communication_messages": 0,
+      "import_seconds": 0.86,
+      "database_mib": 2.062,
+      "list_page_50": {
+        "first_call_ms": 7.685,
+        "warm_median_ms": 4.595,
+        "warm_p95_ms": 223.301,
+        "warm_max_ms": 223.301,
+        "repetitions": 7
+      },
+      "substring_search_page_50": {
+        "first_call_ms": 2.435,
+        "warm_median_ms": 4.4,
+        "warm_p95_ms": 5.213,
+        "warm_max_ms": 5.213,
+        "repetitions": 7,
+        "query": "Person 000",
+        "matched": 1000
+      },
+      "focus_graph_budget_200": {
+        "first_call_ms": 36.182,
+        "warm_median_ms": 28.81,
+        "warm_p95_ms": 158.369,
+        "warm_max_ms": 158.369,
+        "repetitions": 7,
+        "returned_nodes": 40,
+        "returned_edges": 39,
+        "omitted_nodes": 960
+      },
+      "children_page_200": {
+        "first_call_ms": 2.644,
+        "warm_median_ms": 2.896,
+        "warm_p95_ms": 15.966,
+        "warm_max_ms": 15.966,
+        "repetitions": 7,
+        "root_children": 1
+      },
+      "checks": {
+        "population_and_selected_counts": "passed",
+        "first_second_last_entity_pages": "passed",
+        "all_root_sibling_pages_no_duplicates_or_skips": "passed",
+        "snapshot_consistency": "passed",
+        "bounded_graph_and_edge_closure": "passed",
+        "deep_ancestry_explicitly_truncated": "passed"
+      }
+    }
+  ]
+}

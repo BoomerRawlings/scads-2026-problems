@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "package_version": "0.5.0",
+  "created_at": "2026-10-07T11:29:31.370620+00:00",
+  "scope": "Unchanged verified core bundle plus six fixed live-execution source assets; integrity only, no new runtime or live acceptance claim.",
+  "archive": {
+    "file": "dist/analytics311-0.5.0-live-kit-r2.zip",
+    "bytes": 356920,
+    "sha256": "218ee17166ca0f1a0f767d5d8a64438f39dc27f0f496f92e46825d95cd772a0f",
+    "entry_count": 18
+  },
+  "base_bundle": {
+    "file": "analytics311-0.5.0-core.zip",
+    "bytes": 498271,
+    "sha256": "12a1c47a626e44d06410eec0da3c3a635c87ae4a711427b6d5fc3de4c40e421e",
+    "original_manifest": "BUNDLE-MANIFEST.json",
+    "original_manifest_scope": "Only the original core bundle entries listed in that unchanged manifest."
+  },
+  "fixed_additions": {
+    "tools/live_acceptance.py": "tools/live_acceptance.py",
+    "deploy/compose.yaml": "deploy/compose.yaml",
+    "config/elastic.example.json": "config/elastic.example.json",
+    "config/catalog.json": "config/catalog.json",
+    "config/mapping.json": "config/mapping.json",
+    "RUN-LIVE.md": "docs/live-runbook.md"
+  },
+  "verification": {
+    "original_core_archive_sha256_matches_prior_receipt": true,
+    "original_core_entries_byte_identical": true,
+    "original_bundle_manifest_byte_identical_and_scope_unchanged": true,
+    "runtime_wheel_unchanged": true,
+    "all_entry_crc_passed": true,
+    "all_inventory_sha256_and_sizes_verified": true,
+    "deterministic_zip_metadata": true,
+    "runbook_python_snippets_syntax_checked": 3,
+    "runbook_cli_argument_sets_checked": 10,
+    "new_target_installation_executed": false,
+    "live_elasticsearch_verified": false,
+    "live_kibana_verified": false,
+    "local_real_million_records_verified": false,
+    "fixed_additions_match_current_source": true,
+    "superseded_archive_and_receipt_preserved": true,
+    "independent_parent_crc_hash_manifest_and_current_source_check": true,
+    "portable_json_machine_path_check": true
+  },
+  "entries": {
+    "BUNDLE-MANIFEST.json": {
+      "bytes": 1638,
+      "sha256": "92f73883faf7034b585a261d69bb8ce0fa181e5d866b979e4fc5e20359a22d5d"
+    },
+    "INSTALL.txt": {
+      "bytes": 1394,
+      "sha256": "d5460d7569d98c07ff2ea7bde532220916a8e2dd1394a7a7b6e7789bee0e27c8"
+    },
+    "LIVE-KIT-MANIFEST.json": {
+      "bytes": 3346,
+      "sha256": "07a3d6c8cdfd1438abb5b7573959bb9d571d97d5a2098e32d0d26e0a3990faaa"
+    },
+    "RUN-LIVE.md": {
+      "bytes": 13939,
+      "sha256": "613e320cdb0aca5f69520017a785a6f4cbfd77f15525cd3efdf6000e144426dc"
+    },
+    "SHA256SUMS": {
+      "bytes": 216,
+      "sha256": "f78f178673dfec4a3060205e2d4eb35d4b104a8214f9053633186ed3619b0eb0"
+    },
+    "analytics311-0.5.0-py3-none-any.whl": {
+      "bytes": 86335,
+      "sha256": "5ade405d5360f174bf3a67726e723bcefe803eceba4a236dbcb5b6ad77525ec6"
+    },
+    "config/catalog.json": {
+      "bytes": 2041,
+      "sha256": "589b4dd202aa5d69315dc920499bcc0d75e130e8d164e1dfb927c3f2c1d66736"
+    },
+    "config/elastic.example.json": {
+      "bytes": 802,
+      "sha256": "8224bc07ed3d14ef4d92848c257fa887a8fd03bb13b2cad59c94a76457bb8689"
+    },
+    "config/mapping.json": {
+      "bytes": 1422,
+      "sha256": "3c1d6db8fa1fe597ca43a23a8e00df168beffe4f2ecbc0b99165d8b0a0ccca95"
+    },
+    "dependencies/tzdata-2026.5-py2.py3-none-any.whl": {
+      "bytes": 347996,
+      "sha256": "b683bd1b6659ddcd810ff02ad09ba821d4bf1065072805063eb35c49617905ac"
+    },
+    "deploy/compose.yaml": {
+      "bytes": 2596,
+      "sha256": "429bf1c13760163c52435301433a17733aba63e6a82b64d0096317adeb8e24de"
+    },
+    "examples/capacity/scenarios.json": {
+      "bytes": 2123,
+      "sha256": "bfb89a53e4524260090b3b423ea956a3f7cc86fe27eea3c5878a30886b22c299"
+    },
+    "release-manifest.json": {
+      "bytes": 4338,
+      "sha256": "949878dc1de6c04205717ee2282525a0b155c3885c58215a76dcc466fbb0edfb"
+    },
+    "tools/benchmark_fixture.py": {
+      "bytes": 6462,
+      "sha256": "8fc9c4a95d5ca2d0107a553c1955a36433c90408e7607a8f1ee151f1895e4477"
+    },
+    "tools/capacity_scenarios.py": {
+      "bytes": 5789,
+      "sha256": "2bade6d08d0b75a63fad23e931e13d0d495933e472efcdbe07e2ae3a01ad6cd3"
+    },
+    "tools/live_acceptance.py": {
+      "bytes": 11964,
+      "sha256": "4a60d8823ded45e6b7f1840cb22a2599e79f6dcd801348208a6ddc00817e391e"
+    },
+    "tools/live_parity.py": {
+      "bytes": 20786,
+      "sha256": "53a705dce5019df25347abfc1951dc078f3389848585b924ba3bbbd167afd5be"
+    },
+    "tools/stress_exports.py": {
+      "bytes": 19792,
+      "sha256": "71a6e213da6feff1c5303f990c79156cb0ecb298f66bd1a937ff7df1852d80ed"
+    }
+  },
+  "registry_metadata": {
+    "scope": "Official registry metadata only; no image layers downloaded, containers started, or live compatibility verified.",
+    "observed_date": "2026-10-07",
+    "version": "9.5.5",
+    "images": [
+      {
+        "image": "docker.elastic.co/elasticsearch/elasticsearch:9.5.5",
+        "manifest_list_digest": "sha256:13b4a40bb095774f5fda635e45fd5677cc6a26565e42b24997b0c72b88e75984",
+        "source_url": "https://docker.elastic.co/v2/elasticsearch/elasticsearch/manifests/9.5.5",
+        "documentation_url": "https://www.docker.elastic.co/r/elasticsearch/elasticsearch:9.5.5",
+        "platforms": [
+          {
+            "os": "linux",
+            "architecture": "amd64",
+            "digest": "sha256:c40a1fb2bc6976821e5625d2329992a1e9c29df576e5955fdcba02421abf0d3c"
+          },
+          {
+            "os": "linux",
+            "architecture": "arm64",
+            "digest": "sha256:35c5cab56b4f04452bf82ab52638d14ada25c1abdeb5abd096157f9d75ec55c5"
+          }
+        ]
+      },
+      {
+        "image": "docker.elastic.co/kibana/kibana:9.5.5",
+        "manifest_list_digest": "sha256:13b72ce7222c36e4213229004ae62a87aeb32fd372ebfa6fb38f7a3285fdbb78",
+        "source_url": "https://docker.elastic.co/v2/kibana/kibana/manifests/9.5.5",
+        "documentation_url": "https://www.docker.elastic.co/r/kibana/kibana:9.5.5",
+        "platforms": [
+          {
+            "os": "linux",
+            "architecture": "amd64",
+            "digest": "sha256:a3b7c419a30b05fa24485403b90608c3907d27a3f33f0bc05d891540b3aebbeb"
+          },
+          {
+            "os": "linux",
+            "architecture": "arm64",
+            "digest": "sha256:da3a6d265226f85f8ad4c9474a7547d77b55501e0e8c858484ec3d735fec81ad"
+          }
+        ]
+      }
+    ]
+  },
+  "limitations": [
+    "Kit preparation is not live integration or scale evidence.",
+    "Prior core clean-install evidence remains Windows CPython3.12; other target execution remains pending.",
+    "Capture coverage.complete stays false until an independent source qualification gate is satisfied.",
+    "Python, Docker/images, geography/native geometry dependencies and model assets are not bundled."
+  ],
+  "revision": 2,
+  "supersedes": {
+    "receipt": "examples/evidence/live-kit-v0.5.json",
+    "archive": {
+      "file": "dist/analytics311-0.5.0-live-kit.zip",
+      "bytes": 356884,
+      "sha256": "218ef32825e565d1e6c5d8f996c3348d526c4e9fd7a8f54a8c0358ac17f70a34",
+      "entry_count": 18
+    },
+    "reason": "Correct the documented boundary-side NTA join property to the actual GeoJSON property; original artifacts retained."
+  }
+}

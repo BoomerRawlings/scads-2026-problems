@@ -1,0 +1,44 @@
+{
+  "backend": "fixture",
+  "dataset_version": "generated-7-100000",
+  "dataset_rows": 100000,
+  "runs": [
+    {
+      "result_id": "8ec39c1e4dbf4b809c0ae3ab68a55bac",
+      "total": {
+        "relation": "eq",
+        "value": 100000
+      },
+      "group_count": 15
+    },
+    {
+      "result_id": "04697d043f7c4cc38c3cd2a7b187137f",
+      "total": {
+        "relation": "eq",
+        "value": 100000
+      },
+      "group_count": 15
+    },
+    {
+      "result_id": "afe3ba5e2ff447fb89dedd875ccf5442",
+      "total": {
+        "relation": "eq",
+        "value": 100000
+      },
+      "group_count": 15
+    }
+  ],
+  "seconds": [
+    13.074098599987337,
+    4.588145599991549,
+    15.227586000022711
+  ],
+  "median_seconds": 13.074098599987337,
+  "max_seconds": 15.227586000022711,
+  "evidence_level": "fixture_only",
+  "warnings": [
+    "Tool execution only; no LLM latency or accuracy measured.",
+    "No billion-record extrapolation. Cache states were not controlled.",
+    "A small run count cannot characterize tail latency reliably."
+  ]
+}

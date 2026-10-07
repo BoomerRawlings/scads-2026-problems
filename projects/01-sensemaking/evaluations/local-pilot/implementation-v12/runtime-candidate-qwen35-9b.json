@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "purpose": "Bounded 9B development candidate after smaller-model source-review failures. Resource fit, runtime compatibility and analytic quality remain unqualified; installation and upstream benchmarks do not establish project acceptance.",
+  "platform": "windows-arm64-cpu",
+  "total_download_bytes": 5604074472,
+  "runtime": {
+    "project": "ggml-org/llama.cpp",
+    "version": "b11457",
+    "verified_version_output": "0.6.0-dev (build 11457, commit 5ad1c5da0); Clang 20.1.8 for Windows arm64",
+    "prerelease": true,
+    "release_url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11457",
+    "published_at": "2026-10-06T21:23:18Z",
+    "license": "MIT",
+    "license_url": "https://github.com/ggml-org/llama.cpp/blob/b11457/LICENSE",
+    "hash_source": "https://api.github.com/repos/ggml-org/llama.cpp/releases/tags/b11457"
+  },
+  "model": {
+    "repository": "unsloth/Qwen3.5-9B-GGUF",
+    "revision": "3885219b6810b007914f3a7950a8d1b469d598a5",
+    "model_card_url": "https://huggingface.co/unsloth/Qwen3.5-9B-GGUF/tree/3885219b6810b007914f3a7950a8d1b469d598a5",
+    "base_model_card_url": "https://huggingface.co/Qwen/Qwen3.5-9B",
+    "language_quantization": "Q3_K_M",
+    "vision_quantization": "F16",
+    "license": "Apache-2.0",
+    "license_evidence": "Qwen original model card and pinned Unsloth quantization metadata identify Apache-2.0. Quantization is published by Unsloth, not Qwen.",
+    "license_url": "https://www.apache.org/licenses/LICENSE-2.0",
+    "hash_source": "https://huggingface.co/api/models/unsloth/Qwen3.5-9B-GGUF/revision/3885219b6810b007914f3a7950a8d1b469d598a5?blobs=true"
+  },
+  "assets": [
+    {
+      "role": "runtime_archive",
+      "filename": "llama-b11457-bin-win-cpu-arm64.zip",
+      "size_bytes": 12264648,
+      "sha256": "fab992671bd26ba4117da4f70f330fe1b9fe69eb8ce952281cabf4c5c5f2a17e",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/download/b11457/llama-b11457-bin-win-cpu-arm64.zip",
+      "published_hash_type": "GitHub release asset digest"
+    },
+    {
+      "role": "language_model",
+      "filename": "Qwen3.5-9B-Q3_K_M.gguf",
+      "size_bytes": 4673643744,
+      "sha256": "8fed90306e4f019e2bf35f3766470b7bc59ea1a9dae00f5ceb20b43cb5514393",
+      "url": "https://huggingface.co/unsloth/Qwen3.5-9B-GGUF/resolve/3885219b6810b007914f3a7950a8d1b469d598a5/Qwen3.5-9B-Q3_K_M.gguf",
+      "published_hash_type": "Hugging Face LFS SHA256"
+    },
+    {
+      "role": "vision_projector",
+      "filename": "mmproj-F16.gguf",
+      "size_bytes": 918166080,
+      "sha256": "f70dc3509053962b0d0d3ee8a7eacebf5d60aa560cad78254ae8698516ae029f",
+      "url": "https://huggingface.co/unsloth/Qwen3.5-9B-GGUF/resolve/3885219b6810b007914f3a7950a8d1b469d598a5/mmproj-F16.gguf",
+      "published_hash_type": "Hugging Face LFS SHA256"
+    }
+  ],
+  "installation": {
+    "supported_installer_platform": "Windows ARM64 only. Unsupported operating systems or architectures are rejected before downloads or cache writes. The read-only plan remains available on any platform.",
+    "scope": "Dedicated user cache outside repository; no administrator privileges, global PATH edits, or credentials.",
+    "verification": "Exact size and SHA256 checked before archive extraction or model use.",
+    "network": "Pinned GitHub llama.cpp and Unsloth Hugging Face assets; services may redirect to asset CDNs. Local inference only.",
+    "resources": "Model plus projector files total 5591809824 bytes; this is a disk/download quantity, not a memory requirement. Resource fit requires a separately measured controlled load before a full investigation. Disk must also accommodate the runtime archive, extraction and existing caches.",
+    "cost": "No paid service or subscription required; local compute, disk, electricity, and download bandwidth remain resource requirements."
+  }
+}

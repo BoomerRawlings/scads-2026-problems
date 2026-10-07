@@ -1,0 +1,151 @@
+{
+  "version": "0.5.0",
+  "evidence_level": "measured_bounded_local_process_only",
+  "recorded_at": "2026-10-07T06:28:28.968780+00:00",
+  "python": "3.12.14",
+  "platform": "Windows",
+  "passed": false,
+  "batches": [
+    {
+      "profile": "explicit_1",
+      "seconds": 1.093,
+      "exports": [
+        {
+          "rows": 4,
+          "exact_ids": true,
+          "sha256": "ba7c22b1effcd036aea35031df3d0c6edfe8274a8d9aa911a7ddd0c461b29381",
+          "bytes": 681,
+          "terminal": {
+            "status": "complete",
+            "stage": "complete",
+            "rows_written": 4,
+            "bytes_written": 681,
+            "elapsed_seconds": 0.032,
+            "queued_at": "2026-10-07T06:28:29.456562+00:00",
+            "started_at": "2026-10-07T06:28:30.420571+00:00",
+            "stage_started_at": "2026-10-07T06:28:30.458341+00:00",
+            "last_progress_at": "2026-10-07T06:28:30.458341+00:00",
+            "finished_at": "2026-10-07T06:28:30.458341+00:00",
+            "deadline_at": "2026-10-07T06:29:00.420571+00:00",
+            "complete": true
+          }
+        },
+        {
+          "rows": 4,
+          "exact_ids": true,
+          "sha256": "ba7c22b1effcd036aea35031df3d0c6edfe8274a8d9aa911a7ddd0c461b29381",
+          "bytes": 681,
+          "terminal": {
+            "status": "complete",
+            "stage": "complete",
+            "rows_written": 4,
+            "bytes_written": 681,
+            "elapsed_seconds": 0.016,
+            "queued_at": "2026-10-07T06:28:29.486464+00:00",
+            "started_at": "2026-10-07T06:28:30.234482+00:00",
+            "stage_started_at": "2026-10-07T06:28:30.250861+00:00",
+            "last_progress_at": "2026-10-07T06:28:30.250861+00:00",
+            "finished_at": "2026-10-07T06:28:30.250861+00:00",
+            "deadline_at": "2026-10-07T06:29:00.234482+00:00",
+            "complete": true
+          }
+        }
+      ]
+    },
+    {
+      "profile": "explicit_2",
+      "seconds": 0.984,
+      "exports": [
+        {
+          "rows": 4,
+          "exact_ids": true,
+          "sha256": "ba7c22b1effcd036aea35031df3d0c6edfe8274a8d9aa911a7ddd0c461b29381",
+          "bytes": 681,
+          "terminal": {
+            "status": "complete",
+            "stage": "complete",
+            "rows_written": 4,
+            "bytes_written": 681,
+            "elapsed_seconds": 0.016,
+            "queued_at": "2026-10-07T06:28:30.603212+00:00",
+            "started_at": "2026-10-07T06:28:31.315853+00:00",
+            "stage_started_at": "2026-10-07T06:28:31.330608+00:00",
+            "last_progress_at": "2026-10-07T06:28:31.330608+00:00",
+            "finished_at": "2026-10-07T06:28:31.330608+00:00",
+            "deadline_at": "2026-10-07T06:29:01.315853+00:00",
+            "complete": true
+          }
+        },
+        {
+          "rows": 4,
+          "exact_ids": true,
+          "sha256": "ba7c22b1effcd036aea35031df3d0c6edfe8274a8d9aa911a7ddd0c461b29381",
+          "bytes": 681,
+          "terminal": {
+            "status": "complete",
+            "stage": "complete",
+            "rows_written": 4,
+            "bytes_written": 681,
+            "elapsed_seconds": 0.016,
+            "queued_at": "2026-10-07T06:28:30.640121+00:00",
+            "started_at": "2026-10-07T06:28:31.385526+00:00",
+            "stage_started_at": "2026-10-07T06:28:31.409950+00:00",
+            "last_progress_at": "2026-10-07T06:28:31.409950+00:00",
+            "finished_at": "2026-10-07T06:28:31.409950+00:00",
+            "deadline_at": "2026-10-07T06:29:01.385526+00:00",
+            "complete": true
+          }
+        }
+      ]
+    }
+  ],
+  "options": {
+    "batches": 3,
+    "concurrency": 2,
+    "timeout_seconds": 30,
+    "total_seconds": 120,
+    "recovery": true
+  },
+  "limits": [
+    "Authored 32-row fixture, four-row exports; no Elasticsearch, capacity or agent-accuracy evidence.",
+    "Desktop load and filesystem cache uncontrolled; finite repetitions do not establish tail latency.",
+    "Polling and process waits are bounded; a blocked filesystem or process-creation call may overrun.",
+    "Crash trial deliberately gates the iterator after one row; it does not reproduce the unexplained v0.4 timeout."
+  ],
+  "failure": {
+    "phase": "explicit_3",
+    "code": "export_failed",
+    "jobs": [
+      {
+        "status": "queued",
+        "stage": "queued",
+        "rows_written": 0,
+        "bytes_written": 0,
+        "elapsed_seconds": 0,
+        "queued_at": "2026-10-07T06:28:31.584122+00:00",
+        "stage_started_at": "2026-10-07T06:28:31.584122+00:00",
+        "last_progress_at": "2026-10-07T06:28:31.584122+00:00",
+        "complete": false
+      },
+      {
+        "status": "failed",
+        "stage": "failed",
+        "stopped_stage": "publishing",
+        "rows_written": 4,
+        "bytes_written": 681,
+        "elapsed_seconds": 0.031,
+        "queued_at": "2026-10-07T06:28:31.624154+00:00",
+        "started_at": "2026-10-07T06:28:32.519928+00:00",
+        "stage_started_at": "2026-10-07T06:28:32.538520+00:00",
+        "last_progress_at": "2026-10-07T06:28:32.538520+00:00",
+        "finished_at": "2026-10-07T06:28:32.538520+00:00",
+        "deadline_at": "2026-10-07T06:29:02.519928+00:00",
+        "complete": false,
+        "error_code": "export_failed"
+      }
+    ]
+  },
+  "peak_owned_processes_alive": 2,
+  "owned_processes_started": 6,
+  "elapsed_seconds": 3.782
+}

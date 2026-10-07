@@ -1,0 +1,4 @@
+{
+  "code": "context_token_limit",
+  "message": "Prompt, generation allowance and safety margin exceed the token limit."
+}

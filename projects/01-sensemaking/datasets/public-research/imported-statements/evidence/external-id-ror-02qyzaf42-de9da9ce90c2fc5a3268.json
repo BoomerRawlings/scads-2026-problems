@@ -1,0 +1,32 @@
+{
+  "caution": "Source assertions, not independently verified facts. Edit/retrieval dates are not relationship validity dates. Projection records a captured assertion, not present-day truth. Crosswalks never merge identities; reciprocity does not establish independent corroboration. Linked media was not imported.",
+  "record_type": "external-id",
+  "source_fragments": [
+    {
+      "json_pointer": "/external_ids/0",
+      "value": {
+        "all": [
+          "Q25339822"
+        ],
+        "preferred": "Q25339822",
+        "type": "wikidata"
+      }
+    }
+  ],
+  "source_provenance": {
+    "capture_manifest_path": "sources/capture-manifest.json",
+    "entity_id": "02qyzaf42",
+    "id": "ror-02qyzaf42",
+    "path": "sources/raw/ror-02qyzaf42.json",
+    "provider": "ror",
+    "request_attempts": 1,
+    "retrieved_at_utc": "2026-10-07T04:14:10Z",
+    "revision": {
+      "record_modified": "2024-12-11",
+      "schema_version": "2.1"
+    },
+    "sha256": "17f1e24342747e318eef90f3083ff02d73bd5c88d8102378b9d2e19b815a8cf7",
+    "size_bytes": 1239,
+    "url": "https://api.ror.org/v2/organizations/02qyzaf42"
+  }
+}

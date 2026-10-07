@@ -1,0 +1,12 @@
+{
+  "case": "Riverwatch14",
+  "profile": "runtime-profile-qwen35-9b-01.json",
+  "captured_utc": "2026-10-07T11:58:33.5590098Z",
+  "phase": "idle after completed trial 14; before server shutdown",
+  "working_set_bytes": 4457009152,
+  "peak_working_set_since_server_start_bytes": 8305934336,
+  "host_free_physical_kib": 475888,
+  "host_total_physical_kib": 16364512,
+  "method": "Windows Get-Process WorkingSet64/PeakWorkingSet64 for the path-verified task-owned server; Win32_OperatingSystem memory fields.",
+  "interpretation": "One point on a shared host. Peak includes startup, the source-only probe and trials13/14. Not an isolated benchmark or minimum RAM specification."
+}

@@ -1,0 +1,324 @@
+{
+  "limits": [
+    "Current Windows host; not clean-target or OS-enforced network isolation.",
+    "Development corpus records precede native-worker hardening; frozen fingerprints and recorded engine versions retained.",
+    "Runtime source and wheel hashes verified; independently labeled accuracy and publication licensing remain open."
+  ],
+  "profiles": {
+    "discovery": {
+      "archive_bytes": 19500421,
+      "archive_sha256": "874f9c746b7443042850607a26b15efea5aab7ff323395ed09549776737b8428",
+      "cold_install": {
+        "coverage_downgrade_numeric_filter": "unsupported",
+        "doctor": {
+          "discovery_ready": true,
+          "extraction_packages": {
+            "Pillow": null,
+            "PyMuPDF": null,
+            "onnxruntime": null,
+            "rapidocr-onnxruntime": null
+          },
+          "extraction_ready": false,
+          "fts5": true,
+          "local_ocr_models": [],
+          "network_required_at_runtime": false,
+          "note": "Preflight checks local assets only; offline execution must still be verified. No assets are downloaded.",
+          "python": "3.12.13",
+          "sqlite": "3.53.1"
+        },
+        "extraction": null,
+        "guard_scope": "Python socket operations blocked; native/OS networking not independently isolated",
+        "installation": {
+          "cache_disabled": true,
+          "elapsed_seconds": 1.167,
+          "hashes_required": true,
+          "new_virtual_environment": true,
+          "no_index": true,
+          "offline": true,
+          "packaged_python_runtime": false
+        },
+        "installed_wheel_import": true,
+        "private_source_files_present_during_discovery": false,
+        "profile": "discovery",
+        "python": "3.12.13",
+        "python_network_attempts": 0,
+        "ranker_checks": {
+          "lexical": {
+            "matching_models": [
+              "F-2"
+            ],
+            "wrong_model_join": "no_match"
+          },
+          "semantic": {
+            "matching_models": [
+              "F-2"
+            ],
+            "wrong_model_join": "no_match"
+          }
+        },
+        "status": "passed"
+      },
+      "path": "dist/vopt-0.1.0-qualified-discovery-windows-x64",
+      "portable": {
+        "coverage_downgrade_numeric_filter": "unsupported",
+        "doctor": {
+          "discovery_ready": true,
+          "extraction_packages": {
+            "Pillow": null,
+            "PyMuPDF": null,
+            "onnxruntime": null,
+            "rapidocr-onnxruntime": null
+          },
+          "extraction_ready": false,
+          "fts5": true,
+          "local_ocr_models": [],
+          "network_required_at_runtime": false,
+          "note": "Preflight checks local assets only; offline execution must still be verified. No assets are downloaded.",
+          "python": "3.12.13",
+          "sqlite": "3.53.1"
+        },
+        "elapsed_seconds": 0.967,
+        "external_installer_required": false,
+        "external_python_required": false,
+        "extraction": null,
+        "guard_scope": "Python socket operations blocked; native/OS networking not independently isolated",
+        "installed_wheel_import": true,
+        "limits": "Existing Windows host; Python socket guard only. Full source/license redistribution qualification remains separate.",
+        "packaged_python_runtime": true,
+        "private_source_files_present_during_discovery": false,
+        "profile": "discovery",
+        "python": "3.12.13",
+        "python_network_attempts": 0,
+        "ranker_checks": {
+          "lexical": {
+            "matching_models": [
+              "F-2"
+            ],
+            "wrong_model_join": "no_match"
+          },
+          "semantic": {
+            "matching_models": [
+              "F-2"
+            ],
+            "wrong_model_join": "no_match"
+          }
+        },
+        "runtime_relocated": true,
+        "status": "passed"
+      },
+      "unpacked_bytes": 55095737
+    },
+    "extraction": {
+      "archive_bytes": 135551030,
+      "archive_sha256": "a4a64549534c86d10d97838f4f349333eb11c4f11ede82d5d932e3f04bfa094d",
+      "cold_install": {
+        "coverage_downgrade_numeric_filter": "unsupported",
+        "doctor": {
+          "discovery_ready": true,
+          "extraction_packages": {
+            "Pillow": "12.3.0",
+            "PyMuPDF": "1.28.2",
+            "onnxruntime": "1.30.0",
+            "rapidocr-onnxruntime": "1.4.4"
+          },
+          "extraction_ready": true,
+          "fts5": true,
+          "local_ocr_models": [
+            {
+              "bytes": 4745517,
+              "name": "ch_PP-OCRv4_det_infer.onnx",
+              "sha256": "d2a7720d45a54257208b1e13e36a8479894cb74155a5efe29462512d42f49da9"
+            },
+            {
+              "bytes": 10857958,
+              "name": "ch_PP-OCRv4_rec_infer.onnx",
+              "sha256": "48fc40f24f6d2a207a2b1091d3437eb3cc3eb6b676dc3ef9c37384005483683b"
+            },
+            {
+              "bytes": 585532,
+              "name": "ch_ppocr_mobile_v2.0_cls_infer.onnx",
+              "sha256": "e47acedf663230f8863ff1ab0e64dd2d82b838fceb5957146dab185a89d6215c"
+            }
+          ],
+          "network_required_at_runtime": false,
+          "note": "Preflight checks local assets only; offline execution must still be verified. No assets are downloaded.",
+          "python": "3.12.13",
+          "sqlite": "3.53.1"
+        },
+        "extraction": {
+          "assertion_count": 2,
+          "attributes": [
+            "horsepower",
+            "input_voltage"
+          ],
+          "elapsed_seconds": 9.46,
+          "engine": "rapidocr-onnx",
+          "execution": {
+            "max_result_bytes": 33554432,
+            "mode": "subprocess",
+            "page_timeout_seconds": 120.0,
+            "python_network_blocked_in_worker": true
+          },
+          "fixture": "authored image-only PDF; synthetic",
+          "native_worker_pid_verified": true,
+          "page_status": "ok",
+          "worker_python_network_attempts": 0
+        },
+        "guard_scope": "Python socket operations blocked; native/OS networking not independently isolated",
+        "installation": {
+          "cache_disabled": true,
+          "elapsed_seconds": 12.412,
+          "hashes_required": true,
+          "new_virtual_environment": true,
+          "no_index": true,
+          "offline": true,
+          "packaged_python_runtime": false
+        },
+        "installed_wheel_import": true,
+        "private_source_files_present_during_discovery": false,
+        "profile": "extraction",
+        "python": "3.12.13",
+        "python_network_attempts": 0,
+        "ranker_checks": {
+          "lexical": {
+            "matching_models": [
+              "F-2"
+            ],
+            "wrong_model_join": "no_match"
+          },
+          "semantic": {
+            "matching_models": [
+              "F-2"
+            ],
+            "wrong_model_join": "no_match"
+          }
+        },
+        "status": "passed"
+      },
+      "path": "dist/vopt-0.1.0-qualified-extraction-windows-x64",
+      "portable": {
+        "coverage_downgrade_numeric_filter": "unsupported",
+        "doctor": {
+          "discovery_ready": true,
+          "extraction_packages": {
+            "Pillow": "12.3.0",
+            "PyMuPDF": "1.28.2",
+            "onnxruntime": "1.30.0",
+            "rapidocr-onnxruntime": "1.4.4"
+          },
+          "extraction_ready": true,
+          "fts5": true,
+          "local_ocr_models": [
+            {
+              "bytes": 4745517,
+              "name": "ch_PP-OCRv4_det_infer.onnx",
+              "sha256": "d2a7720d45a54257208b1e13e36a8479894cb74155a5efe29462512d42f49da9"
+            },
+            {
+              "bytes": 10857958,
+              "name": "ch_PP-OCRv4_rec_infer.onnx",
+              "sha256": "48fc40f24f6d2a207a2b1091d3437eb3cc3eb6b676dc3ef9c37384005483683b"
+            },
+            {
+              "bytes": 585532,
+              "name": "ch_ppocr_mobile_v2.0_cls_infer.onnx",
+              "sha256": "e47acedf663230f8863ff1ab0e64dd2d82b838fceb5957146dab185a89d6215c"
+            }
+          ],
+          "network_required_at_runtime": false,
+          "note": "Preflight checks local assets only; offline execution must still be verified. No assets are downloaded.",
+          "python": "3.12.13",
+          "sqlite": "3.53.1"
+        },
+        "elapsed_seconds": 10.975,
+        "external_installer_required": false,
+        "external_python_required": false,
+        "extraction": {
+          "assertion_count": 2,
+          "attributes": [
+            "horsepower",
+            "input_voltage"
+          ],
+          "elapsed_seconds": 9.249,
+          "engine": "rapidocr-onnx",
+          "execution": {
+            "max_result_bytes": 33554432,
+            "mode": "subprocess",
+            "page_timeout_seconds": 120.0,
+            "python_network_blocked_in_worker": true
+          },
+          "fixture": "authored image-only PDF; synthetic",
+          "native_worker_pid_verified": true,
+          "page_status": "ok",
+          "worker_python_network_attempts": 0
+        },
+        "guard_scope": "Python socket operations blocked; native/OS networking not independently isolated",
+        "installed_wheel_import": true,
+        "limits": "Existing Windows host; Python socket guard only. Full source/license redistribution qualification remains separate.",
+        "packaged_python_runtime": true,
+        "private_source_files_present_during_discovery": false,
+        "profile": "extraction",
+        "python": "3.12.13",
+        "python_network_attempts": 0,
+        "ranker_checks": {
+          "lexical": {
+            "matching_models": [
+              "F-2"
+            ],
+            "wrong_model_join": "no_match"
+          },
+          "semantic": {
+            "matching_models": [
+              "F-2"
+            ],
+            "wrong_model_join": "no_match"
+          }
+        },
+        "runtime_relocated": true,
+        "status": "passed"
+      },
+      "unpacked_bytes": 349987062
+    }
+  },
+  "regression": {
+    "errors": 0,
+    "failures": 0,
+    "seconds": 108.091,
+    "skipped": 0,
+    "tests": 151
+  },
+  "research": {
+    "bytes": 44044415,
+    "contains_source_content": true,
+    "files": 60,
+    "human_gold": false,
+    "path": "dist/vopt-research-evidence.zip",
+    "sha256": "f38db130ab6aff7895450a2490cc088ca2396ed1999eaa6ad1570208fe28d9f3"
+  },
+  "runtime_source_hashes": {
+    "vopt/__init__.py": "6a02339eafc1f81be0fb5f027ade76cd2cc2f05ed843e686d14adaa8d61a1c93",
+    "vopt/__main__.py": "79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4",
+    "vopt/catalog.py": "20f0f5faee577472aa72d118317b5cefc40d2e12e7c49c7b68b16b60717d992e",
+    "vopt/cli.py": "3640358b073c8fe12dbdebe6484b64c968156a757ca44ee620ac2a7124b211f6",
+    "vopt/db.py": "be0d72d3f848e638d88689def8a39814c54ddf8d6505be517975219363672764",
+    "vopt/extract.py": "220e080a269d5e2c449526b8225df7bc16c5e82b70cfe94603fba86b7287ca04",
+    "vopt/extraction_worker.py": "3f88225f2aec1822f4b7f03b2f7c6aba6947332c80f3212b404f10ef12b6532e",
+    "vopt/ingest.py": "6f73e17963a2d7bf3c0d31e6327ab0c2670f70de7f4cf5bf6f7f7a353eafa166",
+    "vopt/io.py": "c9887b6e8c0efdb895d986a4293386e54ce10f872ade267c885a06617a67c7ce",
+    "vopt/ontology.py": "15452ecce0fa40636a666216ac2db5bf1553c0e7e67c6ff4c1d16dfb3fd62c62",
+    "vopt/query.py": "8a370bc9eab71e79ae517fd4772a17a14b3ca129e6c1ff438a3778d343ff27eb",
+    "vopt/release.py": "0f58bde355e3c96cfa57bc52a21401a97496c83d19d55bd8770fc2cbbda1869a",
+    "vopt/review.py": "f05aca036f19d763beb29644fa6e95b264e52cd50e8ca5e74a7a4e92c483bc7f",
+    "vopt/schema.py": "87376ba0c1e87e058a91ea4b89212a9697de005cad9ac95eb9dbf12306198783",
+    "vopt/search.py": "e03d2a1906fb04f99f806775066454004b22e47378b75ab138e748f0d5e76c40",
+    "vopt/server.py": "e257c72288d77d4bfb09ee3c055d4175c6cfc4ea002f87c3c11a7f246472d6ef",
+    "vopt/web/app.js": "5d02de5afda4584c00685e2779729ff4bbc8d4b9f34ac1f163ee7190e622e0b1",
+    "vopt/web/index.html": "9f21cf1f79cd17af0d0fdb8eba6c884b5d6b7ef5d427eb580093e2e5f42f5b00",
+    "vopt/web/style.css": "d33ce7149f795bc5d8ebd0a0bd57a4a25dff92a6855de6dec969966826e799f5",
+    "vopt/workspace.py": "16c0e783c7b1849572971412cf38b0c99ce405c4be87b2f4503cd3f5c27deb6f"
+  },
+  "runtime_version": "0.1.0",
+  "schema_version": 1,
+  "status": "verified",
+  "wheel_sha256": "c2143eb8e97f5af0fe5a71e809a1cb40d6da5a7f8c10ce7e1e90abf6d5467aae"
+}

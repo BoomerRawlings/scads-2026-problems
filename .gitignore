@@ -1,0 +1,24 @@
+# Device/runtime state
+.codex/
+.venv/
+.env
+.env.*
+__pycache__/
+*.py[cod]
+.pytest_cache/
+node_modules/
+*.egg-info/
+*.tsbuildinfo
+*.sqlite*
+*.db
+*.log
+*.gguf
+*.onnx
+*.whl
+tmp/
+build/
+dist/
+wheelhouse/
+projects/*/runs/
+projects/02-311-analytics/data/
+projects/03-semantic-discovery/data/corpus/*.pdf

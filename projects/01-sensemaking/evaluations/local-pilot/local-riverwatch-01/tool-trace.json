@@ -1,0 +1,17 @@
+[
+  {
+    "name": "entity_search",
+    "args": {
+      "query": "riverwatch"
+    },
+    "status": "completed"
+  },
+  {
+    "name": "traverse_relationships",
+    "args": {
+      "target": "riverwatch",
+      "max_hops": 3
+    },
+    "status": "completed"
+  }
+]

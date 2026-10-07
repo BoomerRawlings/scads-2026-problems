@@ -1,0 +1,85 @@
+{
+  "status": "complete",
+  "title": "Riverwatch readiness and dependencies analysis",
+  "target": "riverwatch",
+  "summary": "The sources establish that Riverwatch Pilot readiness is delayed due to dependency on the Silt Sensor Batch, with the readiness register showing 'ready' but the dependency review indicating 'delayed'. The evidence includes a text review, a readiness register, a synthetic video transcript, and an image annotation. The analysis shows that the readiness is delayed while sensor acceptance is pending, and the readiness register is not reconciled with the dependency review. The sources do not provide independent corroboration, and the media are not real events.",
+  "findings": [
+    {
+      "claim": "Riverwatch Pilot readiness is delayed while sensor acceptance remains pending.",
+      "evidence_ids": [
+        "memo-001",
+        "tbl-003",
+        "video-tx-001"
+      ],
+      "qualification": "The evidence indicates that readiness is delayed, but the sources do not provide independent corroboration. The media are not real events."
+    },
+    {
+      "claim": "The readiness register shows 'ready' while the dependency review shows 'delayed'.",
+      "evidence_ids": [
+        "tbl-003",
+        "memo-001"
+      ],
+      "qualification": "The readiness register is recorded as 'ready' and predates the dependency review. The dependency review indicates 'delayed' readiness, but the sources do not provide independent corroboration."
+    },
+    {
+      "claim": "The readiness is delayed while sensor acceptance is pending.",
+      "evidence_ids": [
+        "memo-001",
+        "tbl-003",
+        "video-tx-001"
+      ],
+      "qualification": "The evidence indicates that readiness is delayed, but the sources do not provide independent corroboration. The media are not real events."
+    },
+    {
+      "claim": "The readiness register is recorded as 'ready' and predates the dependency review.",
+      "evidence_ids": [
+        "tbl-003"
+      ],
+      "qualification": "The readiness register is recorded as 'ready' and predates the dependency review. The sources do not provide independent corroboration."
+    }
+  ],
+  "conflicts": [
+    {
+      "subject": "Riverwatch readiness",
+      "predicate": "readiness",
+      "description": "The readiness is delayed while sensor acceptance is pending.",
+      "evidence_ids": [
+        "memo-001",
+        "tbl-003",
+        "video-tx-001"
+      ]
+    },
+    {
+      "subject": "Riverwatch readiness",
+      "predicate": "readiness",
+      "description": "The readiness is delayed while sensor acceptance is pending.",
+      "evidence_ids": [
+        "tbl-003",
+        "video-tx-001"
+      ]
+    }
+  ],
+  "media_observations": [
+    {
+      "evidence_id": "video-tx-001",
+      "locator": "00:00",
+      "observation": "The video transcript shows that the readiness is delayed. The project coordinator states that the readiness is delayed and that field release should be held until the Silt Sensor Batch passes acceptance."
+    },
+    {
+      "evidence_id": "video-tx-001",
+      "locator": "00:15",
+      "observation": "The video transcript shows that the register still says ready. The logistics coordinator states that the register still says ready and that the dated entry next to the dependency review should be shown when preparing the status report."
+    },
+    {
+      "evidence_id": "video-tx-001",
+      "locator": "00:29",
+      "observation": "The video transcript shows that the concern is to Riverwatch deployment. The project coordinator states that the concern is to Riverwatch deployment and that other institute activities are not delayed."
+    }
+  ],
+  "limitations": [
+    "The sources do not provide independent corroboration. The media are not real events. The evidence is synthetic and fictional."
+  ],
+  "follow_up": [
+    "Verify the authenticity of the media and the source text. Check for any real events or independent corroboration."
+  ]
+}

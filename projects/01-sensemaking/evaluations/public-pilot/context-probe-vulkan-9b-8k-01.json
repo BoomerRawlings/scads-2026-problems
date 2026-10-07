@@ -1,0 +1,23 @@
+{
+  "purpose": "Bounded one-layer Vulkan neutral text compatibility probe; not analytic, full-offload, full-context or speed qualification.",
+  "timestamp_utc": "2026-10-07T15:06:08.356967+00:00",
+  "status": "failed",
+  "probe": "vulkan-9b-8k-01",
+  "profile": "runtime-profile-vulkan-9b-8k-01.json",
+  "profile_sha256": "db2004ecde235034f847c7d5d60c1f4ae91edfcf402f53008caa5b80890ecfc3",
+  "failure_code": "low_physical_memory",
+  "owned_child_exited": true,
+  "child_exit_code": 1,
+  "cleanup_errors": [],
+  "runtime_manifest_unchanged": true,
+  "context_admission": null,
+  "response_metadata": null,
+  "total_elapsed_seconds": 22.734,
+  "memory": {
+    "sample_count": 11,
+    "minimum_free_physical_bytes": 488865792,
+    "maximum_observed_working_set_bytes": 2955362304,
+    "maximum_reported_peak_working_set_bytes": 2962554880,
+    "qualification": "Shared host, startup included; no isolated speed/RAM benchmark or GPU allocation total."
+  }
+}

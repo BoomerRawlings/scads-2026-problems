@@ -1,0 +1,105 @@
+{
+  "status": "complete",
+  "title": "Cedar Basin Research Institute sensemaking report",
+  "target": "cbri",
+  "summary": "CBRI contains two documented branches. Evidence identifies a Riverwatch-specific deployment risk through a pending sensor dependency; it does not establish institute-wide delay, component defect, supplier fault, or misconduct. Riverwatch readiness and the sensor arrival plan have unresolved dated conflicts.",
+  "findings": [
+    {
+      "claim": "CBRI contains the Watershed Division and Air Quality Division. The directed Watershed path is cbri → watershed → delta_team → riverwatch; the directed Air Quality path is cbri → air_quality → aero_team → clearair.",
+      "evidence_ids": [
+        "tbl-001",
+        "tbl-002",
+        "memo-002",
+        "memo-005"
+      ],
+      "qualification": "Containment establishes organizational/project relationships, not inherited readiness, failure, fault, or guilt."
+    },
+    {
+      "claim": "Riverwatch depends_on the Silt Sensor Batch, which is supplied_by external supplier Northline Instruments. Sensor acceptance was pending on 2026-09-04 and required before field release.",
+      "evidence_ids": [
+        "memo-001",
+        "memo-003",
+        "tbl-005"
+      ],
+      "qualification": "Pending acceptance does not establish a defect. Northline is a dependency, not part of CBRI's organizational hierarchy."
+    },
+    {
+      "claim": "A 2026-09-05 dependency review reports Riverwatch field-deployment readiness delayed while sensor acceptance remains pending.",
+      "evidence_ids": [
+        "memo-001"
+      ],
+      "qualification": "Project-specific claim; no evidence that Delta's other work, the Watershed Division, or CBRI overall was delayed."
+    },
+    {
+      "claim": "ClearAir was recorded ready on 2026-09-05 and uses a separate accepted instrument batch; no ClearAir dependency on the Silt Sensor Batch or Northline is recorded in this corpus.",
+      "evidence_ids": [
+        "memo-005",
+        "tbl-004"
+      ],
+      "qualification": "Corpus-level absence is not proof that no other dependencies exist."
+    },
+    {
+      "claim": "Northline's 2026-09-05 notice revised the Silt Sensor Batch expected arrival from the register's 2026-09-14 plan to 2026-09-19.",
+      "evidence_ids": [
+        "memo-004",
+        "tbl-006"
+      ],
+      "qualification": "Both dates are plans; neither confirms physical delivery or proves supplier fault."
+    }
+  ],
+  "conflicts": [
+    {
+      "subject": "riverwatch",
+      "predicate": "readiness",
+      "description": "The 2026-09-03 register records Riverwatch as ready, while the 2026-09-05 dependency review records its field-deployment readiness as delayed. The records remain unreconciled; recency alone does not verify either claim.",
+      "evidence_ids": [
+        "tbl-003",
+        "memo-001"
+      ]
+    },
+    {
+      "subject": "northline",
+      "predicate": "expected_arrival",
+      "description": "The 2026-09-02 register gives 2026-09-14; the 2026-09-05 revised notice gives 2026-09-19. Both are prospective dates, not receipt confirmation.",
+      "evidence_ids": [
+        "tbl-006",
+        "memo-004"
+      ]
+    }
+  ],
+  "media_observations": [
+    {
+      "evidence_id": "img-note-001",
+      "locator": "image",
+      "observation": "Returned PNG pixels show a synthetic CBRI/RIVERWATCH planning board labeled “DELAYED,” stating Riverwatch field release is blocked pending sensor acceptance; footer identifies an authored synthetic fixture and no real event."
+    },
+    {
+      "evidence_id": "video-tx-001",
+      "locator": "00:00",
+      "observation": "Sampled frame is a caption board stating Riverwatch readiness is delayed and field release should remain on hold until the Silt Sensor Batch passes acceptance."
+    },
+    {
+      "evidence_id": "video-tx-001",
+      "locator": "00:14",
+      "observation": "Sampled frame states the register still says ready and that the dated entry should accompany the dependency review."
+    },
+    {
+      "evidence_id": "video-tx-001",
+      "locator": "00:27",
+      "observation": "Sampled frame scopes the concern to Riverwatch deployment and says delay of other institute activities has not been established."
+    }
+  ],
+  "limitations": [
+    "Synthetic, authored demonstration corpus; cannot establish real-world accuracy or savings.",
+    "The image and sampled video are synthetic caption media derived from authored fixture material, not independent corroboration.",
+    "No audio was processed; unsampled video frames are unknown.",
+    "No source media was attached for img-note-002 or video-tx-002.",
+    "Hierarchy paths establish relevance and direction only; a child's risk cannot be attributed to parents or siblings."
+  ],
+  "follow_up": [
+    "Reconcile Riverwatch's 2026-09-03 readiness register with the 2026-09-05 dependency review.",
+    "Verify sensor calibration/acceptance outcome and obtain physical delivery confirmation.",
+    "Update expected-arrival and readiness registers while preserving dated source history.",
+    "Keep reporting scoped to Riverwatch unless separate evidence supports broader impact."
+  ]
+}

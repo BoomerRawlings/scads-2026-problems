@@ -1,0 +1,153 @@
+{
+  "candidate": {
+    "candidate_evidence_id": "crosswalk-0ae56f2abe9915b040ed",
+    "claims": [
+      {
+        "evidence_id": "external-id-ror-040gcmg81-fa16bede6b326acd5c3e",
+        "exclusion_reasons": [],
+        "ror": "ror:040gcmg81",
+        "source_assertion": {
+          "all": [
+            "Q664846"
+          ],
+          "preferred": null,
+          "type": "wikidata"
+        },
+        "source_entity": "ror:040gcmg81",
+        "source_path": "/external_ids/3",
+        "source_provenance": {
+          "capture_manifest_path": "sources/capture-manifest.json",
+          "entity_id": "040gcmg81",
+          "id": "ror-040gcmg81",
+          "path": "sources/raw/ror-040gcmg81.json",
+          "provider": "ror",
+          "request_attempts": 1,
+          "retrieved_at_utc": "2026-10-07T04:14:03Z",
+          "revision": {
+            "record_modified": "2024-12-11",
+            "schema_version": "2.1"
+          },
+          "sha256": "8073d4137c55295dc2a11bfb71fbac38783534754709e472735a206ea95fdf9d",
+          "size_bytes": 1927,
+          "url": "https://api.ror.org/v2/organizations/040gcmg81"
+        },
+        "wikidata": "wikidata:q664846"
+      },
+      {
+        "evidence_id": "statement-wikidata-Q664846-1cccea13b07ba3364e29",
+        "exclusion_reasons": [],
+        "ror": "ror:040gcmg81",
+        "source_assertion": {
+          "id": "Q664846$7308E30E-C818-4091-804C-1000DE7C0462",
+          "mainsnak": {
+            "datatype": "external-id",
+            "datavalue": {
+              "type": "string",
+              "value": "040gcmg81"
+            },
+            "hash": "35da93be61db87d32d3563897254fbb32107205b",
+            "property": "P6782",
+            "snaktype": "value"
+          },
+          "rank": "normal",
+          "type": "statement"
+        },
+        "source_entity": "wikidata:q664846",
+        "source_path": "/entities/Q664846/claims/P6782/0",
+        "source_provenance": {
+          "capture_manifest_path": "sources/capture-manifest.json",
+          "entity_id": "Q664846",
+          "id": "wikidata-Q664846",
+          "path": "sources/raw/wikidata-Q664846.json",
+          "provider": "wikidata",
+          "request_attempts": 1,
+          "retrieved_at_utc": "2026-10-07T04:14:11Z",
+          "revision": {
+            "lastrevid": 2550610368,
+            "modified": "2026-09-28T20:00:41Z"
+          },
+          "sha256": "cf4e1e4bb29c44ea339df53734f4396ba551b7a7863383ac3f90a324fac53695",
+          "size_bytes": 102418,
+          "url": "https://www.wikidata.org/wiki/Special:EntityData/Q664846.json?revision=2550610368"
+        },
+        "wikidata": "wikidata:q664846"
+      }
+    ],
+    "decision_inputs": [
+      {
+        "evidence_id": "identity-ror-040gcmg81-fbb4309ce4a38eca71a4",
+        "role": "captured_endpoint",
+        "source_entity": "ror:040gcmg81",
+        "source_path": "",
+        "source_provenance": {
+          "capture_manifest_path": "sources/capture-manifest.json",
+          "entity_id": "040gcmg81",
+          "id": "ror-040gcmg81",
+          "path": "sources/raw/ror-040gcmg81.json",
+          "provider": "ror",
+          "request_attempts": 1,
+          "retrieved_at_utc": "2026-10-07T04:14:03Z",
+          "revision": {
+            "record_modified": "2024-12-11",
+            "schema_version": "2.1"
+          },
+          "sha256": "8073d4137c55295dc2a11bfb71fbac38783534754709e472735a206ea95fdf9d",
+          "size_bytes": 1927,
+          "url": "https://api.ror.org/v2/organizations/040gcmg81"
+        }
+      },
+      {
+        "evidence_id": "identity-wikidata-Q664846-c3afc2ecc4704f936f6c",
+        "role": "captured_endpoint",
+        "source_entity": "wikidata:q664846",
+        "source_path": "/entities/Q664846",
+        "source_provenance": {
+          "capture_manifest_path": "sources/capture-manifest.json",
+          "entity_id": "Q664846",
+          "id": "wikidata-Q664846",
+          "path": "sources/raw/wikidata-Q664846.json",
+          "provider": "wikidata",
+          "request_attempts": 1,
+          "retrieved_at_utc": "2026-10-07T04:14:11Z",
+          "revision": {
+            "lastrevid": 2550610368,
+            "modified": "2026-09-28T20:00:41Z"
+          },
+          "sha256": "cf4e1e4bb29c44ea339df53734f4396ba551b7a7863383ac3f90a324fac53695",
+          "size_bytes": 102418,
+          "url": "https://www.wikidata.org/wiki/Special:EntityData/Q664846.json?revision=2550610368"
+        }
+      },
+      {
+        "admissibility_reasons": [],
+        "evidence_id": "statement-wikidata-Q664846-33235d984b73bbb4a057",
+        "role": "wikidata_type_check",
+        "source_entity": "wikidata:q664846",
+        "source_path": "/entities/Q664846/claims/P31/0",
+        "source_provenance": {
+          "capture_manifest_path": "sources/capture-manifest.json",
+          "entity_id": "Q664846",
+          "id": "wikidata-Q664846",
+          "path": "sources/raw/wikidata-Q664846.json",
+          "provider": "wikidata",
+          "request_attempts": 1,
+          "retrieved_at_utc": "2026-10-07T04:14:11Z",
+          "revision": {
+            "lastrevid": 2550610368,
+            "modified": "2026-09-28T20:00:41Z"
+          },
+          "sha256": "cf4e1e4bb29c44ea339df53734f4396ba551b7a7863383ac3f90a324fac53695",
+          "size_bytes": 102418,
+          "url": "https://www.wikidata.org/wiki/Special:EntityData/Q664846.json?revision=2550610368"
+        }
+      }
+    ],
+    "merged": false,
+    "note": "Identifier assertions only; no equivalence edge or independence claim.",
+    "ror": "ror:040gcmg81",
+    "status": "reciprocal_candidate_requires_identity_review",
+    "wikidata": "wikidata:q664846"
+  },
+  "caution": "Source assertions, not independently verified facts. Edit/retrieval dates are not relationship validity dates. Projection records a captured assertion, not present-day truth. Crosswalks never merge identities; reciprocity does not establish independent corroboration. Linked media was not imported.",
+  "record_type": "crosswalk"
+}

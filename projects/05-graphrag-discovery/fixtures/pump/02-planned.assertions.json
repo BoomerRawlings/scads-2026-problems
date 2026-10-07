@@ -1,0 +1,58 @@
+[
+  {
+    "assertion_id": "a-planned",
+    "document_id": "operator-notice",
+    "version_id": "v2",
+    "processing_version": "plain-text-v1",
+    "subject_id": "operator-a",
+    "subject_label": "Operator A",
+    "object_id": "pump-p",
+    "object_label": "Pump P",
+    "text": "Operator A is scheduled to operate Pump P from January 1, 2025 until February 1, 2025.",
+    "start": 0,
+    "end": 86,
+    "modality": "planned",
+    "valid_from": "2025-01-01T00:00:00Z",
+    "valid_to": "2025-02-01T00:00:00Z",
+    "temporal_status": {
+      "from": "known",
+      "to": "known"
+    },
+    "supersedes": [
+      "a-initial"
+    ],
+    "method": "authored-fixture",
+    "relation_group": "pump-p-operator",
+    "qualifiers": {
+      "exclusive": true,
+      "scope": "One actual operator of Pump P at a time; authored fixture premise."
+    }
+  },
+  {
+    "assertion_id": "b-planned",
+    "document_id": "operator-notice",
+    "version_id": "v2",
+    "processing_version": "plain-text-v1",
+    "subject_id": "operator-b",
+    "subject_label": "Operator B",
+    "object_id": "pump-p",
+    "object_label": "Pump P",
+    "text": "Operator B is scheduled to operate Pump P from February 1, 2025, with no stated end date.",
+    "start": 87,
+    "end": 176,
+    "modality": "planned",
+    "valid_from": "2025-02-01T00:00:00Z",
+    "valid_to": null,
+    "temporal_status": {
+      "from": "known",
+      "to": "open"
+    },
+    "supersedes": [],
+    "method": "authored-fixture",
+    "relation_group": "pump-p-operator",
+    "qualifiers": {
+      "exclusive": true,
+      "scope": "One actual operator of Pump P at a time; authored fixture premise."
+    }
+  }
+]

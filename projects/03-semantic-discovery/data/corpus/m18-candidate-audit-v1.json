@@ -1,0 +1,640 @@
+{
+  "schema_version": 1,
+  "reviewer_kind": "agent",
+  "human_gold": false,
+  "evaluation_split": "development-source-inspected",
+  "scope": "Every one of17 emitted candidates in one frozen original M18 record, not a selected sample. No recall estimate.",
+  "rubric": "Numbers and canonical units must match source; model/component, configuration and essential operating/diagnostic conditions must preserve the source claim. Duplicates may be supported but are reported. This rubric was applied after inspecting emitted candidates; not a blinded/predeclared benchmark.",
+  "document_sha256": "f96cee3714b8186300762f4b608d20dd6eeea071eed37a4b6a1a19f20bdc7568",
+  "record_fingerprint": "95004745f4b71004d335738bb9c842d74f42800561bd373d864a26338f3bd77d",
+  "processing_version": "vopt-ingest-2:277774255b62a86ea95a",
+  "document_id": "tm9-617-m18-1944",
+  "record_reextracted": false,
+  "counts": {
+    "emitted": 17,
+    "numeric_transcriptions_supported": 17,
+    "supported": 5,
+    "needs_scope": 9,
+    "wrong_entity": 3,
+    "redundant_supported_observations": 2,
+    "distinct_supported_claims": 3
+  },
+  "scoped_candidate_precision": 0.29411764705882354,
+  "important_limit": "5/17 is agent-audited full-scope precision for this development version only.17/17 numeric transcription is not factual extraction precision. Three wrong-entity claims are definite; nine further claims require missing configuration/condition repair. No human gold or held-out/generalized accuracy claim.",
+  "items": [
+    {
+      "assertion": {
+        "assertion_id": "a-8978aaf88aa25d56a7a829ac",
+        "attribute": "weight",
+        "conditions": [
+          "less fuel and water ....... .................... 4,194 lb"
+        ],
+        "confidence": 0.9,
+        "doc_id": "tm9-617-m18-1944",
+        "evidence": {
+          "bbox": [
+            73.0,
+            236.53,
+            377.158,
+            250.17
+          ],
+          "page": 12,
+          "text": "Weight, less fuel and water ....... .................... 4,194 lb"
+        },
+        "method": "layout-rules-2",
+        "model": "M18",
+        "qualifier": "unspecified",
+        "raw_value": "4,194 lb",
+        "status": "candidate",
+        "unit": "kg",
+        "value": 1902.36639978,
+        "value_max": null,
+        "variant": null
+      },
+      "candidate_sha256": "9bea84c68b6743458f5e1538c491488b304fd79a5440a584aeeda58978a67a24",
+      "numeric_value_and_unit_present_in_source": true,
+      "scoped_claim_verdict": "supported",
+      "failure_type": "condition_text_cleanup",
+      "review_note": "Assembly dry weight4194lb. Numeric/unit/model correct; strip dotted leaders/value echoed inside conditions.",
+      "source_image": "data/corpus/evidence/TM9-617-page-12.png",
+      "source_image_sha256": "6845c08d19a80c4e371d9f2d97dfd4366528abd39a6540d0a93234b7997325d5"
+    },
+    {
+      "assertion": {
+        "assertion_id": "a-5d48136459a7a0b3e8521a2b",
+        "attribute": "output_power",
+        "conditions": [
+          "80 percent power factor",
+          "3-phase"
+        ],
+        "confidence": 0.9,
+        "doc_id": "tm9-617-m18-1944",
+        "evidence": {
+          "bbox": [
+            73.0,
+            280.83,
+            216.039,
+            294.27
+          ],
+          "page": 12,
+          "text": "Rated generator output . 30-kw (80 percent power factor), 3-phase, 60-cycle, 125-v or 30-kw (80 percent power factor), 3-phase, 60-cycle, 250-v"
+        },
+        "method": "layout-rules-2",
+        "model": "M18",
+        "qualifier": "rated",
+        "raw_value": "30-kw",
+        "status": "candidate",
+        "unit": "W",
+        "value": 30000,
+        "value_max": null,
+        "variant": null
+      },
+      "candidate_sha256": "9b3a85b962dc4262dc066e32d4da95d24a6f4f7b524343756cd942cdcac7db27",
+      "numeric_value_and_unit_present_in_source": true,
+      "scoped_claim_verdict": "supported",
+      "failure_type": null,
+      "review_note": "Rated generator30kW at80 percent powerfactor,threephase; both voltage configurations share power.",
+      "source_image": "data/corpus/evidence/TM9-617-page-12.png",
+      "source_image_sha256": "6845c08d19a80c4e371d9f2d97dfd4366528abd39a6540d0a93234b7997325d5"
+    },
+    {
+      "assertion": {
+        "assertion_id": "a-79fd570877b472369845eff7",
+        "attribute": "frequency",
+        "conditions": [
+          "80 percent power factor",
+          "3-phase"
+        ],
+        "confidence": 0.9,
+        "doc_id": "tm9-617-m18-1944",
+        "evidence": {
+          "bbox": [
+            73.0,
+            280.83,
+            231.191,
+            305.07
+          ],
+          "page": 12,
+          "text": "Rated generator output . 30-kw (80 percent power factor), 3-phase, 60-cycle, 125-v or 30-kw (80 percent power factor), 3-phase, 60-cycle, 250-v"
+        },
+        "method": "layout-rules-2",
+        "model": "M18",
+        "qualifier": "rated",
+        "raw_value": "60-cycle",
+        "status": "candidate",
+        "unit": "Hz",
+        "value": 60,
+        "value_max": null,
+        "variant": null
+      },
+      "candidate_sha256": "281d3b7cb272029158410d61a0ae90ce5d801e5ab5590c31082612378c47f599",
+      "numeric_value_and_unit_present_in_source": true,
+      "scoped_claim_verdict": "supported",
+      "failure_type": null,
+      "review_note": "Rated60Hz output; both voltage configurations share frequency.",
+      "source_image": "data/corpus/evidence/TM9-617-page-12.png",
+      "source_image_sha256": "6845c08d19a80c4e371d9f2d97dfd4366528abd39a6540d0a93234b7997325d5"
+    },
+    {
+      "assertion": {
+        "assertion_id": "a-edc57c75af59946cf94c54f6",
+        "attribute": "output_voltage",
+        "conditions": [
+          "80 percent power factor",
+          "3-phase"
+        ],
+        "confidence": 0.9,
+        "doc_id": "tm9-617-m18-1944",
+        "evidence": {
+          "bbox": [
+            73.0,
+            280.83,
+            263.397,
+            305.07
+          ],
+          "page": 12,
+          "text": "Rated generator output . 30-kw (80 percent power factor), 3-phase, 60-cycle, 125-v or 30-kw (80 percent power factor), 3-phase, 60-cycle, 250-v"
+        },
+        "method": "layout-rules-2",
+        "model": "M18",
+        "qualifier": "rated",
+        "raw_value": "125-v",
+        "status": "candidate",
+        "unit": "V",
+        "value": 125,
+        "value_max": null,
+        "variant": null
+      },
+      "candidate_sha256": "44a5b0236dad0e5246c97eb9fbbf96527175a228c9f00bd52a9cea157236c8e6",
+      "numeric_value_and_unit_present_in_source": true,
+      "scoped_claim_verdict": "needs_scope",
+      "failure_type": "configuration_alternative",
+      "review_note": "125V is one of two alternative voltage configurations (125V or250V). Configuration relation absent; do not flatten alternatives into simultaneous unconditional ratings.",
+      "source_image": "data/corpus/evidence/TM9-617-page-12.png",
+      "source_image_sha256": "6845c08d19a80c4e371d9f2d97dfd4366528abd39a6540d0a93234b7997325d5"
+    },
+    {
+      "assertion": {
+        "assertion_id": "a-477a02a52a9894a6b9fdb12e",
+        "attribute": "output_power",
+        "conditions": [
+          "80 percent power factor",
+          "3-phase"
+        ],
+        "confidence": 0.9,
+        "doc_id": "tm9-617-m18-1944",
+        "evidence": {
+          "bbox": [
+            73.0,
+            280.83,
+            313.295,
+            304.97
+          ],
+          "page": 12,
+          "text": "Rated generator output . 30-kw (80 percent power factor), 3-phase, 60-cycle, 125-v or 30-kw (80 percent power factor), 3-phase, 60-cycle, 250-v"
+        },
+        "method": "layout-rules-2",
+        "model": "M18",
+        "qualifier": "rated",
+        "raw_value": "30-kw",
+        "status": "candidate",
+        "unit": "W",
+        "value": 30000,
+        "value_max": null,
+        "variant": null
+      },
+      "candidate_sha256": "6355c75f99a792625f92c505e74de5e2eb969e42d6ba78ded018901b91776f80",
+      "numeric_value_and_unit_present_in_source": true,
+      "scoped_claim_verdict": "supported",
+      "failure_type": "duplicate",
+      "review_note": "Same30kW rating repeated in the second voltage alternative. Duplicate of first output-power observation, not independent corroboration.",
+      "source_image": "data/corpus/evidence/TM9-617-page-12.png",
+      "source_image_sha256": "6845c08d19a80c4e371d9f2d97dfd4366528abd39a6540d0a93234b7997325d5"
+    },
+    {
+      "assertion": {
+        "assertion_id": "a-d2a4fa376368f868e87ca3cf",
+        "attribute": "frequency",
+        "conditions": [
+          "80 percent power factor",
+          "3-phase"
+        ],
+        "confidence": 0.9,
+        "doc_id": "tm9-617-m18-1944",
+        "evidence": {
+          "bbox": [
+            73.0,
+            280.83,
+            335.191,
+            316.37
+          ],
+          "page": 12,
+          "text": "Rated generator output . 30-kw (80 percent power factor), 3-phase, 60-cycle, 125-v or 30-kw (80 percent power factor), 3-phase, 60-cycle, 250-v"
+        },
+        "method": "layout-rules-2",
+        "model": "M18",
+        "qualifier": "rated",
+        "raw_value": "60-cycle",
+        "status": "candidate",
+        "unit": "Hz",
+        "value": 60,
+        "value_max": null,
+        "variant": null
+      },
+      "candidate_sha256": "356af8e9cc36be04bde5eebd80c302511dd46b27422866662e49eb02098b3ea7",
+      "numeric_value_and_unit_present_in_source": true,
+      "scoped_claim_verdict": "supported",
+      "failure_type": "duplicate",
+      "review_note": "Same60Hz repeated in the second voltage alternative. Duplicate of first frequency observation.",
+      "source_image": "data/corpus/evidence/TM9-617-page-12.png",
+      "source_image_sha256": "6845c08d19a80c4e371d9f2d97dfd4366528abd39a6540d0a93234b7997325d5"
+    },
+    {
+      "assertion": {
+        "assertion_id": "a-1b74e5bb1de7ecd1ad790da2",
+        "attribute": "output_voltage",
+        "conditions": [
+          "80 percent power factor",
+          "3-phase"
+        ],
+        "confidence": 0.9,
+        "doc_id": "tm9-617-m18-1944",
+        "evidence": {
+          "bbox": [
+            73.0,
+            280.83,
+            363.563,
+            316.37
+          ],
+          "page": 12,
+          "text": "Rated generator output . 30-kw (80 percent power factor), 3-phase, 60-cycle, 125-v or 30-kw (80 percent power factor), 3-phase, 60-cycle, 250-v"
+        },
+        "method": "layout-rules-2",
+        "model": "M18",
+        "qualifier": "rated",
+        "raw_value": "250-v",
+        "status": "candidate",
+        "unit": "V",
+        "value": 250,
+        "value_max": null,
+        "variant": null
+      },
+      "candidate_sha256": "34ce2bb399cdf8edaf266fe5af356cdd1f0732fc2244fb89110bb09c25c6ff56",
+      "numeric_value_and_unit_present_in_source": true,
+      "scoped_claim_verdict": "needs_scope",
+      "failure_type": "configuration_alternative",
+      "review_note": "250V is the other output configuration; configuration relation absent.",
+      "source_image": "data/corpus/evidence/TM9-617-page-12.png",
+      "source_image_sha256": "6845c08d19a80c4e371d9f2d97dfd4366528abd39a6540d0a93234b7997325d5"
+    },
+    {
+      "assertion": {
+        "assertion_id": "a-07c0f65bc856a0bc8dc814c7",
+        "attribute": "speed",
+        "confidence": 0.9,
+        "doc_id": "tm9-617-m18-1944",
+        "evidence": {
+          "bbox": [
+            93.0,
+            538.51,
+            198.61,
+            552.25
+          ],
+          "page": 18,
+          "text": "engine speed is about 600 rpm. Keep the engine at that speed until"
+        },
+        "method": "layout-rules-2",
+        "model": "M18",
+        "qualifier": "unspecified",
+        "raw_value": "600 rpm",
+        "status": "candidate",
+        "unit": "rpm",
+        "value": 600,
+        "value_max": null,
+        "variant": null
+      },
+      "candidate_sha256": "374534324b1031f5c3c7ebc23a3aef56ee9fc4952e8f1af4946b275247924834",
+      "numeric_value_and_unit_present_in_source": true,
+      "scoped_claim_verdict": "needs_scope",
+      "failure_type": "operating_mode_missing",
+      "review_note": "About600rpm applies to ENGINE WARMING UP immediately after starting, not a normal operating-speed rating.",
+      "source_image": "data/corpus/evidence/TM9-617-page-18.png",
+      "source_image_sha256": "ca3f2b53e5da3c6152f57b51d1f7a83e5294d0d8f5031b044dccc5eee65a6127"
+    },
+    {
+      "assertion": {
+        "assertion_id": "a-bd2ba8f15df194ea8678bcd0",
+        "attribute": "speed",
+        "confidence": 0.9,
+        "doc_id": "tm9-617-m18-1944",
+        "evidence": {
+          "bbox": [
+            240.0,
+            313.13,
+            322.995,
+            326.47
+          ],
+          "page": 20,
+          "text": "i. Frequency Meter. Normal engine speed (1,200 rpm) and a-c"
+        },
+        "method": "layout-rules-2",
+        "model": "M18",
+        "qualifier": "unspecified",
+        "raw_value": "1,200 rpm",
+        "status": "candidate",
+        "unit": "rpm",
+        "value": 1200,
+        "value_max": null,
+        "variant": null
+      },
+      "candidate_sha256": "dace1650bb7464208489c8d82e7b50008eed30f584ea9f4a95428568345eaae5",
+      "numeric_value_and_unit_present_in_source": true,
+      "scoped_claim_verdict": "needs_scope",
+      "failure_type": "component_and_mode_missing",
+      "review_note": "1200rpm is NORMAL ENGINE speed; engine component and normal-running mode omitted.",
+      "source_image": "data/corpus/evidence/TM9-617-page-20.png",
+      "source_image_sha256": "7478cfdd6cf752f5be80a947b9b97742cef8b04d2ced3db7afcb11b1b70afe06"
+    },
+    {
+      "assertion": {
+        "assertion_id": "a-5aebad48e9a2ea72dd650fd3",
+        "attribute": "frequency",
+        "conditions": [
+          "when the reed over the"
+        ],
+        "confidence": 0.9,
+        "doc_id": "tm9-617-m18-1944",
+        "evidence": {
+          "bbox": [
+            58.0,
+            324.13,
+            187.17,
+            337.57
+          ],
+          "page": 20,
+          "text": "frequency output (60 cycles) are indicated when the reed over the"
+        },
+        "method": "layout-rules-2",
+        "model": "M18",
+        "qualifier": "unspecified",
+        "raw_value": "60 cycles",
+        "status": "candidate",
+        "unit": "Hz",
+        "value": 60,
+        "value_max": null,
+        "variant": null
+      },
+      "candidate_sha256": "66b586df008ba240c5c8b62559943f34da30e1e569efed60b6c7be7a4a34af22",
+      "numeric_value_and_unit_present_in_source": true,
+      "scoped_claim_verdict": "needs_scope",
+      "failure_type": "fragmented_condition",
+      "review_note": "60Hz output is numerically correct; condition when the reed over the is an incomplete instrument-observation fragment. Preserve normal1200rpm relation or remove nonconstraint fragment after source review.",
+      "source_image": "data/corpus/evidence/TM9-617-page-20.png",
+      "source_image_sha256": "7478cfdd6cf752f5be80a947b9b97742cef8b04d2ced3db7afcb11b1b70afe06"
+    },
+    {
+      "assertion": {
+        "assertion_id": "a-a692812372db0903a38a7ec6",
+        "attribute": "speed",
+        "confidence": 0.9,
+        "doc_id": "tm9-617-m18-1944",
+        "evidence": {
+          "bbox": [
+            117.0,
+            494.33,
+            223.796,
+            507.67
+          ],
+          "page": 20,
+          "text": "proper idling speed is 350 to 400 rpm."
+        },
+        "method": "layout-rules-2",
+        "model": "M18",
+        "qualifier": "unspecified",
+        "raw_value": "350 to 400 rpm",
+        "status": "candidate",
+        "unit": "rpm",
+        "value": 350,
+        "value_max": 400,
+        "variant": null
+      },
+      "candidate_sha256": "72ff6a32771536559087776bdabd74a9b93fb628521afce13dcb9fc1c8542b21",
+      "numeric_value_and_unit_present_in_source": true,
+      "scoped_claim_verdict": "needs_scope",
+      "failure_type": "operating_mode_missing",
+      "review_note": "350-400rpm applies to ENGINE IDLING for the final minute before stopping.",
+      "source_image": "data/corpus/evidence/TM9-617-page-20.png",
+      "source_image_sha256": "7478cfdd6cf752f5be80a947b9b97742cef8b04d2ced3db7afcb11b1b70afe06"
+    },
+    {
+      "assertion": {
+        "assertion_id": "a-dd94927f19b53de5eb1f7cf0",
+        "attribute": "speed",
+        "confidence": 0.9,
+        "doc_id": "tm9-617-m18-1944",
+        "evidence": {
+          "bbox": [
+            30.0,
+            130.33,
+            182.796,
+            143.67
+          ],
+          "page": 37,
+          "text": "of speed may vary from 40 to 70 rpm. If necessary, use an additional"
+        },
+        "method": "layout-rules-2",
+        "model": "M18",
+        "qualifier": "unspecified",
+        "raw_value": "40 to 70 rpm",
+        "status": "candidate",
+        "unit": "rpm",
+        "value": 40,
+        "value_max": 70,
+        "variant": null
+      },
+      "candidate_sha256": "0d0737247b642136a7926a1c0d8097fa63409c179f3c7df8d75f02738586a4f8",
+      "numeric_value_and_unit_present_in_source": true,
+      "scoped_claim_verdict": "needs_scope",
+      "failure_type": "operating_mode_missing",
+      "review_note": "40-70rpm describes critical ENGINE CRANKING speed for starting in cold weather; preceding text generalizes to all engines. Not running speed of the generator.",
+      "source_image": "data/corpus/evidence/TM9-617-page-37.png",
+      "source_image_sha256": "aab32a48dc5b8b91c31d86cc16ded3fb682738b9a3330a4840533eee0468dbdd"
+    },
+    {
+      "assertion": {
+        "assertion_id": "a-7e03792aa6237be94c65014e",
+        "attribute": "speed",
+        "confidence": 0.9,
+        "doc_id": "tm9-617-m18-1944",
+        "evidence": {
+          "bbox": [
+            27.0,
+            360.783,
+            109.915,
+            372.889
+          ],
+          "page": 43,
+          "text": "If speed of 1,200 rpm (indicated by full generator output) is reached,"
+        },
+        "method": "layout-rules-2",
+        "model": "M18",
+        "qualifier": "unspecified",
+        "raw_value": "1,200 rpm",
+        "status": "candidate",
+        "unit": "rpm",
+        "value": 1200,
+        "value_max": null,
+        "variant": null
+      },
+      "candidate_sha256": "9ea32305d453a03933efa4d11593614690ca47008cf8e1be5926a9aadbc6e5c9",
+      "numeric_value_and_unit_present_in_source": true,
+      "scoped_claim_verdict": "needs_scope",
+      "failure_type": "diagnostic_condition_missing",
+      "review_note": "1200rpm is a troubleshooting target after disconnecting the governor linkage; reaching it indicates faulty governor adjustment.",
+      "source_image": "data/corpus/evidence/TM9-617-page-43.png",
+      "source_image_sha256": "34c219a1cb9bfd27ad3cdedfd232c040ad4d32a80aca69f741892954bcf7baa6"
+    },
+    {
+      "assertion": {
+        "assertion_id": "a-8c25cf7705fe1462dd8df05e",
+        "attribute": "speed",
+        "conditions": [
+          "with"
+        ],
+        "confidence": 0.9,
+        "doc_id": "tm9-617-m18-1944",
+        "evidence": {
+          "bbox": [
+            194.0,
+            394.283,
+            297.915,
+            406.389
+          ],
+          "page": 43,
+          "text": "sary to determine that the engine will speed up to 1,200 rpm with"
+        },
+        "method": "layout-rules-2",
+        "model": "M18",
+        "qualifier": "unspecified",
+        "raw_value": "1,200 rpm",
+        "status": "candidate",
+        "unit": "rpm",
+        "value": 1200,
+        "value_max": null,
+        "variant": null
+      },
+      "candidate_sha256": "69743a1e0bb941933020a3d1ede3a3e280858d7024ec3936b8bb790a3ba0bad2",
+      "numeric_value_and_unit_present_in_source": true,
+      "scoped_claim_verdict": "needs_scope",
+      "failure_type": "diagnostic_condition_missing",
+      "review_note": "Repeated1200rpm is a safety-limited diagnostic target WITH GOVERNOR DISCONNECTED, not an independent performance rating.",
+      "source_image": "data/corpus/evidence/TM9-617-page-43.png",
+      "source_image_sha256": "34c219a1cb9bfd27ad3cdedfd232c040ad4d32a80aca69f741892954bcf7baa6"
+    },
+    {
+      "assertion": {
+        "assertion_id": "a-4aa1d34f21ce399caeee6492",
+        "attribute": "weight",
+        "conditions": [
+          "with accessories) (approx.) ..................... 945 lb"
+        ],
+        "confidence": 0.9,
+        "doc_id": "tm9-617-m18-1944",
+        "evidence": {
+          "bbox": [
+            13.0,
+            549.53,
+            318.313,
+            562.87
+          ],
+          "page": 53,
+          "text": "Weight (with accessories) (approx.) ..................... 945 lb"
+        },
+        "method": "layout-rules-2",
+        "model": "M18",
+        "qualifier": "unspecified",
+        "raw_value": "945 lb",
+        "status": "candidate",
+        "unit": "kg",
+        "value": 428.64478965,
+        "value_max": null,
+        "variant": null
+      },
+      "candidate_sha256": "f87c67ba8ce61fe86a053d644a825d807aab0ea8a9e3655395031a01e9f01b23",
+      "numeric_value_and_unit_present_in_source": true,
+      "scoped_claim_verdict": "wrong_entity",
+      "failure_type": "component_scope",
+      "review_note": "945lb is approximate weight WITH ACCESSORIES of Hercules gasoline ENGINE modelWXLC-3 in the engine specifications table. It is not M18 assembly weight.",
+      "source_image": "data/corpus/evidence/TM9-617-page-53.png",
+      "source_image_sha256": "3170e3de6a01fefe882a69879f217543555583c6e848bd5858c3f1ce7b75af4a"
+    },
+    {
+      "assertion": {
+        "assertion_id": "a-493b3dc1c26251bec22cfe1d",
+        "attribute": "weight",
+        "confidence": 0.9,
+        "doc_id": "tm9-617-m18-1944",
+        "evidence": {
+          "bbox": [
+            36.0,
+            328.683,
+            312.169,
+            340.689
+          ],
+          "page": 133,
+          "text": "Total weight of car and load ...................... 169,000 lb"
+        },
+        "method": "layout-rules-2",
+        "model": "M18",
+        "qualifier": "unspecified",
+        "raw_value": "169,000 lb",
+        "status": "candidate",
+        "unit": "kg",
+        "value": 76657.11053,
+        "value_max": null,
+        "variant": null
+      },
+      "candidate_sha256": "610e0bc0c5f1bdfbd476186de34ffe4172e6fc86dfbd3830f58681f1c83b1f17",
+      "numeric_value_and_unit_present_in_source": true,
+      "scoped_claim_verdict": "wrong_entity",
+      "failure_type": "transport_example",
+      "review_note": "169000lb is total RAILROAD CAR AND LOAD in a worked transport-capacity example. It is not generator weight.",
+      "source_image": "data/corpus/evidence/TM9-617-page-133.png",
+      "source_image_sha256": "6cfdedd1d163dc1924cd0da1fa358a19f4cd82d6cc66b736c4d11ead532d0a61"
+    },
+    {
+      "assertion": {
+        "assertion_id": "a-bab788dd96b1099291610489",
+        "attribute": "weight",
+        "confidence": 0.9,
+        "doc_id": "tm9-617-m18-1944",
+        "evidence": {
+          "bbox": [
+            60.0,
+            350.883,
+            311.469,
+            362.889
+          ],
+          "page": 133,
+          "text": "permissible weight of load ......................... 132,000 lb"
+        },
+        "method": "layout-rules-2",
+        "model": "M18",
+        "qualifier": "unspecified",
+        "raw_value": "132,000 lb",
+        "status": "candidate",
+        "unit": "kg",
+        "value": 59874.19284,
+        "value_max": null,
+        "variant": null
+      },
+      "candidate_sha256": "a2f6f9031ff64b8738ad45d46b5c95148014033af2aafeb1c4e2c8c83f9300ae",
+      "numeric_value_and_unit_present_in_source": true,
+      "scoped_claim_verdict": "wrong_entity",
+      "failure_type": "transport_example",
+      "review_note": "132000lb is permissible CARGO load in the same RAILROAD CAR example. It is not generator weight.",
+      "source_image": "data/corpus/evidence/TM9-617-page-133.png",
+      "source_image_sha256": "6cfdedd1d163dc1924cd0da1fa358a19f4cd82d6cc66b736c4d11ead532d0a61"
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:vopt:catalog:1",
+  "title": "VOPT released metadata snapshot version 1",
+  "$comment": "Structural interchange schema. vopt.schema additionally checks canonical integrity, uniqueness, references, declared model membership, revocations, canonical attribute/unit pairs, ordered ranges and tolerance bounds. Catalog import also enforces sequence/policy history.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "catalog_id", "sequence", "profile", "policy", "documents", "assertions", "integrity"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "catalog_id": {"$ref": "#/$defs/id"},
+    "sequence": {"type": "integer", "minimum": 1},
+    "profile": {"enum": ["coverage", "values"]},
+    "integrity": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "policy": {
+      "type": "object", "additionalProperties": false,
+      "required": ["version", "revoked_doc_ids", "revoked_assertion_ids"],
+      "properties": {
+        "version": {"type": "integer", "minimum": 1},
+        "revoked_doc_ids": {"$ref": "#/$defs/idList"},
+        "revoked_assertion_ids": {"$ref": "#/$defs/idList"}
+      }
+    },
+    "documents": {"type": "array", "maxItems": 100000, "items": {"$ref": "#/$defs/document"}},
+    "assertions": {"type": "array", "maxItems": 1000000}
+  },
+  "allOf": [{
+    "if": {"properties": {"profile": {"const": "coverage"}}},
+    "then": {"properties": {"assertions": {"items": {"$ref": "#/$defs/coverageAssertion"}}}},
+    "else": {"properties": {"assertions": {"items": {"$ref": "#/$defs/valueAssertion"}}}}
+  }],
+  "$defs": {
+    "id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,119}$"},
+    "text": {"type": "string", "minLength": 1, "maxLength": 240, "pattern": "^[^\\u0000-\\u001f]*$"},
+    "idList": {"type": "array", "maxItems": 100000, "uniqueItems": true, "items": {"$ref": "#/$defs/id"}},
+    "quantity": {"type": "number", "minimum": 0, "maximum": 1e100},
+    "document": {
+      "type": "object", "additionalProperties": false,
+      "required": ["doc_id", "title", "manufacturer", "models", "category", "language", "revision", "request_ref", "processing_status"],
+      "properties": {
+        "doc_id": {"$ref": "#/$defs/id"},
+        "title": {"type": "string", "minLength": 1, "maxLength": 500, "pattern": "^[^\\u0000-\\u001f]*$"},
+        "manufacturer": {"type": "string", "maxLength": 240, "pattern": "^[^\\u0000-\\u001f]*$"},
+        "models": {"type": "array", "maxItems": 200, "uniqueItems": true, "items": {"$ref": "#/$defs/text"}},
+        "model_categories": {"type": "object", "additionalProperties": {"type": "string", "minLength": 1, "maxLength": 80}},
+        "category": {"$ref": "#/$defs/text"},
+        "language": {"$ref": "#/$defs/text"},
+        "revision": {"type": "string", "maxLength": 240, "pattern": "^[^\\u0000-\\u001f]*$"},
+        "request_ref": {"$ref": "#/$defs/text"},
+        "processing_status": {"enum": ["complete", "partial"]}
+      }
+    },
+    "assertionCore": {
+      "type": "object",
+      "required": ["assertion_id", "doc_id", "model", "variant", "attribute", "qualifier", "status"],
+      "properties": {
+        "assertion_id": {"$ref": "#/$defs/id"},
+        "doc_id": {"$ref": "#/$defs/id"},
+        "model": {"$ref": "#/$defs/text"},
+        "variant": {"anyOf": [{"type": "null"}, {"$ref": "#/$defs/text"}]},
+        "attribute": {"enum": ["input_voltage", "output_voltage", "frequency", "input_current", "input_power", "output_power", "horsepower", "speed", "weight", "blade_diameter", "displacement", "capacity", "pressure"]},
+        "qualifier": {"enum": ["rated", "peak", "no_load", "unspecified"]},
+        "status": {"const": "reviewed"}
+      }
+    },
+    "coverageAssertion": {
+      "allOf": [{"$ref": "#/$defs/assertionCore"}],
+      "unevaluatedProperties": false
+    },
+    "valueAssertion": {
+      "allOf": [{"$ref": "#/$defs/assertionCore"}],
+      "unevaluatedProperties": false,
+      "required": ["value", "value_max", "unit"],
+      "properties": {
+        "value": {"$ref": "#/$defs/quantity"},
+        "value_max": {"anyOf": [{"type": "null"}, {"$ref": "#/$defs/quantity"}]},
+        "unit": {"enum": ["V", "Hz", "A", "W", "hp", "rpm", "kg", "mm", "cm3", "L", "kPa"]},
+        "conditions": {"type": "array", "maxItems": 10, "uniqueItems": true, "items": {"$ref": "#/$defs/text"}},
+        "tolerance": {
+          "type": "object", "additionalProperties": false,
+          "required": ["minus", "plus", "unit"],
+          "properties": {"minus": {"$ref": "#/$defs/quantity"}, "plus": {"$ref": "#/$defs/quantity"}, "unit": {"$ref": "#/$defs/text"}}
+        }
+      }
+    }
+  }
+}

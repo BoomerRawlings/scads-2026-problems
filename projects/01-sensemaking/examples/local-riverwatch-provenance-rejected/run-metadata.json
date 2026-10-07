@@ -1,0 +1,481 @@
+{
+  "schema_version": "1.0",
+  "engine": "local",
+  "temperature": 0,
+  "seed": 0,
+  "started_at": "2026-10-07T07:50:50.516506+00:00",
+  "max_steps": 24,
+  "question": "What do the sources establish about readiness and dependencies? Keep the report concise: at most four findings, two conflicts, and short explanations.",
+  "requested_target": "riverwatch",
+  "steps": 15,
+  "report_rejections": 0,
+  "intent_rejections": 1,
+  "invalid_actions": 0,
+  "phase": "finished",
+  "decision_max_tokens": 512,
+  "report_max_tokens": 4096,
+  "requested_report_thinking_budget": 1024,
+  "model_responses": [
+    {
+      "step": 1,
+      "phase": "decision",
+      "usage": {
+        "prompt_tokens": 1898,
+        "completion_tokens": 31,
+        "total_tokens": 1929,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "reasoning_returned": false
+    },
+    {
+      "step": 2,
+      "phase": "decision",
+      "usage": {
+        "prompt_tokens": 2007,
+        "completion_tokens": 28,
+        "total_tokens": 2035,
+        "prompt_tokens_details": {
+          "cached_tokens": 1894
+        }
+      },
+      "reasoning_returned": false
+    },
+    {
+      "step": 3,
+      "phase": "decision",
+      "usage": {
+        "prompt_tokens": 2396,
+        "completion_tokens": 35,
+        "total_tokens": 2431,
+        "prompt_tokens_details": {
+          "cached_tokens": 2003
+        }
+      },
+      "reasoning_returned": false
+    },
+    {
+      "step": 4,
+      "phase": "decision",
+      "usage": {
+        "prompt_tokens": 5247,
+        "completion_tokens": 24,
+        "total_tokens": 5271,
+        "prompt_tokens_details": {
+          "cached_tokens": 2392
+        }
+      },
+      "reasoning_returned": false
+    },
+    {
+      "step": 5,
+      "phase": "decision",
+      "usage": {
+        "prompt_tokens": 5661,
+        "completion_tokens": 24,
+        "total_tokens": 5685,
+        "prompt_tokens_details": {
+          "cached_tokens": 5243
+        }
+      },
+      "reasoning_returned": false
+    },
+    {
+      "step": 6,
+      "phase": "decision",
+      "usage": {
+        "prompt_tokens": 6040,
+        "completion_tokens": 24,
+        "total_tokens": 6064,
+        "prompt_tokens_details": {
+          "cached_tokens": 5657
+        }
+      },
+      "reasoning_returned": false
+    },
+    {
+      "step": 7,
+      "phase": "decision",
+      "usage": {
+        "prompt_tokens": 6297,
+        "completion_tokens": 24,
+        "total_tokens": 6321,
+        "prompt_tokens_details": {
+          "cached_tokens": 6036
+        }
+      },
+      "reasoning_returned": false
+    },
+    {
+      "step": 8,
+      "phase": "decision",
+      "usage": {
+        "prompt_tokens": 6567,
+        "completion_tokens": 26,
+        "total_tokens": 6593,
+        "prompt_tokens_details": {
+          "cached_tokens": 6293
+        }
+      },
+      "reasoning_returned": false
+    },
+    {
+      "step": 9,
+      "phase": "decision",
+      "usage": {
+        "prompt_tokens": 7063,
+        "completion_tokens": 23,
+        "total_tokens": 7086,
+        "prompt_tokens_details": {
+          "cached_tokens": 6563
+        }
+      },
+      "reasoning_returned": false
+    },
+    {
+      "step": 10,
+      "phase": "decision",
+      "usage": {
+        "prompt_tokens": 7164,
+        "completion_tokens": 24,
+        "total_tokens": 7188,
+        "prompt_tokens_details": {
+          "cached_tokens": 7059
+        }
+      },
+      "reasoning_returned": false
+    },
+    {
+      "step": 11,
+      "phase": "decision",
+      "usage": {
+        "prompt_tokens": 7426,
+        "completion_tokens": 24,
+        "total_tokens": 7450,
+        "prompt_tokens_details": {
+          "cached_tokens": 7160
+        }
+      },
+      "reasoning_returned": false
+    },
+    {
+      "step": 12,
+      "phase": "decision",
+      "usage": {
+        "prompt_tokens": 7904,
+        "completion_tokens": 25,
+        "total_tokens": 7929,
+        "prompt_tokens_details": {
+          "cached_tokens": 7422
+        }
+      },
+      "reasoning_returned": false
+    },
+    {
+      "step": 13,
+      "phase": "decision",
+      "usage": {
+        "prompt_tokens": 8208,
+        "completion_tokens": 46,
+        "total_tokens": 8254,
+        "prompt_tokens_details": {
+          "cached_tokens": 7900
+        }
+      },
+      "reasoning_returned": false
+    },
+    {
+      "step": 14,
+      "phase": "decision",
+      "usage": {
+        "prompt_tokens": 9496,
+        "completion_tokens": 23,
+        "total_tokens": 9519,
+        "prompt_tokens_details": {
+          "cached_tokens": 8204
+        }
+      },
+      "reasoning_returned": false
+    },
+    {
+      "step": 15,
+      "phase": "report",
+      "usage": {
+        "prompt_tokens": 8826,
+        "completion_tokens": 2084,
+        "total_tokens": 10910,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "reasoning_returned": true
+    }
+  ],
+  "synthesis_context_policy": "Exact question/target/dataset, current-run facts from successful tool results/audits, each unique result body plus exact-repeat references, all errors, and safe validation reasons; omit planner scaffolding and draft narratives",
+  "result_reuse_policy": "SHA256 of canonical tool, actual arguments and entire raw result, including pixels; successful exact repeats only",
+  "timeout_seconds": 1800.0,
+  "request_timeout_seconds": 900.0,
+  "max_response_bytes": 2097152,
+  "max_result_bytes": 8388608,
+  "max_context_bytes": 25165824,
+  "validation_errors": [
+    "Complete report did not inspect available relevant source media"
+  ],
+  "report_validation_errors": [],
+  "rejected_reports": [],
+  "scope_rejections": [],
+  "result_reuse": [],
+  "schema_policy": {
+    "version": "current-run-provenance-v8",
+    "synthesis_facts": "Actual inventoried scope/retrieved IDs, declared attachments, inspected availability and successful returned pixel locators; source authoring labels never override current-run observations",
+    "coverage": "Complete requires actual unfiltered inventories for returned graph entities and full retrieval of all returned edge proofs",
+    "finish": "Compact status/target intent checked before separate budgeted report synthesis; final guards remain required",
+    "read_ids": "Observed source IDs excluding successful read_evidence calls; full results retained",
+    "inspect_ids": "Observed media records excluding successful inspect_media calls",
+    "media_read_ids": "inspect_media available=true; images once, videos permit new successful-request offsets",
+    "video_offsets": "1-4 offsets per call; defaults from inspected suggestions; novelty enforced before MCP; failed reads consume none",
+    "citation_ids": "Successful evidence-tool retrieval only; graph proof IDs alone are not citable",
+    "media_locators": "Only actual audit evidence-ID/returned-PTS pairs; no observations when no pixels were inspected"
+  },
+  "implementation": {
+    "files": {
+      "local_agent.py": "703ab3ce3104fdf428540c60a907d53626df59f2ad2c0c009ede08f14d212631",
+      "run_agent.py": "aed2aad867c33bb95b3c25859ab57787aeadc482779c64902ee225b20cf6792b",
+      "mcp_server.py": "20c60a089fc9f0296d9badffd98a3afaabfc6431fc54cd1e148ab683ff135fd1",
+      "media_tools.py": "9a4ef7606e38604c847b7d7ec2e56717226ed329435b7c0692ed08501779d0a5",
+      "sensemaking.py": "7835a62406122792cd2adec53c130ea33b0d24b33bfa7c9bb0fd6e23decd375c",
+      "report.schema.json": "77598873abd47b44a29e9a4ad2b82ca5ff22c9b296b7634699bfd07f40770182"
+    }
+  },
+  "status": "complete",
+  "elapsed_seconds": 946.297,
+  "report_settings": {
+    "temperature": 0.6,
+    "seed": 0,
+    "max_tokens": 4096,
+    "chat_template_kwargs": {
+      "enable_thinking": true
+    },
+    "reasoning_budget_tokens": 1024,
+    "top_p": 0.95,
+    "top_k": 20,
+    "min_p": 0,
+    "presence_penalty": 0
+  },
+  "model": "Qwen3.5-4B-Q4_K_M",
+  "model_identifier_source": "/v1/models",
+  "model_path_redacted": false,
+  "model_identifier_sha256": "8f7fb5d5ef99e11fe87359b3a8c140e8490fe58a9e97b122c82f35dc92886500",
+  "backend": "llama.cpp-compatible loopback HTTP",
+  "endpoint": "http://127.0.0.1:18571/v1",
+  "dataset": {
+    "id": "cedar-basin-synthetic-v1",
+    "name": "Cedar Basin organizational sensemaking fixture",
+    "kind": "synthetic",
+    "version": "1.0",
+    "description": "Agent-authored demonstration with ten fictional entities, sixteen evidence records, dated disagreements, an unrelated-name decoy, and ambiguous aliases. Attached caption media derives from the same authored text and is not independent corroboration.",
+    "sha256": "7328e186691e7956ac440b1acd28391b6a2e022292b2c28c0104af6d0139cd67",
+    "files": {
+      "annotations/riverwatch_planning_board.txt": "638d0ef000fa5fd57a4f307e0b55e8253459d1b5173e4d0b5ecb4cba3c9ecefb",
+      "annotations/sensor_inspection_tags.txt": "e7517bf15ffa1d4536a96a25dd0e22cdf076472b28cf4b8df0d36e9db45def63",
+      "dataset.json": "3a92a79e4101574924147aa80e544a617ea481a6f8d4dd88161bcde8b08071d0",
+      "documents/aero_team_scope.txt": "12fa838097a7bdd0b3a996089563c02e49250bcf528541bfd4b9fa1adf37e3df",
+      "documents/delta_team_scope.txt": "57711bea89658bf501763d5d09556e6352377d5902e6a167ee104456963b9d95",
+      "documents/northline_shipping_notice.txt": "cb82086c19cc865331314e59803c2625d2f78e3ae899e70c0c6f84b0f0f9be18",
+      "documents/riverwatch_dependency_review.txt": "b9ad6f2af741870c74ccaa91ccf6f5b564d329c1f6bed6b7c1dc4a007a84697a",
+      "documents/sensor_supply_note.txt": "c7bb5aa249435692c819601a5ffc73ed42dd780de8b926021738f9b4bc6de41c",
+      "graph.json": "359832eed2285e43bee014f751f21292d2b0e938f4535b5d3310ea8a865097ba",
+      "manifest.json": "64b122aac0fb55085b9a3566022005e5daf186c94487c8ed9c8be91f1430bf7f",
+      "media/riverwatch-board.png": "48c53e82faa004de5e1f1784913208b78f335980d8e75fe8af05a570f9376678",
+      "media/riverwatch-review.mp4": "12570bc12c69eb2ef39e1097aeacbcac95b708b7bcba9c949f25f256239086d9",
+      "records.csv": "0d5f876ce13d3c986a6007d0537d4ca604d2f9b6c8ca89cf342f265a99253292",
+      "transcripts/clearair_coordination.txt": "bc3c83fbf786ed5d36f2748fdf93e96cb494ac2b7778c8b8dfa5eb93bd6b277c",
+      "transcripts/riverwatch_coordination.txt": "91b65d07e97cda4ff301f6415ba56651d77f1d966af4f4021a4f466853b893ae"
+    }
+  },
+  "prompt_sha256": "8c3a11039d98222d58ea8c7fe86e1f3a68b2bd282b79d626d90c45d71067cc4f",
+  "observed_evidence_ids": [
+    "img-note-001",
+    "img-note-002",
+    "memo-001",
+    "memo-003",
+    "memo-004",
+    "tbl-003",
+    "tbl-005",
+    "tbl-006",
+    "video-tx-001"
+  ],
+  "retrieved_evidence_ids": [
+    "img-note-001",
+    "img-note-002",
+    "memo-001",
+    "memo-003",
+    "memo-004",
+    "tbl-003",
+    "tbl-005",
+    "tbl-006",
+    "video-tx-001"
+  ],
+  "source_progress": {
+    "inspect_media": [
+      "img-note-001",
+      "video-tx-001"
+    ],
+    "read_evidence": [
+      "memo-001",
+      "memo-003",
+      "tbl-003",
+      "tbl-006",
+      "video-tx-001"
+    ],
+    "read_media": [
+      "img-note-001",
+      "video-tx-001"
+    ],
+    "media_ids": [
+      "img-note-001",
+      "img-note-002",
+      "video-tx-001"
+    ],
+    "available_media": [
+      "img-note-001",
+      "video-tx-001"
+    ]
+  },
+  "media_progress": {
+    "img-note-001": {
+      "type": "image",
+      "suggested_timestamps": [],
+      "successful_requested_offsets": [],
+      "samples": []
+    },
+    "video-tx-001": {
+      "type": "video",
+      "suggested_timestamps": [
+        0.0,
+        14.5,
+        29.0
+      ],
+      "successful_requested_offsets": [
+        0.0,
+        14.5,
+        29.0
+      ],
+      "samples": [
+        {
+          "requested_seek_seconds": 0.0,
+          "source_timestamp_seconds": 0.0,
+          "source_pts": 0,
+          "source_time_base": "1/16384"
+        },
+        {
+          "requested_seek_seconds": 14.5,
+          "source_timestamp_seconds": 15.0,
+          "source_pts": 245760,
+          "source_time_base": "1/16384"
+        },
+        {
+          "requested_seek_seconds": 29.0,
+          "source_timestamp_seconds": 29.0,
+          "source_pts": 475136,
+          "source_time_base": "1/16384"
+        }
+      ]
+    }
+  },
+  "workflow_coverage": {
+    "policy": "returned-graph-coverage-v1",
+    "target_id": "riverwatch",
+    "rooted_traversal": true,
+    "scope_entity_ids": [
+      "northline",
+      "riverwatch",
+      "silt_sensors"
+    ],
+    "traversals": [
+      {
+        "target_id": "riverwatch",
+        "max_hops": 3,
+        "node_count": 3,
+        "edge_count": 2
+      }
+    ],
+    "inventoried_entity_ids": [
+      "northline",
+      "riverwatch",
+      "silt_sensors"
+    ],
+    "required_proof_ids": [
+      "memo-001",
+      "memo-003"
+    ],
+    "retrieved_record_ids": [
+      "img-note-001",
+      "img-note-002",
+      "memo-001",
+      "memo-003",
+      "memo-004",
+      "tbl-003",
+      "tbl-005",
+      "tbl-006",
+      "video-tx-001"
+    ],
+    "missing_inventory_entity_ids": [],
+    "missing_proof_ids": [],
+    "complete": true,
+    "scope_note": "Coverage of returned target-rooted/relevant traversals only; not full-graph or analytical adequacy."
+  },
+  "report_generations": 1,
+  "synthesis_facts": {
+    "policy": "current-run-provenance-v1",
+    "scope_entity_ids": [
+      "northline",
+      "riverwatch",
+      "silt_sensors"
+    ],
+    "inventoried_scope_entity_ids": [
+      "northline",
+      "riverwatch",
+      "silt_sensors"
+    ],
+    "retrieved_source_ids": [
+      "img-note-001",
+      "img-note-002",
+      "memo-001",
+      "memo-003",
+      "memo-004",
+      "tbl-003",
+      "tbl-005",
+      "tbl-006",
+      "video-tx-001"
+    ],
+    "media": [
+      {
+        "evidence_id": "img-note-001",
+        "returned_pixel_locators": [
+          "image"
+        ],
+        "attachment_declared": true,
+        "inspected_available": true
+      },
+      {
+        "evidence_id": "img-note-002",
+        "returned_pixel_locators": [],
+        "attachment_declared": false
+      },
+      {
+        "evidence_id": "video-tx-001",
+        "returned_pixel_locators": [
+          "00:00",
+          "00:15",
+          "00:29"
+        ],
+        "attachment_declared": true,
+        "inspected_available": true
+      }
+    ],
+    "audio_processed": false,
+    "video_coverage": "sampled_frames_only"
+  }
+}

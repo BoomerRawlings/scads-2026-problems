@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "catalog": {
+    "active_sequence": 1,
+    "assertion_count": 14,
+    "catalog_id": "vopt-development-values",
+    "document_count": 5,
+    "effective_policy": {
+      "revoked_assertion_ids": [],
+      "revoked_doc_ids": [],
+      "version": 1
+    },
+    "eligible_snapshots": [
+      1
+    ],
+    "highest_sequence": 1,
+    "integrity": "0b6023277987429fb11b57058bd6ffe34a5f17ceed1332f854957f134bcc390f",
+    "permitted_profile": "values",
+    "profile": "values"
+  },
+  "requests": [
+    {
+      "doc_id": "tm9-1752-homelite-1942",
+      "model": "HR-28",
+      "variant": null,
+      "revision": "20 March 1942",
+      "request_ref": "tm9-1752-homelite-1942@20 March 1942",
+      "query": "model HR-28 and output power >= 1.4 kW and output voltage >= 30 V and condition \"DC\"",
+      "matched_assertions": [
+        "a-861184f1c5aa376322679f76",
+        "a-97f26060c46f4c80034fb1e6"
+      ]
+    }
+  ],
+  "note": "Document request references only; no documents are transmitted."
+}

@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "project_status": "Free local demo passed AI review · known synthetic case; broader validation pending",
+  "default_case": "local-riverwatch-guidance-accepted",
+  "cases": [
+    {
+      "id": "cbri", "dataset_id": "cedar-basin-synthetic-v1", "label": "CBRI · historical reviewed demo", "engine": "Historical Codex · exact model unrecorded", "engine_kind": "historical",
+      "runtime_label": "Report passed recorded guards", "review_label": "Separate AI source review passed", "review_state": "accepted",
+      "review_source": "docs/acceptance.md", "review_note": "A separate agent checked five findings, two conflicts and four media observations against source text and decoded pixels. One known synthetic case; no human accuracy benchmark.",
+      "question_note": "Target recorded: cbri. The exact historical request text was not saved with this example.",
+      "lesson": "A broader traversal exposed a supplier dependency. The accepted report scoped the risk to Riverwatch and preserved the disagreement between dated sources."
+    },
+    {
+      "id": "ambiguous-delta", "dataset_id": "cedar-basin-synthetic-v1", "label": "Delta · historical clarification", "engine": "Historical Codex · exact model unrecorded", "engine_kind": "historical",
+      "runtime_label": "Clarification accepted by target guard", "review_label": "Identity outcome documented", "review_state": "limited",
+      "review_source": "docs/acceptance.md", "review_note": "One identity search returned two candidates. The report asks for an explicit ID. This case has no separate source-review file and no analytic investigation.",
+      "question_note": "Target recorded: Delta. The exact historical request text was not saved with this example.",
+      "lesson": "An ambiguous alias is a reason to ask for an identity, not permission to investigate an arbitrary match."
+    },
+    {
+      "id": "local-delta", "dataset_id": "cedar-basin-synthetic-v1", "label": "Delta · guarded free-local clarification", "engine": "Free local · Qwen3-VL-2B-Instruct Q4_K_M", "engine_kind": "local",
+      "runtime_label": "Guarded clarification accepted", "review_label": "Separate AI identity review passed", "review_state": "limited",
+      "review_source": "examples/local-delta/REVIEW.md", "review_note": "The harness limited an unresolved identity to search and clarification. The model authored the reply. Accepted identity behavior, not a complete analytic case; repetitive prose remains.",
+      "lesson": "A guard can prevent an unsupported pivot. That does not establish reliable unconstrained model reasoning."
+    },
+    {
+      "id": "local-riverwatch-rejected", "dataset_id": "cedar-basin-synthetic-v1", "label": "Riverwatch07 · rejected local analysis", "engine": "Free local · Qwen3-VL-2B-Instruct Q4_K_M", "engine_kind": "local",
+      "runtime_label": "Report passed mechanical guards", "review_label": "Separate AI source review rejected", "review_state": "rejected",
+      "review_source": "examples/local-riverwatch-rejected/REVIEW.md", "review_note": "The report inverted uncertainty, missed supplier evidence and omitted important media qualifications. Valid citations and actual media calls did not establish a correct analysis.",
+      "lesson": "“Delay has not been established” cannot become “not delayed.” Keyword search also missed dependency records; complete inventories and edge proofs became explicit checks."
+    },
+    {
+      "id": "local-clearair-qwen35-rejected", "dataset_id": "cedar-basin-synthetic-v1", "label": "ClearAir03 · rejected local analysis", "engine": "Free local · Qwen3.5-4B Q4_K_M", "engine_kind": "local",
+      "runtime_label": "Report passed mechanical guards", "review_label": "Separate AI source review rejected", "review_state": "rejected",
+      "review_source": "examples/local-clearair-qwen35-rejected/REVIEW.md", "review_note": "The report correctly removed a false conflict, but asserted absolute absence of a dependency and invented coordination functions. No source pixels were inspected.",
+      "lesson": "Fixing one error is not full acceptance. “No dependency recorded in this corpus” must retain its scope."
+    },
+    {
+      "id": "local-riverwatch-thinking-rejected", "dataset_id": "cedar-basin-synthetic-v1", "label": "Riverwatch08 · coverage improved, still rejected", "engine": "Free local · Qwen3.5-4B Q4_K_M", "engine_kind": "local",
+      "runtime_label": "Report passed mechanical and coverage guards", "review_label": "Separate AI source review rejected", "review_state": "rejected",
+      "review_source": "examples/local-riverwatch-thinking-rejected/REVIEW.md", "review_note": "All nine connected records were retrieved; both dated conflicts and all four pixel observations were supported. The report nevertheless falsely claimed the attached video was absent, missed the actual missing inspection-tag image and omitted sampled-video limits.",
+      "lesson": "Complete retrieval and correct pixel readings do not guarantee consistent provenance claims. Attached synthetic video, independent corroboration and missing source media are three different questions."
+    },
+    {
+      "id": "local-riverwatch-grounded-rejected", "dataset_id": "cedar-basin-synthetic-v1", "label": "Riverwatch10 · grounded media, summary rejected", "engine": "Free local · Qwen3.5-4B Q4_K_M · grounded media", "engine_kind": "local",
+      "runtime_label": "Report passed coverage and grounded-output guards", "review_label": "Separate AI source review rejected", "review_state": "rejected",
+      "review_source": "examples/local-riverwatch-grounded-rejected/REVIEW.md", "review_note": "Isolated pixel observations and host-derived provenance corrected earlier contamination and missing-media errors. The summary still treated disputed delayed readiness as established and described inspected PNG/MP4 evidence as text. Shipping plans also lacked the explicit no-confirmed-receipt qualification; the original review records a minor image-color error.",
+      "lesson": "Fixing pixel observations and provenance fields cannot guarantee a faithful summary. The agent's readiness conclusion must preserve unresolved source disagreement, and its account of evidence must match actual inspected modalities."
+    },
+    {
+      "id": "local-riverwatch-compact-rejected", "dataset_id": "cedar-basin-synthetic-v1", "label": "Riverwatch11 · compact input, summary rejected", "engine": "Free local · Qwen3.5-4B Q4_K_M · grounded media / compact synthesis", "engine_kind": "local",
+      "runtime_label": "Report passed coverage and grounded-output guards", "review_label": "Separate AI source review rejected", "review_state": "rejected",
+      "review_source": "examples/local-riverwatch-compact-rejected/REVIEW.md", "review_note": "Compact synthesis retained exact retrieved records and isolated observations. Media handling, missing-image disclosure and shipping plans were correctly represented, but the summary still claimed the records establish delayed readiness despite unresolved ready/delayed claims. The review also preserves a minor image-color error.",
+      "lesson": "A smaller report context preserved source coverage and construction provenance. It did not prevent the model from treating unresolved source disagreement as an established conclusion."
+    },
+    {
+      "id": "local-riverwatch-overview-rejected", "dataset_id": "cedar-basin-synthetic-v1", "label": "Riverwatch12 · host overview, finding rejected", "engine": "Free local · Qwen3.5-4B Q4_K_M · grounded media / compact synthesis / host overview", "engine_kind": "local",
+      "runtime_label": "Report passed coverage and constrained-output guards", "review_label": "Separate AI source review rejected", "review_state": "rejected",
+      "review_source": "examples/local-riverwatch-overview-rejected/REVIEW.md", "review_note": "The host-constructed overview correctly preserved unresolved source differences, and the media observations, provenance and shipping qualifications passed review. Model-authored finding 1 still adopted delayed readiness as settled. The supplier chain remained implicit; the original review also preserves a minor image-color error.",
+      "lesson": "A correctly constructed overview cannot certify the model-authored findings. Every substantive conclusion still needs review against the unresolved source claims."
+    },
+    {
+      "id": "local-riverwatch-9b-rejected", "dataset_id": "cedar-basin-synthetic-v1", "label": "Riverwatch13 · 9B analysis, unsupported exclusivity", "engine": "Free local · Qwen3.5-9B Q3_K_M · grounded media / compact synthesis / host overview", "engine_kind": "local",
+      "runtime_label": "Report passed coverage and constrained-output guards", "review_label": "Separate AI source review rejected", "review_state": "rejected",
+      "review_source": "examples/local-riverwatch-9b-rejected/REVIEW.md", "review_note": "Readiness findings now attribute the dated source claims and retain their unresolved disagreement. Finding 4 nevertheless calls pending acceptance only a procedural delay, an unsupported exclusive explanation. The full supplier relation and external status are not synthesized, and shipping lacks the explicit planned/no-confirmed-receipt qualification; no receipt is invented. The review preserves minor image-color shorthand.",
+      "lesson": "A larger model improved source attribution in this case but still added certainty unsupported by the evidence. Pending acceptance does not establish defects or prove that a delay is exclusively procedural."
+    },
+    {
+      "id": "local-riverwatch-guidance-accepted", "dataset_id": "cedar-basin-synthetic-v1", "label": "Riverwatch14 · reviewed free-local demonstration", "engine": "Free local · Qwen3.5-9B Q3_K_M · grounded media / compact synthesis / host overview", "engine_kind": "local",
+      "runtime_label": "Report passed coverage and constrained-output guards", "review_label": "Separate AI source/pixel review passed", "review_state": "accepted",
+      "review_source": "examples/local-riverwatch-guidance-accepted/REVIEW.md", "review_note": "Four findings preserve dated readiness claims, the full Riverwatch/component/supplier path, planned arrival versus confirmed receipt, and the limits of pending acceptance. Sources, pixels and provenance passed separate AI review for this known synthetic case. The original report retains shipping-date wording where sources specify expected arrival and minor image-color shorthand; the review discloses both. This is not human validation, held-out accuracy or a general reliability result.",
+      "lesson": "This recorded free-local investigation connects the supported dependency path and keeps conflicting source claims and missing evidence visible. Its bounded pass does not erase earlier failures or establish performance on new organizations."
+    },
+    {
+      "id": "public-nci-01", "artifact_kind": "failure", "dataset_id": "public-research-statement-pilot",
+      "title": "NCI01 · stopped before an analytic report", "label": "NCI01 · public-source context failure",
+      "engine": "Free local · Qwen3.5-9B Q3_K_M · text-only catalog", "engine_kind": "local",
+      "runtime_label": "Execution failed before report", "review_label": "Execution failure reviewed · no analytic acceptance", "review_state": "limited",
+      "review_source": "evaluations/public-pilot/public-nci-01/REVIEW.md",
+      "metadata_sha256": "875711afe2aa5342f04435818742fbcc5149d38d49c3a0c20d48faf94b0cba6a",
+      "review_note": "Context admission stopped decision step 10 after nine MCP calls and five successful full-record reads. The catalog continuation failed when its original options were omitted. No analytic report or final evidence ledger was generated; the separate review reconstructs execution and checks source provenance, not a completed answer.",
+      "lesson": "Metadata paging still consumes cumulative context. A guarded overflow preserves the failure for scrutiny; it does not solve the public investigation or establish the truth of source claims."
+    },
+    {
+      "id": "public-nci-02", "artifact_kind": "failure", "dataset_id": "public-research-statement-pilot",
+      "title": "NCI02 · report request timed out", "label": "NCI02 · public-source report timeout",
+      "engine": "Free local · Qwen3.5-4B Q4_K_M · text-only catalog / 48k context", "engine_kind": "local",
+      "runtime_label": "Report request timed out; no analytic report", "review_label": "Execution failure reviewed · no analytic acceptance", "review_state": "limited",
+      "review_source": "evaluations/public-pilot/public-nci-02/REVIEW.md",
+      "metadata_sha256": "3447ef1bed3dae5d8819307b32202b413aca80eebefb38c020c9c4d96a82752c",
+      "review_note": "The report request passed configured context admission, then reached its wall-clock deadline. Twelve successful MCP calls included eight full-record reads; no final report, rejected report candidate or citation ledger was saved. The separate review reconstructs execution and source provenance, not the correctness of a completed answer.",
+      "lesson": "Admitted context and retrieved edge proofs do not guarantee a completed analytic product. This report-phase timeout remains distinct from NCI01's context overflow; neither establishes public analytic acceptance."
+    }
+  ]
+}

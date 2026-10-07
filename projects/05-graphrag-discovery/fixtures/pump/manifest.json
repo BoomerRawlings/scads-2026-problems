@@ -1,0 +1,58 @@
+{
+  "schema_version": "1",
+  "corpus_id": "pump-fixture",
+  "source_type": "authored-fixture",
+  "language": "en",
+  "access_scope": "public",
+  "rights_ref": "fixture-authored",
+  "rights": "Original fictional test text authored for this project; no acquired third-party corpus.",
+  "history_completeness": "complete_for_authored_sequence",
+  "replay_mode": "deterministic_test_clock",
+  "processing_version": "plain-text-v1",
+  "relation_group_semantics": {
+    "pump-p-operator": "Exactly one actual operator at a time is a fixture premise; conflicting reports remain disputed."
+  },
+  "gold": "gold.json",
+  "batches": [
+    {
+      "id": "01-initial",
+      "records": "01-initial.jsonl",
+      "assertions": "01-initial.assertions.json",
+      "ingested_at": "2025-01-05T10:00:00Z",
+      "prepared_at": "2025-01-05T10:01:00Z",
+      "published_at": "2025-01-05T10:05:00Z"
+    },
+    {
+      "id": "02-planned",
+      "records": "02-planned.jsonl",
+      "assertions": "02-planned.assertions.json",
+      "ingested_at": "2025-01-20T10:00:00Z",
+      "prepared_at": "2025-01-20T10:01:00Z",
+      "published_at": "2025-01-20T10:05:00Z"
+    },
+    {
+      "id": "03-corrected",
+      "records": "03-corrected.jsonl",
+      "assertions": "03-corrected.assertions.json",
+      "ingested_at": "2025-02-10T10:00:00Z",
+      "prepared_at": "2025-02-10T10:01:00Z",
+      "published_at": "2025-02-10T10:05:00Z"
+    },
+    {
+      "id": "04-conflicting",
+      "records": "04-conflicting.jsonl",
+      "assertions": "04-conflicting.assertions.json",
+      "ingested_at": "2025-02-12T10:00:00Z",
+      "prepared_at": "2025-02-12T10:01:00Z",
+      "published_at": "2025-02-12T10:05:00Z"
+    },
+    {
+      "id": "05-withdrawn",
+      "records": "05-withdrawn.jsonl",
+      "assertions": "05-withdrawn.assertions.json",
+      "ingested_at": "2025-02-15T10:00:00Z",
+      "prepared_at": "2025-02-15T10:01:00Z",
+      "published_at": "2025-02-15T10:05:00Z"
+    }
+  ]
+}

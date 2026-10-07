@@ -1,0 +1,41 @@
+[
+  {
+    "name": "entity_search",
+    "args": {
+      "query": "clearair"
+    },
+    "status": "completed"
+  },
+  {
+    "name": "traverse_relationships",
+    "args": {
+      "target": "clearair",
+      "max_hops": 3
+    },
+    "status": "completed"
+  },
+  {
+    "name": "search_evidence",
+    "args": {
+      "query": "",
+      "entity_ids": [
+        "clearair"
+      ]
+    },
+    "status": "completed"
+  },
+  {
+    "name": "read_evidence",
+    "args": {
+      "evidence_id": "tbl-004"
+    },
+    "status": "completed"
+  },
+  {
+    "name": "read_evidence",
+    "args": {
+      "evidence_id": "video-tx-002"
+    },
+    "status": "completed"
+  }
+]

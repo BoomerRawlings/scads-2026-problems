@@ -1,0 +1,42 @@
+{
+  "purpose": "Exact prior neutral request; no corpus input.",
+  "request": {
+    "model": "Qwen3.5-9B-Q3_K_M",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Return the requested JSON object."
+      },
+      {
+        "role": "user",
+        "content": "Return an object with the boolean field ok set to true."
+      }
+    ],
+    "stream": false,
+    "temperature": 0,
+    "seed": 0,
+    "max_tokens": 32,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_object",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "ok": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "ok"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "canonical_request_sha256": "4d2bf5bcf4e58e2200d1c3adf2697b4884bd27fac05a4d35f8f47b8b26c36a08",
+  "expected_answer": {
+    "ok": true
+  }
+}

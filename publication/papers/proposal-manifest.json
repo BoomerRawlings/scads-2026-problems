@@ -1,0 +1,156 @@
+{
+  "edition": "2026-10-07",
+  "scope": "Four projected solutions and research plans. No implementation or empirical results.",
+  "papers": [
+    {
+      "file": "pdf/06-agentic-retrieval.pdf",
+      "pages": 8,
+      "bytes": 126175,
+      "sha256": "77f0a0d03b82d7e098e4cc8afe150435aeb231a233db05a1edae29ac70508498",
+      "sources": [
+        {
+          "title": "SCADS 2026 Problem Book, Project 6, p. 8. User-supplied research brief.",
+          "kind": "user-supplied problem brief"
+        },
+        {
+          "title": "Yao et al. (2023). ReAct: Synergizing Reasoning and Acting in Language Models. ICLR.",
+          "url": "https://arxiv.org/abs/2210.03629",
+          "verified": "2026-10-07",
+          "kind": "primary external source"
+        },
+        {
+          "title": "Gao et al. (2023). Enabling Large Language Models to Generate Text with Citations. EMNLP.",
+          "url": "https://arxiv.org/abs/2305.14627",
+          "verified": "2026-10-07",
+          "kind": "primary external source"
+        },
+        {
+          "title": "Moreau and Missier, eds. (2013). PROV-DM: The PROV Data Model. W3C Recommendation.",
+          "url": "https://www.w3.org/TR/prov-dm/",
+          "verified": "2026-10-07",
+          "kind": "primary external source"
+        },
+        {
+          "title": "Gebru et al. (2021). Datasheets for Datasets. Communications of the ACM.",
+          "url": "https://arxiv.org/abs/1803.09010",
+          "verified": "2026-10-07",
+          "kind": "primary external source"
+        }
+      ]
+    },
+    {
+      "file": "pdf/07-efficient-agentic-rag.pdf",
+      "pages": 8,
+      "bytes": 126801,
+      "sha256": "ea794fb06df1423110126917974739a797593b479339886db78d336b386c2107",
+      "sources": [
+        {
+          "title": "SCADS 2026 Problem Book, Project 7, p. 9. User-supplied research brief.",
+          "kind": "user-supplied problem brief"
+        },
+        {
+          "title": "Jeong et al. (2024). Adaptive-RAG: Learning to Adapt Retrieval-Augmented Large Language Models through Question Complexity. NAACL.",
+          "url": "https://arxiv.org/abs/2403.14403",
+          "verified": "2026-10-07",
+          "kind": "primary external source"
+        },
+        {
+          "title": "TREC RAG organizers (2024). TREC 2024 RAG Track Guidelines.",
+          "url": "https://trec-rag.github.io/annoucements/2024-track-guidelines/",
+          "verified": "2026-10-07",
+          "kind": "primary external source"
+        },
+        {
+          "title": "TREC RAGTIME organizers (2026). Official track description and language scope.",
+          "url": "https://trec-ragtime.github.io/",
+          "verified": "2026-10-07",
+          "kind": "primary external source"
+        },
+        {
+          "title": "NIST (2026). TREC call for participation, AutoJudge track description.",
+          "url": "https://trec.nist.gov/cfp.html",
+          "verified": "2026-10-07",
+          "kind": "primary external source"
+        },
+        {
+          "title": "Zheng et al. (2023). Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena. NeurIPS.",
+          "url": "https://arxiv.org/abs/2306.05685",
+          "verified": "2026-10-07",
+          "kind": "primary external source"
+        }
+      ]
+    },
+    {
+      "file": "pdf/08-capability-benchmarks.pdf",
+      "pages": 8,
+      "bytes": 125913,
+      "sha256": "d9f9d459aa6f683a1e00226c653318f84b3d4f5e58abf6bd30be35e6303f7d14",
+      "sources": [
+        {
+          "title": "SCADS 2026 Problem Book, Project 8, pp. 10-11. User-supplied research brief.",
+          "kind": "user-supplied problem brief"
+        },
+        {
+          "title": "Liang et al. (2023). Holistic Evaluation of Language Models. TMLR.",
+          "url": "https://arxiv.org/abs/2211.09110",
+          "verified": "2026-10-07",
+          "kind": "primary external source"
+        },
+        {
+          "title": "Jimenez et al. (2024). SWE-bench: Can Language Models Resolve Real-World GitHub Issues? ICLR.",
+          "url": "https://arxiv.org/abs/2310.06770",
+          "verified": "2026-10-07",
+          "kind": "primary external source"
+        },
+        {
+          "title": "Gebru et al. (2021). Datasheets for Datasets. Communications of the ACM.",
+          "url": "https://arxiv.org/abs/1803.09010",
+          "verified": "2026-10-07",
+          "kind": "primary external source"
+        },
+        {
+          "title": "Zheng et al. (2023). Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena. NeurIPS.",
+          "url": "https://arxiv.org/abs/2306.05685",
+          "verified": "2026-10-07",
+          "kind": "primary external source"
+        }
+      ]
+    },
+    {
+      "file": "pdf/09-core-to-edge.pdf",
+      "pages": 8,
+      "bytes": 126155,
+      "sha256": "ac007277925131b557ee8c70e857f119fea6adc2e990f78ea1d3587f43c1980a",
+      "sources": [
+        {
+          "title": "SCADS 2026 Problem Book, Project 9, p. 12. User-supplied research brief.",
+          "kind": "user-supplied problem brief"
+        },
+        {
+          "title": "Banbury et al. (2021). MLPerf Tiny Benchmark. NeurIPS Datasets and Benchmarks.",
+          "url": "https://arxiv.org/abs/2106.07597",
+          "verified": "2026-10-07",
+          "kind": "primary external source"
+        },
+        {
+          "title": "Xiao et al. (2023). SmoothQuant: Accurate and Efficient Post-Training Quantization for Large Language Models. ICML.",
+          "url": "https://arxiv.org/abs/2211.10438",
+          "verified": "2026-10-07",
+          "kind": "primary external source"
+        },
+        {
+          "title": "Hinton, Vinyals and Dean (2015). Distilling the Knowledge in a Neural Network.",
+          "url": "https://arxiv.org/abs/1503.02531",
+          "verified": "2026-10-07",
+          "kind": "primary external source"
+        },
+        {
+          "title": "Gebru et al. (2021). Datasheets for Datasets. Communications of the ACM.",
+          "url": "https://arxiv.org/abs/1803.09010",
+          "verified": "2026-10-07",
+          "kind": "primary external source"
+        }
+      ]
+    }
+  ]
+}

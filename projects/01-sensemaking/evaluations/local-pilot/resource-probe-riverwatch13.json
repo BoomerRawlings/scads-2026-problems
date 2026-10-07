@@ -1,0 +1,13 @@
+{
+  "case": "Riverwatch13",
+  "profile": "runtime-profile-qwen35-9b-01.json",
+  "captured_utc": "2026-10-07T10:45:40.9325482Z",
+  "phase": "decision",
+  "checkpoint_step": 14,
+  "working_set_bytes": 5880504320,
+  "peak_working_set_since_server_start_bytes": 5880504320,
+  "host_free_physical_kib": 608036,
+  "host_total_physical_kib": 16364512,
+  "method": "Windows Get-Process WorkingSet64/PeakWorkingSet64 for the path-verified task-owned server; Win32_OperatingSystem memory fields.",
+  "interpretation": "One point during a known-fixture run on a shared host. Peak includes startup and the earlier source-only probe. Not an isolated benchmark or minimum RAM specification."
+}

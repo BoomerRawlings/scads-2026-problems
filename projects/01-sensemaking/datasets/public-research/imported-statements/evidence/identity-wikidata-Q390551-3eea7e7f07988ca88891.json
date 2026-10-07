@@ -1,0 +1,765 @@
+{
+  "caution": "Source assertions, not independently verified facts. Edit/retrieval dates are not relationship validity dates. Projection records a captured assertion, not present-day truth. Crosswalks never merge identities; reciprocity does not establish independent corroboration. Linked media was not imported.",
+  "record_type": "identity",
+  "source_fragments": [
+    {
+      "json_pointer": "/entities/Q390551/id",
+      "value": "Q390551"
+    },
+    {
+      "json_pointer": "/entities/Q390551/type",
+      "value": "item"
+    },
+    {
+      "json_pointer": "/entities/Q390551/lastrevid",
+      "value": 2543960225
+    },
+    {
+      "json_pointer": "/entities/Q390551/modified",
+      "value": "2026-09-11T12:24:24Z"
+    },
+    {
+      "json_pointer": "/entities/Q390551/labels",
+      "value": {
+        "ar": {
+          "language": "ar",
+          "value": "معاهد الصحة الوطنية الأمريكية"
+        },
+        "az": {
+          "language": "az",
+          "value": "Milli Səhiyyə Agentliyi"
+        },
+        "be": {
+          "language": "be",
+          "value": "Нацыянальныя інстытуты аховы здароўя ЗША"
+        },
+        "be-tarask": {
+          "language": "be-tarask",
+          "value": "Нацыянальныя інстытуты здароўя"
+        },
+        "bg": {
+          "language": "bg",
+          "value": "Национални институти по здравеопазване"
+        },
+        "ca": {
+          "language": "ca",
+          "value": "National Institutes of Health"
+        },
+        "ckb": {
+          "language": "ckb",
+          "value": "پەیمانگا نەتەوەییەکانی تەندروستی ولایەتە یەکگرتووەکان"
+        },
+        "cs": {
+          "language": "cs",
+          "value": "Národní instituty zdraví"
+        },
+        "cy": {
+          "language": "cy",
+          "value": "Sefydliadau Iechyd Cenedlaethol Unol Daleithiau America"
+        },
+        "da": {
+          "language": "da",
+          "value": "National Institutes of Health"
+        },
+        "de": {
+          "language": "de",
+          "value": "National Institutes of Health"
+        },
+        "el": {
+          "language": "el",
+          "value": "Εθνικά Ινστιτούτα Υγείας των ΗΠΑ"
+        },
+        "en": {
+          "language": "en",
+          "value": "United States National Institutes of Health"
+        },
+        "eo": {
+          "language": "eo",
+          "value": "Nacia Institutaro pri Homsano"
+        },
+        "es": {
+          "language": "es",
+          "value": "National Institutes of Health"
+        },
+        "fa": {
+          "language": "fa",
+          "value": "مؤسسات ملی بهداشت"
+        },
+        "fi": {
+          "language": "fi",
+          "value": "National Institutes of Health"
+        },
+        "fo": {
+          "language": "fo",
+          "value": "National Institutes of Health"
+        },
+        "fr": {
+          "language": "fr",
+          "value": "National Institutes of Health"
+        },
+        "ga": {
+          "language": "ga",
+          "value": "na hInstitiúidí Náisiúnta um Shláinte"
+        },
+        "gl": {
+          "language": "gl",
+          "value": "National Institutes of Health"
+        },
+        "he": {
+          "language": "he",
+          "value": "המכונים הלאומיים לבריאות"
+        },
+        "hu": {
+          "language": "hu",
+          "value": "Nemzeti Egészségügyi Intézet"
+        },
+        "hy": {
+          "language": "hy",
+          "value": "ԱՄՆ Առողջապահության ազգային ինստիտուտներ"
+        },
+        "id": {
+          "language": "id",
+          "value": "National Institutes of Health"
+        },
+        "is": {
+          "language": "is",
+          "value": "National Institutes of Health"
+        },
+        "it": {
+          "language": "it",
+          "value": "National Institutes of Health"
+        },
+        "ja": {
+          "language": "ja",
+          "value": "アメリカ国立衛生研究所"
+        },
+        "ka": {
+          "language": "ka",
+          "value": "აშშ-ის ჯანდაცვის ეროვნულ ინსტიტუტები"
+        },
+        "kl": {
+          "language": "kl",
+          "value": "National Institutes of Health"
+        },
+        "ko": {
+          "language": "ko",
+          "value": "미국 국립 보건원"
+        },
+        "ku": {
+          "language": "ku",
+          "value": "Enstîtuya Neteweyî ya Tenduristiyê"
+        },
+        "ky": {
+          "language": "ky",
+          "value": "Улуттук Саламаттыкты Сактоо Институту"
+        },
+        "la": {
+          "language": "la",
+          "value": "Instituta Nationale Salutis"
+        },
+        "mk": {
+          "language": "mk",
+          "value": "Национални здравствени институти"
+        },
+        "ml": {
+          "language": "ml",
+          "value": "നാഷണൽ ഇൻസ്റ്റിറ്റ്യൂട്ട്സ് ഓഫ് ഹെൽത്ത്"
+        },
+        "ms": {
+          "language": "ms",
+          "value": "Institut Kesihatan Kebangsaan"
+        },
+        "mul": {
+          "language": "mul",
+          "value": "National Institutes of Health"
+        },
+        "nb": {
+          "language": "nb",
+          "value": "National Institutes of Health"
+        },
+        "new": {
+          "language": "new",
+          "value": "स्वास्थ्यको राष्ट्रिय संघ संस्था"
+        },
+        "nl": {
+          "language": "nl",
+          "value": "National Institutes of Health"
+        },
+        "nn": {
+          "language": "nn",
+          "value": "National Institutes of Health"
+        },
+        "pl": {
+          "language": "pl",
+          "value": "National Institutes of Health"
+        },
+        "pt": {
+          "language": "pt",
+          "value": "Institutos Nacionais da Saúde"
+        },
+        "ro": {
+          "language": "ro",
+          "value": "National Institutes of Health"
+        },
+        "ru": {
+          "language": "ru",
+          "value": "Национальный институт здравоохранения"
+        },
+        "sh": {
+          "language": "sh",
+          "value": "Nacionalni instituti za zdravlje"
+        },
+        "sl": {
+          "language": "sl",
+          "value": "Nacionalni inštituti za zdravje"
+        },
+        "sr": {
+          "language": "sr",
+          "value": "Nacionalni instituti za zdravlje"
+        },
+        "sv": {
+          "language": "sv",
+          "value": "National Institutes of Health"
+        },
+        "ta": {
+          "language": "ta",
+          "value": "தேசிய நல கழகம், ஐக்கிய அமெரிக்கா"
+        },
+        "th": {
+          "language": "th",
+          "value": "สถาบันสุขภาพแห่งชาติ"
+        },
+        "tr": {
+          "language": "tr",
+          "value": "Ulusal Sağlık Enstitüleri"
+        },
+        "tt": {
+          "language": "tt",
+          "value": "АКШ милли сәламәтлек саклау институтлары"
+        },
+        "uk": {
+          "language": "uk",
+          "value": "Національний інститут охорони здоров'я США"
+        },
+        "vi": {
+          "language": "vi",
+          "value": "Viện Y tế Quốc gia"
+        },
+        "zh": {
+          "language": "zh",
+          "value": "國立衛生研究院"
+        },
+        "zh-cn": {
+          "language": "zh-cn",
+          "value": "国立卫生研究院"
+        },
+        "zh-hans": {
+          "language": "zh-hans",
+          "value": "国立卫生研究院"
+        },
+        "zh-hant": {
+          "language": "zh-hant",
+          "value": "國立衛生研究院"
+        },
+        "zh-hk": {
+          "language": "zh-hk",
+          "value": "國立衞生研究院"
+        },
+        "zh-sg": {
+          "language": "zh-sg",
+          "value": "国立卫生研究院"
+        },
+        "zh-tw": {
+          "language": "zh-tw",
+          "value": "國立衛生研究院"
+        }
+      }
+    },
+    {
+      "json_pointer": "/entities/Q390551/aliases",
+      "value": {
+        "ar": [
+          {
+            "language": "ar",
+            "value": "معاهد الصحة الأمريكية"
+          },
+          {
+            "language": "ar",
+            "value": "معاهد الصحه الوطنيه الأمريكيه"
+          }
+        ],
+        "be-tarask": [
+          {
+            "language": "be-tarask",
+            "value": "Нацыянальныя інстытуты аховы здароўя"
+          }
+        ],
+        "bg": [
+          {
+            "language": "bg",
+            "value": "Националните институти по здравеопазване"
+          }
+        ],
+        "ca": [
+          {
+            "language": "ca",
+            "value": "U.S. National Institutes of Health"
+          },
+          {
+            "language": "ca",
+            "value": "Institut Nacional de la Salut (EUA)"
+          }
+        ],
+        "da": [
+          {
+            "language": "da",
+            "value": "NIH"
+          }
+        ],
+        "de": [
+          {
+            "language": "de",
+            "value": "NIH"
+          }
+        ],
+        "el": [
+          {
+            "language": "el",
+            "value": "National Institutes of Health"
+          },
+          {
+            "language": "el",
+            "value": "NIH"
+          }
+        ],
+        "en": [
+          {
+            "language": "en",
+            "value": "NIH"
+          },
+          {
+            "language": "en",
+            "value": "U.S. National Institutes of Health"
+          },
+          {
+            "language": "en",
+            "value": "US National Institutes of Health"
+          },
+          {
+            "language": "en",
+            "value": "National Institutes of Health (U.S.)"
+          },
+          {
+            "language": "en",
+            "value": "USNIH"
+          },
+          {
+            "language": "en",
+            "value": "NIH US"
+          },
+          {
+            "language": "en",
+            "value": "National Institutes of Health"
+          }
+        ],
+        "eo": [
+          {
+            "language": "eo",
+            "value": "NIH"
+          }
+        ],
+        "es": [
+          {
+            "language": "es",
+            "value": "Institutos Nacionales de Salud de los EE. UU."
+          }
+        ],
+        "fa": [
+          {
+            "language": "fa",
+            "value": "مؤسسات ملی بهداشت ایالات متحده آمریکا"
+          },
+          {
+            "language": "fa",
+            "value": "موسسات ملی بهداشت ایالات متحده آمریکا"
+          },
+          {
+            "language": "fa",
+            "value": "ان ای اچ"
+          },
+          {
+            "language": "fa",
+            "value": "مؤسسات ملی بهداشت ایالات متحده"
+          },
+          {
+            "language": "fa",
+            "value": "ان‌آی‌آچ"
+          },
+          {
+            "language": "fa",
+            "value": "ان‌ای‌اچ"
+          },
+          {
+            "language": "fa",
+            "value": "ان آی آچ"
+          },
+          {
+            "language": "fa",
+            "value": "ان آی اچ"
+          },
+          {
+            "language": "fa",
+            "value": "مؤسسات ملی سلامت ایالات متحده آمریکا"
+          }
+        ],
+        "fi": [
+          {
+            "language": "fi",
+            "value": "National Institute of Health"
+          },
+          {
+            "language": "fi",
+            "value": "Yhdysvaltain terveysvirasto"
+          },
+          {
+            "language": "fi",
+            "value": "NIH"
+          }
+        ],
+        "fr": [
+          {
+            "language": "fr",
+            "value": "National Institute of Health"
+          },
+          {
+            "language": "fr",
+            "value": "Institut national de la santé"
+          },
+          {
+            "language": "fr",
+            "value": "NIH"
+          }
+        ],
+        "ga": [
+          {
+            "language": "ga",
+            "value": "Institiúidí Náisiúnta um Shláinte"
+          },
+          {
+            "language": "ga",
+            "value": "NIH"
+          }
+        ],
+        "id": [
+          {
+            "language": "id",
+            "value": "NIH"
+          }
+        ],
+        "ja": [
+          {
+            "language": "ja",
+            "value": "アメリカ合衆国国立衛生研究所"
+          },
+          {
+            "language": "ja",
+            "value": "国立衛生研究所"
+          },
+          {
+            "language": "ja",
+            "value": "米国立衛生研究所"
+          }
+        ],
+        "ko": [
+          {
+            "language": "ko",
+            "value": "NIH"
+          },
+          {
+            "language": "ko",
+            "value": "미국국립보건원"
+          }
+        ],
+        "mk": [
+          {
+            "language": "mk",
+            "value": "NIH"
+          }
+        ],
+        "mul": [
+          {
+            "language": "mul",
+            "value": "NIH"
+          }
+        ],
+        "pl": [
+          {
+            "language": "pl",
+            "value": "NIH"
+          }
+        ],
+        "pt": [
+          {
+            "language": "pt",
+            "value": "National Institute of Health"
+          },
+          {
+            "language": "pt",
+            "value": "NIH"
+          },
+          {
+            "language": "pt",
+            "value": "National institutes of health"
+          }
+        ],
+        "ro": [
+          {
+            "language": "ro",
+            "value": "Institutele de Sănătate din SUA"
+          }
+        ],
+        "ru": [
+          {
+            "language": "ru",
+            "value": "Национальный институт здоровья"
+          },
+          {
+            "language": "ru",
+            "value": "Национальные институты здравоохранения США"
+          }
+        ],
+        "sl": [
+          {
+            "language": "sl",
+            "value": "National Institutes of Health"
+          },
+          {
+            "language": "sl",
+            "value": "NIH"
+          }
+        ],
+        "sv": [
+          {
+            "language": "sv",
+            "value": "National Institute of Health"
+          },
+          {
+            "language": "sv",
+            "value": "NIH"
+          }
+        ],
+        "ta": [
+          {
+            "language": "ta",
+            "value": "தேசிய நல கழகம்"
+          }
+        ],
+        "uk": [
+          {
+            "language": "uk",
+            "value": "Національні інститути охорони здоров'я США"
+          },
+          {
+            "language": "uk",
+            "value": "National Institutes of Health"
+          },
+          {
+            "language": "uk",
+            "value": "Національний інститут здоров'я США"
+          },
+          {
+            "language": "uk",
+            "value": "Національний інститут охорони здоров'я"
+          },
+          {
+            "language": "uk",
+            "value": "NIH"
+          },
+          {
+            "language": "uk",
+            "value": "Національні інститути охорони здоров'я"
+          },
+          {
+            "language": "uk",
+            "value": "Національний інститут здоров’я"
+          }
+        ],
+        "vi": [
+          {
+            "language": "vi",
+            "value": "các Viện Y tế Quốc gia"
+          },
+          {
+            "language": "vi",
+            "value": "Viện Y tế Quốc gia Hoa Kỳ"
+          },
+          {
+            "language": "vi",
+            "value": "các Viện Y tế Quốc gia Hoa Kỳ"
+          },
+          {
+            "language": "vi",
+            "value": "Viện Y tế Quốc gia Hoa Kì"
+          },
+          {
+            "language": "vi",
+            "value": "các Viện Y tế Quốc gia Hoa Kì"
+          },
+          {
+            "language": "vi",
+            "value": "NIH"
+          }
+        ],
+        "zh": [
+          {
+            "language": "zh",
+            "value": "国立卫生研究院"
+          },
+          {
+            "language": "zh",
+            "value": "美國國家衛生研究院"
+          },
+          {
+            "language": "zh",
+            "value": "國家衛生研究院"
+          },
+          {
+            "language": "zh",
+            "value": "美國國家衛生院"
+          },
+          {
+            "language": "zh",
+            "value": "國立健康研究院"
+          },
+          {
+            "language": "zh",
+            "value": "National Institutes of Health"
+          }
+        ],
+        "zh-tw": [
+          {
+            "language": "zh-tw",
+            "value": "美國國立衛生研究院"
+          },
+          {
+            "language": "zh-tw",
+            "value": "國衛院"
+          }
+        ]
+      }
+    },
+    {
+      "json_pointer": "/entities/Q390551/descriptions",
+      "value": {
+        "ar": {
+          "language": "ar",
+          "value": "منظمة أمريكية"
+        },
+        "ary": {
+          "language": "ary",
+          "value": "منظمة أمريكية"
+        },
+        "be-tarask": {
+          "language": "be-tarask",
+          "value": "дзяржаўная мэдычна-дасьледчая агенцыя ЗША"
+        },
+        "cy": {
+          "language": "cy",
+          "value": "sefydlaid ymchwil meddygol"
+        },
+        "de": {
+          "language": "de",
+          "value": "Behörde der Vereinigten Staaten"
+        },
+        "el": {
+          "language": "el",
+          "value": "ομοσπονδιακό ιατρικό και ερευνητικό κέντρο των ΗΠΑ"
+        },
+        "en": {
+          "language": "en",
+          "value": "US government medical research agency"
+        },
+        "eo": {
+          "language": "eo",
+          "value": "usona registara organizaĵo"
+        },
+        "es": {
+          "language": "es",
+          "value": "agencia principal del gobierno de los Estados Unidos responsable de la biomedicina y la salud pública de investigación"
+        },
+        "fi": {
+          "language": "fi",
+          "value": "Yhdysvaltain liittovaltion virasto"
+        },
+        "fr": {
+          "language": "fr",
+          "value": "ensemble de laboratoires publics rattachés au département de la Santé et des Services sociaux des États-Unis"
+        },
+        "he": {
+          "language": "he",
+          "value": "סוכנות ממשלתית למחקר ביו-רפואי"
+        },
+        "hy": {
+          "language": "hy",
+          "value": "բժշկական հետազոտությունների կազմակերպություն Միացյալ Նահանգներում"
+        },
+        "id": {
+          "language": "id",
+          "value": "universitas di Amerika Serikat"
+        },
+        "it": {
+          "language": "it",
+          "value": "centro di ricerca statunitense"
+        },
+        "ja": {
+          "language": "ja",
+          "value": "アメリカ合衆国の医学研究の拠点機関"
+        },
+        "ka": {
+          "language": "ka",
+          "value": "სამედიცინო კვლევითი ორგანიზაცია აშშ-ში"
+        },
+        "ko": {
+          "language": "ko",
+          "value": "미국의 정부 기관"
+        },
+        "nb": {
+          "language": "nb",
+          "value": "institusjon under USAs helse- og omsorgsdepartement"
+        },
+        "nl": {
+          "language": "nl",
+          "value": "onderzoeksinstituut in Maryland, Verenigde Staten van Amerika"
+        },
+        "ro": {
+          "language": "ro",
+          "value": "organizație de cercetare medicală din Statele Unite ale Americii"
+        },
+        "tr": {
+          "language": "tr",
+          "value": "ABD hükûmetine bağlı tıbbi araştırma kurumu"
+        },
+        "zh-hant": {
+          "language": "zh-hant",
+          "value": "美國衛生及公共服務部"
+        }
+      }
+    }
+  ],
+  "source_provenance": {
+    "capture_manifest_path": "sources/capture-manifest.json",
+    "entity_id": "Q390551",
+    "id": "wikidata-Q390551",
+    "path": "sources/raw/wikidata-Q390551.json",
+    "provider": "wikidata",
+    "request_attempts": 1,
+    "retrieved_at_utc": "2026-10-07T04:14:12Z",
+    "revision": {
+      "lastrevid": 2543960225,
+      "modified": "2026-09-11T12:24:24Z"
+    },
+    "sha256": "d676dc6801a4bf170ac46cb18a490c8122eb3395f9c520b1f8e903021ccfd4bd",
+    "size_bytes": 261528,
+    "url": "https://www.wikidata.org/wiki/Special:EntityData/Q390551.json?revision=2543960225"
+  }
+}

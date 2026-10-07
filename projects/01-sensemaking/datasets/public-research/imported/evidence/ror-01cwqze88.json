@@ -1,0 +1,781 @@
+{
+  "caution": "Source assertions, not independently verified facts. Edit/retrieval dates are not relationship validity dates. Projection records a captured assertion, not present-day truth. Crosswalks never merge identities; reciprocity does not establish independent corroboration. Linked media was not imported.",
+  "crosswalk_candidates": [
+    {
+      "claims": [
+        {
+          "evidence_id": "claims-ror-01cwqze88",
+          "exclusion_reasons": [],
+          "ror": "ror:01cwqze88",
+          "source_assertion": {
+            "all": [
+              "Q390551",
+              "Q6973636"
+            ],
+            "preferred": null,
+            "type": "wikidata"
+          },
+          "source_entity": "ror:01cwqze88",
+          "source_path": "/external_ids/3",
+          "wikidata": "wikidata:q390551"
+        },
+        {
+          "evidence_id": "claims-wikidata-Q390551",
+          "exclusion_reasons": [],
+          "ror": "ror:01cwqze88",
+          "source_assertion": {
+            "id": "Q390551$459DC88E-0B6B-487F-BEB5-EE24AA6D1548",
+            "mainsnak": {
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "01cwqze88"
+              },
+              "hash": "b22a9c7942f9c3c58fa9a715a354472c9cb54307",
+              "property": "P6782",
+              "snaktype": "value"
+            },
+            "rank": "normal",
+            "type": "statement"
+          },
+          "source_entity": "wikidata:q390551",
+          "source_path": "/entities/Q390551/claims/P6782/0",
+          "wikidata": "wikidata:q390551"
+        }
+      ],
+      "merged": false,
+      "note": "Identifier assertions only; no equivalence edge or independence claim.",
+      "ror": "ror:01cwqze88",
+      "status": "reciprocal_candidate_requires_identity_review",
+      "wikidata": "wikidata:q390551"
+    },
+    {
+      "claims": [
+        {
+          "evidence_id": "claims-ror-01cwqze88",
+          "exclusion_reasons": [],
+          "ror": "ror:01cwqze88",
+          "source_assertion": {
+            "all": [
+              "Q390551",
+              "Q6973636"
+            ],
+            "preferred": null,
+            "type": "wikidata"
+          },
+          "source_entity": "ror:01cwqze88",
+          "source_path": "/external_ids/3",
+          "wikidata": "wikidata:q6973636"
+        }
+      ],
+      "merged": false,
+      "note": "Identifier assertions only; no equivalence edge or independence claim.",
+      "ror": "ror:01cwqze88",
+      "status": "rejected_list_article_type",
+      "wikidata": "wikidata:q6973636"
+    }
+  ],
+  "literal_source_extract": {
+    "admin": {
+      "created": {
+        "date": "2018-11-14",
+        "schema_version": "1.0"
+      },
+      "last_modified": {
+        "date": "2026-08-25",
+        "schema_version": "2.1"
+      }
+    },
+    "established": 1887,
+    "external_ids": [
+      {
+        "all": [
+          "100000002",
+          "100012893",
+          "100024054",
+          "100022330"
+        ],
+        "preferred": "100000002",
+        "type": "fundref"
+      },
+      {
+        "all": [
+          "grid.94365.3d"
+        ],
+        "preferred": "grid.94365.3d",
+        "type": "grid"
+      },
+      {
+        "all": [
+          "0000 0001 2297 5165"
+        ],
+        "preferred": null,
+        "type": "isni"
+      },
+      {
+        "all": [
+          "Q390551",
+          "Q6973636"
+        ],
+        "preferred": null,
+        "type": "wikidata"
+      }
+    ],
+    "id": "https://ror.org/01cwqze88",
+    "names": [
+      {
+        "lang": null,
+        "types": [
+          "acronym"
+        ],
+        "value": "NIH"
+      },
+      {
+        "lang": "en",
+        "types": [
+          "ror_display",
+          "label"
+        ],
+        "value": "National Institutes of Health"
+      },
+      {
+        "lang": "en",
+        "types": [
+          "alias"
+        ],
+        "value": "US National Institutes of Health"
+      },
+      {
+        "lang": "en",
+        "types": [
+          "alias"
+        ],
+        "value": "United States National Institutes of Health"
+      }
+    ],
+    "relationships": [
+      {
+        "id": "https://ror.org/03jh5a977",
+        "label": "Center for Information Technology",
+        "type": "child"
+      },
+      {
+        "id": "https://ror.org/04r5s4b52",
+        "label": "Center for Scientific Review",
+        "type": "child"
+      },
+      {
+        "id": "https://ror.org/04byxyr05",
+        "label": "Eunice Kennedy Shriver National Institute of Child Health and Human Development",
+        "type": "child"
+      },
+      {
+        "id": "https://ror.org/02xey9a22",
+        "label": "Fogarty International Center",
+        "type": "child"
+      },
+      {
+        "id": "https://ror.org/040gcmg81",
+        "label": "National Cancer Institute",
+        "type": "child"
+      },
+      {
+        "id": "https://ror.org/04pw6fb54",
+        "label": "National Center for Advancing Translational Sciences",
+        "type": "child"
+      },
+      {
+        "id": "https://ror.org/00190t495",
+        "label": "National Center for Complementary and Integrative Health",
+        "type": "child"
+      },
+      {
+        "id": "https://ror.org/03wkg3b53",
+        "label": "National Eye Institute",
+        "type": "child"
+      },
+      {
+        "id": "https://ror.org/012pb6c26",
+        "label": "National Heart, Lung, and Blood Institute",
+        "type": "child"
+      },
+      {
+        "id": "https://ror.org/00baak391",
+        "label": "National Human Genome Research Institute",
+        "type": "child"
+      },
+      {
+        "id": "https://ror.org/043z4tv69",
+        "label": "National Institute of Allergy and Infectious Diseases",
+        "type": "child"
+      },
+      {
+        "id": "https://ror.org/006zn3t30",
+        "label": "National Institute of Arthritis and Musculoskeletal and Skin Diseases",
+        "type": "child"
+      },
+      {
+        "id": "https://ror.org/00372qc85",
+        "label": "National Institute of Biomedical Imaging and Bioengineering",
+        "type": "child"
+      },
+      {
+        "id": "https://ror.org/004a2wv92",
+        "label": "National Institute of Dental and Craniofacial Research",
+        "type": "child"
+      },
+      {
+        "id": "https://ror.org/00adh9b73",
+        "label": "National Institute of Diabetes and Digestive and Kidney Diseases",
+        "type": "child"
+      },
+      {
+        "id": "https://ror.org/00j4k1h63",
+        "label": "National Institute of Environmental Health Sciences",
+        "type": "child"
+      },
+      {
+        "id": "https://ror.org/04q48ey07",
+        "label": "National Institute of General Medical Sciences",
+        "type": "child"
+      },
+      {
+        "id": "https://ror.org/04xeg9z08",
+        "label": "National Institute of Mental Health",
+        "type": "child"
+      },
+      {
+        "id": "https://ror.org/01s5ya894",
+        "label": "National Institute of Neurological Disorders and Stroke",
+        "type": "child"
+      },
+      {
+        "id": "https://ror.org/01y3zfr79",
+        "label": "National Institute of Nursing Research",
+        "type": "child"
+      },
+      {
+        "id": "https://ror.org/049v75w11",
+        "label": "National Institute on Aging",
+        "type": "child"
+      },
+      {
+        "id": "https://ror.org/02jzrsm59",
+        "label": "National Institute on Alcohol Abuse and Alcoholism",
+        "type": "child"
+      },
+      {
+        "id": "https://ror.org/04mhx6838",
+        "label": "National Institute on Deafness and Other Communication Disorders",
+        "type": "child"
+      },
+      {
+        "id": "https://ror.org/00fq5cm18",
+        "label": "National Institute on Drug Abuse",
+        "type": "child"
+      },
+      {
+        "id": "https://ror.org/0493hgw16",
+        "label": "National Institute on Minority Health and Health Disparities",
+        "type": "child"
+      },
+      {
+        "id": "https://ror.org/04vfsmv21",
+        "label": "National Institutes of Health Clinical Center",
+        "type": "child"
+      },
+      {
+        "id": "https://ror.org/00fj8a872",
+        "label": "Office of the Director",
+        "type": "child"
+      },
+      {
+        "id": "https://ror.org/0060t0j89",
+        "label": "United States National Library of Medicine",
+        "type": "child"
+      },
+      {
+        "id": "https://ror.org/01jdyfj45",
+        "label": "Office of Research Infrastructure Programs",
+        "type": "child"
+      },
+      {
+        "id": "https://ror.org/033jnv181",
+        "label": "United States Department of Health and Human Services",
+        "type": "parent"
+      }
+    ],
+    "status": "active"
+  },
+  "projection_decisions": [
+    {
+      "evidence_id": "claims-ror-01cwqze88",
+      "exclusion_reasons": [
+        "endpoint_not_captured"
+      ],
+      "predicate": "child",
+      "source_assertion": {
+        "id": "https://ror.org/03jh5a977",
+        "label": "Center for Information Technology",
+        "type": "child"
+      },
+      "source_entity": "ror:01cwqze88",
+      "source_path": "/relationships/0",
+      "target": "ror:03jh5a977"
+    },
+    {
+      "evidence_id": "claims-ror-01cwqze88",
+      "exclusion_reasons": [
+        "endpoint_not_captured"
+      ],
+      "predicate": "child",
+      "source_assertion": {
+        "id": "https://ror.org/04r5s4b52",
+        "label": "Center for Scientific Review",
+        "type": "child"
+      },
+      "source_entity": "ror:01cwqze88",
+      "source_path": "/relationships/1",
+      "target": "ror:04r5s4b52"
+    },
+    {
+      "evidence_id": "claims-ror-01cwqze88",
+      "exclusion_reasons": [
+        "endpoint_not_captured"
+      ],
+      "predicate": "child",
+      "source_assertion": {
+        "id": "https://ror.org/04byxyr05",
+        "label": "Eunice Kennedy Shriver National Institute of Child Health and Human Development",
+        "type": "child"
+      },
+      "source_entity": "ror:01cwqze88",
+      "source_path": "/relationships/2",
+      "target": "ror:04byxyr05"
+    },
+    {
+      "evidence_id": "claims-ror-01cwqze88",
+      "exclusion_reasons": [
+        "endpoint_not_captured"
+      ],
+      "predicate": "child",
+      "source_assertion": {
+        "id": "https://ror.org/02xey9a22",
+        "label": "Fogarty International Center",
+        "type": "child"
+      },
+      "source_entity": "ror:01cwqze88",
+      "source_path": "/relationships/3",
+      "target": "ror:02xey9a22"
+    },
+    {
+      "evidence_id": "claims-ror-01cwqze88",
+      "exclusion_reasons": [],
+      "predicate": "child",
+      "projected_edge": [
+        "ror:01cwqze88",
+        "ror:040gcmg81"
+      ],
+      "source_assertion": {
+        "id": "https://ror.org/040gcmg81",
+        "label": "National Cancer Institute",
+        "type": "child"
+      },
+      "source_entity": "ror:01cwqze88",
+      "source_path": "/relationships/4",
+      "target": "ror:040gcmg81"
+    },
+    {
+      "evidence_id": "claims-ror-01cwqze88",
+      "exclusion_reasons": [
+        "endpoint_not_captured"
+      ],
+      "predicate": "child",
+      "source_assertion": {
+        "id": "https://ror.org/04pw6fb54",
+        "label": "National Center for Advancing Translational Sciences",
+        "type": "child"
+      },
+      "source_entity": "ror:01cwqze88",
+      "source_path": "/relationships/5",
+      "target": "ror:04pw6fb54"
+    },
+    {
+      "evidence_id": "claims-ror-01cwqze88",
+      "exclusion_reasons": [
+        "endpoint_not_captured"
+      ],
+      "predicate": "child",
+      "source_assertion": {
+        "id": "https://ror.org/00190t495",
+        "label": "National Center for Complementary and Integrative Health",
+        "type": "child"
+      },
+      "source_entity": "ror:01cwqze88",
+      "source_path": "/relationships/6",
+      "target": "ror:00190t495"
+    },
+    {
+      "evidence_id": "claims-ror-01cwqze88",
+      "exclusion_reasons": [
+        "endpoint_not_captured"
+      ],
+      "predicate": "child",
+      "source_assertion": {
+        "id": "https://ror.org/03wkg3b53",
+        "label": "National Eye Institute",
+        "type": "child"
+      },
+      "source_entity": "ror:01cwqze88",
+      "source_path": "/relationships/7",
+      "target": "ror:03wkg3b53"
+    },
+    {
+      "evidence_id": "claims-ror-01cwqze88",
+      "exclusion_reasons": [
+        "endpoint_not_captured"
+      ],
+      "predicate": "child",
+      "source_assertion": {
+        "id": "https://ror.org/012pb6c26",
+        "label": "National Heart, Lung, and Blood Institute",
+        "type": "child"
+      },
+      "source_entity": "ror:01cwqze88",
+      "source_path": "/relationships/8",
+      "target": "ror:012pb6c26"
+    },
+    {
+      "evidence_id": "claims-ror-01cwqze88",
+      "exclusion_reasons": [
+        "endpoint_not_captured"
+      ],
+      "predicate": "child",
+      "source_assertion": {
+        "id": "https://ror.org/00baak391",
+        "label": "National Human Genome Research Institute",
+        "type": "child"
+      },
+      "source_entity": "ror:01cwqze88",
+      "source_path": "/relationships/9",
+      "target": "ror:00baak391"
+    },
+    {
+      "evidence_id": "claims-ror-01cwqze88",
+      "exclusion_reasons": [
+        "endpoint_not_captured"
+      ],
+      "predicate": "child",
+      "source_assertion": {
+        "id": "https://ror.org/043z4tv69",
+        "label": "National Institute of Allergy and Infectious Diseases",
+        "type": "child"
+      },
+      "source_entity": "ror:01cwqze88",
+      "source_path": "/relationships/10",
+      "target": "ror:043z4tv69"
+    },
+    {
+      "evidence_id": "claims-ror-01cwqze88",
+      "exclusion_reasons": [
+        "endpoint_not_captured"
+      ],
+      "predicate": "child",
+      "source_assertion": {
+        "id": "https://ror.org/006zn3t30",
+        "label": "National Institute of Arthritis and Musculoskeletal and Skin Diseases",
+        "type": "child"
+      },
+      "source_entity": "ror:01cwqze88",
+      "source_path": "/relationships/11",
+      "target": "ror:006zn3t30"
+    },
+    {
+      "evidence_id": "claims-ror-01cwqze88",
+      "exclusion_reasons": [
+        "endpoint_not_captured"
+      ],
+      "predicate": "child",
+      "source_assertion": {
+        "id": "https://ror.org/00372qc85",
+        "label": "National Institute of Biomedical Imaging and Bioengineering",
+        "type": "child"
+      },
+      "source_entity": "ror:01cwqze88",
+      "source_path": "/relationships/12",
+      "target": "ror:00372qc85"
+    },
+    {
+      "evidence_id": "claims-ror-01cwqze88",
+      "exclusion_reasons": [
+        "endpoint_not_captured"
+      ],
+      "predicate": "child",
+      "source_assertion": {
+        "id": "https://ror.org/004a2wv92",
+        "label": "National Institute of Dental and Craniofacial Research",
+        "type": "child"
+      },
+      "source_entity": "ror:01cwqze88",
+      "source_path": "/relationships/13",
+      "target": "ror:004a2wv92"
+    },
+    {
+      "evidence_id": "claims-ror-01cwqze88",
+      "exclusion_reasons": [
+        "endpoint_not_captured"
+      ],
+      "predicate": "child",
+      "source_assertion": {
+        "id": "https://ror.org/00adh9b73",
+        "label": "National Institute of Diabetes and Digestive and Kidney Diseases",
+        "type": "child"
+      },
+      "source_entity": "ror:01cwqze88",
+      "source_path": "/relationships/14",
+      "target": "ror:00adh9b73"
+    },
+    {
+      "evidence_id": "claims-ror-01cwqze88",
+      "exclusion_reasons": [
+        "endpoint_not_captured"
+      ],
+      "predicate": "child",
+      "source_assertion": {
+        "id": "https://ror.org/00j4k1h63",
+        "label": "National Institute of Environmental Health Sciences",
+        "type": "child"
+      },
+      "source_entity": "ror:01cwqze88",
+      "source_path": "/relationships/15",
+      "target": "ror:00j4k1h63"
+    },
+    {
+      "evidence_id": "claims-ror-01cwqze88",
+      "exclusion_reasons": [
+        "endpoint_not_captured"
+      ],
+      "predicate": "child",
+      "source_assertion": {
+        "id": "https://ror.org/04q48ey07",
+        "label": "National Institute of General Medical Sciences",
+        "type": "child"
+      },
+      "source_entity": "ror:01cwqze88",
+      "source_path": "/relationships/16",
+      "target": "ror:04q48ey07"
+    },
+    {
+      "evidence_id": "claims-ror-01cwqze88",
+      "exclusion_reasons": [
+        "endpoint_not_captured"
+      ],
+      "predicate": "child",
+      "source_assertion": {
+        "id": "https://ror.org/04xeg9z08",
+        "label": "National Institute of Mental Health",
+        "type": "child"
+      },
+      "source_entity": "ror:01cwqze88",
+      "source_path": "/relationships/17",
+      "target": "ror:04xeg9z08"
+    },
+    {
+      "evidence_id": "claims-ror-01cwqze88",
+      "exclusion_reasons": [
+        "endpoint_not_captured"
+      ],
+      "predicate": "child",
+      "source_assertion": {
+        "id": "https://ror.org/01s5ya894",
+        "label": "National Institute of Neurological Disorders and Stroke",
+        "type": "child"
+      },
+      "source_entity": "ror:01cwqze88",
+      "source_path": "/relationships/18",
+      "target": "ror:01s5ya894"
+    },
+    {
+      "evidence_id": "claims-ror-01cwqze88",
+      "exclusion_reasons": [
+        "endpoint_not_captured"
+      ],
+      "predicate": "child",
+      "source_assertion": {
+        "id": "https://ror.org/01y3zfr79",
+        "label": "National Institute of Nursing Research",
+        "type": "child"
+      },
+      "source_entity": "ror:01cwqze88",
+      "source_path": "/relationships/19",
+      "target": "ror:01y3zfr79"
+    },
+    {
+      "evidence_id": "claims-ror-01cwqze88",
+      "exclusion_reasons": [
+        "endpoint_not_captured"
+      ],
+      "predicate": "child",
+      "source_assertion": {
+        "id": "https://ror.org/049v75w11",
+        "label": "National Institute on Aging",
+        "type": "child"
+      },
+      "source_entity": "ror:01cwqze88",
+      "source_path": "/relationships/20",
+      "target": "ror:049v75w11"
+    },
+    {
+      "evidence_id": "claims-ror-01cwqze88",
+      "exclusion_reasons": [
+        "endpoint_not_captured"
+      ],
+      "predicate": "child",
+      "source_assertion": {
+        "id": "https://ror.org/02jzrsm59",
+        "label": "National Institute on Alcohol Abuse and Alcoholism",
+        "type": "child"
+      },
+      "source_entity": "ror:01cwqze88",
+      "source_path": "/relationships/21",
+      "target": "ror:02jzrsm59"
+    },
+    {
+      "evidence_id": "claims-ror-01cwqze88",
+      "exclusion_reasons": [
+        "endpoint_not_captured"
+      ],
+      "predicate": "child",
+      "source_assertion": {
+        "id": "https://ror.org/04mhx6838",
+        "label": "National Institute on Deafness and Other Communication Disorders",
+        "type": "child"
+      },
+      "source_entity": "ror:01cwqze88",
+      "source_path": "/relationships/22",
+      "target": "ror:04mhx6838"
+    },
+    {
+      "evidence_id": "claims-ror-01cwqze88",
+      "exclusion_reasons": [
+        "endpoint_not_captured"
+      ],
+      "predicate": "child",
+      "source_assertion": {
+        "id": "https://ror.org/00fq5cm18",
+        "label": "National Institute on Drug Abuse",
+        "type": "child"
+      },
+      "source_entity": "ror:01cwqze88",
+      "source_path": "/relationships/23",
+      "target": "ror:00fq5cm18"
+    },
+    {
+      "evidence_id": "claims-ror-01cwqze88",
+      "exclusion_reasons": [
+        "endpoint_not_captured"
+      ],
+      "predicate": "child",
+      "source_assertion": {
+        "id": "https://ror.org/0493hgw16",
+        "label": "National Institute on Minority Health and Health Disparities",
+        "type": "child"
+      },
+      "source_entity": "ror:01cwqze88",
+      "source_path": "/relationships/24",
+      "target": "ror:0493hgw16"
+    },
+    {
+      "evidence_id": "claims-ror-01cwqze88",
+      "exclusion_reasons": [
+        "endpoint_not_captured"
+      ],
+      "predicate": "child",
+      "source_assertion": {
+        "id": "https://ror.org/04vfsmv21",
+        "label": "National Institutes of Health Clinical Center",
+        "type": "child"
+      },
+      "source_entity": "ror:01cwqze88",
+      "source_path": "/relationships/25",
+      "target": "ror:04vfsmv21"
+    },
+    {
+      "evidence_id": "claims-ror-01cwqze88",
+      "exclusion_reasons": [
+        "endpoint_not_captured"
+      ],
+      "predicate": "child",
+      "source_assertion": {
+        "id": "https://ror.org/00fj8a872",
+        "label": "Office of the Director",
+        "type": "child"
+      },
+      "source_entity": "ror:01cwqze88",
+      "source_path": "/relationships/26",
+      "target": "ror:00fj8a872"
+    },
+    {
+      "evidence_id": "claims-ror-01cwqze88",
+      "exclusion_reasons": [
+        "endpoint_not_captured"
+      ],
+      "predicate": "child",
+      "source_assertion": {
+        "id": "https://ror.org/0060t0j89",
+        "label": "United States National Library of Medicine",
+        "type": "child"
+      },
+      "source_entity": "ror:01cwqze88",
+      "source_path": "/relationships/27",
+      "target": "ror:0060t0j89"
+    },
+    {
+      "evidence_id": "claims-ror-01cwqze88",
+      "exclusion_reasons": [
+        "endpoint_not_captured"
+      ],
+      "predicate": "child",
+      "source_assertion": {
+        "id": "https://ror.org/01jdyfj45",
+        "label": "Office of Research Infrastructure Programs",
+        "type": "child"
+      },
+      "source_entity": "ror:01cwqze88",
+      "source_path": "/relationships/28",
+      "target": "ror:01jdyfj45"
+    },
+    {
+      "evidence_id": "claims-ror-01cwqze88",
+      "exclusion_reasons": [
+        "endpoint_not_captured"
+      ],
+      "predicate": "parent",
+      "source_assertion": {
+        "id": "https://ror.org/033jnv181",
+        "label": "United States Department of Health and Human Services",
+        "type": "parent"
+      },
+      "source_entity": "ror:01cwqze88",
+      "source_path": "/relationships/29",
+      "target": "ror:033jnv181"
+    }
+  ],
+  "source_provenance": {
+    "capture_manifest_path": "sources/capture-manifest.json",
+    "entity_id": "01cwqze88",
+    "id": "ror-01cwqze88",
+    "path": "sources/raw/ror-01cwqze88.json",
+    "provider": "ror",
+    "request_attempts": 1,
+    "retrieved_at_utc": "2026-10-07T04:14:08Z",
+    "revision": {
+      "record_modified": "2026-08-25",
+      "schema_version": "2.1"
+    },
+    "sha256": "b43dbcc8dcd4db9417a2667370bd463a5c907a36d83c8482f7c39235586f8385",
+    "size_bytes": 4516,
+    "url": "https://api.ror.org/v2/organizations/01cwqze88"
+  },
+  "unindexed_statement_count": 0
+}
