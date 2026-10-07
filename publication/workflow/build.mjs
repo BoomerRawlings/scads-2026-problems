@@ -106,6 +106,7 @@ const wording = {
 };
 for (const [from, to] of Object.entries(wording)) html = html.replaceAll(from, to);
 html = html.replace('pre.tabIndex = 0;', "pre.classList.add('is-wrapped'); pre.tabIndex = 0;").replace("wrap.setAttribute('aria-pressed','false');", "wrap.setAttribute('aria-pressed','true');");
+html = html.replace('drawFrame = requestAnimationFrame(() => drawConnections());', 'drawFrame = requestAnimationFrame(() => drawConnections(Boolean(active)));').replace('drawConnections(changed);', 'drawConnections(changed || notify);');
 html = html.replace(dataMarker, () => embeddedData);
 await writeFile(htmlPath, html);
 const siteIndex = process.argv.indexOf('--site');
