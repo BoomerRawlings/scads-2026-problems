@@ -12,7 +12,7 @@ concurrency:
 jobs:
   development-model:
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    timeout-minutes: 40
     defaults:
       run:
         working-directory: projects/02-311-analytics
@@ -24,7 +24,7 @@ jobs:
           python-version: "3.12"
       - name: Install analytical core only
         run: |
-          python -m pip install .
+          python -m pip install ".[geo,mcp]"
           mkdir -p runs/model-smoke/runtime data/model-smoke
           python -m pip freeze > runs/model-smoke/runtime/python-packages.txt
           python -m analytics311 doctor > runs/model-smoke/runtime/host.json
@@ -66,15 +66,49 @@ jobs:
           assert candidates[0].resolve().is_relative_to(target.resolve())
           (evidence/'model-assets.json').write_text(json.dumps(dict(spec,downloaded_and_hash_verified=True,staged_assets=staged),indent=2))
           PY
+      - name: Verify current implementation
+        run: python -m unittest discover -s tests -q
+      - name: Build pinned native CPU and OpenBLAS runtime
+        timeout-minutes: 12
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends cmake ninja-build libopenblas-dev
+          mkdir data/model-smoke/source
+          git -C data/model-smoke/source init -q
+          git -C data/model-smoke/source remote add origin https://github.com/ggml-org/llama.cpp.git
+          git -C data/model-smoke/source fetch --depth 1 origin 5ad1c5da0ad7f6176256b823925aad19134f0263
+          git -C data/model-smoke/source checkout --detach FETCH_HEAD
+          test "$(git -C data/model-smoke/source rev-parse HEAD)" = 5ad1c5da0ad7f6176256b823925aad19134f0263
+          cmake -S data/model-smoke/source -B data/model-smoke/native -G Ninja -DCMAKE_BUILD_TYPE=Release -DGGML_BACKEND_DL=OFF -DGGML_NATIVE=ON -DGGML_BLAS=ON -DGGML_BLAS_VENDOR=OpenBLAS -DLLAMA_CURL=OFF -DLLAMA_BUILD_TESTS=OFF
+          cmake --build data/model-smoke/native --parallel 4 --target llama-server llama-bench
+          lscpu > runs/model-smoke/runtime/cpu.txt
+          c++ --version > runs/model-smoke/runtime/compiler.txt
+          dpkg-query -W libopenblas-dev > runs/model-smoke/runtime/blas-package.txt
+          cp data/model-smoke/native/CMakeCache.txt runs/model-smoke/runtime/native-cmake-cache.txt
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          binary=Path('data/model-smoke/native/bin/llama-server')
+          receipt={'source_commit':'5ad1c5da0ad7f6176256b823925aad19134f0263','build_type':'Release','native':True,'blas':'OpenBLAS','binary_sha256':hashlib.sha256(binary.read_bytes()).hexdigest()}
+          Path('runs/model-smoke/runtime/native-build.json').write_text(json.dumps(receipt,indent=2))
+          PY
+      - name: Compare actual CPU prompt and generation throughput
+        timeout-minutes: 5
+        run: |
+          release_bench=$(find data/model-smoke/runtime -type f -name llama-bench -print -quit)
+          test -n "$release_bench"
+          LD_LIBRARY_PATH="$(dirname "$release_bench")" /usr/bin/time -v -o runs/model-smoke/runtime/release-resources.txt "$release_bench" -m data/model-smoke/Qwen3-4B-Q4_K_M.gguf -p 512 -n 32 -r 1 -t 4 -ngl 0 -b 2048 -ub 512 -o json > runs/model-smoke/runtime/release-benchmark.json
+          OPENBLAS_NUM_THREADS=4 /usr/bin/time -v -o runs/model-smoke/runtime/native-resources.txt data/model-smoke/native/bin/llama-bench -m data/model-smoke/Qwen3-4B-Q4_K_M.gguf -p 512 -n 32 -r 1 -t 4 -ngl 0 -b 2048 -ub 512 -o json > runs/model-smoke/runtime/native-benchmark.json
       - name: Execute one actual model development question
         timeout-minutes: 6
         run: |
           set -euo pipefail
-          server=$(find data/model-smoke/runtime -type f -name llama-server -print -quit)
+          server=data/model-smoke/native/bin/llama-server
           test -n "$server"
+          export OPENBLAS_NUM_THREADS=4
           export LD_LIBRARY_PATH="$(dirname "$server"):${LD_LIBRARY_PATH:-}"
           "$server" --version > runs/model-smoke/runtime/llama-version.txt 2>&1
-          "$server" -m data/model-smoke/Qwen3-4B-Q4_K_M.gguf --host 127.0.0.1 --port 8080 --alias analytics311-qwen3-4b --threads 4 --ctx-size 16384 --parallel 1 --gpu-layers 0 --jinja --reasoning off --reasoning-budget 0 --no-context-shift > runs/model-smoke/runtime/model-server.log 2>&1 &
+          "$server" -m data/model-smoke/Qwen3-4B-Q4_K_M.gguf --host 127.0.0.1 --port 8080 --alias analytics311-qwen3-4b --threads 4 --threads-batch 4 --batch-size 2048 --ubatch-size 512 --ctx-size 16384 --parallel 1 --gpu-layers 0 --jinja --reasoning off --reasoning-budget 0 --no-context-shift > runs/model-smoke/runtime/model-server.log 2>&1 &
           server_pid=$!
           trap 'kill "$server_pid" 2>/dev/null || true; wait "$server_pid" 2>/dev/null || true' EXIT
           python - <<'PY'
@@ -98,7 +132,7 @@ jobs:
 
           folder=Path('runs/model-smoke')
           report={'schema_version':1,'evidence_kind':'actual_local_model_development_fixture_smoke','passed':False,
-                  'actual_agent_trials':0,'held_out_evaluation':False,'real_data_acceptance':False,
+                  'actual_agent_trials':0,'held_out_evaluation':False,'real_data_acceptance':False,'runtime_profile':'native_openblas',
                   'live_elasticsearch_verified':False,'kibana_verified':False,'overall_release_verified':False,
                   'started_at':datetime.now(timezone.utc).isoformat(),'checks':{},
                   'limitations':['One authored development question and 32 synthetic records; not the 40-question benchmark.',
@@ -184,7 +218,7 @@ jobs:
                   if thinking:
                       if '</think>' in line.lower(): thinking=False
                       continue
-                  if name=='model-server' and not re.match(r'^(?:\[[^\]]+\]\s*)?(?:main:|srv\s|slot\s|llama_|ggml_|load_|print_info:|common_|build:|system_info:|error|warning|Error|Warning)',line): continue
+                  if name=='model-server' and not re.search(r'(?:main:|srv\s|slot\s|llama_|ggml_|load_|print_info:|common_|build:|system_info:|prompt processing|prompt eval time|eval time|error|warning)',line,re.I): continue
                   safe.append(line)
               (runtime/(name+'-tail.txt')).write_text(''.join(safe[-120:]))
           if not (folder/'summary.json').exists():
@@ -203,4 +237,3 @@ jobs:
           retention-days: 7
           compression-level: 6
           if-no-files-found: warn
-
