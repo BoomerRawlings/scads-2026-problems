@@ -1,0 +1,80 @@
+<!doctype html>
+<!--
+MIT License
+
+Copyright (c) 2026 Boomer Rawlings
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>Workflow Display</title>
+  <style>{{STYLES}}</style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to workflows</a>
+  <main id="main" class="workspace">
+    <header class="page-heading">
+      <p id="page-eyebrow" class="eyebrow">WORKFLOW DISPLAY</p>
+      <h1 id="page-title">Workflow Display</h1>
+      <p id="page-description"></p>
+    </header>
+    <section class="plan-launcher" aria-labelledby="plans-title">
+      <h2 id="plans-title">Choose a workflow</h2>
+      <p class="plan-intro">Open a plan to follow each explanation beside its implementation.</p>
+      <div id="plan-options" class="plan-options" role="group" aria-labelledby="plans-title"></div>
+    </section>
+    <div id="plan-reveal" class="plan-reveal" inert aria-hidden="true">
+      <div class="plan-reveal-inner">
+        <section id="workflow-guide" aria-labelledby="guide-title">
+          <header class="guide-heading">
+            <div><p class="eyebrow">WORKFLOW / PAIRED GUIDE</p><h2 id="guide-title" tabindex="-1"></h2><p id="guide-summary"></p></div>
+            <button id="download-guide" type="button">Download guide <span aria-hidden="true">↓</span></button>
+          </header>
+          <div class="guide-onramp">
+            <p><strong>Read across each pair</strong><span>Purpose and checkpoint on the left. The matching prompt, code, or instructions on the right.</span></p>
+            <p><strong>Follow a connection</strong><span>Hover or focus to preview. Click a heading to lock. Dashed arrows point to other steps this step depends on.</span></p>
+          </div>
+          <div class="search-row">
+            <label class="search"><span class="sr-only">Search steps in this workflow</span><span aria-hidden="true">⌕</span><input id="step-search" type="search" autocomplete="off" placeholder="Find a step, phrase, or implementation" aria-describedby="search-help"></label>
+            <button id="clear-search" type="button" hidden>Clear search</button>
+          </div>
+          <p id="search-help" class="sr-only">Search filters whole explanation and implementation pairs. Clear search to show all dependencies.</p>
+          <nav id="step-index" class="step-index" aria-label="Workflow steps"></nav>
+          <div class="guide-controls"><p id="trace-summary">Select a heading to keep its connections highlighted.</p><div><span id="step-count"></span><button id="clear-trace" type="button" hidden>Unlock step</button></div></div>
+          <div class="column-head" aria-hidden="true"><span>01 / EXPLANATION</span><span>↔</span><span>02 / IMPLEMENTATION</span></div>
+          <div id="workflow-board" class="workflow-board"><svg id="connection-lines" aria-hidden="true" focusable="false"></svg><div id="step-rows"></div></div>
+          <div id="empty-result" class="empty-result" hidden><p>No steps match this search.</p><button id="show-all" type="button">Show all steps</button></div>
+          <p class="connection-legend"><span>Solid line: matching pair.</span><span>Dashed arrow: explanation → required implementation.</span><span>Dependencies are also listed on every card.</span></p>
+          <p id="guide-end" class="guide-end"></p>
+        </section>
+      </div>
+    </div>
+    <p id="workflow-status" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
+    <p id="load-error" class="empty-result" role="alert" hidden>Workflow data could not be read. Check the source JSON and regenerate this page.</p>
+    <footer id="page-footer"></footer>
+    <noscript><p class="empty-result">Enable JavaScript to open the paired workflow guides. This page runs locally without an account or network connection.</p></noscript>
+  </main>
+  <script type="application/json" id="workflow-data">{{DATA}}</script>
+  <script>{{SCRIPT}}</script>
+</body>
+</html>

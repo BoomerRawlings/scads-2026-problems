@@ -6,6 +6,8 @@ Nine problem-set projects exploring evidence, retrieval, evaluation and data sys
 
 [Nine research papers and editable manuscripts](publication/papers/README.md) · [Publication verification](PUBLICATION-VERIFICATION.md)
 
+[Workflow source and reproduction](publication/workflow/README.md) · [Chronological project workflow](https://boomerrawlings.com/work/scads-2026/#workflow)
+
 | Project and source | Status | Product page | Research paper |
 | --- | --- | --- | --- |
 | [Organizational sensemaking](projects/01-sensemaking/) | In progress | [Overview and demo](https://boomerrawlings.com/work/scads-2026/01-sensemaking/) | [PDF](https://boomerrawlings.com/documents/scads-2026/01-sensemaking.pdf) |

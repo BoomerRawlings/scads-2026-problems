@@ -1,0 +1,219 @@
+{
+  "schemaVersion": 1,
+  "timestampBasis": "UTC session start and end from conversation turn metadata. Individual messages within a session have no separate timestamp.",
+  "durationBasis": "Recorded session duration, including time spent waiting. Concurrent project sessions overlap; durations are not person-hours.",
+  "outcomeBasis": "Curated summaries of contemporaneous final responses. Historical checks and benchmarks are reported evidence, not newly rerun measurements.",
+  "events": [
+    {
+      "id": "03-research-roadmap",
+      "project": "03",
+      "startedAt": "2026-10-07T02:33:03.000Z",
+      "completedAt": "2026-10-07T02:41:22.000Z",
+      "durationMs": 498930,
+      "promptKind": "verbatim excerpt",
+      "promptExcerpt": "Emphasize research and general planning right now. Build out the exact build and implementation roadmap with clear roadblocks.",
+      "title": "Research the metadata discovery architecture",
+      "outcome": "Created an eight-phase implementation roadmap with deliverables, dependencies, acceptance gates, and responses to corpus, metadata-release, use-case, and evaluation constraints. This session produced architecture and corpus research before implementation."
+    },
+    {
+      "id": "02-architecture-research",
+      "project": "02",
+      "startedAt": "2026-10-07T02:34:17.000Z",
+      "completedAt": "2026-10-07T02:41:35.000Z",
+      "durationMs": 438188,
+      "promptKind": "verbatim excerpt",
+      "promptExcerpt": "build and research first. See what already exists, what we could imitate, and build a build plan that we could plug any agent into",
+      "title": "Research an interchangeable-agent architecture",
+      "outcome": "Created a research brief and six-stage build plan connecting interchangeable agents through MCP/CLI tools to Elasticsearch, Kibana Maps, and CSV. Defined seven tool contracts and a first acceptance gate: query, export, and map must represent the same selection."
+    },
+    {
+      "id": "02-stress-test-plan",
+      "project": "02",
+      "startedAt": "2026-10-07T02:42:08.000Z",
+      "completedAt": "2026-10-07T02:42:33.000Z",
+      "durationMs": 25826,
+      "promptKind": "verbatim excerpt",
+      "promptExcerpt": "Should we do a grill me to work through the plan first?",
+      "title": "Pressure-test the project priorities",
+      "outcome": "Opened a planning review comparing three outcomes: a reusable analytics backend, a compelling demonstration, and rigorous research evaluation."
+    },
+    {
+      "id": "03-stress-test-plan",
+      "project": "03",
+      "startedAt": "2026-10-07T02:42:47.000Z",
+      "completedAt": "2026-10-07T02:46:27.000Z",
+      "durationMs": 219962,
+      "promptKind": "verbatim excerpt",
+      "promptExcerpt": "I would like to do a batch grill me",
+      "title": "Stress-test discovery and extraction decisions",
+      "outcome": "Reviewed seven planning decisions covering discovery versus extraction, released metadata, corpus reuse, human review, offline operation, scope, and use-case mapping."
+    },
+    {
+      "id": "02-backend-priority",
+      "project": "02",
+      "startedAt": "2026-10-07T02:44:00.000Z",
+      "completedAt": "2026-10-07T02:44:54.000Z",
+      "durationMs": 53307,
+      "promptKind": "verbatim excerpt",
+      "promptExcerpt": "all three, but I would prefer 2, then 1, but 3 has to be robust.",
+      "title": "Prioritize the backend and evaluation",
+      "outcome": "Set the delivery order to reusable backend first, demonstration second, with rigorous evaluation throughout.",
+      "promptContext": "Context summary: the numbered choices were demo (1), reusable analytics backend (2), and research result (3)."
+    },
+    {
+      "id": "02-hardware-adaptation",
+      "project": "02",
+      "startedAt": "2026-10-07T02:45:40.000Z",
+      "completedAt": "2026-10-07T02:47:24.000Z",
+      "durationMs": 103477,
+      "promptKind": "verbatim excerpt",
+      "promptExcerpt": "It needs to be able to be ran locally, but the computer I am running this on right now doesn't have the architecture to handle it so we need to design something that could scale based on available architecture.",
+      "title": "Design for local, variable-capacity hardware",
+      "outcome": "Established local execution and hardware-adaptive capacity as requirements. The planning response separated small-fixture development from validation on stronger hardware and kept the analytics backend independent of the agent provider."
+    },
+    {
+      "id": "03-offline-boundary",
+      "project": "03",
+      "startedAt": "2026-10-07T02:49:16.000Z",
+      "completedAt": "2026-10-07T02:56:04.000Z",
+      "durationMs": 408393,
+      "promptKind": "verbatim excerpt",
+      "promptExcerpt": "Needs to be designed to run offline",
+      "title": "Commit to an offline metadata-only workflow",
+      "outcome": "Revised the roadmap for offline extraction and natural-language discovery, with separate coverage-only and approved-value catalogs. Proposed a bounded real-manual pilot, reviewed examples, measured extraction errors, and reproducible evidence."
+    },
+    {
+      "id": "02-local-scale-boundary",
+      "project": "02",
+      "startedAt": "2026-10-07T02:51:05.000Z",
+      "completedAt": "2026-10-07T02:53:49.000Z",
+      "durationMs": 163476,
+      "promptKind": "verbatim excerpt",
+      "promptExcerpt": "Eventually fully local, but for now we are just looking for a 'solve' based on the PDF that began these projects.",
+      "title": "Separate scale ambitions from measured capacity",
+      "outcome": "Requested substantial scale and an eventual fully local deployment. The planning response retained Elasticsearch/Kibana from the brief and proposed a billion-record design target with simulations, executed benchmarks, and measured capacity reported separately."
+    },
+    {
+      "id": "02-finalize-plan",
+      "project": "02",
+      "startedAt": "2026-10-07T02:56:21.000Z",
+      "completedAt": "2026-10-07T03:00:15.000Z",
+      "durationMs": 233748,
+      "promptKind": "verbatim excerpt",
+      "promptExcerpt": "I trust you on this.",
+      "title": "Finalize the implementation plan",
+      "outcome": "Finalized self-hosted Elasticsearch/Kibana with a custom analytical layer, staged datasets, independent correctness checks, held-out questions, and repeated agent tests. The billion-record figure remained a design target."
+    },
+    {
+      "id": "03-robust-acceptance",
+      "project": "03",
+      "startedAt": "2026-10-07T02:57:00.000Z",
+      "completedAt": "2026-10-07T03:05:13.000Z",
+      "durationMs": 493073,
+      "promptKind": "verbatim excerpt",
+      "promptExcerpt": "This seems too simple. It needs to be completed in a robust and comprehensive way.",
+      "title": "Expand the acceptance criteria",
+      "outcome": "Expanded the plan to representative scans and layouts, model variants and revisions, evidence-linked corrections, recovery behavior, and independent unseen-document testing. Defined the small corpus as a pilot and separated automatic extraction results from reviewed results."
+    },
+    {
+      "id": "02-first-build",
+      "project": "02",
+      "startedAt": "2026-10-07T03:01:10.000Z",
+      "completedAt": "2026-10-07T03:39:16.000Z",
+      "durationMs": 2287134,
+      "promptKind": "verbatim excerpt",
+      "promptExcerpt": "Build it",
+      "title": "Build the first working analytical toolkit",
+      "outcome": "Implemented the agent-neutral CLI/MCP interface, analytics, CSV export, ingestion, and map adapters. The final report recorded 149 passing tests, a verified agent demonstration, and simulation runs through 100,000 records."
+    },
+    {
+      "id": "03-offline-build",
+      "project": "03",
+      "startedAt": "2026-10-07T03:08:06.000Z",
+      "completedAt": "2026-10-07T06:32:48.000Z",
+      "durationMs": 12284140,
+      "promptKind": "verbatim excerpt",
+      "promptExcerpt": "Build hard and agressively.",
+      "title": "Build the offline extraction and discovery system",
+      "outcome": "Implemented OCR, evidence review, and metadata-only search with portable Windows runtimes bundling Python/OCR. The final report recorded 151 passing tests and a five-manual, 616-page corpus run that flagged six damaged pages."
+    },
+    {
+      "id": "02-release-02",
+      "project": "02",
+      "startedAt": "2026-10-07T03:39:48.000Z",
+      "completedAt": "2026-10-07T04:05:47.000Z",
+      "durationMs": 1558927,
+      "promptKind": "verbatim excerpt",
+      "promptExcerpt": "Continue production and builds",
+      "title": "Package v0.2 for offline installation",
+      "outcome": "Added an offline installer, resumable capture, export concurrency limits, crash recovery, and stricter validation. The final report recorded 217 passing tests, one privilege-dependent skip, and verified clean installation and background CSV export."
+    },
+    {
+      "id": "02-release-03",
+      "project": "02",
+      "startedAt": "2026-10-07T04:12:35.000Z",
+      "completedAt": "2026-10-07T04:27:08.000Z",
+      "durationMs": 872954,
+      "promptKind": "verbatim excerpt",
+      "promptExcerpt": "Push for next build.",
+      "title": "Add capacity planning and parity checks in v0.3",
+      "outcome": "Added hardware sizing, nine modeled scenarios, a live Elasticsearch parity runner, and offline MCP/geometry bundles. The final report recorded 269 passing tests, one privilege-dependent skip, and verified clean installations; modeled scenarios were planning evidence."
+    },
+    {
+      "id": "02-release-04",
+      "project": "02",
+      "startedAt": "2026-10-07T04:28:21.000Z",
+      "completedAt": "2026-10-07T06:18:27.000Z",
+      "durationMs": 6605814,
+      "promptKind": "verbatim excerpt",
+      "promptExcerpt": "Continue the build, scan for any inefficiencies, issues, roadblocks, and build custom solutions to them.",
+      "title": "Audit correctness and remove repeated work in v0.4",
+      "outcome": "Addressed ingestion integrity, deadlines, aggregation completeness, and packaging, while removing repeated parsing, duration storage, and CSV rereads. The final report recorded 325 passing tests and one skip; a 10,000-generated-row benchmark reported identical answers, 1.34–4.84× speedups, and 94% lower count-only allocations."
+    },
+    {
+      "id": "02-release-05",
+      "project": "02",
+      "startedAt": "2026-10-07T06:21:09.000Z",
+      "completedAt": "2026-10-07T06:42:22.000Z",
+      "durationMs": 1272315,
+      "promptKind": "verbatim excerpt",
+      "promptExcerpt": "Build",
+      "title": "Harden export and recovery behavior in v0.5",
+      "outcome": "Fixed Windows metadata polling, added export progress diagnostics and ingestion locks, and verified concurrent exports and recovery after abrupt worker termination. The final report recorded 361 passing tests, one skip, and two successful offline installations."
+    },
+    {
+      "id": "02-live-validation-kit",
+      "project": "02",
+      "startedAt": "2026-10-07T11:18:23.000Z",
+      "completedAt": "2026-10-07T11:31:23.000Z",
+      "durationMs": 779797,
+      "promptKind": "verbatim excerpt",
+      "promptExcerpt": "Complete those",
+      "title": "Prepare the live validation handoff",
+      "outcome": "Built and verified a live execution kit and completed source preflight for the next validation stage. This milestone prepared execution; it did not establish measured multi-million-record capacity.",
+      "promptContext": "Context summary: the request referred to live Elasticsearch/Kibana and multi-million-record validation identified after v0.5."
+    },
+    {
+      "id": "03-guided-interface",
+      "project": "03",
+      "startedAt": "2026-10-07T11:19:38.000Z",
+      "completedAt": "2026-10-07T11:46:31.000Z",
+      "durationMs": 1613438,
+      "promptKind": "verbatim excerpt",
+      "promptExcerpt": "Can you please remove all AI tells, remove all 'fluff', make it have a sleek interface that walks you through the search step by step",
+      "title": "Refine discovery into a guided interface",
+      "outcome": "Reorganized the interface into Equipment → Specification → Results, removed slogans and exposed diagnostics, and refined the mobile layout while retaining offline operation. The final report recorded 103 passing checks."
+    },
+    {
+      "id": "02-release-06",
+      "project": "02",
+      "startedAt": "2026-10-07T11:32:45.000Z",
+      "completedAt": "2026-10-07T11:49:22.000Z",
+      "durationMs": 997270,
+      "promptKind": "verbatim excerpt",
+      "promptExcerpt": "run a simulation of what you expect would happen, and build with that information, without actually simulating",
+      "title": "Use a static scale forecast to guide v0.6",
+      "outcome": "Used static reasoning to add normalization disk/byte limits, reject oversized exports before worker launch, and fetch only requested fields for narrow CSVs. The final report recorded 119 focused checks; no scale simulation or performance measurement was performed."
+    }
+  ]
+}

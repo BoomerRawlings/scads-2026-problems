@@ -1,0 +1,72 @@
+{
+  "events": [
+    {
+      "project": "01",
+      "id": "p01-1",
+      "startedAt": "2026-10-07T02:28:32.000Z",
+      "completedAt": "2026-10-07T02:45:58.000Z",
+      "durationMs": 1046444,
+      "promptKind": "Exact excerpts from prompts within the same session",
+      "title": "Launch the collection and first prototype",
+      "promptExcerpt": "I want to solve and build solutions to each of these programs, and have them as a showcase on my website.\n\nLet's start with number one.\n\nDon't worry about the PDF yet, that will be the final step once we have completed and polished all of the solutions.",
+      "outcome": "Established the shared portfolio workspace and built the first agent-driven sensemaking prototype. The recorded result included six reusable tools, graph and multimodal evidence, a 24-tool-call synthetic run, and 34 passing checks."
+    },
+    {
+      "project": "01",
+      "id": "p01-2",
+      "startedAt": "2026-10-07T02:47:12.000Z",
+      "completedAt": "2026-10-07T02:49:47.000Z",
+      "durationMs": 154444,
+      "promptKind": "Exact prompt",
+      "title": "Pause to interrogate the brief",
+      "promptExcerpt": "Is it too late to do batch grilling? Look up the batch grill me skill online, make sure that it is installed here, and then run it for this.\n\nAnd then we can continue the development once grilling is complete",
+      "outcome": "Paused implementation for a structured design interview: intended user, evidence standard, visitor experience, involvement, and cost constraints."
+    },
+    {
+      "project": "01",
+      "id": "p01-3",
+      "startedAt": "2026-10-07T02:55:54.000Z",
+      "completedAt": "2026-10-07T03:00:03.000Z",
+      "durationMs": 248912,
+      "promptKind": "Exact excerpts from the same prompt",
+      "title": "Set the portfolio and cost constraints",
+      "promptExcerpt": "This needs to be a comprehensive portfolio that I could send and provide to someone when they ask for a showcase of my projects and skills.\n\nBegin with synthetic, allow for two public databases of different scales, and a solution that theoretically scales infinitely.\n\nThere should be clear deliverables, why the solutions work, and access to the solutions for scrutiny.\n\nThis needs to be completely free, anything that needs to be solved should be solved, packaged, and completed by us.",
+      "outcome": "Defined inspectable local software, synthetic-first evidence, two public data sources, and a zero-new-spending constraint. The agreed scaling statement became no fixed dataset ceiling with measured resource limits."
+    },
+    {
+      "project": "01",
+      "id": "p01-4",
+      "startedAt": "2026-10-07T03:00:39.000Z",
+      "completedAt": "2026-10-07T15:21:03.000Z",
+      "durationMs": 44426264,
+      "promptKind": "Exact prompt",
+      "title": "Approve the design and build the evidence workspace",
+      "promptExcerpt": "agree all.",
+      "outcome": "Approved the preceding design decisions and moved into implementation, evaluation, and packaging. The recorded checkpoint contained 13 inspectable cases, 268 passing tests, and a reproducible source package.",
+      "context": "This approval refers to the preceding design interview: free local reproduction, explicit resource limits, research-organization cases, interactive examples plus local execution, and end-to-end implementation."
+    },
+    {
+      "project": "01",
+      "id": "p01-5",
+      "startedAt": "2026-10-07T15:25:03.000Z",
+      "completedAt": "2026-10-07T15:55:45.000Z",
+      "durationMs": 1842420,
+      "promptKind": "Exact prompt",
+      "title": "Make the showcase intuitive",
+      "promptExcerpt": "Make it look far more modern, less like AI slop, less fluff, clearer workflows, and and INTUITIVE animations and workflow",
+      "outcome": "Reworked the showcase around case → steps → sources → findings, with animated playback, an evidence drawer, search, keyboard controls, and reduced-motion support. The recorded result included 13-case workflow checks and desktop/mobile verification."
+    },
+    {
+      "project": "01–09",
+      "id": "collection-publication",
+      "startedAt": "2026-10-07T15:18:25.000Z",
+      "completedAt": "2026-10-07T16:01:14.000Z",
+      "durationMs": 2569000,
+      "timeBasis": "Publication window: session start through successful deployment, not the end of the full conversation.",
+      "title": "Publish all nine projects and research papers",
+      "promptKind": "Exact excerpts from prompts within the publication session",
+      "promptExcerpt": "Can you please add all of these to my website's projects, maintaining the current boomer rawlings visual themese\n\nMake sure that my github has all of the projects as well\n\nAnd I need Masters quality papers for each of them, including the ones I haven't started with a plan and roadmap,  but with a clear disclaimer that they are projected solutions, and completion and implementation hasn't began",
+      "outcome": "Published one overview, nine project pages, five source-derived browser demos, and nine papers totaling 82 pages. Projects 06–09 entered the collection as research proposals with plans and roadmaps; implementation had not begun. The source release and website deployment were verified."
+    }
+  ]
+}

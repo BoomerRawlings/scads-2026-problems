@@ -1,0 +1,680 @@
+<!doctype html>
+<!--
+MIT License
+
+Copyright (c) 2026 Boomer Rawlings
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>Workflow Display</title>
+  <style>/* Change these tokens to fit your site. Pairing and motion do not depend on color. */
+:root {
+  color-scheme: dark;
+  --wf-background: #182b49;
+  --wf-surface: #203854;
+  --wf-surface-raised: #2a4563;
+  --wf-code: #14243d;
+  --wf-text: #fffdf8;
+  --wf-muted: #cfdae7;
+  --wf-subtle: #a5bed3;
+  --wf-border: #446079;
+  --wf-accent: #00c6d7;
+  --wf-dependency: #ffcd00;
+  --wf-connected: #284764;
+  --wf-focus: #ffcd00;
+  --wf-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --wf-mono: ui-monospace, "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+  --wf-ease: cubic-bezier(.22, 1, .36, 1);
+  --wf-duration: 360ms;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--wf-background); color: var(--wf-text); font: 16px/1.6 var(--wf-sans); }
+[hidden] { display: none !important; }
+h1, h2, h3, p { margin: 0; }
+button, input { font: inherit; color: inherit; }
+button, a, input { touch-action: manipulation; }
+button { cursor: pointer; background: var(--wf-surface); border: 1px solid var(--wf-border); border-radius: 4px; padding: 9px 13px; }
+button:hover { background: var(--wf-surface-raised); border-color: var(--wf-accent); }
+button:focus-visible, a:focus-visible, input:focus-visible, pre:focus-visible { outline: 2px solid var(--wf-focus); outline-offset: 4px; }
+a { color: var(--wf-accent); text-underline-offset: 4px; }
+button, a { -webkit-tap-highlight-color: transparent; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+.skip-link { position: fixed; top: -100px; left: 20px; z-index: 10; padding: 12px; background: var(--wf-surface); }
+.skip-link:focus { top: 12px; }
+.workspace { max-width: 1440px; margin: auto; padding: 0 28px; }
+.page-heading { padding: 48px 0 30px; border-bottom: 1px solid var(--wf-border); }
+.eyebrow { font: 10px/1.5 var(--wf-mono); color: var(--wf-subtle); letter-spacing: .14em; }
+.page-heading h1 { margin: 13px 0 12px; font-size: clamp(28px, 3.2vw, 44px); font-weight: 500; line-height: 1.2; letter-spacing: -.035em; overflow-wrap: anywhere; }
+.page-heading > p:last-child { max-width: 850px; color: var(--wf-muted); font-size: 15px; }
+.plan-launcher { padding: 30px 0 26px; }
+.plan-launcher h2 { font-size: clamp(23px, 2.2vw, 31px); line-height: 1.3; font-weight: 500; letter-spacing: -.02em; }
+.plan-intro { margin: 8px 0 23px; color: var(--wf-muted); font-size: 14px; }
+.plan-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px,100%),1fr)); gap: 12px; }
+.plan-choice { display: grid; grid-template-columns: 7px minmax(0,1fr) 14px; gap: 11px; align-items: start; min-width: 0; min-height: 184px; padding: 25px 20px; border-radius: 30px; text-align: left; transition: background .2s, border-color .2s; }
+.plan-choice.is-selected { background: var(--wf-connected); border-color: var(--wf-accent); }
+.plan-choice-dot { width: 7px; height: 7px; margin-top: 8px; border: 1px solid var(--wf-subtle); border-radius: 50%; }
+.plan-choice.is-selected .plan-choice-dot { background: var(--wf-accent); border-color: var(--wf-accent); }
+.plan-choice-text { display: flex; flex-direction: column; gap: 9px; height: 100%; min-width: 0; }
+.plan-choice-title { font-size: 15px; font-weight: 600; line-height: 1.4; overflow-wrap: anywhere; }
+.plan-choice-purpose { color: var(--wf-muted); font-size: 13px; line-height: 1.6; overflow-wrap: anywhere; }
+.plan-choice-meta { font: 10px/1.6 var(--wf-mono); color: var(--wf-subtle); margin-top: auto; }
+.plan-choice-action { color: var(--wf-accent); font: 11px/1.5 var(--wf-mono); padding-top: 3px; }
+.plan-choice-arrow { color: var(--wf-subtle); font: 19px/1 var(--wf-mono); margin-top: 3px; transition: transform .25s; }
+.plan-choice.is-selected .plan-choice-arrow { transform: rotate(180deg); }
+.plan-reveal { display: grid; grid-template-rows: 0fr; opacity: 0; transition: grid-template-rows var(--wf-duration) var(--wf-ease), opacity .22s ease; }
+.plan-reveal.is-expanded { grid-template-rows: 1fr; opacity: 1; }
+.plan-reveal-inner { min-height: 0; overflow: hidden; visibility: hidden; transition: visibility 0s var(--wf-duration); }
+.plan-reveal.is-expanded > .plan-reveal-inner { visibility: visible; transition-delay: 0s; }
+.guide-heading { display: flex; align-items: center; justify-content: space-between; gap: 25px; padding: 30px 0 24px; }
+.guide-heading h2 { margin: 11px 0; font-size: clamp(25px,2.5vw,37px); font-weight: 500; line-height: 1.25; letter-spacing: -.03em; overflow-wrap: anywhere; scroll-margin-top: 24px; }
+.guide-heading h2:focus { outline: none; }
+.guide-heading p:not(.eyebrow) { color: var(--wf-muted); font-size: 14px; max-width: 850px; }
+.guide-heading > button { flex-shrink: 0; font: 11px var(--wf-mono); min-height: 44px; }
+.guide-heading > button span { margin-left: 8px; }
+.guide-onramp { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; border-top: 1px solid var(--wf-border); padding: 19px 0 22px; }
+.guide-onramp p { display: grid; gap: 7px; color: var(--wf-muted); font-size: 13px; line-height: 1.65; }
+.guide-onramp strong { color: var(--wf-text); font-weight: 500; }
+.search-row { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; }
+.search { display: flex; align-items: center; gap: 10px; width: min(100%,440px); border: 1px solid var(--wf-border); border-radius: 4px; padding: 9px 12px; background: var(--wf-surface); }
+.search:focus-within { outline: 2px solid var(--wf-focus); outline-offset: 3px; }
+.search > span[aria-hidden] { font: 22px/1 var(--wf-sans); }
+.search input { width: 100%; min-width: 0; border: 0; outline: none; background: transparent; font-size: 13px; }
+.search input::placeholder { color: var(--wf-subtle); opacity: 1; }
+.search-row > button { min-height: 42px; font: 11px var(--wf-mono); white-space: nowrap; }
+.step-index { display: grid; grid-template-columns: repeat(var(--step-count,4),minmax(0,1fr)); border-top: 1px solid var(--wf-border); border-left: 1px solid var(--wf-border); background: var(--wf-surface); }
+.step-index button { border: 0; border-right: 1px solid var(--wf-border); border-bottom: 1px solid var(--wf-border); border-radius: 0; text-align: left; min-width: 0; padding: 14px 13px; background: transparent; transition: background .2s, box-shadow .2s; }
+.step-index button > span:first-child { display: block; color: var(--wf-subtle); font: 10px var(--wf-mono); margin-bottom: 8px; }
+.step-index button > span:last-child { display: block; font-size: 12px; line-height: 1.5; overflow-wrap: anywhere; }
+.step-index button.is-related { background: var(--wf-connected); box-shadow: inset 0 -2px var(--wf-border); }
+.step-index button.is-traced { background: var(--wf-surface-raised); box-shadow: inset 0 -3px var(--wf-accent); }
+.step-index button[aria-pressed="true"] > span:first-child::after { content: ' / LOCKED'; color: var(--wf-accent); font-size: 8px; }
+.guide-controls { display: flex; justify-content: space-between; align-items: center; gap: 15px; min-height: 76px; padding: 14px 0; }
+.guide-controls > p { color: var(--wf-muted); font-size: 12px; line-height: 1.6; border-left: 2px solid var(--wf-border); padding-left: 12px; }
+.guide-controls > p.is-locked { border-color: var(--wf-accent); color: var(--wf-text); }
+.guide-controls > div { display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
+.guide-controls span, .guide-controls button { font: 10px/1.5 var(--wf-mono); }
+.guide-controls span { color: var(--wf-subtle); }
+.guide-controls button { min-height: 36px; }
+.column-head, .workflow-row { display: grid; grid-template-columns: minmax(0,.9fr) 100px minmax(0,1.1fr); }
+.column-head { padding-bottom: 16px; color: var(--wf-muted); font: 10px/1.5 var(--wf-mono); letter-spacing: .1em; }
+.column-head > span:nth-child(2) { text-align: center; }
+.workflow-board { position: relative; }
+#connection-lines { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; z-index: 2; }
+.connection-wire { fill: none; stroke: var(--wf-border); stroke-width: 1.25; }
+.connection-wire.is-active { stroke: var(--wf-accent); stroke-width: 1.75; }
+.connection-wire.is-dependency { stroke: var(--wf-dependency); stroke-dasharray: 5 5; }
+.connection-tracer { fill: none; stroke: var(--wf-focus); stroke-width: 3.5; stroke-linecap: round; }
+.connection-port { fill: var(--wf-subtle); }
+.connection-port.is-active { fill: var(--wf-accent); }
+.dependency-arrow { fill: var(--wf-dependency); }
+.workflow-row { margin-bottom: 28px; align-items: stretch; }
+.workflow-card { min-width: 0; border: 1px solid var(--wf-border); background: var(--wf-surface); scroll-margin-top: 24px; transition: background .26s, border-color .26s, box-shadow .26s; }
+.workflow-card.is-connected { background: var(--wf-connected); border-color: var(--wf-accent); }
+.workflow-card.is-origin { box-shadow: inset 3px 0 var(--wf-accent); }
+.workflow-card.is-pinned { border-width: 2px; margin: -1px; }
+.plain-card { grid-column: 1; display: flex; flex-direction: column; }
+.artifact-card { grid-column: 3; }
+.workflow-card h3 { font: 400 17px/1.4 var(--wf-sans); }
+.artifact-card h3 { font: 12px/1.5 var(--wf-mono); }
+.card-title { width: 100%; display: flex; align-items: baseline; gap: 16px; text-align: left; padding: 24px 24px 18px; border: 0; border-radius: 0; background: transparent; }
+.card-title:hover { background: transparent; }
+.card-title:focus-visible { outline-offset: -5px; }
+.card-title > span:nth-child(2) { min-width: 0; overflow-wrap: anywhere; }
+.step-number { flex-shrink: 0; color: var(--wf-accent); font: 11px var(--wf-mono); }
+.pin-label { margin-left: auto; flex-shrink: 0; padding: 4px 6px; border: 1px solid var(--wf-accent); border-radius: 3px; color: var(--wf-accent); font: 9px/1 var(--wf-mono); }
+.card-description { padding: 0 24px 26px; font-size: 15px; line-height: 1.85; color: var(--wf-muted); overflow-wrap: anywhere; }
+.checkpoint { margin: auto 24px 22px; padding-left: 13px; border-left: 2px solid var(--wf-accent); }
+.checkpoint > span, .resources > span { font: 9px/1.5 var(--wf-mono); letter-spacing: .09em; color: var(--wf-accent); }
+.checkpoint p { margin-top: 7px; font-size: 13px; line-height: 1.7; color: var(--wf-text); overflow-wrap: anywhere; }
+.resources { padding: 14px 24px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 12px; border-top: 1px solid var(--wf-border); }
+.resources a { font-size: 11px; overflow-wrap: anywhere; }
+.code-tools { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 0 24px 12px; }
+.code-tools > span { font: 9px/1.5 var(--wf-mono); color: var(--wf-subtle); letter-spacing: .08em; overflow-wrap: anywhere; }
+.copy-button { min-height: 34px; font: 10px var(--wf-mono); padding: 6px 10px; }
+.code-actions { display: flex; gap: 6px; flex-shrink: 0; }
+.code-actions [aria-pressed="true"] { border-color: var(--wf-accent); background: var(--wf-connected); }
+.artifact-card pre { margin: 0; padding: 18px 24px; max-height: 270px; overflow: auto; white-space: pre; overflow-wrap: normal; background: var(--wf-code); border-top: 1px solid var(--wf-border); border-bottom: 1px solid var(--wf-border); scrollbar-width: thin; scrollbar-color: var(--wf-border) var(--wf-code); }
+.artifact-card pre.is-wrapped { white-space: pre-wrap; overflow-wrap: anywhere; }
+.artifact-card code { font: 12px/1.8 var(--wf-mono); }
+.artifact-note { padding: 16px 24px; font-size: 12px; line-height: 1.7; color: var(--wf-muted); overflow-wrap: anywhere; }
+.card-relations { padding: 0 24px 16px; font: 10px/1.8 var(--wf-mono); color: var(--wf-muted); }
+.plain-card .card-relations { margin-top: auto; }
+.artifact-card pre + .card-relations { padding-top: 16px; }
+.relation-link { color: var(--wf-accent); font: inherit; border: 0; border-bottom: 1px dotted var(--wf-subtle); border-radius: 0; padding: 3px 1px; background: transparent; text-align: left; }
+.relation-link:hover { background: transparent; border-color: var(--wf-accent); }
+.empty-result { padding: 30px 20px; text-align: center; border: 1px solid var(--wf-border); }
+.empty-result button { margin-top: 14px; font: 12px var(--wf-mono); }
+.connection-legend { display: flex; flex-wrap: wrap; gap: 5px 22px; margin: 6px 0 22px; font: 10px/1.7 var(--wf-mono); color: var(--wf-subtle); }
+.guide-end { border-top: 1px solid var(--wf-border); padding: 22px 0 12px; color: var(--wf-muted); font-size: 13px; }
+footer { padding: 28px 0; color: var(--wf-subtle); font: 11px/1.8 var(--wf-mono); }
+@media (max-width: 1100px) {
+  .column-head, .workflow-row { grid-template-columns: minmax(0,.9fr) 65px minmax(0,1.1fr); }
+  .step-index { grid-template-columns: repeat(var(--step-count-medium,4),minmax(0,1fr)); }
+  .card-title { padding-left: 18px; padding-right: 18px; gap: 12px; }
+  .card-description, .resources, .code-tools, .artifact-card pre, .artifact-note, .card-relations { padding-left: 18px; padding-right: 18px; }
+  .checkpoint { margin-left: 18px; margin-right: 18px; }
+}
+@media (max-width: 760px) {
+  .workspace { padding: 0 20px; }
+  .page-heading { padding-top: 30px; }
+  .guide-heading { display: block; padding-top: 23px; }
+  .guide-heading > button { margin-top: 18px; }
+  .guide-onramp { grid-template-columns: 1fr; gap: 14px; }
+  .search-row { flex-wrap: wrap; gap: 9px; }
+  .search { width: 100%; }
+  .step-index button { padding: 11px 8px; }
+  .step-index button > span:last-child { font-size: 11px; }
+  .guide-controls { display: block; }
+  .guide-controls > div { margin-top: 13px; flex-wrap: wrap; }
+  .column-head { display: none; }
+  .workflow-row { display: grid; grid-template-columns: minmax(0,1fr); gap: 22px; margin-bottom: 38px; position: relative; }
+  .plain-card, .artifact-card { grid-column: 1; position: relative; }
+  .plain-card::before, .artifact-card::before { display: block; padding: 16px 18px 0; color: var(--wf-subtle); font: 9px/1.5 var(--wf-mono); letter-spacing: .12em; }
+  .plain-card::before { content: 'WORK & TIMING'; }
+  .artifact-card::before { content: 'MY PROMPT'; }
+  .artifact-card::after { content: ''; position: absolute; left: 30px; bottom: 100%; height: 24px; border-left: 1px solid var(--wf-accent); }
+  .card-title { padding-top: 13px; }
+  .workflow-card h3 { font-size: 16px; }
+  .artifact-card h3 { font-size: 12px; }
+  .card-description { font-size: 14px; }
+  .artifact-card code { font-size: 11px; }
+  #connection-lines { display: none; }
+}
+@media (max-width: 520px) {
+  .plan-options { grid-template-columns: 1fr; gap: 9px; }
+  .plan-choice { min-height: 148px; padding: 22px; border-radius: 26px; }
+  .step-index { grid-template-columns: repeat(var(--step-count-small,3),minmax(0,1fr)); }
+  .pin-label { font-size: 8px; padding: 4px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+@media print {
+  :root { --wf-background: white; --wf-surface: white; --wf-code: #f5f5f5; --wf-text: #111; --wf-muted: #333; --wf-subtle: #444; --wf-border: #aaa; --wf-accent: #222; --wf-connected: white; }
+  .workspace { max-width: none; padding: 0; }
+  .plan-launcher, .search-row, .step-index, .guide-controls, .guide-onramp, .guide-heading > button, .copy-button, .pin-label, .skip-link, #connection-lines { display: none; }
+  .plan-reveal:not(.is-expanded) { display: none; }
+  .plan-reveal.is-expanded, .plan-reveal-inner { display: block; overflow: visible; opacity: 1; visibility: visible; }
+  .column-head, .workflow-row { grid-template-columns: minmax(0,1fr) 20px minmax(0,1fr); }
+  .workflow-row { break-inside: avoid; }
+  .plain-card { grid-column: 1; }
+  .artifact-card { grid-column: 3; }
+  .artifact-card pre { max-height: none; overflow: visible; }
+  .plain-card::before, .artifact-card::before, .artifact-card::after { display: none; }
+}
+</style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to workflows</a>
+  <main id="main" class="workspace">
+    <header class="page-heading">
+      <p id="page-eyebrow" class="eyebrow">WORKFLOW DISPLAY</p>
+      <h1 id="page-title">Workflow Display</h1>
+      <p id="page-description"></p>
+    </header>
+    <section class="plan-launcher" aria-labelledby="plans-title">
+      <h2 id="plans-title">Open the chronological stream</h2>
+      <p class="plan-intro">All projects share one timeline. Read each development outcome beside my prompt.</p>
+      <div id="plan-options" class="plan-options" role="group" aria-labelledby="plans-title"></div>
+    </section>
+    <div id="plan-reveal" class="plan-reveal" inert aria-hidden="true">
+      <div class="plan-reveal-inner">
+        <section id="workflow-guide" aria-labelledby="guide-title">
+          <header class="guide-heading">
+            <div><p class="eyebrow">WORKFLOW / PAIRED GUIDE</p><h2 id="guide-title" tabindex="-1"></h2><p id="guide-summary"></p></div>
+            <button id="download-guide" type="button">Download guide <span aria-hidden="true">↓</span></button>
+          </header>
+          <div class="guide-onramp">
+            <p><strong>Read across each pair</strong><span>Recorded outcome and session timing on the left. My prompt on the right.</span></p>
+            <p><strong>Follow a connection</strong><span>Hover or focus to preview. Click a heading to lock. Dashed arrows link related project history.</span></p>
+          </div>
+          <div class="search-row">
+            <label class="search"><span class="sr-only">Search steps in this workflow</span><span aria-hidden="true">⌕</span><input id="step-search" type="search" autocomplete="off" placeholder="Find a step, phrase, or implementation" aria-describedby="search-help"></label>
+            <button id="clear-search" type="button" hidden>Clear search</button>
+          </div>
+          <p id="search-help" class="sr-only">Search filters whole explanation and implementation pairs. Clear search to show all dependencies.</p>
+          <nav id="step-index" class="step-index" aria-label="Workflow steps"></nav>
+          <div class="guide-controls"><p id="trace-summary">Select a heading to keep its connections highlighted.</p><div><span id="step-count"></span><button id="clear-trace" type="button" hidden>Unlock step</button></div></div>
+          <div class="column-head" aria-hidden="true"><span>01 / WORK & TIMING</span><span>↔</span><span>02 / MY PROMPT</span></div>
+          <div id="workflow-board" class="workflow-board"><svg id="connection-lines" aria-hidden="true" focusable="false"></svg><div id="step-rows"></div></div>
+          <div id="empty-result" class="empty-result" hidden><p>No steps match this search.</p><button id="show-all" type="button">Show all steps</button></div>
+          <p class="connection-legend"><span>Solid line: outcome and matching prompt.</span><span>Dashed arrow: related project history.</span><span>Related sessions are also listed on each pair.</span></p>
+          <p id="guide-end" class="guide-end"></p>
+        </section>
+      </div>
+    </div>
+    <p id="workflow-status" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
+    <p id="load-error" class="empty-result" role="alert" hidden>Workflow data could not be read. Check the source JSON and regenerate this page.</p>
+    <footer id="page-footer"></footer>
+    <noscript><p class="empty-result">Enable JavaScript to open the paired workflow guides. This page runs locally without an account or network connection.</p></noscript>
+  </main>
+  <script type="application/json" id="workflow-data">{"eyebrow":"MY PROCESS / OCTOBER 6–7, 2026","title":"How I worked through the problems","description":"One chronological stream of my prompts, decisions, and development outcomes. Project labels keep the parallel work visible. All displayed times are Pacific (PDT). Elapsed times describe overlapping sessions, not hours worked.","footer":"Curated verbatim prompt excerpts and recorded development outcomes. Timestamps mark session windows; prompts within a session may have arrived later. Sessions overlap, so elapsed times are not summed hours worked. Test counts belong to individual iterations. The log includes later development than some published source and paper snapshots. P06–P09 appear together in the publication step as research proposals; implementation had not begun.","plans":[{"id":"scads-development","title":"One stream across nine projects","summary":"Follow the interleaved sessions from the first brief to research, implementation, reviews, and publication. Each outcome stays paired with the prompt that directed it.","status":"43 recorded sessions · Pacific time","steps":[{"id":"p01-1","title":"P01 · Launch the collection and first prototype","description":"Established the shared portfolio workspace and built the first agent-driven sensemaking prototype. The recorded result included six reusable tools, graph and multimodal evidence, a 24-tool-call synthetic run, and 34 passing checks.","checkpoint":"Oct 6, 2026 · 7:28:32 PM PDT → Oct 6, 2026 · 7:45:58 PM PDT. 17m 26s elapsed. Recorded session window; not active work time.","artifact":{"title":"P01 · Oct 6, 2026 · 7:28:32 PM PDT","language":"My prompt","code":"I want to solve and build solutions to each of these programs, and have them as a showcase on my website.\n\nLet's start with number one.\n\nDon't worry about the PDF yet, that will be the final step once we have completed and polished all of the solutions.","note":"Exact excerpts from prompts within the same session. Organizational sensemaking."},"related":[],"resources":[{"label":"Project and demo","url":"https://boomerrawlings.com/work/scads-2026/01-sensemaking/"},{"label":"Published source snapshot","url":"https://github.com/BoomerRawlings/scads-2026-problems/tree/scads-2026-10-07/projects/01-sensemaking"}]},{"id":"p03-research-roadmap","title":"P03 · Research the metadata discovery architecture","description":"Created an eight-phase implementation roadmap with deliverables, dependencies, acceptance gates, and responses to corpus, metadata-release, use-case, and evaluation constraints. This session produced architecture and corpus research before implementation.","checkpoint":"Oct 6, 2026 · 7:33:03 PM PDT → Oct 6, 2026 · 7:41:22 PM PDT. 8m 19s elapsed. Recorded session window; not active work time.","artifact":{"title":"P03 · Oct 6, 2026 · 7:33:03 PM PDT","language":"My prompt","code":"Emphasize research and general planning right now. Build out the exact build and implementation roadmap with clear roadblocks.","note":"verbatim excerpt. Semantic discovery."},"related":[],"resources":[{"label":"Project and demo","url":"https://boomerrawlings.com/work/scads-2026/03-semantic-discovery/"},{"label":"Published source snapshot","url":"https://github.com/BoomerRawlings/scads-2026-problems/tree/scads-2026-10-07/projects/03-semantic-discovery"}]},{"id":"p02-architecture-research","title":"P02 · Research an interchangeable-agent architecture","description":"Created a research brief and six-stage build plan connecting interchangeable agents through MCP/CLI tools to Elasticsearch, Kibana Maps, and CSV. Defined seven tool contracts and a first acceptance gate: query, export, and map must represent the same selection.","checkpoint":"Oct 6, 2026 · 7:34:17 PM PDT → Oct 6, 2026 · 7:41:35 PM PDT. 7m 18s elapsed. Recorded session window; not active work time.","artifact":{"title":"P02 · Oct 6, 2026 · 7:34:17 PM PDT","language":"My prompt","code":"build and research first. See what already exists, what we could imitate, and build a build plan that we could plug any agent into","note":"verbatim excerpt. Conversational 311 analytics."},"related":[],"resources":[{"label":"Project and demo","url":"https://boomerrawlings.com/work/scads-2026/02-311-analytics/"},{"label":"Published source snapshot","url":"https://github.com/BoomerRawlings/scads-2026-problems/tree/scads-2026-10-07/projects/02-311-analytics"}]},{"id":"p4-research-plan","title":"P04 · Research the organizational graph workflow","description":"Designed ingestion, identity resolution, relationship inference, evidence review, corrections, and export. Compared research approaches and separated reporting, authority, teams, and influence in the proposed architecture.","checkpoint":"Oct 6, 2026 · 7:37:11 PM PDT → Oct 6, 2026 · 7:47:11 PM PDT. 10m 0s elapsed. Recorded session window; not active work time.","artifact":{"title":"P04 · Oct 6, 2026 · 7:37:11 PM PDT","language":"My prompt","code":"Do deep research initially to design and plan how we are going to build the solutions to this.","note":"verbatim excerpt. Organizational knowledge graphs."},"related":[],"resources":[{"label":"Project and demo","url":"https://boomerrawlings.com/work/scads-2026/04-org-knowledge-graphs/"},{"label":"Published source snapshot","url":"https://github.com/BoomerRawlings/scads-2026-problems/tree/scads-2026-10-07/projects/04-org-knowledge-graphs"}]},{"id":"p5-research-plan","title":"P05 · Design a pluggable temporal graph system","description":"Designed pluggable datasets, temporal history, bounded graph retrieval, an analyst interface, and scale evaluation. Reviewed the design and checked its documentation.","checkpoint":"Oct 6, 2026 · 7:41:48 PM PDT → Oct 6, 2026 · 7:50:52 PM PDT. 9m 5s elapsed. Recorded session window; not active work time.","artifact":{"title":"P05 · Oct 6, 2026 · 7:41:48 PM PDT","language":"My prompt","code":"Not yet, but let's build an implementation plan, project design, and then we can find a dataset that can be plugged in.","note":"verbatim excerpt. GraphRAG discovery."},"related":[],"resources":[{"label":"Project and demo","url":"https://boomerrawlings.com/work/scads-2026/05-graphrag-discovery/"},{"label":"Published source snapshot","url":"https://github.com/BoomerRawlings/scads-2026-problems/tree/scads-2026-10-07/projects/05-graphrag-discovery"}]},{"id":"p02-stress-test-plan","title":"P02 · Pressure-test the project priorities","description":"Opened a planning review comparing three outcomes: a reusable analytics backend, a compelling demonstration, and rigorous research evaluation.","checkpoint":"Oct 6, 2026 · 7:42:08 PM PDT → Oct 6, 2026 · 7:42:33 PM PDT. 26s elapsed. Recorded session window; not active work time.","artifact":{"title":"P02 · Oct 6, 2026 · 7:42:08 PM PDT","language":"My prompt","code":"Should we do a grill me to work through the plan first?","note":"verbatim excerpt. Conversational 311 analytics."},"related":["p02-architecture-research"],"resources":[{"label":"Project and demo","url":"https://boomerrawlings.com/work/scads-2026/02-311-analytics/"},{"label":"Published source snapshot","url":"https://github.com/BoomerRawlings/scads-2026-problems/tree/scads-2026-10-07/projects/02-311-analytics"}]},{"id":"p03-stress-test-plan","title":"P03 · Stress-test discovery and extraction decisions","description":"Reviewed seven planning decisions covering discovery versus extraction, released metadata, corpus reuse, human review, offline operation, scope, and use-case mapping.","checkpoint":"Oct 6, 2026 · 7:42:47 PM PDT → Oct 6, 2026 · 7:46:27 PM PDT. 3m 40s elapsed. Recorded session window; not active work time.","artifact":{"title":"P03 · Oct 6, 2026 · 7:42:47 PM PDT","language":"My prompt","code":"I would like to do a batch grill me","note":"verbatim excerpt. Semantic discovery."},"related":["p03-research-roadmap"],"resources":[{"label":"Project and demo","url":"https://boomerrawlings.com/work/scads-2026/03-semantic-discovery/"},{"label":"Published source snapshot","url":"https://github.com/BoomerRawlings/scads-2026-problems/tree/scads-2026-10-07/projects/03-semantic-discovery"}]},{"id":"p02-backend-priority","title":"P02 · Prioritize the backend and evaluation","description":"Set the delivery order to reusable backend first, demonstration second, with rigorous evaluation throughout.","checkpoint":"Oct 6, 2026 · 7:44:00 PM PDT → Oct 6, 2026 · 7:44:54 PM PDT. 53s elapsed. Recorded session window; not active work time.","artifact":{"title":"P02 · Oct 6, 2026 · 7:44:00 PM PDT","language":"My prompt","code":"all three, but I would prefer 2, then 1, but 3 has to be robust.","note":"verbatim excerpt. Conversational 311 analytics. Context summary: the numbered choices were demo (1), reusable analytics backend (2), and research result (3)."},"related":["p02-stress-test-plan"],"resources":[{"label":"Project and demo","url":"https://boomerrawlings.com/work/scads-2026/02-311-analytics/"},{"label":"Published source snapshot","url":"https://github.com/BoomerRawlings/scads-2026-problems/tree/scads-2026-10-07/projects/02-311-analytics"}]},{"id":"p02-hardware-adaptation","title":"P02 · Design for local, variable-capacity hardware","description":"Established local execution and hardware-adaptive capacity as requirements. The planning response separated small-fixture development from validation on stronger hardware and kept the analytics backend independent of the agent provider.","checkpoint":"Oct 6, 2026 · 7:45:40 PM PDT → Oct 6, 2026 · 7:47:24 PM PDT. 1m 43s elapsed. Recorded session window; not active work time.","artifact":{"title":"P02 · Oct 6, 2026 · 7:45:40 PM PDT","language":"My prompt","code":"It needs to be able to be ran locally, but the computer I am running this on right now doesn't have the architecture to handle it so we need to design something that could scale based on available architecture.","note":"verbatim excerpt. Conversational 311 analytics."},"related":["p02-backend-priority"],"resources":[{"label":"Project and demo","url":"https://boomerrawlings.com/work/scads-2026/02-311-analytics/"},{"label":"Published source snapshot","url":"https://github.com/BoomerRawlings/scads-2026-problems/tree/scads-2026-10-07/projects/02-311-analytics"}]},{"id":"p01-2","title":"P01 · Pause to interrogate the brief","description":"Paused implementation for a structured design interview: intended user, evidence standard, visitor experience, involvement, and cost constraints.","checkpoint":"Oct 6, 2026 · 7:47:12 PM PDT → Oct 6, 2026 · 7:49:47 PM PDT. 2m 34s elapsed. Recorded session window; not active work time.","artifact":{"title":"P01 · Oct 6, 2026 · 7:47:12 PM PDT","language":"My prompt","code":"Is it too late to do batch grilling? Look up the batch grill me skill online, make sure that it is installed here, and then run it for this.\n\nAnd then we can continue the development once grilling is complete","note":"Exact prompt. Organizational sensemaking."},"related":["p01-1"],"resources":[{"label":"Project and demo","url":"https://boomerrawlings.com/work/scads-2026/01-sensemaking/"},{"label":"Published source snapshot","url":"https://github.com/BoomerRawlings/scads-2026-problems/tree/scads-2026-10-07/projects/01-sensemaking"}]},{"id":"p03-offline-boundary","title":"P03 · Commit to an offline metadata-only workflow","description":"Revised the roadmap for offline extraction and natural-language discovery, with separate coverage-only and approved-value catalogs. Proposed a bounded real-manual pilot, reviewed examples, measured extraction errors, and reproducible evidence.","checkpoint":"Oct 6, 2026 · 7:49:16 PM PDT → Oct 6, 2026 · 7:56:04 PM PDT. 6m 48s elapsed. Recorded session window; not active work time.","artifact":{"title":"P03 · Oct 6, 2026 · 7:49:16 PM PDT","language":"My prompt","code":"Needs to be designed to run offline","note":"verbatim excerpt. Semantic discovery."},"related":["p03-stress-test-plan"],"resources":[{"label":"Project and demo","url":"https://boomerrawlings.com/work/scads-2026/03-semantic-discovery/"},{"label":"Published source snapshot","url":"https://github.com/BoomerRawlings/scads-2026-problems/tree/scads-2026-10-07/projects/03-semantic-discovery"}]},{"id":"p02-local-scale-boundary","title":"P02 · Separate scale ambitions from measured capacity","description":"Requested substantial scale and an eventual fully local deployment. The planning response retained Elasticsearch/Kibana from the brief and proposed a billion-record design target with simulations, executed benchmarks, and measured capacity reported separately.","checkpoint":"Oct 6, 2026 · 7:51:05 PM PDT → Oct 6, 2026 · 7:53:49 PM PDT. 2m 43s elapsed. Recorded session window; not active work time.","artifact":{"title":"P02 · Oct 6, 2026 · 7:51:05 PM PDT","language":"My prompt","code":"Eventually fully local, but for now we are just looking for a 'solve' based on the PDF that began these projects.","note":"verbatim excerpt. Conversational 311 analytics."},"related":["p02-hardware-adaptation"],"resources":[{"label":"Project and demo","url":"https://boomerrawlings.com/work/scads-2026/02-311-analytics/"},{"label":"Published source snapshot","url":"https://github.com/BoomerRawlings/scads-2026-problems/tree/scads-2026-10-07/projects/02-311-analytics"}]},{"id":"p01-3","title":"P01 · Set the portfolio and cost constraints","description":"Defined inspectable local software, synthetic-first evidence, two public data sources, and a zero-new-spending constraint. The agreed scaling statement became no fixed dataset ceiling with measured resource limits.","checkpoint":"Oct 6, 2026 · 7:55:54 PM PDT → Oct 6, 2026 · 8:00:03 PM PDT. 4m 9s elapsed. Recorded session window; not active work time.","artifact":{"title":"P01 · Oct 6, 2026 · 7:55:54 PM PDT","language":"My prompt","code":"This needs to be a comprehensive portfolio that I could send and provide to someone when they ask for a showcase of my projects and skills.\n\nBegin with synthetic, allow for two public databases of different scales, and a solution that theoretically scales infinitely.\n\nThere should be clear deliverables, why the solutions work, and access to the solutions for scrutiny.\n\nThis needs to be completely free, anything that needs to be solved should be solved, packaged, and completed by us.","note":"Exact excerpts from the same prompt. Organizational sensemaking."},"related":["p01-2"],"resources":[{"label":"Project and demo","url":"https://boomerrawlings.com/work/scads-2026/01-sensemaking/"},{"label":"Published source snapshot","url":"https://github.com/BoomerRawlings/scads-2026-problems/tree/scads-2026-10-07/projects/01-sensemaking"}]},{"id":"p02-finalize-plan","title":"P02 · Finalize the implementation plan","description":"Finalized self-hosted Elasticsearch/Kibana with a custom analytical layer, staged datasets, independent correctness checks, held-out questions, and repeated agent tests. The billion-record figure remained a design target.","checkpoint":"Oct 6, 2026 · 7:56:21 PM PDT → Oct 6, 2026 · 8:00:15 PM PDT. 3m 54s elapsed. Recorded session window; not active work time.","artifact":{"title":"P02 · Oct 6, 2026 · 7:56:21 PM PDT","language":"My prompt","code":"I trust you on this.","note":"verbatim excerpt. Conversational 311 analytics."},"related":["p02-local-scale-boundary"],"resources":[{"label":"Project and demo","url":"https://boomerrawlings.com/work/scads-2026/02-311-analytics/"},{"label":"Published source snapshot","url":"https://github.com/BoomerRawlings/scads-2026-problems/tree/scads-2026-10-07/projects/02-311-analytics"}]},{"id":"p03-robust-acceptance","title":"P03 · Expand the acceptance criteria","description":"Expanded the plan to representative scans and layouts, model variants and revisions, evidence-linked corrections, recovery behavior, and independent unseen-document testing. Defined the small corpus as a pilot and separated automatic extraction results from reviewed results.","checkpoint":"Oct 6, 2026 · 7:57:00 PM PDT → Oct 6, 2026 · 8:05:13 PM PDT. 8m 13s elapsed. Recorded session window; not active work time.","artifact":{"title":"P03 · Oct 6, 2026 · 7:57:00 PM PDT","language":"My prompt","code":"This seems too simple. It needs to be completed in a robust and comprehensive way.","note":"verbatim excerpt. Semantic discovery."},"related":["p03-offline-boundary"],"resources":[{"label":"Project and demo","url":"https://boomerrawlings.com/work/scads-2026/03-semantic-discovery/"},{"label":"Published source snapshot","url":"https://github.com/BoomerRawlings/scads-2026-problems/tree/scads-2026-10-07/projects/03-semantic-discovery"}]},{"id":"p4-acceptance-design","title":"P04 · Define analyst workflows and acceptance criteria","description":"Expanded the design with team discovery, communication comparisons, review behavior, resumable runs, durable corrections, and reproducible exports. Specified 17 acceptance scenarios and completion gates.","checkpoint":"Oct 6, 2026 · 7:57:29 PM PDT → Oct 6, 2026 · 8:04:35 PM PDT. 7m 6s elapsed. Recorded session window; not active work time.","artifact":{"title":"P04 · Oct 6, 2026 · 7:57:29 PM PDT","language":"My prompt","code":"Build stronger completion, polish, inferred features and abilities.","note":"verbatim excerpt. Organizational knowledge graphs."},"related":["p4-research-plan"],"resources":[{"label":"Project and demo","url":"https://boomerrawlings.com/work/scads-2026/04-org-knowledge-graphs/"},{"label":"Published source snapshot","url":"https://github.com/BoomerRawlings/scads-2026-problems/tree/scads-2026-10-07/projects/04-org-knowledge-graphs"}]},{"id":"p5-acceptance-design","title":"P05 · Turn the brief into a testable specification","description":"Expanded the specification with saved investigations, two baseline scopes, paired evidence, reversible reviews, exports, and explicit temporal behavior. Mapped 12 requirements to 31 acceptance scenarios and distinguished core from optional scope.","checkpoint":"Oct 6, 2026 · 7:58:30 PM PDT → Oct 6, 2026 · 8:12:25 PM PDT. 13m 55s elapsed. Recorded session window; not active work time.","artifact":{"title":"P05 · Oct 6, 2026 · 7:58:30 PM PDT","language":"My prompt","code":"Enhance the current build specs for this project, infer additional features and implied understanding.","note":"verbatim excerpt. GraphRAG discovery."},"related":["p5-research-plan"],"resources":[{"label":"Project and demo","url":"https://boomerrawlings.com/work/scads-2026/05-graphrag-discovery/"},{"label":"Published source snapshot","url":"https://github.com/BoomerRawlings/scads-2026-problems/tree/scads-2026-10-07/projects/05-graphrag-discovery"}]},{"id":"p01-4","title":"P01 · Approve the design and build the evidence workspace","description":"Approved the preceding design decisions and moved into implementation, evaluation, and packaging. The recorded checkpoint contained 13 inspectable cases, 268 passing tests, and a reproducible source package.","checkpoint":"Oct 6, 2026 · 8:00:39 PM PDT → Oct 7, 2026 · 8:21:03 AM PDT. 12h 20m 26s elapsed. Recorded session window; not active work time.","artifact":{"title":"P01 · Oct 6, 2026 · 8:00:39 PM PDT","language":"My prompt","code":"agree all.","note":"Exact prompt. Organizational sensemaking. This approval refers to the preceding design interview: free local reproduction, explicit resource limits, research-organization cases, interactive examples plus local execution, and end-to-end implementation."},"related":["p01-3"],"resources":[{"label":"Project and demo","url":"https://boomerrawlings.com/work/scads-2026/01-sensemaking/"},{"label":"Published source snapshot","url":"https://github.com/BoomerRawlings/scads-2026-problems/tree/scads-2026-10-07/projects/01-sensemaking"}]},{"id":"p02-first-build","title":"P02 · Build the first working analytical toolkit","description":"Implemented the agent-neutral CLI/MCP interface, analytics, CSV export, ingestion, and map adapters. The final report recorded 149 passing tests, a verified agent demonstration, and simulation runs through 100,000 records.","checkpoint":"Oct 6, 2026 · 8:01:10 PM PDT → Oct 6, 2026 · 8:39:16 PM PDT. 38m 7s elapsed. Recorded session window; not active work time.","artifact":{"title":"P02 · Oct 6, 2026 · 8:01:10 PM PDT","language":"My prompt","code":"Build it","note":"verbatim excerpt. Conversational 311 analytics."},"related":["p02-finalize-plan"],"resources":[{"label":"Project and demo","url":"https://boomerrawlings.com/work/scads-2026/02-311-analytics/"},{"label":"Published source snapshot","url":"https://github.com/BoomerRawlings/scads-2026-problems/tree/scads-2026-10-07/projects/02-311-analytics"}]},{"id":"p03-offline-build","title":"P03 · Build the offline extraction and discovery system","description":"Implemented OCR, evidence review, and metadata-only search with portable Windows runtimes bundling Python/OCR. The final report recorded 151 passing tests and a five-manual, 616-page corpus run that flagged six damaged pages.","checkpoint":"Oct 6, 2026 · 8:08:06 PM PDT → Oct 6, 2026 · 11:32:48 PM PDT. 3h 24m 44s elapsed. Recorded session window; not active work time.","artifact":{"title":"P03 · Oct 6, 2026 · 8:08:06 PM PDT","language":"My prompt","code":"Build hard and agressively.","note":"verbatim excerpt. Semantic discovery."},"related":["p03-robust-acceptance"],"resources":[{"label":"Project and demo","url":"https://boomerrawlings.com/work/scads-2026/03-semantic-discovery/"},{"label":"Published source snapshot","url":"https://github.com/BoomerRawlings/scads-2026-problems/tree/scads-2026-10-07/projects/03-semantic-discovery"}]},{"id":"p4-first-build","title":"P04 · Build the organization analysis workspace","description":"Built import, inference, evidence review, correction and undo, snapshot comparison, and export. Recorded 95 Python tests and four layout tests passing, plus a 100,000-person synthetic hierarchy benchmark.","checkpoint":"Oct 6, 2026 · 8:09:23 PM PDT → Oct 6, 2026 · 8:47:58 PM PDT. 38m 37s elapsed. Recorded session window; not active work time.","artifact":{"title":"P04 · Oct 6, 2026 · 8:09:23 PM PDT","language":"My prompt","code":"go ahead and build","note":"verbatim excerpt. Organizational knowledge graphs."},"related":["p4-acceptance-design"],"resources":[{"label":"Project and demo","url":"https://boomerrawlings.com/work/scads-2026/04-org-knowledge-graphs/"},{"label":"Published source snapshot","url":"https://github.com/BoomerRawlings/scads-2026-problems/tree/scads-2026-10-07/projects/04-org-knowledge-graphs"}]},{"id":"p5-first-build","title":"P05 · Build the temporal discovery core","description":"Built a SQLite engine and command-line interface with versioned ingestion, temporal queries, baselines, investigations, and evidence exports. Recorded 71 tests passing and nine of nine demo checks on authored fixtures.","checkpoint":"Oct 6, 2026 · 8:12:50 PM PDT → Oct 6, 2026 · 8:36:04 PM PDT. 23m 16s elapsed. Recorded session window; not active work time.","artifact":{"title":"P05 · Oct 6, 2026 · 8:12:50 PM PDT","language":"My prompt","code":"Begin build","note":"verbatim excerpt. GraphRAG discovery."},"related":["p5-acceptance-design"],"resources":[{"label":"Project and demo","url":"https://boomerrawlings.com/work/scads-2026/05-graphrag-discovery/"},{"label":"Published source snapshot","url":"https://github.com/BoomerRawlings/scads-2026-problems/tree/scads-2026-10-07/projects/05-graphrag-discovery"}]},{"id":"p5-local-models","title":"P05 · Add local models and a browser workspace","description":"Added a browser workspace, local-model extraction and embeddings, dense and hybrid retrieval, backups, and installable distributions without a paid API dependency. Recorded 121 tests, clean offline installation, local inference, and desktop/mobile browser verification.","checkpoint":"Oct 6, 2026 · 8:39:30 PM PDT → Oct 6, 2026 · 9:10:20 PM PDT. 30m 50s elapsed. Recorded session window; not active work time.","artifact":{"title":"P05 · Oct 6, 2026 · 8:39:30 PM PDT","language":"My prompt","code":"Continue development","note":"verbatim excerpt. GraphRAG discovery."},"related":["p5-first-build"],"resources":[{"label":"Project and demo","url":"https://boomerrawlings.com/work/scads-2026/05-graphrag-discovery/"},{"label":"Published source snapshot","url":"https://github.com/BoomerRawlings/scads-2026-problems/tree/scads-2026-10-07/projects/05-graphrag-discovery"}]},{"id":"p02-release-02","title":"P02 · Package v0.2 for offline installation","description":"Added an offline installer, resumable capture, export concurrency limits, crash recovery, and stricter validation. The final report recorded 217 passing tests, one privilege-dependent skip, and verified clean installation and background CSV export.","checkpoint":"Oct 6, 2026 · 8:39:48 PM PDT → Oct 6, 2026 · 9:05:47 PM PDT. 25m 59s elapsed. Recorded session window; not active work time.","artifact":{"title":"P02 · Oct 6, 2026 · 8:39:48 PM PDT","language":"My prompt","code":"Continue production and builds","note":"verbatim excerpt. Conversational 311 analytics."},"related":["p02-first-build"],"resources":[{"label":"Project and demo","url":"https://boomerrawlings.com/work/scads-2026/02-311-analytics/"},{"label":"Published source snapshot","url":"https://github.com/BoomerRawlings/scads-2026-problems/tree/scads-2026-10-07/projects/02-311-analytics"}]},{"id":"p4-synthetic-scale","title":"P04 · Expand the synthetic organization to 10,000 people","description":"Loaded 10,000 people, 76,680 synthetic messages, and 45 organizational units while preserving existing records and history. Recorded 114 tests passing and browser navigation verification.","checkpoint":"Oct 6, 2026 · 8:52:39 PM PDT → Oct 6, 2026 · 9:06:38 PM PDT. 13m 58s elapsed. Recorded session window; not active work time.","artifact":{"title":"P04 · Oct 6, 2026 · 8:52:39 PM PDT","language":"My prompt","code":"Can you build out the synthetic dataset to 10,000","note":"verbatim excerpt. Organizational knowledge graphs."},"related":["p4-first-build"],"resources":[{"label":"Project and demo","url":"https://boomerrawlings.com/work/scads-2026/04-org-knowledge-graphs/"},{"label":"Published source snapshot","url":"https://github.com/BoomerRawlings/scads-2026-problems/tree/scads-2026-10-07/projects/04-org-knowledge-graphs"}]},{"id":"p4-semantic-zoom","title":"P04 · Navigate from departments to individual connections","description":"Added semantic zoom from departments and groups through reporting branches to positions and connections, with breadcrumbs and evidence markers. Recorded 121 backend and 21 frontend tests passing.","checkpoint":"Oct 6, 2026 · 9:12:23 PM PDT → Oct 6, 2026 · 9:30:22 PM PDT. 17m 58s elapsed. Recorded session window; not active work time.","artifact":{"title":"P04 · Oct 6, 2026 · 9:12:23 PM PDT","language":"My prompt","code":"when zoomed out it shows general departments and groups but zooming in allows you to see all the way down to an individual connection and position level.","note":"verbatim excerpt. Organizational knowledge graphs."},"related":["p4-synthetic-scale"],"resources":[{"label":"Project and demo","url":"https://boomerrawlings.com/work/scads-2026/04-org-knowledge-graphs/"},{"label":"Published source snapshot","url":"https://github.com/BoomerRawlings/scads-2026-problems/tree/scads-2026-10-07/projects/04-org-knowledge-graphs"}]},{"id":"p02-release-03","title":"P02 · Add capacity planning and parity checks in v0.3","description":"Added hardware sizing, nine modeled scenarios, a live Elasticsearch parity runner, and offline MCP/geometry bundles. The final report recorded 269 passing tests, one privilege-dependent skip, and verified clean installations; modeled scenarios were planning evidence.","checkpoint":"Oct 6, 2026 · 9:12:35 PM PDT → Oct 6, 2026 · 9:27:08 PM PDT. 14m 33s elapsed. Recorded session window; not active work time.","artifact":{"title":"P02 · Oct 6, 2026 · 9:12:35 PM PDT","language":"My prompt","code":"Push for next build.","note":"verbatim excerpt. Conversational 311 analytics."},"related":["p02-release-02"],"resources":[{"label":"Project and demo","url":"https://boomerrawlings.com/work/scads-2026/02-311-analytics/"},{"label":"Published source snapshot","url":"https://github.com/BoomerRawlings/scads-2026-problems/tree/scads-2026-10-07/projects/02-311-analytics"}]},{"id":"p5-analyst-interface","title":"P05 · Polish the analyst workspace","description":"Added a responsive dark interface, snapshot navigation, graph controls, clearer provenance, protected drafts, and restored investigations. Recorded 145 tests plus offline installation and desktop/mobile workflow verification.","checkpoint":"Oct 6, 2026 · 9:14:00 PM PDT → Oct 6, 2026 · 11:07:34 PM PDT. 1h 53m 34s elapsed. Recorded session window; not active work time.","artifact":{"title":"P05 · Oct 6, 2026 · 9:14:00 PM PDT","language":"My prompt","code":"Contnue build, and please greatly polish surface level identification, usability, and robust interfaces.","note":"verbatim excerpt. GraphRAG discovery."},"related":["p5-local-models"],"resources":[{"label":"Project and demo","url":"https://boomerrawlings.com/work/scads-2026/05-graphrag-discovery/"},{"label":"Published source snapshot","url":"https://github.com/BoomerRawlings/scads-2026-problems/tree/scads-2026-10-07/projects/05-graphrag-discovery"}]},{"id":"p02-release-04","title":"P02 · Audit correctness and remove repeated work in v0.4","description":"Addressed ingestion integrity, deadlines, aggregation completeness, and packaging, while removing repeated parsing, duration storage, and CSV rereads. The final report recorded 325 passing tests and one skip; a 10,000-generated-row benchmark reported identical answers, 1.34–4.84× speedups, and 94% lower count-only allocations.","checkpoint":"Oct 6, 2026 · 9:28:21 PM PDT → Oct 6, 2026 · 11:18:27 PM PDT. 1h 50m 6s elapsed. Recorded session window; not active work time.","artifact":{"title":"P02 · Oct 6, 2026 · 9:28:21 PM PDT","language":"My prompt","code":"Continue the build, scan for any inefficiencies, issues, roadblocks, and build custom solutions to them.","note":"verbatim excerpt. Conversational 311 analytics."},"related":["p02-release-03"],"resources":[{"label":"Project and demo","url":"https://boomerrawlings.com/work/scads-2026/02-311-analytics/"},{"label":"Published source snapshot","url":"https://github.com/BoomerRawlings/scads-2026-problems/tree/scads-2026-10-07/projects/02-311-analytics"}]},{"id":"p4-continuous-navigation","title":"P04 · Smooth chart movement and continuous loading","description":"Added smoother zoom, continuous loading, and preserved scroll position. Recorded 66 tests and a production build passing, with browser verification.","checkpoint":"Oct 6, 2026 · 9:31:51 PM PDT → Oct 6, 2026 · 11:22:53 PM PDT. 1h 51m 3s elapsed. Recorded session window; not active work time.","artifact":{"title":"P04 · Oct 6, 2026 · 9:31:51 PM PDT","language":"My prompt","code":"It needs to be smoother, and it needs to have seamless scrolling","note":"verbatim excerpt. Organizational knowledge graphs."},"related":["p4-semantic-zoom"],"resources":[{"label":"Project and demo","url":"https://boomerrawlings.com/work/scads-2026/04-org-knowledge-graphs/"},{"label":"Published source snapshot","url":"https://github.com/BoomerRawlings/scads-2026-problems/tree/scads-2026-10-07/projects/04-org-knowledge-graphs"}]},{"id":"p5-focus-polish","title":"P05 · Focus the interface on the research workflow","description":"Removed invented branding, slogans, duplicate headings, and visual clutter while preserving the core GraphRAG workflows. Recorded 39 checks plus desktop, mobile, and offline installation verification.","checkpoint":"Oct 6, 2026 · 11:09:25 PM PDT → Oct 6, 2026 · 11:21:57 PM PDT. 12m 32s elapsed. Recorded session window; not active work time.","artifact":{"title":"P05 · Oct 6, 2026 · 11:09:25 PM PDT","language":"My prompt","code":"Polish, remove fluf, remove anything that deviates from the prompt.","note":"verbatim excerpt. GraphRAG discovery."},"related":["p5-analyst-interface"],"resources":[{"label":"Project and demo","url":"https://boomerrawlings.com/work/scads-2026/05-graphrag-discovery/"},{"label":"Published source snapshot","url":"https://github.com/BoomerRawlings/scads-2026-problems/tree/scads-2026-10-07/projects/05-graphrag-discovery"}]},{"id":"p02-release-05","title":"P02 · Harden export and recovery behavior in v0.5","description":"Fixed Windows metadata polling, added export progress diagnostics and ingestion locks, and verified concurrent exports and recovery after abrupt worker termination. The final report recorded 361 passing tests, one skip, and two successful offline installations.","checkpoint":"Oct 6, 2026 · 11:21:09 PM PDT → Oct 6, 2026 · 11:42:22 PM PDT. 21m 12s elapsed. Recorded session window; not active work time.","artifact":{"title":"P02 · Oct 6, 2026 · 11:21:09 PM PDT","language":"My prompt","code":"Build","note":"verbatim excerpt. Conversational 311 analytics."},"related":["p02-release-04"],"resources":[{"label":"Project and demo","url":"https://boomerrawlings.com/work/scads-2026/02-311-analytics/"},{"label":"Published source snapshot","url":"https://github.com/BoomerRawlings/scads-2026-problems/tree/scads-2026-10-07/projects/02-311-analytics"}]},{"id":"p4-connection-discovery","title":"P04 · Reveal more connections and hover details","description":"Made wheel input default to zoom and expanded visible connections through 30, 80, and 200 people as zoom increased. Added person, group, and reporting-link hover details; recorded 85 tests and a build passing.","checkpoint":"Oct 6, 2026 · 11:24:19 PM PDT → Oct 6, 2026 · 11:38:03 PM PDT. 13m 45s elapsed. Recorded session window; not active work time.","artifact":{"title":"P04 · Oct 6, 2026 · 11:24:19 PM PDT","language":"My prompt","code":"I want more connections at further scrolls, and have the default be zoom not scroll, and have mouse-over have information","note":"verbatim excerpt. Organizational knowledge graphs."},"related":["p4-continuous-navigation"],"resources":[{"label":"Project and demo","url":"https://boomerrawlings.com/work/scads-2026/04-org-knowledge-graphs/"},{"label":"Published source snapshot","url":"https://github.com/BoomerRawlings/scads-2026-problems/tree/scads-2026-10-07/projects/04-org-knowledge-graphs"}]},{"id":"p5-live-evidence","title":"P05 · Animate connections while the analyst types","description":"Added live relationship animation, source-evidence connections, highlighted nodes, click-to-trace support, and reduced-motion behavior. Recorded 168 tests passing and a rebuilt package with offline installation verification.","checkpoint":"Oct 6, 2026 · 11:25:01 PM PDT → Oct 6, 2026 · 11:42:42 PM PDT. 17m 41s elapsed. Recorded session window; not active work time.","artifact":{"title":"P05 · Oct 6, 2026 · 11:25:01 PM PDT","language":"My prompt","code":"Make it so that live as you type, there are animations that show the connections being built, the evidence being connected, and nodes highlighting for illustration of what is going on","note":"verbatim excerpt. GraphRAG discovery."},"related":["p5-focus-polish"],"resources":[{"label":"Project and demo","url":"https://boomerrawlings.com/work/scads-2026/05-graphrag-discovery/"},{"label":"Published source snapshot","url":"https://github.com/BoomerRawlings/scads-2026-problems/tree/scads-2026-10-07/projects/05-graphrag-discovery"}]},{"id":"p02-live-validation-kit","title":"P02 · Prepare the live validation handoff","description":"Built and verified a live execution kit and completed source preflight for the next validation stage. This milestone prepared execution; it did not establish measured multi-million-record capacity.","checkpoint":"Oct 7, 2026 · 4:18:23 AM PDT → Oct 7, 2026 · 4:31:23 AM PDT. 13m 0s elapsed. Recorded session window; not active work time.","artifact":{"title":"P02 · Oct 7, 2026 · 4:18:23 AM PDT","language":"My prompt","code":"Complete those","note":"verbatim excerpt. Conversational 311 analytics. Context summary: the request referred to live Elasticsearch/Kibana and multi-million-record validation identified after v0.5."},"related":["p02-release-05"],"resources":[{"label":"Project and demo","url":"https://boomerrawlings.com/work/scads-2026/02-311-analytics/"},{"label":"Published source snapshot","url":"https://github.com/BoomerRawlings/scads-2026-problems/tree/scads-2026-10-07/projects/02-311-analytics"}]},{"id":"p03-guided-interface","title":"P03 · Refine discovery into a guided interface","description":"Reorganized the interface into Equipment → Specification → Results, removed slogans and exposed diagnostics, and refined the mobile layout while retaining offline operation. The final report recorded 103 passing checks.","checkpoint":"Oct 7, 2026 · 4:19:38 AM PDT → Oct 7, 2026 · 4:46:31 AM PDT. 26m 53s elapsed. Recorded session window; not active work time.","artifact":{"title":"P03 · Oct 7, 2026 · 4:19:38 AM PDT","language":"My prompt","code":"Can you please remove all AI tells, remove all 'fluff', make it have a sleek interface that walks you through the search step by step","note":"verbatim excerpt. Semantic discovery."},"related":["p03-offline-build"],"resources":[{"label":"Project and demo","url":"https://boomerrawlings.com/work/scads-2026/03-semantic-discovery/"},{"label":"Published source snapshot","url":"https://github.com/BoomerRawlings/scads-2026-problems/tree/scads-2026-10-07/projects/03-semantic-discovery"}]},{"id":"p4-guided-import","title":"P04 · Preview a dataset before saving it","description":"Added an import-or-synthetic chooser and an animated six-step walkthrough covering dataset size, people, fields, quality, and graph preview before saving. Included a review checkpoint, replay, and workspace resume; recorded 144 backend and 99 frontend tests passing.","checkpoint":"Oct 7, 2026 · 4:28:42 AM PDT → Oct 7, 2026 · 4:59:20 AM PDT. 30m 37s elapsed. Recorded session window; not active work time.","artifact":{"title":"P04 · Oct 7, 2026 · 4:28:42 AM PDT","language":"My prompt","code":"it asks if you want to import a dataset, or if you want to view synthetic dataset.","note":"verbatim excerpt. Organizational knowledge graphs."},"related":["p4-connection-discovery"],"resources":[{"label":"Project and demo","url":"https://boomerrawlings.com/work/scads-2026/04-org-knowledge-graphs/"},{"label":"Published source snapshot","url":"https://github.com/BoomerRawlings/scads-2026-problems/tree/scads-2026-10-07/projects/04-org-knowledge-graphs"}]},{"id":"p5-instructions","title":"P05 · Add program instructions in the sidebar","description":"Added an Instructions tab with a quick start, workflows, local-model guidance, troubleshooting, and shortcuts. Recorded desktop/mobile verification and 30 tests passing.","checkpoint":"Oct 7, 2026 · 4:29:06 AM PDT → Oct 7, 2026 · 4:34:22 AM PDT. 5m 15s elapsed. Recorded session window; not active work time.","artifact":{"title":"P05 · Oct 7, 2026 · 4:29:06 AM PDT","language":"My prompt","code":"Add a tab on the left with program instructions","note":"verbatim excerpt. GraphRAG discovery."},"related":["p5-live-evidence"],"resources":[{"label":"Project and demo","url":"https://boomerrawlings.com/work/scads-2026/05-graphrag-discovery/"},{"label":"Published source snapshot","url":"https://github.com/BoomerRawlings/scads-2026-problems/tree/scads-2026-10-07/projects/05-graphrag-discovery"}]},{"id":"p02-release-06","title":"P02 · Use a static scale forecast to guide v0.6","description":"Used static reasoning to add normalization disk/byte limits, reject oversized exports before worker launch, and fetch only requested fields for narrow CSVs. The final report recorded 119 focused checks; no scale simulation or performance measurement was performed.","checkpoint":"Oct 7, 2026 · 4:32:45 AM PDT → Oct 7, 2026 · 4:49:22 AM PDT. 16m 37s elapsed. Recorded session window; not active work time.","artifact":{"title":"P02 · Oct 7, 2026 · 4:32:45 AM PDT","language":"My prompt","code":"run a simulation of what you expect would happen, and build with that information, without actually simulating","note":"verbatim excerpt. Conversational 311 analytics."},"related":["p02-live-validation-kit"],"resources":[{"label":"Project and demo","url":"https://boomerrawlings.com/work/scads-2026/02-311-analytics/"},{"label":"Published source snapshot","url":"https://github.com/BoomerRawlings/scads-2026-problems/tree/scads-2026-10-07/projects/02-311-analytics"}]},{"id":"p4-automatic-walkthrough","title":"P04 · Animate the workflow and clarify the next step","description":"Added automatic stages, gradual node highlights and connecting lines, playback controls, and green next-step buttons. Added recovery behavior and accurate group totals; recorded 158 backend and 121 frontend tests passing.","checkpoint":"Oct 7, 2026 · 8:10:01 AM PDT → Oct 7, 2026 · 8:49:19 AM PDT. 39m 18s elapsed. Recorded session window; not active work time.","artifact":{"title":"P04 · Oct 7, 2026 · 8:10:01 AM PDT","language":"My prompt","code":"make it a little clearer what the 'next step' should be with green buttons prompting for continuance.","note":"verbatim excerpt. Organizational knowledge graphs."},"related":["p4-guided-import"],"resources":[{"label":"Project and demo","url":"https://boomerrawlings.com/work/scads-2026/04-org-knowledge-graphs/"},{"label":"Published source snapshot","url":"https://github.com/BoomerRawlings/scads-2026-problems/tree/scads-2026-10-07/projects/04-org-knowledge-graphs"}]},{"id":"p5-guided-large-dataset","title":"P05 · Create a guided exploration of a larger synthetic graph","description":"Added a Start here walkthrough from question to connections, evidence, comparison, and notes, alongside 1,281 synthetic entities, 5,125 active relationships, and six snapshots. Recorded 157 Python and 42 frontend checks passing, plus offline Windows package verification.","checkpoint":"Oct 7, 2026 · 8:11:10 AM PDT → Oct 7, 2026 · 8:49:35 AM PDT. 38m 25s elapsed. Recorded session window; not active work time.","artifact":{"title":"P05 · Oct 7, 2026 · 8:11:10 AM PDT","language":"My prompt","code":"Build a much larger dataset to see connections.","note":"verbatim excerpt. GraphRAG discovery."},"related":["p5-instructions"],"resources":[{"label":"Project and demo","url":"https://boomerrawlings.com/work/scads-2026/05-graphrag-discovery/"},{"label":"Published source snapshot","url":"https://github.com/BoomerRawlings/scads-2026-problems/tree/scads-2026-10-07/projects/05-graphrag-discovery"}]},{"id":"collection-publication","title":"P01–P09 · Publish all nine projects and research papers","description":"Published one overview, nine project pages, five source-derived browser demos, and nine papers totaling 82 pages. Projects 06–09 entered the collection as research proposals with plans and roadmaps; implementation had not begun. The source release and website deployment were verified.","checkpoint":"Oct 7, 2026 · 8:18:25 AM PDT → Oct 7, 2026 · 9:01:14 AM PDT. 42m 49s elapsed. Publication window: session start through successful deployment, not the end of the full conversation.","artifact":{"title":"P01–P09 · Oct 7, 2026 · 8:18:25 AM PDT","language":"My prompt","code":"Can you please add all of these to my website's projects, maintaining the current boomer rawlings visual themese\n\nMake sure that my github has all of the projects as well\n\nAnd I need Masters quality papers for each of them, including the ones I haven't started with a plan and roadmap,  but with a clear disclaimer that they are projected solutions, and completion and implementation hasn't began","note":"Exact excerpts from prompts within the publication session. Collection / all nine projects."},"related":["p01-5","p02-release-06","p03-guided-interface","p4-automatic-walkthrough","p5-guided-large-dataset"],"resources":[{"label":"Nine papers and project pages","url":"https://boomerrawlings.com/work/scads-2026/#problems"},{"label":"Published source","url":"https://github.com/BoomerRawlings/scads-2026-problems"}]},{"id":"p01-5","title":"P01 · Make the showcase intuitive","description":"Reworked the showcase around case → steps → sources → findings, with animated playback, an evidence drawer, search, keyboard controls, and reduced-motion support. The recorded result included 13-case workflow checks and desktop/mobile verification.","checkpoint":"Oct 7, 2026 · 8:25:03 AM PDT → Oct 7, 2026 · 8:55:45 AM PDT. 30m 42s elapsed. Recorded session window; not active work time.","artifact":{"title":"P01 · Oct 7, 2026 · 8:25:03 AM PDT","language":"My prompt","code":"Make it look far more modern, less like AI slop, less fluff, clearer workflows, and and INTUITIVE animations and workflow","note":"Exact prompt. Organizational sensemaking."},"related":["p01-4"],"resources":[{"label":"Project and demo","url":"https://boomerrawlings.com/work/scads-2026/01-sensemaking/"},{"label":"Published source snapshot","url":"https://github.com/BoomerRawlings/scads-2026-problems/tree/scads-2026-10-07/projects/01-sensemaking"}]}]}]}</script>
+  <script>/* Workflow Display: data stays text; connections are a view of declared dependencies. */
+(() => {
+  'use strict';
+  const $ = id => document.getElementById(id);
+  const make = (tag, text, className) => {
+    const node = document.createElement(tag);
+    if (text !== undefined) node.textContent = text;
+    if (className) node.className = className;
+    return node;
+  };
+  const control = (text, action, className) => {
+    const node = make('button', text, className);
+    node.type = 'button';
+    node.addEventListener('click', action);
+    return node;
+  };
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  const phone = matchMedia('(max-width: 760px)');
+  const normalize = text => String(text ?? '').normalize('NFKD').toLowerCase();
+  const announce = text => { $('workflow-status').textContent = text; };
+  const key = (side, id) => `${side}:${id}`;
+  const number = index => String(index + 1).padStart(2, '0');
+  const cards = new Map(), rows = new Map(), indexes = new Map(), planButtons = new Map();
+  const reveal = $('plan-reveal'), guide = $('workflow-guide'), svg = $('connection-lines');
+  let data, plan, expanded = false, pinned = null, active = null, drawFrame = 0;
+  let focusTimer, layoutTimer, switchAnimation, fadeAnimation, navigation = 0;
+
+  function related(step) {
+    return (step.related || []).filter(id => id !== step.id && rows.has(id));
+  }
+  function pairsFor(origin) {
+    if (!origin || !plan) return [];
+    return plan.steps.flatMap(step => [step.id, ...related(step)]
+      .filter(target => origin.side === 'plain' ? step.id === origin.id : target === origin.id)
+      .map(target => [step.id, target]));
+  }
+  function stepLabel(id) {
+    const index = plan.steps.findIndex(step => step.id === id);
+    return `${number(index)} · ${plan.steps[index]?.title || id}`;
+  }
+  function svgNode(tag, attributes) {
+    const node = document.createElementNS('http://www.w3.org/2000/svg', tag);
+    Object.entries(attributes).forEach(([name, value]) => node.setAttribute(name, String(value)));
+    return node;
+  }
+  function drawConnections(animate = false) {
+    svg.replaceChildren();
+    if (!plan || !expanded || phone.matches) return;
+    const board = $('workflow-board').getBoundingClientRect();
+    if (!board.width || !board.height) return;
+    svg.setAttribute('viewBox', `0 0 ${board.width} ${board.height}`);
+    const defs = svgNode('defs', {});
+    const marker = svgNode('marker', {id: 'dependency-arrow', viewBox: '0 0 8 8', refX: 7, refY: 4, markerWidth: 6, markerHeight: 6, orient: 'auto'});
+    marker.append(svgNode('path', {d: 'M1 1 L7 4 L1 7 Z', class: 'dependency-arrow'}));
+    defs.append(marker); svg.append(defs);
+    const pairs = active ? pairsFor(active) : plan.steps.map(step => [step.id, step.id]);
+    pairs.forEach(([left, right]) => {
+      if (rows.get(left).hidden || rows.get(right).hidden) return;
+      const a = cards.get(key('plain', left)), b = cards.get(key('artifact', right));
+      const aRect = a.getBoundingClientRect(), bRect = b.getBoundingClientRect();
+      const aTitle = a.querySelector('.card-title').getBoundingClientRect();
+      const bTitle = b.querySelector('.card-title').getBoundingClientRect();
+      const x1 = aRect.right - board.left, y1 = aTitle.top + aTitle.height / 2 - board.top;
+      const x2 = bRect.left - board.left, y2 = bTitle.top + bTitle.height / 2 - board.top;
+      const mid = (x1 + x2) / 2;
+      const dependency = left !== right;
+      const path = svgNode('path', {
+        d: `M${x1},${y1} C${mid},${y1} ${mid},${y2} ${x2},${y2}`,
+        class: `connection-wire${active ? ' is-active' : ''}${dependency ? ' is-dependency' : ''}`,
+      });
+      if (dependency) path.setAttribute('marker-end', 'url(#dependency-arrow)');
+      svg.append(path);
+      for (const [x, y] of [[x1, y1], [x2, y2]]) {
+        svg.append(svgNode('circle', {cx: x, cy: y, r: active ? 3 : 2, class: `connection-port${active ? ' is-active' : ''}`}));
+      }
+      if (animate && active && !reduced.matches && path.animate) {
+        // Animate a bright moving pulse above the stable dashed/solid relationship.
+        // Its direction follows the user's reading direction; arrowheads retain dependency meaning.
+        const length = path.getTotalLength();
+        const pulse = Math.min(30,length * .25);
+        const tracer = svgNode('path', {d: path.getAttribute('d'), class: 'connection-tracer', 'stroke-dasharray': `${pulse} ${length + pulse * 2}`});
+        svg.append(tracer);
+        const motion = tracer.animate([
+          {strokeDashoffset: active.side === 'plain' ? pulse : -length},
+          {strokeDashoffset: active.side === 'plain' ? -length : pulse},
+        ], {duration: 650, easing: 'cubic-bezier(.22,1,.36,1)'});
+        motion.onfinish = () => tracer.remove();
+      }
+    });
+  }
+  function scheduleDraw() {
+    cancelAnimationFrame(drawFrame);
+    drawFrame = requestAnimationFrame(() => drawConnections());
+  }
+  function trace(origin, notify = false, force = false) {
+    if (!plan) return;
+    origin = pinned || origin;
+    const changed = active?.id !== origin?.id || active?.side !== origin?.side;
+    if (!changed && !notify && !force) return;
+    active = origin;
+    const pairs = pairsFor(origin);
+    const connected = new Set(pairs.flatMap(([a,b]) => [key('plain',a),key('artifact',b)]));
+    cards.forEach((card, id) => {
+      const locked = Boolean(pinned && id === key(pinned.side,pinned.id));
+      card.classList.toggle('is-connected', connected.has(id));
+      card.classList.toggle('is-origin', Boolean(origin && id === key(origin.side,origin.id)));
+      card.classList.toggle('is-pinned', locked);
+      card.querySelector('.pin-label').hidden = !locked;
+      card.querySelector('.card-title').setAttribute('aria-pressed', String(locked));
+    });
+    indexes.forEach((button,id) => {
+      button.classList.toggle('is-traced', origin?.id === id);
+      button.classList.toggle('is-related', connected.has(key('plain',id)) || connected.has(key('artifact',id)));
+      button.setAttribute('aria-pressed', String(pinned?.id === id));
+    });
+    $('trace-summary').textContent = origin ? `${pinned ? 'Locked' : 'Preview'} · ${stepLabel(origin.id)}` : 'Select a heading to keep its connections highlighted.';
+    $('trace-summary').classList.toggle('is-locked', Boolean(pinned));
+    $('clear-trace').hidden = !pinned;
+    drawConnections(changed);
+    if (notify) {
+      if (!origin) { announce('Connections unlocked. Hover or focus a card to preview.'); return; }
+      const linked = pairs.map(([a,b]) => stepLabel(origin.side === 'plain' ? b : a)).join('; ');
+      const hidden = pairs.filter(([a,b]) => rows.get(a).hidden || rows.get(b).hidden).length;
+      announce(`Locked ${stepLabel(origin.id)}. ${origin.side === 'plain' ? 'Connected prompts' : 'Linked outcomes'}: ${linked}.${hidden ? ' Some dependencies are hidden by search. Clear search to show them.' : ''} Press Escape or Unlock step to release.`);
+    }
+  }
+  function hold(side, id, toggle = false) {
+    if (toggle && pinned?.side === side && pinned.id === id) { pinned = null; trace(null, true); }
+    else { pinned = {side,id}; trace(pinned, true); }
+  }
+  function jump(side, id) {
+    if (rows.get(id).hidden) {
+      $('step-search').value = '';
+      filterSteps(false);
+    }
+    hold(side,id);
+    const card = cards.get(key(side,id));
+    card.scrollIntoView({block: 'start', behavior: reduced.matches ? 'auto' : 'smooth'});
+    card.querySelector('.card-title').focus({preventScroll: true});
+  }
+  function bindTrace(card, side, step) {
+    card.addEventListener('pointerenter', event => {
+      if (event.pointerType !== 'touch') trace({side,id:step.id});
+    });
+    card.addEventListener('pointerleave', () => {
+      const focused = document.activeElement?.closest('.workflow-card');
+      trace(focused ? {side:focused.dataset.side,id:focused.dataset.step} : null);
+    });
+    card.addEventListener('focusin', () => trace({side,id:step.id}));
+    card.addEventListener('focusout', event => {
+      if (card.contains(event.relatedTarget)) return;
+      const next = event.relatedTarget?.closest?.('.workflow-card');
+      trace(next ? {side:next.dataset.side,id:next.dataset.step} : null);
+    });
+    card.addEventListener('click', event => {
+      if (event.target.closest('button,a,pre,input,textarea,select,summary') || !window.getSelection()?.isCollapsed) return;
+      hold(side,step.id);
+    });
+  }
+  async function copyArtifact(step, button, code) {
+    try {
+      if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');
+      await navigator.clipboard.writeText(step.artifact.code);
+      button.textContent = 'Copied';
+      announce(`${step.artifact.title} copied.`);
+      setTimeout(() => { if (button.isConnected) button.textContent = 'Copy'; }, 1800);
+    } catch {
+      const range = document.createRange();
+      range.selectNodeContents(code);
+      const selection = window.getSelection();
+      selection.removeAllRanges(); selection.addRange(range);
+      code.parentElement.focus({preventScroll:true});
+      announce('Clipboard unavailable. Text selected; use your system copy command.');
+    }
+  }
+  function relationList(step, side) {
+    const node = make('p', undefined, 'card-relations');
+    node.append(make('span', side === 'plain' ? `Matching prompt: ${step.artifact.title}. ` : `Explains step ${stepLabel(step.id)}. `));
+    const ids = side === 'plain' ? (step.related || []) : plan.steps.filter(candidate => (candidate.related || []).includes(step.id)).map(candidate => candidate.id);
+    node.append(make('span', ids.length ? (side === 'plain' ? 'Earlier context: ' : 'Later context: ') : (side === 'plain' ? 'No earlier project prompt linked.' : 'No later session linked here.')));
+    ids.forEach((id,index) => {
+      if (index) node.append(document.createTextNode(', '));
+      const button = control(stepLabel(id), () => jump(side === 'plain' ? 'artifact' : 'plain', id), 'relation-link');
+      button.setAttribute('aria-label', `Show ${side === 'plain' ? 'earlier prompt' : 'later outcome'} ${stepLabel(id)}`);
+      node.append(button);
+    });
+    return node;
+  }
+  function createCard(step, index, side) {
+    const card = make('article', undefined, `workflow-card ${side}-card`);
+    card.dataset.side = side; card.dataset.step = step.id;
+    const heading = make('h3');
+    const title = control('', () => hold(side,step.id,true), 'card-title');
+    title.id = `card-${side}-${index}`;
+    title.setAttribute('aria-pressed', 'false');
+    card.setAttribute('aria-labelledby', title.id);
+    title.append(make('span', number(index), 'step-number'), make('span', side === 'plain' ? step.title : step.artifact.title));
+    const pin = make('span', 'Locked', 'pin-label'); pin.hidden = true; pin.setAttribute('aria-hidden','true');
+    title.append(pin); heading.append(title); card.append(heading);
+    if (side === 'plain') {
+      card.append(make('p',step.description,'card-description'));
+      if (step.checkpoint) {
+        const checkpoint = make('div',undefined,'checkpoint');
+        checkpoint.append(make('span','SESSION WINDOW'),make('p',step.checkpoint));
+        card.append(checkpoint);
+      }
+      if (step.resources?.length) {
+        const resources = make('div',undefined,'resources');
+        resources.append(make('span','RESOURCES'));
+        step.resources.forEach(resource => {
+          try {
+            const url = new URL(resource.url);
+            if (!['https:','http:'].includes(url.protocol)) return;
+            const link = make('a',resource.label);
+            link.href = url.href; link.target = '_blank'; link.rel = 'noopener noreferrer';
+            resources.append(link);
+          } catch { /* Invalid links are not made interactive. */ }
+        });
+        card.append(resources);
+      }
+    } else {
+      const tools = make('div',undefined,'code-tools');
+      const pre = make('pre'), code = make('code',step.artifact.code);
+      pre.classList.add('is-wrapped'); pre.tabIndex = 0; pre.setAttribute('aria-label',step.artifact.title); pre.append(code);
+      const copy = control('Copy',() => copyArtifact(step,copy,code),'copy-button');
+      copy.setAttribute('aria-label',`Copy ${step.artifact.title}`);
+      const wrap = control('Wrap', () => {
+        const wrapped = pre.classList.toggle('is-wrapped');
+        wrap.setAttribute('aria-pressed',String(wrapped));
+        scheduleDraw();
+      },'copy-button');
+      wrap.setAttribute('aria-label',`Wrap lines in ${step.artifact.title}`);
+      wrap.setAttribute('aria-pressed','true');
+      const actions = make('div',undefined,'code-actions');
+      actions.append(wrap,copy);
+      tools.append(make('span',step.artifact.language ? step.artifact.language.toUpperCase() : 'IMPLEMENTATION'),actions);
+      card.append(tools,pre);
+      if (step.artifact.note) card.append(make('p',step.artifact.note,'artifact-note'));
+    }
+    card.append(relationList(step,side));
+    bindTrace(card,side,step); cards.set(key(side,step.id),card);
+    return card;
+  }
+  function filterSteps(notify = true) {
+    if (!plan) return;
+    const query = normalize($('step-search').value).trim();
+    const words = query.split(/\s+/).filter(Boolean);
+    pinned = null; active = undefined;
+    let count = 0;
+    plan.steps.forEach(step => {
+      const text = normalize([step.title,step.description,step.checkpoint,step.artifact.title,step.artifact.code,step.artifact.note,...(step.resources || []).map(item=>item.label)].join(' '));
+      const visible = words.every(word => text.includes(word));
+      rows.get(step.id).hidden = !visible; indexes.get(step.id).hidden = !visible;
+      if (visible) count++;
+    });
+    $('step-count').textContent = `${count} / ${plan.steps.length} steps`;
+    $('empty-result').hidden = count !== 0;
+    $('clear-search').hidden = !$('step-search').value;
+    trace(null,false,true); scheduleDraw();
+    if (notify) announce(`${count} of ${plan.steps.length} step pairs shown.${query ? ' Clear search to restore all dependencies.' : ''}`);
+  }
+  function renderPlan() {
+    cards.clear(); rows.clear(); indexes.clear(); pinned = null; active = null;
+    $('step-search').value = '';
+    $('guide-title').textContent = plan.title;
+    $('guide-summary').textContent = plan.summary;
+    $('guide-end').textContent = 'Session windows may overlap. Connections trace related project history, not the contents of a particular release.';
+    $('step-rows').replaceChildren(); $('step-index').replaceChildren();
+    $('step-index').style.setProperty('--step-count', Math.min(8, plan.steps.length));
+    $('step-index').style.setProperty('--step-count-medium', Math.min(4, plan.steps.length));
+    $('step-index').style.setProperty('--step-count-small', Math.min(3, plan.steps.length));
+    plan.steps.forEach((step,index) => {
+      const row = make('div',undefined,'workflow-row');
+      row.setAttribute('role','group'); row.setAttribute('aria-label',`Step ${index+1}: ${step.title}`);
+      row.append(createCard(step,index,'plain'),createCard(step,index,'artifact'));
+      rows.set(step.id,row); $('step-rows').append(row);
+      const button = control('',() => jump('plain',step.id));
+      button.append(make('span',number(index)),make('span',step.title));
+      button.setAttribute('aria-label',`Step ${index+1}: ${step.title}`);
+      button.setAttribute('aria-pressed','false');
+      indexes.set(step.id,button); $('step-index').append(button);
+    });
+    filterSteps(false);
+  }
+  function setExpanded(open) {
+    if (!open && guide.contains(document.activeElement)) planButtons.get(plan.id)?.focus();
+    expanded = open;
+    reveal.classList.toggle('is-expanded',open);
+    reveal.inert = !open;
+    reveal.setAttribute('aria-hidden',String(!open));
+    planButtons.forEach((button,id) => {
+      const selected = id === plan?.id && open;
+      button.classList.toggle('is-selected',selected);
+      button.setAttribute('aria-expanded',String(selected));
+      button.setAttribute('aria-pressed',String(selected));
+      button.querySelector('.plan-choice-action').textContent = selected ? 'Collapse workflow' : 'Open chronological workflow';
+    });
+    if (open) scheduleDraw();
+    clearTimeout(layoutTimer);
+    layoutTimer = setTimeout(scheduleDraw, reduced.matches ? 0 : 380);
+  }
+  function selectPlan(id) {
+    const next = data.plans.find(item => item.id === id);
+    if (!next) return;
+    const changed = plan?.id !== id, wasOpen = expanded;
+    const oldHeight = reveal.getBoundingClientRect().height;
+    const request = ++navigation;
+    clearTimeout(focusTimer); switchAnimation?.cancel(); fadeAnimation?.cancel();
+    plan = next;
+    if (changed) renderPlan();
+    const open = changed || !expanded;
+    setExpanded(open);
+    if (open && wasOpen && changed && !reduced.matches && reveal.animate) {
+      const newHeight = reveal.getBoundingClientRect().height;
+      switchAnimation = reveal.animate([{height:`${oldHeight}px`},{height:`${newHeight}px`}], {duration:360,easing:'cubic-bezier(.22,1,.36,1)'});
+      fadeAnimation = guide.animate([{opacity:.25},{opacity:1}], {duration:260,easing:'ease-out'});
+      switchAnimation.onfinish = scheduleDraw;
+    }
+    announce(`${plan.title} ${open ? 'opened' : 'collapsed'}.${open ? ` ${plan.steps.length} step pairs.` : ''}`);
+    if (open) focusTimer = setTimeout(() => {
+      if (request !== navigation || !expanded) return;
+      $('guide-title').focus({preventScroll:true});
+      $('guide-title').scrollIntoView({block:'start',behavior:reduced.matches?'auto':'smooth'});
+      scheduleDraw();
+    }, reduced.matches ? 0 : 380);
+  }
+  function exportGuide() {
+    if (!plan) return;
+    const lines = [`# ${plan.title}`,'',plan.summary,''];
+    plan.steps.forEach((step,index) => {
+      lines.push(`## ${index+1}. ${step.title}`,'',step.description,'');
+      if (step.checkpoint) lines.push(`Session window: ${step.checkpoint}`,'');
+      lines.push(`### ${step.artifact.title}`,'');
+      const matches = step.artifact.code.match(/`+/g) || [];
+      const fence = '`'.repeat(Math.max(3,...matches.map(item=>item.length+1)));
+      lines.push(fence,step.artifact.code,fence,'');
+      if (step.artifact.note) lines.push(step.artifact.note,'');
+      if (step.related?.length) lines.push(`Earlier context: ${step.related.map(stepLabel).join('; ')}.`,'');
+      if (step.resources?.length) lines.push('Resources:',...step.resources.map(item=>`- ${item.label}: ${item.url}`),'');
+    });
+    const url = URL.createObjectURL(new Blob([lines.join('\n')],{type:'text/markdown;charset=utf-8'}));
+    const link = make('a'); link.href = url; link.download = `${plan.id}-guide.md`;
+    document.body.append(link); link.click(); link.remove();
+    setTimeout(() => URL.revokeObjectURL(url),1000);
+    announce(`${plan.title} guide downloaded.`);
+  }
+  function clearSearch() {
+    $('step-search').value = ''; filterSteps(); $('step-search').focus({preventScroll:true});
+  }
+  try {
+    data = JSON.parse($('workflow-data').textContent);
+    if (!Array.isArray(data.plans) || !data.plans.length) throw new Error('Missing plans');
+    document.title = data.title;
+    $('page-title').textContent = data.title;
+    $('page-description').textContent = data.description;
+    $('page-eyebrow').textContent = data.eyebrow || 'WORKFLOW DISPLAY';
+    $('page-footer').textContent = data.footer || 'Workflow Display · Read the purpose. Inspect the implementation. Follow the connection.';
+    data.plans.forEach(item => {
+      const button = control('',()=>selectPlan(item.id),'plan-choice');
+      button.setAttribute('aria-controls','workflow-guide');
+      button.setAttribute('aria-pressed','false'); button.setAttribute('aria-expanded','false');
+      const dot = make('span',undefined,'plan-choice-dot'); dot.setAttribute('aria-hidden','true');
+      const text = make('span',undefined,'plan-choice-text');
+      text.append(make('span',item.title,'plan-choice-title'),make('span',item.summary,'plan-choice-purpose'),make('span',`${item.status ? item.status + ' · ' : ''}${item.steps.length} steps`,'plan-choice-meta'),make('span','Open chronological workflow','plan-choice-action'));
+      const arrow = make('span','⌄','plan-choice-arrow'); arrow.setAttribute('aria-hidden','true');
+      button.append(dot,text,arrow); planButtons.set(item.id,button); $('plan-options').append(button);
+    });
+    $('plan-options').addEventListener('keydown',event => {
+      if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+      const buttons = [...planButtons.values()], index = buttons.indexOf(event.target);
+      if (index < 0) return;
+      const destination = {ArrowRight:(index+1)%buttons.length,ArrowLeft:(index-1+buttons.length)%buttons.length,Home:0,End:buttons.length-1}[event.key];
+      if (destination === undefined) return;
+      event.preventDefault(); buttons[destination].focus();
+    });
+    $('step-search').addEventListener('input',()=>filterSteps());
+    $('clear-search').addEventListener('click',clearSearch);
+    $('show-all').addEventListener('click',clearSearch);
+    $('clear-trace').addEventListener('click',()=>{
+      const previous = pinned; pinned = null;
+      if (previous) cards.get(key(previous.side,previous.id))?.querySelector('.card-title').focus({preventScroll:true});
+      trace(null,true);
+    });
+    $('download-guide').addEventListener('click',exportGuide);
+    document.addEventListener('keydown',event=>{
+      if (event.key === 'Escape' && expanded && pinned) { pinned = null; trace(null,true); }
+    });
+    reveal.addEventListener('transitionend',event => {
+      if (event.target === reveal && event.propertyName === 'grid-template-rows') scheduleDraw();
+    });
+    new ResizeObserver(scheduleDraw).observe($('workflow-board'));
+    window.addEventListener('resize',scheduleDraw);
+    phone.addEventListener('change',scheduleDraw);
+    reduced.addEventListener('change',()=>{
+      switchAnimation?.cancel(); fadeAnimation?.cancel();
+      svg.getAnimations({subtree:true}).forEach(animation=>animation.finish());
+      scheduleDraw();
+    });
+    document.fonts?.ready.then(scheduleDraw);
+  } catch {
+    $('load-error').hidden = false;
+  }
+})();
+</script>
+</body>
+</html>
