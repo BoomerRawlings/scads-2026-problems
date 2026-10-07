@@ -12,7 +12,7 @@ concurrency:
 jobs:
   live:
     runs-on: ubuntu-24.04
-    timeout-minutes: 150
+    timeout-minutes: 160
     services:
       elasticsearch:
         image: docker.elastic.co/elasticsearch/elasticsearch:9.5.5
@@ -62,11 +62,14 @@ jobs:
       - name: Verify authored real-engine parity
         run: python tools/live_parity.py --elastic-url http://127.0.0.1:9200 --allow-insecure-local --provision-fixture --output-dir runs/real-acceptance/parity --cleanup
       - name: Capture complete April through October source window
-        timeout-minutes: 100
+        timeout-minutes: 130
         run: |
-          python -m analytics311 capture --start 2025-04-01 --end 2025-11-01 --output data/april-october-2025.jsonl --page-size 1000 --max-rows 3000000 --max-bytes 2500000000 --max-storage-bytes 5500000000 --max-pages 5000 --max-seconds 5700 --min-free-bytes 1500000000
-          python -m analytics311 capture-status data/april-october-2025.jsonl > runs/real-acceptance/capture-status.json
-          cp data/april-october-2025.manifest.json runs/real-acceptance/capture.manifest.json
+          python -m analytics311 capture --start 2025-04-01 --end 2025-11-01 --output data/april-october-2025.jsonl --page-size 5000 --request-timeout-seconds 120 --max-rows 3000000 --max-bytes 2500000000 --max-storage-bytes 5500000000 --max-pages 5000 --max-seconds 7200 --min-free-bytes 1500000000
+      - name: Record persisted capture outcome
+        if: always()
+        run: |
+          python -m analytics311 capture-status data/april-october-2025.jsonl > runs/real-acceptance/capture-status.json || true
+          if test -f data/april-october-2025.manifest.json; then cp data/april-october-2025.manifest.json runs/real-acceptance/capture.manifest.json; fi
       - name: Preserve successful real capture
         run: |
           python -c "import gzip,shutil;from pathlib import Path;p=Path('data/april-october-2025.jsonl');out=Path('data/april-october-2025.jsonl.gz');f=p.open('rb');g=gzip.open(out,'wb',compresslevel=6);shutil.copyfileobj(f,g,1024*1024);g.close();f.close()"
@@ -87,3 +90,11 @@ jobs:
           retention-days: 1
           compression-level: 0
           if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: analytics311-capture-checkpoint
+          path: projects/02-311-analytics/data/*.capture.sqlite3
+          retention-days: 1
+          compression-level: 6
+          if-no-files-found: warn
