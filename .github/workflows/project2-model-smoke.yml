@@ -1,4 +1,4 @@
-name: Project 2 local model development smoke
+name: Project 2 native CPU model development smoke
 on:
   push:
     branches: [codex/project2-acceptance-20261007]
