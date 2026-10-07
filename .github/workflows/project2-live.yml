@@ -1,0 +1,89 @@
+name: Project 2 real acceptance
+on:
+  push:
+    branches: [codex/project2-acceptance-20261007]
+    paths: [".github/workflows/project2-live.yml", "projects/02-311-analytics/**"]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: project2-real-acceptance
+  cancel-in-progress: false
+jobs:
+  live:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 150
+    services:
+      elasticsearch:
+        image: docker.elastic.co/elasticsearch/elasticsearch:9.5.5
+        env:
+          discovery.type: single-node
+          xpack.security.enabled: "false"
+          xpack.security.enrollment.enabled: "false"
+          xpack.ml.enabled: "false"
+          ingest.geoip.downloader.enabled: "false"
+          node.store.allow_mmap: "false"
+          ES_JAVA_OPTS: "-Xms2g -Xmx2g"
+        ports: ["127.0.0.1:9200:9200"]
+        options: >-
+          --memory 4g --cpus 2
+          --health-cmd "curl --fail --silent http://localhost:9200/_cluster/health?wait_for_status=yellow"
+          --health-interval 10s --health-timeout 5s --health-retries 30
+      kibana:
+        image: docker.elastic.co/kibana/kibana:9.5.5
+        env:
+          ELASTICSEARCH_HOSTS: '["http://elasticsearch:9200"]'
+          TELEMETRY_OPTIN: "false"
+          MAP_INCLUDEELASTICMAPSSERVICE: "false"
+          NODE_OPTIONS: "--max-old-space-size=1024"
+        ports: ["127.0.0.1:5601:5601"]
+        options: >-
+          --memory 2g --cpus 1
+          --health-cmd "curl --fail --silent http://localhost:5601/api/status"
+          --health-interval 15s --health-timeout 10s --health-retries 40
+    defaults:
+      run:
+        working-directory: projects/02-311-analytics
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install core and geography
+        run: python -m pip install ".[geo]"
+      - name: Record actual runner and service versions
+        run: |
+          mkdir -p runs/real-acceptance data
+          python -m analytics311 doctor > runs/real-acceptance/host.json
+          curl --fail --silent http://127.0.0.1:9200/ > runs/real-acceptance/elasticsearch-version.json
+          curl --fail --silent http://127.0.0.1:5601/api/status > runs/real-acceptance/kibana-status.json
+          docker stats --no-stream --format '{{json .}}' > runs/real-acceptance/container-stats-start.jsonl
+          df -B1 . > runs/real-acceptance/disk-start.txt
+      - name: Verify authored real-engine parity
+        run: python tools/live_parity.py --elastic-url http://127.0.0.1:9200 --allow-insecure-local --provision-fixture --output-dir runs/real-acceptance/parity --cleanup
+      - name: Capture complete April through October source window
+        timeout-minutes: 100
+        run: |
+          python -m analytics311 capture --start 2025-04-01 --end 2025-11-01 --output data/april-october-2025.jsonl --page-size 1000 --max-rows 3000000 --max-bytes 2500000000 --max-storage-bytes 5500000000 --max-pages 5000 --max-seconds 5700 --min-free-bytes 1500000000
+          python -m analytics311 capture-status data/april-october-2025.jsonl > runs/real-acceptance/capture-status.json
+          cp data/april-october-2025.manifest.json runs/real-acceptance/capture.manifest.json
+      - name: Preserve successful real capture
+        run: |
+          python -c "import gzip,shutil;from pathlib import Path;p=Path('data/april-october-2025.jsonl');out=Path('data/april-october-2025.jsonl.gz');f=p.open('rb');g=gzip.open(out,'wb',compresslevel=6);shutil.copyfileobj(f,g,1024*1024);g.close();f.close()"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: analytics311-real-acceptance
+          path: projects/02-311-analytics/runs/real-acceptance/
+          retention-days: 7
+          if-no-files-found: warn
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: analytics311-real-capture
+          path: |
+            projects/02-311-analytics/data/april-october-2025.jsonl.gz
+            projects/02-311-analytics/data/april-october-2025.manifest.json
+          retention-days: 1
+          compression-level: 0
+          if-no-files-found: error
