@@ -3,6 +3,7 @@ import csv
 import json
 import os
 from pathlib import Path
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -72,9 +73,12 @@ class InterfaceTests(unittest.TestCase):
                     job = service.export_csv(result["result_id"], "records", "all_matching")
                 stop = time.monotonic() + 60
                 while job["status"] in ("queued", "running") and time.monotonic() < stop:
+                    if processes[0].poll() is not None:
+                        job = service.get_result(job["job_id"])
+                        break
                     time.sleep(.1)
                     job = service.get_result(job["job_id"])
-                self.assertEqual("complete", job["status"], job)
+                self.assertEqual("complete", job["status"], {"job": job, "worker_exit": processes[0].poll()})
                 self.assertEqual(4, job["rows_written"])
                 self.assertEqual(first / "runs", Path(job["file"]).parent)
                 with open(job["file"], encoding="utf-8-sig", newline="") as stream:
@@ -89,6 +93,55 @@ class InterfaceTests(unittest.TestCase):
                     process.kill()
                 process.wait(timeout=10)
             os.chdir(original)
+
+    def test_worker_uses_parent_package_when_another_install_is_on_pythonpath(self):
+        root = Path(self.temporary.name)
+        source, installed = root / "source", root / "installed"
+        for location in (source, installed):
+            shutil.copytree(ROOT / "analytics311", location / "analytics311",
+                            ignore=shutil.ignore_patterns("__pycache__", "runs"))
+        script = r'''
+import json,os,subprocess,sys
+from pathlib import Path
+from unittest.mock import patch
+from analytics311.service import AnalyticsService
+root,other,spec_path=map(Path,sys.argv[1:])
+first,second=root/'workspace-a',root/'workspace-b'
+first.mkdir();second.mkdir()
+os.environ.pop('ANALYTICS311_CONFIG',None)
+os.chdir(first)
+service=AnalyticsService()
+result=service.run_analysis(json.loads(spec_path.read_text()))
+os.chdir(second)
+os.environ['PYTHONPATH']=str(other)
+processes=[];original=subprocess.Popen
+def launch(*args,**kwargs):
+    process=original(*args,**kwargs);processes.append(process);return process
+try:
+    with patch('analytics311.service.subprocess.Popen',side_effect=launch):
+        job=service.export_csv(result['result_id'],'records','all_matching')
+    exit_code=processes[0].wait(timeout=20)
+    job=service.get_result(job['job_id'])
+    print(json.dumps({'status':job['status'],'rows':job.get('rows_written'),'worker_exit':exit_code,
+        'file':job.get('file'),'config':str(service.config_path),
+        'wrong_store_exists':(root/'source/analytics311/assets/runs').exists() or (second/'runs').exists()}))
+finally:
+    for process in processes:
+        if process.poll() is None: process.kill()
+        process.wait(timeout=10)
+'''
+        environment = dict(os.environ, PYTHONPATH=str(source))
+        completed = subprocess.run([sys.executable, "-P", "-c", script, str(root), str(installed),
+                                    str(ROOT / "examples/brooklyn-noise.json")], cwd=root, env=environment,
+                                   capture_output=True, text=True, timeout=40)
+        self.assertEqual(completed.returncode, 0, completed.stderr)
+        result = json.loads(completed.stdout)
+        self.assertEqual(result["status"], "complete", result)
+        self.assertEqual(result["worker_exit"], 0, result)
+        self.assertEqual(result["rows"], 4)
+        self.assertEqual(Path(result["file"]).parent, root / "workspace-a/runs")
+        self.assertTrue(Path(result["config"]).is_relative_to(source))
+        self.assertFalse(result["wrong_store_exists"])
 
     def test_recovery_cli_works_after_dataset_manifest_is_deleted(self):
         manifest = Path(self.temporary.name) / "manifest.json"

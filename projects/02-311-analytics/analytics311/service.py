@@ -484,12 +484,19 @@ class AnalyticsService:
             self.run_export_job(job_id)
         else:
             kwargs = {"stdin": subprocess.DEVNULL, "stdout": subprocess.DEVNULL, "stderr": subprocess.DEVNULL}
+            # The detached worker must use this package's code and bundled asset
+            # identity, even when a different wheel is installed in the interpreter.
+            environment = os.environ.copy()
+            import_root = str(Path(__file__).resolve().parents[1])
+            environment["PYTHONPATH"] = os.pathsep.join(
+                [import_root, environment["PYTHONPATH"]] if environment.get("PYTHONPATH") else [import_root])
+            kwargs["env"] = environment
             if os.name == "nt":
                 kwargs["creationflags"] = subprocess.CREATE_NO_WINDOW
             else:
                 kwargs["start_new_session"] = True
             try:
-                subprocess.Popen([sys.executable, "-m", "analytics311.cli", "--config", str(self.config_path), "_export-job", job_id], cwd=str(self.runs.parent), **kwargs)
+                subprocess.Popen([sys.executable, "-P", "-m", "analytics311.cli", "--config", str(self.config_path), "_export-job", job_id], cwd=str(self.runs.parent), **kwargs)
             except OSError as exc:
                 finished = datetime.now(timezone.utc).isoformat()
                 job.update(status="failed", stage="failed", stopped_stage="queued", finished_at=finished,
