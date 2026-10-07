@@ -1,0 +1,206 @@
+name: Project 2 local model development smoke
+on:
+  push:
+    branches: [codex/project2-acceptance-20261007]
+    paths: [".github/workflows/project2-model-smoke.yml"]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: p2-model-smoke
+  cancel-in-progress: false
+jobs:
+  development-model:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: projects/02-311-analytics
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install analytical core only
+        run: |
+          python -m pip install .
+          mkdir -p runs/model-smoke/runtime data/model-smoke
+          python -m pip freeze > runs/model-smoke/runtime/python-packages.txt
+          python -m analytics311 doctor > runs/model-smoke/runtime/host.json
+      - name: Stage exact pinned runtime and model
+        timeout-minutes: 12
+        run: |
+          python - <<'PY'
+          import hashlib,json,shutil,tarfile,time,urllib.request
+          from pathlib import Path
+          spec=json.loads(Path('docs/local-model-runtime.json').read_text())
+          folder=Path('data/model-smoke'); evidence=Path('runs/model-smoke/runtime')
+          assert spec['target']=='Linux x86_64'
+          assert spec['model_alias']=='analytics311-qwen35-4b'
+          assert spec['inference']['bind']=='127.0.0.1' and spec['inference']['port']==8080
+          assert shutil.disk_usage(folder).free > 6*1024**3
+          staged=[]; started=time.monotonic()
+          for name in ('runtime','model'):
+              asset=spec[name]
+              assert Path(asset['filename']).name==asset['filename']
+              destination=folder/asset['filename']; hashed=hashlib.sha256(); size=0
+              request=urllib.request.Request(asset['url'],headers={'User-Agent':'analytics311-development-smoke/1'})
+              with urllib.request.urlopen(request,timeout=90) as source,destination.open('xb') as output:
+                  for chunk in iter(lambda:source.read(1024*1024),b''):
+                      size+=len(chunk)
+                      assert size<=asset['size'] and time.monotonic()-started<660
+                      output.write(chunk);hashed.update(chunk)
+              assert size==asset['size'] and hashed.hexdigest()==asset['sha256']
+              staged.append({'kind':name,'filename':asset['filename'],'bytes':size,'sha256':hashed.hexdigest()})
+              (evidence/'asset-downloads.json').write_text(json.dumps(staged,indent=2))
+          target=folder/'runtime'
+          with tarfile.open(folder/spec['runtime']['filename']) as archive:
+              members=archive.getmembers()
+              assert len(members)<=1000 and sum(member.size for member in members)<=512*1024**2
+              for member in members:
+                  assert (member.isfile() or member.isdir() or member.issym() or member.islnk()) and member.size>=0
+              archive.extractall(target,members=members,filter='data')
+          candidates=list(target.rglob('llama-server'))
+          assert len(candidates)==1 and candidates[0].is_file()
+          assert candidates[0].resolve().is_relative_to(target.resolve())
+          (evidence/'model-assets.json').write_text(json.dumps(dict(spec,downloaded_and_hash_verified=True,staged_assets=staged),indent=2))
+          PY
+      - name: Execute one actual model development question
+        timeout-minutes: 6
+        run: |
+          set -euo pipefail
+          server=$(find data/model-smoke/runtime -type f -name llama-server -print -quit)
+          test -n "$server"
+          export LD_LIBRARY_PATH="$(dirname "$server"):${LD_LIBRARY_PATH:-}"
+          "$server" --version > runs/model-smoke/runtime/llama-version.txt 2>&1
+          "$server" -m data/model-smoke/Qwen3.5-4B-Q4_K_M.gguf --host 127.0.0.1 --port 8080 --alias analytics311-qwen35-4b --threads 4 --ctx-size 16384 --parallel 1 --gpu-layers 0 --jinja --reasoning off --reasoning-budget 0 --no-context-shift > runs/model-smoke/runtime/model-server.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true; wait "$server_pid" 2>/dev/null || true' EXIT
+          python - <<'PY'
+          import json,time,urllib.request
+          from pathlib import Path
+          for attempt in range(120):
+              try:
+                  with urllib.request.urlopen('http://127.0.0.1:8080/health',timeout=2) as response: ready=json.load(response)
+                  if ready.get('status')=='ok': break
+              except OSError: pass
+              time.sleep(1)
+          else: raise RuntimeError('Local model did not become ready')
+          Path('runs/model-smoke/runtime/model-health.json').write_text(json.dumps(ready))
+          PY
+          python - <<'PY' > runs/model-smoke/runtime/smoke-stdout.log 2>&1
+          import hashlib,json,re,time
+          from datetime import datetime,timezone
+          from pathlib import Path
+          from analytics311.service import AnalyticsService
+          from tools.local_agent import LocalModel,run_trial
+
+          folder=Path('runs/model-smoke')
+          report={'schema_version':1,'evidence_kind':'actual_local_model_development_fixture_smoke','passed':False,
+                  'actual_agent_trials':0,'held_out_evaluation':False,'real_data_acceptance':False,
+                  'live_elasticsearch_verified':False,'kibana_verified':False,'overall_release_verified':False,
+                  'started_at':datetime.now(timezone.utc).isoformat(),'checks':{},
+                  'limitations':['One authored development question and 32 synthetic records; not the 40-question benchmark.',
+                                 'No Elasticsearch or Kibana service runs in this workflow.',
+                                 'Model/runtime asset verification is not a quality or performance acceptance result.']}
+          def scrub(value):
+              if isinstance(value,dict):
+                  return {key:scrub(item) for key,item in value.items() if key not in {'reasoning','reasoning_content','thinking'}}
+              if isinstance(value,list): return [scrub(item) for item in value]
+              if isinstance(value,str):
+                  return re.sub(r'<think>.*?(?:</think>|$)','[reasoning content omitted]',value,flags=re.I|re.S)
+              return value
+          def pointer(value,path):
+              if not isinstance(path,str) or not path.startswith('/'): raise ValueError('invalid_pointer')
+              for token in path[1:].split('/'):
+                  token=token.replace('~1','/').replace('~0','~')
+                  value=value[int(token)] if isinstance(value,list) else value[token]
+              return value
+          try:
+              service=AnalyticsService('config/development.json')
+              rows=[json.loads(line) for line in Path(service.config['fixture_path']).read_text().splitlines() if line.strip()]
+              count=len(rows)
+              assert count==32 and len({row['unique_key'] for row in rows})==count
+              assert service.manifest['kind']=='synthetic_fixture' and service.manifest['row_count']==count
+              report['fixture']={'kind':'synthetic_fixture','rows':count,
+                                 'sha256':hashlib.sha256(Path(service.config['fixture_path']).read_bytes()).hexdigest()}
+              model=LocalModel('http://127.0.0.1:8080/v1','analytics311-qwen35-4b',request_seconds=90)
+              report['model_identity']=model.identify()
+              question='Use the analytical tools to count all records in this configured dataset. Apply no date, category, status or geographic restrictions. Give the exact count, cite your analysis result, and say whether this dataset is real or synthetic.'
+              trace=run_trial(service,model,question,seed=7,seconds=180)
+              report['actual_agent_trials']=1
+              (folder/'trace.json').write_text(json.dumps(scrub(trace),indent=2,ensure_ascii=False))
+              events=[event for event in trace.get('events',[]) if event.get('kind')=='tool']
+              matches=[]
+              for event in events:
+                  output=event.get('output',{});spec=output.get('spec',{})
+                  if (event.get('name')=='run_analysis' and output.get('execution_complete') is True
+                      and output.get('evidence_level')=='fixture_only' and output.get('total')=={'value':count,'relation':'eq'}
+                      and spec.get('operation') in {'records','aggregate'} and not spec.get('group_by')
+                      and all(not spec.get(key) for key in ('time','periods','filters','geo'))): matches.append(output)
+              final=trace.get('final') or {}; grounded=False
+              for fact in final.get('facts',[]):
+                  try:
+                      if (type(fact.get('value')) in (int,float) and fact['value']==count
+                          and any(item['result_id']==fact.get('result_id') and pointer(item,fact['path'])==count for item in matches)): grounded=True
+                  except (KeyError,TypeError,ValueError,IndexError): pass
+              report['checks']={'finished':trace.get('status')=='finished','answered':final.get('status')=='answered',
+                                'discovered_first':bool(events) and events[0]['name']=='describe_dataset',
+                                'executed_unfiltered_count':bool(matches),'numeric_evidence':grounded,
+                                'cited_result':isinstance(final.get('result_ids'),list) and any(item['result_id'] in final['result_ids'] for item in matches),
+                                'synthetic_label':'synthetic' in str(final.get('answer','')).lower()}
+              report['count_result']={'expected':count,'observed':[item['total']['value'] for item in matches],
+                                      'result_ids':[item['result_id'] for item in matches]}
+              report['elapsed_seconds']=trace['elapsed_seconds']
+              report['passed']=all(report['checks'].values())
+          except Exception as exc:
+              report['error']={'code':getattr(exc,'code',type(exc).__name__)}
+          finally:
+              report['finished_at']=datetime.now(timezone.utc).isoformat()
+              (folder/'summary.json').write_text(json.dumps(report,indent=2))
+              print(json.dumps(report))
+          if not report['passed']: raise SystemExit(1)
+          PY
+      - name: Retain bounded diagnostics
+        if: always()
+        run: |
+          python - <<'PY'
+          import json,re
+          from collections import deque
+          from pathlib import Path
+          folder=Path('runs/model-smoke');folder.mkdir(parents=True,exist_ok=True)
+          runtime=folder/'runtime';runtime.mkdir(exist_ok=True)
+          for name in ('model-server','smoke-stdout'):
+              log=runtime/(name+'.log')
+              if not log.exists(): continue
+              with log.open(errors='replace') as stream: lines=list(deque(stream,maxlen=120))
+              # No prompt/response dumps or model reasoning fields are published.
+              safe=[]; thinking=False
+              for line in lines:
+                  if re.search(r'<think>|reasoning_content|"thinking"|"reasoning"',line,re.I):
+                      thinking='<think>' in line.lower() and '</think>' not in line.lower()
+                      continue
+                  if thinking:
+                      if '</think>' in line.lower(): thinking=False
+                      continue
+                  if name=='model-server' and not re.match(r'^(?:\[[^\]]+\]\s*)?(?:main:|srv\s|slot\s|llama_|ggml_|load_|print_info:|common_|build:|system_info:|error|warning|Error|Warning)',line): continue
+                  safe.append(line)
+              (runtime/(name+'-tail.txt')).write_text(''.join(safe[-120:]))
+          if not (folder/'summary.json').exists():
+              (folder/'summary.json').write_text(json.dumps({'evidence_kind':'actual_local_model_development_fixture_smoke',
+                  'passed':False,'actual_agent_trials':0,'error':{'code':'workflow_failed_before_trial_receipt'},
+                  'held_out_evaluation':False,'real_data_acceptance':False,'overall_release_verified':False},indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: analytics311-development-model-smoke
+          path: |
+            projects/02-311-analytics/runs/model-smoke/
+            !projects/02-311-analytics/runs/model-smoke/runtime/model-server.log
+            !projects/02-311-analytics/runs/model-smoke/runtime/smoke-stdout.log
+          retention-days: 7
+          compression-level: 6
+          if-no-files-found: warn
+
