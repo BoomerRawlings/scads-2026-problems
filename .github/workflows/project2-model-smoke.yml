@@ -37,7 +37,7 @@ jobs:
           spec=json.loads(Path('docs/local-model-runtime.json').read_text())
           folder=Path('data/model-smoke'); evidence=Path('runs/model-smoke/runtime')
           assert spec['target']=='Linux x86_64'
-          assert spec['model_alias']=='analytics311-qwen35-4b'
+          assert spec['model_alias']=='analytics311-qwen3-4b'
           assert spec['inference']['bind']=='127.0.0.1' and spec['inference']['port']==8080
           assert shutil.disk_usage(folder).free > 6*1024**3
           staged=[]; started=time.monotonic()
@@ -74,7 +74,7 @@ jobs:
           test -n "$server"
           export LD_LIBRARY_PATH="$(dirname "$server"):${LD_LIBRARY_PATH:-}"
           "$server" --version > runs/model-smoke/runtime/llama-version.txt 2>&1
-          "$server" -m data/model-smoke/Qwen3.5-4B-Q4_K_M.gguf --host 127.0.0.1 --port 8080 --alias analytics311-qwen35-4b --threads 4 --ctx-size 16384 --parallel 1 --gpu-layers 0 --jinja --reasoning off --reasoning-budget 0 --no-context-shift > runs/model-smoke/runtime/model-server.log 2>&1 &
+          "$server" -m data/model-smoke/Qwen3-4B-Q4_K_M.gguf --host 127.0.0.1 --port 8080 --alias analytics311-qwen3-4b --threads 4 --ctx-size 16384 --parallel 1 --gpu-layers 0 --jinja --reasoning off --reasoning-budget 0 --no-context-shift > runs/model-smoke/runtime/model-server.log 2>&1 &
           server_pid=$!
           trap 'kill "$server_pid" 2>/dev/null || true; wait "$server_pid" 2>/dev/null || true' EXIT
           python - <<'PY'
@@ -125,7 +125,7 @@ jobs:
               assert service.manifest['kind']=='synthetic_fixture' and service.manifest['row_count']==count
               report['fixture']={'kind':'synthetic_fixture','rows':count,
                                  'sha256':hashlib.sha256(Path(service.config['fixture_path']).read_bytes()).hexdigest()}
-              model=LocalModel('http://127.0.0.1:8080/v1','analytics311-qwen35-4b',request_seconds=90)
+              model=LocalModel('http://127.0.0.1:8080/v1','analytics311-qwen3-4b',request_seconds=90)
               report['model_identity']=model.identify()
               question='Use the analytical tools to count all records in this configured dataset. Apply no date, category, status or geographic restrictions. Give the exact count, cite your analysis result, and say whether this dataset is real or synthetic.'
               trace=run_trial(service,model,question,seed=7,seconds=180)
