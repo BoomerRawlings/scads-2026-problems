@@ -36,8 +36,8 @@ class LiveMeasurementTests(unittest.TestCase):
         return path
 
     def test_independent_membership_is_order_independent_but_file_hash_is_not(self):
-        first, ids = measure.inspect_ids(self.write_ids(["3", "1", "2"]))
-        second, _ = measure.inspect_ids(self.write_ids(["1", "2", "3"], "second.csv"))
+        first, ids = measure.inspect_ids(self.write_ids(["3", "1", "2"]), oracle=True)
+        second, _ = measure.inspect_ids(self.write_ids(["1", "2", "3"], "second.csv"), oracle=True)
         self.assertEqual(ids, {"1", "2", "3"})
         self.assertEqual(first["membership_sha256"], second["membership_sha256"])
         self.assertNotEqual(first["sha256"], second["sha256"])
@@ -47,7 +47,7 @@ class LiveMeasurementTests(unittest.TestCase):
         for rows in (["1", "1"], [""]):
             with self.subTest(rows=rows):
                 with self.assertRaises(AnalyticsError):
-                    measure.inspect_ids(self.write_ids(rows))
+                    measure.inspect_ids(self.write_ids(rows), oracle=True)
 
     def test_oracle_schema_and_size_are_bounded(self):
         path = self.write_ids(["1"])
@@ -58,10 +58,29 @@ class LiveMeasurementTests(unittest.TestCase):
         path = self.write_ids(["1", "2"])
         with patch.object(measure, "MAX_CSV_ROWS", 1):
             with self.assertRaises(AnalyticsError):
-                measure.inspect_ids(path)
+                measure.inspect_ids(path, oracle=True)
         with patch.object(measure, "MAX_CSV_BYTES", 1):
             with self.assertRaises(AnalyticsError):
-                measure.inspect_ids(path)
+                measure.inspect_ids(path, oracle=True)
+
+    def test_representative_export_requires_exact_columns_and_complete_rows(self):
+        path = self.path / "export.csv"
+        row = ["1", "2025-10-01T04:00:00+00:00", "Noise - Residential", "loud, music\ncontinued",
+               "BROOKLYN", "NYPD", "Closed", "BK0101", "1.5"]
+        with path.open("w", encoding="utf-8", newline="") as stream:
+            csv.writer(stream).writerows([measure.EXPORT_COLUMNS, row])
+        observed, ids = measure.inspect_ids(path)
+        expected, _ = measure.inspect_ids(self.write_ids(["1"]), oracle=True)
+        self.assertEqual(ids, {"1"})
+        self.assertEqual(observed["membership_sha256"], expected["membership_sha256"])
+        self.assertEqual(observed["columns"], list(measure.EXPORT_COLUMNS))
+        self.assertGreater(observed["bytes"], expected["bytes"])
+        for columns, values in ((["unique_key"], ["1"]), (list(reversed(measure.EXPORT_COLUMNS)), list(reversed(row))),
+                                (measure.EXPORT_COLUMNS, row[:-1]), (measure.EXPORT_COLUMNS, row + ["extra"])):
+            with self.subTest(columns=columns, values=values):
+                with path.open("w", encoding="utf-8", newline="") as stream:
+                    csv.writer(stream).writerows([columns, values])
+                with self.assertRaises(AnalyticsError): measure.inspect_ids(path)
 
     def test_five_actual_workload_families_required(self):
         self.assertEqual(measure.validate_suite(suite()), suite())

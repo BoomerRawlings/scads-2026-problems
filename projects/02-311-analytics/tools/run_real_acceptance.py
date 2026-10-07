@@ -60,7 +60,9 @@ def build_suite(dataset_version, scope, residential_codes):
                     "group_by": [{"field": "nta2020"}], "metrics": ["count", "mean_closure_hours"],
                     "rank_by": "rate_change", "rank_order": "desc", "minimum_count": 0, "top_n": 10},
     }
-    return {"analyses": cases, "export": copy.deepcopy(cases["filter"])}
+    export = copy.deepcopy(cases["filter"])
+    export["time"] = copy.deepcopy(current)
+    return {"analyses": cases, "export": export}
 
 
 def compare_result(saved, reference):
@@ -125,12 +127,16 @@ def independent_checks(config, normalized, database, suite, output, residential)
             saved = service._load(actual["result_id"])
             compare_result(saved, reference)
             report["cases"][name].update(passed=True, result_id=actual["result_id"])
-        rows = query_ids(oracle, suite["export"])
+        export_rows = query_ids(oracle, suite["export"], limit=measure_live.MAX_CSV_ROWS)
         oracle_csv = output / "oracle-export-ids.csv"
         with oracle_csv.open("x", encoding="utf-8", newline="") as stream:
             writer = csv.writer(stream)
             writer.writerow(["unique_key"])
-            writer.writerows([row["unique_key"]] for row in rows)
+            writer.writerows([row["unique_key"]] for row in export_rows)
+        report["performance_export_oracle"] = {"spec": suite["export"], "rows": len(export_rows),
+                                               "sha256": file_hash(oracle_csv), "columns": ["unique_key"],
+                                               "export_columns": list(measure_live.EXPORT_COLUMNS)}
+        rows = query_ids(oracle, suite["analyses"]["filter"])
         reference = {"kind": report["reference_kind"], "sha256": evaluation.digest(report["cases"]["filter"]["reference"])}
         points = {"dataset_version": service.manifest["dataset_version"], "reference": reference, "source_count": len(rows),
                   "unique_keys": [row["unique_key"] for row in rows],

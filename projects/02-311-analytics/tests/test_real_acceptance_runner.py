@@ -19,15 +19,41 @@ SCOPE = {"gte": "2025-04-01T00:00:00-04:00", "lt": "2025-11-01T00:00:00-04:00",
 
 
 class RealAcceptanceRunnerTests(unittest.TestCase):
-    def test_five_prospective_specs_valid_and_measured_export_is_same_point_cohort(self):
+    def test_five_prospective_specs_valid_and_month_export_separate_from_point_day(self):
         suite = runner.build_suite("nyc311-test-v1", SCOPE, ["BK0101", "BK0102"])
         self.assertEqual(set(suite["analyses"]), {"filter", "group", "closure", "geo", "compare"})
         runner.measure_live.validate_suite(suite)
         for spec in [*suite["analyses"].values(), suite["export"]]:
             normalize_spec(spec, {})
-        self.assertEqual(suite["export"], suite["analyses"]["filter"])
-        self.assertEqual(suite["export"]["time"]["lt"], "2025-10-02T00:00:00-04:00")
+        self.assertEqual(suite["export"]["filters"], suite["analyses"]["filter"]["filters"])
+        self.assertEqual(suite["export"]["time"]["lt"], "2025-11-01T00:00:00-04:00")
+        self.assertEqual(suite["analyses"]["filter"]["time"]["lt"], "2025-10-02T00:00:00-04:00")
+        suite["export"]["filters"]["all"].clear()
+        self.assertEqual(len(suite["analyses"]["filter"]["filters"]["all"]), 2)
         self.assertEqual(suite["analyses"]["compare"]["rank_by"], "rate_change")
+
+    def test_oracle_selects_complete_month_and_separate_day_without_truncation(self):
+        with tempfile.TemporaryDirectory() as directory:
+            temp = Path(directory)
+            source, database = temp / "source.jsonl", temp / "oracle.sqlite"
+            rows = [{"unique_key": str(number), "created_date": when, "borough": "BROOKLYN",
+                     "complaint_type": "Noise - Residential", "location": {"lat": 40.7, "lon": -74.0}}
+                    for number, when in enumerate(("2025-09-30T23:59:59-04:00", "2025-10-01T00:00:00-04:00",
+                                                   "2025-10-15T12:00:00-04:00", "2025-10-31T23:59:59-04:00",
+                                                   "2025-11-01T00:00:00-04:00"))]
+            source.write_text("".join(json.dumps(row) + "\n" for row in rows), encoding="utf-8")
+            runner.evaluation.build_database(source, database, min_free_bytes=0)
+            oracle = runner.evaluation.Oracle(database, {}, [])
+            self.addCleanup(oracle.close)
+            suite = runner.build_suite("test", SCOPE, ["BK0101"])
+            try:
+                month = runner.query_ids(oracle, suite["export"], limit=runner.measure_live.MAX_CSV_ROWS)
+                day = runner.query_ids(oracle, suite["analyses"]["filter"])
+                self.assertEqual([row["unique_key"] for row in month], ["1", "2", "3"])
+                self.assertEqual([row["unique_key"] for row in day], ["1"])
+                with self.assertRaises(AnalyticsError): runner.query_ids(oracle, suite["export"], limit=2)
+            finally:
+                oracle.close()
 
     def test_independent_comparison_rejects_count_group_metric_or_ranking_drift(self):
         rows = [{"group": {"agency": "A"}, "count": 2}, {"group": {"agency": "B"}, "count": 1}]

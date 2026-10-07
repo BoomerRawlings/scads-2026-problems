@@ -26,6 +26,8 @@ from analytics311.service import AnalyticsService, atomic_json, canonical, read_
 
 
 CASES = ("filter", "group", "closure", "geo", "compare")
+EXPORT_COLUMNS = ("unique_key", "created_date", "complaint_type", "descriptor", "borough",
+                  "agency", "status", "nta2020", "closure_hours")
 MAX_CSV_ROWS = 50_000
 MAX_CSV_BYTES = 16 * 1024 * 1024
 STATS_PATH = ("/_nodes/stats/jvm,process,indices?filter_path=_nodes,nodes.*.jvm.mem,"
@@ -116,11 +118,13 @@ def inspect_ids(path, *, oracle=False):
     ids = set()
     with path.open(encoding="utf-8-sig", newline="") as stream:
         reader = csv.DictReader(stream, strict=True)
-        if reader.fieldnames != ["unique_key"]:
+        expected_columns = ["unique_key"] if oracle else list(EXPORT_COLUMNS)
+        if reader.fieldnames != expected_columns:
             fail("oracle_schema_mismatch" if oracle else "csv_schema_mismatch")
         for row in reader:
             value = row.get("unique_key")
-            if (None in row or not isinstance(value, str) or not value or len(value) > 512
+            if (None in row or any(not isinstance(item, str) for item in row.values())
+                    or not isinstance(value, str) or not value or len(value) > 512
                     or value in ids or len(ids) >= MAX_CSV_ROWS):
                 fail("invalid_or_duplicate_csv_membership")
             ids.add(value)
@@ -129,7 +133,7 @@ def inspect_ids(path, *, oracle=False):
     after = path.stat()
     if (before.st_size, before.st_mtime_ns) != (after.st_size, after.st_mtime_ns):
         fail("csv_changed_during_verification")
-    return {"rows": len(ids), "bytes": after.st_size, "sha256": file_sha,
+    return {"rows": len(ids), "bytes": after.st_size, "sha256": file_sha, "columns": expected_columns,
             "membership_sha256": digest(sorted(ids))}, ids
 
 
@@ -314,7 +318,8 @@ def run_measurements(config_path, suite_path, output_path, work_dir, oracle_csv,
     report = {"schema_version": 1, "evidence_level": "measured_real_elasticsearch_workload", "passed": False,
               "started_at": datetime.now(timezone.utc).isoformat(), "suite_sha256": digest(suite),
               "options": {"repeats": repeats, "query_concurrency": [1, 2], "timeout_seconds": timeout_seconds,
-                          "max_export_rows": budgets["max_export_rows"], "max_export_bytes": budgets["max_export_bytes"]},
+                          "max_export_rows": budgets["max_export_rows"], "max_export_bytes": budgets["max_export_bytes"],
+                          "export_columns": list(EXPORT_COLUMNS)},
               "oracle": oracle, "queries": [], "concurrency": [], "memory_samples": [], "checks": {},
               "limitations": ["Finite workload observations; no SLA, tail-latency or maximum-capacity claim.",
                               "Cache state is uncontrolled. Serial repeats precede concurrency1, concurrency2, exports and recovery.",
@@ -393,7 +398,7 @@ def run_measurements(config_path, suite_path, output_path, work_dir, oracle_csv,
         workers = Workers(service.runs)
         with patch("analytics311.service.subprocess.Popen", workers.launch):
             begin = time.perf_counter()
-            job = service.export_csv(result["result_id"], "records", "all_matching", columns=["unique_key"])
+            job = service.export_csv(result["result_id"], "records", "all_matching", columns=list(EXPORT_COLUMNS))
             exported = wait_export(service, job, workers, min(deadline, time.monotonic() + 180))
             exported["seconds"] = time.perf_counter() - begin
             exported["independent_membership_equal"] = exported["membership_sha256"] == oracle["membership_sha256"]
@@ -404,7 +409,7 @@ def run_measurements(config_path, suite_path, output_path, work_dir, oracle_csv,
             begin = time.perf_counter()
             jobs, overlap_observations = [], []
             for _ in range(2):
-                jobs.append(service.export_csv(result["result_id"], "records", "all_matching", columns=["unique_key"]))
+                jobs.append(service.export_csv(result["result_id"], "records", "all_matching", columns=list(EXPORT_COLUMNS)))
                 overlap_observations.append(sum(workers.processes[item["job_id"]].poll() is None for item in jobs))
             exports = [wait_export(service, item, workers, min(deadline, time.monotonic() + 180)) for item in jobs]
             report["concurrent_exports"] = {"requested_concurrency": 2, "elapsed_seconds": time.perf_counter() - begin,
@@ -415,7 +420,7 @@ def run_measurements(config_path, suite_path, output_path, work_dir, oracle_csv,
             stage = "abrupt_worker_recovery"
             gate = work / "fault.ready"
             workers.gate = gate
-            crashed = service.export_csv(result["result_id"], "records", "all_matching", columns=["unique_key"])
+            crashed = service.export_csv(result["result_id"], "records", "all_matching", columns=list(EXPORT_COLUMNS))
             process = workers.processes[crashed["job_id"]]
             wait_until = min(deadline, time.monotonic() + 90)
             while not gate.exists():
@@ -448,7 +453,7 @@ def run_measurements(config_path, suite_path, output_path, work_dir, oracle_csv,
                 fail("recovery_failed")
             stage = "reexport"
             begin = time.perf_counter()
-            repeat_job = service.export_csv(result["result_id"], "records", "all_matching", columns=["unique_key"])
+            repeat_job = service.export_csv(result["result_id"], "records", "all_matching", columns=list(EXPORT_COLUMNS))
             reexport = wait_export(service, repeat_job, workers, min(deadline, time.monotonic() + 180))
             reexport["seconds"] = time.perf_counter() - begin
             reexport["independent_membership_equal"] = reexport["membership_sha256"] == oracle["membership_sha256"]

@@ -1,0 +1,2342 @@
+{
+  "agent_accuracy_verified": false,
+  "cases": [
+    {
+      "csv": {
+        "bytes": 303,
+        "duplicate_ids": 0,
+        "ids": [
+          "FIX-001",
+          "FIX-002",
+          "FIX-003",
+          "FIX-004",
+          "FIX-005",
+          "FIX-006",
+          "FIX-007",
+          "FIX-008",
+          "FIX-009",
+          "FIX-010",
+          "FIX-011",
+          "FIX-012",
+          "FIX-013",
+          "FIX-014",
+          "FIX-015",
+          "FIX-016",
+          "FIX-017",
+          "FIX-018",
+          "FIX-019",
+          "FIX-020",
+          "FIX-021",
+          "FIX-022",
+          "FIX-023",
+          "FIX-024",
+          "FIX-025",
+          "FIX-026",
+          "FIX-027",
+          "FIX-028",
+          "FIX-029",
+          "FIX-030",
+          "FIX-031",
+          "FIX-032"
+        ],
+        "rows": 32,
+        "sha256": "920d8b637454a103e8024544dbedc2632f26ee4a5c9f67c6feb9d3b0a4903c65"
+      },
+      "expected_ids": [
+        "FIX-001",
+        "FIX-002",
+        "FIX-003",
+        "FIX-004",
+        "FIX-005",
+        "FIX-006",
+        "FIX-007",
+        "FIX-008",
+        "FIX-009",
+        "FIX-010",
+        "FIX-011",
+        "FIX-012",
+        "FIX-013",
+        "FIX-014",
+        "FIX-015",
+        "FIX-016",
+        "FIX-017",
+        "FIX-018",
+        "FIX-019",
+        "FIX-020",
+        "FIX-021",
+        "FIX-022",
+        "FIX-023",
+        "FIX-024",
+        "FIX-025",
+        "FIX-026",
+        "FIX-027",
+        "FIX-028",
+        "FIX-029",
+        "FIX-030",
+        "FIX-031",
+        "FIX-032"
+      ],
+      "name": "all-records",
+      "passed": true,
+      "preview_ids": [
+        "FIX-001",
+        "FIX-015"
+      ],
+      "spec": {
+        "as_of": "2026-01-02T12:00:00-05:00",
+        "dataset_version": "live-parity-fixture-v1",
+        "operation": "records",
+        "preview_limit": 2,
+        "schema_version": "1",
+        "time": {
+          "field": "created_date",
+          "gte": "2025-11-01T00:00:00-04:00",
+          "lt": "2026-01-01T00:00:00-05:00"
+        },
+        "timezone": "America/New_York"
+      },
+      "total": {
+        "relation": "eq",
+        "value": 32
+      }
+    },
+    {
+      "csv": {
+        "bytes": 51,
+        "duplicate_ids": 0,
+        "ids": [
+          "FIX-021",
+          "FIX-022",
+          "FIX-023",
+          "FIX-032"
+        ],
+        "rows": 4,
+        "sha256": "bf274a17cf8c1f50e49ade3bf51f4097573374a27e34c4e411a02d1aec207487"
+      },
+      "expected_ids": [
+        "FIX-021",
+        "FIX-022",
+        "FIX-023",
+        "FIX-032"
+      ],
+      "name": "noise-last-month",
+      "passed": true,
+      "preview_ids": [
+        "FIX-021",
+        "FIX-022"
+      ],
+      "spec": {
+        "as_of": "2026-01-02T12:00:00-05:00",
+        "dataset_version": "live-parity-fixture-v1",
+        "filters": {
+          "all": [
+            {
+              "field": "borough",
+              "op": "eq",
+              "value": "BROOKLYN"
+            },
+            {
+              "category_family": "noise"
+            }
+          ]
+        },
+        "operation": "records",
+        "preview_limit": 2,
+        "schema_version": "1",
+        "time": {
+          "preset": "last_month"
+        },
+        "timezone": "America/New_York"
+      },
+      "total": {
+        "relation": "eq",
+        "value": 4
+      }
+    },
+    {
+      "csv": {
+        "bytes": 60,
+        "duplicate_ids": 0,
+        "ids": [
+          "FIX-001",
+          "FIX-002",
+          "FIX-018",
+          "FIX-020",
+          "FIX-026"
+        ],
+        "rows": 5,
+        "sha256": "cfceb996b6ab67f34fda5c7c1ef59a7d7fbe97539bdcab0cb92b2d30f231271a"
+      },
+      "expected_ids": [
+        "FIX-001",
+        "FIX-002",
+        "FIX-018",
+        "FIX-020",
+        "FIX-026"
+      ],
+      "name": "nested-and-or-not-range",
+      "passed": true,
+      "preview_ids": [
+        "FIX-001",
+        "FIX-002"
+      ],
+      "spec": {
+        "as_of": "2026-01-02T12:00:00-05:00",
+        "dataset_version": "live-parity-fixture-v1",
+        "filters": {
+          "all": [
+            {
+              "field": "complaint_type",
+              "op": "eq",
+              "value": "Rodent"
+            },
+            {
+              "any": [
+                {
+                  "field": "borough",
+                  "op": "eq",
+                  "value": "BROOKLYN"
+                },
+                {
+                  "field": "borough",
+                  "op": "eq",
+                  "value": "QUEENS"
+                }
+              ]
+            },
+            {
+              "not": {
+                "field": "status",
+                "op": "eq",
+                "value": "Open"
+              }
+            },
+            {
+              "field": "closure_hours",
+              "op": "range",
+              "value": {
+                "gte": 24,
+                "lte": 48
+              }
+            }
+          ]
+        },
+        "operation": "records",
+        "preview_limit": 2,
+        "schema_version": "1",
+        "time": {
+          "field": "created_date",
+          "gte": "2025-11-01T00:00:00-04:00",
+          "lt": "2026-01-01T00:00:00-05:00"
+        },
+        "timezone": "America/New_York"
+      },
+      "total": {
+        "relation": "eq",
+        "value": 5
+      }
+    },
+    {
+      "csv": {
+        "bytes": 24,
+        "duplicate_ids": 0,
+        "ids": [
+          "FIX-013"
+        ],
+        "rows": 1,
+        "sha256": "aba2dfabd723ebf3a790c78f9d8ac14853069ffae222cd52a4268ce1ee70a309"
+      },
+      "expected_ids": [
+        "FIX-013"
+      ],
+      "name": "closed-missing-duration",
+      "passed": true,
+      "preview_ids": [
+        "FIX-013"
+      ],
+      "spec": {
+        "as_of": "2026-01-02T12:00:00-05:00",
+        "dataset_version": "live-parity-fixture-v1",
+        "filters": {
+          "all": [
+            {
+              "field": "complaint_type",
+              "op": "eq",
+              "value": "Rodent"
+            },
+            {
+              "field": "is_closed",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "field": "closure_hours",
+              "op": "exists",
+              "value": false
+            }
+          ]
+        },
+        "operation": "records",
+        "preview_limit": 2,
+        "schema_version": "1",
+        "time": {
+          "field": "created_date",
+          "gte": "2025-11-01T00:00:00-04:00",
+          "lt": "2026-01-01T00:00:00-05:00"
+        },
+        "timezone": "America/New_York"
+      },
+      "total": {
+        "relation": "eq",
+        "value": 1
+      }
+    },
+    {
+      "csv": {
+        "bytes": 24,
+        "duplicate_ids": 0,
+        "ids": [
+          "FIX-015"
+        ],
+        "rows": 1,
+        "sha256": "bc28d43916c686000dce2a7af456f1c7abd3eb6986074ba5cce1f8aa0680b2d4"
+      },
+      "expected_ids": [
+        "FIX-015"
+      ],
+      "name": "dst-half-open",
+      "passed": true,
+      "preview_ids": [
+        "FIX-015"
+      ],
+      "spec": {
+        "as_of": "2026-01-02T12:00:00-05:00",
+        "dataset_version": "live-parity-fixture-v1",
+        "operation": "records",
+        "preview_limit": 2,
+        "schema_version": "1",
+        "time": {
+          "field": "created_date",
+          "gte": "2025-11-02T01:15:00-04:00",
+          "lt": "2025-11-02T01:45:00-04:00"
+        },
+        "timezone": "America/New_York"
+      },
+      "total": {
+        "relation": "eq",
+        "value": 1
+      }
+    },
+    {
+      "csv": {
+        "bytes": 78,
+        "duplicate_ids": 0,
+        "ids": [
+          "FIX-001",
+          "FIX-002",
+          "FIX-003",
+          "FIX-017",
+          "FIX-018",
+          "FIX-021",
+          "FIX-032"
+        ],
+        "rows": 7,
+        "sha256": "1421378440603a14a6a58ed17e901276cf6528d4e10054891fa1eb0278604620"
+      },
+      "expected_ids": [
+        "FIX-001",
+        "FIX-002",
+        "FIX-003",
+        "FIX-017",
+        "FIX-018",
+        "FIX-021",
+        "FIX-032"
+      ],
+      "name": "geo-radius",
+      "passed": true,
+      "preview_ids": [
+        "FIX-001",
+        "FIX-002"
+      ],
+      "spec": {
+        "as_of": "2026-01-02T12:00:00-05:00",
+        "dataset_version": "live-parity-fixture-v1",
+        "geo": {
+          "distance_m": 1500,
+          "lat": 40.68,
+          "lon": -73.95,
+          "type": "radius"
+        },
+        "operation": "records",
+        "preview_limit": 2,
+        "schema_version": "1",
+        "time": {
+          "field": "created_date",
+          "gte": "2025-11-01T00:00:00-04:00",
+          "lt": "2026-01-01T00:00:00-05:00"
+        },
+        "timezone": "America/New_York"
+      },
+      "total": {
+        "relation": "eq",
+        "value": 7
+      }
+    },
+    {
+      "csv": {
+        "bytes": 141,
+        "duplicate_ids": 0,
+        "ids": [
+          "FIX-001",
+          "FIX-002",
+          "FIX-003",
+          "FIX-004",
+          "FIX-011",
+          "FIX-013",
+          "FIX-017",
+          "FIX-018",
+          "FIX-019",
+          "FIX-020",
+          "FIX-021",
+          "FIX-022",
+          "FIX-023",
+          "FIX-032"
+        ],
+        "rows": 14,
+        "sha256": "bbb6d367f44c5a2af1a9133bd103ad1838a5cef94b552685dc7c7445d3837eb1"
+      },
+      "expected_ids": [
+        "FIX-001",
+        "FIX-002",
+        "FIX-003",
+        "FIX-004",
+        "FIX-011",
+        "FIX-013",
+        "FIX-017",
+        "FIX-018",
+        "FIX-019",
+        "FIX-020",
+        "FIX-021",
+        "FIX-022",
+        "FIX-023",
+        "FIX-032"
+      ],
+      "name": "geo-bbox",
+      "passed": true,
+      "preview_ids": [
+        "FIX-001",
+        "FIX-002"
+      ],
+      "spec": {
+        "as_of": "2026-01-02T12:00:00-05:00",
+        "dataset_version": "live-parity-fixture-v1",
+        "geo": {
+          "bottom_right": {
+            "lat": 40.67,
+            "lon": -73.93
+          },
+          "top_left": {
+            "lat": 40.71,
+            "lon": -73.96
+          },
+          "type": "bbox"
+        },
+        "operation": "records",
+        "preview_limit": 2,
+        "schema_version": "1",
+        "time": {
+          "field": "created_date",
+          "gte": "2025-11-01T00:00:00-04:00",
+          "lt": "2026-01-01T00:00:00-05:00"
+        },
+        "timezone": "America/New_York"
+      },
+      "total": {
+        "relation": "eq",
+        "value": 14
+      }
+    },
+    {
+      "csv": {
+        "bytes": 141,
+        "duplicate_ids": 0,
+        "ids": [
+          "FIX-001",
+          "FIX-002",
+          "FIX-003",
+          "FIX-004",
+          "FIX-011",
+          "FIX-013",
+          "FIX-017",
+          "FIX-018",
+          "FIX-019",
+          "FIX-020",
+          "FIX-021",
+          "FIX-022",
+          "FIX-023",
+          "FIX-032"
+        ],
+        "rows": 14,
+        "sha256": "bbb6d367f44c5a2af1a9133bd103ad1838a5cef94b552685dc7c7445d3837eb1"
+      },
+      "expected_ids": [
+        "FIX-001",
+        "FIX-002",
+        "FIX-003",
+        "FIX-004",
+        "FIX-011",
+        "FIX-013",
+        "FIX-017",
+        "FIX-018",
+        "FIX-019",
+        "FIX-020",
+        "FIX-021",
+        "FIX-022",
+        "FIX-023",
+        "FIX-032"
+      ],
+      "name": "geo-polygon",
+      "passed": true,
+      "preview_ids": [
+        "FIX-001",
+        "FIX-002"
+      ],
+      "spec": {
+        "as_of": "2026-01-02T12:00:00-05:00",
+        "dataset_version": "live-parity-fixture-v1",
+        "geo": {
+          "points": [
+            {
+              "lat": 40.67,
+              "lon": -73.96
+            },
+            {
+              "lat": 40.67,
+              "lon": -73.93
+            },
+            {
+              "lat": 40.71,
+              "lon": -73.93
+            },
+            {
+              "lat": 40.71,
+              "lon": -73.96
+            }
+          ],
+          "type": "polygon"
+        },
+        "operation": "records",
+        "preview_limit": 2,
+        "schema_version": "1",
+        "time": {
+          "field": "created_date",
+          "gte": "2025-11-01T00:00:00-04:00",
+          "lt": "2026-01-01T00:00:00-05:00"
+        },
+        "timezone": "America/New_York"
+      },
+      "total": {
+        "relation": "eq",
+        "value": 14
+      }
+    },
+    {
+      "actual_rows": [
+        {
+          "closed_count": 6,
+          "count": 7,
+          "group": {
+            "borough": "BROOKLYN",
+            "complaint_type": "Rodent"
+          },
+          "group_id": "6804c1e64af04667ef25f9ae",
+          "mean_closure_hours": 31.2,
+          "open_count": 1
+        },
+        {
+          "closed_count": 3,
+          "count": 3,
+          "group": {
+            "borough": "BRONX",
+            "complaint_type": "Rodent"
+          },
+          "group_id": "5c29de206c4221c6c392b794",
+          "mean_closure_hours": 36.333333333333336,
+          "open_count": 0
+        },
+        {
+          "closed_count": 3,
+          "count": 3,
+          "group": {
+            "borough": "BROOKLYN",
+            "complaint_type": "Noise - Residential"
+          },
+          "group_id": "a3b5278971bdd1d2d8be1a8f",
+          "mean_closure_hours": 2.0,
+          "open_count": 0
+        },
+        {
+          "closed_count": 2,
+          "count": 3,
+          "group": {
+            "borough": "MANHATTAN",
+            "complaint_type": "Rodent"
+          },
+          "group_id": "1f0d195e23c565341505b970",
+          "mean_closure_hours": 84.0,
+          "open_count": 1
+        },
+        {
+          "closed_count": 1,
+          "count": 3,
+          "group": {
+            "borough": "QUEENS",
+            "complaint_type": "Rodent"
+          },
+          "group_id": "920f5a36f7ed4431286915d4",
+          "mean_closure_hours": 24.0,
+          "open_count": 2
+        },
+        {
+          "closed_count": 2,
+          "count": 2,
+          "group": {
+            "borough": "BROOKLYN",
+            "complaint_type": "Noise - Commercial"
+          },
+          "group_id": "80543e8dd0f081d624c26000",
+          "mean_closure_hours": 6.0,
+          "open_count": 0
+        },
+        {
+          "closed_count": 0,
+          "count": 2,
+          "group": {
+            "borough": "BROOKLYN",
+            "complaint_type": "Noise - Street/Sidewalk"
+          },
+          "group_id": "a7a6b300070c990dad6cd813",
+          "mean_closure_hours": null,
+          "open_count": 2
+        },
+        {
+          "closed_count": 2,
+          "count": 2,
+          "group": {
+            "borough": "MANHATTAN",
+            "complaint_type": "Noise - Vehicle"
+          },
+          "group_id": "fd6e5699f77f43897265707c",
+          "mean_closure_hours": 1.0,
+          "open_count": 0
+        },
+        {
+          "closed_count": 2,
+          "count": 2,
+          "group": {
+            "borough": "QUEENS",
+            "complaint_type": "Dirty Conditions"
+          },
+          "group_id": "b09a72171ac968ba4f9f4164",
+          "mean_closure_hours": 9.0,
+          "open_count": 0
+        },
+        {
+          "closed_count": 1,
+          "count": 2,
+          "group": {
+            "borough": "STATEN ISLAND",
+            "complaint_type": "Blocked Driveway"
+          },
+          "group_id": "077d2fedf377d88ce5f2e195",
+          "mean_closure_hours": 3.0,
+          "open_count": 1
+        },
+        {
+          "closed_count": 1,
+          "count": 1,
+          "group": {
+            "borough": "MANHATTAN",
+            "complaint_type": "Noise - Residential"
+          },
+          "group_id": "08a5d4a595fd669ec37f3773",
+          "mean_closure_hours": 4.0,
+          "open_count": 0
+        },
+        {
+          "closed_count": 1,
+          "count": 1,
+          "group": {
+            "borough": "QUEENS",
+            "complaint_type": "Noise - Residential"
+          },
+          "group_id": "147ab9fac319edf9d43b5e35",
+          "mean_closure_hours": 6.0,
+          "open_count": 0
+        },
+        {
+          "closed_count": 0,
+          "count": 1,
+          "group": {
+            "borough": null,
+            "complaint_type": "Rodent"
+          },
+          "group_id": "9ab9f95d06f14b847a6832ff",
+          "mean_closure_hours": null,
+          "open_count": 1
+        }
+      ],
+      "csv": {
+        "bytes": 303,
+        "duplicate_ids": 0,
+        "ids": [
+          "FIX-001",
+          "FIX-002",
+          "FIX-003",
+          "FIX-004",
+          "FIX-005",
+          "FIX-006",
+          "FIX-007",
+          "FIX-008",
+          "FIX-009",
+          "FIX-010",
+          "FIX-011",
+          "FIX-012",
+          "FIX-013",
+          "FIX-014",
+          "FIX-015",
+          "FIX-016",
+          "FIX-017",
+          "FIX-018",
+          "FIX-019",
+          "FIX-020",
+          "FIX-021",
+          "FIX-022",
+          "FIX-023",
+          "FIX-024",
+          "FIX-025",
+          "FIX-026",
+          "FIX-027",
+          "FIX-028",
+          "FIX-029",
+          "FIX-030",
+          "FIX-031",
+          "FIX-032"
+        ],
+        "rows": 32,
+        "sha256": "920d8b637454a103e8024544dbedc2632f26ee4a5c9f67c6feb9d3b0a4903c65"
+      },
+      "expected_ids": [
+        "FIX-001",
+        "FIX-002",
+        "FIX-003",
+        "FIX-004",
+        "FIX-005",
+        "FIX-006",
+        "FIX-007",
+        "FIX-008",
+        "FIX-009",
+        "FIX-010",
+        "FIX-011",
+        "FIX-012",
+        "FIX-013",
+        "FIX-014",
+        "FIX-015",
+        "FIX-016",
+        "FIX-017",
+        "FIX-018",
+        "FIX-019",
+        "FIX-020",
+        "FIX-021",
+        "FIX-022",
+        "FIX-023",
+        "FIX-024",
+        "FIX-025",
+        "FIX-026",
+        "FIX-027",
+        "FIX-028",
+        "FIX-029",
+        "FIX-030",
+        "FIX-031",
+        "FIX-032"
+      ],
+      "expected_rows": [
+        {
+          "closed_count": 6,
+          "count": 7,
+          "group": {
+            "borough": "BROOKLYN",
+            "complaint_type": "Rodent"
+          },
+          "group_id": "6804c1e64af04667ef25f9ae",
+          "mean_closure_hours": 31.2,
+          "open_count": 1
+        },
+        {
+          "closed_count": 3,
+          "count": 3,
+          "group": {
+            "borough": "BRONX",
+            "complaint_type": "Rodent"
+          },
+          "group_id": "5c29de206c4221c6c392b794",
+          "mean_closure_hours": 36.333333333333336,
+          "open_count": 0
+        },
+        {
+          "closed_count": 3,
+          "count": 3,
+          "group": {
+            "borough": "BROOKLYN",
+            "complaint_type": "Noise - Residential"
+          },
+          "group_id": "a3b5278971bdd1d2d8be1a8f",
+          "mean_closure_hours": 2.0,
+          "open_count": 0
+        },
+        {
+          "closed_count": 2,
+          "count": 3,
+          "group": {
+            "borough": "MANHATTAN",
+            "complaint_type": "Rodent"
+          },
+          "group_id": "1f0d195e23c565341505b970",
+          "mean_closure_hours": 84.0,
+          "open_count": 1
+        },
+        {
+          "closed_count": 1,
+          "count": 3,
+          "group": {
+            "borough": "QUEENS",
+            "complaint_type": "Rodent"
+          },
+          "group_id": "920f5a36f7ed4431286915d4",
+          "mean_closure_hours": 24.0,
+          "open_count": 2
+        },
+        {
+          "closed_count": 2,
+          "count": 2,
+          "group": {
+            "borough": "BROOKLYN",
+            "complaint_type": "Noise - Commercial"
+          },
+          "group_id": "80543e8dd0f081d624c26000",
+          "mean_closure_hours": 6.0,
+          "open_count": 0
+        },
+        {
+          "closed_count": 0,
+          "count": 2,
+          "group": {
+            "borough": "BROOKLYN",
+            "complaint_type": "Noise - Street/Sidewalk"
+          },
+          "group_id": "a7a6b300070c990dad6cd813",
+          "mean_closure_hours": null,
+          "open_count": 2
+        },
+        {
+          "closed_count": 2,
+          "count": 2,
+          "group": {
+            "borough": "MANHATTAN",
+            "complaint_type": "Noise - Vehicle"
+          },
+          "group_id": "fd6e5699f77f43897265707c",
+          "mean_closure_hours": 1.0,
+          "open_count": 0
+        },
+        {
+          "closed_count": 2,
+          "count": 2,
+          "group": {
+            "borough": "QUEENS",
+            "complaint_type": "Dirty Conditions"
+          },
+          "group_id": "b09a72171ac968ba4f9f4164",
+          "mean_closure_hours": 9.0,
+          "open_count": 0
+        },
+        {
+          "closed_count": 1,
+          "count": 2,
+          "group": {
+            "borough": "STATEN ISLAND",
+            "complaint_type": "Blocked Driveway"
+          },
+          "group_id": "077d2fedf377d88ce5f2e195",
+          "mean_closure_hours": 3.0,
+          "open_count": 1
+        },
+        {
+          "closed_count": 1,
+          "count": 1,
+          "group": {
+            "borough": "MANHATTAN",
+            "complaint_type": "Noise - Residential"
+          },
+          "group_id": "08a5d4a595fd669ec37f3773",
+          "mean_closure_hours": 4.0,
+          "open_count": 0
+        },
+        {
+          "closed_count": 1,
+          "count": 1,
+          "group": {
+            "borough": "QUEENS",
+            "complaint_type": "Noise - Residential"
+          },
+          "group_id": "147ab9fac319edf9d43b5e35",
+          "mean_closure_hours": 6.0,
+          "open_count": 0
+        },
+        {
+          "closed_count": 0,
+          "count": 1,
+          "group": {
+            "borough": null,
+            "complaint_type": "Rodent"
+          },
+          "group_id": "9ab9f95d06f14b847a6832ff",
+          "mean_closure_hours": null,
+          "open_count": 1
+        }
+      ],
+      "name": "nested-aggregation",
+      "passed": true,
+      "spec": {
+        "as_of": "2026-01-02T12:00:00-05:00",
+        "dataset_version": "live-parity-fixture-v1",
+        "group_by": [
+          {
+            "field": "borough"
+          },
+          {
+            "field": "complaint_type"
+          }
+        ],
+        "metrics": [
+          "count",
+          "closed_count",
+          "open_count",
+          "mean_closure_hours"
+        ],
+        "operation": "aggregate",
+        "preview_limit": 2,
+        "schema_version": "1",
+        "time": {
+          "field": "created_date",
+          "gte": "2025-11-01T00:00:00-04:00",
+          "lt": "2026-01-01T00:00:00-05:00"
+        },
+        "timezone": "America/New_York",
+        "top_n": 2
+      },
+      "total": {
+        "relation": "eq",
+        "value": 32
+      }
+    },
+    {
+      "actual_rows": [
+        {
+          "closed_count": 1,
+          "count": 1,
+          "group": {
+            "borough": "BROOKLYN",
+            "created_date": "2025-12-01T00:00:00-05:00"
+          },
+          "group_id": "87f42f26672cbd0c4d58ee9d",
+          "mean_closure_hours": 2.0,
+          "open_count": 0
+        },
+        {
+          "closed_count": 0,
+          "count": 1,
+          "group": {
+            "borough": "BROOKLYN",
+            "created_date": "2025-12-08T00:00:00-05:00"
+          },
+          "group_id": "da15d34ce47255c5dd328e14",
+          "mean_closure_hours": null,
+          "open_count": 1
+        },
+        {
+          "closed_count": 1,
+          "count": 1,
+          "group": {
+            "borough": "BROOKLYN",
+            "created_date": "2025-12-15T00:00:00-05:00"
+          },
+          "group_id": "a8341b15564138487a35832a",
+          "mean_closure_hours": 4.0,
+          "open_count": 0
+        },
+        {
+          "closed_count": 1,
+          "count": 1,
+          "group": {
+            "borough": "BROOKLYN",
+            "created_date": "2025-12-29T00:00:00-05:00"
+          },
+          "group_id": "a1dc1da8476e6679b38e097c",
+          "mean_closure_hours": 2.0,
+          "open_count": 0
+        },
+        {
+          "closed_count": 1,
+          "count": 1,
+          "group": {
+            "borough": "MANHATTAN",
+            "created_date": "2025-12-08T00:00:00-05:00"
+          },
+          "group_id": "2e10ec830f7e950e585baaeb",
+          "mean_closure_hours": 1.0,
+          "open_count": 0
+        },
+        {
+          "closed_count": 0,
+          "count": 0,
+          "group": {
+            "borough": "BROOKLYN",
+            "created_date": "2025-12-22T00:00:00-05:00"
+          },
+          "group_id": "84946bd1964fe97b117f5147",
+          "mean_closure_hours": null,
+          "open_count": 0
+        },
+        {
+          "closed_count": 0,
+          "count": 0,
+          "group": {
+            "borough": "MANHATTAN",
+            "created_date": "2025-12-01T00:00:00-05:00"
+          },
+          "group_id": "80c6ea6cc54831c3f8bb2eaa",
+          "mean_closure_hours": null,
+          "open_count": 0
+        },
+        {
+          "closed_count": 0,
+          "count": 0,
+          "group": {
+            "borough": "MANHATTAN",
+            "created_date": "2025-12-15T00:00:00-05:00"
+          },
+          "group_id": "ce5d9ea845199a8388607d63",
+          "mean_closure_hours": null,
+          "open_count": 0
+        },
+        {
+          "closed_count": 0,
+          "count": 0,
+          "group": {
+            "borough": "MANHATTAN",
+            "created_date": "2025-12-22T00:00:00-05:00"
+          },
+          "group_id": "eef0c0e8e99af5cf656aee0f",
+          "mean_closure_hours": null,
+          "open_count": 0
+        },
+        {
+          "closed_count": 0,
+          "count": 0,
+          "group": {
+            "borough": "MANHATTAN",
+            "created_date": "2025-12-29T00:00:00-05:00"
+          },
+          "group_id": "c3faceb648f01c729fd3384c",
+          "mean_closure_hours": null,
+          "open_count": 0
+        }
+      ],
+      "csv": {
+        "bytes": 60,
+        "duplicate_ids": 0,
+        "ids": [
+          "FIX-021",
+          "FIX-022",
+          "FIX-023",
+          "FIX-025",
+          "FIX-032"
+        ],
+        "rows": 5,
+        "sha256": "84e8f65cb0499863c4cf4adbbb33302a08f60618b57e5ff20075712254b79ef8"
+      },
+      "expected_ids": [
+        "FIX-021",
+        "FIX-022",
+        "FIX-023",
+        "FIX-025",
+        "FIX-032"
+      ],
+      "expected_rows": [
+        {
+          "closed_count": 1,
+          "count": 1,
+          "group": {
+            "borough": "BROOKLYN",
+            "created_date": "2025-12-01T00:00:00-05:00"
+          },
+          "group_id": "87f42f26672cbd0c4d58ee9d",
+          "mean_closure_hours": 2.0,
+          "open_count": 0
+        },
+        {
+          "closed_count": 0,
+          "count": 1,
+          "group": {
+            "borough": "BROOKLYN",
+            "created_date": "2025-12-08T00:00:00-05:00"
+          },
+          "group_id": "da15d34ce47255c5dd328e14",
+          "mean_closure_hours": null,
+          "open_count": 1
+        },
+        {
+          "closed_count": 1,
+          "count": 1,
+          "group": {
+            "borough": "BROOKLYN",
+            "created_date": "2025-12-15T00:00:00-05:00"
+          },
+          "group_id": "a8341b15564138487a35832a",
+          "mean_closure_hours": 4.0,
+          "open_count": 0
+        },
+        {
+          "closed_count": 1,
+          "count": 1,
+          "group": {
+            "borough": "BROOKLYN",
+            "created_date": "2025-12-29T00:00:00-05:00"
+          },
+          "group_id": "a1dc1da8476e6679b38e097c",
+          "mean_closure_hours": 2.0,
+          "open_count": 0
+        },
+        {
+          "closed_count": 1,
+          "count": 1,
+          "group": {
+            "borough": "MANHATTAN",
+            "created_date": "2025-12-08T00:00:00-05:00"
+          },
+          "group_id": "2e10ec830f7e950e585baaeb",
+          "mean_closure_hours": 1.0,
+          "open_count": 0
+        },
+        {
+          "closed_count": 0,
+          "count": 0,
+          "group": {
+            "borough": "BROOKLYN",
+            "created_date": "2025-12-22T00:00:00-05:00"
+          },
+          "group_id": "84946bd1964fe97b117f5147",
+          "mean_closure_hours": null,
+          "open_count": 0
+        },
+        {
+          "closed_count": 0,
+          "count": 0,
+          "group": {
+            "borough": "MANHATTAN",
+            "created_date": "2025-12-01T00:00:00-05:00"
+          },
+          "group_id": "80c6ea6cc54831c3f8bb2eaa",
+          "mean_closure_hours": null,
+          "open_count": 0
+        },
+        {
+          "closed_count": 0,
+          "count": 0,
+          "group": {
+            "borough": "MANHATTAN",
+            "created_date": "2025-12-15T00:00:00-05:00"
+          },
+          "group_id": "ce5d9ea845199a8388607d63",
+          "mean_closure_hours": null,
+          "open_count": 0
+        },
+        {
+          "closed_count": 0,
+          "count": 0,
+          "group": {
+            "borough": "MANHATTAN",
+            "created_date": "2025-12-22T00:00:00-05:00"
+          },
+          "group_id": "eef0c0e8e99af5cf656aee0f",
+          "mean_closure_hours": null,
+          "open_count": 0
+        },
+        {
+          "closed_count": 0,
+          "count": 0,
+          "group": {
+            "borough": "MANHATTAN",
+            "created_date": "2025-12-29T00:00:00-05:00"
+          },
+          "group_id": "c3faceb648f01c729fd3384c",
+          "mean_closure_hours": null,
+          "open_count": 0
+        }
+      ],
+      "name": "calendar-zero-fill",
+      "passed": true,
+      "spec": {
+        "as_of": "2026-01-02T12:00:00-05:00",
+        "dataset_version": "live-parity-fixture-v1",
+        "filters": {
+          "category_family": "noise"
+        },
+        "group_by": [
+          {
+            "field": "created_date",
+            "interval": "week"
+          },
+          {
+            "field": "borough"
+          }
+        ],
+        "metrics": [
+          "count",
+          "closed_count",
+          "open_count",
+          "mean_closure_hours"
+        ],
+        "operation": "aggregate",
+        "preview_limit": 2,
+        "schema_version": "1",
+        "time": {
+          "preset": "last_month"
+        },
+        "timezone": "America/New_York",
+        "top_n": 2
+      },
+      "total": {
+        "relation": "eq",
+        "value": 5
+      }
+    },
+    {
+      "actual_rows": [
+        {
+          "closed_count": 12,
+          "count": 17,
+          "group": {
+            "agency": "DOHMH"
+          },
+          "group_id": "102efc6c5db3249c9dc115b8",
+          "mean_closure_hours": 41.54545454545455,
+          "open_count": 5
+        },
+        {
+          "closed_count": 10,
+          "count": 13,
+          "group": {
+            "agency": "NYPD"
+          },
+          "group_id": "6449a39824ea038f666d4cf0",
+          "mean_closure_hours": 3.3,
+          "open_count": 3
+        },
+        {
+          "closed_count": 2,
+          "count": 2,
+          "group": {
+            "agency": "DSNY"
+          },
+          "group_id": "48930b58aa9e3b98130c9e01",
+          "mean_closure_hours": 9.0,
+          "open_count": 0
+        }
+      ],
+      "csv": {
+        "bytes": 303,
+        "duplicate_ids": 0,
+        "ids": [
+          "FIX-001",
+          "FIX-002",
+          "FIX-003",
+          "FIX-004",
+          "FIX-005",
+          "FIX-006",
+          "FIX-007",
+          "FIX-008",
+          "FIX-009",
+          "FIX-010",
+          "FIX-011",
+          "FIX-012",
+          "FIX-013",
+          "FIX-014",
+          "FIX-015",
+          "FIX-016",
+          "FIX-017",
+          "FIX-018",
+          "FIX-019",
+          "FIX-020",
+          "FIX-021",
+          "FIX-022",
+          "FIX-023",
+          "FIX-024",
+          "FIX-025",
+          "FIX-026",
+          "FIX-027",
+          "FIX-028",
+          "FIX-029",
+          "FIX-030",
+          "FIX-031",
+          "FIX-032"
+        ],
+        "rows": 32,
+        "sha256": "920d8b637454a103e8024544dbedc2632f26ee4a5c9f67c6feb9d3b0a4903c65"
+      },
+      "expected_ids": [
+        "FIX-001",
+        "FIX-002",
+        "FIX-003",
+        "FIX-004",
+        "FIX-005",
+        "FIX-006",
+        "FIX-007",
+        "FIX-008",
+        "FIX-009",
+        "FIX-010",
+        "FIX-011",
+        "FIX-012",
+        "FIX-013",
+        "FIX-014",
+        "FIX-015",
+        "FIX-016",
+        "FIX-017",
+        "FIX-018",
+        "FIX-019",
+        "FIX-020",
+        "FIX-021",
+        "FIX-022",
+        "FIX-023",
+        "FIX-024",
+        "FIX-025",
+        "FIX-026",
+        "FIX-027",
+        "FIX-028",
+        "FIX-029",
+        "FIX-030",
+        "FIX-031",
+        "FIX-032"
+      ],
+      "expected_rows": [
+        {
+          "closed_count": 12,
+          "count": 17,
+          "group": {
+            "agency": "DOHMH"
+          },
+          "group_id": "102efc6c5db3249c9dc115b8",
+          "mean_closure_hours": 41.54545454545455,
+          "open_count": 5
+        },
+        {
+          "closed_count": 10,
+          "count": 13,
+          "group": {
+            "agency": "NYPD"
+          },
+          "group_id": "6449a39824ea038f666d4cf0",
+          "mean_closure_hours": 3.3,
+          "open_count": 3
+        },
+        {
+          "closed_count": 2,
+          "count": 2,
+          "group": {
+            "agency": "DSNY"
+          },
+          "group_id": "48930b58aa9e3b98130c9e01",
+          "mean_closure_hours": 9.0,
+          "open_count": 0
+        }
+      ],
+      "name": "closure-by-agency",
+      "passed": true,
+      "spec": {
+        "as_of": "2026-01-02T12:00:00-05:00",
+        "dataset_version": "live-parity-fixture-v1",
+        "group_by": [
+          {
+            "field": "agency"
+          }
+        ],
+        "metrics": [
+          "count",
+          "closed_count",
+          "open_count",
+          "mean_closure_hours"
+        ],
+        "operation": "aggregate",
+        "preview_limit": 2,
+        "schema_version": "1",
+        "time": {
+          "field": "created_date",
+          "gte": "2025-11-01T00:00:00-04:00",
+          "lt": "2026-01-01T00:00:00-05:00"
+        },
+        "timezone": "America/New_York",
+        "top_n": 2
+      },
+      "total": {
+        "relation": "eq",
+        "value": 32
+      }
+    },
+    {
+      "actual_rows": [
+        {
+          "closed_count": 0,
+          "count": 0,
+          "group": {},
+          "group_id": "44136fa355b3678a1146ad16",
+          "mean_closure_hours": null,
+          "open_count": 0
+        }
+      ],
+      "csv": {
+        "bytes": 15,
+        "duplicate_ids": 0,
+        "ids": [],
+        "rows": 0,
+        "sha256": "4ca6b58adee1e38261913fd406910f340722bb434c0bbf92eb43d239b36a2539"
+      },
+      "expected_ids": [],
+      "expected_rows": [
+        {
+          "closed_count": 0,
+          "count": 0,
+          "group": {},
+          "group_id": "44136fa355b3678a1146ad16",
+          "mean_closure_hours": null,
+          "open_count": 0
+        }
+      ],
+      "name": "empty-aggregate",
+      "passed": true,
+      "spec": {
+        "as_of": "2026-01-02T12:00:00-05:00",
+        "dataset_version": "live-parity-fixture-v1",
+        "filters": {
+          "field": "unique_key",
+          "op": "eq",
+          "value": "ABSENT"
+        },
+        "metrics": [
+          "count",
+          "closed_count",
+          "open_count",
+          "mean_closure_hours"
+        ],
+        "operation": "aggregate",
+        "preview_limit": 2,
+        "schema_version": "1",
+        "time": {
+          "field": "created_date",
+          "gte": "2025-11-01T00:00:00-04:00",
+          "lt": "2026-01-01T00:00:00-05:00"
+        },
+        "timezone": "America/New_York"
+      },
+      "total": {
+        "relation": "eq",
+        "value": 0
+      }
+    },
+    {
+      "actual_rows": [
+        {
+          "absolute_change": 1,
+          "baseline_count": 1,
+          "baseline_daily_rate": 0.03333333333333333,
+          "baseline_days": 30.0,
+          "baseline_metrics": {
+            "closed_count": 1,
+            "count": 1,
+            "mean_closure_hours": null,
+            "open_count": 0
+          },
+          "count": 2,
+          "current_count": 2,
+          "current_daily_rate": 0.06451612903225806,
+          "current_days": 31.0,
+          "current_metrics": {
+            "closed_count": 1,
+            "count": 2,
+            "mean_closure_hours": 48.0,
+            "open_count": 1
+          },
+          "group": {
+            "nta2020": "FIXTURE-BK-B"
+          },
+          "group_id": "08e7a0fc9455efce24de1dab",
+          "rate_change": 0.03118279569892473,
+          "relative_change": 1.0
+        },
+        {
+          "absolute_change": 1,
+          "baseline_count": 1,
+          "baseline_daily_rate": 0.03333333333333333,
+          "baseline_days": 30.0,
+          "baseline_metrics": {
+            "closed_count": 0,
+            "count": 1,
+            "mean_closure_hours": null,
+            "open_count": 1
+          },
+          "count": 2,
+          "current_count": 2,
+          "current_daily_rate": 0.06451612903225806,
+          "current_days": 31.0,
+          "current_metrics": {
+            "closed_count": 1,
+            "count": 2,
+            "mean_closure_hours": 24.0,
+            "open_count": 1
+          },
+          "group": {
+            "nta2020": "FIXTURE-QN-A"
+          },
+          "group_id": "ba40c551835359fc8f43601b",
+          "rate_change": 0.03118279569892473,
+          "relative_change": 1.0
+        },
+        {
+          "absolute_change": 0,
+          "baseline_count": 2,
+          "baseline_daily_rate": 0.06666666666666667,
+          "baseline_days": 30.0,
+          "baseline_metrics": {
+            "closed_count": 2,
+            "count": 2,
+            "mean_closure_hours": 36.0,
+            "open_count": 0
+          },
+          "count": 2,
+          "current_count": 2,
+          "current_daily_rate": 0.06451612903225806,
+          "current_days": 31.0,
+          "current_metrics": {
+            "closed_count": 2,
+            "count": 2,
+            "mean_closure_hours": 18.0,
+            "open_count": 0
+          },
+          "group": {
+            "nta2020": "FIXTURE-BK-A"
+          },
+          "group_id": "bd2133dc1987a2b682744006",
+          "rate_change": -0.002150537634408603,
+          "relative_change": 0.0
+        },
+        {
+          "absolute_change": 0,
+          "baseline_count": 1,
+          "baseline_daily_rate": 0.03333333333333333,
+          "baseline_days": 30.0,
+          "baseline_metrics": {
+            "closed_count": 1,
+            "count": 1,
+            "mean_closure_hours": 72.0,
+            "open_count": 0
+          },
+          "count": 1,
+          "current_count": 1,
+          "current_daily_rate": 0.03225806451612903,
+          "current_days": 31.0,
+          "current_metrics": {
+            "closed_count": 1,
+            "count": 1,
+            "mean_closure_hours": 96.0,
+            "open_count": 0
+          },
+          "group": {
+            "nta2020": "FIXTURE-MN-A"
+          },
+          "group_id": "6b9add365838ed4777edc407",
+          "rate_change": -0.0010752688172043015,
+          "relative_change": 0.0
+        },
+        {
+          "absolute_change": 0,
+          "baseline_count": 1,
+          "baseline_daily_rate": 0.03333333333333333,
+          "baseline_days": 30.0,
+          "baseline_metrics": {
+            "closed_count": 0,
+            "count": 1,
+            "mean_closure_hours": null,
+            "open_count": 1
+          },
+          "count": 1,
+          "current_count": 1,
+          "current_daily_rate": 0.03225806451612903,
+          "current_days": 31.0,
+          "current_metrics": {
+            "closed_count": 0,
+            "count": 1,
+            "mean_closure_hours": null,
+            "open_count": 1
+          },
+          "group": {
+            "nta2020": null
+          },
+          "group_id": "2aca92d9b9ccf184286fb567",
+          "rate_change": -0.0010752688172043015,
+          "relative_change": 0.0
+        },
+        {
+          "absolute_change": -1,
+          "baseline_count": 2,
+          "baseline_daily_rate": 0.06666666666666667,
+          "baseline_days": 30.0,
+          "baseline_metrics": {
+            "closed_count": 2,
+            "count": 2,
+            "mean_closure_hours": 18.5,
+            "open_count": 0
+          },
+          "count": 1,
+          "current_count": 1,
+          "current_daily_rate": 0.03225806451612903,
+          "current_days": 31.0,
+          "current_metrics": {
+            "closed_count": 1,
+            "count": 1,
+            "mean_closure_hours": 72.0,
+            "open_count": 0
+          },
+          "group": {
+            "nta2020": "FIXTURE-BX-A"
+          },
+          "group_id": "69e9af6fb8b9e189b3693d6e",
+          "rate_change": -0.034408602150537634,
+          "relative_change": -0.5
+        }
+      ],
+      "csv": {
+        "bytes": 168,
+        "duplicate_ids": 0,
+        "ids": [
+          "FIX-001",
+          "FIX-002",
+          "FIX-005",
+          "FIX-007",
+          "FIX-009",
+          "FIX-013",
+          "FIX-014",
+          "FIX-016",
+          "FIX-017",
+          "FIX-018",
+          "FIX-019",
+          "FIX-020",
+          "FIX-024",
+          "FIX-026",
+          "FIX-027",
+          "FIX-029",
+          "FIX-031"
+        ],
+        "rows": 17,
+        "sha256": "2141e798e890a28235577e19116b4da661e2a9e434e65b9497ba4755c3766b29"
+      },
+      "expected_ids": [
+        "FIX-001",
+        "FIX-002",
+        "FIX-005",
+        "FIX-007",
+        "FIX-009",
+        "FIX-013",
+        "FIX-014",
+        "FIX-016",
+        "FIX-017",
+        "FIX-018",
+        "FIX-019",
+        "FIX-020",
+        "FIX-024",
+        "FIX-026",
+        "FIX-027",
+        "FIX-029",
+        "FIX-031"
+      ],
+      "expected_rows": [
+        {
+          "absolute_change": 1,
+          "baseline_count": 1,
+          "baseline_daily_rate": 0.03333333333333333,
+          "baseline_days": 30.0,
+          "baseline_metrics": {
+            "closed_count": 1,
+            "count": 1,
+            "mean_closure_hours": null,
+            "open_count": 0
+          },
+          "count": 2,
+          "current_count": 2,
+          "current_daily_rate": 0.06451612903225806,
+          "current_days": 31.0,
+          "current_metrics": {
+            "closed_count": 1,
+            "count": 2,
+            "mean_closure_hours": 48.0,
+            "open_count": 1
+          },
+          "group": {
+            "nta2020": "FIXTURE-BK-B"
+          },
+          "group_id": "08e7a0fc9455efce24de1dab",
+          "rate_change": 0.03118279569892473,
+          "relative_change": 1.0
+        },
+        {
+          "absolute_change": 1,
+          "baseline_count": 1,
+          "baseline_daily_rate": 0.03333333333333333,
+          "baseline_days": 30.0,
+          "baseline_metrics": {
+            "closed_count": 0,
+            "count": 1,
+            "mean_closure_hours": null,
+            "open_count": 1
+          },
+          "count": 2,
+          "current_count": 2,
+          "current_daily_rate": 0.06451612903225806,
+          "current_days": 31.0,
+          "current_metrics": {
+            "closed_count": 1,
+            "count": 2,
+            "mean_closure_hours": 24.0,
+            "open_count": 1
+          },
+          "group": {
+            "nta2020": "FIXTURE-QN-A"
+          },
+          "group_id": "ba40c551835359fc8f43601b",
+          "rate_change": 0.03118279569892473,
+          "relative_change": 1.0
+        },
+        {
+          "absolute_change": 0,
+          "baseline_count": 2,
+          "baseline_daily_rate": 0.06666666666666667,
+          "baseline_days": 30.0,
+          "baseline_metrics": {
+            "closed_count": 2,
+            "count": 2,
+            "mean_closure_hours": 36.0,
+            "open_count": 0
+          },
+          "count": 2,
+          "current_count": 2,
+          "current_daily_rate": 0.06451612903225806,
+          "current_days": 31.0,
+          "current_metrics": {
+            "closed_count": 2,
+            "count": 2,
+            "mean_closure_hours": 18.0,
+            "open_count": 0
+          },
+          "group": {
+            "nta2020": "FIXTURE-BK-A"
+          },
+          "group_id": "bd2133dc1987a2b682744006",
+          "rate_change": -0.002150537634408603,
+          "relative_change": 0.0
+        },
+        {
+          "absolute_change": 0,
+          "baseline_count": 1,
+          "baseline_daily_rate": 0.03333333333333333,
+          "baseline_days": 30.0,
+          "baseline_metrics": {
+            "closed_count": 1,
+            "count": 1,
+            "mean_closure_hours": 72.0,
+            "open_count": 0
+          },
+          "count": 1,
+          "current_count": 1,
+          "current_daily_rate": 0.03225806451612903,
+          "current_days": 31.0,
+          "current_metrics": {
+            "closed_count": 1,
+            "count": 1,
+            "mean_closure_hours": 96.0,
+            "open_count": 0
+          },
+          "group": {
+            "nta2020": "FIXTURE-MN-A"
+          },
+          "group_id": "6b9add365838ed4777edc407",
+          "rate_change": -0.0010752688172043015,
+          "relative_change": 0.0
+        },
+        {
+          "absolute_change": 0,
+          "baseline_count": 1,
+          "baseline_daily_rate": 0.03333333333333333,
+          "baseline_days": 30.0,
+          "baseline_metrics": {
+            "closed_count": 0,
+            "count": 1,
+            "mean_closure_hours": null,
+            "open_count": 1
+          },
+          "count": 1,
+          "current_count": 1,
+          "current_daily_rate": 0.03225806451612903,
+          "current_days": 31.0,
+          "current_metrics": {
+            "closed_count": 0,
+            "count": 1,
+            "mean_closure_hours": null,
+            "open_count": 1
+          },
+          "group": {
+            "nta2020": null
+          },
+          "group_id": "2aca92d9b9ccf184286fb567",
+          "rate_change": -0.0010752688172043015,
+          "relative_change": 0.0
+        },
+        {
+          "absolute_change": -1,
+          "baseline_count": 2,
+          "baseline_daily_rate": 0.06666666666666667,
+          "baseline_days": 30.0,
+          "baseline_metrics": {
+            "closed_count": 2,
+            "count": 2,
+            "mean_closure_hours": 18.5,
+            "open_count": 0
+          },
+          "count": 1,
+          "current_count": 1,
+          "current_daily_rate": 0.03225806451612903,
+          "current_days": 31.0,
+          "current_metrics": {
+            "closed_count": 1,
+            "count": 1,
+            "mean_closure_hours": 72.0,
+            "open_count": 0
+          },
+          "group": {
+            "nta2020": "FIXTURE-BX-A"
+          },
+          "group_id": "69e9af6fb8b9e189b3693d6e",
+          "rate_change": -0.034408602150537634,
+          "relative_change": -0.5
+        }
+      ],
+      "name": "neighborhood-trends",
+      "passed": true,
+      "spec": {
+        "as_of": "2026-01-02T12:00:00-05:00",
+        "dataset_version": "live-parity-fixture-v1",
+        "filters": {
+          "field": "complaint_type",
+          "op": "eq",
+          "value": "Rodent"
+        },
+        "group_by": [
+          {
+            "field": "nta2020"
+          }
+        ],
+        "metrics": [
+          "count",
+          "closed_count",
+          "open_count",
+          "mean_closure_hours"
+        ],
+        "operation": "compare_periods",
+        "periods": {
+          "baseline": {
+            "gte": "2025-11-01T00:00:00-04:00",
+            "lt": "2025-12-01T00:00:00-05:00"
+          },
+          "current": {
+            "gte": "2025-12-01T00:00:00-05:00",
+            "lt": "2026-01-01T00:00:00-05:00"
+          }
+        },
+        "preview_limit": 2,
+        "schema_version": "1",
+        "timezone": "America/New_York",
+        "top_n": 2
+      },
+      "total": {
+        "relation": "eq",
+        "value": 17
+      }
+    },
+    {
+      "actual_rows": [
+        {
+          "absolute_change": 2,
+          "baseline_count": 0,
+          "baseline_daily_rate": 0.0,
+          "baseline_days": 2.0,
+          "baseline_metrics": {
+            "closed_count": 0,
+            "count": 0,
+            "mean_closure_hours": null,
+            "open_count": 0
+          },
+          "count": 2,
+          "current_count": 2,
+          "current_daily_rate": 0.06451612903225806,
+          "current_days": 31.0,
+          "current_metrics": {
+            "closed_count": 1,
+            "count": 2,
+            "mean_closure_hours": 48.0,
+            "open_count": 1
+          },
+          "group": {
+            "nta2020": "FIXTURE-BK-B"
+          },
+          "group_id": "08e7a0fc9455efce24de1dab",
+          "rate_change": 0.06451612903225806,
+          "relative_change": null
+        },
+        {
+          "absolute_change": 2,
+          "baseline_count": 0,
+          "baseline_daily_rate": 0.0,
+          "baseline_days": 2.0,
+          "baseline_metrics": {
+            "closed_count": 0,
+            "count": 0,
+            "mean_closure_hours": null,
+            "open_count": 0
+          },
+          "count": 2,
+          "current_count": 2,
+          "current_daily_rate": 0.06451612903225806,
+          "current_days": 31.0,
+          "current_metrics": {
+            "closed_count": 1,
+            "count": 2,
+            "mean_closure_hours": 24.0,
+            "open_count": 1
+          },
+          "group": {
+            "nta2020": "FIXTURE-QN-A"
+          },
+          "group_id": "ba40c551835359fc8f43601b",
+          "rate_change": 0.06451612903225806,
+          "relative_change": null
+        },
+        {
+          "absolute_change": 1,
+          "baseline_count": 1,
+          "baseline_daily_rate": 0.5,
+          "baseline_days": 2.0,
+          "baseline_metrics": {
+            "closed_count": 1,
+            "count": 1,
+            "mean_closure_hours": 24.0,
+            "open_count": 0
+          },
+          "count": 2,
+          "current_count": 2,
+          "current_daily_rate": 0.06451612903225806,
+          "current_days": 31.0,
+          "current_metrics": {
+            "closed_count": 2,
+            "count": 2,
+            "mean_closure_hours": 18.0,
+            "open_count": 0
+          },
+          "group": {
+            "nta2020": "FIXTURE-BK-A"
+          },
+          "group_id": "bd2133dc1987a2b682744006",
+          "rate_change": -0.43548387096774194,
+          "relative_change": 1.0
+        },
+        {
+          "absolute_change": 1,
+          "baseline_count": 0,
+          "baseline_daily_rate": 0.0,
+          "baseline_days": 2.0,
+          "baseline_metrics": {
+            "closed_count": 0,
+            "count": 0,
+            "mean_closure_hours": null,
+            "open_count": 0
+          },
+          "count": 1,
+          "current_count": 1,
+          "current_daily_rate": 0.03225806451612903,
+          "current_days": 31.0,
+          "current_metrics": {
+            "closed_count": 1,
+            "count": 1,
+            "mean_closure_hours": 96.0,
+            "open_count": 0
+          },
+          "group": {
+            "nta2020": "FIXTURE-MN-A"
+          },
+          "group_id": "6b9add365838ed4777edc407",
+          "rate_change": 0.03225806451612903,
+          "relative_change": null
+        },
+        {
+          "absolute_change": 1,
+          "baseline_count": 0,
+          "baseline_daily_rate": 0.0,
+          "baseline_days": 2.0,
+          "baseline_metrics": {
+            "closed_count": 0,
+            "count": 0,
+            "mean_closure_hours": null,
+            "open_count": 0
+          },
+          "count": 1,
+          "current_count": 1,
+          "current_daily_rate": 0.03225806451612903,
+          "current_days": 31.0,
+          "current_metrics": {
+            "closed_count": 0,
+            "count": 1,
+            "mean_closure_hours": null,
+            "open_count": 1
+          },
+          "group": {
+            "nta2020": null
+          },
+          "group_id": "2aca92d9b9ccf184286fb567",
+          "rate_change": 0.03225806451612903,
+          "relative_change": null
+        },
+        {
+          "absolute_change": 0,
+          "baseline_count": 1,
+          "baseline_daily_rate": 0.5,
+          "baseline_days": 2.0,
+          "baseline_metrics": {
+            "closed_count": 1,
+            "count": 1,
+            "mean_closure_hours": 1.0,
+            "open_count": 0
+          },
+          "count": 1,
+          "current_count": 1,
+          "current_daily_rate": 0.03225806451612903,
+          "current_days": 31.0,
+          "current_metrics": {
+            "closed_count": 1,
+            "count": 1,
+            "mean_closure_hours": 72.0,
+            "open_count": 0
+          },
+          "group": {
+            "nta2020": "FIXTURE-BX-A"
+          },
+          "group_id": "69e9af6fb8b9e189b3693d6e",
+          "rate_change": -0.467741935483871,
+          "relative_change": 0.0
+        }
+      ],
+      "csv": {
+        "bytes": 114,
+        "duplicate_ids": 0,
+        "ids": [
+          "FIX-001",
+          "FIX-016",
+          "FIX-017",
+          "FIX-018",
+          "FIX-019",
+          "FIX-020",
+          "FIX-024",
+          "FIX-026",
+          "FIX-027",
+          "FIX-029",
+          "FIX-031"
+        ],
+        "rows": 11,
+        "sha256": "30eaf7fe848b9e1f824fe1853245ccc770168ab81978c577bf704298fb8527a8"
+      },
+      "expected_ids": [
+        "FIX-001",
+        "FIX-016",
+        "FIX-017",
+        "FIX-018",
+        "FIX-019",
+        "FIX-020",
+        "FIX-024",
+        "FIX-026",
+        "FIX-027",
+        "FIX-029",
+        "FIX-031"
+      ],
+      "expected_rows": [
+        {
+          "absolute_change": 2,
+          "baseline_count": 0,
+          "baseline_daily_rate": 0.0,
+          "baseline_days": 2.0,
+          "baseline_metrics": {
+            "closed_count": 0,
+            "count": 0,
+            "mean_closure_hours": null,
+            "open_count": 0
+          },
+          "count": 2,
+          "current_count": 2,
+          "current_daily_rate": 0.06451612903225806,
+          "current_days": 31.0,
+          "current_metrics": {
+            "closed_count": 1,
+            "count": 2,
+            "mean_closure_hours": 48.0,
+            "open_count": 1
+          },
+          "group": {
+            "nta2020": "FIXTURE-BK-B"
+          },
+          "group_id": "08e7a0fc9455efce24de1dab",
+          "rate_change": 0.06451612903225806,
+          "relative_change": null
+        },
+        {
+          "absolute_change": 2,
+          "baseline_count": 0,
+          "baseline_daily_rate": 0.0,
+          "baseline_days": 2.0,
+          "baseline_metrics": {
+            "closed_count": 0,
+            "count": 0,
+            "mean_closure_hours": null,
+            "open_count": 0
+          },
+          "count": 2,
+          "current_count": 2,
+          "current_daily_rate": 0.06451612903225806,
+          "current_days": 31.0,
+          "current_metrics": {
+            "closed_count": 1,
+            "count": 2,
+            "mean_closure_hours": 24.0,
+            "open_count": 1
+          },
+          "group": {
+            "nta2020": "FIXTURE-QN-A"
+          },
+          "group_id": "ba40c551835359fc8f43601b",
+          "rate_change": 0.06451612903225806,
+          "relative_change": null
+        },
+        {
+          "absolute_change": 1,
+          "baseline_count": 1,
+          "baseline_daily_rate": 0.5,
+          "baseline_days": 2.0,
+          "baseline_metrics": {
+            "closed_count": 1,
+            "count": 1,
+            "mean_closure_hours": 24.0,
+            "open_count": 0
+          },
+          "count": 2,
+          "current_count": 2,
+          "current_daily_rate": 0.06451612903225806,
+          "current_days": 31.0,
+          "current_metrics": {
+            "closed_count": 2,
+            "count": 2,
+            "mean_closure_hours": 18.0,
+            "open_count": 0
+          },
+          "group": {
+            "nta2020": "FIXTURE-BK-A"
+          },
+          "group_id": "bd2133dc1987a2b682744006",
+          "rate_change": -0.43548387096774194,
+          "relative_change": 1.0
+        },
+        {
+          "absolute_change": 1,
+          "baseline_count": 0,
+          "baseline_daily_rate": 0.0,
+          "baseline_days": 2.0,
+          "baseline_metrics": {
+            "closed_count": 0,
+            "count": 0,
+            "mean_closure_hours": null,
+            "open_count": 0
+          },
+          "count": 1,
+          "current_count": 1,
+          "current_daily_rate": 0.03225806451612903,
+          "current_days": 31.0,
+          "current_metrics": {
+            "closed_count": 1,
+            "count": 1,
+            "mean_closure_hours": 96.0,
+            "open_count": 0
+          },
+          "group": {
+            "nta2020": "FIXTURE-MN-A"
+          },
+          "group_id": "6b9add365838ed4777edc407",
+          "rate_change": 0.03225806451612903,
+          "relative_change": null
+        },
+        {
+          "absolute_change": 1,
+          "baseline_count": 0,
+          "baseline_daily_rate": 0.0,
+          "baseline_days": 2.0,
+          "baseline_metrics": {
+            "closed_count": 0,
+            "count": 0,
+            "mean_closure_hours": null,
+            "open_count": 0
+          },
+          "count": 1,
+          "current_count": 1,
+          "current_daily_rate": 0.03225806451612903,
+          "current_days": 31.0,
+          "current_metrics": {
+            "closed_count": 0,
+            "count": 1,
+            "mean_closure_hours": null,
+            "open_count": 1
+          },
+          "group": {
+            "nta2020": null
+          },
+          "group_id": "2aca92d9b9ccf184286fb567",
+          "rate_change": 0.03225806451612903,
+          "relative_change": null
+        },
+        {
+          "absolute_change": 0,
+          "baseline_count": 1,
+          "baseline_daily_rate": 0.5,
+          "baseline_days": 2.0,
+          "baseline_metrics": {
+            "closed_count": 1,
+            "count": 1,
+            "mean_closure_hours": 1.0,
+            "open_count": 0
+          },
+          "count": 1,
+          "current_count": 1,
+          "current_daily_rate": 0.03225806451612903,
+          "current_days": 31.0,
+          "current_metrics": {
+            "closed_count": 1,
+            "count": 1,
+            "mean_closure_hours": 72.0,
+            "open_count": 0
+          },
+          "group": {
+            "nta2020": "FIXTURE-BX-A"
+          },
+          "group_id": "69e9af6fb8b9e189b3693d6e",
+          "rate_change": -0.467741935483871,
+          "relative_change": 0.0
+        }
+      ],
+      "name": "zero-baseline-trends",
+      "passed": true,
+      "spec": {
+        "as_of": "2026-01-02T12:00:00-05:00",
+        "dataset_version": "live-parity-fixture-v1",
+        "filters": {
+          "field": "complaint_type",
+          "op": "eq",
+          "value": "Rodent"
+        },
+        "group_by": [
+          {
+            "field": "nta2020"
+          }
+        ],
+        "metrics": [
+          "count",
+          "closed_count",
+          "open_count",
+          "mean_closure_hours"
+        ],
+        "operation": "compare_periods",
+        "periods": {
+          "baseline": {
+            "gte": "2025-11-01T00:00:00-04:00",
+            "lt": "2025-11-03T00:00:00-05:00"
+          },
+          "current": {
+            "gte": "2025-12-01T00:00:00-05:00",
+            "lt": "2026-01-01T00:00:00-05:00"
+          }
+        },
+        "preview_limit": 2,
+        "schema_version": "1",
+        "timezone": "America/New_York",
+        "top_n": 2
+      },
+      "total": {
+        "relation": "eq",
+        "value": 11
+      }
+    }
+  ],
+  "cleanup": {
+    "deleted": true,
+    "requested": true
+  },
+  "elapsed_seconds": 1.44345,
+  "elasticsearch": {
+    "build_flavor": "default",
+    "build_type": "docker",
+    "lucene_version": "10.5.1",
+    "number": "9.5.5"
+  },
+  "finished_at": "2026-10-07T21:35:39.831405+00:00",
+  "fixture": {
+    "coverage_complete_for_authored_fixture_only": true,
+    "kind": "synthetic_fixture",
+    "row_count": 32,
+    "sha256": "b2988a1b3aebba54d9207152da6e1d1bc946053854c5a2c5a67107c25dd7a394"
+  },
+  "index": "analytics311-parity-b1fda56b0d2f4b51ae84f50e0f592a93-v1",
+  "index_creation_confirmed": true,
+  "index_uuid": "p-fLBn5RTE6OKPzYqTtC0Q",
+  "limitations": [
+    "32 authored records; not NYC findings or a millions-of-records test.",
+    "Reference execution shares service orchestration; hand-authored membership and selected metric anchors supplement it.",
+    "Approximate percentiles and geographic boundary precision are not certified.",
+    "No Kibana rendering, held-out agent evaluation, throughput or server capacity claim."
+  ],
+  "overall_release_verified": false,
+  "package_version": "0.7.0",
+  "pagination": {
+    "composite_continuations": 22,
+    "pit_close": 32,
+    "pit_open": 32,
+    "record_continuations": 91
+  },
+  "passed": true,
+  "real_data_verified": false,
+  "run_id": "b1fda56b0d2f4b51ae84f50e0f592a93",
+  "runner_version": "1",
+  "scale_verified": false,
+  "scope": "live_elasticsearch_synthetic_fixture_parity",
+  "started_at": "2026-10-07T21:35:38.387944+00:00",
+  "visual_parity_verified": false
+}

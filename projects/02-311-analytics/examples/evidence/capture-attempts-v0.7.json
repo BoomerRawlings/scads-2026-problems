@@ -1,0 +1,52 @@
+{
+  "evidence_kind": "actual_github_actions_acquisition_attempts",
+  "repository": "BoomerRawlings/scads-2026-problems",
+  "attempts": [
+    {
+      "run_id": 37689025031,
+      "commit": "b5ec0fa802ffaf794656606a666ee03913b6d8b7",
+      "outcome": "failure",
+      "error": "source_unavailable",
+      "request_timeout_seconds": 30,
+      "successful_capture_published": false,
+      "persisted_checkpoint_uploaded": false,
+      "elapsed_capture_seconds": 188.711
+    },
+    {
+      "run_id": 37690210916,
+      "commit": "a13bc57fd4dd0717edf2005b9b8ecf1632959f75",
+      "outcome": "failure",
+      "error": "source_unavailable during record page",
+      "request_timeout_seconds": 120,
+      "page_size": 5000,
+      "elapsed_capture_seconds": 555,
+      "successful_capture_published": false,
+      "persisted_checkpoint_uploaded": true,
+      "captured_rows": 0,
+      "capture_status": {
+        "status": "paused",
+        "rows": 0,
+        "bytes": 0,
+        "pages": 0,
+        "source_id": "erm2-nwe9",
+        "window": {
+          "gte": "2025-04-01T00:00:00",
+          "lt": "2025-11-01T00:00:00"
+        },
+        "observed_complete": false,
+        "error": {
+          "at": "2026-10-07T21:44:54.105734+00:00",
+          "code": "source_unavailable"
+        },
+        "file": null,
+        "manifest": null
+      }
+    }
+  ],
+  "diagnosis": [
+    "Local bounded count took43.891seconds, exceeding original30secondrequest timeout.",
+    "Later CI failure wasrecordpage, notcount. Localfirstandsecond1000recordpagesreturnedHTTP200in1.328and1.016seconds; CIregional/network/bodypathstilluncertain."
+  ],
+  "current_retry_run": 37700939902,
+  "real_million_capture_verified": false
+}
