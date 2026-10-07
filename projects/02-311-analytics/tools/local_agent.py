@@ -7,6 +7,8 @@ The analytical service remains model independent.
 from __future__ import annotations
 
 import http.client
+import copy
+import hashlib
 import ipaddress
 import json
 import math
@@ -24,6 +26,76 @@ class AgentFailure(RuntimeError):
 
 def canonical(value):
     return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":"), allow_nan=False)
+
+
+CONTEXT_PROJECTION = "discovery-rules-v1"
+TIMING_FIELDS = frozenset({
+    "cache_n", "prompt_n", "prompt_ms", "prompt_per_token_ms", "prompt_per_second",
+    "predicted_n", "predicted_ms", "predicted_per_token_ms", "predicted_per_second",
+})
+
+
+def numeric_timings(response):
+    """Retain bounded server-reported counters only; never arbitrary response text."""
+    timings = response.get("timings")
+    if not isinstance(timings, dict):
+        return {}
+    return {key: value for key, value in timings.items() if key in TIMING_FIELDS
+            and type(value) in (int, float) and 0 <= value <= 1e12 and math.isfinite(value)}
+
+
+def _provenance_reference(value, anchors, path):
+    """Replace exact repeated ancestry values with resolvable JSON pointers."""
+    if not isinstance(value, dict):
+        return value
+    reference, descendants = {}, dict(anchors)
+    for key, item in value.items():
+        if key == "provenance":
+            continue
+        encoded = canonical(item)
+        existing = anchors.get((key, encoded))
+        ref = {"$ref": existing}
+        if existing and len(canonical(ref)) < len(encoded):
+            reference[key] = ref
+        else:
+            reference[key] = item
+            escaped = key.replace("~", "~0").replace("/", "~1")
+            descendants[(key, encoded)] = path + "/" + escaped
+    if "provenance" in value:
+        reference["provenance"] = _provenance_reference(value["provenance"], descendants, path + "/provenance")
+    return reference
+
+
+def project_tool_output(name, result):
+    """Question-independent discovery projection; never alter analytical results.
+
+    Preserve every request-building rule verbatim, full catalog/limits, and all
+    top-level discovery fields. Only remove illustrative complete requests,
+    workflow repetition and exact duplicated fields/version. Repeated provenance
+    values use references to identical ancestor data; unknown fields and source
+    text remain visible. No benchmark questions or expected answers are inputs.
+    """
+    if name != "describe_dataset" or not isinstance(result, dict) or "error" in result:
+        return result
+    projected = copy.deepcopy(result)
+    guide = projected.get("analysis_guide")
+    if isinstance(guide, dict):
+        for key in ("workflow", "examples", "examples_note"):
+            guide.pop(key, None)
+        rules = guide.get("rules")
+        if isinstance(rules, dict):
+            if "fields" in rules and rules["fields"] == projected.get("fields"):
+                rules.pop("fields")
+            dataset = projected.get("dataset")
+            if (isinstance(dataset, dict) and "dataset_version" in rules
+                    and rules["dataset_version"] == dataset.get("dataset_version")):
+                rules.pop("dataset_version")
+    dataset = projected.get("dataset")
+    if isinstance(dataset, dict) and "provenance" in dataset:
+        anchors = {(key, canonical(value)): "#/dataset/" + key.replace("~", "~0").replace("/", "~1")
+                   for key, value in dataset.items() if key != "provenance"}
+        dataset["provenance"] = _provenance_reference(dataset["provenance"], anchors, "#/dataset/provenance")
+    return projected
 
 
 def endpoint_parts(endpoint):
@@ -151,7 +223,8 @@ Follow requested ranking, sample threshold, cohort, dates and artifact scope exa
 Neighborhood means residential official NTA2020 areas when the question says so;
 their codes appear in catalog.residential_nta2020. A chained query must actually use
 the selected first-stage NTA codes in its next query. Numeric claims require saved
-result IDs. Check requested export jobs until complete; do not claim a queued CSV
+result IDs. Discovery provenance $ref points to identical data in that response.
+Check requested export jobs until complete; do not claim a queued CSV
 exists. Map links do not prove rendered parity. For errors explain limits, never
 invent answers. Return a final JSON object, without markdown fences:
 {"status":"answered|needs_clarification|unsupported|coverage_gap|failed",
@@ -174,7 +247,8 @@ def run_trial(service, model, question, *, seed, seconds=300, max_calls=24, untr
     started = time.monotonic()
     messages = [{"role": "system", "content": SYSTEM}, {"role": "user", "content": question}]
     trace = {"question": question, "seed": seed, "model": model.model, "events": [], "final": None,
-             "status": "failed", "calls": 0, "fresh_context": True, "semantic_review": "pending"}
+             "status": "failed", "calls": 0, "fresh_context": True, "semantic_review": "pending",
+             "context_projection": CONTEXT_PROJECTION}
     discovered, created_results, created_jobs = False, set(), set()
     schemas = {item["function"]["name"]: item["function"]["parameters"] for item in tool_schemas()}
     try:
@@ -195,6 +269,7 @@ def run_trial(service, model, question, *, seed, seconds=300, max_calls=24, untr
                      if key in {"prompt_tokens", "completion_tokens", "total_tokens"}
                      and type(value) is int and value >= 0} if isinstance(response.get("usage"), dict) else {}
             trace["events"].append({"kind": "model", "message": safe_message, "usage": usage,
+                                    "server_timings": numeric_timings(response),
                                     "elapsed_seconds": round(time.monotonic() - started, 6)})
             messages.append(safe_message)
             calls = message.get("tool_calls") or []
@@ -247,8 +322,16 @@ def run_trial(service, model, question, *, seed, seconds=300, max_calls=24, untr
                     result = {"error": {"code": getattr(exc, "code", "tool_execution_failed")}}
                 event = {"kind": "tool", "name": name, "arguments": arguments,
                          "output": result, "elapsed_seconds": round(time.monotonic() - started, 6)}
+                content = canonical(project_tool_output(name, result))
+                if name == "describe_dataset":
+                    event["model_context"] = {
+                        "projection": CONTEXT_PROJECTION, "content": content,
+                        "sha256": hashlib.sha256(content.encode()).hexdigest(),
+                        "utf8_bytes": len(content.encode()),
+                        "full_output_utf8_bytes": len(canonical(result).encode()),
+                    }
                 trace["events"].append(event)
-                messages.append({"role": "tool", "tool_call_id": identifier, "content": canonical(result)})
+                messages.append({"role": "tool", "tool_call_id": identifier, "content": content})
                 if len(canonical(trace).encode()) > 8 * 1024 * 1024:
                     raise AgentFailure("transcript_byte_budget")
         else:

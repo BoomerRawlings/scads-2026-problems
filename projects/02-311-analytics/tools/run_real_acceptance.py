@@ -175,8 +175,10 @@ def independent_checks(config, normalized, database, suite, output, residential)
 
 def run(raw, boundaries, nta_receipt, output_dir, index, *, capture_manifest=None,
         elastic_url="http://127.0.0.1:9200", kibana_url="http://127.0.0.1:5601",
-        questions=evaluation.QUESTIONS, model="analytics311-qwen35-4b", repeats=5,
+        questions=evaluation.QUESTIONS, model=None, repeats=5,
         skip_maps=False, skip_performance=False):
+    if model is None:
+        model = read_json(ROOT / "docs/local-model-runtime.json")["model_alias"]
     output = Path(output_dir).resolve()
     require(not output.exists(), "Choose a new run directory; existing artifacts are never overwritten.")
     index = validate_index(index)
@@ -310,7 +312,7 @@ def main(argv=None):
     parser.add_argument("--elastic-url", default="http://127.0.0.1:9200")
     parser.add_argument("--kibana-url", default="http://127.0.0.1:5601")
     parser.add_argument("--questions", type=Path, default=evaluation.QUESTIONS)
-    parser.add_argument("--model", default="analytics311-qwen35-4b")
+    parser.add_argument("--model", help="Defaults to model_alias in docs/local-model-runtime.json")
     parser.add_argument("--repeats", type=int, default=5)
     parser.add_argument("--skip-maps", action="store_true")
     parser.add_argument("--skip-performance", action="store_true")

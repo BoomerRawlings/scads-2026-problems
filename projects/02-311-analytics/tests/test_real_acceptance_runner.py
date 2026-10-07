@@ -139,6 +139,8 @@ class RealAcceptanceRunnerTests(unittest.TestCase):
             maps.assert_called_once()
             perf.assert_called_once()
             freeze.assert_called_once()
+            self.assertEqual(freeze.call_args.kwargs["model"],
+                             runner.read_json(runner.ROOT / "docs/local-model-runtime.json")["model_alias"])
             catalog = json.loads((output / "catalog.json").read_text())
             self.assertEqual(catalog["residential_nta2020"], [f"N{i:03}" for i in range(197)])
             profile = json.loads((output / "profile.json").read_text())

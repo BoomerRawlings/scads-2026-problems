@@ -72,11 +72,25 @@ responses. Expected JSON specs and numeric oracles are never included. All three
 repetitions use empty initial histories; fixed seeds 101/202/303 and temperature 0.2
 are recorded. A model/server may not guarantee bitwise seed reproducibility.
 
+The frozen adapter uses `discovery-rules-v1` for model context. Discovery retains
+every request-building rule verbatim, full catalog/limits/fields, coverage,
+qualification, warnings and unknown source text. It omits illustrative complete
+requests and repeated workflow guidance; exact duplicate fields/version remain in
+the top-level descriptor. Repeated provenance values use JSON Pointer `$ref` links
+to identical ancestor data within that response. No questions, expected answers,
+or question-specific shortcuts inform this projection. All other tool results are
+unchanged. The transcript retains full original discovery alongside the exact
+model-visible JSON string, its SHA-256, byte counts and projection version.
+Reduced context bytes alone do not establish faster or more accurate inference.
+
 Defaults: 300 seconds per trial, 90 seconds per model request, 24 tool calls,
 2,048 output tokens per request, 256 KiB serialized request context, 1 MiB model
 response, and 8 MiB transcript. CLI budgets above deliberately tighten deadlines.
 The model decides tool arguments; application validation remains authoritative.
 Result IDs are confined to that trial. Model reasoning fields are not retained.
+When returned, finite numeric llama.cpp prompt/cache/generation timing counters are
+retained as `server_timings`; these are server-reported diagnostics alongside the
+adapter's measured wall time. Unknown timing fields and textual payloads are dropped.
 Unfinished owned exports receive cancellation requests at trial end. Blocking
 analytical I/O retains its existing service deadline behavior; the trial deadline
 is cooperative between those calls.
