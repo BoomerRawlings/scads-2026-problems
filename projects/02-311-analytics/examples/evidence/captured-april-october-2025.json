@@ -1,0 +1,122 @@
+{
+  "bytes": 1306911416,
+  "capture_started_at": "2026-10-07T21:35:39.997632+00:00",
+  "coverage": {
+    "complete": false,
+    "gte": "2025-04-01T00:00:00-04:00",
+    "lt": "2025-11-01T00:00:00-04:00",
+    "observed_complete": true,
+    "reason": "Observed counts/revisions reconcile; provider point-in-time isolation is not established."
+  },
+  "dataset_version": "capture-ea0bfc5fb517f086c078",
+  "extraction_complete": true,
+  "kind": "reconciled_public_capture",
+  "observed_complete": true,
+  "reconciled_at": "2026-10-07T23:40:53.619783+00:00",
+  "reconciliation": {
+    "captured_max_updated_at": "2026-10-07T01:33:31.682000+00:00",
+    "final_count": {
+      "max_updated_at": "2026-10-07T01:33:31.682000+00:00",
+      "revision_headers": {
+        "x-soda2-secondary-last-modified": "2026-10-07T02:28:09+00:00",
+        "x-soda2-truth-last-modified": "2026-10-07T02:28:09+00:00"
+      },
+      "row_count": 2133268,
+      "unique_count": 2133268
+    },
+    "final_metadata": {
+      "id": "erm2-nwe9",
+      "rowsUpdatedAt": 1791337130,
+      "schema": {
+        "agency": "text",
+        "agency_name": "text",
+        "borough": "text",
+        "closed_date": "calendar_date",
+        "community_board": "text",
+        "complaint_type": "text",
+        "council_district": "text",
+        "created_date": "calendar_date",
+        "descriptor": "text",
+        "incident_zip": "text",
+        "latitude": "number",
+        "location": "point",
+        "longitude": "number",
+        "police_precinct": "text",
+        "status": "text",
+        "unique_key": "text"
+      },
+      "schema_sha256": "a1f7897f9f43b0da7e509600d672b7675a0affb8200d6e4bb6eec9370e80a712",
+      "viewLastModified": 1767021900
+    },
+    "initial_count": {
+      "max_updated_at": "2026-10-07T01:33:31.682000+00:00",
+      "revision_headers": {
+        "x-soda2-secondary-last-modified": "2026-10-07T02:28:09+00:00",
+        "x-soda2-truth-last-modified": "2026-10-07T02:28:09+00:00"
+      },
+      "row_count": 2133268,
+      "unique_count": 2133268
+    },
+    "initial_metadata": {
+      "id": "erm2-nwe9",
+      "rowsUpdatedAt": 1791337130,
+      "schema": {
+        "agency": "text",
+        "agency_name": "text",
+        "borough": "text",
+        "closed_date": "calendar_date",
+        "community_board": "text",
+        "complaint_type": "text",
+        "council_district": "text",
+        "created_date": "calendar_date",
+        "descriptor": "text",
+        "incident_zip": "text",
+        "latitude": "number",
+        "location": "point",
+        "longitude": "number",
+        "police_precinct": "text",
+        "status": "text",
+        "unique_key": "text"
+      },
+      "schema_sha256": "a1f7897f9f43b0da7e509600d672b7675a0affb8200d6e4bb6eec9370e80a712",
+      "viewLastModified": 1767021900
+    },
+    "pages": 2135
+  },
+  "row_count": 2133268,
+  "selected_fields": [
+    "unique_key",
+    "created_date",
+    "closed_date",
+    "complaint_type",
+    "descriptor",
+    "agency",
+    "agency_name",
+    "status",
+    "borough",
+    "incident_zip",
+    "community_board",
+    "council_district",
+    "police_precinct",
+    "latitude",
+    "longitude",
+    "location",
+    "source_row_id",
+    "source_updated_at"
+  ],
+  "sha256": "91d84eb6d02dafc402a892298ba92cb121e8e905a189fb75f31b19d4d43aeec7",
+  "source": "https://data.cityofnewyork.us/resource/erm2-nwe9.json",
+  "source_dataset": "erm2-nwe9",
+  "source_date_bounds": {
+    "gte": "2025-04-01T00:00:00",
+    "lt": "2025-11-01T00:00:00"
+  },
+  "source_kind": "real_public_records",
+  "transactional_source_snapshot": false,
+  "unique_key_count": 2133268,
+  "warnings": [
+    "Complete observed enumeration is not a transactional source snapshot or certified citywide temporal coverage.",
+    "No operator flag can turn this capture into complete analysis coverage.",
+    "Keep provenance and pass the separate coverage-certification gate before comparative population claims."
+  ]
+}
