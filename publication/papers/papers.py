@@ -119,7 +119,7 @@ PAPERS = [
    ],[100,388]),
    ('h','Time, rates and missingness'),
    ('p','Time intervals are start-inclusive and end-exclusive. Relative presets resolve through a shared timezone library and are saved as absolute boundaries. Period comparisons use the same non-time filters and grouping domain; they report counts, exposure days, daily rates, absolute differences and nullable relative change. Complete creation-date coverage is required for both periods. [2]'),
-   ('p','Closure duration measures administrative created-to-closed time. Missing usable durations remain null and are excluded from duration statistics while closed-request counts retain those records. A null value therefore cannot be interpreted as zero hours. These definitions travel with results instead of depending on the agent to recall them. [2] [3]'),
+   ('p','Closure duration measures administrative created-to-closed time, not time to first response or verified resolution. Missing usable durations remain null and are excluded from duration statistics while closed-request counts retain those records. A null value therefore cannot be interpreted as zero hours. These definitions travel with results instead of depending on the agent to recall them. [2] [3]'),
    ('h','Artifacts retain analytical scope'),
    ('p','CSV and map tools consume a saved result ID. They require an explicit all-matching or selected-groups scope. A records export reproduces the full selected cohort rather than the preview. Version 0.6 checks exact planned rows before reserving a worker and limits backend source retrieval to selected CSV fields while retaining selection and ordering semantics. [2] [6]'),
  ]},

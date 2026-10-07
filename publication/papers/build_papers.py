@@ -25,7 +25,9 @@ extend_papers(PAPERS)
 HERE = Path(__file__).resolve().parent
 _parser=argparse.ArgumentParser(description=__doc__)
 _parser.add_argument('--source-root',type=Path,default=HERE.parent.parent,help='Frozen repository containing cited projects (defaults to this repository)')
-ROOT = _parser.parse_args().source_root.resolve()
+_parser.add_argument('--paper',choices=[paper['slug'] for paper in PAPERS],help='Rebuild one paper and preserve all other PDFs and manifest entries')
+_args = _parser.parse_args()
+ROOT = _args.source_root.resolve()
 OUT = HERE / 'pdf'
 OUT.mkdir(parents=True, exist_ok=True)
 INK = colors.HexColor('#182b49')
@@ -118,7 +120,11 @@ def page_chrome(canvas, doc):
     canvas.restoreState()
 
 manifest={'edition':'2026-10-07','scope':'Evidence-linked publication of recorded development results; no new model or scale experiments.','papers':[]}
+if _args.paper:
+    manifest=json.loads((HERE/'evidence-manifest.json').read_text(encoding='utf-8'))
 for paper in PAPERS:
+    if _args.paper and paper['slug'] != _args.paper:
+        continue
     dest=OUT/(paper['slug']+'.pdf')
     doc=SimpleDocTemplate(str(dest),pagesize=(612,792),leftMargin=62,rightMargin=62,topMargin=69,bottomMargin=63,title=paper['title'],author='Boomer Rawlings',subject=paper['subtitle'])
     doc.paper=paper
@@ -148,6 +154,11 @@ for paper in PAPERS:
             source=source.with_name('README.md')
         if not source.is_file(): raise FileNotFoundError(source)
         sources.append({'path':str(source.relative_to(ROOT)).replace('\\','/'),'publication_path':'projects/'+paper['slug']+'/'+path,'sha256':hashlib.sha256(source.read_bytes()).hexdigest()})
-    manifest['papers'].append({'file':str(dest.relative_to(HERE)).replace('\\','/'),'pages':len(reader.pages),'bytes':dest.stat().st_size,'sha256':hashlib.sha256(dest.read_bytes()).hexdigest(),'sources':sources})
+    entry={'file':str(dest.relative_to(HERE)).replace('\\','/'),'pages':len(reader.pages),'bytes':dest.stat().st_size,'sha256':hashlib.sha256(dest.read_bytes()).hexdigest(),'sources':sources}
+    if _args.paper:
+        index=next(i for i,item in enumerate(manifest['papers']) if item['file']==entry['file'])
+        manifest['papers'][index]=entry
+    else:
+        manifest['papers'].append(entry)
     print(f'{dest.name}: {len(reader.pages)} pages, {dest.stat().st_size:,} bytes')
 (HERE/'evidence-manifest.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8')

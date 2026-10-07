@@ -195,6 +195,10 @@ def main(argv=None):
                 if args.freeze and (not args.coverage_start or not args.coverage_end):
                     raise AnalyticsError("invalid_spec", "Freeze requires explicit coverage-start and coverage-end")
                 staged = source_manifest(args.source)
+                from .qualification import comparison_qualification
+                qualified = comparison_qualification(staged)
+                if qualified and (qualified["stage"] != "normalized" or not args.normalized_input):
+                    raise AnalyticsError("qualification_failed", "Qualified staged input requires its normalized artifact and --normalized-input")
                 coverage = None
                 if args.freeze:
                     coverage = normalize_spec({"dataset_version": config["index"], "operation": "records",
@@ -209,6 +213,8 @@ def main(argv=None):
                             valid = False
                         if not valid:
                             raise AnalyticsError("coverage_gap", "Complete coverage requires a hash-matched reconciled source manifest covering these bounds; samples cannot qualify")
+                    if qualified and (coverage["complete"] or not instant(qualified["gte"]) <= instant(coverage["gte"]) < instant(coverage["lt"]) <= instant(qualified["lt"])):
+                        raise AnalyticsError("qualification_failed", "Freeze bounds must stay inside the qualified observation and keep complete=false")
                 client = ElasticClient(config["elastic_url"], allow_insecure_local=config.get("allow_insecure_local", False))
                 if args.create_index:
                     create_index(client, config["index"], args.mapping)

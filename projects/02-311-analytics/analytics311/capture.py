@@ -108,19 +108,21 @@ class _Requests:
         for attempt in range(self.retries + 1):
             self.check_time()
             retry_after = None
+            failure = None
             try:
                 result = self.client.get_json(path, params, timeout=max(.001, min(self.request_timeout_seconds, self.deadline - time.monotonic())), max_bytes=max_bytes)
                 self.check_time()
                 return result
             except HTTPError as exc:
+                failure = f"HTTP {exc.code}"
                 if exc.code not in {408, 425, 429, 500, 502, 503, 504}:
                     raise AnalyticsError("source_http_error", f"Official source returned HTTP {exc.code}; no partial capture published.") from None
                 retry_after = exc.headers.get("Retry-After") if exc.headers else None
-            except (URLError, TimeoutError, ConnectionError, OSError):
-                pass
+            except (URLError, TimeoutError, ConnectionError, OSError) as exc:
+                failure = type(exc.reason).__name__ if isinstance(exc, URLError) else type(exc).__name__
             if attempt >= self.retries:
                 phase = "metadata" if params is None else ("count reconciliation" if str(params.get("$select", "")).startswith("count(") else "record page")
-                raise AnalyticsError("source_unavailable", f"Transient source errors exhausted bounded retries during {phase} (request timeout {self.request_timeout_seconds}s); checkpoint retained, resume later.") from None
+                raise AnalyticsError("source_unavailable", f"Transient source errors exhausted bounded retries during {phase} ({failure}; request timeout {self.request_timeout_seconds}s); checkpoint retained, resume later.") from None
             delay = min(2 ** attempt, 10)
             if retry_after is not None:
                 try:

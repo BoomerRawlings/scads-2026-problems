@@ -1,0 +1,102 @@
+# Live Maps qualification
+
+`tools/live_maps.py` is an explicit-target integration runner. It starts no
+services, installs nothing, and supports the pinned Elasticsearch/Kibana 9.5.5
+contract only. Its deterministic tests are not evidence of a live import or
+render. `provision` creates new objects; do not point it at indices owned by
+another run. Existing objects are never overwritten or deleted.
+
+The saved-object format derives from official versioned source, not guessed
+object exports: [sample objects](https://github.com/elastic/kibana/blob/v9.5.5/x-pack/platform/plugins/shared/maps/server/sample_data/ecommerce_saved_objects.js),
+[layer schema](https://github.com/elastic/kibana/blob/v9.5.5/x-pack/platform/plugins/shared/maps/server/content_management/schema/v1/layer_schemas/layer_schemas.ts),
+[search-source schema](https://github.com/elastic/kibana/blob/v9.5.5/x-pack/platform/plugins/shared/maps/server/content_management/schema/v1/source_schemas/es_source_schemas.ts),
+[join-source schema](https://github.com/elastic/kibana/blob/v9.5.5/x-pack/platform/plugins/shared/maps/server/content_management/schema/v1/source_schemas/es_join_source_schemas.ts),
+and [joined metric keys](https://github.com/elastic/kibana/blob/v9.5.5/x-pack/platform/plugins/shared/maps/common/get_agg_key.ts).
+The saved-object CRUD route is deprecated; successful creation/readback is a
+mandatory gate, and a future replacement must be qualified against its version.
+The Maps Inspector selectors are used by
+[Kibana's GIS tests](https://github.com/elastic/kibana/blob/v9.5.5/x-pack/platform/test/functional/page_objects/gis_page.ts)
+and [Inspector tests](https://github.com/elastic/kibana/blob/v9.5.5/src/platform/test/functional/services/inspector.ts).
+
+## Provision
+
+Start with a frozen source index and its validated profile. Its result index
+must be a fresh concrete index. Obtain and retain the official NTA2020 GeoJSON
+and provenance receipt before this command; the provisioner retains its SHA256.
+Its file hash must equal the source manifest's `geography.nta_version`, binding
+the displayed boundaries to the actual point assignment. It accepts lower-case
+NYC properties `nta2020`, `ntaname`, `ntatype` and creates
+an immutable geo-shape boundary index. Nonresidential polygons remain available
+as geometry; the selected analytical result determines which groups are joined.
+
+```sh
+python tools/live_maps.py provision \
+  --config config/live.json --boundaries data/nta2020-26b.geojson \
+  --boundary-index nyc311-nta2020-26b-v1 \
+  --output-config runs/maps-profile.json --output runs/maps-provision.json
+```
+
+The generated profile points to three exact-index data views without time
+fields and reusable request/trend maps. No EMS basemap or external tiles are
+used. Request layers respect saved DSL filters and report missing locations.
+The boundary source ignores request/result filters; its NTA terms join applies
+the result filter to the dedicated result index. `max` of each metric selects
+the single immutable result document for each neighborhood. The map styles
+`rate_change`, measured in requests per calendar day.
+
+## Render and compare
+
+Install Playwright and its Chromium dependency on the explicit test target.
+Prepare an **independent** expectation from the captured data, not by copying
+the service result or Kibana response. The runner records its hash/reference,
+but cannot establish reference independence by itself. Its intended scope is a
+bounded cohort drawn from the real million-record index, not rendering millions
+of markers at once. The exact source cohort and CSV must contain at most 10,000
+rows and the CSV at most 16 MiB.
+
+Request expectation:
+
+```json
+{
+  "dataset_version": "qualified-capture-version",
+  "reference": {"kind": "independent-sqlite-query", "sha256": "SHA256_OF_REFERENCE_RECEIPT"},
+  "source_count": 3,
+  "unique_keys": ["key1", "key2", "key3"],
+  "mapped_unique_keys": ["key1", "key2"]
+}
+```
+
+Trend expectation replaces the three count/ID properties with `groups`, a map
+of NTA code to all five values `baseline_count`, `current_count`,
+`absolute_change`, `relative_change`, `rate_change`; use `null` for undefined
+relative change. Set `excluded_group_count` for CSV rows missing an NTA.
+The CSV is a completed records export for requests or aggregate export for
+trends, with the same saved result and selection.
+
+```sh
+python tools/live_maps.py render --config runs/maps-profile.json \
+  --result-id SAVED_RESULT_ID --mode requests \
+  --expectation runs/point-reference.json --csv runs/COMPLETED_EXPORT.csv \
+  --output-dir runs/render-points
+```
+
+Use `--mode neighborhood_trends` for the joined map, and repeat `--group-id`
+to qualify an explicit saved-group selection. Cover both all-matching and
+selected-groups cases during acceptance.
+
+The browser opens the actual locator URL, captures actual search bodies,
+requires the saved DSL filter in a browser search, and opens Inspector's Map
+details. It compares the **rendered style's GeoJSON source** IDs or joined
+metrics with the independent expectation and CSV; a server response alone
+does not pass. The trend style must reference the declared joined metric.
+It then closes Inspector and saves the visible map screenshot. Request bodies,
+rendered style, screenshot and a machine-readable receipt remain in the output
+directory. Reference membership and numeric disagreement, missing Inspector
+data, absent DSL, application error or absent canvas fail closed. Timeout and
+UI incompatibility leave `rendered_parity_verified=false`; failed screenshots
+aid diagnosis. A passing bounded-map check never sets overall release acceptance.
+
+Rendered-source checks establish the values supplied to visible layers, not
+human perceptual accuracy or exhaustive pixel-level map correctness. Inspect
+the retained screenshot before publishing a visual acceptance claim. Browser
+WebGL may use software rendering on CI; its speed is not end-user GPU evidence.

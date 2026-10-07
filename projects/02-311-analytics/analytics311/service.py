@@ -202,13 +202,12 @@ class AnalyticsService:
                 within_observation = False
         if not (complete or within_observation) and (spec["operation"] == "compare_periods" or any("interval" in dim for dim in spec.get("group_by", []))):
             raise AnalyticsError("coverage_gap", "Comparisons and calendar buckets require complete creation-date coverage or a reconciled observed-corpus qualification; unobserved dates cannot become zeros")
-        return complete
+        return complete, qualified if within_observation else None
 
     def validate_analysis(self, spec):
         spec = self._normalized(spec)
-        covered = self._coverage(spec)
-        from .qualification import comparison_qualification, WARNING
-        qualified = comparison_qualification(self.manifest)
+        covered, qualified = self._coverage(spec)
+        from .qualification import WARNING
         queries = []
         if spec["operation"] == "compare_periods":
             for name in ("baseline", "current"):

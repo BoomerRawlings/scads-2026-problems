@@ -76,8 +76,8 @@
     {
       "file": "pdf/02-311-analytics.pdf",
       "pages": 10,
-      "bytes": 171431,
-      "sha256": "c0368e9577425796fe7c8c7038e5c2da9c25e0bf23d4032581225d997799993a",
+      "bytes": 171589,
+      "sha256": "be55692ea0cb39821f3574697dd6acf6d440e50ee3c01f91144bf07512957def",
       "sources": [
         {
           "path": "projects/02-311-analytics/IMPLEMENTATION.md",

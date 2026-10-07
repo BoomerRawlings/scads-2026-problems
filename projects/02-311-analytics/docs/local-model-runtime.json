@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "purpose": "Pinned self-hosted CPU runtime for the actual 40-by-3 agent experiment; asset provenance is not model quality evidence.",
+  "target": "Linux x86_64",
+  "model_alias": "analytics311-qwen35-4b",
+  "runtime": {
+    "repository": "ggml-org/llama.cpp",
+    "version": "b11457",
+    "license": "MIT",
+    "source": "https://api.github.com/repos/ggml-org/llama.cpp/releases/tags/b11457",
+    "filename": "llama-b11457-bin-ubuntu-x64.tar.gz",
+    "size": 17733249,
+    "sha256": "210eaa41a16e0d24fa44071cb62f95702ef903c84d86506d6482ac919bcee078",
+    "url": "https://github.com/ggml-org/llama.cpp/releases/download/b11457/llama-b11457-bin-ubuntu-x64.tar.gz"
+  },
+  "model": {
+    "repository": "unsloth/Qwen3.5-4B-GGUF",
+    "revision": "e87f176479d0855a907a41277aca2f8ee7a09523",
+    "original_model": "Qwen/Qwen3.5-4B",
+    "quantization": "Q4_K_M",
+    "license": "Apache-2.0",
+    "license_url": "https://huggingface.co/Qwen/Qwen3.5-4B/blob/main/LICENSE",
+    "source": "https://huggingface.co/api/models/unsloth/Qwen3.5-4B-GGUF/revision/e87f176479d0855a907a41277aca2f8ee7a09523?blobs=true",
+    "filename": "Qwen3.5-4B-Q4_K_M.gguf",
+    "size": 2740937888,
+    "sha256": "00fe7986ff5f6b463e62455821146049db6f9313603938a70800d1fb69ef11a4",
+    "url": "https://huggingface.co/unsloth/Qwen3.5-4B-GGUF/resolve/e87f176479d0855a907a41277aca2f8ee7a09523/Qwen3.5-4B-Q4_K_M.gguf"
+  },
+  "inference": {
+    "bind": "127.0.0.1",
+    "port": 8080,
+    "threads": 4,
+    "context_tokens": 16384,
+    "parallel_slots": 1,
+    "gpu_layers": 0,
+    "thinking": false,
+    "network": "Only loopback model calls; downloads needed during staging. No paid inference provider.",
+    "limitation": "CPU resource limits and this one model are an experimental configuration, not a universal supported-hardware minimum. Fresh conversations may reuse an identical prompt-prefix cache."
+  }
+}

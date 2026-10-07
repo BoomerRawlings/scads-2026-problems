@@ -81,7 +81,7 @@
     },
     {
       "file": "pdf/02-311-analytics.pdf",
-      "sha256": "c0368e9577425796fe7c8c7038e5c2da9c25e0bf23d4032581225d997799993a",
+      "sha256": "be55692ea0cb39821f3574697dd6acf6d440e50ee3c01f91144bf07512957def",
       "pages": [
         {
           "page": 1,
@@ -92,21 +92,21 @@
         },
         {
           "page": 2,
-          "words": 277,
+          "words": 283,
           "links": 6,
           "geometry_issues": [],
           "glyph_issues": []
         },
         {
           "page": 3,
-          "words": 306,
+          "words": 314,
           "links": 6,
           "geometry_issues": [],
           "glyph_issues": []
         },
         {
           "page": 4,
-          "words": 312,
+          "words": 336,
           "links": 5,
           "geometry_issues": [],
           "glyph_issues": []
@@ -154,7 +154,7 @@
           "glyph_issues": []
         }
       ],
-      "words": 2843
+      "words": 2881
     },
     {
       "file": "pdf/03-semantic-discovery.pdf",

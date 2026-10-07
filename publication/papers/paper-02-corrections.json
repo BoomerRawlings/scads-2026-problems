@@ -1,0 +1,50 @@
+{
+  "edition": "2026-10-07",
+  "scope": "Editorial correction only; recorded empirical results and frozen cited sources unchanged; local PDF not republished.",
+  "file": "pdf/02-311-analytics.pdf",
+  "sha256": "be55692ea0cb39821f3574697dd6acf6d440e50ee3c01f91144bf07512957def",
+  "bytes": 171589,
+  "pages": 10,
+  "changed_text_pages": [
+    2,
+    3,
+    4
+  ],
+  "unchanged_text_pages": [
+    1,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "rendered_and_visually_reviewed_pages": [
+    2,
+    3,
+    4
+  ],
+  "visual_result": "No clipping, overlap, glyph problems or broken table rows observed; headers and footers intact.",
+  "automated_result": "All five working-paper PDFs pass geometry, glyph, footer, PDF hash and frozen local-source hash checks; verification.json.",
+  "sibling_pdf_sha256_unchanged": {
+    "01-sensemaking.pdf": "fe17c45c93a8e792df8446929bc9ea8ec5edeb3ccdcc6976c38c7097fd307ffb",
+    "03-semantic-discovery.pdf": "be7d2701429e4efa7415a42cfbde2d9c2e0b98d4c3f5d74051857cb41e894682",
+    "04-org-knowledge-graphs.pdf": "c687db24b159393604fa8912d048f11830adc9dfda48b986d3bc931738086aee",
+    "05-graphrag-discovery.pdf": "6c7be5134d2608b4557f906ec7ece889fca4fa37b3258b176cc8a4ebb87ea61c",
+    "06-agentic-retrieval.pdf": "77f0a0d03b82d7e098e4cc8afe150435aeb231a233db05a1edae29ac70508498",
+    "07-efficient-agentic-rag.pdf": "ea794fb06df1423110126917974739a797593b479339886db78d336b386c2107",
+    "08-capability-benchmarks.pdf": "d9f9d459aa6f683a1e00226c653318f84b3d4f5e58abf6bd30be35e6303f7d14",
+    "09-core-to-edge.pdf": "ac007277925131b557ee8c70e857f119fea6adc2e990f78ea1d3587f43c1980a"
+  },
+  "corrections": [
+    "Administrative created-to-closed duration is not first response or verified resolution.",
+    "Maps data-view/filter/count or saved-trend publication runs separately from CSV row admission, background streaming and CSV-manifest publication.",
+    "Returned map links do not certify rendered filter, metric or boundary-join parity."
+  ],
+  "manuscript_sources": {
+    "papers.py": "bfc99b2efe9e37e206d69c39ae5a807a50448d01af16197736cb83cc41135a08",
+    "research_extensions.py": "c67a5f577ebe0233eb50d6ba0402d11e169c41ac5df58af4b05081ade963445b",
+    "build_papers.py": "32647d81341feea02db46eada3925fa3bc6088022da2d6ef3778724f77a28da6"
+  },
+  "status": "passed"
+}

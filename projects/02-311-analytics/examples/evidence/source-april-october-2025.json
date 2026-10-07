@@ -1,0 +1,23 @@
+{
+  "observed_at": "2026-10-07T21:20:37.977515+00:00",
+  "evidence_kind": "provider_count_only_not_captured_data",
+  "url": "https://data.cityofnewyork.us/resource/erm2-nwe9.json?%24select=count%28%2A%29+as+row_count%2Ccount%28distinct+unique_key%29+as+unique_count%2Cmax%28%3Aupdated_at%29+as+max_updated_at&%24where=created_date+%3E%3D+%272025-04-01T00%3A00%3A00%27+AND+created_date+%3C+%272025-11-01T00%3A00%3A00%27",
+  "response_bytes": 95,
+  "result": [
+    {
+      "row_count": "2133268",
+      "unique_count": "2133268",
+      "max_updated_at": "2026-10-07T01:33:31.682Z"
+    }
+  ],
+  "headers": {
+    "x-soda2-data-out-of-date": "false",
+    "x-soda2-truth-last-modified": "Wed, 07 Oct 2026 02:28:09 GMT",
+    "x-soda2-secondary-last-modified": "Wed, 07 Oct 2026 02:28:09 GMT",
+    "last-modified": "Wed, 07 Oct 2026 02:28:09 GMT"
+  },
+  "window": {
+    "gte": "2025-04-01",
+    "lt": "2025-11-01"
+  }
+}
