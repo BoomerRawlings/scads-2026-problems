@@ -58,10 +58,16 @@ and does not use environment proxy settings. Pin model/runtime checksums in the
 deployment evidence; the protocol-visible model alias alone cannot prove weight
 identity.
 
+Real-data freezes also pin the exact bytes and complete contents of
+`docs/local-model-runtime.json`, including the model alias/weight hash and native
+runtime source commit/CMake flags. The prebuilt archive in that document is the
+development comparison artifact; `execution_runtime` defines the selected native
+build. Development-only freezes may omit runtime binding.
+
 ```text
 python tools/agent_evaluation.py prepare --config config/live.json --source data/normalized.jsonl --database data/oracle.sqlite --output runs/agent-freeze-v1.json --model analytics311-qwen35-4b
 
-python tools/agent_evaluation.py run --config config/live.json --freeze runs/agent-freeze-v1.json --database data/oracle.sqlite --output runs/agent-evaluation-v1 --endpoint http://127.0.0.1:8080/v1 --seconds 120 --request-seconds 60
+python tools/agent_evaluation.py run --config config/live.json --freeze runs/agent-freeze-v1.json --database data/oracle.sqlite --output runs/agent-evaluation-v1 --endpoint http://127.0.0.1:8080/v1 --seconds 120 --request-seconds 60 --runtime-receipt runs/runtime/agent-runtime-freeze-r1.json
 ```
 
 The freeze pins question bytes, all runtime Python source, evaluator source,
@@ -82,6 +88,50 @@ or question-specific shortcuts inform this projection. All other tool results ar
 unchanged. The transcript retains full original discovery alongside the exact
 model-visible JSON string, its SHA-256, byte counts and projection version.
 Reduced context bytes alone do not establish faster or more accurate inference.
+
+Before the first model call of each real-data invocation, create a new runtime
+receipt after the owned Linux server is healthy. `--runtime-receipt` otherwise
+defaults to `runs/runtime/agent-runtime-freeze.json`. Its schema is:
+
+```json
+{
+  "schema_version": 1,
+  "evidence_kind": "pretrial_local_model_runtime",
+  "created_at": "UTC timestamp",
+  "freeze_sha256": "SHA-256 of benchmark freeze file",
+  "runtime_spec_sha256": "SHA-256 of runtime specification file",
+  "model_alias": "exact pinned alias",
+  "execution_runtime": {"...": "exact object from runtime specification"},
+  "endpoint": "http://127.0.0.1:8080/v1",
+  "budgets": {"seconds": 120, "request_seconds": 60, "max_calls": 24},
+  "owned_server_pid": 123,
+  "launch_argv": ["actual argv from /proc/PID/cmdline"],
+  "files": [
+    {"role": "model", "path": "absolute model path", "bytes": 1, "sha256": "actual file hash"},
+    {"role": "server", "path": "resolved /proc/PID/exe", "bytes": 1, "sha256": "actual file hash"},
+    {"role": "build_configuration", "path": "actual CMakeCache.txt", "bytes": 1, "sha256": "actual file hash"},
+    {"role": "runtime_library", "path": "one entry per mapped .so file", "bytes": 1, "sha256": "actual file hash"}
+  ]
+}
+```
+
+The values above illustrate shape only. Measure every file; collect the complete
+`.so` inventory from `/proc/PID/maps`, resolve symlinks and deduplicate paths. Record
+the verified source revision and check the actual CMake cache against the pinned
+flags during staging. The evaluator rechecks declared file bytes/hashes, model
+identity, live PID/executable/argv, mapped-library inventory, endpoint and core
+launch settings. This is local process provenance, not remote attestation or
+independent proof that a compiler produced the declared source build.
+
+Before contacting the model, the runner writes immutable execution identity and
+an immutable copy of that launch receipt. Every trial cites both hashes. Restarting
+the server between repetitions creates a new receipt/PID but preserves the stable
+execution identity when source/build/artifacts, launch settings and budgets match.
+Use a different receipt path for each restart and `--resume` for repetitions 2/3.
+PID, timestamp and artifact locations are launch provenance rather than stable
+runtime identity; artifact content hashes remain mandatory. Review rejects mixed
+execution identities or altered/missing launch receipts. Changing a budget or
+model after failures requires a separate declared study, never replacement trials.
 
 Defaults: 300 seconds per trial, 90 seconds per model request, 24 tool calls,
 2,048 output tokens per request, 256 KiB serialized request context, 1 MiB model

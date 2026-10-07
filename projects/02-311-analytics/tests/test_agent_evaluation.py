@@ -178,6 +178,163 @@ class OracleTests(unittest.TestCase):
 
 
 class ProtocolTests(unittest.TestCase):
+    def runtime_fixture(self, root):
+        definition = evaluation.load(evaluation.RUNTIME_SPEC)
+        definition["model_alias"] = "unit-model"
+        files = []
+        for role in ("model", "server", "build_configuration"):
+            path = root / role
+            path.write_bytes(("authored unit " + role).encode())
+            files.append({"role": role, "path": str(path), "sha256": evaluation.sha_file(path), "bytes": path.stat().st_size})
+        definition["model"].update(sha256=files[0]["sha256"], size=files[0]["bytes"])
+        spec_path = root / "runtime-spec.json"
+        spec_path.write_text(json.dumps(definition), encoding="utf-8")
+        frozen = {"model": "unit-model", "runtime_spec": evaluation.runtime_definition(spec_path, "unit-model")}
+        receipt = {"schema_version": 1, "evidence_kind": "pretrial_local_model_runtime",
+                   "freeze_sha256": "f" * 64, "runtime_spec_sha256": frozen["runtime_spec"]["sha256"],
+                   "model_alias": "unit-model", "execution_runtime": definition["execution_runtime"],
+                   "endpoint": "http://127.0.0.1:8080/v1",
+                   "budgets": {"seconds": 120, "request_seconds": 60, "max_calls": 24},
+                   "owned_server_pid": 12345, "launch_argv": [files[1]["path"], "-m", files[0]["path"], "--alias", "unit-model",
+                       "--host", "127.0.0.1", "--port", "8080", "--threads", "4", "--ctx-size", "16384", "--parallel", "1", "--gpu-layers", "0"],
+                   "files": files}
+        receipt_path = root / "runtime-receipt.json"
+        receipt_path.write_text(json.dumps(receipt), encoding="utf-8")
+        return spec_path, frozen, receipt_path, receipt
+
+    def test_runtime_definition_pins_exact_bytes_alias_and_build_flags(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            spec_path, frozen, _, _ = self.runtime_fixture(root)
+            first = frozen["runtime_spec"]
+            self.assertEqual(first["sha256"], evaluation.sha_file(spec_path))
+            self.assertEqual(first["definition"]["execution_runtime"]["source_commit"], "5ad1c5da0ad7f6176256b823925aad19134f0263")
+            with self.assertRaisesRegex(ValueError, "invalid_runtime_definition"):
+                evaluation.runtime_definition(spec_path, "different-alias")
+            # Same semantic JSON with changed bytes is a different prospective pin.
+            spec_path.write_text(json.dumps(first["definition"], indent=2), encoding="utf-8")
+            self.assertNotEqual(evaluation.runtime_definition(spec_path, "unit-model")["sha256"], first["sha256"])
+
+    def test_runtime_receipt_rejects_changed_files_build_budgets_and_launch(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            _, frozen, receipt_path, receipt = self.runtime_fixture(root)
+            def verify():
+                with patch.object(evaluation, "check_owned_runtime_process"):
+                    return evaluation.verify_runtime_receipt(receipt_path, frozen, "f" * 64, endpoint=receipt["endpoint"], seconds=120, request_seconds=60)
+            self.assertEqual(verify()["sha256"], evaluation.sha_file(receipt_path))
+            for key, changed in (("budgets", {"seconds": 121, "request_seconds": 60, "max_calls": 24}),
+                                 ("execution_runtime", {"source_commit": "0" * 40}),
+                                 ("runtime_spec_sha256", "0" * 64),
+                                 ("endpoint", "http://127.0.0.1:8081/v1"),
+                                 ("launch_argv", receipt["launch_argv"] + ["--model", "other"]),
+                                 ("launch_argv", [receipt["files"][1]["path"], "-m", receipt["files"][0]["path"], "--alias", "other"])):
+                altered = copy.deepcopy(receipt)
+                altered[key] = changed
+                receipt_path.write_text(json.dumps(altered), encoding="utf-8")
+                with self.assertRaises(ValueError): verify()
+            receipt_path.write_text(json.dumps(receipt), encoding="utf-8")
+            (root / "server").write_bytes(b"changed")
+            with self.assertRaisesRegex(ValueError, "runtime_file_changed"): verify()
+
+    def test_real_run_requires_unchanged_runtime_before_model_calls(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            spec_path, frozen, receipt_path, receipt = self.runtime_fixture(root)
+            database = root / "database"
+            database.write_bytes(b"not opened before runtime validation")
+            service = SimpleNamespace(manifest={"unit": True}, catalog=CATALOG)
+            frozen.update(code_sha256=evaluation.code_hashes(), questions_sha256=evaluation.sha_file(evaluation.QUESTIONS),
+                          database_sha256=evaluation.sha_file(database), manifest_sha256=evaluation.digest(service.manifest),
+                          catalog_sha256=evaluation.digest(service.catalog), development_only=False)
+            freeze_path = root / "freeze.json"
+            evaluation.write_new(freeze_path, frozen)
+            # No matching pretrial receipt exists, so neither endpoint nor oracle runs.
+            with patch("analytics311.service.AnalyticsService", return_value=service), patch.object(evaluation, "LocalModel") as model:
+                with self.assertRaisesRegex(ValueError, "runtime_receipt_mismatch"):
+                    evaluation.run("unused", freeze_path, database, root / "run", endpoint="http://127.0.0.1:8080/v1",
+                                   seconds=120, request_seconds=60, runtime_spec=spec_path, runtime_receipt=receipt_path)
+                model.assert_not_called()
+                definition = frozen["runtime_spec"]["definition"]
+                definition["execution_runtime"]["cmake_flags"].append("-DCHANGED=ON")
+                spec_path.write_text(json.dumps(definition), encoding="utf-8")
+                with self.assertRaisesRegex(ValueError, "frozen_runtime_changed"):
+                    evaluation.run("unused", freeze_path, database, root / "run", endpoint="http://127.0.0.1:8080/v1",
+                                   runtime_spec=spec_path, runtime_receipt=receipt_path)
+                model.assert_not_called()
+
+    def test_owned_process_verification_checks_live_argv_executable_and_libraries(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            process = root / "123"
+            process.mkdir()
+            executable = process / "exe"
+            executable.write_bytes(b"authored executable path fixture")
+            (process / "cmdline").write_bytes(b"unit-server\0--alias\0unit-model\0")
+            (process / "maps").write_text("", encoding="utf-8")
+            receipt = {"owned_server_pid": 123, "launch_argv": ["unit-server", "--alias", "unit-model"]}
+            artifacts = {"server": executable.resolve()}
+            with patch.object(evaluation.sys, "platform", "linux"):
+                evaluation.check_owned_runtime_process(receipt, artifacts, set(), proc_root=root)
+                with self.assertRaisesRegex(ValueError, "runtime_library_inventory_mismatch"):
+                    evaluation.check_owned_runtime_process(receipt, artifacts, {root / "missing.so"}, proc_root=root)
+                receipt["launch_argv"].append("unexpected")
+                with self.assertRaisesRegex(ValueError, "runtime_process_changed"):
+                    evaluation.check_owned_runtime_process(receipt, artifacts, set(), proc_root=root)
+
+    def test_restarted_runtime_resumes_with_new_launch_receipt_and_same_identity(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            spec_path, frozen, receipt_path, receipt = self.runtime_fixture(root)
+            database = root / "oracle.sqlite"
+            evaluation.connect(database, readonly=False).close()
+            service = SimpleNamespace(manifest={"unit": True}, catalog=CATALOG)
+            frozen.update(code_sha256=evaluation.code_hashes(), questions_sha256=evaluation.sha_file(evaluation.QUESTIONS),
+                          database_sha256=evaluation.sha_file(database), manifest_sha256=evaluation.digest(service.manifest),
+                          catalog_sha256=evaluation.digest(service.catalog), development_only=False,
+                          cases=[{"id": f"Q{n:02}", "question": "Authored unit question", "expected_status": "needs_clarification", "steps": []} for n in range(1, 41)],
+                          model_settings={"seeds": [101, 202, 303]}, pass_threshold=.9, residential_nta_codes=[])
+            freeze_path = root / "freeze.json"
+            evaluation.write_new(freeze_path, frozen)
+            receipt["freeze_sha256"] = evaluation.sha_file(freeze_path)
+            receipt_path.write_text(json.dumps(receipt), encoding="utf-8")
+            def failed(service, model, question, *, seed, **kwargs):
+                return {"status": "failed", "question": question, "seed": seed, "events": [], "final": None,
+                        "model": "unit-model", "elapsed_seconds": .01, "error": {"code": "mock_failure"}}
+            output = root / "run"
+            def execute(repeat, resume=False):
+                return evaluation.run("unused", freeze_path, database, output, endpoint=receipt["endpoint"],
+                    seconds=120, request_seconds=60, runtime_spec=spec_path, runtime_receipt=receipt_path,
+                    repetition=repeat, resume=resume)
+            with patch("analytics311.service.AnalyticsService", return_value=service), patch.object(evaluation, "LocalModel") as model, patch.object(evaluation, "run_trial", side_effect=failed), patch.object(evaluation, "check_owned_runtime_process"):
+                model.return_value.identify.return_value = {"model_id": "unit-model"}
+                execute(1)
+                identity_hash = evaluation.sha_file(output / "run-identity.json")
+                first_trial_hash = evaluation.sha_file(output / "Q01-r1.json")
+                first = evaluation.load(output / "Q01-r1.json")
+                receipt.update(owned_server_pid=54321, created_at="new launch")
+                receipt_path.write_text(json.dumps(receipt), encoding="utf-8")
+                execute(2, resume=True)
+                second = evaluation.load(output / "Q01-r2.json")
+                self.assertEqual(evaluation.sha_file(output / "run-identity.json"), identity_hash)
+                self.assertEqual(evaluation.sha_file(output / "Q01-r1.json"), first_trial_hash)
+                self.assertEqual(first["execution_sha256"], second["execution_sha256"])
+                self.assertNotEqual(first["runtime_receipt_sha256"], second["runtime_receipt_sha256"])
+                self.assertEqual(len(list(output.glob("runtime-launch-*.json"))), 2)
+                review_path = root / "reviews.json"
+                evaluation.write_new(review_path, {"freeze_sha256": evaluation.sha_file(freeze_path),
+                    "reviewer": {"id": "unit-reviewer", "kind": "independent_ai_session", "was_answering_agent": False}, "reviews": []})
+                reviewed = evaluation.review(freeze_path, [output], review_path, root / "reviewed.json")
+                self.assertEqual(reviewed["attempted_trials"], 80)
+                self.assertFalse(reviewed["agent_quality_gate_passed"])
+                # Historical launch corruption must prevent subsequent resumption.
+                launch_path = output / ("runtime-launch-" + first["runtime_receipt_sha256"] + ".json")
+                launch = evaluation.load(launch_path)
+                launch["receipt_json"] += "changed"
+                launch_path.write_text(json.dumps(launch), encoding="utf-8")
+                with self.assertRaisesRegex(ValueError, "runtime_launch_receipt_changed"):
+                    execute(3, resume=True)
+
     def test_server_timing_metadata_excludes_text_nonfinite_and_invalid_numbers(self):
         measured = {"cache_n": 100, "prompt_n": 20, "prompt_ms": 123.4,
                     "predicted_n": 16, "predicted_ms": 321.0}

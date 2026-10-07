@@ -28,11 +28,13 @@ from zoneinfo import ZoneInfo
 ROOT = Path(__file__).resolve().parents[1]
 if __package__ in (None, ""):
     sys.path.insert(0, str(ROOT))
-from tools.local_agent import AgentFailure, LocalModel, canonical, run_trial
+from tools.local_agent import AgentFailure, LocalModel, canonical, endpoint_parts, run_trial
 
 
 QUESTIONS = ROOT / "examples/evaluation/questions-v1.json"
 NTA_RECEIPT = ROOT / "examples/evidence/official-nta2020-26b.json"
+RUNTIME_SPEC = ROOT / "docs/local-model-runtime.json"
+RUNTIME_RECEIPT = ROOT / "runs/runtime/agent-runtime-freeze.json"
 TEXT_FIELDS = ("unique_key", "complaint_type", "descriptor", "agency", "agency_name", "status", "borough",
                "incident_zip", "nta2020", "ntaname", "community_board", "council_district", "police_precinct")
 NUM_FIELDS = ("created_date", "closed_date", "closure_hours", "is_closed", "latitude", "longitude")
@@ -415,7 +417,128 @@ def code_hashes():
     return {path.relative_to(ROOT).as_posix(): sha_file(path) for path in paths}
 
 
-def prepare(config, source, database, output, *, model, questions=QUESTIONS, nta_receipt=NTA_RECEIPT, development=False):
+def runtime_definition(path, model):
+    raw = Path(path).read_bytes()
+    if len(raw) > 1024 * 1024:
+        raise ValueError("runtime_definition_budget")
+    definition = json.loads(raw.decode("utf-8-sig"))
+    if not isinstance(definition, dict) or not isinstance(definition.get("model"), dict):
+        raise ValueError("invalid_runtime_definition")
+    execution = definition.get("execution_runtime", {})
+    if (not isinstance(execution, dict) or definition.get("model_alias") != model
+            or not re.fullmatch(r"[0-9a-f]{64}", str(definition["model"].get("sha256", "")))
+            or execution.get("kind") != "native_source_build"
+            or not re.fullmatch(r"[0-9a-f]{40}", str(execution.get("source_commit", "")))
+            or not isinstance(execution.get("cmake_flags"), list) or not execution["cmake_flags"]
+            or not all(isinstance(flag, str) and flag.startswith("-D") for flag in execution["cmake_flags"])):
+        raise ValueError("invalid_runtime_definition")
+    return {"sha256": hashlib.sha256(raw).hexdigest(), "definition": definition}
+
+
+def check_owned_runtime_process(receipt, artifact_paths, library_paths, *, proc_root=Path("/proc")):
+    """Linux execution receipt: bind the live PID, argv, executable and mapped SOs."""
+    if sys.platform != "linux":
+        raise ValueError("runtime_process_verification_requires_linux")
+    process = proc_root / str(receipt["owned_server_pid"])
+    argv = [os.fsdecode(part) for part in (process / "cmdline").read_bytes().split(b"\0") if part]
+    if (argv != receipt["launch_argv"] or (process / "exe").resolve(strict=True) != artifact_paths["server"]):
+        raise ValueError("runtime_process_changed")
+    mapped = set()
+    for line in (process / "maps").read_text().splitlines():
+        parts = line.split(maxsplit=5)
+        if len(parts) == 6 and parts[5].startswith("/") and re.search(r"\.so(?:\.|$)", Path(parts[5]).name):
+            mapped.add(Path(parts[5]).resolve(strict=True))
+    if mapped != library_paths:
+        raise ValueError("runtime_library_inventory_mismatch")
+
+
+def verify_runtime_receipt(path, frozen, freeze_hash, *, endpoint, seconds, request_seconds):
+    raw = Path(path).read_bytes()
+    if len(raw) > 1024 * 1024:
+        raise ValueError("runtime_receipt_budget")
+    receipt = json.loads(raw.decode("utf-8-sig"))
+    if not isinstance(receipt, dict):
+        raise ValueError("runtime_receipt_mismatch")
+    spec = frozen["runtime_spec"]
+    definition = spec["definition"]
+    if (receipt.get("schema_version") != 1 or receipt.get("evidence_kind") != "pretrial_local_model_runtime"
+            or receipt.get("freeze_sha256") != freeze_hash
+            or receipt.get("runtime_spec_sha256") != spec["sha256"]
+            or receipt.get("model_alias") != frozen["model"]
+            or receipt.get("execution_runtime") != definition["execution_runtime"]
+            or endpoint_parts(receipt.get("endpoint", "")) != endpoint_parts(endpoint)
+            or receipt.get("budgets") != {"seconds": seconds, "request_seconds": request_seconds, "max_calls": 24}
+            or type(receipt.get("owned_server_pid")) is not int or receipt["owned_server_pid"] <= 0
+            or not isinstance(receipt.get("launch_argv"), list) or not receipt["launch_argv"]
+            or not all(isinstance(arg, str) for arg in receipt["launch_argv"])):
+        raise ValueError("runtime_receipt_mismatch")
+    files = receipt.get("files")
+    if (not isinstance(files, list) or not 3 <= len(files) <= 128
+            or any(not isinstance(item, dict) for item in files)):
+        raise ValueError("runtime_files_required")
+    roles = [item.get("role") for item in files]
+    if roles.count("model") != 1 or roles.count("server") != 1 or "build_configuration" not in roles:
+        raise ValueError("runtime_files_required")
+    paths, artifact_paths, library_paths = set(), {}, set()
+    for item in files:
+        file = Path(item.get("path", ""))
+        if not file.is_absolute():
+            file = Path(path).resolve().parent / file
+        file = file.resolve(strict=True)
+        if (file in paths or not file.is_file() or type(item.get("bytes")) is not int
+                or file.stat().st_size != item["bytes"] or sha_file(file) != item.get("sha256")):
+            raise ValueError("runtime_file_changed")
+        paths.add(file)
+        artifact_paths[item["role"]] = file
+        if item["role"] == "runtime_library":
+            library_paths.add(file)
+        if item["role"] == "model" and (item.get("sha256") != definition["model"]["sha256"]
+                                         or item.get("bytes") != definition["model"].get("size")):
+            raise ValueError("runtime_model_changed")
+    argv = receipt["launch_argv"]
+    try:
+        model_flag = "-m" if "-m" in argv else "--model"
+        model_index = argv.index(model_flag) + 1
+        if (Path(argv[0]).resolve() != artifact_paths["server"]
+                or argv.count("-m") + argv.count("--model") != 1
+                or Path(argv[model_index]).resolve() != artifact_paths["model"]):
+            raise ValueError()
+        inference = definition["inference"]
+        host, port, _ = endpoint_parts(endpoint)
+        expected_flags = {"--alias": frozen["model"], "--host": inference["bind"], "--port": inference["port"],
+                          "--threads": inference["threads"], "--ctx-size": inference["context_tokens"],
+                          "--parallel": inference["parallel_slots"], "--gpu-layers": inference["gpu_layers"]}
+        if host != inference["bind"] or port != inference["port"]:
+            raise ValueError()
+        for flag, expected in expected_flags.items():
+            if argv.count(flag) != 1 or argv[argv.index(flag) + 1] != str(expected):
+                raise ValueError()
+    except (IndexError, ValueError):
+        raise ValueError("runtime_launch_mismatch") from None
+    check_owned_runtime_process(receipt, artifact_paths, library_paths)
+    launch = list(argv)
+    launch[0], launch[model_index] = "<server>", "<model>"
+    identity = {"runtime_spec_sha256": spec["sha256"], "execution_runtime": definition["execution_runtime"],
+                "model_alias": frozen["model"], "endpoint": [host, port, "/v1"],
+                "budgets": receipt["budgets"], "launch_arguments": launch,
+                "files": sorted(({key: item[key] for key in ("role", "bytes", "sha256")} for item in files), key=canonical)}
+    return {"sha256": hashlib.sha256(raw).hexdigest(), "receipt": receipt,
+            "receipt_json": raw.decode("utf-8"), "identity": identity}
+
+
+def check_archived_runtime_launch(directory, receipt_hash, identity):
+    if not isinstance(receipt_hash, str) or not re.fullmatch(r"[0-9a-f]{64}", receipt_hash):
+        raise ValueError("runtime_launch_receipt_missing")
+    launch = load(Path(directory) / ("runtime-launch-" + receipt_hash + ".json"))
+    text = launch.get("receipt_json")
+    if (not isinstance(text, str) or hashlib.sha256(text.encode("utf-8")).hexdigest() != receipt_hash
+            or launch.get("sha256") != receipt_hash or json.loads(text.lstrip("\ufeff")) != launch.get("receipt")
+            or launch.get("identity") != identity):
+        raise ValueError("runtime_launch_receipt_changed")
+
+
+def prepare(config, source, database, output, *, model, questions=QUESTIONS, nta_receipt=NTA_RECEIPT,
+            development=False, runtime_spec=RUNTIME_SPEC):
     from analytics311.service import AnalyticsService
     service = AnalyticsService(config)
     protocol, nta = load(questions), load(nta_receipt)
@@ -432,6 +555,7 @@ def prepare(config, source, database, output, *, model, questions=QUESTIONS, nta
             raise ValueError("real_million_corpus_qualification_required")
         if any(term in canonical(manifest).lower() for term in ('"synthetic_fixture"', '"generated_workload"')):
             raise ValueError("real_corpus_required")
+    runtime = None if development else runtime_definition(runtime_spec, model)
     if Path(output).exists():
         raise ValueError("freeze_exists")
     if not Path(database).exists():
@@ -471,6 +595,7 @@ def prepare(config, source, database, output, *, model, questions=QUESTIONS, nta
     evidence = {"schema_version": 1, "evidence_kind": "prospective_ai_authored_agent_benchmark_freeze",
                 "created_at": datetime.now(timezone.utc).isoformat(), "development_only": development,
                 "questions_sha256": sha_file(questions), "code_sha256": code_hashes(), "model": model,
+                "runtime_spec": runtime,
                 "model_settings": {"temperature": 0.2, "seeds": [101, 202, 303], "max_tokens": 2048},
                 "manifest_sha256": digest(manifest), "catalog_sha256": digest(service.catalog),
                 "database_sha256": sha_file(database), "source": source_info,
@@ -730,16 +855,31 @@ def review(freeze, runs, reviews, output):
             or reviewer.get("kind") not in {"independent_ai_session", "independent_human"}
             or reviewer.get("was_answering_agent") is not False):
         raise ValueError("independent_reviewer_provenance_required")
-    actual, paths = [], {}
+    actual, paths, execution_ids = [], {}, set()
     expected_keys = {(case["id"], repeat) for case in frozen["cases"] for repeat in (1, 2, 3)}
     for directory in runs:
+        execution_hash = None
+        if frozen.get("runtime_spec") is not None:
+            identity = load(Path(directory) / "run-identity.json")
+            runtime = identity.get("runtime", {})
+            if (identity.get("freeze_sha256") != freeze_hash
+                    or runtime.get("runtime_spec_sha256") != frozen["runtime_spec"]["sha256"]
+                    or runtime.get("execution_runtime") != frozen["runtime_spec"]["definition"]["execution_runtime"]):
+                raise ValueError("review_runtime_identity_mismatch")
+            execution_hash = digest(identity)
+            execution_ids.add(execution_hash)
         for path in sorted(Path(directory).glob("Q*-r*.json")):
             trial = load(path)
             key = (trial.get("question_id"), trial.get("repeat"))
-            if key not in expected_keys or key in paths or trial.get("freeze_sha256") != freeze_hash:
+            if (key not in expected_keys or key in paths or trial.get("freeze_sha256") != freeze_hash
+                    or (execution_hash is not None and trial.get("execution_sha256") != execution_hash)):
                 raise ValueError("duplicate_or_foreign_trial")
+            if execution_hash is not None:
+                check_archived_runtime_launch(directory, trial.get("runtime_receipt_sha256"), runtime)
             paths[key] = path
             actual.append(trial)
+    if len(execution_ids) > 1:
+        raise ValueError("mixed_runtime_or_budgets")
     report = summarize(frozen, actual)
     judgments = {}
     for item in supplied.get("reviews", []):
@@ -764,7 +904,8 @@ def review(freeze, runs, reviews, output):
                   reviewed_trials=len(judgments), reviewer=reviewer, reviews_sha256=sha_file(reviews),
                   freeze_sha256=freeze_hash, end_to_end_passes=len(end_to_end), end_to_end_pass_rate=len(end_to_end) / 120,
                   end_to_end_by_question=by_question, semantic_fabrication_or_false_completion=fabrication,
-                  agent_quality_gate_passed=(not frozen["development_only"] and len(judgments) == 120
+                  agent_quality_gate_passed=(not frozen["development_only"] and frozen.get("runtime_spec") is not None
+                                            and len(judgments) == 120
                                             and report["automatic_gate_passed"] and len(end_to_end) / 120 >= frozen["pass_threshold"]
                                             and all(value >= frozen.get("minimum_passes_per_question", 1) for value in by_question.values()) and not fabrication),
                   release_verified=False, second_agent_client_verified=False, visual_parity_verified=False)
@@ -775,7 +916,7 @@ def review(freeze, runs, reviews, output):
 
 
 def run(config, freeze, database, output, *, endpoint, seconds=300, request_seconds=90,
-        questions=QUESTIONS, repetition=None, resume=False):
+        questions=QUESTIONS, repetition=None, resume=False, runtime_spec=RUNTIME_SPEC, runtime_receipt=RUNTIME_RECEIPT):
     from analytics311.service import AnalyticsService
     frozen = load(freeze)
     service = AnalyticsService(config)
@@ -790,16 +931,32 @@ def run(config, freeze, database, output, *, endpoint, seconds=300, request_seco
             or frozen["database_sha256"] != sha_file(database)
             or frozen["manifest_sha256"] != digest(service.manifest) or frozen["catalog_sha256"] != digest(service.catalog)):
         raise ValueError("frozen_inputs_changed")
+    freeze_hash = sha_file(freeze)
+    runtime = None
+    if not frozen["development_only"]:
+        if frozen.get("runtime_spec") != runtime_definition(runtime_spec, frozen["model"]):
+            raise ValueError("frozen_runtime_changed")
+        runtime = verify_runtime_receipt(runtime_receipt, frozen, freeze_hash,
+                                         endpoint=endpoint, seconds=seconds, request_seconds=request_seconds)
     output.mkdir(parents=True, exist_ok=resume)
     model = LocalModel(endpoint, frozen["model"], request_seconds=request_seconds)
-    freeze_hash = sha_file(freeze)
     run_identity = {"freeze_sha256": freeze_hash, "model": frozen["model"], "seconds": seconds,
                     "request_seconds": request_seconds, "max_calls": 24}
+    if runtime is not None:
+        run_identity["runtime"] = runtime["identity"]
+    execution_hash = digest(run_identity)
     if resume:
         if load(output / "run-identity.json") != run_identity:
             raise ValueError("resume_identity_changed")
     else:
         write_new(output / "run-identity.json", run_identity)
+    if runtime is not None:
+        launch_path = output / ("runtime-launch-" + runtime["sha256"] + ".json")
+        if launch_path.exists():
+            if load(launch_path) != runtime:
+                raise ValueError("runtime_launch_receipt_changed")
+        else:
+            write_new(launch_path, runtime)
     trials = []
     all_cases = {case["id"]: case for case in frozen["cases"]}
     for path in sorted(output.glob("Q*-r*.json")):
@@ -807,8 +964,11 @@ def run(config, freeze, database, output, *, endpoint, seconds=300, request_seco
         qid, repeat = trial.get("question_id"), trial.get("repeat")
         if (qid not in all_cases or repeat not in (1, 2, 3) or path.name != f"{qid}-r{repeat}.json"
                 or trial.get("freeze_sha256") != freeze_hash or trial["trace"]["question"] != all_cases[qid]["question"]
-                or trial["trace"]["seed"] != frozen["model_settings"]["seeds"][repeat - 1]):
+                or trial["trace"]["seed"] != frozen["model_settings"]["seeds"][repeat - 1]
+                or trial.get("execution_sha256") != execution_hash):
             raise ValueError("resume_trial_mismatch")
+        if runtime is not None:
+            check_archived_runtime_launch(output, trial.get("runtime_receipt_sha256"), runtime["identity"])
         trials.append(trial)
     completed = {(trial["question_id"], trial["repeat"]) for trial in trials}
 
@@ -845,7 +1005,9 @@ def run(config, freeze, database, output, *, endpoint, seconds=300, request_seco
                 except (OSError, ValueError, KeyError, TypeError, sqlite3.Error, csv.Error) as exc:
                     grade = {"automatic_pass": False, "checks": {}, "hard_failures": [], "error": "grader_failed",
                              "semantic_review": "pending", "end_to_end_pass": False}
-                trial = {"question_id": case["id"], "repeat": repeat, "freeze_sha256": freeze_hash, "trace": trace, "grade": grade}
+                trial = {"question_id": case["id"], "repeat": repeat, "freeze_sha256": freeze_hash,
+                         "execution_sha256": execution_hash,
+                         "runtime_receipt_sha256": runtime["sha256"] if runtime else None, "trace": trace, "grade": grade}
                 write_new(output / f"{case['id']}-r{repeat}.json", trial)
                 trials.append(trial)
     finally:
@@ -854,6 +1016,7 @@ def run(config, freeze, database, output, *, endpoint, seconds=300, request_seco
         requested = {(case["id"], repeat) for case in frozen["cases"] for repeat in (1, 2, 3) if repetition is None or repeat == repetition}
         observed = {(trial["question_id"], trial["repeat"]) for trial in trials}
         report.update(freeze_sha256=freeze_hash, model_identity=model_identity,
+                      execution_sha256=execution_hash, runtime_receipt_sha256=runtime["sha256"] if runtime else None,
                       requested_repetitions=[1, 2, 3] if repetition is None else [repetition],
                       requested_trials=len(requested), execution_complete=requested <= observed,
                       development_only=frozen["development_only"], finished_at=datetime.now(timezone.utc).isoformat())
@@ -873,6 +1036,7 @@ def main(argv=None):
     freeze.add_argument("--questions", default=str(QUESTIONS))
     freeze.add_argument("--nta-receipt", default=str(NTA_RECEIPT))
     freeze.add_argument("--development", action="store_true")
+    freeze.add_argument("--runtime-spec", default=str(RUNTIME_SPEC))
     execute = sub.add_parser("run")
     execute.add_argument("--config", required=True)
     execute.add_argument("--freeze", required=True)
@@ -884,6 +1048,8 @@ def main(argv=None):
     execute.add_argument("--repetition", type=int, choices=(1, 2, 3))
     execute.add_argument("--resume", action="store_true", help="Run only missing trials; preserve completed failures and earlier summaries")
     execute.add_argument("--questions", default=str(QUESTIONS))
+    execute.add_argument("--runtime-spec", default=str(RUNTIME_SPEC))
+    execute.add_argument("--runtime-receipt", default=str(RUNTIME_RECEIPT))
     adjudicate = sub.add_parser("review")
     adjudicate.add_argument("--freeze", required=True)
     adjudicate.add_argument("--runs", nargs="+", required=True)

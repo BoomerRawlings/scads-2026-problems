@@ -1,8 +1,23 @@
 {
   "schema_version": 1,
-  "purpose": "Second development candidate after Qwen3.5-4B timed out on discovery; no held-out trial observed or scored during model selection.",
+  "purpose": "Prospective native/OpenBLAS development candidate using Qwen3-4B; runtime archive retained for comparison only. Actual execution is pinned by execution_runtime and a pretrial binary receipt. No held-out trial observed or scored during model selection.",
   "target": "Linux x86_64",
   "model_alias": "analytics311-qwen3-4b",
+  "execution_runtime": {
+    "kind": "native_source_build",
+    "repository": "ggml-org/llama.cpp",
+    "source_commit": "5ad1c5da0ad7f6176256b823925aad19134f0263",
+    "cmake_flags": [
+      "-DCMAKE_BUILD_TYPE=Release",
+      "-DGGML_BACKEND_DL=OFF",
+      "-DGGML_NATIVE=ON",
+      "-DGGML_BLAS=ON",
+      "-DGGML_BLAS_VENDOR=OpenBLAS",
+      "-DLLAMA_CURL=OFF",
+      "-DLLAMA_BUILD_TESTS=OFF"
+    ],
+    "blas_threads": 4
+  },
   "runtime": {
     "repository": "ggml-org/llama.cpp",
     "version": "b11457",

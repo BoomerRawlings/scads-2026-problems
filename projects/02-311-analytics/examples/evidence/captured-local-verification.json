@@ -1,0 +1,70 @@
+{
+  "evidence_kind": "executed_streaming_verification_of_actual_public_capture",
+  "verified_at": "2026-10-07T23:54:18.654093+00:00",
+  "github_run": 37700939902,
+  "github_run_url": "https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/37700939902",
+  "capture_artifact": {
+    "id": 11518891296,
+    "name": "analytics311-real-capture",
+    "reported_archive_bytes": 163699736,
+    "reported_archive_sha256": "6ba89218d3f7217add43bbc1b31455074afe472ec88cc1646d7e523de3e5861c",
+    "archive_digest_locally_recomputed": false
+  },
+  "acceptance_artifact": {
+    "id": 11517909664,
+    "name": "analytics311-real-acceptance",
+    "reported_archive_bytes": 96594
+  },
+  "dataset_version": "capture-ea0bfc5fb517f086c078",
+  "compressed": {
+    "path": "data/real-capture-2025/april-october-2025.jsonl.gz",
+    "bytes": 163696296,
+    "sha256": "a0a602baadb06df0ece450ab7b2398e52387bbc436c228ca7c653c497e7f0aba"
+  },
+  "raw": {
+    "bytes": 1306911416,
+    "sha256": "91d84eb6d02dafc402a892298ba92cb121e8e905a189fb75f31b19d4d43aeec7",
+    "row_count": 2133268,
+    "unique_key_count": 2133268,
+    "strict_unique_key_order_verified": true,
+    "uniqueness_method": "strict ascending decimal-text unique_key; one previous key, no full set"
+  },
+  "created_date_bounds_verified": {
+    "gte": "2025-04-01T00:00:00",
+    "lt": "2025-11-01T00:00:00"
+  },
+  "observed_min_created_date": "2025-04-01T00:00:00",
+  "observed_max_created_date": "2025-10-31T23:59:58",
+  "observed_max_updated_at": "2026-10-07T01:33:31.682000+00:00",
+  "capture_pages": 2135,
+  "source_reconciliation_checked_against_capture_manifest": true,
+  "source_requeried_during_local_verification": false,
+  "manifest": {
+    "downloaded_path": "data/real-capture-2025/april-october-2025.manifest.json",
+    "downloaded_sha256": "4d93fe68e126d1550ccb2408108c2a15c3e4473a3dd721b640f34e550824edc2",
+    "canonical_path": "examples/evidence/captured-manifest.json",
+    "canonical_sha256": "4d93fe68e126d1550ccb2408108c2a15c3e4473a3dd721b640f34e550824edc2",
+    "matches_acceptance_artifact": true
+  },
+  "local_verification": {
+    "elapsed_seconds": 47.703,
+    "raw_file_materialized": false,
+    "maximum_record_buffer_bytes": 1048577,
+    "full_id_set_materialized": false,
+    "minimum_free_disk_bytes_required": 2000000000,
+    "free_disk_bytes_at_completion": 33307279360,
+    "script": "runs/real-bootstrap37700939902/local-verification.py",
+    "script_sha256": "03b2b5987103d280d1e879162fac442d5bba79041b12fe2499a89eed075c3126"
+  },
+  "observed_complete": true,
+  "transactional_source_snapshot": false,
+  "population_complete": false,
+  "acceptance": {
+    "actual_capture_at_least_two_million": true,
+    "normalized_count_reconciled": false,
+    "frozen_index_count_reconciled": false,
+    "actual_agent_120_trials_verified": false,
+    "live_real_maps_verified": false,
+    "real_data_performance_verified": false
+  }
+}
