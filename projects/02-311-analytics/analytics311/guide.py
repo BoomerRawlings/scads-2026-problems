@@ -34,7 +34,7 @@ def analysis_guide(dataset_version):
                 ]},
                 "last_month": "Previous complete calendar month relative to as_of; do not anchor to latest dataset record",
                 "periods": {"baseline": "{gte, lt}", "current": "{gte, lt}"},
-                "coverage": "Comparisons and date histograms require complete source coverage; unobserved dates are not zero counts",
+                "coverage": "Comparisons and date histograms require complete declared coverage or a validated comparison_qualification for a reconciled observed snapshot. Disclose comparison_scope and warnings; observed reporting growth is not proof of worsening underlying conditions. Unobserved dates are not zero counts",
             },
             "filters": {
                 "combine": {"all": "nonempty array of filters", "any": "nonempty array of filters", "not": "one filter"},

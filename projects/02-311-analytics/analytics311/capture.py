@@ -96,8 +96,9 @@ class SocrataClient:
 
 
 class _Requests:
-    def __init__(self, client, deadline, retries):
+    def __init__(self, client, deadline, retries, request_timeout_seconds=30):
         self.client, self.deadline, self.retries = client, deadline, retries
+        self.request_timeout_seconds = request_timeout_seconds
 
     def check_time(self):
         if time.monotonic() >= self.deadline:
@@ -108,7 +109,7 @@ class _Requests:
             self.check_time()
             retry_after = None
             try:
-                result = self.client.get_json(path, params, timeout=max(.001, min(30, self.deadline - time.monotonic())), max_bytes=max_bytes)
+                result = self.client.get_json(path, params, timeout=max(.001, min(self.request_timeout_seconds, self.deadline - time.monotonic())), max_bytes=max_bytes)
                 self.check_time()
                 return result
             except HTTPError as exc:
@@ -118,7 +119,8 @@ class _Requests:
             except (URLError, TimeoutError, ConnectionError, OSError):
                 pass
             if attempt >= self.retries:
-                raise AnalyticsError("source_unavailable", "Transient source errors exhausted bounded retries; resume later.") from None
+                phase = "metadata" if params is None else ("count reconciliation" if str(params.get("$select", "")).startswith("count(") else "record page")
+                raise AnalyticsError("source_unavailable", f"Transient source errors exhausted bounded retries during {phase} (request timeout {self.request_timeout_seconds}s); checkpoint retained, resume later.") from None
             delay = min(2 ** attempt, 10)
             if retry_after is not None:
                 try:
@@ -399,7 +401,7 @@ def _publish(db, state, output, stage, partial, manifest_path, requests, options
 def capture_window(start, end, output, *, page_size=1000, max_rows=10_000_000,
                    max_bytes=2_000_000_000, max_storage_bytes=4_500_000_000,
                    max_pages=20000, max_seconds=3600, min_free_bytes=1_000_000_000,
-                   retries=3, source_id="erm2-nwe9", client=None):
+                   retries=3, request_timeout_seconds=30, source_id="erm2-nwe9", client=None):
     """Capture/resume an explicit [start,end) NYC-local calendar-date window.
 
     Resource exhaustion pauses a job and raises AnalyticsError. Same-identity
@@ -415,10 +417,11 @@ def capture_window(start, end, output, *, page_size=1000, max_rows=10_000_000,
     if a < date(2020, 1, 1):
         raise AnalyticsError("invalid_spec", "This verified capture adapter supports the 2020-present NYC dataset only.")
     options = {"page_size": page_size, "max_rows": max_rows, "max_bytes": max_bytes, "max_storage_bytes": max_storage_bytes,
-               "max_pages": max_pages, "max_seconds": max_seconds, "min_free_bytes": min_free_bytes, "retries": retries}
+               "max_pages": max_pages, "max_seconds": max_seconds, "min_free_bytes": min_free_bytes, "retries": retries,
+               "request_timeout_seconds": request_timeout_seconds}
     bounds = {"page_size": (1, 5000), "max_rows": (1, 10 ** 12), "max_bytes": (1, 10 ** 15),
               "max_storage_bytes": (1, 10 ** 15), "max_pages": (1, 10 ** 9), "max_seconds": (1, 86400),
-              "min_free_bytes": (0, 10 ** 15), "retries": (0, 5)}
+              "min_free_bytes": (0, 10 ** 15), "retries": (0, 5), "request_timeout_seconds": (1, 180)}
     for key, value in options.items():
         if type(value) is not int or not bounds[key][0] <= value <= bounds[key][1]:
             raise AnalyticsError("invalid_spec", f"Capture budget {key} must be an integer in {bounds[key]}.")
@@ -429,7 +432,7 @@ def capture_window(start, end, output, *, page_size=1000, max_rows=10_000_000,
                 "order": "unique_key ASC", "window": {"gte": a.isoformat() + "T00:00:00", "lt": b.isoformat() + "T00:00:00"}}
     where = f"created_date >= '{identity['window']['gte']}' AND created_date < '{identity['window']['lt']}'"
     selection = ",".join(fields) + ",:id as source_row_id,:updated_at as source_updated_at"
-    requests = _Requests(client or SocrataClient(), time.monotonic() + max_seconds, retries)
+    requests = _Requests(client or SocrataClient(), time.monotonic() + max_seconds, retries, request_timeout_seconds)
     with _job_lock(stage.with_name(stage.name + ".lock")):
         existed = stage.exists()
         if not existed and (output.exists() or partial.exists() or manifest_path.exists()):

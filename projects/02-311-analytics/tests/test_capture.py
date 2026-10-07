@@ -74,6 +74,29 @@ class Source:
 
 
 class CaptureTests(unittest.TestCase):
+    def test_long_count_timeout_remains_bounded_by_invocation_deadline(self):
+        from unittest.mock import Mock
+        client = Mock()
+        client.get_json.return_value = ([], {})
+        requests = capture_module._Requests(client, deadline=200, retries=0, request_timeout_seconds=120)
+        with patch("analytics311.capture.time.monotonic", return_value=100):
+            requests.get("/resource/erm2-nwe9.json", {"$select": "count(*)"})
+        self.assertEqual(client.get_json.call_args.kwargs["timeout"], 100)
+        with patch("analytics311.capture.time.monotonic", return_value=10):
+            requests.get("/resource/erm2-nwe9.json", {"$select": "count(*)"})
+        self.assertEqual(client.get_json.call_args.kwargs["timeout"], 120)
+
+    def test_transient_failure_identifies_phase_without_transport_details(self):
+        from unittest.mock import Mock
+        client = Mock()
+        client.get_json.side_effect = TimeoutError("private transport detail")
+        requests = capture_module._Requests(client, deadline=200, retries=0, request_timeout_seconds=120)
+        with patch("analytics311.capture.time.monotonic", return_value=10):
+            with self.assertRaises(AnalyticsError) as error:
+                requests.get("/resource/erm2-nwe9.json", {"$select": "count(*)"})
+        self.assertIn("count reconciliation", str(error.exception))
+        self.assertNotIn("private transport detail", str(error.exception))
+
     def test_large_resume_reconciliation_obeys_deadline_and_keeps_database_usable(self):
         with closing(sqlite3.connect(":memory:")) as db:
             db.execute("CREATE TABLE records(unique_key TEXT,json_bytes INTEGER,updated_at TEXT)")
