@@ -1,4 +1,5 @@
 name: Project 2 local model development smoke
+# Development candidate: bounded tool-contract and terminal-format recovery.
 on:
   push:
     branches: [codex/project2-acceptance-20261007]
