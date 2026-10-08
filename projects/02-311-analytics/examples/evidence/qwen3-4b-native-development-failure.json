@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "evidence_kind": "actual_model_development_candidate_failure",
+  "source_run": {
+    "id": 37704428194,
+    "url": "https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/37704428194"
+  },
+  "passed": false,
+  "actual_agent_trials": 1,
+  "held_out_evaluation": false,
+  "real_data_acceptance": false,
+  "model_alias": "analytics311-qwen3-4b",
+  "runtime_profile": "native_openblas",
+  "archived_prospective_spec": {
+    "path": "docs/local-model-runtime-qwen3-4b-native.json",
+    "sha256": "da06360563d2bd16ef5a9306a5c0f853b850bbe68ce92bf2a0250f470eb8edc0"
+  },
+  "actual_staging_spec_sha256": "e61e5a6cbe2849ac51ec6c25e5bdb56c3729d64a3856c33d4fa6ad88df725a5c",
+  "native_build": {
+    "source_commit": "5ad1c5da0ad7f6176256b823925aad19134f0263",
+    "build_type": "Release",
+    "native": true,
+    "blas": "OpenBLAS",
+    "binary_sha256": "d6c770b9a982db607590cc9e2ce48d4cc80f0bd56c3904bda2522ec2a999e5a0"
+  },
+  "trial": {
+    "elapsed_seconds": 144.943668,
+    "status": "failed",
+    "error": {
+      "code": "model_timeout"
+    },
+    "tool_calls": 1,
+    "checks": {
+      "finished": false,
+      "answered": false,
+      "discovered_first": true,
+      "executed_unfiltered_count": false,
+      "numeric_evidence": false,
+      "cited_result": false,
+      "synthetic_label": false
+    },
+    "first_model_request": {
+      "usage": {
+        "completion_tokens": 16,
+        "prompt_tokens": 1172,
+        "total_tokens": 1188
+      },
+      "server_timings": {
+        "cache_n": 0,
+        "prompt_n": 1172,
+        "prompt_ms": 53343.844,
+        "prompt_per_token_ms": 45.515225255972695,
+        "prompt_per_second": 21.970670130184093,
+        "predicted_n": 16,
+        "predicted_ms": 1579.743,
+        "predicted_per_token_ms": 105.3162,
+        "predicted_per_second": 9.495215360979604
+      },
+      "elapsed_seconds": 54.939065
+    }
+  },
+  "benchmark": {
+    "kind": "single_kernel_sample_each_not_end_to_end_agent_latency",
+    "prompt_tokens": 512,
+    "generation_tokens": 32,
+    "repetitions": 1,
+    "threads": 4,
+    "batch": 2048,
+    "microbatch": 512,
+    "gpu_layers": 0,
+    "release": {
+      "prefill_tokens_per_second": 26.151788,
+      "generation_tokens_per_second": 13.95355
+    },
+    "native_openblas": {
+      "prefill_tokens_per_second": 23.700476,
+      "generation_tokens_per_second": 13.338768
+    }
+  },
+  "source_files": {
+    "runs\\model-smoke-37704428194\\summary.json": {
+      "bytes": 1350,
+      "sha256": "80b7ac43761efa772ac4ae4e61e363ec4745a93ee25aff5bf57bf5decad0cb49"
+    },
+    "runs\\model-smoke-37704428194\\trace.json": {
+      "bytes": 27246,
+      "sha256": "ec5999e91936b023e4be651bb11ed30f89e248a02891d552afb6b8d816e80c64"
+    },
+    "runs\\model-smoke-37704428194\\runtime\\model-assets.json": {
+      "bytes": 2386,
+      "sha256": "e61e5a6cbe2849ac51ec6c25e5bdb56c3729d64a3856c33d4fa6ad88df725a5c"
+    },
+    "runs\\model-smoke-37704428194\\runtime\\native-build.json": {
+      "bytes": 219,
+      "sha256": "68499baa2bd859d46e7c654e09d65f962d2899192e520561f62b28dd89996d44"
+    },
+    "runs\\model-smoke-37704428194\\runtime\\native-cmake-cache.txt": {
+      "bytes": 38172,
+      "sha256": "80173861b5aea5670e19d2e8967c487db6fb03ac4331570782f846e548bfccd0"
+    },
+    "runs\\model-smoke-37704428194\\runtime\\release-benchmark.json": {
+      "bytes": 2346,
+      "sha256": "284df81a0fc213fc615495831d93813496eeb4fce86fad4a3307af93dfad49a7"
+    },
+    "runs\\model-smoke-37704428194\\runtime\\native-benchmark.json": {
+      "bytes": 2356,
+      "sha256": "008f2ff671076f38fe95860737af5c521a14ac484836e56668aea56991a67748"
+    },
+    "runs\\model-smoke-37704428194\\runtime\\model-server-tail.txt": {
+      "bytes": 2078,
+      "sha256": "88b1d3d55a99a1388e8a4d195cbf4af74213ca686f94b334ae8402ce17fe10c1"
+    },
+    "runs\\model-smoke-37704428194\\runtime\\host.json": {
+      "bytes": 1364,
+      "sha256": "f43d4d7c12b2a79cd0543dcdcaf9efcbfd5f45eb38668f21278fd44e1bddc362"
+    }
+  },
+  "limits": [
+    "One authored development question over 32 synthetic records; not a held-out question.",
+    "Native/OpenBLAS did not improve the two sampled kernel rates over the release build on this runner.",
+    "The agent reached discovery only; no count analysis or final answer completed.",
+    "The archived prospective runtime specification and actual staging specification are different documents; the native build receipt identifies the actual executable.",
+    "No general hardware, model quality, Elasticsearch, Kibana or million-record acceptance is established."
+  ]
+}

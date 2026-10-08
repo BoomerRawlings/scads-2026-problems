@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "purpose": "Prospective native/OpenBLAS development candidate using Qwen3-4B; runtime archive retained for comparison only. Actual execution is pinned by execution_runtime and a pretrial binary receipt. No held-out trial observed or scored during model selection.",
+  "purpose": "Prospective fourth development candidate: smaller Qwen3-1.7B via the pinned Unsloth Q4_K_M conversion after both release and native/OpenBLAS Qwen3-4B timed out. Official Qwen upstream and third-party conversion are distinct. No held-out trial observed or scored during model selection; throughput and quality remain unqualified.",
   "target": "Linux x86_64",
-  "model_alias": "analytics311-qwen3-4b",
+  "model_alias": "analytics311-qwen3-1-7b",
   "execution_runtime": {
     "kind": "native_source_build",
     "repository": "ggml-org/llama.cpp",
@@ -29,17 +29,18 @@
     "url": "https://github.com/ggml-org/llama.cpp/releases/download/b11457/llama-b11457-bin-ubuntu-x64.tar.gz"
   },
   "model": {
-    "repository": "Qwen/Qwen3-4B-GGUF",
-    "revision": "bc640142c66e1fdd12af0bd68f40445458f3869b",
-    "original_model": "Qwen/Qwen3-4B",
+    "repository": "unsloth/Qwen3-1.7B-GGUF",
+    "revision": "d7f544eead698dbd1f15126ef60b45a1e1933222",
+    "original_model": "Qwen/Qwen3-1.7B",
+    "conversion_publisher": "Unsloth",
     "quantization": "Q4_K_M",
     "license": "Apache-2.0",
-    "license_url": "https://huggingface.co/Qwen/Qwen3-4B-GGUF/blob/bc640142c66e1fdd12af0bd68f40445458f3869b/README.md",
-    "source": "https://huggingface.co/api/models/Qwen/Qwen3-4B-GGUF/revision/bc640142c66e1fdd12af0bd68f40445458f3869b?blobs=true",
-    "filename": "Qwen3-4B-Q4_K_M.gguf",
-    "size": 2497280256,
-    "sha256": "7485fe6f11af29433bc51cab58009521f205840f5b4ae3a32fa7f92e8534fdf5",
-    "url": "https://huggingface.co/Qwen/Qwen3-4B-GGUF/resolve/bc640142c66e1fdd12af0bd68f40445458f3869b/Qwen3-4B-Q4_K_M.gguf"
+    "license_url": "https://huggingface.co/unsloth/Qwen3-1.7B-GGUF/blob/d7f544eead698dbd1f15126ef60b45a1e1933222/README.md",
+    "source": "https://huggingface.co/api/models/unsloth/Qwen3-1.7B-GGUF/revision/d7f544eead698dbd1f15126ef60b45a1e1933222?blobs=true",
+    "filename": "Qwen3-1.7B-Q4_K_M.gguf",
+    "size": 1107409472,
+    "sha256": "b139949c5bd74937ad8ed8c8cf3d9ffb1e99c866c823204dc42c0d91fa181897",
+    "url": "https://huggingface.co/unsloth/Qwen3-1.7B-GGUF/resolve/d7f544eead698dbd1f15126ef60b45a1e1933222/Qwen3-1.7B-Q4_K_M.gguf"
   },
   "inference": {
     "bind": "127.0.0.1",

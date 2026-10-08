@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "evidence_kind": "prospective_model_asset_metadata",
+  "observed_at": "2026-10-08T00:05:39.815364+00:00",
+  "source": "https://huggingface.co/api/models/unsloth/Qwen3-1.7B-GGUF/revision/d7f544eead698dbd1f15126ef60b45a1e1933222?blobs=true",
+  "repository": "unsloth/Qwen3-1.7B-GGUF",
+  "revision": "d7f544eead698dbd1f15126ef60b45a1e1933222",
+  "upstream_model": "Qwen/Qwen3-1.7B",
+  "conversion_publisher": "Unsloth",
+  "license": "apache-2.0",
+  "asset": {
+    "rfilename": "Qwen3-1.7B-Q4_K_M.gguf",
+    "blobId": "4bb25d7b3b6bfba80a5fd92e68a2d8d6763ac37a",
+    "size": 1107409472,
+    "lfs": {
+      "sha256": "b139949c5bd74937ad8ed8c8cf3d9ffb1e99c866c823204dc42c0d91fa181897",
+      "size": 1107409472,
+      "pointerSize": 135
+    }
+  },
+  "readme": {
+    "url": "https://huggingface.co/unsloth/Qwen3-1.7B-GGUF/raw/d7f544eead698dbd1f15126ef60b45a1e1933222/README.md",
+    "bytes": 17080,
+    "sha256": "bd3c097093e5292cbaa76dbb7f8ecde3ce4dc3354f9daa160e5515a580ad587d"
+  },
+  "runtime_spec_sha256": "661569ca45a1e2eaaa7e178209d3349dc27cab86351444cbea5be1d3d3c49937",
+  "actual_model_download": false,
+  "actual_agent_trials": 0,
+  "performance_qualified": false,
+  "quality_qualified": false,
+  "note": "Official Qwen/Qwen3-1.7B-GGUF revision 90862c4b9d2787eaed51d12237eafdfe7c5f6077 publishes Q8_0 only. This Q4_K_M asset is the Unsloth conversion, not an official Qwen GGUF artifact."
+}
