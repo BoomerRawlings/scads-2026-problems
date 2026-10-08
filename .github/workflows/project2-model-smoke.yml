@@ -1,4 +1,4 @@
-name: Project 2 native CPU model development smoke
+name: Project 2 local model development smoke
 on:
   push:
     branches: [codex/project2-acceptance-20261007]
@@ -37,7 +37,7 @@ jobs:
           spec=json.loads(Path('docs/local-model-runtime.json').read_text())
           folder=Path('data/model-smoke'); evidence=Path('runs/model-smoke/runtime')
           assert spec['target']=='Linux x86_64'
-          assert spec['model_alias']=='analytics311-qwen3-4b'
+          assert isinstance(spec['model_alias'],str) and spec['model_alias']
           assert spec['inference']['bind']=='127.0.0.1' and spec['inference']['port']==8080
           assert shutil.disk_usage(folder).free > 6*1024**3
           staged=[]; started=time.monotonic()
@@ -97,18 +97,21 @@ jobs:
         run: |
           release_bench=$(find data/model-smoke/runtime -type f -name llama-bench -print -quit)
           test -n "$release_bench"
-          LD_LIBRARY_PATH="$(dirname "$release_bench")" /usr/bin/time -v -o runs/model-smoke/runtime/release-resources.txt "$release_bench" -m data/model-smoke/Qwen3-4B-Q4_K_M.gguf -p 512 -n 32 -r 1 -t 4 -ngl 0 -b 2048 -ub 512 -o json > runs/model-smoke/runtime/release-benchmark.json
-          OPENBLAS_NUM_THREADS=4 /usr/bin/time -v -o runs/model-smoke/runtime/native-resources.txt data/model-smoke/native/bin/llama-bench -m data/model-smoke/Qwen3-4B-Q4_K_M.gguf -p 512 -n 32 -r 1 -t 4 -ngl 0 -b 2048 -ub 512 -o json > runs/model-smoke/runtime/native-benchmark.json
+          model_file=$(python -c "import json;print(json.load(open('docs/local-model-runtime.json'))['model']['filename'])")
+          LD_LIBRARY_PATH="$(dirname "$release_bench")" /usr/bin/time -v -o runs/model-smoke/runtime/release-resources.txt "$release_bench" -m "data/model-smoke/$model_file" -p 512 -n 32 -r 1 -t 4 -ngl 0 -b 2048 -ub 512 -o json > runs/model-smoke/runtime/release-benchmark.json
+          OPENBLAS_NUM_THREADS=4 /usr/bin/time -v -o runs/model-smoke/runtime/native-resources.txt data/model-smoke/native/bin/llama-bench -m "data/model-smoke/$model_file" -p 512 -n 32 -r 1 -t 4 -ngl 0 -b 2048 -ub 512 -o json > runs/model-smoke/runtime/native-benchmark.json
       - name: Execute one actual model development question
         timeout-minutes: 6
         run: |
           set -euo pipefail
           server=data/model-smoke/native/bin/llama-server
           test -n "$server"
+          model_file=$(python -c "import json;print(json.load(open('docs/local-model-runtime.json'))['model']['filename'])")
+          model_alias=$(python -c "import json;print(json.load(open('docs/local-model-runtime.json'))['model_alias'])")
           export OPENBLAS_NUM_THREADS=4
           export LD_LIBRARY_PATH="$(dirname "$server"):${LD_LIBRARY_PATH:-}"
           "$server" --version > runs/model-smoke/runtime/llama-version.txt 2>&1
-          "$server" -m data/model-smoke/Qwen3-4B-Q4_K_M.gguf --host 127.0.0.1 --port 8080 --alias analytics311-qwen3-4b --threads 4 --threads-batch 4 --batch-size 2048 --ubatch-size 512 --ctx-size 16384 --parallel 1 --gpu-layers 0 --jinja --reasoning off --reasoning-budget 0 --no-context-shift > runs/model-smoke/runtime/model-server.log 2>&1 &
+          "$server" -m "data/model-smoke/$model_file" --host 127.0.0.1 --port 8080 --alias "$model_alias" --threads 4 --threads-batch 4 --batch-size 2048 --ubatch-size 512 --ctx-size 16384 --parallel 1 --gpu-layers 0 --jinja --reasoning off --reasoning-budget 0 --no-context-shift > runs/model-smoke/runtime/model-server.log 2>&1 &
           server_pid=$!
           trap 'kill "$server_pid" 2>/dev/null || true; wait "$server_pid" 2>/dev/null || true' EXIT
           python - <<'PY'
@@ -128,11 +131,15 @@ jobs:
           from datetime import datetime,timezone
           from pathlib import Path
           from analytics311.service import AnalyticsService
+          from tools import agent_evaluation as e
           from tools.local_agent import LocalModel,run_trial
 
           folder=Path('runs/model-smoke')
+          spec=e.load('docs/local-model-runtime.json')
           report={'schema_version':1,'evidence_kind':'actual_local_model_development_fixture_smoke','passed':False,
                   'actual_agent_trials':0,'held_out_evaluation':False,'real_data_acceptance':False,'runtime_profile':'native_openblas',
+                  'model_alias':spec['model_alias'],'runtime_spec_sha256':e.sha_file('docs/local-model-runtime.json'),
+                  'code_sha256':e.code_hashes(),
                   'live_elasticsearch_verified':False,'kibana_verified':False,'overall_release_verified':False,
                   'started_at':datetime.now(timezone.utc).isoformat(),'checks':{},
                   'limitations':['One authored development question and 32 synthetic records; not the 40-question benchmark.',
@@ -159,7 +166,7 @@ jobs:
               assert service.manifest['kind']=='synthetic_fixture' and service.manifest['row_count']==count
               report['fixture']={'kind':'synthetic_fixture','rows':count,
                                  'sha256':hashlib.sha256(Path(service.config['fixture_path']).read_bytes()).hexdigest()}
-              model=LocalModel('http://127.0.0.1:8080/v1','analytics311-qwen3-4b',request_seconds=90)
+              model=LocalModel('http://127.0.0.1:8080/v1',spec['model_alias'],request_seconds=90)
               report['model_identity']=model.identify()
               question='Use the analytical tools to count all records in this configured dataset. Apply no date, category, status or geographic restrictions. Give the exact count, cite your analysis result, and say whether this dataset is real or synthetic.'
               trace=run_trial(service,model,question,seed=7,seconds=180)
