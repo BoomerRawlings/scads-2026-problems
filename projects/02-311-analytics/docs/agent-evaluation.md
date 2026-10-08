@@ -65,7 +65,7 @@ development comparison artifact; `execution_runtime` defines the selected native
 build. Development-only freezes may omit runtime binding.
 
 ```text
-python tools/agent_evaluation.py prepare --config config/live.json --source data/normalized.jsonl --database data/oracle.sqlite --output runs/agent-freeze-v1.json --model analytics311-qwen35-4b
+python tools/agent_evaluation.py prepare --config config/live.json --source data/normalized.jsonl --database data/oracle.sqlite --output runs/agent-freeze-v1.json --model analytics311-qwen3-1-7b
 
 python tools/agent_evaluation.py run --config config/live.json --freeze runs/agent-freeze-v1.json --database data/oracle.sqlite --output runs/agent-evaluation-v1 --endpoint http://127.0.0.1:8080/v1 --seconds 120 --request-seconds 60 --runtime-receipt runs/runtime/agent-runtime-freeze-r1.json
 ```
@@ -88,6 +88,15 @@ or question-specific shortcuts inform this projection. All other tool results ar
 unchanged. The transcript retains full original discovery alongside the exact
 model-visible JSON string, its SHA-256, byte counts and projection version.
 Reduced context bytes alone do not establish faster or more accurate inference.
+
+Tool argument failures include the bounded local tool-envelope schema and fixed
+recovery guidance. Initial discovery uses `{}`; an optional `field` must be an
+exact name returned by discovery. Error feedback contains neither arbitrary
+exception messages nor inferred query arguments. The model chooses every retry.
+Invalid terminal JSON gets at most two format-feedback turns per trial; all failed
+attempts and exact feedback remain in the trace. These turns share the original
+deadline, context and tool-call budgets. Valid final answers are not rewritten,
+and numeric grading, evidence ownership and pending-export cleanup are unchanged.
 
 Before the first model call of each real-data invocation, create a new runtime
 receipt after the owned Linux server is healthy. `--runtime-receipt` otherwise

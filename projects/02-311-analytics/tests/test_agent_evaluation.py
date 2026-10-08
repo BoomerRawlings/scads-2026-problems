@@ -17,6 +17,23 @@ from tools import local_agent
 CATALOG = {"families": {"noise": ["Noise - Residential", "Noise - Commercial"], "rodent": ["Rodent"]}}
 
 
+class ScriptedModel:
+    """Authored messages for adapter-control checks, never model-quality evidence."""
+    model = "mock-only-unit-test"
+
+    def __init__(self, messages):
+        self.replies, self.requests = iter(messages), []
+
+    def complete(self, messages, **kwargs):
+        self.requests.append(copy.deepcopy(messages))
+        return {"choices": [{"message": next(self.replies)}]}
+
+
+def tool_message(name, arguments, identifier="unit-call"):
+    return {"role": "assistant", "tool_calls": [{"id": identifier,
+            "function": {"name": name, "arguments": json.dumps(arguments)}}]}
+
+
 def spec(**changes):
     result = {"operation": "aggregate", "timezone": "America/New_York", "dataset_version": "real-test",
               "time": {"field": "created_date", "gte": "2025-06-01T00:00:00-04:00", "lt": "2025-11-01T00:00:00-04:00"},
@@ -498,6 +515,127 @@ class ProtocolTests(unittest.TestCase):
         trace = local_agent.run_trial(object(), Model(), "Drop data", seed=101)
         self.assertEqual(trace["error"]["code"], "unknown_tool")
         self.assertEqual(trace["status"], "failed")
+
+    def test_invalid_discovery_gets_contract_feedback_without_automatic_retry(self):
+        from analytics311.errors import AnalyticsError
+        class Service:
+            def __init__(self):
+                self.called = []
+            def describe_dataset(self, field=None):
+                self.called.append(field)
+                if field is not None:
+                    raise AnalyticsError("invalid_spec", "private exception content")
+                return {"dataset": {"dataset_version": "unit"}, "fields": {"borough": "keyword"}}
+        service = Service()
+        model = ScriptedModel([tool_message("describe_dataset", {"field": "invented"}),
+                               tool_message("describe_dataset", {}),
+                               {"role": "assistant", "content": '{"status":"unsupported","answer":"No supported metric."}'}])
+        trace = local_agent.run_trial(service, model, "Authored unit request", seed=1)
+        self.assertEqual(service.called, ["invented", None])
+        self.assertEqual(trace["calls"], 2)
+        self.assertEqual(trace["status"], "finished")
+        error = json.loads(model.requests[1][-1]["content"])["error"]
+        self.assertEqual(error["code"], "invalid_spec")
+        self.assertIn("{}", error["recovery"])
+        self.assertEqual(error["argument_schema"]["required"], [])
+        self.assertEqual(set(error["argument_schema"]["properties"]), {"field"})
+        self.assertNotIn("private exception", json.dumps(trace))
+        self.assertNotIn("facts", trace["final"])
+
+    def test_terminal_format_repair_preserves_attempts_and_uses_no_tools(self):
+        model = ScriptedModel([{"role": "assistant", "content": "Please specify a coordinate."},
+                               {"role": "assistant", "content": '{"answer":"Missing status"}'},
+                               {"role": "assistant", "content": '{"status":"needs_clarification","answer":"Which coordinate?"}'}])
+        trace = local_agent.run_trial(object(), model, "Where?", seed=1)
+        self.assertEqual(trace["status"], "finished")
+        self.assertEqual(trace["format_repairs"], 2)
+        self.assertEqual(trace["calls"], 0)
+        self.assertEqual(len(model.requests), 3)
+        self.assertEqual(trace["events"][0]["message"]["content"], "Please specify a coordinate.")
+        self.assertEqual([e["attempt"] for e in trace["events"] if e["kind"] == "format_repair"], [1, 2])
+        self.assertEqual(model.requests[1][-1]["content"], local_agent.FINAL_FORMAT_FEEDBACK)
+        self.assertNotIn("facts", trace["final"])
+
+    def test_format_repairs_exhaust_after_two_without_resetting_deadline(self):
+        invalid = {"role": "assistant", "content": "Not JSON"}
+        model = ScriptedModel([invalid] * 4)
+        trace = local_agent.run_trial(object(), model, "Authored unit request", seed=1)
+        self.assertEqual(trace["error"]["code"], "invalid_final_answer")
+        self.assertEqual(trace["format_repairs"], 2)
+        self.assertEqual(len(model.requests), 3)
+        self.assertIsNone(trace["final"])
+        clock = [0.0]
+        class SlowModel:
+            model = "mock-only-unit-test"
+            def complete(self, messages, **kwargs):
+                clock[0] = 2.0
+                return {"choices": [{"message": invalid}]}
+        with patch.object(local_agent.time, "monotonic", side_effect=lambda: clock[0]):
+            expired = local_agent.run_trial(object(), SlowModel(), "Authored unit request", seed=1, seconds=1)
+        self.assertEqual(expired["error"]["code"], "trial_deadline")
+        self.assertEqual(len([e for e in expired["events"] if e["kind"] == "model"]), 1)
+
+    def test_repair_keeps_discovery_id_ownership_and_call_budgets(self):
+        class Service:
+            def __init__(self):
+                self.called = []
+            def describe_dataset(self):
+                self.called.append("describe_dataset")
+                return {"dataset": {"dataset_version": "unit"}}
+            def get_result(self, **kwargs):
+                self.called.append("forbidden_get_result")
+        service = Service()
+        model = ScriptedModel([{"role": "assistant", "content": "Not JSON"},
+                               tool_message("run_analysis", {"spec": {}}),
+                               tool_message("describe_dataset", {}),
+                               tool_message("get_result", {"result_id": "another-trial"}),
+                               tool_message("describe_dataset", {})])
+        trace = local_agent.run_trial(service, model, "Authored unit request", seed=1, max_calls=3)
+        self.assertEqual(trace["calls"], 3)
+        self.assertEqual(trace["error"]["code"], "tool_call_budget")
+        self.assertEqual(service.called, ["describe_dataset"])
+        errors = [e["output"]["error"]["code"] for e in trace["events"] if e["kind"] == "tool" and "error" in e["output"]]
+        self.assertEqual(errors, ["discovery_required", "foreign_result_id"])
+
+    def test_tool_envelope_types_fail_before_service_dispatch(self):
+        schemas = {x["function"]["name"]: x["function"]["parameters"] for x in local_agent.tool_schemas()}
+        cases = [("describe_dataset", {"field": ["borough"]}), ("run_analysis", {"spec": "SQL"}),
+                 ("get_result", {"result_id": "own", "page_size": True}),
+                 ("get_result", {"result_id": "own", "page_size": 101}),
+                 ("export_csv", {"result_id": "own", "mode": "records", "cohort_scope": "all_matching", "columns": [1]}),
+                 ("create_map_link", {"result_id": "own", "mode": "invented", "cohort_scope": "all_matching"})]
+        for name, arguments in cases:
+            with self.subTest(name=name, arguments=arguments), self.assertRaises(ValueError):
+                local_agent.check_tool_arguments(arguments, schemas[name])
+        model = ScriptedModel([tool_message("describe_dataset", {"field": ["borough"]}),
+                               {"role": "assistant", "content": '{"status":"failed"}'}])
+        trace = local_agent.run_trial(object(), model, "Authored unit request", seed=1)
+        self.assertEqual(trace["events"][1]["output"]["error"]["code"], "invalid_tool_arguments")
+        self.assertEqual(trace["status"], "finished")
+
+    def test_format_exhaustion_still_cancels_only_owned_pending_export(self):
+        class Service:
+            def __init__(self):
+                self.cancelled = []
+            def describe_dataset(self):
+                return {"dataset": {"dataset_version": "unit"}}
+            def run_analysis(self, spec):
+                return {"result_id": "own-result", "total": {"value": 5}}
+            def export_csv(self, **kwargs):
+                return {"job_id": "own-job", "status": "queued"}
+            def get_result(self, job_id):
+                assert job_id == "own-job"
+                return {"status": "queued"}
+            def cancel_export(self, job_id):
+                self.cancelled.append(job_id)
+        service = Service()
+        model = ScriptedModel([tool_message("describe_dataset", {}), tool_message("run_analysis", {"spec": {}}),
+                               tool_message("export_csv", {"result_id": "own-result", "mode": "records", "cohort_scope": "all_matching"})]
+                              + [{"role": "assistant", "content": "Not JSON"}] * 3)
+        trace = local_agent.run_trial(service, model, "Authored unit request", seed=1)
+        self.assertEqual(trace["error"]["code"], "invalid_final_answer")
+        self.assertEqual(service.cancelled, ["own-job"])
+        self.assertEqual(trace["cleanup"], [{"job_id": "own-job", "cancellation_requested": True}])
 
     def test_percentile_tolerance_is_fixed_and_counts_are_exact(self):
         self.assertTrue(evaluation.numeric_equal(104, 100, "p90_closure_hours"))

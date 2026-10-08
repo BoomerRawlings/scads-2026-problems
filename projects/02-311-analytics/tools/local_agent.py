@@ -29,6 +29,14 @@ def canonical(value):
 
 
 CONTEXT_PROJECTION = "discovery-rules-v1"
+MAX_FORMAT_REPAIRS = 2
+FINAL_FORMAT_FEEDBACK = (
+    "Adapter format feedback: the previous response was not a final JSON object with a valid status. "
+    "Return JSON without markdown fences, using status (answered, needs_clarification, unsupported, "
+    "coverage_gap or failed), answer (string), result_ids (array), facts (array), artifacts (array), "
+    "and limitations (array). Preserve your meaning and cite only evidence actually received. "
+    "Do not invent missing facts. You may continue using tools if work remains."
+)
 TIMING_FIELDS = frozenset({
     "cache_n", "prompt_n", "prompt_ms", "prompt_per_token_ms", "prompt_per_second",
     "predicted_n", "predicted_ms", "predicted_per_token_ms", "predicted_per_second",
@@ -191,7 +199,8 @@ def tool_schemas():
     text, obj = {"type": "string"}, {"type": "object"}
     arr = {"type": "array", "items": text}
     definitions = [
-        ("describe_dataset", "Discover the real snapshot, coverage, catalog, units and request guide first.", {"field": text}, []),
+        ("describe_dataset", "Discover snapshot, coverage, catalog, units and request guide first. Use {} for initial discovery; field optionally narrows to an exact discovered field name.",
+         {"field": {"type": "string", "description": "Optional exact field name from prior discovery; omit for the complete descriptor."}}, []),
         ("validate_analysis", "Validate an AnalysisSpec without executing it.", {"spec": obj}, ["spec"]),
         ("run_analysis", "Execute an AnalysisSpec and retain the returned evidence ID.", {"spec": obj}, ["spec"]),
         ("get_result", "Read saved result pages or export job status.",
@@ -210,6 +219,42 @@ def tool_schemas():
              "parameters": {"type": "object", "properties": properties, "required": required,
                             "additionalProperties": False}}}
             for name, description, properties, required in definitions]
+
+
+def check_tool_arguments(arguments, schema):
+    """Validate the small public tool envelope; analytical semantics stay in the service."""
+    if (not isinstance(arguments, dict) or set(arguments) - set(schema["properties"])
+            or set(schema["required"]) - set(arguments)):
+        raise ValueError("invalid_tool_arguments")
+    for key, value in arguments.items():
+        rule = schema["properties"][key]
+        expected = rule.get("type")
+        if ((expected == "string" and not isinstance(value, str))
+                or (expected == "object" and not isinstance(value, dict))
+                or (expected == "integer" and type(value) is not int)
+                or (expected == "array" and (not isinstance(value, list)
+                    or any(not isinstance(item, str) for item in value)))):
+            raise ValueError("invalid_tool_arguments")
+        if ("enum" in rule and value not in rule["enum"]
+                or "minimum" in rule and value < rule["minimum"]
+                or "maximum" in rule and value > rule["maximum"]):
+            raise ValueError("invalid_tool_arguments")
+
+
+def tool_error(name, code, schema):
+    """Fixed local-contract feedback; never expose arbitrary exception messages."""
+    error = {"code": code}
+    if code in {"invalid_tool_arguments", "invalid_spec", "discovery_required", "foreign_result_id"}:
+        error["argument_schema"] = schema
+        if name == "describe_dataset" or code == "discovery_required":
+            error["recovery"] = "Call describe_dataset with {} for complete discovery; field is optional and must be an exact returned field name."
+        elif code == "foreign_result_id":
+            error["recovery"] = "Only use result_id or job_id values returned by successful tools in this conversation."
+        elif name in {"run_analysis", "validate_analysis"}:
+            error["recovery"] = "The spec object must follow analysis_guide.rules and exact dataset_version from discovery; correct your arguments without inventing fields or values."
+        else:
+            error["recovery"] = "Correct arguments using this schema and the saved result's fields, IDs and cohort scope."
+    return {"error": error}
 
 
 SYSTEM = """You are an NYC 311 analytical agent. Use only the provided analytical tools.
@@ -248,7 +293,8 @@ def run_trial(service, model, question, *, seed, seconds=300, max_calls=24, untr
     messages = [{"role": "system", "content": SYSTEM}, {"role": "user", "content": question}]
     trace = {"question": question, "seed": seed, "model": model.model, "events": [], "final": None,
              "status": "failed", "calls": 0, "fresh_context": True, "semantic_review": "pending",
-             "context_projection": CONTEXT_PROJECTION}
+             "context_projection": CONTEXT_PROJECTION, "format_repairs": 0,
+             "max_format_repairs": MAX_FORMAT_REPAIRS}
     discovered, created_results, created_jobs = False, set(), set()
     schemas = {item["function"]["name"]: item["function"]["parameters"] for item in tool_schemas()}
     try:
@@ -272,12 +318,26 @@ def run_trial(service, model, question, *, seed, seconds=300, max_calls=24, untr
                                     "server_timings": numeric_timings(response),
                                     "elapsed_seconds": round(time.monotonic() - started, 6)})
             messages.append(safe_message)
+            if len(canonical(trace).encode()) > 8 * 1024 * 1024:
+                raise AgentFailure("transcript_byte_budget")
             calls = message.get("tool_calls") or []
             if not calls:
-                final = json.loads(message.get("content") or "")
-                if not isinstance(final, dict) or final.get("status") not in {
-                    "answered", "needs_clarification", "unsupported", "coverage_gap", "failed"}:
-                    raise AgentFailure("invalid_final_answer")
+                try:
+                    final = json.loads(message.get("content") or "")
+                    valid = isinstance(final, dict) and final.get("status") in {
+                        "answered", "needs_clarification", "unsupported", "coverage_gap", "failed"}
+                except (ValueError, TypeError):
+                    valid = False
+                if not valid:
+                    if trace["format_repairs"] >= MAX_FORMAT_REPAIRS:
+                        raise AgentFailure("invalid_final_answer")
+                    trace["format_repairs"] += 1
+                    feedback = {"role": "user", "content": FINAL_FORMAT_FEEDBACK}
+                    messages.append(feedback)
+                    trace["events"].append({"kind": "format_repair", "attempt": trace["format_repairs"],
+                                            "message": feedback,
+                                            "elapsed_seconds": round(time.monotonic() - started, 6)})
+                    continue
                 trace.update(status="finished", final=final)
                 break
             if not isinstance(calls, list) or trace["calls"] + len(calls) > max_calls:
@@ -295,9 +355,7 @@ def run_trial(service, model, question, *, seed, seconds=300, max_calls=24, untr
                 arguments = {}
                 try:
                     arguments = json.loads(fn.get("arguments", "{}"))
-                    if (not isinstance(arguments, dict) or set(arguments) - set(schemas[name]["properties"])
-                            or set(schemas[name]["required"]) - set(arguments)):
-                        raise ValueError
+                    check_tool_arguments(arguments, schemas[name])
                     if name != "describe_dataset" and not discovered:
                         raise AgentFailure("discovery_required")
                     # Scope IDs to this trial; fresh conversations cannot inspect previous results.
@@ -314,12 +372,12 @@ def run_trial(service, model, question, *, seed, seconds=300, max_calls=24, untr
                     if name == "export_csv":
                         created_jobs.add(result["job_id"])
                 except AgentFailure as exc:
-                    result = {"error": {"code": exc.code}}
+                    result = tool_error(name, exc.code, schemas[name])
                 except (ValueError, TypeError, KeyError):
-                    result = {"error": {"code": "invalid_tool_arguments"}}
+                    result = tool_error(name, "invalid_tool_arguments", schemas[name])
                 except Exception as exc:
                     # Tool errors expose stable codes, not credentials, source text or server traces.
-                    result = {"error": {"code": getattr(exc, "code", "tool_execution_failed")}}
+                    result = tool_error(name, getattr(exc, "code", "tool_execution_failed"), schemas[name])
                 event = {"kind": "tool", "name": name, "arguments": arguments,
                          "output": result, "elapsed_seconds": round(time.monotonic() - started, 6)}
                 content = canonical(project_tool_output(name, result))

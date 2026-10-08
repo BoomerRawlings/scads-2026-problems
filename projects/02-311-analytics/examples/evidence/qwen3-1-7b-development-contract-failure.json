@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "evidence_kind": "actual_model_development_candidate_failure",
+  "source_run": {
+    "id": 37706076183,
+    "url": "https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/37706076183"
+  },
+  "passed": false,
+  "actual_agent_trials": 1,
+  "held_out_evaluation": false,
+  "real_data_acceptance": false,
+  "model_alias": "analytics311-qwen3-1-7b",
+  "runtime_spec_sha256": "661569ca45a1e2eaaa7e178209d3349dc27cab86351444cbea5be1d3d3c49937",
+  "code_sha256": {
+    "analytics311/__init__.py": "010dabac662e1135b14a8a5fa508468aaf641a4980262b3c34524ca312cd545d",
+    "analytics311/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "analytics311/capacity.py": "35d9ff679dffc7d02c314d4f71984240341bb42e1983d2029cfe00bd7bd00224",
+    "analytics311/capture.py": "8897af4c877c206cddb92707b973d5f7fe5f62b558c4eb625a8f382c43fadf02",
+    "analytics311/cli.py": "c2c0c9299220ee81dc931cfe7529dce7b5843aa94b67dea4b642584deeb4a389",
+    "analytics311/compiler.py": "d64685b83ddb6727145c8166f87586226d10f348147e094da124d780572390b2",
+    "analytics311/contracts.py": "77380332b2dd25e2aa367cc9f08680b5ece02d29bfe5bd9cd9eb22b77b58e596",
+    "analytics311/elastic.py": "4bbbe82d73038c3fff69cbcdae1f1ed4d86292b57706158c0bebe5f1cac1bcc7",
+    "analytics311/errors.py": "d61e9b5d5b14716720477a9cf1005f377ca79ab4b61f6ca61d6822c7d51d5414",
+    "analytics311/fixture.py": "b4f303e4fa7e53e9974491964c9524187ba485283d75e12a5c3d48ae5b8a6487",
+    "analytics311/geography.py": "b066038c1105047fbb1025cba4efb2ca82e35679fd27afadb51e30734621baf5",
+    "analytics311/guide.py": "45d4d9b54e6e662d9268c4dcbd333711d3b16007b58e97d6eb86481d156962aa",
+    "analytics311/ingest.py": "632caee86a4230d4ba50c05d782902d7d1f7782fe348526f63872ded7a7585e4",
+    "analytics311/jobs.py": "93ce4a241abe484408ce1f606a120b6cd614c8f8757e2cedb3a9155d28da7b75",
+    "analytics311/maps.py": "f97d2dfda8fc7b1fa410a5ad0f7751ca1c9c55bfb81d79415e1bb12ce5b0f287",
+    "analytics311/mcp_server.py": "72d7794ec72782b1b0198327a20ff20210abe1febeef7736a22edccefcc55526",
+    "analytics311/metadata_io.py": "7a765bd91b5275f76e743a78c869a99c7c3d3736a21c15b7ed789c73c71ba556",
+    "analytics311/qualification.py": "31161ced2c85089ce643bae30845b29a340eb47d2e7c8f6fbf430a673cfe2582",
+    "analytics311/resources.py": "b89b3e2b8561593561d72b31994ff4072b149c8f9df764b26161e972511aa6b3",
+    "analytics311/service.py": "c3b34b4547151a04760ab0925dd8ea318add316c068d04fcda603b339a874663",
+    "analytics311/settings.py": "70a9422e36659bcd9f2e6b9e00615b098e147bc55e06497a8abc3c898c5eb3d4",
+    "analytics311/trend_maps.py": "8d0fe301a0a6f0165998965d2660ae2a5bee5cf4ba9bc59065dfb8f43698393b",
+    "analytics311/workloads.py": "3782154b92087ecdb87a8a25cfaaf2b5810cb762635fcf14d885a7369f034819",
+    "tools/agent_evaluation.py": "4a3ed2177f52ec420ce74ddccfa443143d9c437456f121df31ffb1325a02c36f",
+    "tools/local_agent.py": "173cfc8946b2972ea03e4b04d49a93831a75912b0990d0f1895e5defe5b1f271"
+  },
+  "trial": {
+    "elapsed_seconds": 27.164443,
+    "status": "failed",
+    "error": {
+      "code": "invalid_final_answer"
+    },
+    "tool_calls": 1,
+    "checks": {
+      "finished": false,
+      "answered": false,
+      "discovered_first": true,
+      "executed_unfiltered_count": false,
+      "numeric_evidence": false,
+      "cited_result": false,
+      "synthetic_label": false
+    },
+    "first_model_request": {
+      "usage": {
+        "completion_tokens": 20,
+        "prompt_tokens": 1172,
+        "total_tokens": 1192
+      },
+      "server_timings": {
+        "cache_n": 0,
+        "prompt_n": 1172,
+        "prompt_ms": 22259.412,
+        "prompt_per_token_ms": 18.992672354948805,
+        "prompt_per_second": 52.65188496443661,
+        "predicted_n": 20,
+        "predicted_ms": 894.671,
+        "predicted_per_token_ms": 47.087947368421055,
+        "predicted_per_second": 21.236856900469558
+      },
+      "elapsed_seconds": 23.171867
+    },
+    "failed_tool": {
+      "name": "describe_dataset",
+      "arguments": {
+        "field": "total"
+      },
+      "output": {
+        "error": {
+          "code": "invalid_spec"
+        }
+      }
+    }
+  },
+  "benchmark": {
+    "kind": "single_kernel_sample_each_not_end_to_end_agent_latency",
+    "prompt_tokens": 512,
+    "generation_tokens": 32,
+    "repetitions": 1,
+    "threads": 4,
+    "batch": 2048,
+    "microbatch": 512,
+    "gpu_layers": 0,
+    "release": {
+      "prefill_tokens_per_second": 67.922997,
+      "generation_tokens_per_second": 29.395914
+    },
+    "native": {
+      "prefill_tokens_per_second": 56.777288,
+      "generation_tokens_per_second": 28.680405
+    }
+  },
+  "source_files": {
+    "runs\\model-smoke-37706076183\\summary.json": {
+      "bytes": 4002,
+      "sha256": "eebef9589c5d0112902a0fdc5fc1f33dfe1f1416b6019f0261b4e2ff4f93aaa1"
+    },
+    "runs\\model-smoke-37706076183\\trace.json": {
+      "bytes": 2880,
+      "sha256": "40f4535072b3d5d5c355da40f76a283466b5819728c167e8e2015573ac821fde"
+    },
+    "runs\\model-smoke-37706076183\\runtime\\model-assets.json": {
+      "bytes": 3085,
+      "sha256": "aebab66a394c1fb367f0271eb51ca541be3da89e74a4725eae743c617d80a540"
+    },
+    "runs\\model-smoke-37706076183\\runtime\\native-build.json": {
+      "bytes": 219,
+      "sha256": "68499baa2bd859d46e7c654e09d65f962d2899192e520561f62b28dd89996d44"
+    },
+    "runs\\model-smoke-37706076183\\runtime\\release-benchmark.json": {
+      "bytes": 2351,
+      "sha256": "d9a2668556ddeeffd29321aee25459c969aa077e816e2468d37e2545a53e3ab5"
+    },
+    "runs\\model-smoke-37706076183\\runtime\\native-benchmark.json": {
+      "bytes": 2362,
+      "sha256": "a8dff4d2ea994ecc8b51f626e8affb3439fbfb5b0c9759d5a506999fc3686355"
+    },
+    "runs\\model-smoke-37706076183\\runtime\\model-server-tail.txt": {
+      "bytes": 2606,
+      "sha256": "748c2d9f3fef55d547567483d91077a7f5b0a45559c99504b5ea15a87e19c3ea"
+    }
+  },
+  "limits": [
+    "One authored development question over 32 synthetic records; no held-out evaluation.",
+    "The model supplied an unsupported discovery field value, then returned a plain-text clarification instead of final JSON.",
+    "The discovered_first check records first-tool ordering, not successful discovery; the only discovery tool call failed.",
+    "No count analysis or final answer completed. Faster sampled kernels do not establish agent accuracy or million-record latency.",
+    "Generic adapter error feedback and final-format repair were implemented after this failure; this receipt preserves the earlier source hashes and result."
+  ]
+}

@@ -17,28 +17,36 @@ remain in [the historical v0.6 record](acceptance-v0.6.md).
 
 ## Executed verification
 
-- [Current local regression](../examples/evidence/test-report-v0.7-prelive.json):471 tests collected,470 passed, one Windows unprivileged-symlink skip,52.759seconds. Mock transports and authored data do not establish million-record behavior.
+- [Current local regression](../examples/evidence/test-report-v0.7-post-worker.json):506 tests collected,505 passed, one Windows unprivileged-symlink skip,35.346seconds. Mock transports and authored data do not establish million-record behavior.
 - [Actual capture and local verification](../examples/evidence/captured-local-verification.json): successful [run37700939902](https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/37700939902),2,133,268 unique requests across2135 page operations. All1,306,911,416 decompressed bytes match SHA256`91d84eb6d02dafc402a892298ba92cb121e8e905a189fb75f31b19d4d43aeec7`. Every record was streamed locally to verify strict ascending unique keys, creation dates inside April1-Nov1 2025 and the maximum source update. The163,696,296-byte gzip and [canonical source manifest](../examples/evidence/captured-manifest.json) are retained. No raw JSONL file or full ID set was materialized locally; verification took47.703seconds. Source before/after counts, metadata and revisions reconcile in the manifest; the local check did not re-query the changing provider.
 - [Actual Elastic9.5.5 parity on v0.7](../examples/evidence/live-parity-9.5.5-v0.7.json):14 families,32 authored records, real PIT/composite pagination and full CSV membership. Kibana health was observed separately; browser rendering was not part of this check.
 - [Earlier acquisition failures](../examples/evidence/capture-attempts-v0.7.json): first request timeout30s; a local count took43.891s. Second attempt passed counts but timed out on its first5000-row page after bounded120s retries, leaving zero captured rows. The successful third run used1000-row pages. Historical failures remain; success does not establish a general network-throughput guarantee.
 - [Official boundaries](../examples/evidence/official-nta2020-26b.json):4,532,381 captured bytes, SHA256`5049760a4d0936e1d3dbf70d745e2cee4286bd163b11c702f15fa28db46a001e`, matching source metadata before/after download.
 - [Evaluator implementation checks](../examples/evidence/agent-evaluator-v1-checks.json):24 focused tests. These use an authored tiny corpus and mock model; they are not the actual120-trial experiment.
 
-The471-test receipt is the last persisted successful full local run, not a claim
-that every later change passed. A subsequent499-test local run had one failure,
-five errors and one skip after free disk fell below the unchanged1GB normalization
-reserve. A later CI run collected500 tests:498 passed, one failed and one skipped
-in65.215seconds; a worker launched from another working directory exposed an import
-failure. Repairs and the full rerun remain pending. Two actual4B model smokes timed
-out; the third smoke workflow stopped at its test stage and did not run the model.
-The native-build candidate remains prospective.
+The [archived verification source](../examples/evidence/capture-verification-source.py)
+is byte-identical to the executed script: its SHA-256 matches the local receipt's
+`local_verification.script_sha256`. The receipt preserves the original run-directory
+path. This is frozen study code with exclusive output creation, not a general CLI;
+archiving it did not rerun verification.
+
+Earlier failures remain part of the record: the499-test local run had one failure,
+five errors and one skip when disk fell below the unchanged1GB reserve; CI500 had
+498 passes, one failure and one skip in65.215seconds after a worker launched from
+another working directory exposed an import failure. The506-test run above passes
+after the repairs. Initial4B development smokes timed out; an intermediate smoke
+workflow stopped at tests without running the model. The smaller1.7B development
+candidate run37706076183 is compiling; no120-trial quality outcome is claimed.
+Real-corpus processing run37705537519 started2026-10-08 00:05:35UTC; its normalization,
+index, Maps and performance outcomes remain pending at this checkpoint.
 
 The actual workflows and their retained failures are visible on
 [the acceptance branch](https://github.com/BoomerRawlings/scads-2026-problems/tree/codex/project2-acceptance-20261007).
 The frozen publication commit488c57c is preserved.
-The current capture is also retained locally. The proposed30-day CI artifact
-retention setting is pending workflow publication; it is not claimed for the
-already-created artifact.
+The current capture is also retained locally. GitHub metadata for the renewed
+capture artifact in [core run37705537519](https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/37705537519)
+reports creation2026-10-08 00:05:20UTC and expiry2026-11-07 00:05:16UTC, confirming
+the new30-day retention setting for that copy.
 
 ## What each gate means
 

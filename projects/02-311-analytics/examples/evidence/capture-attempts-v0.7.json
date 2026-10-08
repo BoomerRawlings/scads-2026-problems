@@ -41,12 +41,36 @@
         "file": null,
         "manifest": null
       }
+    },
+    {
+      "run_id": 37700939902,
+      "outcome": "success",
+      "request_timeout_seconds": 120,
+      "page_size": 1000,
+      "successful_capture_published": true,
+      "captured_rows": 2133268,
+      "unique_key_count": 2133268,
+      "raw_bytes": 1306911416,
+      "raw_sha256": "91d84eb6d02dafc402a892298ba92cb121e8e905a189fb75f31b19d4d43aeec7",
+      "pages": 2135,
+      "dataset_version": "capture-ea0bfc5fb517f086c078",
+      "source_counts_metadata_revisions_reconciled": true,
+      "local_streaming_verification": "captured-local-verification.json",
+      "canonical_capture_manifest": "captured-manifest.json",
+      "normalized_count_reconciled": false,
+      "frozen_index_count_reconciled": false,
+      "transactional_source_snapshot": false,
+      "population_complete": false
     }
   ],
   "diagnosis": [
     "Local bounded count took43.891seconds, exceeding original30secondrequest timeout.",
-    "Later CI failure wasrecordpage, notcount. Localfirstandsecond1000recordpagesreturnedHTTP200in1.328and1.016seconds; CIregional/network/bodypathstilluncertain."
+    "Later CI failure wasrecordpage, notcount. Localfirstandsecond1000recordpagesreturnedHTTP200in1.328and1.016seconds; the exact earlier CI transport cause remains uncertain.",
+    "The third run completed actual enumeration with 1000-record pages. Local streamed verification checked all 2133268 rows, strict unique-key order and the full raw digest; this is acquired-record evidence, not a provider count alone."
   ],
-  "current_retry_run": 37700939902,
-  "real_million_capture_verified": false
+  "current_retry_run": null,
+  "latest_successful_run": 37700939902,
+  "real_million_capture_verified": true,
+  "verification_receipt": "captured-local-verification.json",
+  "canonical_capture_manifest": "captured-manifest.json"
 }

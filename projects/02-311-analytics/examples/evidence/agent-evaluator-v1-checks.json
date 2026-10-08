@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "observed_at": "2026-10-07T23:58:15.562997+00:00",
+  "observed_at": "2026-10-08T00:20:35.634809+00:00",
   "evidence_kind": "focused_implementation_checks",
   "command": "python -m unittest tests.test_agent_evaluation -q",
-  "tests": 33,
-  "passed": 33,
+  "tests": 39,
+  "passed": 39,
   "failures": 0,
   "errors": 0,
   "skipped": 0,
-  "reported_elapsed_seconds": 2.558,
+  "reported_elapsed_seconds": 3.392,
   "fixture_rows": 5,
   "actual_agent_trials": 0,
   "live_services_started": false,
@@ -21,15 +21,16 @@
     "Malformed model function envelopes are retained as failed trials, not uncaught aborts.",
     "Discovery projection preserves full original output and exact model-visible JSON; static byte reduction is not inference performance evidence.",
     "Numeric server timings are retained when present; mock checks do not measure model performance.",
-    "Runtime pin, live-process inventory parser and restart/resume checks use authored files and process metadata; no local model is launched."
+    "Runtime pin, live-process inventory parser and restart/resume checks use authored files and process metadata; no local model is launched.",
+    "Bounded tool-contract feedback and terminal-format retries are checked with authored model messages; real model repair success remains unverified."
   ],
   "files_sha256": {
     "tools/agent_evaluation.py": "4a3ed2177f52ec420ce74ddccfa443143d9c437456f121df31ffb1325a02c36f",
-    "tools/local_agent.py": "173cfc8946b2972ea03e4b04d49a93831a75912b0990d0f1895e5defe5b1f271",
+    "tools/local_agent.py": "bcf97e42a881ba900b1b66dfd6312355ab2a74a40f5a9dd63c844285118ba3e0",
     "examples/evaluation/questions-v1.json": "ed05a71b10fabe0a94dbd3b76e53d8751f10c6021b420e93d61ac634c634c132",
-    "tests/test_agent_evaluation.py": "7c8f60f7c790acad8128057bc460cf0b5d9cc363fb114c150cd16b712837676e",
-    "docs/agent-evaluation.md": "341615f1490b9fa9634be992405ce31d28d60e0a52c12cbb5aa2b58fe0d6833f",
-    "docs/local-model-runtime.json": "da06360563d2bd16ef5a9306a5c0f853b850bbe68ce92bf2a0250f470eb8edc0"
+    "tests/test_agent_evaluation.py": "38fb16613a1a826d617fe949be9d821ba6ba3bb65c8e4dcd6cc11b0eeaf86ecf",
+    "docs/agent-evaluation.md": "86730ea65ed9fe1dae755cc5c8253f125ef205bba6b0f0742a830b3ef7fdd424",
+    "docs/local-model-runtime.json": "661569ca45a1e2eaaa7e178209d3349dc27cab86351444cbea5be1d3d3c49937"
   },
   "context_projection": {
     "version": "discovery-rules-v1",
