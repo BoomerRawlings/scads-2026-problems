@@ -1,5 +1,4 @@
 name: Project 2 local model development smoke
-# Development candidate: bounded tool-contract and terminal-format recovery.
 on:
   push:
     branches: [codex/project2-acceptance-20261007]
@@ -128,12 +127,12 @@ jobs:
           Path('runs/model-smoke/runtime/model-health.json').write_text(json.dumps(ready))
           PY
           python - <<'PY' > runs/model-smoke/runtime/smoke-stdout.log 2>&1
-          import hashlib,json,re,time
+          import hashlib,json,re,time,urllib.request
           from datetime import datetime,timezone
           from pathlib import Path
           from analytics311.service import AnalyticsService
           from tools import agent_evaluation as e
-          from tools.local_agent import LocalModel,run_trial
+          from tools.local_agent import LocalModel,run_trial,project_tool_output,canonical,SYSTEM,tool_schemas
 
           folder=Path('runs/model-smoke')
           spec=e.load('docs/local-model-runtime.json')
@@ -167,10 +166,30 @@ jobs:
               assert service.manifest['kind']=='synthetic_fixture' and service.manifest['row_count']==count
               report['fixture']={'kind':'synthetic_fixture','rows':count,
                                  'sha256':hashlib.sha256(Path(service.config['fixture_path']).read_bytes()).hexdigest()}
-              model=LocalModel('http://127.0.0.1:8080/v1',spec['model_alias'],request_seconds=90)
+              model=LocalModel('http://127.0.0.1:8080/v1',spec['model_alias'],request_seconds=100)
               report['model_identity']=model.identify()
+              descriptor_service=AnalyticsService.__new__(AnalyticsService)
+              prior=Path('examples/evidence/real-core-37705537519')
+              descriptor_service.manifest=e.load(prior/'index.manifest.json')
+              descriptor_service.catalog=e.load(prior/'catalog.json')
+              descriptor_service.config={'backend':'elastic'}
+              descriptor_service.budgets=dict(service.budgets,deadline_seconds=120,export_deadline_seconds=180,max_export_rows=50000)
+              descriptor=canonical(project_tool_output('describe_dataset',descriptor_service.describe_dataset()))
+              tokenization={'scope':'Raw text tokenization of actual real-corpus metadata only; no questions, oracle, chat-template overhead or inference.',
+                            'model_alias':spec['model_alias'],'descriptor_sha256':hashlib.sha256(descriptor.encode()).hexdigest(),'parts':{}}
+              opener=urllib.request.build_opener(urllib.request.ProxyHandler({}))
+              for name,content in [('real_descriptor',descriptor),('system',SYSTEM),('tool_schemas',canonical(tool_schemas()))]:
+                  request=urllib.request.Request('http://127.0.0.1:8080/tokenize',data=json.dumps({'content':content,'add_special':False}).encode(),headers={'Content-Type':'application/json'})
+                  with opener.open(request,timeout=30) as response:
+                      raw=response.read(1024*1024+1)
+                  assert len(raw)<=1024*1024
+                  tokens=json.loads(raw)['tokens']; assert isinstance(tokens,list) and all(type(item) is int for item in tokens)
+                  tokenization['parts'][name]={'utf8_bytes':len(content.encode()),'tokens':len(tokens)}
+              (folder/'runtime/real-metadata-tokenization.json').write_text(json.dumps(tokenization,indent=2))
               question='Use the analytical tools to count all records in this configured dataset. Apply no date, category, status or geographic restrictions. Give the exact count, cite your analysis result, and say whether this dataset is real or synthetic.'
-              trace=run_trial(service,model,question,seed=7,seconds=180)
+              trace=run_trial(service,model,question,seed=7,seconds=150)
+              report['budgets']={'seconds':150,'request_seconds':100,'max_calls':24}
+              report['discovery_initiator']='adapter' if trace.get('events') and trace['events'][0].get('initiated_by')=='adapter' else 'model'
               report['actual_agent_trials']=1
               (folder/'trace.json').write_text(json.dumps(scrub(trace),indent=2,ensure_ascii=False))
               events=[event for event in trace.get('events',[]) if event.get('kind')=='tool']
@@ -245,3 +264,4 @@ jobs:
           retention-days: 7
           compression-level: 6
           if-no-files-found: warn
+
