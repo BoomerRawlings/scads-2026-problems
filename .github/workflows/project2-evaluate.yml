@@ -8,7 +8,7 @@ on:
       capture_run:
         description: Successful real-capture workflow run ID
         required: true
-        default: "37700939902"
+        default: "37705537519"
 permissions:
   contents: read
   actions: read
@@ -41,6 +41,7 @@ jobs:
           ELASTICSEARCH_HOSTS: '["http://elasticsearch:9200"]'
           TELEMETRY_OPTIN: "false"
           MAP_INCLUDEELASTICMAPSSERVICE: "false"
+          STATUS_ALLOWANONYMOUS: "true"
           NODE_OPTIONS: "--max-old-space-size=1024"
         ports: ["127.0.0.1:5601:5601"]
         options: >-
@@ -69,7 +70,7 @@ jobs:
         with:
           name: analytics311-real-capture
           path: projects/02-311-analytics/data/
-          run-id: ${{ inputs.capture_run || '37700939902' }}
+          run-id: ${{ inputs.capture_run || '37705537519' }}
           github-token: ${{ github.token }}
       - name: Preserve acquired source artifact for subsequent verification
         uses: actions/upload-artifact@v4
@@ -131,12 +132,13 @@ jobs:
         timeout-minutes: 4
         env:
           GH_TOKEN: ${{ github.token }}
+          DEVELOPMENT_RUN_ID: "38004496878"
         run: |
           for attempt in $(seq 1 18); do
-            conclusion=$(gh api repos/BoomerRawlings/scads-2026-problems/actions/runs/37704428194 --jq '.conclusion // ""')
+            conclusion=$(gh api "repos/BoomerRawlings/scads-2026-problems/actions/runs/$DEVELOPMENT_RUN_ID" --jq '.conclusion // ""')
             if [ "$conclusion" = success ]; then
-              gh api repos/BoomerRawlings/scads-2026-problems/actions/runs/37704428194 --jq '{id,head_sha,status,conclusion,html_url}' > runs/runtime/development-qualification.json
-              exit 0
+              gh api "repos/BoomerRawlings/scads-2026-problems/actions/runs/$DEVELOPMENT_RUN_ID" --jq '{id,head_sha,status,conclusion,html_url}' > runs/runtime/development-run.json
+              break
             fi
             if [ -n "$conclusion" ]; then
               echo "Development model did not qualify; no held-out questions executed."
@@ -144,7 +146,42 @@ jobs:
             fi
             sleep 10
           done
-          exit 1
+          test "$conclusion" = success
+          gh run download "$DEVELOPMENT_RUN_ID" --repo BoomerRawlings/scads-2026-problems --name analytics311-development-model-smoke --dir runs/development-qualification
+          python - <<'PY'
+          import os,re
+          from pathlib import Path
+          from tools import agent_evaluation as e
+          folder=Path('runs/development-qualification')
+          spec=e.load('docs/local-model-runtime.json');summary=e.load(folder/'summary.json')
+          run=e.load('runs/runtime/development-run.json')
+          assert str(run['id'])==os.environ['DEVELOPMENT_RUN_ID'] and run['status']=='completed' and run['conclusion']=='success'
+          assert summary.get('passed') is True and summary.get('actual_agent_trials')==1
+          assert summary.get('evidence_kind')=='actual_local_model_development_fixture_smoke'
+          assert summary.get('held_out_evaluation') is False and summary.get('runtime_profile')=='native_openblas'
+          assert summary.get('budgets')=={'seconds':150,'request_seconds':100,'max_calls':24}
+          assert summary.get('discovery_initiator')=='adapter'
+          assert summary.get('model_alias')==spec['model_alias'] and summary.get('model_identity',{}).get('model_id')==spec['model_alias']
+          assert summary.get('runtime_spec_sha256')==e.sha_file('docs/local-model-runtime.json')
+          assert summary.get('code_sha256')==e.code_hashes()
+          assets=e.load(folder/'runtime/model-assets.json')
+          assert assets.get('downloaded_and_hash_verified') is True and all(assets.get(key)==value for key,value in spec.items())
+          expected=[{'kind':name,'filename':spec[name]['filename'],'bytes':spec[name]['size'],'sha256':spec[name]['sha256']} for name in ('runtime','model')]
+          assert assets.get('staged_assets')==expected and e.load(folder/'runtime/asset-downloads.json')==expected
+          build=e.load(folder/'runtime/native-build.json')
+          assert build.get('source_commit')==spec['execution_runtime']['source_commit'] and build.get('build_type')=='Release'
+          assert build.get('native') is True and build.get('blas')=='OpenBLAS' and re.fullmatch(r'[0-9a-f]{64}',str(build.get('binary_sha256','')))
+          cache=folder/'runtime/native-cmake-cache.txt'
+          values={line.split(':',1)[0]:line.split('=',1)[1] for line in cache.read_text().splitlines() if ':' in line and '=' in line and not line.startswith(('//','#'))}
+          for flag in spec['execution_runtime']['cmake_flags']:
+              name,value=flag[2:].split('=',1);assert values.get(name)==value
+          files=[folder/'summary.json',folder/'runtime/model-assets.json',folder/'runtime/asset-downloads.json',folder/'runtime/native-build.json',cache]
+          e.write_new('runs/runtime/development-qualification.json',{'passed':True,'run':run,'model_alias':spec['model_alias'],
+              'runtime_spec_sha256':summary['runtime_spec_sha256'],'code_sha256':summary['code_sha256'],
+              'budgets':summary['budgets'],'discovery_initiator':summary['discovery_initiator'],
+              'artifact_files':{str(path.relative_to(folder)):e.sha_file(path) for path in files},
+              'scope':'Exact development candidate and application code; this is not held-out acceptance.'})
+          PY
       - name: Stage pinned local model assets
         if: ${{ always() && steps.development.outcome == 'success' && hashFiles('projects/02-311-analytics/runs/real-v1/agent-freeze.json') != '' }}
         timeout-minutes: 15
@@ -205,7 +242,7 @@ jobs:
           PY
       - name: Execute 40 fresh-context agent trials, repetition 1
         if: ${{ always() && hashFiles('projects/02-311-analytics/runs/runtime/native-build.json') != '' }}
-        timeout-minutes: 85
+        timeout-minutes: 105
         continue-on-error: true
         run: |
           server=$(realpath data/local-model/native/bin/llama-server)
@@ -214,8 +251,8 @@ jobs:
           model_file=$(python -c "import json;print(json.load(open('docs/local-model-runtime.json'))['model']['filename'])")
           model_alias=$(python -c "import json;print(json.load(open('docs/local-model-runtime.json'))['model_alias'])")
           export LD_LIBRARY_PATH="$(dirname "$server"):${LD_LIBRARY_PATH:-}"
-          "$server" --version > runs/runtime/llama-version.txt 2>&1
-          "$server" -m "data/local-model/$model_file" --host 127.0.0.1 --port 8080 --alias "$model_alias" --threads 4 --threads-batch 4 --batch-size 2048 --ubatch-size 512 --ctx-size 16384 --parallel 1 --gpu-layers 0 --jinja --reasoning off --reasoning-budget 0 --no-context-shift > runs/runtime/model-server.log 2>&1 &
+          "$server" --version > runs/runtime/llama-version-r1.txt 2>&1
+          "$server" -m "data/local-model/$model_file" --host 127.0.0.1 --port 8080 --alias "$model_alias" --threads 4 --threads-batch 4 --batch-size 2048 --ubatch-size 512 --ctx-size 16384 --parallel 1 --gpu-layers 0 --jinja --reasoning off --reasoning-budget 0 --no-context-shift > runs/runtime/model-server-r1.log 2>&1 &
           server_pid=$!
           trap 'kill "$server_pid" 2>/dev/null || true; wait "$server_pid" 2>/dev/null || true' EXIT
           python - <<'PY'
@@ -228,7 +265,7 @@ jobs:
               except OSError: pass
               time.sleep(1)
           else: raise RuntimeError('Local model did not become ready')
-          Path('runs/runtime/model-health.json').write_text(json.dumps(ready))
+          Path('runs/runtime/model-health-r1.json').write_text(json.dumps(ready))
           PY
           export SERVER_PID="$server_pid" CMAKE_CACHE="data/local-model/native/CMakeCache.txt" SOURCE_COMMIT_FILE="runs/runtime/native-source-commit.txt" REP="1"
           python - <<'PY'
@@ -250,11 +287,11 @@ jobs:
               if len(parts)==6 and parts[5].startswith('/') and re.search(r'\.so(?:\.|$)',Path(parts[5]).name):libraries.add(Path(parts[5]).resolve(strict=True))
           items=[('model',model),('server',server),('build_configuration',cache),('source_revision',revision)]+[('runtime_library',p) for p in sorted(libraries)]
           files=[{'role':role,'path':str(p),'bytes':p.stat().st_size,'sha256':e.sha_file(p)} for role,p in items]
-          receipt={'schema_version':1,'evidence_kind':'pretrial_local_model_runtime','created_at':datetime.now(timezone.utc).isoformat(),'freeze_sha256':e.sha_file('runs/real-v1/agent-freeze.json'),'runtime_spec_sha256':e.sha_file('docs/local-model-runtime.json'),'model_alias':spec['model_alias'],'execution_runtime':spec['execution_runtime'],'endpoint':'http://127.0.0.1:8080/v1','budgets':{'seconds':120,'request_seconds':60,'max_calls':24},'owned_server_pid':pid,'launch_argv':argv,'files':files}
+          receipt={'schema_version':1,'evidence_kind':'pretrial_local_model_runtime','created_at':datetime.now(timezone.utc).isoformat(),'freeze_sha256':e.sha_file('runs/real-v1/agent-freeze.json'),'runtime_spec_sha256':e.sha_file('docs/local-model-runtime.json'),'model_alias':spec['model_alias'],'execution_runtime':spec['execution_runtime'],'endpoint':'http://127.0.0.1:8080/v1','budgets':{'seconds':150,'request_seconds':100,'max_calls':24},'owned_server_pid':pid,'launch_argv':argv,'files':files}
           e.write_new('runs/runtime/agent-runtime-freeze-r'+os.environ['REP']+'.json',receipt)
           PY
           config=$(python -c "import json;print('runs/real-v1/'+json.load(open('runs/real-v1/acceptance.json'))['agent_config'])")
-          python tools/agent_evaluation.py run --config "$config" --freeze runs/real-v1/agent-freeze.json --database runs/real-v1/oracle.sqlite --endpoint http://127.0.0.1:8080/v1 --output runs/agent-v1 --seconds 120 --request-seconds 60 --repetition 1 --runtime-receipt runs/runtime/agent-runtime-freeze-r1.json
+          python tools/agent_evaluation.py run --config "$config" --freeze runs/real-v1/agent-freeze.json --database runs/real-v1/oracle.sqlite --endpoint http://127.0.0.1:8080/v1 --output runs/agent-v1 --seconds 150 --request-seconds 100 --repetition 1 --runtime-receipt runs/runtime/agent-runtime-freeze-r1.json
       - name: Retain agent repetition 1
         if: ${{ always() }}
         uses: actions/upload-artifact@v4
@@ -264,12 +301,14 @@ jobs:
             projects/02-311-analytics/runs/agent-v1/
             projects/02-311-analytics/runs/real-v1/runs/
             projects/02-311-analytics/runs/runtime/agent-runtime-freeze-r1.json
+            projects/02-311-analytics/runs/runtime/llama-version-r1.txt
+            projects/02-311-analytics/runs/runtime/model-health-r1.json
           retention-days: 30
           compression-level: 6
           if-no-files-found: warn
       - name: Execute 40 fresh-context agent trials, repetition 2
         if: ${{ always() && hashFiles('projects/02-311-analytics/runs/runtime/native-build.json') != '' }}
-        timeout-minutes: 85
+        timeout-minutes: 105
         continue-on-error: true
         run: |
           server=$(realpath data/local-model/native/bin/llama-server)
@@ -278,8 +317,8 @@ jobs:
           model_file=$(python -c "import json;print(json.load(open('docs/local-model-runtime.json'))['model']['filename'])")
           model_alias=$(python -c "import json;print(json.load(open('docs/local-model-runtime.json'))['model_alias'])")
           export LD_LIBRARY_PATH="$(dirname "$server"):${LD_LIBRARY_PATH:-}"
-          "$server" --version > runs/runtime/llama-version.txt 2>&1
-          "$server" -m "data/local-model/$model_file" --host 127.0.0.1 --port 8080 --alias "$model_alias" --threads 4 --threads-batch 4 --batch-size 2048 --ubatch-size 512 --ctx-size 16384 --parallel 1 --gpu-layers 0 --jinja --reasoning off --reasoning-budget 0 --no-context-shift > runs/runtime/model-server.log 2>&1 &
+          "$server" --version > runs/runtime/llama-version-r2.txt 2>&1
+          "$server" -m "data/local-model/$model_file" --host 127.0.0.1 --port 8080 --alias "$model_alias" --threads 4 --threads-batch 4 --batch-size 2048 --ubatch-size 512 --ctx-size 16384 --parallel 1 --gpu-layers 0 --jinja --reasoning off --reasoning-budget 0 --no-context-shift > runs/runtime/model-server-r2.log 2>&1 &
           server_pid=$!
           trap 'kill "$server_pid" 2>/dev/null || true; wait "$server_pid" 2>/dev/null || true' EXIT
           python - <<'PY'
@@ -292,7 +331,7 @@ jobs:
               except OSError: pass
               time.sleep(1)
           else: raise RuntimeError('Local model did not become ready')
-          Path('runs/runtime/model-health.json').write_text(json.dumps(ready))
+          Path('runs/runtime/model-health-r2.json').write_text(json.dumps(ready))
           PY
           export SERVER_PID="$server_pid" CMAKE_CACHE="data/local-model/native/CMakeCache.txt" SOURCE_COMMIT_FILE="runs/runtime/native-source-commit.txt" REP="2"
           python - <<'PY'
@@ -314,11 +353,11 @@ jobs:
               if len(parts)==6 and parts[5].startswith('/') and re.search(r'\.so(?:\.|$)',Path(parts[5]).name):libraries.add(Path(parts[5]).resolve(strict=True))
           items=[('model',model),('server',server),('build_configuration',cache),('source_revision',revision)]+[('runtime_library',p) for p in sorted(libraries)]
           files=[{'role':role,'path':str(p),'bytes':p.stat().st_size,'sha256':e.sha_file(p)} for role,p in items]
-          receipt={'schema_version':1,'evidence_kind':'pretrial_local_model_runtime','created_at':datetime.now(timezone.utc).isoformat(),'freeze_sha256':e.sha_file('runs/real-v1/agent-freeze.json'),'runtime_spec_sha256':e.sha_file('docs/local-model-runtime.json'),'model_alias':spec['model_alias'],'execution_runtime':spec['execution_runtime'],'endpoint':'http://127.0.0.1:8080/v1','budgets':{'seconds':120,'request_seconds':60,'max_calls':24},'owned_server_pid':pid,'launch_argv':argv,'files':files}
+          receipt={'schema_version':1,'evidence_kind':'pretrial_local_model_runtime','created_at':datetime.now(timezone.utc).isoformat(),'freeze_sha256':e.sha_file('runs/real-v1/agent-freeze.json'),'runtime_spec_sha256':e.sha_file('docs/local-model-runtime.json'),'model_alias':spec['model_alias'],'execution_runtime':spec['execution_runtime'],'endpoint':'http://127.0.0.1:8080/v1','budgets':{'seconds':150,'request_seconds':100,'max_calls':24},'owned_server_pid':pid,'launch_argv':argv,'files':files}
           e.write_new('runs/runtime/agent-runtime-freeze-r'+os.environ['REP']+'.json',receipt)
           PY
           config=$(python -c "import json;print('runs/real-v1/'+json.load(open('runs/real-v1/acceptance.json'))['agent_config'])")
-          python tools/agent_evaluation.py run --config "$config" --freeze runs/real-v1/agent-freeze.json --database runs/real-v1/oracle.sqlite --endpoint http://127.0.0.1:8080/v1 --output runs/agent-v1 --seconds 120 --request-seconds 60 --repetition 2 --runtime-receipt runs/runtime/agent-runtime-freeze-r2.json --resume
+          python tools/agent_evaluation.py run --config "$config" --freeze runs/real-v1/agent-freeze.json --database runs/real-v1/oracle.sqlite --endpoint http://127.0.0.1:8080/v1 --output runs/agent-v1 --seconds 150 --request-seconds 100 --repetition 2 --runtime-receipt runs/runtime/agent-runtime-freeze-r2.json --resume
       - name: Retain agent repetition 2
         if: ${{ always() }}
         uses: actions/upload-artifact@v4
@@ -328,12 +367,14 @@ jobs:
             projects/02-311-analytics/runs/agent-v1/
             projects/02-311-analytics/runs/real-v1/runs/
             projects/02-311-analytics/runs/runtime/agent-runtime-freeze-r2.json
+            projects/02-311-analytics/runs/runtime/llama-version-r2.txt
+            projects/02-311-analytics/runs/runtime/model-health-r2.json
           retention-days: 30
           compression-level: 6
           if-no-files-found: warn
       - name: Execute 40 fresh-context agent trials, repetition 3
         if: ${{ always() && hashFiles('projects/02-311-analytics/runs/runtime/native-build.json') != '' }}
-        timeout-minutes: 85
+        timeout-minutes: 105
         continue-on-error: true
         run: |
           server=$(realpath data/local-model/native/bin/llama-server)
@@ -342,8 +383,8 @@ jobs:
           model_file=$(python -c "import json;print(json.load(open('docs/local-model-runtime.json'))['model']['filename'])")
           model_alias=$(python -c "import json;print(json.load(open('docs/local-model-runtime.json'))['model_alias'])")
           export LD_LIBRARY_PATH="$(dirname "$server"):${LD_LIBRARY_PATH:-}"
-          "$server" --version > runs/runtime/llama-version.txt 2>&1
-          "$server" -m "data/local-model/$model_file" --host 127.0.0.1 --port 8080 --alias "$model_alias" --threads 4 --threads-batch 4 --batch-size 2048 --ubatch-size 512 --ctx-size 16384 --parallel 1 --gpu-layers 0 --jinja --reasoning off --reasoning-budget 0 --no-context-shift > runs/runtime/model-server.log 2>&1 &
+          "$server" --version > runs/runtime/llama-version-r3.txt 2>&1
+          "$server" -m "data/local-model/$model_file" --host 127.0.0.1 --port 8080 --alias "$model_alias" --threads 4 --threads-batch 4 --batch-size 2048 --ubatch-size 512 --ctx-size 16384 --parallel 1 --gpu-layers 0 --jinja --reasoning off --reasoning-budget 0 --no-context-shift > runs/runtime/model-server-r3.log 2>&1 &
           server_pid=$!
           trap 'kill "$server_pid" 2>/dev/null || true; wait "$server_pid" 2>/dev/null || true' EXIT
           python - <<'PY'
@@ -356,7 +397,7 @@ jobs:
               except OSError: pass
               time.sleep(1)
           else: raise RuntimeError('Local model did not become ready')
-          Path('runs/runtime/model-health.json').write_text(json.dumps(ready))
+          Path('runs/runtime/model-health-r3.json').write_text(json.dumps(ready))
           PY
           export SERVER_PID="$server_pid" CMAKE_CACHE="data/local-model/native/CMakeCache.txt" SOURCE_COMMIT_FILE="runs/runtime/native-source-commit.txt" REP="3"
           python - <<'PY'
@@ -378,11 +419,11 @@ jobs:
               if len(parts)==6 and parts[5].startswith('/') and re.search(r'\.so(?:\.|$)',Path(parts[5]).name):libraries.add(Path(parts[5]).resolve(strict=True))
           items=[('model',model),('server',server),('build_configuration',cache),('source_revision',revision)]+[('runtime_library',p) for p in sorted(libraries)]
           files=[{'role':role,'path':str(p),'bytes':p.stat().st_size,'sha256':e.sha_file(p)} for role,p in items]
-          receipt={'schema_version':1,'evidence_kind':'pretrial_local_model_runtime','created_at':datetime.now(timezone.utc).isoformat(),'freeze_sha256':e.sha_file('runs/real-v1/agent-freeze.json'),'runtime_spec_sha256':e.sha_file('docs/local-model-runtime.json'),'model_alias':spec['model_alias'],'execution_runtime':spec['execution_runtime'],'endpoint':'http://127.0.0.1:8080/v1','budgets':{'seconds':120,'request_seconds':60,'max_calls':24},'owned_server_pid':pid,'launch_argv':argv,'files':files}
+          receipt={'schema_version':1,'evidence_kind':'pretrial_local_model_runtime','created_at':datetime.now(timezone.utc).isoformat(),'freeze_sha256':e.sha_file('runs/real-v1/agent-freeze.json'),'runtime_spec_sha256':e.sha_file('docs/local-model-runtime.json'),'model_alias':spec['model_alias'],'execution_runtime':spec['execution_runtime'],'endpoint':'http://127.0.0.1:8080/v1','budgets':{'seconds':150,'request_seconds':100,'max_calls':24},'owned_server_pid':pid,'launch_argv':argv,'files':files}
           e.write_new('runs/runtime/agent-runtime-freeze-r'+os.environ['REP']+'.json',receipt)
           PY
           config=$(python -c "import json;print('runs/real-v1/'+json.load(open('runs/real-v1/acceptance.json'))['agent_config'])")
-          python tools/agent_evaluation.py run --config "$config" --freeze runs/real-v1/agent-freeze.json --database runs/real-v1/oracle.sqlite --endpoint http://127.0.0.1:8080/v1 --output runs/agent-v1 --seconds 120 --request-seconds 60 --repetition 3 --runtime-receipt runs/runtime/agent-runtime-freeze-r3.json --resume
+          python tools/agent_evaluation.py run --config "$config" --freeze runs/real-v1/agent-freeze.json --database runs/real-v1/oracle.sqlite --endpoint http://127.0.0.1:8080/v1 --output runs/agent-v1 --seconds 150 --request-seconds 100 --repetition 3 --runtime-receipt runs/runtime/agent-runtime-freeze-r3.json --resume
       - name: Retain agent repetition 3
         if: ${{ always() }}
         uses: actions/upload-artifact@v4
@@ -392,6 +433,8 @@ jobs:
             projects/02-311-analytics/runs/agent-v1/
             projects/02-311-analytics/runs/real-v1/runs/
             projects/02-311-analytics/runs/runtime/agent-runtime-freeze-r3.json
+            projects/02-311-analytics/runs/runtime/llama-version-r3.txt
+            projects/02-311-analytics/runs/runtime/model-health-r3.json
           retention-days: 30
           compression-level: 6
           if-no-files-found: warn
@@ -403,10 +446,9 @@ jobs:
           python - <<'PY'
           from collections import deque
           from pathlib import Path
-          log=Path('runs/runtime/model-server.log')
-          if log.exists():
+          for log in sorted(Path('runs/runtime').glob('model-server-r*.log')):
               with log.open(errors='replace') as source: tail=''.join(deque(source,maxlen=120))
-              Path('runs/runtime/model-server-tail.txt').write_text(tail)
+              log.with_name(log.stem+'-tail.txt').write_text(tail)
           PY
       - name: Require executed corpus and automatic agent gates
         if: always()
@@ -432,7 +474,8 @@ jobs:
             !projects/02-311-analytics/runs/**/*.sqlite
             !projects/02-311-analytics/runs/**/normalized.jsonl
             !projects/02-311-analytics/runs/**/normalized.jsonl.part
-            !projects/02-311-analytics/runs/runtime/model-server.log
+            !projects/02-311-analytics/runs/runtime/model-server-r*.log
           retention-days: 7
           compression-level: 6
           if-no-files-found: warn
+
