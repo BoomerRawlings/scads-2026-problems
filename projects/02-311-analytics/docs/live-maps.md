@@ -6,6 +6,17 @@ contract only. Its deterministic tests are not evidence of a live import or
 render. `provision` creates new objects; do not point it at indices owned by
 another run. Existing objects are never overwritten or deleted.
 
+Provision requires an actual `version.number` from Kibana `/api/status`.
+Kibana 9.5.5 can return only `status.overall.level` for callers without status
+access, including the unsecured local CI configuration. An `available` response
+does not establish the version. Use credentials with the `monitor` cluster
+privilege; for the isolated loopback-only test container, set
+`STATUS_ALLOWANONYMOUS: "true"` (`status.allowAnonymous=true`) before startup.
+The runner reports `kibana_status_version_unavailable` and performs no index or
+saved-object writes when this evidence is absent. See the pinned
+[status route](https://github.com/elastic/kibana/blob/v9.5.5/src/core/packages/status/server-internal/src/routes/status.ts)
+and [status settings](https://www.elastic.co/docs/reference/kibana/configuration-reference/general-settings).
+
 The saved-object format derives from official versioned source, not guessed
 object exports: [sample objects](https://github.com/elastic/kibana/blob/v9.5.5/x-pack/platform/plugins/shared/maps/server/sample_data/ecommerce_saved_objects.js),
 [layer schema](https://github.com/elastic/kibana/blob/v9.5.5/x-pack/platform/plugins/shared/maps/server/content_management/schema/v1/layer_schemas/layer_schemas.ts),

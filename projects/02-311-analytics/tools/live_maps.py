@@ -138,7 +138,18 @@ def provision(config_path, boundary_path, boundary_index, output_config, output)
     stage = "version"
     try:
         require(client.request("GET", "/").get("version", {}).get("number") == VERSION, "Elasticsearch version differs from pinned schema.")
-        require(kibana.request("/api/status", method="GET").get("version", {}).get("number") == VERSION, "Kibana version differs from pinned schema.")
+        status = kibana.request("/api/status", method="GET")
+        version = status.get("version")
+        reported_version = version.get("number") if isinstance(version, dict) else None
+        receipt["checks"]["kibana_status_version"] = reported_version
+        if reported_version is None:
+            # Kibana 9.5.5 redacts this endpoint even on an unsecured local
+            # stack unless status.allowAnonymous is explicitly enabled.
+            raise AnalyticsError("kibana_status_version_unavailable",
+                                 "Kibana status omitted its version. Use credentials with the monitor privilege, "
+                                 "or status.allowAnonymous=true only on the isolated local test service. "
+                                 "A healthy redacted status is not version evidence.")
+        require(reported_version == VERSION, "Kibana version differs from pinned schema.")
         receipt["checks"]["stack_version"] = VERSION
         source_index = validate_index(config["index"])
         result_index = validate_index(config["kibana"]["result_index"])
@@ -191,7 +202,8 @@ def provision(config_path, boundary_path, boundary_index, output_config, output)
                         "result_index": result_index, "dataset_version": service.manifest.get("dataset_version")})
     except AnalyticsError as exc:
         receipt["error"] = {"stage": stage, "code": exc.code}
-        if exc.code == "acceptance_failed": receipt["error"]["reason"] = exc.message
+        if exc.code in {"acceptance_failed", "kibana_status_version_unavailable"}:
+            receipt["error"]["reason"] = exc.message
     except (OSError, ValueError, TypeError, KeyError):
         receipt["error"] = {"stage": stage, "code": "acceptance_failed"}
     finally:

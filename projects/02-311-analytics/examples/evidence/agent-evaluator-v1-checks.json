@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "observed_at": "2026-10-08T00:20:35.634809+00:00",
+  "observed_at": "2026-10-09T23:25:16.765475+00:00",
   "evidence_kind": "focused_implementation_checks",
   "command": "python -m unittest tests.test_agent_evaluation -q",
-  "tests": 39,
-  "passed": 39,
+  "tests": 45,
+  "passed": 45,
   "failures": 0,
   "errors": 0,
   "skipped": 0,
-  "reported_elapsed_seconds": 3.392,
+  "reported_elapsed_seconds": 1.752,
   "fixture_rows": 5,
   "actual_agent_trials": 0,
   "live_services_started": false,
@@ -22,14 +22,15 @@
     "Discovery projection preserves full original output and exact model-visible JSON; static byte reduction is not inference performance evidence.",
     "Numeric server timings are retained when present; mock checks do not measure model performance.",
     "Runtime pin, live-process inventory parser and restart/resume checks use authored files and process metadata; no local model is launched.",
-    "Bounded tool-contract feedback and terminal-format retries are checked with authored model messages; real model repair success remains unverified."
+    "Bounded tool-contract feedback and terminal-format retries are checked with authored model messages; real model repair success remains unverified.",
+    "Adapter-provided discovery is separately attributed and included in the shared24-call budget; prefix identity and ownership checks do not measure real model cache reuse."
   ],
   "files_sha256": {
     "tools/agent_evaluation.py": "4a3ed2177f52ec420ce74ddccfa443143d9c437456f121df31ffb1325a02c36f",
-    "tools/local_agent.py": "bcf97e42a881ba900b1b66dfd6312355ab2a74a40f5a9dd63c844285118ba3e0",
+    "tools/local_agent.py": "23ba2002648ccdf1033df39d36b211a0310f615df4c07a7fae2b049560b5502a",
     "examples/evaluation/questions-v1.json": "ed05a71b10fabe0a94dbd3b76e53d8751f10c6021b420e93d61ac634c634c132",
-    "tests/test_agent_evaluation.py": "38fb16613a1a826d617fe949be9d821ba6ba3bb65c8e4dcd6cc11b0eeaf86ecf",
-    "docs/agent-evaluation.md": "86730ea65ed9fe1dae755cc5c8253f125ef205bba6b0f0742a830b3ef7fdd424",
+    "tests/test_agent_evaluation.py": "fa1417c93f2e50c623be7a630b4d45c9a006f0917bcd2bb56027d81292da2538",
+    "docs/agent-evaluation.md": "6ad2ea4086d8707622a22f6743e4fa020d8ef09291a6d646ac67a64a6735d32a",
     "docs/local-model-runtime.json": "661569ca45a1e2eaaa7e178209d3349dc27cab86351444cbea5be1d3d3c49937"
   },
   "context_projection": {
@@ -46,5 +47,10 @@
     "errors": 11,
     "reported_elapsed_seconds": 0.452,
     "cause": "Host disk full during final assertion rerun and receipt write; current run executed after external space recovery."
+  },
+  "context_projection_v2": {
+    "receipt": "examples/evidence/discovery-projection-v2-real-metadata.json",
+    "sha256": "5f3a1794fe1b3a77ede6bb755bfe5b9bc5fa0fb5de6ccaeaff9d74cf7728f8e6",
+    "actual_model_rerun": false
   }
 }

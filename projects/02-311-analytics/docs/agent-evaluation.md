@@ -2,8 +2,9 @@
 
 The executable evaluator freezes 40 prospective questions and independently
 calculated answers, then asks a real local model each question three times with
-fresh conversation contexts. The model chooses and calls the seven analytical
-tools; this is not prewritten AnalysisSpec replay. The questions are **AI-authored**,
+fresh conversation contexts. The adapter supplies dataset discovery before each
+question; the model chooses every analysis, query argument and artifact request
+through the seven tools. This is not prewritten AnalysisSpec replay. The questions are **AI-authored**,
 not independent human-held-out labels or evidence of generalization to arbitrary
 users. Executing 120 trials and passing the acceptance threshold are separate facts.
 The protocol cannot establish that questions were absent from model pretraining.
@@ -75,19 +76,52 @@ catalog, manifest, SQLite database, input JSONL hash/count, boundary identity,
 expected values and model settings before the first model call. The model receives
 only its question, general agent/tool instructions, discovery and actual tool
 responses. Expected JSON specs and numeric oracles are never included. All three
-repetitions use empty initial histories; fixed seeds 101/202/303 and temperature 0.2
+repetitions use fresh histories containing only the adapter's metadata prefix and
+the new question; fixed seeds 101/202/303 and temperature 0.2
 are recorded. A model/server may not guarantee bitwise seed reproducibility.
 
-The frozen adapter uses `discovery-rules-v1` for model context. Discovery retains
+The frozen adapter uses `discovery-rules-v2` for model context. Discovery retains
 every request-building rule verbatim, full catalog/limits/fields, coverage,
 qualification, warnings and unknown source text. It omits illustrative complete
 requests and repeated workflow guidance; exact duplicate fields/version remain in
 the top-level descriptor. Repeated provenance values use JSON Pointer `$ref` links
-to identical ancestor data within that response. No questions, expected answers,
+to identical ancestor data; repeated metadata objects reference earlier unchanged
+objects within that response. No questions, expected answers,
 or question-specific shortcuts inform this projection. All other tool results are
 unchanged. The transcript retains full original discovery alongside the exact
 model-visible JSON string, its SHA-256, byte counts and projection version.
 Reduced context bytes alone do not establish faster or more accurate inference.
+
+V2 also omits valid 64-hex audit hashes at these exact metadata paths, where `D`
+means `dataset` or one of its direct, recursively nested `provenance` objects:
+
+- `D.sha256`, `D.source_sha256`.
+- `D.comparison_qualification.{capture_manifest_sha256,capture_sha256,normalized_sha256,qualification_sha256}`.
+- `D.ingestion.{prefix_sha256,source_sha256}`.
+- `D.reconciliation.{initial_metadata,final_metadata}.schema_sha256`.
+
+Other values and paths are retained, including malformed hash values, unknown
+source text, source URLs, dataset version, NTA version, qualification scope/stage,
+population and transaction flags, coverage periods, counts, quality and budgets.
+The full tool output remains in the trace. This is context projection, not a
+modified certificate or a replacement for evaluator provenance validation.
+
+The adapter actually calls `describe_dataset()` before presenting the question.
+A deterministic assistant/tool transport envelope places that response in the
+tool role after the system instructions and before the user question. Its trace
+events explicitly say `initiated_by: adapter`; it is never counted as a model
+decision. `adapter_calls` and `model_calls` are separate, and their sum uses the
+existing 24-call budget. The model can refresh discovery, but must create analyses
+with `run_analysis` before reading their returned IDs with `get_result`.
+
+The complete original descriptor, exact projected model content and both hashes
+remain in the trace. Invalid discovery stops the trial before any model request.
+Source-injection text remains untrusted tool data. Every trial starts with empty
+owned result/export ID sets; no prior answers, queries or question-specific
+expectations enter the prefix. The stable prefix permits server cache reuse but
+does not prove that reuse or its performance benefit occurred. A discovery-first
+ordering check therefore establishes available metadata, not autonomous discovery
+by the model.
 
 Tool argument failures include the bounded local tool-envelope schema and fixed
 recovery guidance. Initial discovery uses `{}`; an optional `field` must be an

@@ -144,6 +144,64 @@ class LiveMapsTests(unittest.TestCase):
             with self.assertRaises(AnalyticsError): maps.new_path(path)
             self.assertEqual(path.read_text(), "original")
 
+    def test_kibana_redacted_or_wrong_version_never_mutates_indices(self):
+        # The first body is the actual /api/status shape retained from the
+        # real-corpus run. HTTP 200/available alone must never qualify a version.
+        for status, error_code in (
+            ({"status": {"overall": {"level": "available"}}}, "kibana_status_version_unavailable"),
+            ({"version": {"number": "9.4.0"}}, "acceptance_failed"),
+        ):
+            with self.subTest(status=status), tempfile.TemporaryDirectory() as temporary:
+                root = Path(temporary)
+                config, boundaries = root / "config.json", root / "nta.json"
+                config.write_text(json.dumps({"backend": "elastic", "index": "requests-v1",
+                                              "kibana": {"result_index": "trends-v1"}}))
+                boundaries.write_text(json.dumps({"type": "FeatureCollection", "features": [
+                    {"properties": {"nta2020": "BK0101"}, "geometry": {"type": "Polygon"}}]}))
+                calls = []
+                def request(method, path, body=None):
+                    calls.append((method, path))
+                    return {"version": {"number": maps.VERSION}}
+                service = SimpleNamespace(backend=SimpleNamespace(client=SimpleNamespace(request=request)),
+                                          manifest={"geography": {"nta_version": maps.read_boundaries(boundaries)[1]}})
+                with patch.object(maps, "AnalyticsService", return_value=service), patch.object(maps, "KibanaClient") as client:
+                    client.return_value.request.return_value = status
+                    result = maps.provision(config, boundaries, "nta-v1", root / "new.json", root / "receipt.json")
+                    client.return_value.request.assert_called_once_with("/api/status", method="GET")
+                self.assertFalse(result["passed"])
+                self.assertEqual(result["error"]["stage"], "version")
+                self.assertEqual(result["error"]["code"], error_code)
+                self.assertEqual(calls, [("GET", "/")])
+                self.assertFalse((root / "new.json").exists())
+                if error_code == "kibana_status_version_unavailable":
+                    self.assertIsNone(result["checks"]["kibana_status_version"])
+                    self.assertIn("monitor privilege", result["error"]["reason"])
+
+    def test_exact_full_kibana_version_allows_provisioning_to_begin(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            config, boundaries = root / "config.json", root / "nta.json"
+            config.write_text(json.dumps({"backend": "elastic", "index": "requests-v1",
+                                          "kibana": {"result_index": "trends-v1"}}))
+            boundaries.write_text(json.dumps({"type": "FeatureCollection", "features": [
+                {"properties": {"nta2020": "BK0101"}, "geometry": {"type": "Polygon"}}]}))
+            calls = []
+            def request(method, path, body=None):
+                calls.append((method, path))
+                if method == "GET" and path == "/":
+                    return {"version": {"number": maps.VERSION}}
+                raise AnalyticsError("test_boundary_stop", "Stop unit test before indexing.")
+            service = SimpleNamespace(backend=SimpleNamespace(client=SimpleNamespace(request=request)),
+                                      manifest={"geography": {"nta_version": maps.read_boundaries(boundaries)[1]}})
+            with patch.object(maps, "AnalyticsService", return_value=service), patch.object(maps, "KibanaClient") as client:
+                client.return_value.request.return_value = {"version": {"number": maps.VERSION},
+                                                           "status": {"overall": {"level": "available"}}}
+                result = maps.provision(config, boundaries, "nta-v1", root / "new.json", root / "receipt.json")
+            self.assertEqual(result["error"], {"stage": "boundary_index", "code": "test_boundary_stop"})
+            self.assertEqual(result["checks"]["stack_version"], maps.VERSION)
+            self.assertEqual(result["checks"]["kibana_status_version"], maps.VERSION)
+            self.assertEqual(calls, [("GET", "/"), ("PUT", "/nta-v1")])
+
 
 if __name__ == "__main__":
     unittest.main()

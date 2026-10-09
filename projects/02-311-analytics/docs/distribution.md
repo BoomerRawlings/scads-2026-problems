@@ -1,10 +1,68 @@
 # Offline wheel distribution
 
+Version **0.7.0** now has actual clean offline installation evidence for both core
+and MCP/geometry profiles. Both builds used existing wheelhouses with
+`--no-network`; no dependencies were downloaded. Tests ran in fresh virtual
+environments outside the checkout, on **CPython3.12.14, Windows x64 Python
+(`win-amd64`) on this ARM64 Windows host**. This qualifies that local interpreter
+target, not a second device, native ARM64 Python, Linux or macOS.
+
+| Current artifact | Size | Contents |
+| --- | ---: | --- |
+| [Core bundle](../dist/analytics311-0.7.0-core.zip) | 504,052 bytes | 11 entries; project wheel plus tzdata and fixed handoff files |
+| [MCP/geometry bundle](../dist/analytics311-0.7.0-cp312-win-amd64-agent.zip) | 30,046,332 bytes | 43 entries;34 wheels total and fixed handoff files |
+| [Core release directory](../dist/release-core-v0.7/release-manifest.json) | 440,112 wheel bytes | 2 wheels; passed clean-install receipt |
+| [MCP/geometry release directory](../dist/release-agent-v0.7/release-manifest.json) | 29,957,854 wheel bytes | 34 wheels; passed clean-install/optional-adapter receipt |
+
+Each project wheel is92,116 bytes. Both contain the same23 source modules and five
+packaged resources; their ZIP metadata differs. Independent verification checked
+all36 wheel CRCs,3,959 RECORD entries, source/resource bytes, both bundle inventories
+and every archive-entry hash. Core source stayed unchanged across both builds.
+The observed free-disk minimum was31,640,768,512 bytes, above the enforced2GiB reserve.
+Old release directories and archives were preserved.
+[Build and integrity receipt](../examples/evidence/build-v0.7.json),
+[archive hashes and entries](../examples/evidence/handoff-bundles-v0.7.json),
+[core clean-install receipt](../examples/evidence/release-core-v0.7.json),
+[MCP/geometry clean-install receipt](../examples/evidence/release-agent-v0.7.json).
+
+Both installations exercised fixture CLI discovery/validation/analysis, a four-row
+asynchronous CSV, unchanged installed resources, nine modeled capacity scenarios,
+five benchmark cases on100 generated records, and seven owned worker launches with
+at most two concurrent processes. An actual abrupt exit86 verified lease release,
+partial cleanup and re-export. The MCP profile additionally discovered all seven
+stdio tools, completed four valid calls, rejected one invalid call and loaded
+Shapely2.1.2 for a synthetic inside/outside polygon check. These packaging smokes
+do not run a model, Elasticsearch, Kibana or the acquired real corpus.
+
+Extract either archive into a fresh directory and follow its `INSTALL.txt`.
+The MCP/geometry install requirement is `analytics311[geo,mcp]==0.7.0`; core is
+`analytics311==0.7.0`. Python, model runtimes/weights, server images and real data
+are not included. Generated archives remain outside version control.
+
+## Transfer scope versus current research tooling
+
+The allowlist remains exactly `tools/live_parity.py`, `tools/capacity_scenarios.py`,
+`tools/benchmark_fixture.py`, `tools/stress_exports.py` and
+`examples/capacity/scenarios.json`. These transferred harnesses were smoke-tested
+against the installed0.7 package. The versioned core CLI is packaged; the ZIP is
+not a complete copy of the repository's latest acceptance experiment.
+
+The newer `tools/run_real_acceptance.py`, `tools/live_maps.py`,
+`tools/measure_live.py`, `tools/agent_evaluation.py`, `tools/local_agent.py`
+and `tools/capture_compressed.py` are **not transferred**.
+To reproduce the real-corpus/agent study, use the matching repository revision,
+its configuration and pinned evaluation/runtime definitions, official-boundary
+receipt and required data artifacts; separately provide the compatible server,
+browser and model runtimes. Do not infer that the old transferred `live_parity.py`
+is the new million-record orchestration/evaluation runner.
+
+## Historical 0.6 and 0.5 releases
+
 Version **0.6.0** is a build-only revision following [static scale reasoning](forecast-v0.6.md), with [119 focused checks](../examples/evidence/test-report-v0.6-focused.json). Core and optional MCP/geometry wheel directories use `release-core-v0.6-build-only` and `release-agent-v0.6-build-only` under `dist/`. They are built from existing dependencies with `--no-network --skip-smoke`; installation, benchmark and stress smokes are deliberately not run for this revision. Their manifests retain `verification.status=not_run`. Do not pass them off as fully qualified transfer releases; the bundler's passed-smoke requirement remains intact.
 
 Built artifacts: [core wheel](../dist/release-core-v0.6-build-only/analytics311-0.6.0-py3-none-any.whl), [agent-profile wheel](../dist/release-agent-v0.6-build-only/analytics311-0.6.0-py3-none-any.whl), [build receipt](../examples/evidence/build-v0.6.json). Each project wheel is 87,668 bytes. Core dependencies plus project total 435,664 bytes; agent-profile wheels total 29,953,406 bytes. All 36 wheel CRCs, metadata/RECORD hashes and manifest checksums were checked; 22 Python files plus five packaged resources match source. The two project wheels have identical uncompressed content; their ZIP metadata differs. Native agent dependencies retain the CPython 3.12 Windows x64 target. No clean installation was performed for 0.6.
 
-To install the new core later, from this project directory into an appropriate Python 3.11+ environment:
+To install that historical core, from this project directory into an appropriate Python 3.11+ environment:
 
 ```text
 python -m pip install --no-index --find-links dist/release-core-v0.6-build-only --find-links dist/release-core-v0.6-build-only/dependencies analytics311==0.6.0
@@ -29,7 +87,7 @@ integrity is separate from the clean-install evidence for their wheels.
 [agent installation receipt](../examples/evidence/release-agent-v0.5.json).
 These generated archives remain outside version control.
 
-Version 0.5.0 bundles the default fixture profile, category catalog, index mapping,
+The current package bundles the default fixture profile, category catalog, index mapping,
 fixture manifest and 32 synthetic requests. Python 3.11+ is required. `tzdata` is
 a core dependency on every platform, so minimal systems need not supply an OS
 timezone database. No model provider, Elasticsearch, Kibana, MCP or geometry
@@ -43,7 +101,7 @@ zip-import execution is not a supported deployment; use a normal wheel install.
 
 ```powershell
 python -m venv .venv
-.venv/Scripts/python -m pip install --no-index --find-links RELEASE --find-links RELEASE/dependencies analytics311==0.5.0
+.venv/Scripts/python -m pip install --no-index --find-links RELEASE --find-links RELEASE/dependencies analytics311==0.7.0
 .venv/Scripts/python -m analytics311 describe
 .venv/Scripts/python -m analytics311 run question.json
 ```
@@ -72,7 +130,7 @@ One-time small dependency preparation, requiring network if wheels are uncached:
 Offline build and verification:
 
 ```powershell
-.venv/Scripts/python tools/build_release.py --no-network --wheelhouse dist/wheelhouse --output dist/release-core-v0.5
+.venv/Scripts/python tools/build_release.py --no-network --wheelhouse dist/wheelhouse --output dist/release-core-v0.7-rebuild
 .venv/Scripts/python -m unittest discover -s tests -p test_distribution.py -v
 ```
 
@@ -144,7 +202,7 @@ Reproduce from those dependency wheels with network access disabled:
 Install the complete requested bundle on the matching offline target:
 
 ```powershell
-python -m pip install --no-index --find-links RELEASE --find-links RELEASE/dependencies "analytics311[mcp,geo]==0.5.0"
+python -m pip install --no-index --find-links RELEASE --find-links RELEASE/dependencies "analytics311[mcp,geo]==0.7.0"
 python -m analytics311 mcp
 ```
 
@@ -171,8 +229,8 @@ Version 0.4 adds a checked-in bundler; historical 0.3 archives were assembled on
 After a successful release build, create an archive with:
 
 ```powershell
-.venv/Scripts/python tools/package_bundle.py --release dist/release-core-v0.5 --output dist/analytics311-0.5.0-core.zip
-.venv/Scripts/python tools/package_bundle.py --release dist/release-agent-v0.5 --output dist/analytics311-0.5.0-cp312-win-amd64-agent.zip
+.venv/Scripts/python tools/package_bundle.py --release dist/release-core-v0.7 --output dist/analytics311-0.7.0-core-copy.zip
+.venv/Scripts/python tools/package_bundle.py --release dist/release-agent-v0.7 --output dist/analytics311-0.7.0-cp312-win-amd64-agent-copy.zip
 ```
 
 Use the actual fresh release directory selected with `build_release.py --output`.
@@ -213,7 +271,7 @@ bounded reference backend. They do not estimate Elasticsearch throughput or
 million-record capacity. Increase rows explicitly, up to the tool's 100,000-row
 limit, on a machine with sufficient resources.
 
-## Live execution kit
+## Historical 0.5 live execution kit
 
 `dist/analytics311-0.5.0-live-kit-r2.zip` adds the real acceptance runner, Compose file, three configuration files and standalone `RUN-LIVE.md` to the exact verified core contents. The final archive is **356,920 bytes / 18 entries**; every CRC, size and SHA256 was independently checked, all eleven original entries are byte-identical and all six additions match current source. [Receipt](../examples/evidence/live-kit-v0.5-r2.json), [runbook](live-runbook.md). The first live kit remains historical; revision 2 corrects the boundary join to use the actual `NTA2020` property against result `nta2020`.
 
