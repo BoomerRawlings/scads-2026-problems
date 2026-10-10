@@ -54,7 +54,7 @@
     "limitation": "CPU resource limits and this one model are experimental, not a universal hardware minimum. Before each owned-server campaign, one metadata-only request may populate an identical prompt-prefix cache; startup cost is measured separately. Timed trials still begin with fresh conversations; cache reuse is not guaranteed or proof of cold latency.",
     "prefix_warmup": {
       "policy": "metadata-prefix-v1",
-      "request_seconds": 900,
+      "request_seconds": 300,
       "max_output_tokens": 1,
       "seed": 0
     },

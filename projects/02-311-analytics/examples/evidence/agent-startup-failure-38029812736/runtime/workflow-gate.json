@@ -1,0 +1,9 @@
+{
+  "checks": {
+    "corpus": false,
+    "agent": false
+  },
+  "automatic_gates_passed": false,
+  "semantic_review": "pending",
+  "overall_release_verified": false
+}

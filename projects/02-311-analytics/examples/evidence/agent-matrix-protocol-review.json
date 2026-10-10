@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "evidence_kind": "independent_ai_design_and_archive_binding_review",
+  "reviewed_at": "2026-10-10T20:38:29.925113+00:00",
+  "reviewer": {
+    "role": "separate implementation-review agent",
+    "was_answering_model": false,
+    "independent_human": false
+  },
+  "scope": "Prospective three-host agent matrix workflow and strict archive merger; no model or live-service execution in this review.",
+  "sources": {
+    "workflow": {
+      "path": "runs/project2-agent-matrix.yml",
+      "bytes": 36435,
+      "sha256": "8d06a11bee9cabd436d314019e99231a64f29735b2e5404c7170873bab47ee8b",
+      "intended_repository_path": ".github/workflows/project2-agent-matrix.yml"
+    },
+    "merger": {
+      "path": "tools/agent_campaign.py",
+      "bytes": 20366,
+      "sha256": "6e0045f73a7d484c4f239d92e079fd16c7843a92b6445d73985849d93e0300d9"
+    },
+    "protocol": {
+      "path": "docs/agent-campaign-v1.json",
+      "bytes": 887089,
+      "sha256": "9194c713896130a598c160d3ffe5b541b21ac40f467d5454c3cf6f2e9a33c8d6"
+    },
+    "runtime_spec": {
+      "path": "docs/local-model-runtime.json",
+      "bytes": 3002,
+      "sha256": "0de2a21c278db7d268041173fdb73ab7b928c4f23e5a4dcccc5c44215df15b17"
+    },
+    "adapter": {
+      "path": "tools/local_agent.py",
+      "bytes": 42092,
+      "sha256": "ca4555771f7c3e99f4b7e1cd932d0a61fbe1e0dad882d0313f6d71b41fd371c7"
+    },
+    "evaluator": {
+      "path": "tools/agent_evaluation.py",
+      "bytes": 69947,
+      "sha256": "50b8ba825ef115c153c573b07322b78a09333e58e8f6d9808a1afeaa8f2dee99"
+    },
+    "merger_tests": {
+      "path": "tests/test_agent_campaign.py",
+      "bytes": 14865,
+      "sha256": "096d6660689d1a1549f153f39fbc3440af32c085c4e52fc37027a15b23442d46"
+    }
+  },
+  "verdict": "No remaining critical issue in the reviewed scope. Execution and quality remain unqualified.",
+  "checks": {
+    "three_repetitions_forty_cases_each": true,
+    "fixed_120_denominator_90_percent_minimum_one_pass_each_question": true,
+    "semantic_review_required_without_invented_scores": true,
+    "startup_only_300_to_900_amendment_against_zero_question_predecessor": true,
+    "exact_historical_negative_development_artifact_retains_failure": true,
+    "unchanged_trial160_request120_max24_model_settings": true,
+    "five_manifest_volatile_paths_qualification_validated_first": true,
+    "actual_maps_profile_selected_not_placeholder_profile": true,
+    "five_kibana_ids_bound_to_own_provision_before_portability_exemption": true,
+    "unknown_profile_and_provision_fields_remain_bound": true,
+    "own_nine_key_metadata_request_identity_reconstructed": true,
+    "exact_data_catalog_cases_database_code_runtime_model_policy_invariants": true,
+    "own_trial_freeze_launch_warmup_and_review_hashes_required": true,
+    "declared_native_build_variation_only_unknown_roles_rejected": true,
+    "per_host_latency_preserved": true,
+    "shell_exit_one_does_not_skip_exact_forty_trial_assertion": true,
+    "job300min_envelope_inference130min_bound": true,
+    "always_merge_retains_stdout_stderr_exit_and_hash_receipt_on_failure": true,
+    "no_existing_downloaded_replica_silently_omitted": true,
+    "release_and_visual_quality_not_inferred_from_automatic_agent_gate": true
+  },
+  "independent_validation": {
+    "yaml_parsed": true,
+    "inline_python_blocks_compiled": 9,
+    "merger_protocol_source_hash_matches": true,
+    "focused_test_command": "python -m unittest tests.test_agent_campaign -q",
+    "focused_tests": 15,
+    "focused_passed": 15,
+    "focused_seconds": 11.606,
+    "actual_metadata_cross_checks": {
+      "run_ids": [
+        38029812736,
+        38030378224,
+        38031560273
+      ],
+      "all_own_actual_profile_metadata_identities_match": true,
+      "logical_manifest_actual_profile_provision_freeze_invariants_equal": true
+    },
+    "reviewed_merge_failure_control_flow": true
+  },
+  "separate_workflow_author_validation": {
+    "receipt": {
+      "path": "runs/agent-matrix-workflow-validation.json",
+      "bytes": 26996,
+      "sha256": "f253b4f7cb72196083f617c8a7f96dc7ed62314f8b544752a9fbc90953473fb0"
+    },
+    "reported_provenance_mutations_rejected": 15,
+    "attribution": "Executed by workflow author; independent reviewer inspected final control flow and compiled embedded Python, not those mutation executions."
+  },
+  "limits": [
+    "Review is code/design and retained-artifact validation, not a successful120-trial study or live runtime qualification.",
+    "Three repetitions share a question set and each seed is paired with one host; no independent-question, hardware-invariance or human-gold claim.",
+    "Metadata prompts legitimately differ at declared index identity and extraction time; each exact request is bound, not claimed byte-identical across hosts.",
+    "Native binaries and dynamic libraries may vary by host; own inventories and per-host timings remain evidence.",
+    "Malformed existing replica evidence fails the merger and retains diagnostic receipts; missing trials remain in the120 denominator and never become passes.",
+    "The900-second metadata startup remains separately measured; it establishes neither cold latency nor guaranteed cache reuse.",
+    "Review does not cryptographically attest runner/operator state; repository and artifact provenance remain separately retained."
+  ]
+}

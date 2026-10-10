@@ -231,6 +231,45 @@ class OracleTests(unittest.TestCase):
 
 
 class ProtocolTests(unittest.TestCase):
+    def test_extended_metadata_startup_changes_only_transport_budget(self):
+        requests = []
+        response = {"choices": [{"message": {"role": "assistant", "content": "DISCARDED"}}],
+                    "usage": {"prompt_tokens": 123, "completion_tokens": 1, "total_tokens": 124}}
+        model = local_agent.LocalModel("http://127.0.0.1:8080/v1", "unit-model", request_seconds=120)
+        def respond(client, path, payload, **kwargs):
+            requests.append((client.request_seconds, copy.deepcopy(payload), kwargs["timeout"]))
+            return response
+        with patch.object(local_agent.LocalModel, "request", autospec=True, side_effect=respond):
+            cold_bound = local_agent.warm_metadata_prefix(MetadataService(), model, seconds=300)
+            extended = local_agent.warm_metadata_prefix(MetadataService(), model, seconds=900)
+        self.assertTrue(cold_bound["passed"] and extended["passed"])
+        self.assertEqual(len(requests), 2)  # Exactly one request per explicit startup invocation.
+        self.assertEqual([item[0] for item in requests], [300, 900])
+        self.assertEqual(requests[0][1], requests[1][1])
+        self.assertEqual(cold_bound["request_sha256"], extended["request_sha256"])
+        self.assertEqual((model.request_seconds, requests[1][1]["max_tokens"], requests[1][1]["seed"]), (120, 1, 0))
+        self.assertLessEqual(requests[1][2], 900)
+        self.assertFalse(any(message["role"] == "user" for message in requests[1][1]["messages"]))
+        self.assertNotIn("DISCARDED", json.dumps(extended))
+        policy = {"policy": "metadata-prefix-v1", "request_seconds": 900, "max_output_tokens": 1, "seed": 0}
+        self.assertEqual(local_agent.prefix_warmup_policy({"inference": {"prefix_warmup": policy}}), policy)
+        with self.assertRaisesRegex(local_agent.AgentFailure, "invalid_model_budget"):
+            local_agent.LocalModel("http://127.0.0.1:8080/v1", "unit-model", request_seconds=901)
+
+    def test_extended_metadata_startup_still_counts_discovery_and_fails_closed(self):
+        clock = [0]
+        def metadata():
+            clock[0] = 901
+            return discovery()
+        model = local_agent.LocalModel("http://127.0.0.1:8080/v1", "unit-model", request_seconds=120)
+        with patch.object(local_agent.time, "monotonic", side_effect=lambda: clock[0]), patch.object(local_agent.LocalModel, "request") as request:
+            receipt = local_agent.warm_metadata_prefix(SimpleNamespace(describe_dataset=metadata), model, seconds=900)
+        self.assertFalse(receipt["passed"])
+        self.assertEqual(receipt["error"], {"code": "prefix_warmup_deadline"})
+        self.assertEqual(receipt["elapsed_seconds"], 901)
+        self.assertEqual(model.request_seconds, 120)
+        request.assert_not_called()
+
     def test_metadata_warmup_matches_trial_prefix_without_question_or_generated_content(self):
         requests = []
         response = {"choices": [{"message": {"role": "assistant", "content": "DISCARDED GENERATED TEXT",
@@ -301,7 +340,7 @@ class ProtocolTests(unittest.TestCase):
             receipt = local_agent.warm_metadata_prefix(MetadataService(), model)
             self.assertEqual(receipt["error"], {"code": "model_timeout"})
         with patch.object(local_agent.LocalModel, "request") as request:
-            for seconds in (True, 0, 301):
+            for seconds in (True, 0, 901):
                 receipt = local_agent.warm_metadata_prefix(MetadataService(), model, seconds=seconds)
                 self.assertEqual(receipt["error"], {"code": "invalid_prefix_warmup_budget"})
             receipt = local_agent.warm_metadata_prefix(SimpleNamespace(describe_dataset=lambda: {"error": {"code": "unavailable"}}), model)
@@ -324,7 +363,7 @@ class ProtocolTests(unittest.TestCase):
         self.assertIsNone(local_agent.prefix_warmup_policy({}))
         valid = {"policy": "metadata-prefix-v1", "request_seconds": 300, "max_output_tokens": 1, "seed": 0}
         self.assertEqual(local_agent.prefix_warmup_policy({"inference": {"prefix_warmup": valid}}), valid)
-        for change in ({"request_seconds": 301}, {"request_seconds": True}, {"max_output_tokens": 2}, {"seed": 101}, {"policy": "unknown"}, {"question": "forbidden"}):
+        for change in ({"request_seconds": 901}, {"request_seconds": True}, {"max_output_tokens": 2}, {"seed": 101}, {"policy": "unknown"}, {"question": "forbidden"}):
             with self.subTest(change=change), self.assertRaisesRegex(local_agent.AgentFailure, "invalid_prefix_warmup_policy"):
                 local_agent.prefix_warmup_policy({"inference": {"prefix_warmup": dict(valid, **change)}})
         with self.assertRaises(local_agent.AgentFailure):
@@ -383,6 +422,10 @@ class ProtocolTests(unittest.TestCase):
         definition = evaluation.load(evaluation.RUNTIME_SPEC)
         if not warmup:
             definition["inference"].pop("prefix_warmup", None)
+        else:
+            # This unit fixture exercises the still-supported300s helper default;
+            # the prospective900s campaign has its own transport-bound tests.
+            definition["inference"]["prefix_warmup"]["request_seconds"] = 300
         definition["model_alias"] = "unit-model"
         files = []
         for role in ("model", "server", "build_configuration"):

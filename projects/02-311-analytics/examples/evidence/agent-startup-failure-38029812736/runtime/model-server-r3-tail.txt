@@ -1,0 +1,26 @@
+warning: no usable GPU found, --gpu-layers option will be ignored
+warning: one possible reason is that llama.cpp was compiled without GPU support
+warning: consult docs/build.md for compilation instructions
+0.00.004.187 I srv  llama_server: initializing ...
+0.00.004.220 I cmn  common_param: common_params_print_info: verbosity = 3 (adjust with the `-lv N` CLI arg)
+0.00.004.802 W srv  llama_server: security: no API key is set and CORS allows all origins (see https://github.com/ggml-org/llama.cpp/pull/25655)
+0.00.008.767 I srv    load_model: loading model 'data/local-model/Qwen3-1.7B-Q4_K_M.gguf'
+0.00.458.309 W load: control-looking token: 128247 '</s>' was not control-type; this is probably a bug in the model. its type will be overridden
+0.01.570.270 I cmn          init: llama threadpool init, n_threads = 4
+0.01.851.210 I srv    load_model: initializing, n_slots = 1, n_ctx_slot = 24576, kv_unified = 'false'
+0.01.860.821 I srv  llama_server: model loaded
+0.01.860.836 I srv  llama_server: listening on http://127.0.0.1:8080
+0.01.860.837 W srv  llama_server: notice: server default port will be changed to :9931 in a future release (ref: https://github.com/ggml-org/llama.cpp/pull/26508)
+0.04.501.217 I slot get_availabl: id  0 | task -1 | selected slot by LRU, t_last = -1
+0.04.503.846 I slot launch_slot_: id  0 | task 0 | processing task, is_child = 0
+0.44.467.029 I slot print_timing: id  0 | task 0 | prompt processing, n_tokens =   2048, progress = 0.20, t =  39.96 s / 51.25 tokens per second
+1.34.798.922 I slot print_timing: id  0 | task 0 | prompt processing, n_tokens =   4096, progress = 0.40, t =  90.29 s / 45.36 tokens per second
+2.36.411.430 I slot print_timing: id  0 | task 0 | prompt processing, n_tokens =   6144, progress = 0.60, t = 151.91 s / 40.45 tokens per second
+3.49.168.096 I slot print_timing: id  0 | task 0 | prompt processing, n_tokens =   8192, progress = 0.81, t = 224.66 s / 36.46 tokens per second
+5.04.556.826 W srv          stop: cancel task, id_task = 0
+5.10.313.607 I slot print_timing: id  0 | task 0 | prompt eval time =  305809.68 ms / 10163 tokens (   30.09 ms per token,    33.23 tokens per second)
+5.10.313.677 I slot print_timing: id  0 | task 0 |        eval time =       0.00 ms /     1 tokens (    0.00 ms per token,     0.00 tokens per second)
+5.10.313.710 I slot print_timing: id  0 | task 0 |       total time =  305809.68 ms / 10164 tokens
+5.10.313.739 I slot print_timing: id  0 | task 0 |    graphs reused =          1
+5.10.314.959 I slot      release: id  0 | task 0 | stop processing: n_tokens = 10163, truncated = 0
+5.10.315.116 I srv    operator(): operator(): cleaning up before exit...

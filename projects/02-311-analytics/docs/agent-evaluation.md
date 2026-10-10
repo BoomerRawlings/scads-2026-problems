@@ -239,7 +239,8 @@ execution identities or altered/missing launch receipts. Changing a budget or
 model after failures requires a separate declared study, never replacement trials.
 
 The prospective runtime pin now declares `inference.prefix_warmup` with policy
-`metadata-prefix-v1`, a 300-second startup bound, seed 0 and one output token.
+`metadata-prefix-v1`, a900-second startup bound, seed0 and one output token
+(the earlier300-second configuration and failures are preserved below).
 After runtime identity verification, the adapter makes one metadata-only model
 request for each owned-server launch. Its messages are exactly the timed trial's
 system, fixed discovery tool-call envelope and actual projected discovery response,
@@ -337,7 +338,9 @@ Bind independent semantic judgments to exact immutable trial bytes:
 python tools/agent_evaluation.py review --freeze runs/agent-freeze-v1.json --runs runs/agent-evaluation-v1 --reviews runs/independent-reviews.json --output runs/agent-reviewed-v1.json
 ```
 
-For separate CI repetitions, pass all three run directories after `--runs`.
+For repetitions sharing one freeze and execution identity, pass all three run
+directories after `--runs`. Independently indexed host replicas use the campaign
+merger below; their freeze and runtime identities must never be rewritten to match.
 Review JSON contains `freeze_sha256`, a `reviewer` object with `id`, `kind`
 (`independent_ai_session` or `independent_human`) and `was_answering_agent:false`,
 then a `reviews` array. Each review identifies `question_id`, `repeat`,
@@ -357,3 +360,78 @@ Publish reviewed summary receipts and selected sanitized evidence rather than
 unreviewed record-level tool output. Focused checks passing locally
 used five authored records and mock model responses; they are implementation checks,
 not real model, live engine or million-record benchmark evidence.
+
+## Prospective startup and replica amendment
+
+Campaign38029812736 reached zero held-out questions. All three starts timed out
+at the300-second metadata-only limit. Retained server timing records show10,163
+prompt tokens finishing after316.612,316.210 and305.810seconds respectively,
+after cancellation; this is failed startup evidence, not120 attempted answers.
+The original runtime definition remains in
+`docs/local-model-runtime-qwen3-1-7b-startup300.json`.
+
+Before any held-out exposure, the new runtime permits one metadata-only startup
+request lasting at most900seconds. The only adapter changes are three transport
+and startup upper-bound literals. The request body, system instructions, schema,
+model, native build flags, temperature, seeds and output limit remain unchanged.
+Analytical trials still have160seconds total,120seconds per model request and24
+shared tool calls. No extra retries, hidden prewarms or question content enter
+startup. Generated startup content is discarded; measured startup time stays
+separate from per-question latency. The earlier failed development smoke remains
+failed and establishes no model-quality qualification.
+
+Three isolated CI jobs execute repetitions1,2 and3 against independently frozen
+Elasticsearch replicas of the same captured and normalized bytes. Each job has
+its own index UUID, manifest, metadata request, native binary/library inventory
+and measured host timings. Visible UUID and extraction timestamps can therefore
+differ in the model's metadata; prompts are not claimed byte-identical across
+hosts. Each fresh question retains its specified seed and empty conversation
+history beyond the disclosed metadata prefix. Three40-trial jobs avoid the
+single-job ceiling:160seconds times40 is106.7minutes, plus at most15minutes for
+startup, with separate setup allowance. Each job permits300minutes so the declared
+core, asset, build and inference step bounds fit together. Actual scheduling and setup remain
+measured constraints, not guaranteed capacity.
+
+`tools/agent_campaign.py` is an offline evidence checker, outside the candidate
+adapter and grader. Its prospective `docs/agent-campaign-v1.json` pins the original
+zero-exposure freeze, all40 oracle cases, question/source/normalized/database/NTA/
+catalog hashes, candidate code and runtime, generation settings,160/120/24 budgets
+and the120/.90/at-least-one-pass-per-question/semantic-review gates.
+
+Before each replica's model starts:
+
+```text
+python -m tools.agent_campaign verify-replica --protocol docs/agent-campaign-v1.json --root runs --repetition 1
+```
+
+Each artifact preserves `real-v1/{agent-freeze,index.manifest,catalog,acceptance,maps-profile,maps-provision}.json`,
+`agent-v1/` immutable trials and runtime/warmup receipts, and the `runtime/` host
+observations. Comparison qualification is revalidated before allowing exactly
+five manifest differences: top-level `extracted_at` and `index_uuid`, ingestion
+`index_uuid`, and qualification `index_uuid` and its derived digest. All other
+manifest content stays exact, including unknown source text, coverage warnings,
+raw-source reconciliation and quality counts. Profile differences are limited to
+the three local paths for manifest, catalog and results and five generated Kibana
+IDs. The profile is the actual `acceptance.agent_config` (`maps-profile.json`),
+not the placeholder configuration. Every generated ID must match its own passed
+Maps-provision receipt; source/result/boundary indices, official boundary hash,
+262-shape count, exact no-time data views and all other capabilities stay bound.
+Analytical limits remain exact. Each metadata-prefix identity is reconstructed
+from its own complete manifest/catalog/profile. Native server, library and build
+configuration hashes may differ across hosts; model/source hashes and all launch
+arguments remain fixed. Each launch remains bound to its own immutable receipt.
+
+Merge without modifying any trial or presenting absent judgments as reviews:
+
+```text
+python -m tools.agent_campaign merge --protocol docs/agent-campaign-v1.json --replica 1=runs/replica-1 --replica 2=runs/replica-2 --replica 3=runs/replica-3 --output runs/campaign-automatic.json
+python -m tools.agent_campaign merge --protocol docs/agent-campaign-v1.json --replica 1=runs/replica-1 --replica 2=runs/replica-2 --replica 3=runs/replica-3 --reviews 1=runs/reviews-1.json --reviews 2=runs/reviews-2.json --reviews 3=runs/reviews-3.json --output runs/campaign-reviewed.json
+```
+
+Review files retain their own replica freeze hash. The existing reviewer checks
+each replica's trial/launch/warmup bindings before the merger applies the shared
+120-trial gates. Missing replicas or judgments remain in the denominator; supplied
+foreign or corrupted evidence fails closed. A40-file completion assertion is
+separate from model quality. The merged report retains per-host latency and native
+identity as well as pooled results. Passing model quality still does not establish
+human-held-out generalization, rendered Maps parity or an overall release.

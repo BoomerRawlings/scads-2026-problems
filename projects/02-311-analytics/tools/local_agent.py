@@ -187,7 +187,7 @@ class LocalModel:
         self.host, self.port, self.prefix = endpoint_parts(endpoint)
         if not isinstance(model, str) or not model or len(model) > 256:
             raise AgentFailure("invalid_model")
-        if not 1 <= request_seconds <= 300 or not 4096 <= max_context_bytes <= 2 * 1024 * 1024:
+        if not 1 <= request_seconds <= 900 or not 4096 <= max_context_bytes <= 2 * 1024 * 1024:
             raise AgentFailure("invalid_model_budget")
         self.model, self.request_seconds, self.max_context_bytes = model, request_seconds, max_context_bytes
 
@@ -491,7 +491,7 @@ def prefix_warmup_policy(definition):
         return None
     if (not isinstance(policy, dict) or set(policy) != {"policy", "request_seconds", "max_output_tokens", "seed"}
             or policy.get("policy") != PREFIX_WARMUP_POLICY
-            or type(policy.get("request_seconds")) is not int or not 1 <= policy["request_seconds"] <= 300
+            or type(policy.get("request_seconds")) is not int or not 1 <= policy["request_seconds"] <= 900
             or type(policy.get("max_output_tokens")) is not int or policy["max_output_tokens"] != 1
             or type(policy.get("seed")) is not int or policy["seed"] != 0):
         raise AgentFailure("invalid_prefix_warmup_policy")
@@ -530,7 +530,7 @@ def warm_metadata_prefix(service, model, *, seconds=300):
                "generated_content_retained": False, "context_projection": CONTEXT_PROJECTION,
                "usage": {}, "server_timings": {}}
     try:
-        if type(seconds) is not int or not 1 <= seconds <= 300:
+        if type(seconds) is not int or not 1 <= seconds <= 900:
             raise AgentFailure("invalid_prefix_warmup_budget")
         # A separate request deadline leaves the answering model's limits intact.
         host = "[" + model.host + "]" if ":" in model.host else model.host
