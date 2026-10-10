@@ -1,24 +1,20 @@
 {
   "schema_version": 1,
-  "observed_at": "2026-10-10T05:45:13.789130+00:00",
+  "observed_at": "2026-10-10T05:22:12.814217+00:00",
   "evidence_kind": "focused_implementation_checks",
-  "command": "python -m unittest tests.test_contracts tests.test_fixture tests.test_guide tests.test_service tests.test_settings tests.test_agent_evaluation -q",
-  "tests": 134,
-  "passed": 134,
+  "command": "python -m unittest tests.test_agent_evaluation -q",
+  "tests": 61,
+  "passed": 61,
   "failures": 0,
   "errors": 0,
   "skipped": 0,
-  "reported_elapsed_seconds": 6.466,
-  "fixture_rows": [
-    5,
-    7,
-    32
-  ],
+  "reported_elapsed_seconds": 2.951,
+  "fixture_rows": 5,
   "actual_agent_trials": 0,
   "live_services_started": false,
   "million_record_acceptance": false,
   "limits": [
-    "Authored bounded fixtures, independent tiny SQLite rows and mock model messages only.",
+    "Tiny authored SQLite rows and mock model messages only.",
     "No model/service download or startup on this host.",
     "Independent review corrected synthetic-corpus admission, record-preview grading and per-stage numeric evidence.",
     "Actual model execution, 120-trial score, semantic review, second client and rendered maps require separate evidence.",
@@ -31,24 +27,15 @@
     "Public AnalysisSpec schemas validate with JSONschema and public examples; actual pinned llama grammar acceptance remains a separate development-smoke gate.",
     "Metadata-only startup, deadline, usage, immutable launch-bound receipt/resume, no generated-content/tool execution and process-memory parsing use authored metadata and mock model responses; no actual cache reuse or runtime memory measured locally.",
     "Prospective24,576-token context derives from independently read pinned GGUF header; storage arithmetic is not a total-memory capacity measurement.",
-    "Independent review required exact warmup input identity binding at prepare; a different-metadata receipt with relabeled runtime identity and recomputed file hash is rejected.",
-    "Prospective public preview default5 is checked against explicit12/100 previews, exact32 totals, complete32-ID CSV and independent7-row oracle; no actual model performance or quality established for this changed revision."
+    "Independent review required exact warmup input identity binding at prepare; a different-metadata receipt with relabeled runtime identity and recomputed file hash is rejected."
   ],
   "files_sha256": {
-    "tools/agent_evaluation.py": "50b8ba825ef115c153c573b07322b78a09333e58e8f6d9808a1afeaa8f2dee99",
-    "tools/local_agent.py": "294a079720ddc9023c715a25bd81b442331647ab7ba167bf2d787966b4845436",
+    "tools/agent_evaluation.py": "47716672839816ad43f93fce1b809326bbd61f9d16a0d77f1318d812bdc1c5a2",
+    "tools/local_agent.py": "7ce9b65e737da9a428c1adb21b227fe707a2a9a6f1bf910b4a4ad4af863f9173",
     "examples/evaluation/questions-v1.json": "ed05a71b10fabe0a94dbd3b76e53d8751f10c6021b420e93d61ac634c634c132",
-    "tests/test_agent_evaluation.py": "333091f0968132c932deb6338c59afb68876ed307f52079d86b356f3249c7322",
-    "docs/agent-evaluation.md": "86b6288a3b78d9ca5fbaeba0468a10e86e5d9db7f5ac164750f1d5aee458c702",
-    "docs/local-model-runtime.json": "2ff41f3779e8c2e342281239f06a22130474f622ab487ffdc2530e5e510a37d9",
-    "analytics311/contracts.py": "0f25afaae9fa4b8d1d414105899366b92a537b3374ae1a4e1af628b5587da331",
-    "docs/build-plan.md": "0063b95c410f5b90b2f5f13104efa9adc4886deeb9f6ca5cea28965702f6c179",
-    "docs/tool-contract.md": "cc4cd2b22ca7f5bec20d07dae99ef18091022a232d878b9f732cef8f7a106ce2",
-    "analytics311/guide.py": "69e970e099c8698c19006733b8e25d24157b367e35d2d4b7478c4e4ee4513d85",
-    "tests/test_service.py": "064fdd5edde7111818b006f9bf6f4b009e680fbf87dc2435b1ad0fe8c0eb617a",
-    "tests/test_contracts.py": "b5367cc10bcf2ffceb2f2a2f3ce1316ad23d7d8eccc1c11bc6056a5b7415a6e5",
-    "analytics311/fixture.py": "738588c8d120789eb28890ebcd29176e83215980bbb08a8ccb3fbec53d1e2dc6",
-    "tests/test_settings.py": "122af1ad3c349ecda3da939456b70a96fb93654b916ba4c20221c468a2392c9f"
+    "tests/test_agent_evaluation.py": "985f589349eff6298cf4454eefc557e4c045bf503ff8fc45d6bd20f8026a620c",
+    "docs/agent-evaluation.md": "0a041dc303dda2f4a05e978e9497362deeb70dc8f56543ff1e1068cc7f9edf13",
+    "docs/local-model-runtime.json": "2ff41f3779e8c2e342281239f06a22130474f622ab487ffdc2530e5e510a37d9"
   },
   "context_projection": {
     "version": "discovery-rules-v1",
@@ -80,19 +67,8 @@
     "request_seconds": 300,
     "max_output_tokens": 1,
     "seed": 0,
+    "actual_model_rerun": false,
     "cold_failure_receipt": "examples/evidence/qwen3-1-7b-development-cold-prefix-failure.json",
-    "context_estimate_receipt": "examples/evidence/qwen3-1-7b-context-budget.json",
-    "prior_actual_model_run": 38027531995,
-    "prior_actual_warmup_passed": true,
-    "prior_first_question_cached_tokens": 7224,
-    "current_revision_model_rerun": false
-  },
-  "preview_default": {
-    "rows": 5,
-    "explicit_max_rows": 100,
-    "counts_and_csv_membership_unchanged": true,
-    "source_failure": "examples/evidence/model-smoke-38027531995/summary.json",
-    "prior_source_failure_preserved": true,
-    "changed_revision_model_rerun": false
+    "context_estimate_receipt": "examples/evidence/qwen3-1-7b-context-budget.json"
   }
 }

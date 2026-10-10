@@ -276,7 +276,7 @@ class Oracle:
 
     def preview_ids(self, spec):
         where, args = self.where(spec)
-        limit = spec.get("preview_limit", 100)
+        limit = spec.get("preview_limit", 5)
         if type(limit) is not int or not 1 <= limit <= 100:
             raise ValueError("oracle_preview_budget")
         rows = self.db.execute("SELECT unique_key FROM requests WHERE " + where

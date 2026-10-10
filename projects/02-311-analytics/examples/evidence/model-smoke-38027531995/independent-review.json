@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "evidence_kind": "independent_offline_review_of_actual_failed_development_smoke",
+  "reviewed_at": "2026-10-10T05:41:42.963217+00:00",
+  "review_script_sha256": "5d6d8d66017a39c5ffdbe0e12cfa951245ea4b6a6a95060471eaaf375dd43d14",
+  "run": {
+    "id": 38027531995,
+    "head_sha": "07617587eb8908cd5d5fea2e95c46cbe086a3f41",
+    "status": "completed",
+    "conclusion": "failure",
+    "created_at": "2026-10-10T05:26:54Z",
+    "updated_at": "2026-10-10T05:38:06Z",
+    "url": "https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/38027531995"
+  },
+  "copied_files": [
+    {
+      "source": "summary.json",
+      "bytes": 4493,
+      "sha256": "5bc384fe8dd226e1d9613bb04b41a44d9bb0c75a437b37d0c9becfe2f9ddc354",
+      "copied_exactly": true
+    },
+    {
+      "source": "trace.json",
+      "bytes": 62948,
+      "sha256": "e69621085a775edd56581197b18364966dac4a7d68fea6ccd52c29d92d026350",
+      "copied_exactly": true
+    },
+    {
+      "source": "runtime/metadata-prefix-warmup.json",
+      "bytes": 1450,
+      "sha256": "1733daa2e1e136112798642ad8d98692f2b94ac7acc13545ccd5988c4ac53b3c",
+      "copied_exactly": true
+    },
+    {
+      "source": "runtime/model-assets.json",
+      "bytes": 3395,
+      "sha256": "223d51f9a5e4e1dc55524c7370bf1a9ceb08e7921832ffe361b83219025c23fb",
+      "copied_exactly": true
+    },
+    {
+      "source": "runtime/asset-downloads.json",
+      "bytes": 370,
+      "sha256": "1ca387a42456f3bfa41d8a7d139369adc9cd04208d983301948977a150bee24d",
+      "copied_exactly": true
+    },
+    {
+      "source": "runtime/native-build.json",
+      "bytes": 219,
+      "sha256": "68499baa2bd859d46e7c654e09d65f962d2899192e520561f62b28dd89996d44",
+      "copied_exactly": true
+    },
+    {
+      "source": "runtime/native-benchmark.json",
+      "bytes": 2362,
+      "sha256": "bcee55f29cf5989192f1e986aed9ec6562bb68dae766c2f66934b0150cabce56",
+      "copied_exactly": true
+    },
+    {
+      "source": "runtime/release-benchmark.json",
+      "bytes": 2352,
+      "sha256": "5330001c39785780544eb3f216e19984939e6cfaf3a6da89021eb96b70020d92",
+      "copied_exactly": true
+    },
+    {
+      "source": "runtime/real-metadata-tokenization.json",
+      "bytes": 512,
+      "sha256": "813f0442273eb98550ec41d6942f89e6723287dbac08734592710e3d63322f10",
+      "copied_exactly": true
+    },
+    {
+      "source": "runtime/host.json",
+      "bytes": 1364,
+      "sha256": "a0fa8206725fed072f97ee5e31e395cc0c8d8b4f788e8aa205c54e78a684dede",
+      "copied_exactly": true
+    },
+    {
+      "source": "runtime/model-health.json",
+      "bytes": 16,
+      "sha256": "08e2c358ce13cb67f94ebb35b0f67c8763190a857c0db68da6eb196dfe9da46a",
+      "copied_exactly": true
+    },
+    {
+      "source": "runtime/native-resources.txt",
+      "bytes": 865,
+      "sha256": "42a649ef790d0b4a97c2bf524af01af831cdb0aff699b446b7a084cd0d103833",
+      "copied_exactly": true
+    },
+    {
+      "source": "runtime/release-resources.txt",
+      "bytes": 873,
+      "sha256": "363f213efe4bdc1bd28ca88f49ec998bdff1c59d9ce1e2bbd82826159f70148c",
+      "copied_exactly": true
+    },
+    {
+      "source": "runtime/model-server-tail.txt",
+      "bytes": 3459,
+      "sha256": "0bb6ab0469eb82fc788961608bd3a2a3c5fe4daee9e2988a6f639236c63b0a27",
+      "copied_exactly": true
+    },
+    {
+      "source": "runtime/cpu.txt",
+      "bytes": 3189,
+      "sha256": "4476e601951bb5e5dc85ca4b9d2e3bc795bb83c0d4e62b8d9f2bdec6659b0e7a",
+      "copied_exactly": true
+    },
+    {
+      "source": "runtime/compiler.txt",
+      "bytes": 246,
+      "sha256": "88b7c4b67564a146863224148116065fee418539f0a408f3636a68f3bde51805",
+      "copied_exactly": true
+    },
+    {
+      "source": "runtime/blas-package.txt",
+      "bytes": 43,
+      "sha256": "0a48eec74661a5ca2ee87cb603003df9f5ccd559efd8034be1576cda2e4c1b91",
+      "copied_exactly": true
+    },
+    {
+      "source": "runtime/llama-version.txt",
+      "bytes": 84,
+      "sha256": "d64ed60f024df2d1390d3df5b15edf2d5bbbc038e2914fa2d6c85f67b8e92d4d",
+      "copied_exactly": true
+    }
+  ],
+  "copied_bytes": 88240,
+  "review_checks_passed": true,
+  "smoke_passed": false,
+  "held_out_trials": 0,
+  "observations": {
+    "metadata_only_startup_seconds": 190.317026,
+    "startup_prompt_tokens": 7230,
+    "startup_completion_tokens": 1,
+    "first_model_response_seconds": 9.067444,
+    "first_response_prompt_cached_tokens": 7224,
+    "first_response_prompt_new_tokens": 55,
+    "model_initiated_analysis_spec": {
+      "dataset_version": "fixture-v1",
+      "operation": "records"
+    },
+    "analysis_total": 32,
+    "final_answer": null,
+    "projected_result_utf8_bytes": 11663,
+    "failed_trial_seconds_excluding_startup": 129.073621,
+    "measured_smoke_wall_seconds_including_startup": 319.441767,
+    "failure": "model_timeout on request after the record result; no final answer",
+    "raw_server_tail": "Second request cancelled while prompt work remained; no completed response/timings for that request."
+  },
+  "limits": [
+    "One authored development question, 32 synthetic records; no real-corpus agent evaluation.",
+    "Warm prefix cache reuse and one valid count-bearing call do not qualify the failed conversational task.",
+    "Startup timing excludes earlier native compilation, model download, server loading and benchmarks.",
+    "Release/native benchmark samples use one 512-token prefill and one32-token decode sample each; not conversational latency or a controlled optimization study.",
+    "Resource TXT maximum RSS belongs to llama-bench processes, not the model-server trial; this artifact has no server VmRSS/VmHWM trial observations.",
+    "Receipt review checks retained evidence without rerunning inference or services.",
+    "Raw full trace, measurements and source downloads remain unchanged; no successful quality score inferred."
+  ]
+}

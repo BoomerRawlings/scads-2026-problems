@@ -155,9 +155,15 @@ Rejected top-level argument/spec keys receive bounded, explicit diagnostics;
 the adapter does not delete or repair model arguments. The third identical invalid
 call with the same tool, arguments and error code ends the trial as a retained
 failure. This applies to invalid arguments/specs and foreign result IDs, not
-transient backend failures. Small conversational record previews are recommended
-in the schema, but a requested larger valid preview remains available and no
-service default is changed. Full CSV membership is independent of preview size.
+transient backend failures. The public service default is five record-preview
+rows; explicit larger previews remain available up to the configured cap. The
+SYSTEM instruction directs count-only questions to an ungrouped count aggregation
+and requests an explicit small limit when individual records are needed. The
+adapter never rewrites analytical arguments or drops returned rows. Exact matching
+totals and full CSV membership remain independent of preview size. This prospective
+change follows the retained development timeout in
+`examples/evidence/model-smoke-38027531995/summary.json`; no held-out question
+had been executed. A smaller response is not yet proof of model success.
 
 Before the first model call of each real-data invocation, create a new runtime
 receipt after the owned Linux server is healthy. `--runtime-receipt` otherwise

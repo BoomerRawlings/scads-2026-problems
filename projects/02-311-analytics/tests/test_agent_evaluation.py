@@ -93,6 +93,23 @@ class OracleTests(unittest.TestCase):
         self.assertEqual(self.info["source_sha256"], evaluation.sha_file(self.source))
         self.assertEqual(result["rows"], [{"group": {}, "count": 5}])
 
+    def test_independent_preview_default_preserves_complete_membership(self):
+        rows = self.rows + [dict(self.rows[-1], unique_key=key, created_date=f"2025-10-{day:02}T04:00:00+00:00")
+                            for key, day in (("F", 4), ("G", 5))]
+        source, database = self.root / "seven.jsonl", self.root / "seven.sqlite"
+        source.write_text("".join(json.dumps(row) + "\n" for row in rows), encoding="utf-8")
+        evaluation.build_database(source, database, min_free_bytes=0)
+        oracle = evaluation.Oracle(database, CATALOG, ["R1", "R2"])
+        try:
+            default = oracle.evaluate(spec(operation="records"))
+            explicit = oracle.evaluate(spec(operation="records", preview_limit=7))
+        finally:
+            oracle.close()
+        self.assertEqual(default["preview_ids"], ["A", "B", "C", "D", "E"])
+        self.assertEqual(explicit["preview_ids"], ["A", "B", "C", "D", "E", "F", "G"])
+        self.assertEqual(default["membership"], explicit["membership"])
+        self.assertEqual(default["membership"]["count"], 7)
+
     def test_no_application_compiler_or_fixture_imports(self):
         source = Path(evaluation.__file__).read_text(encoding="utf-8")
         for name in ("analytics311.compiler", "analytics311.contracts", "analytics311.fixture"):

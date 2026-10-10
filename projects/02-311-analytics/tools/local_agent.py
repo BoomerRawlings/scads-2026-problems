@@ -267,7 +267,7 @@ class LocalModel:
 
 def analysis_parameters():
     """Public AnalysisSpec shape; service validation still governs semantic combinations."""
-    from analytics311.contracts import FIELDS, METRICS
+    from analytics311.contracts import DEFAULT_PREVIEW_ROWS, FIELDS, METRICS
 
     def obj(properties, required=()):
         return {"type": "object", "properties": properties, "required": list(required), "additionalProperties": False}
@@ -320,7 +320,7 @@ def analysis_parameters():
         "group_by": dimensions, "metrics": metrics,
         "periods": obj({"baseline": bounds, "current": bounds}, ("baseline", "current")),
         "preview_limit": {"type": "integer", "minimum": 1, "maximum": 100,
-                          "description": "Use a small conversational preview such as 10 unless more rows were requested. CSV exports cover the full selected cohort independently."},
+                          "description": f"Default {DEFAULT_PREVIEW_ROWS} preview rows. Set an explicit small limit unless more rows were requested. Exact totals and CSV exports cover the full selected cohort independently."},
         "top_n": {"type": "integer", "minimum": 1, "maximum": 100},
         "rank_by": {"enum": ["count", "absolute_change", "relative_change", "rate_change"]},
         "rank_order": {"enum": ["asc", "desc"]},
@@ -425,6 +425,10 @@ unchanged dataset already supplied by the adapter; all other result fields are d
 No analysis or export IDs exist at the start. Call run_analysis with your chosen
 AnalysisSpec to create an analysis, then use its returned result_id. get_result
 only reads existing owned results; it cannot create an analysis or invent an ID.
+For count-only questions use operation="aggregate", metrics=["count"], group_by=[].
+Use records when individual request previews, request maps or record CSVs are needed;
+set preview_limit explicitly to at most 5 unless the requested preview needs more.
+Preview size never limits the exact matching total or a full-cohort CSV export.
 Check requested export jobs until complete; do not claim a queued CSV
 exists. Map links do not prove rendered parity. For errors explain limits, never
 invent answers. Return a final JSON object, without markdown fences:

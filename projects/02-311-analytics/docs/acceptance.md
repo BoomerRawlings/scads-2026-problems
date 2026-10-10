@@ -12,18 +12,46 @@ remain in [the historical v0.6 record](acceptance-v0.6.md).
 | Actual ≥2 million requests | All five stages reconcile2,133,268 rows; full raw and normalized hashes, ingested byte offset and frozen index UUID recorded | Acquisition/count target met for this captured window |
 | Neighborhood comparisons | Official262 NTA polygons/197 residential codes; qualified observed window; June/October rodent comparison matches independent SQL across196 represented neighborhoods | Agent-led chained comparisons and rendered neighborhood maps; population completeness remains unclaimed |
 | Elasticsearch/Kibana | Elasticsearch9.5.5 real-corpus filter/group/closure/geo/comparison parity and exact CSV membership passed; reusable point/trend maps and262 boundaries provisioned; third run reached the browser | All three browser checks timed out with an empty Maps/Create canvas; rendered filters/values/membership unverified |
-| Actual agent |40 prospective AI-authored questions, independent SQLite oracle,3 repetitions, chained analyses and retained failures implemented | Execute120 real model trials, independent semantic review and report actual threshold outcome |
+| Actual agent |40 prospective AI-authored questions, independent SQLite oracle,3 repetitions and chained analyses implemented; latest development smoke failed after one valid fixture-count call | Qualify candidate, execute120 real model trials, complete independent semantic review and report actual threshold outcome |
 | Usable performance | Actual4CPU/16.77GB host:25 serial queries, two5-query batches,9,728-row exports, sampled memory and one abrupt worker recovery passed | Broader sustained load, cold cache, end-to-end model latency and server recovery remain unqualified |
 | Two paper descriptions | Corrected administrative closure versus first response; separate Maps processing and CSV-worker paths; changed pages visually checked | Website remains its earlier published edition until separately republished |
 
 ## Executed verification
 
-- [Latest archived local regression](../examples/evidence/test-report-v0.7-maps-schema.json):535 tests collected,534 passed, one Windows unprivileged-symlink skip,53.299seconds; includes the Maps/schema repairs and pins exact source hashes. Mock transports and authored data do not establish million-record behavior. [Earlier bootstrap checkpoint](../examples/evidence/test-report-v0.7-bootstrap.json):520 collected,519 passed, one skip,22.741seconds; [worker repair](../examples/evidence/test-report-v0.7-post-worker.json):506 collected,505 passed, one skip,35.346seconds.
+- [Latest archived local regression](../examples/evidence/test-report-v0.7-warmup-route.json):548 tests collected,547 passed, one Windows unprivileged-symlink skip,43.169seconds; includes the saved-map route and exact metadata-warmup binding repairs and pins exact source hashes. Mock transports and authored data do not establish million-record behavior. [Earlier Maps/schema checkpoint](../examples/evidence/test-report-v0.7-maps-schema.json):535 collected,534 passed, one skip,53.299seconds; [bootstrap checkpoint](../examples/evidence/test-report-v0.7-bootstrap.json):520 collected,519 passed, one skip,22.741seconds; [worker repair](../examples/evidence/test-report-v0.7-post-worker.json):506 collected,505 passed, one skip,35.346seconds.
 - [Actual capture and local verification](../examples/evidence/captured-local-verification.json): successful [run37700939902](https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/37700939902),2,133,268 unique requests across2135 page operations. All1,306,911,416 decompressed bytes match SHA256`91d84eb6d02dafc402a892298ba92cb121e8e905a189fb75f31b19d4d43aeec7`. Every record was streamed locally to verify strict ascending unique keys, creation dates inside April1-Nov1 2025 and the maximum source update. The163,696,296-byte gzip and [canonical source manifest](../examples/evidence/captured-manifest.json) are retained. No raw JSONL file or full ID set was materialized locally; verification took47.703seconds. Source before/after counts, metadata and revisions reconcile in the manifest; the local check did not re-query the changing provider.
 - [Actual Elastic9.5.5 parity on v0.7](../examples/evidence/live-parity-9.5.5-v0.7.json):14 families,32 authored records, real PIT/composite pagination and full CSV membership. Kibana health was observed separately; browser rendering was not part of this check.
 - [Earlier acquisition failures](../examples/evidence/capture-attempts-v0.7.json): first request timeout30s; a local count took43.891s. Second attempt passed counts but timed out on its first5000-row page after bounded120s retries, leaving zero captured rows. The successful third run used1000-row pages. Historical failures remain; success does not establish a general network-throughput guarantee.
 - [Official boundaries](../examples/evidence/official-nta2020-26b.json):4,532,381 captured bytes, SHA256`5049760a4d0936e1d3dbf70d745e2cee4286bd163b11c702f15fa28db46a001e`, matching source metadata before/after download.
-- [Evaluator implementation checks](../examples/evidence/agent-evaluator-v1-checks.json):53 focused tests passed in3.133seconds. These use an authored tiny corpus and mock model; they are not the actual120-trial experiment or native model grammar qualification.
+- [Evaluator implementation checks](../examples/evidence/agent-evaluator-v1-checks.json):61 focused tests passed in2.951seconds, including rejection of a different-metadata warmup receipt with relabeled runtime identity and recomputed file hash. These use an authored tiny corpus and mock model; they are not the actual120-trial experiment or native model grammar qualification.
+
+## Actual model development: latest retained failure
+
+[Smoke38027531995](https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/38027531995),
+commit`07617587eb8908cd5d5fea2e95c46cbe086a3f41`, failed on the authored
+32-record fixture. The exact [summary](../examples/evidence/model-smoke-38027531995/summary.json)
+and [trace](../examples/evidence/model-smoke-38027531995/trace.json) remain unchanged.
+The Qwen3-1.7B native OpenBLAS candidate used24,576 context tokens with context
+shifting disabled and the declared160s trial/120s request budgets.
+
+The [metadata-only warmup](../examples/evidence/model-smoke-38027531995/runtime/metadata-prefix-warmup.json)
+took190.317s, processing7,230 prompt tokens and one discarded output token without
+a question or analytical call. The first timed model response reported7,224 cached
+tokens and55 new prompt tokens; in9.067s it issued a valid unrestricted records
+query whose exact total was32. Its projected result contained11,663 UTF-8 bytes.
+The following model request timed out before any final answer, numerical claim,
+result citation or synthetic-data disclosure. Trial elapsed129.074s excludes
+startup; measured smoke wall time including startup was319.442s. Downloads,
+compilation and initial server loading precede that interval.
+
+[Independent review](../examples/evidence/model-smoke-38027531995/independent-review.json)
+verified warmup/trace hashes, exact metadata identities, query arguments, count,
+cache counters, failure and elapsed-time arithmetic. The compact archive retains
+18 exact files plus this review,94,075 bytes. Raw benchmark and resource measurements
+remain available; their RSS values belong to `llama-bench`, not this model-server
+trial. This was one failed development question, zero held-out trials. A valid
+intermediate tool call and observed cache reuse do not establish conversational
+acceptance. Earlier cold timeouts and invalid-call failures remain preserved.
 
 ## Real-corpus execution and independent receipt review
 
@@ -67,8 +95,8 @@ result digests, four full CSV memberships, point/trend CSVs and timing arithmeti
 Maximum numeric difference2.84e-14; no new analytical mismatch found. The compact
 archive contains19 JSON receipts and three unchanged failure screenshots,
 407,699 bytes total. No raw corpus, individual-ID lists or CSV bodies were copied.
-Further Maps repairs require renewed live checks and source-matching packaging;
-the r2 bundle receipt below qualifies only its recorded source.
+The saved-map route repair now has source-matching r3 packages below; renewed
+live checks remain necessary. Packaging does not promote this failed render run.
 
 The second [core run38004540380](https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/38004540380)
 executed commit`78bae7eac0e33d28deb0cb404295f6f900a85db7` on2026-10-09,
@@ -111,10 +139,10 @@ all pre-browser failures remain explicit. Sixteen compact JSON artifacts are
 archived; raw records, individual-ID lists and CSV bodies are excluded. This
 offline review does not repeat the live service or independently reassign polygons.
 
-The [v0.7 r2 offline packages](../examples/evidence/build-v0.7-r2.json) passed fresh
-clean-install checks against the repaired Maps modules on CPython3.12 Windows x64
+The [v0.7 r3 offline packages](../examples/evidence/build-v0.7-r3.json) passed fresh
+clean-install checks against the final saved-map route repair on CPython3.12 Windows x64
 only. All36 wheels,3,959 RECORD entries,23 source modules, five resources and both
-bundle inventories passed independent integrity checks. The original0.7 packages
+bundle inventories passed independent integrity checks. The original0.7 and r2 packages
 remain unchanged and source-specific. Neither package smoke runs real services or
 qualifies model/Maps acceptance. [Distribution details](distribution.md).
 

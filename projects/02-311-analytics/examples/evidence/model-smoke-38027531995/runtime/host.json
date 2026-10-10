@@ -1,0 +1,46 @@
+{
+  "version": "0.7.0",
+  "python": "3.12.15",
+  "platform": "Linux",
+  "logical_cpus": 4,
+  "free_disk_bytes": 92129345536,
+  "docker_on_path": true,
+  "output_parent_writable": true,
+  "config_exists": true,
+  "total_memory_bytes": 16766414848,
+  "available_memory_bytes": 15393198080,
+  "inventory": {
+    "schema_version": 1,
+    "evidence_kind": "observed_inventory",
+    "observed_at": "2026-10-10T05:27:10.132737+00:00",
+    "platform": "Linux",
+    "cpu": {
+      "logical_count": 4,
+      "effective_count": 4
+    },
+    "memory": {
+      "total_bytes": 16766414848,
+      "available_bytes": 15393198080,
+      "effective_total_bytes": 16766414848,
+      "effective_available_bytes": 15393198080,
+      "source": "/proc/meminfo"
+    },
+    "disk": {
+      "total_bytes": 154894188544,
+      "free_bytes": 92129345536,
+      "source": "shutil.disk_usage"
+    },
+    "cgroup": {
+      "memory_limit_bytes": null,
+      "memory_headroom_bytes": null,
+      "cpu_quota_count": null,
+      "status": "observed",
+      "warnings": []
+    },
+    "warnings": [
+      "Inventory is a point-in-time observation, not a resource reservation.",
+      "Disk quotas, remote nodes, GPU/LLM memory and Docker VM limits are not probed."
+    ]
+  },
+  "note": "Inventory only. No services started; no dataset capacity inferred. Development profile needs no Elasticsearch."
+}

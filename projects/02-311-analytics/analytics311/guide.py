@@ -1,6 +1,6 @@
 """Compact request-building guidance for any tool-using agent."""
 
-from .contracts import FIELDS, METRICS
+from .contracts import DEFAULT_PREVIEW_ROWS, FIELDS, METRICS
 from .errors import AnalyticsError
 
 
@@ -77,7 +77,7 @@ def analysis_guide(dataset_version):
                 "order": "Applied across complete groups before ranking; no significance claim",
             },
             "output_limits": {
-                "preview_limit": "Records preview 1..100, further bounded by configured max_preview_rows; default 100",
+                "preview_limit": f"Records preview 1..100, further bounded by configured max_preview_rows; default {DEFAULT_PREVIEW_ROWS}. Exact totals and full-cohort exports are independent of preview size.",
                 "top_n": "Aggregate/comparison first-page rows 1..100; default 20; not the full export cohort",
                 "rank_order": ["asc", "desc"], "rank_order_default": "desc",
                 "rank_by_aggregate": ["count"],

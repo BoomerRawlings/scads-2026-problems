@@ -1,0 +1,14 @@
+[
+  {
+    "kind": "runtime",
+    "filename": "llama-b11457-bin-ubuntu-x64.tar.gz",
+    "bytes": 17733249,
+    "sha256": "210eaa41a16e0d24fa44071cb62f95702ef903c84d86506d6482ac919bcee078"
+  },
+  {
+    "kind": "model",
+    "filename": "Qwen3-1.7B-Q4_K_M.gguf",
+    "bytes": 1107409472,
+    "sha256": "b139949c5bd74937ad8ed8c8cf3d9ffb1e99c866c823204dc42c0d91fa181897"
+  }
+]

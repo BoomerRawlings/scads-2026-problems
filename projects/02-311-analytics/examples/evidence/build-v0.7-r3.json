@@ -1,0 +1,190 @@
+{
+  "schema_version": 1,
+  "revision": "r3",
+  "verified_at": "2026-10-10T05:37:52.323552+00:00",
+  "passed": true,
+  "verification_source_sha256": "9348af5349ca614f9f4eb6c91d9d511bba535090be0cc1fb7cf541b787e176df",
+  "driver": {
+    "schema_version": 1,
+    "started_at": "2026-10-10T05:35:12.442588+00:00",
+    "passed": true,
+    "minimum_free_disk_bytes": 2147483648,
+    "minimum_observed_free_disk_bytes": 32323342336,
+    "source_sha256": {
+      "analytics311/__init__.py": "010dabac662e1135b14a8a5fa508468aaf641a4980262b3c34524ca312cd545d",
+      "analytics311/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "analytics311/assets/config/catalog.json": "589b4dd202aa5d69315dc920499bcc0d75e130e8d164e1dfb927c3f2c1d66736",
+      "analytics311/assets/config/development.json": "ebeeb4cd9f05c2aae513b4f6b2395ac542e60de56cfcb0f50503e97529190988",
+      "analytics311/assets/config/mapping.json": "3c1d6db8fa1fe597ca43a23a8e00df168beffe4f2ecbc0b99165d8b0a0ccca95",
+      "analytics311/assets/fixtures/manifest.json": "f2e3831e6a350f7fabb0a1f3eaa44c5dbff46684ce9baf6721b831f66b7b6668",
+      "analytics311/assets/fixtures/requests.jsonl": "e34bba882616d4e04d9994642c2cc66effed110e3fa544039ef967d6da36997c",
+      "analytics311/capacity.py": "35d9ff679dffc7d02c314d4f71984240341bb42e1983d2029cfe00bd7bd00224",
+      "analytics311/capture.py": "8897af4c877c206cddb92707b973d5f7fe5f62b558c4eb625a8f382c43fadf02",
+      "analytics311/cli.py": "c2c0c9299220ee81dc931cfe7529dce7b5843aa94b67dea4b642584deeb4a389",
+      "analytics311/compiler.py": "d64685b83ddb6727145c8166f87586226d10f348147e094da124d780572390b2",
+      "analytics311/contracts.py": "77380332b2dd25e2aa367cc9f08680b5ece02d29bfe5bd9cd9eb22b77b58e596",
+      "analytics311/elastic.py": "4bbbe82d73038c3fff69cbcdae1f1ed4d86292b57706158c0bebe5f1cac1bcc7",
+      "analytics311/errors.py": "d61e9b5d5b14716720477a9cf1005f377ca79ab4b61f6ca61d6822c7d51d5414",
+      "analytics311/fixture.py": "b4f303e4fa7e53e9974491964c9524187ba485283d75e12a5c3d48ae5b8a6487",
+      "analytics311/geography.py": "b066038c1105047fbb1025cba4efb2ca82e35679fd27afadb51e30734621baf5",
+      "analytics311/guide.py": "45d4d9b54e6e662d9268c4dcbd333711d3b16007b58e97d6eb86481d156962aa",
+      "analytics311/ingest.py": "632caee86a4230d4ba50c05d782902d7d1f7782fe348526f63872ded7a7585e4",
+      "analytics311/jobs.py": "93ce4a241abe484408ce1f606a120b6cd614c8f8757e2cedb3a9155d28da7b75",
+      "analytics311/maps.py": "c0bc7116cffc9341850d2ce768bc8c4418b5244ed184420e5ad4851a17f10126",
+      "analytics311/mcp_server.py": "72d7794ec72782b1b0198327a20ff20210abe1febeef7736a22edccefcc55526",
+      "analytics311/metadata_io.py": "7a765bd91b5275f76e743a78c869a99c7c3d3736a21c15b7ed789c73c71ba556",
+      "analytics311/qualification.py": "31161ced2c85089ce643bae30845b29a340eb47d2e7c8f6fbf430a673cfe2582",
+      "analytics311/resources.py": "b89b3e2b8561593561d72b31994ff4072b149c8f9df764b26161e972511aa6b3",
+      "analytics311/service.py": "c3b34b4547151a04760ab0925dd8ea318add316c068d04fcda603b339a874663",
+      "analytics311/settings.py": "70a9422e36659bcd9f2e6b9e00615b098e147bc55e06497a8abc3c898c5eb3d4",
+      "analytics311/trend_maps.py": "982ab45bb5368a08764a1f7ee0717f30e656029c3167100b35d594439c7f980f",
+      "analytics311/workloads.py": "3782154b92087ecdb87a8a25cfaaf2b5810cb762635fcf14d885a7369f034819",
+      "pyproject.toml": "f6cce56fd665b1f66c6df7efd40ae18a5e051b0d38e9b6be1238178b91f7a3b0"
+    },
+    "build_inputs_sha256": {
+      "tools/build_release.py": "5ca6eeaa3cfb62705f1d0884ab81d61dd4d7fd7154d4d07aab3273c81d9ed064",
+      "tools/package_bundle.py": "c67dbc15e501b2250d4ab214c231366539cd8e5424305063f1cf13bf2554443c",
+      "tools/live_parity.py": "53a705dce5019df25347abfc1951dc078f3389848585b924ba3bbbd167afd5be",
+      "tools/capacity_scenarios.py": "2bade6d08d0b75a63fad23e931e13d0d495933e472efcdbe07e2ae3a01ad6cd3",
+      "tools/benchmark_fixture.py": "8fc9c4a95d5ca2d0107a553c1955a36433c90408e7607a8f1ee151f1895e4477",
+      "tools/stress_exports.py": "71a6e213da6feff1c5303f990c79156cb0ecb298f66bd1a937ff7df1852d80ed",
+      "examples/capacity/scenarios.json": "bfb89a53e4524260090b3b423ea956a3f7cc86fe27eea3c5878a30886b22c299"
+    },
+    "research_context_sha256_not_transferred": {
+      "tools/local_agent.py": "7ce9b65e737da9a428c1adb21b227fe707a2a9a6f1bf910b4a4ad4af863f9173",
+      "tools/agent_evaluation.py": "47716672839816ad43f93fce1b809326bbd61f9d16a0d77f1318d812bdc1c5a2",
+      "tools/run_real_acceptance.py": "4f1bcf1e32af3a21db13ac101d3232ea09284994c36370862d262686354bb560",
+      "tools/measure_live.py": "f5612067aabeb1e6c34c6684aef467649f3dd3f759d95c071dcfa0f4aaf22b8a",
+      "tools/live_maps.py": "b8a9d8729ce8a94de465cfc3bf50a09a2b2c449545b6e59748cf46ee1b885cd9",
+      "docs/local-model-runtime.json": "2ff41f3779e8c2e342281239f06a22130474f622ab487ffdc2530e5e510a37d9"
+    },
+    "historical_artifacts_sha256": {
+      "dist/analytics311-0.7.0-core.zip": "bee23a12c68c58a662800d87631a5871927c7ddc7afc69d1b4855ed31ec48f69",
+      "dist/analytics311-0.7.0-cp312-win-amd64-agent.zip": "1622f53cbb9ac1e6d029e4377fe7753a41da3dc500e8e2368a2a37c911c4ab38",
+      "dist/release-core-v0.7/release-manifest.json": "c4e31a94185ae9916ab7128f845dac4d8118239b0704077abeef22f049089f06",
+      "dist/release-agent-v0.7/release-manifest.json": "71aff815a74601cff461eb05c5b419f0acbd0f58d825c01ec019f42c2894f2b7",
+      "dist/analytics311-0.7.0-core-r2.zip": "1fc25471a8696892b1e3bf532b35b5559dffd80d9fec431567e6ab7d56eb8cac",
+      "dist/analytics311-0.7.0-cp312-win-amd64-agent-r2.zip": "e79e7f92d039d1c95cf732c72b795b88400dcd2164fa880eb5a6a0f6144e6cc4",
+      "dist/release-core-v0.7-r2/release-manifest.json": "344969cd54cf27a0559cdc3a48c6d31accbc7cb575071f8574a7a46ea6d90ab0",
+      "dist/release-agent-v0.7-r2/release-manifest.json": "891f9c5fbfb05dd4c807e123785572b25e239d565e1d783d44702c895ae039a8"
+    },
+    "commands": [
+      {
+        "name": "core-build",
+        "arguments": [
+          "tools/build_release.py",
+          "--no-network",
+          "--wheelhouse",
+          "dist/wheelhouse",
+          "--output",
+          "dist/release-core-v0.7-r3"
+        ],
+        "exit_code": 0,
+        "seconds": 23.07900000002701,
+        "log_sha256": "cf68cb327b187e260a3ce7a97077f7c59df3c0f7fb001adb8f9db506295602cd"
+      },
+      {
+        "name": "agent-build",
+        "arguments": [
+          "tools/build_release.py",
+          "--no-network",
+          "--extras",
+          "mcp,geo",
+          "--wheelhouse",
+          "dist/wheelhouse",
+          "--wheelhouse",
+          "dist/release-agent-v0.6-build-only/dependencies",
+          "--output",
+          "dist/release-agent-v0.7-r3"
+        ],
+        "exit_code": 0,
+        "seconds": 42.42199999996228,
+        "log_sha256": "31a6c3312e883ccadc3c27c81fff89c14c2a34585ba8b4769f267abfcc7c56ed"
+      },
+      {
+        "name": "core-bundle",
+        "arguments": [
+          "tools/package_bundle.py",
+          "--release",
+          "dist/release-core-v0.7-r3",
+          "--output",
+          "dist/analytics311-0.7.0-core-r3.zip"
+        ],
+        "exit_code": 0,
+        "seconds": 0.5160000000032596,
+        "log_sha256": "d6e850b8de864d14a99c7d08a8491c57e675a9461e0537eee42f66a488557ec2"
+      },
+      {
+        "name": "agent-bundle",
+        "arguments": [
+          "tools/package_bundle.py",
+          "--release",
+          "dist/release-agent-v0.7-r3",
+          "--output",
+          "dist/analytics311-0.7.0-cp312-win-amd64-agent-r3.zip"
+        ],
+        "exit_code": 0,
+        "seconds": 0.8129999999655411,
+        "log_sha256": "274cdee88de53262127517f046de7104cd6dba1c751e762e8e1af020ff84aba6"
+      }
+    ],
+    "source_unchanged": true,
+    "build_inputs_unchanged": true,
+    "research_context_unchanged": true,
+    "historical_artifacts_unchanged": true,
+    "finished_at": "2026-10-10T05:36:20.215863+00:00"
+  },
+  "verification": {
+    "total_wheels": 36,
+    "wheel_record_entries": 3959,
+    "profiles": [
+      {
+        "profile": "core",
+        "wheel_count": 2,
+        "wheel_bytes": 441873,
+        "project_wheel": {
+          "file": "analytics311-0.7.0-py3-none-any.whl",
+          "sha256": "521b11c1931a893aa996249f5528a804b25c84faf1a218a9e25a34cba7c1fd09",
+          "bytes": 93877,
+          "wheel_tags": {
+            "python": "py3",
+            "abi": "none",
+            "platform": "any"
+          }
+        },
+        "source_modules_verified": 23,
+        "packaged_resources_verified": 5,
+        "wheel_crc_record_and_source_checks": true
+      },
+      {
+        "profile": "agent",
+        "wheel_count": 34,
+        "wheel_bytes": 29959615,
+        "project_wheel": {
+          "file": "analytics311-0.7.0-py3-none-any.whl",
+          "sha256": "1599f8821adc82b000a8e5157f564647f66aa27683be684967b2a0962eefae6d",
+          "bytes": 93877,
+          "wheel_tags": {
+            "python": "py3",
+            "abi": "none",
+            "platform": "any"
+          }
+        },
+        "source_modules_verified": 23,
+        "packaged_resources_verified": 5,
+        "wheel_crc_record_and_source_checks": true
+      }
+    ],
+    "core_and_agent_package_content_identical": true,
+    "archives_crc_entry_hashes_verified": true,
+    "source_unchanged_after_build": true,
+    "historical_artifacts_unchanged": true
+  },
+  "limits": [
+    "Clean installations tested only CPython3.12.14 win-amd64 on this ARM64 Windows host.",
+    "No Elasticsearch, Kibana, model or actual real-data acceptance run in these smokes.",
+    "Python socket audit hook is not an OS-level network sandbox.",
+    "New real-corpus/agent evaluation scripts, model weights, server images and data not included.",
+    "Research-context hashes identify repository files only; they do not add those files to the transferred bundle or establish model qualification."
+  ]
+}
