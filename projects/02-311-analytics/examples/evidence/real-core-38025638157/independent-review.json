@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "reviewed_at": "2026-10-10T05:11:56.033650+00:00",
-  "review_source_sha256": "2d160cea97c5149799c207e604ee51eb383cf20720249c870eb12605dccb4a6e",
+  "reviewed_at": "2026-10-10T05:51:42.685318+00:00",
+  "review_source_sha256": "6454dc0ddee1460c1281fe4e3a89f192ee787dc5a09cbed087b488542ab71300",
   "method": "Offline independent arithmetic, nested numerical comparisons, identity/hash reconciliation, and actual retained CSV set comparisons. No service, model, raw-corpus or SQLite recomputation.",
   "workflow": {
     "run_id": 38025638157,
@@ -28,7 +28,7 @@
   "review_relative_tolerance": 1e-10,
   "review_absolute_tolerance": 1e-09,
   "record_reconciliation": {
-    "captured": 3,
+    "captured": 2133268,
     "normalized": 2133268,
     "ingested": 2133268,
     "frozen_index": 2133268,
@@ -249,5 +249,13 @@
     "Maps provisioning and link-stage count checks completed; all three browser paths timed out. Failure screenshots show Maps/Create, empty canvas and Inspector No requests logged. Captured browser-search records contain only index-pattern metadata lookup. No rendered geometry, IDs, joined values or exact browser filters passed verification. Local review does not repeat the browser session or establish the eventual defect cause.",
     "Frozen questions are not model trials. No held-out model outcome or end-to-end conversational latency.",
     "Source before/after reconciliation is observed-corpus qualification, not transactional isolation or complete citywide reporting."
-  ]
+  ],
+  "audit_summary_correction": {
+    "reason": "Earlier review generator reused count for a three-group map cohort and serialized captured=3 despite successful2133268 source reconciliation assertions.",
+    "previous_summary_sha256": "ca43cd37b0efda66b12fcc1fb936753c3f33084e425eb350e50b895e5a2648f8",
+    "previous_captured": 3,
+    "corrected_captured": 2133268,
+    "actual_execution_receipts_changed": false,
+    "full_offline_checks_reexecuted": true
+  }
 }

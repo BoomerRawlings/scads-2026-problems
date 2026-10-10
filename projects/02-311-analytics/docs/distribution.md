@@ -1,6 +1,6 @@
 # Offline wheel distribution
 
-Version **0.7.0, bundle revision r3**, has actual clean offline installation evidence for both core
+Version **0.7.0, bundle revision r4**, has actual clean offline installation evidence for both core
 and MCP/geometry profiles. Both builds used existing wheelhouses with
 `--no-network`; no dependencies were downloaded. Tests ran in fresh virtual
 environments outside the checkout, on **CPython3.12.14, Windows x64 Python
@@ -9,28 +9,30 @@ target, not a second device, native ARM64 Python, Linux or macOS.
 
 | Current artifact | Size | Contents |
 | --- | ---: | --- |
-| [Core bundle](../dist/analytics311-0.7.0-core-r3.zip) | 505,813 bytes | 11 entries; project wheel plus tzdata and fixed handoff files |
-| [MCP/geometry bundle](../dist/analytics311-0.7.0-cp312-win-amd64-agent-r3.zip) | 30,048,092 bytes | 43 entries;34 wheels total and fixed handoff files |
-| [Core release directory](../dist/release-core-v0.7-r3/release-manifest.json) | 441,873 wheel bytes | 2 wheels; passed clean-install receipt |
-| [MCP/geometry release directory](../dist/release-agent-v0.7-r3/release-manifest.json) | 29,959,615 wheel bytes | 34 wheels; passed clean-install/optional-adapter receipt |
+| [Core bundle](../dist/analytics311-0.7.0-core-r4.zip) | 505,937 bytes | 11 entries; project wheel plus tzdata and fixed handoff files |
+| [MCP/geometry bundle](../dist/analytics311-0.7.0-cp312-win-amd64-agent-r4.zip) | 30,048,217 bytes | 43 entries;34 wheels total and fixed handoff files |
+| [Core release directory](../dist/release-core-v0.7-r4/release-manifest.json) | 441,997 wheel bytes | 2 wheels; passed clean-install receipt |
+| [MCP/geometry release directory](../dist/release-agent-v0.7-r4/release-manifest.json) | 29,959,739 wheel bytes | 34 wheels; passed clean-install/optional-adapter receipt |
 
-Each project wheel is93,877 bytes. Both contain the same23 source modules and five
+Each project wheel is94,001 bytes. Both contain the same23 source modules and five
 packaged resources; their ZIP metadata differs. Independent verification checked
 all36 wheel CRCs,3,959 RECORD entries, source/resource bytes, both bundle inventories
 and every archive-entry hash. Core source stayed unchanged across both builds.
-The observed free-disk minimum was32,323,342,336 bytes, above the enforced2GiB reserve.
+The observed free-disk minimum was32,200,597,504 bytes, above the enforced2GiB reserve.
 Old release directories and archives were preserved.
-[Build and integrity receipt](../examples/evidence/build-v0.7-r3.json),
-[archive hashes and entries](../examples/evidence/handoff-bundles-v0.7-r3.json),
-[core clean-install receipt](../examples/evidence/release-core-v0.7-r3.json),
-[MCP/geometry clean-install receipt](../examples/evidence/release-agent-v0.7-r3.json).
+[Build and integrity receipt](../examples/evidence/build-v0.7-r4.json),
+[archive hashes and entries](../examples/evidence/handoff-bundles-v0.7-r4.json),
+[core clean-install receipt](../examples/evidence/release-core-v0.7-r4.json),
+[MCP/geometry clean-install receipt](../examples/evidence/release-agent-v0.7-r4.json).
 
-Revision r3 adds the Kibana9.5.5 saved-map path and fragment-query state repair in
-`maps.py`, the only packaged source change from r2. It retains r2's locator transport
-and observed-comparison qualification repairs. Source, build-tool and fixed handoff hashes remained
-unchanged during the builds. Separately recorded research-tool hashes identify
-the matching repository context; those tools are not added to the bundles.
-The shared package version remains0.7.0: use the exact r3 archive and a fresh
+Revision r4 adds the public default-five-record preview in `contracts.py`,
+`fixture.py` and `guide.py`, the only packaged changes from r3. Explicit larger
+previews, exact totals and full-cohort CSVs remain supported. It retains the saved-map
+route and qualification repairs. Source, build-tool and fixed handoff hashes remained
+unchanged during the builds. Recorded research-tool hashes identify the context at
+build start; Maps verification tooling changed during packaging. Those repository-only
+tools are not transferred, and this does not change the exact packaged-core qualification.
+The shared package version remains0.7.0: use the exact r4 archive and a fresh
 environment. These installation checks do not qualify live Maps rendering.
 
 Both installations exercised fixture CLI discovery/validation/analysis, a four-row
@@ -65,6 +67,14 @@ browser and model runtimes. Do not infer that the old transferred `live_parity.p
 is the new million-record orchestration/evaluation runner.
 
 ## Earlier 0.7 bundles
+
+The r3 [core archive](../dist/analytics311-0.7.0-core-r3.zip) (505,813 bytes)
+and [MCP/geometry archive](../dist/analytics311-0.7.0-cp312-win-amd64-agent-r3.zip)
+(30,048,092 bytes) remain unchanged with their [build receipt](../examples/evidence/build-v0.7-r3.json)
+and [inventory](../examples/evidence/handoff-bundles-v0.7-r3.json). Their source includes
+Kibana9.5.5 saved-map route repair but precedes the public preview-default change.
+R4 verified all original, r2 and r3 archive hashes and release manifests.
+
 
 The r2 [core archive](../dist/analytics311-0.7.0-core-r2.zip) (504,935 bytes)
 and [MCP/geometry archive](../dist/analytics311-0.7.0-cp312-win-amd64-agent-r2.zip)

@@ -1,0 +1,23 @@
+{
+  "byte_offset": 1582275376,
+  "checkpoint_version": 2,
+  "complete": true,
+  "index": "nyc311-real-2025-v1",
+  "index_uuid": "WiMgFvI_Sp2pbTgsL05Zhw",
+  "normalized_input": true,
+  "prefix_sha256": "70ceb22b8f9f79cc03c5dcd4d1955ff0ef7148b63d07e54e9610d726c94dc18e",
+  "processed_rows": 2133268,
+  "quality_counts": {
+    "ambiguous_closed_date": 14,
+    "closed_date_without_closed_status": 1981,
+    "closed_without_valid_duration": 2524,
+    "missing_closed_date": 35944,
+    "missing_geometry": 32843,
+    "negative_closure_duration": 415,
+    "nta_missing_geometry": 32843,
+    "nta_unmatched": 474
+  },
+  "quarantined": false,
+  "source_lines": 2133268,
+  "source_sha256": "70ceb22b8f9f79cc03c5dcd4d1955ff0ef7148b63d07e54e9610d726c94dc18e"
+}

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "reviewed_at": "2026-10-10T04:05:30.740411+00:00",
-  "review_source_sha256": "153f3d38f71878ffe3e18613b875450eb129db1c0604771d567032a08e553b8f",
+  "reviewed_at": "2026-10-10T05:51:42.676243+00:00",
+  "review_source_sha256": "8f2f824e90cdb74392bd9f5185197c467942d8b20ca7657ed4fab5835fc0861c",
   "method": "Offline independent arithmetic, nested numerical comparisons, identity/hash reconciliation, and actual retained CSV set comparisons. No service, model, raw-corpus or SQLite recomputation.",
   "workflow": {
     "run_id": 38004540380,
@@ -27,7 +27,7 @@
   "review_relative_tolerance": 1e-10,
   "review_absolute_tolerance": 1e-09,
   "record_reconciliation": {
-    "captured": 3,
+    "captured": 2133268,
     "normalized": 2133268,
     "ingested": 2133268,
     "frozen_index": 2133268,
@@ -200,5 +200,13 @@
     "Maps provisioning passed its live stored-object readback checks. All three render paths stopped at map_link before browser launch; no rendered geometry, IDs, joined values or browser filters were checked. Local review reconciles the provisioning receipt/profile, not raw HTTP response logs or a second live session.",
     "Frozen questions are not model trials. No held-out model outcome or end-to-end conversational latency.",
     "Source before/after reconciliation is observed-corpus qualification, not transactional isolation or complete citywide reporting."
-  ]
+  ],
+  "audit_summary_correction": {
+    "reason": "Earlier review generator reused count for a three-group map cohort and serialized captured=3 despite successful2133268 source reconciliation assertions.",
+    "previous_summary_sha256": "67f0d8787a6bd7f8370a971cc06d787884b221f136d2b7c9ff2be738cf5428dc",
+    "previous_captured": 3,
+    "corrected_captured": 2133268,
+    "actual_execution_receipts_changed": false,
+    "full_offline_checks_reexecuted": true
+  }
 }
