@@ -233,6 +233,43 @@ class LiveMapsTests(unittest.TestCase):
         page.url = "http://localhost:5601/app/maps/map#/actual?_a=private-source"
         self.assertFalse(maps._browser_diagnostics(page, "saved_map_path", "actual", [])["saved_map_path_verified"])
 
+    def test_layer_loading_waits_for_named_layer_before_spinners_with_remaining_budget(self):
+        page = unittest.mock.Mock()
+        toc = page.locator.return_value
+        layer, spinners = unittest.mock.Mock(), unittest.mock.Mock()
+        toc.locator.side_effect = [layer, spinners]
+        layer.count.return_value = 1
+        events = []
+        toc.wait_for.side_effect = lambda **kwargs: events.append(("toc", kwargs))
+        layer.wait_for.side_effect = lambda **kwargs: events.append(("named_layer", kwargs))
+        spinners.first.wait_for.side_effect = lambda **kwargs: events.append(("no_spinners", kwargs))
+        with patch.object(maps.time, "monotonic", side_effect=[100, 103, 107, 108]):
+            result = maps.wait_for_map_layers(page, "neighborhood_trends", deadline=120)
+        self.assertEqual(events, [("toc", {"state": "visible", "timeout": 20000}),
+                                  ("named_layer", {"state": "visible", "timeout": 17000}),
+                                  ("no_spinners", {"state": "detached", "timeout": 13000})])
+        page.locator.assert_called_once_with('[data-test-subj="mapLayerTOC"]')
+        self.assertEqual(toc.locator.call_args_list, [unittest.mock.call(
+            '[data-test-subj="layerTocActionsPanelToggleButtonNTA_closure-independent_request_trends"]'),
+            unittest.mock.call('.euiLoadingSpinner')])
+        self.assertEqual(result["named_layer_count"], 1)
+        self.assertNotIn("rendered_parity_verified", result)
+
+    def test_layer_loading_rejects_duplicate_layer_and_expired_budget(self):
+        for failure in ("duplicate", "deadline", "spinner_timeout"):
+            with self.subTest(failure=failure):
+                page = unittest.mock.Mock()
+                toc = page.locator.return_value
+                layer, spinners = unittest.mock.Mock(), unittest.mock.Mock()
+                toc.locator.side_effect = [layer, spinners]
+                layer.count.return_value = 2 if failure == "duplicate" else 1
+                if failure == "spinner_timeout": spinners.first.wait_for.side_effect = TimeoutError()
+                times = [100, 101, 120] if failure == "deadline" else [100, 101, 102]
+                error = TimeoutError if failure == "spinner_timeout" else AnalyticsError
+                with patch.object(maps.time, "monotonic", side_effect=times), self.assertRaises(error):
+                    maps.wait_for_map_layers(page, "requests", deadline=120)
+                if failure != "spinner_timeout": spinners.first.wait_for.assert_not_called()
+
     def test_inspector_reads_code_text_not_eui_accessibility_siblings(self):
         # Pinned EUI116.5.0: screen-reader label precedes <code>; token/line spans
         # preserve text nodes/newlines. Container innerText is not valid JSON.

@@ -29,6 +29,7 @@ VERSION = "9.5.5"
 MAX_BOUNDARY_BYTES = 16 * 1024 * 1024
 MAX_POINTS = 10000
 JOIN_ID = "analytics311-nta-join"
+LAYER_LABELS = {"requests": "311 requests", "neighborhood_trends": "NTA closure-independent request trends"}
 
 
 def require(condition, message):
@@ -65,7 +66,7 @@ def map_object(mode, *, source_view, result_view=None, metric="rate_change"):
     require(mode in {"requests", "neighborhood_trends"}, "Unknown map mode.")
     require(metric in METRIC_UNITS, "Unsupported trend metric.")
     points = mode == "requests"
-    layer = {"id": "analytics311-" + mode, "label": "311 requests" if points else "NTA closure-independent request trends",
+    layer = {"id": "analytics311-" + mode, "label": LAYER_LABELS[mode],
              "type": "GEOJSON_VECTOR", "visible": True, "alpha": 0.8, "minZoom": 0, "maxZoom": 24,
              "sourceDescriptor": source(source_view, "location" if points else "geometry", global_query=points,
                                          tooltip=["unique_key", "complaint_type"] if points else ["nta2020", "ntaname"]),
@@ -371,6 +372,31 @@ def _subject(page, name):
     return page.locator('[data-test-subj="' + name + '"]')
 
 
+def _remaining_timeout_ms(deadline):
+    remaining = deadline - time.monotonic()
+    require(remaining > 0, "Map layer loading exceeded the render deadline.")
+    return max(1, int(remaining * 1000))
+
+
+def wait_for_map_layers(page, mode, *, deadline):
+    """Pinned GIS FTR prerequisite, not rendered-data acceptance evidence."""
+    require(mode in LAYER_LABELS, "Unknown map mode.")
+    toc = _subject(page, "mapLayerTOC")
+    toc.wait_for(state="visible", timeout=_remaining_timeout_ms(deadline))
+    # Pinned GIS escapes spaces in the displayed layer label for this subject.
+    subject = "layerTocActionsPanelToggleButton" + LAYER_LABELS[mode].replace(" ", "_")
+    layer = _subject(toc, subject)
+    layer.wait_for(state="visible", timeout=_remaining_timeout_ms(deadline))
+    require(layer.count() == 1, "Expected exactly one named map layer.")
+    # The locator resolves its current first element: detached therefore means
+    # no loading spinner remains, rather than merely one old spinner vanishing.
+    toc.locator(".euiLoadingSpinner").first.wait_for(state="detached", timeout=_remaining_timeout_ms(deadline))
+    _remaining_timeout_ms(deadline)
+    require(layer.count() == 1, "Named map layer changed while loading.")
+    return {"method": "named_toc_layer_then_no_loading_spinner", "named_layer_count": 1,
+            "layer_label": LAYER_LABELS[mode]}
+
+
 def _browser_diagnostics(page, stage, map_id, errors):
     # Path only: never retain credentials, query state, source text, or raw DOM.
     path = urlsplit(page.url).path
@@ -436,6 +462,7 @@ def browser_style(url, output_dir, filter_query, mode, expectation, *, map_id, s
         page.on("pageerror", lambda error: errors.append(type(error).__name__) if len(errors) < 100 else None)
         style = None
         inspector_read = None
+        layer_loading = None
         stage = "navigation"
         try:
             page.goto(url, wait_until="domcontentloaded", timeout=timeout_seconds * 1000)
@@ -446,8 +473,10 @@ def browser_style(url, output_dir, filter_query, mode, expectation, *, map_id, s
             _subject(page, "mapContainer").wait_for(state="visible", timeout=timeout_seconds * 1000)
             stage = "map_canvas"
             page.locator("canvas").first.wait_for(state="visible")
-            # The actual source and membership assertions are the readiness gate.
-            # Do not infer success merely from an arbitrary loading delay.
+            stage = "map_layer_loading"
+            layer_loading = wait_for_map_layers(page, mode, deadline=start + timeout_seconds)
+            # Loading indicators are a prerequisite only. Actual source and
+            # membership assertions below remain the decisive readiness gate.
             stage = "inspector_open"
             overflow = _subject(page, "app-menu-overflow-button")
             if overflow.is_visible(): overflow.click()
@@ -493,10 +522,12 @@ def browser_style(url, output_dir, filter_query, mode, expectation, *, map_id, s
             stage = "complete"
             return {**verified, "browser_search_count": len(calls), "saved_filter_observed": True,
                     "browser_saved_map_path_verified": True,
+                    "layer_loading_precondition": layer_loading,
                     "inspector_read": inspector_read,
                     "browser_page_errors": 0, "screenshot_sha256": hashlib.sha256((output_dir / "map.png").read_bytes()).hexdigest()}
         finally:
             diagnostics = _browser_diagnostics(page, stage, map_id, errors)
+            if layer_loading is not None: diagnostics["layer_loading_precondition"] = layer_loading
             if inspector_read is not None: diagnostics["inspector_read"] = inspector_read
             atomic_json(output_dir / "browser-diagnostics.json", diagnostics)
             if style is not None:

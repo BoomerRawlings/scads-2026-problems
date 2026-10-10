@@ -154,7 +154,16 @@ to qualify an explicit saved-group selection. Cover both all-matching and
 selected-groups cases during acceptance.
 
 The browser opens the actual short URL, requires the expected saved-map path
-before inspecting layers, captures actual search bodies,
+before inspecting layers, then waits for its exact named layer in `mapLayerTOC`
+and for all `.euiLoadingSpinner` descendants to detach before opening Inspector.
+This mirrors the pinned [GIS functional-test loading sequence](https://github.com/elastic/kibana/blob/a2890159e2486503b9e3a0c6f422b153a746651a/x-pack/platform/test/functional/page_objects/gis_page.ts#L128-L165)
+under the remaining original render deadline. Loading indicators alone do not
+qualify data: the complete independent source/metric checks remain mandatory.
+This sequencing avoids opening the large highlighted style while the layer is
+still loading. Real run `38030378224` passed point and selected-trend rendering,
+but its full-trend Inspector timed out after an initial empty style; those failed
+results remain retained, and only a fresh actual run can qualify the change.
+The browser captures actual search bodies,
 requires the saved DSL filter in a browser search, and opens Inspector's Map
 details. It compares the **rendered style's GeoJSON source** IDs or joined
 metrics with the independent expectation and CSV; a server response alone

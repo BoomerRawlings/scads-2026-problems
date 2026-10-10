@@ -11,7 +11,7 @@ remain in [the historical v0.6 record](acceptance-v0.6.md).
 | --- | --- | --- |
 | Actual ≥2 million requests | All five stages reconcile2,133,268 rows; full raw and normalized hashes, ingested byte offset and frozen index UUID recorded | Acquisition/count target met for this captured window |
 | Neighborhood comparisons | Official262 NTA polygons/197 residential codes; qualified observed window; June/October rodent comparison matches independent SQL across196 represented neighborhoods | Agent-led chained comparisons and rendered neighborhood maps; population completeness remains unclaimed |
-| Elasticsearch/Kibana | Elasticsearch9.5.5 parity/CSV passed in five real runs; reusable maps/262 boundaries provisioned; saved maps and Map-details Inspector reached; captured request filters agree | Fifth run failed point JSON extraction and timed out on both trend extracts; exact rendered membership and joined metric values remain unverified |
+| Elasticsearch/Kibana | Elasticsearch9.5.5 parity/CSV passed in six real core executions; reusable maps/262 boundaries provisioned; saved maps reached; captured request filters agree | Sixth core failed point JSON extraction and timed out on both trend style tabs; exact rendered membership and joined metric values remain unverified |
 | Actual agent |40 prospective AI-authored questions, independent SQLite oracle,3 repetitions and chained analyses implemented; latest development smoke completed but invented restrictions and falsely requested clarification | Execute120 real model trials of the frozen negative candidate under a prospective operational-eligibility amendment; retain quality failure and complete unchanged threshold/semantic review |
 | Usable performance | Actual4CPU/16.77GB host:25 serial queries, two5-query batches,9,728-row exports, sampled memory and one abrupt worker recovery passed | Broader sustained load, cold cache, end-to-end model latency and server recovery remain unqualified |
 | Two paper descriptions | Corrected administrative closure versus first response; separate Maps processing and CSV-worker paths; changed pages visually checked | Website remains its earlier published edition until separately republished |
@@ -90,6 +90,53 @@ intermediate tool call and observed cache reuse do not establish conversational
 acceptance. Earlier cold timeouts and invalid-call failures remain preserved.
 
 ## Real-corpus execution and independent receipt review
+
+The sixth core, within [agent campaign38029812736](https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/38029812736),
+executed commit`663a5b16fa8ddeec08970bc5cf71f0eb2e71582e` on2026-10-10,
+06:11:17–06:27:51UTC. Its completed [core receipt](../examples/evidence/real-core-38029812736/acceptance.json)
+retains both overall flags false. This is core-stage evidence from the ongoing
+campaign, not an agent-quality result or the campaign's final conclusion. All five
+counts reconcile2,133,268 again, with identical raw/normalized hashes and observed
+snapshot qualification; index UUID`YX0M5BTATcGCaHqCfJXxfQ`. Normalization277.647s,
+ingestion327.824s; five-family API/CSV parity and Maps provisioning passed.
+
+[Points](../examples/evidence/real-core-38029812736/render-points.json) failed
+`JSONDecodeError` at `rendered_source_parity`; [all-trend](../examples/evidence/real-core-38029812736/render-trends.json)
+and [selected-trend](../examples/evidence/real-core-38029812736/render-selected_trends.json)
+attempts timed out at `inspector_style_tab`. Exact saved-map paths and captured
+request filters match. The [point screenshot](../examples/evidence/real-core-38029812736/render-points-failure.png)
+shows visible markers and Mapbox-style identities/coordinates. The [selected-trend screenshot](../examples/evidence/real-core-38029812736/render-selected_trends-failure.png)
+shows the named map, small visible polygon portions and style polygon coordinates,
+despite the recorded tab-stage timeout. No all-trend screenshot or complete parsed
+styles are retained; none establishes rendered source membership or joined values.
+The reported pre-render242-document ID binding matches independent membership.
+
+Sixth-core [measurements](../examples/evidence/real-core-38029812736/measurements.json)
+include25 serial queries and two five-query batches. Median/maximum milliseconds:
+filter28.327/34.955, group47.714/107.920, closure35.623/53.983,
+geo37.335/43.223, compare65.952/131.826. Batches took0.200s at concurrency1 and
+0.158s at concurrency2. The9,728-row, nine-column export took1.137s; two overlapping
+exports1.068s; post-recovery export0.757s. All four1,139,937-byte CSVs match exact
+independent IDs and identical bytes. Actual worker exit86 and recovery passed;
+lease/file recovery alone took0.018s, excluding detection and re-export.
+
+The finite workload took5.046s. Six samples observed runner RSS up to126,865,408
+bytes and Elasticsearch heap1,096,456,528 bytes of its2GiB configured heap;
+individual/combined worker RSS maxima33,198,080/59,170,816 bytes. Caches were
+uncontrolled and prior analysis/browser work had occurred. These are sampled
+observations, not peak capacity, sustained throughput or a cross-run speed study.
+
+[Independent review](../examples/evidence/real-core-38029812736/independent-review.json)
+verified all102 extracted files against the exact1,190,899-byte [artifact](../examples/evidence/real-core-38029812736/corpus-artifact.json),
+SHA256`416ea16fffec6bf77573beb1e75d03c0438c7d3c12aaba62e450070c3e8cb5e9`.
+Count/provenance/qualification checks,35 performance-result digests, four full CSV
+memberships, point/trend CSV values, failure receipts and screenshots were checked;
+maximum numerical difference2.842e-14. The compact archive retains20 JSON files
+and two PNGs,449,030 bytes:20 exact originals plus two derived summaries. The
+campaign freeze hash is`080e76a2e1635bba36ace74a398097f3d7be2789fa8fdb609929c0970c228490`;
+freezing questions is separate from running and reviewing the120 actual trials.
+
+### Fifth retained core run
 
 The fifth [core run38028955870](https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/38028955870)
 executed commit`868168ef480bd0574bc2440fa8a3f0d4aea5c62f` on2026-10-10,
