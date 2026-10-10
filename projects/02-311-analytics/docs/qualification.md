@@ -23,7 +23,7 @@ Runtime `comparison_qualification(index_manifest)` revalidates the chain, count 
 
 A bounded official aggregate on 2026-10-07 reported **2,133,268 rows and distinct keys** for `[2025-04-01, 2025-11-01)` NYC-local creation dates. This seven-month window contains complete calendar months and avoids both 2025 daylight-saving clock transitions. That reduces one known source of unmappable creation timestamps without inventing a timezone offset. Other invalid timestamps or rejected records still prevent qualification.
 
-[Source observation](../examples/evidence/source-april-october-2025.json) records the query and matching fresh revision observations. This is a proposed capture scope; **it is not an acquired corpus or measured scale result**. Repeat source checks at capture time. Use comparisons such as September versus October within this window, qualify the actual capture and reconcile source/normalized/indexed counts before evaluating trends.
+[Source observation](../examples/evidence/source-april-october-2025.json) records the initial scope query and matching revision observations; that observation alone is not a captured dataset. The subsequent [captured manifest](../examples/evidence/captured-manifest.json) and [full local byte/ID verification](../examples/evidence/captured-local-verification.json) establish actual acquisition of 2,133,268 unique records. The [executed acceptance ledger](acceptance.md) records normalization, frozen-index and independent SQLite count reconciliation. Its neighborhood comparison uses June versus October, with daily-rate normalization for the unequal month lengths. Future captures must repeat these checks; the historical qualification cannot certify newly retrieved bytes.
 
 ## Official neighborhood boundaries
 

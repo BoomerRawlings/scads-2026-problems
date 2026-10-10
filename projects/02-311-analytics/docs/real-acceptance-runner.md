@@ -44,8 +44,9 @@ overwrites existing output/index data. It performs these dependent stages:
    is preparation, not a 120-trial agent result.
 
 The `measurement-suite.json` records all five prospective specifications. Point
-and export qualification uses Brooklyn Noise - Residential requests on October
-1, 2025. Trends compare residential-neighborhood Rodent requests in June and
+map/CSV qualification uses Brooklyn Noise - Residential requests on October
+1, 2025; performance exports use that category/borough for the whole month.
+Trends compare residential-neighborhood Rodent requests in June and
 October, ranked by daily-rate change. Queries are never silently changed to
 make an empty or failing cohort pass. Closure measures administrative elapsed
 time to closure, not first response or verified repair.
