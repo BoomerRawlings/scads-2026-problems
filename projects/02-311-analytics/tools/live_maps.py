@@ -230,7 +230,40 @@ def value_equal(observed, expected):
     return type(observed) in (int, float) and type(expected) in (int, float) and math.isfinite(observed) and math.isclose(observed, expected, rel_tol=1e-9, abs_tol=1e-10)
 
 
-def inspect_style(style, mode, expectation):
+def verify_point_id_binding(service, expectation):
+    """Prove live ES document IDs equal independently expected source keys.
+
+    Our ingester explicitly assigns _id=unique_key, but check the actual frozen
+    index as well before using Kibana's retained ES metadata for membership.
+    """
+    index = validate_index(service.config.get("index"))
+    expected = expectation.get("mapped_unique_keys")
+    require(isinstance(expected, list) and 0 < len(expected) <= MAX_POINTS
+            and all(isinstance(value, str) and value for value in expected)
+            and len(expected) == len(set(expected)), "Expected located IDs must be bounded and unique.")
+    response = service.backend.client.request("POST", "/" + index + "/_search", {
+        "size": len(expected), "track_total_hits": True, "_source": ["unique_key"],
+        "query": {"ids": {"values": expected}}})
+    hits = response.get("hits", {})
+    total = hits.get("total", {})
+    rows = hits.get("hits", [])
+    require(not response.get("timed_out") and response.get("_shards", {}).get("failed") == 0
+            and total == {"value": len(expected), "relation": "eq"}
+            and isinstance(rows, list) and len(rows) == len(expected), "ES document identity check is incomplete.")
+    observed = []
+    for row in rows:
+        identifier = row.get("_id")
+        require(row.get("_index") == index and isinstance(identifier, str)
+                and row.get("_source", {}).get("unique_key") == identifier,
+                "ES document ID differs from its source unique_key or frozen index.")
+        observed.append(identifier)
+    require(len(observed) == len(set(observed)) and sorted(observed) == sorted(expected),
+            "ES document identity check differs from independent located membership.")
+    return {"point_document_id_binding_verified": True, "point_document_id_index": index,
+            "point_document_id_count": len(observed), "point_document_id_sha256": fingerprint(sorted(observed))}
+
+
+def inspect_style(style, mode, expectation, *, source_index=None):
     """Compare actual Inspector-rendered GeoJSON; API/search response is insufficient."""
     require(isinstance(style.get("sources"), dict) and isinstance(style.get("layers"), list), "Inspector omitted rendered sources/layers.")
     features = []
@@ -249,8 +282,17 @@ def inspect_style(style, mode, expectation):
         require(isinstance(expected, list) and 0 < len(expected) <= MAX_POINTS and len(expected) == len(set(expected)), "Expected located IDs must be bounded and unique.")
         observed = []
         for feature in features:
-            value = feature.get("properties", {}).get("unique_key")
+            properties = feature.get("properties", {})
+            value = properties.get("unique_key")
             if isinstance(value, list) and len(value) == 1: value = value[0]
+            if source_index is not None:
+                # Tooltip fields are fetched lazily; ES metadata is preserved
+                # by the pinned source's flattenHit -> hitsToGeoJson conversion.
+                identifier = properties.get("_id")
+                require(properties.get("_index") == source_index and isinstance(identifier, str)
+                        and identifier and ("unique_key" not in properties or value == identifier),
+                        "Rendered point ES identity differs from the verified frozen source.")
+                value = identifier
             require(isinstance(value, str) and feature.get("geometry", {}).get("type") == "Point", "Rendered point omitted source ID or geometry.")
             observed.append(value)
         require(len(observed) == len(set(observed)) and sorted(observed) == sorted(expected), "Rendered point membership differs from independent expectation.")
@@ -337,7 +379,7 @@ def _browser_diagnostics(page, stage, map_id, errors):
             "saved_map_path_verified": path.endswith(target), "page_error_types": list(errors)}
 
 
-def browser_style(url, output_dir, filter_query, mode, expectation, *, map_id, timeout_seconds=120):
+def browser_style(url, output_dir, filter_query, mode, expectation, *, map_id, source_index=None, timeout_seconds=120):
     """Uses public Inspector UI selectors also used by pinned Kibana FTR tests."""
     from playwright.sync_api import sync_playwright
     calls, errors = [], []
@@ -398,7 +440,7 @@ def browser_style(url, output_dir, filter_query, mode, expectation, *, map_id, t
                     raw = _subject(page, "mapboxStyleContainer").inner_text()
                     require(len(raw.encode()) <= 32 * 1024 * 1024, "Inspector style exceeds budget.")
                     style = json.loads(raw)
-                    verified = inspect_style(style, mode, expectation)
+                    verified = inspect_style(style, mode, expectation, source_index=source_index)
                     require(any(contains_tree(call["body"], filter_query) for call in calls), "Actual browser search omitted saved DSL filter.")
                     break
                 except (AnalyticsError, ValueError) as exc:
@@ -459,12 +501,16 @@ def render(config_path, result_id, mode, expectation_path, csv_path, output_dir,
         if mode == "requests":
             require(mapped["source_count"] == expectation.get("source_count"), "Map source count differs from reference.")
             require(mapped["mapped_count"] == len(expectation.get("mapped_unique_keys", [])), "Map located count differs from reference.")
+            stage = "point_document_identity"
+            receipt["checks"].update(verify_point_id_binding(service, expectation))
         else:
             require(mapped["published_group_count"] == len(expectation.get("groups", {})), "Published groups differ from reference.")
         stage = "browser"
         query = mapped["locator_request"]["params"]["filters"][0]["query"]
         receipt["checks"].update(browser_style(mapped["url"], output_dir, query, mode, expectation,
-                                               map_id=mapped["locator_request"]["params"]["mapId"], timeout_seconds=timeout_seconds))
+                                               map_id=mapped["locator_request"]["params"]["mapId"],
+                                               source_index=service.config.get("index") if mode == "requests" else None,
+                                               timeout_seconds=timeout_seconds))
         receipt.update({"passed": True, "rendered_parity_verified": True})
     except AnalyticsError as exc:
         receipt["error"] = {"stage": stage, "code": exc.code}

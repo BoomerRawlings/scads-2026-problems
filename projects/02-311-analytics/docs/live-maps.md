@@ -28,6 +28,17 @@ mandatory gate, and a future replacement must be qualified against its version.
 The Maps Inspector selectors are used by
 [Kibana's GIS tests](https://github.com/elastic/kibana/blob/v9.5.5/x-pack/platform/test/functional/page_objects/gis_page.ts)
 and [Inspector tests](https://github.com/elastic/kibana/blob/v9.5.5/src/platform/test/functional/services/inspector.ts).
+The explicit test target must enable `xpack.maps.showMapsInspectorAdapter: true`
+and `xpack.maps.preserveDrawingBuffer: true` in `kibana.yml` or native CLI flags,
+then restart before verification. These are the pinned
+[functional-test settings](https://github.com/elastic/kibana/blob/a2890159e2486503b9e3a0c6f422b153a746651a/x-pack/platform/test/functional/config.base.ts).
+The [configuration](https://github.com/elastic/kibana/blob/a2890159e2486503b9e3a0c6f422b153a746651a/x-pack/platform/plugins/shared/maps/server/config.ts)
+defaults both to false; without the first, the
+[adapter constructor](https://github.com/elastic/kibana/blob/a2890159e2486503b9e3a0c6f422b153a746651a/x-pack/platform/plugins/shared/maps/public/reducers/non_serializable_instances.js)
+omits Map details. The pinned Docker entrypoint does not allowlist these settings,
+so environment variables alone do not enable them. Real run `38027551047`
+loaded the saved maps and visible geometry but failed this Inspector gate;
+its screenshots and CSV checks do not establish rendered-value parity.
 
 Maps registers `MAPS_APP_LOCATOR` in the browser. The server short-URL API
 requires a server-registered locator, so it cannot accept that ID directly.
@@ -157,6 +168,19 @@ aid diagnosis. A passing bounded-map check never sets overall release acceptance
 `browser-diagnostics.json` and the render receipt retain the last browser stage,
 final path, expected saved-map ID, path-identity check, and bounded error types.
 Query/fragment state, credentials and raw DOM are omitted from these diagnostics.
+
+Kibana loads tooltip fields lazily. The initial point GeoJSON can therefore omit
+`unique_key` while retaining Elasticsearch `_id` and `_index`. Our ingester
+assigns `_id=unique_key`; the live verifier additionally reads the bounded
+independent located-ID set from the actual frozen index and requires that
+each `_id` equals its stored `unique_key`. It then compares rendered metadata
+against that exact index and the independent IDs. If a rendered `unique_key`
+is present it must also agree. Missing IDs, foreign indices, duplicates,
+partial searches and mismatches fail closed. This follows the pinned
+[ES source metadata handling](https://github.com/elastic/kibana/blob/a2890159e2486503b9e3a0c6f422b153a746651a/x-pack/platform/plugins/shared/maps/public/classes/sources/es_search_source/es_search_source.tsx)
+and [GeoJSON conversion](https://github.com/elastic/kibana/blob/a2890159e2486503b9e3a0c6f422b153a746651a/x-pack/platform/plugins/shared/maps/common/elasticsearch_util/elasticsearch_geo_utils.ts).
+The additional ES read proves document identity; it does not replace the
+required Inspector source, browser filter, geometry, or screenshot evidence.
 
 Kibana adds flagged centroid Points alongside polygons for labels and symbols.
 The checker separates only these flagged companions, verifies each against its

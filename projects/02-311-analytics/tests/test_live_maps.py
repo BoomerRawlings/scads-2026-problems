@@ -55,6 +55,43 @@ class LiveMapsTests(unittest.TestCase):
             with self.subTest(features=features), self.assertRaises(AnalyticsError):
                 maps.inspect_style(style(features), "requests", expected)
 
+    def test_live_point_metadata_requires_verified_index_ids_and_consistent_source_key(self):
+        feature = point("one")
+        feature["properties"] = {"_id": "one", "_index": "requests-v1"}
+        expected = {"mapped_unique_keys": ["one"]}
+        self.assertEqual(maps.inspect_style(style([feature]), "requests", expected,
+                                           source_index="requests-v1")["rendered_points"], 1)
+        # Raw document IDs are never a fallback without a verified index.
+        with self.assertRaises(AnalyticsError): maps.inspect_style(style([feature]), "requests", expected)
+        for properties in ({"_id": "one", "_index": "other-v1"}, {"_id": "other", "_index": "requests-v1"},
+                           {"_id": 1, "_index": "requests-v1"}, {"unique_key": "one"},
+                           {"_id": "one", "_index": "requests-v1", "unique_key": "different"}):
+            bad = dict(feature, properties=properties)
+            with self.subTest(properties=properties), self.assertRaises(AnalyticsError):
+                maps.inspect_style(style([bad]), "requests", expected, source_index="requests-v1")
+
+    def test_live_point_id_binding_checks_actual_source_not_only_ingestion_convention(self):
+        expected = {"mapped_unique_keys": ["one", "two"]}
+        rows = [{"_id": value, "_index": "requests-v1", "_source": {"unique_key": value}} for value in ("one", "two")]
+        response = {"timed_out": False, "_shards": {"failed": 0},
+                    "hits": {"total": {"value": 2, "relation": "eq"}, "hits": rows}}
+        client = unittest.mock.Mock()
+        client.request.return_value = response
+        service = SimpleNamespace(config={"index": "requests-v1"}, backend=SimpleNamespace(client=client))
+        self.assertTrue(maps.verify_point_id_binding(service, expected)["point_document_id_binding_verified"])
+        client.request.assert_called_once_with("POST", "/requests-v1/_search", {
+            "size": 2, "track_total_hits": True, "_source": ["unique_key"], "query": {"ids": {"values": ["one", "two"]}}})
+        for change in ("source", "index", "missing", "duplicate", "partial", "timeout"):
+            bad = copy.deepcopy(response)
+            if change == "source": bad["hits"]["hits"][0]["_source"]["unique_key"] = "different"
+            elif change == "index": bad["hits"]["hits"][0]["_index"] = "other-v1"
+            elif change == "missing": bad["hits"]["hits"].pop()
+            elif change == "duplicate": bad["hits"]["hits"][1] = bad["hits"]["hits"][0]
+            elif change == "partial": bad["_shards"]["failed"] = 1
+            else: bad["timed_out"] = True
+            client.request.return_value = bad
+            with self.subTest(change=change), self.assertRaises(AnalyticsError): maps.verify_point_id_binding(service, expected)
+
     def test_visible_layer_must_reference_inspected_geojson(self):
         value = style([point("one")])
         value["layers"][0]["source"] = "different"
@@ -211,6 +248,7 @@ class LiveMapsTests(unittest.TestCase):
                 (args[1] / "browser-diagnostics.json").write_text(json.dumps(diagnostics))
                 raise TimeoutError()
             with patch.object(maps, "AnalyticsService", return_value=service), patch.object(maps, "inspect_csv", return_value={}), \
+                 patch.object(maps, "verify_point_id_binding", return_value={}), \
                  patch.object(maps, "browser_style", side_effect=browser):
                 result = maps.render(root / "profile.json", "a" * 32, "requests", expectation, root / "file.csv", root / "render")
             self.assertFalse(result["passed"])
