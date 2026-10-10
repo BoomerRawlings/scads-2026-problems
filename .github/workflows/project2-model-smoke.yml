@@ -100,7 +100,7 @@ jobs:
           model_file=$(python -c "import json;print(json.load(open('docs/local-model-runtime.json'))['model']['filename'])")
           LD_LIBRARY_PATH="$(dirname "$release_bench")" /usr/bin/time -v -o runs/model-smoke/runtime/release-resources.txt "$release_bench" -m "data/model-smoke/$model_file" -p 512 -n 32 -r 1 -t 4 -ngl 0 -b 2048 -ub 512 -o json > runs/model-smoke/runtime/release-benchmark.json
           OPENBLAS_NUM_THREADS=4 /usr/bin/time -v -o runs/model-smoke/runtime/native-resources.txt data/model-smoke/native/bin/llama-bench -m "data/model-smoke/$model_file" -p 512 -n 32 -r 1 -t 4 -ngl 0 -b 2048 -ub 512 -o json > runs/model-smoke/runtime/native-benchmark.json
-      - name: Execute one actual model development question
+      - name: Execute actual model with bounded record previews
         timeout-minutes: 12
         run: |
           set -euo pipefail
