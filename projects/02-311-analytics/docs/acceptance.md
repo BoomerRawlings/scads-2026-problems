@@ -18,12 +18,12 @@ remain in [the historical v0.6 record](acceptance-v0.6.md).
 
 ## Executed verification
 
-- [Latest archived local regression](../examples/evidence/test-report-v0.7-bootstrap.json):520 tests collected,519 passed, one Windows unprivileged-symlink skip,22.741seconds. This receipt pins its source hashes; subsequent Maps/schema edits require new qualification. Mock transports and authored data do not establish million-record behavior. [Earlier worker repair](../examples/evidence/test-report-v0.7-post-worker.json):506 collected,505 passed, one skip,35.346seconds.
+- [Latest archived local regression](../examples/evidence/test-report-v0.7-maps-schema.json):535 tests collected,534 passed, one Windows unprivileged-symlink skip,53.299seconds; includes the Maps/schema repairs and pins exact source hashes. Mock transports and authored data do not establish million-record behavior. [Earlier bootstrap checkpoint](../examples/evidence/test-report-v0.7-bootstrap.json):520 collected,519 passed, one skip,22.741seconds; [worker repair](../examples/evidence/test-report-v0.7-post-worker.json):506 collected,505 passed, one skip,35.346seconds.
 - [Actual capture and local verification](../examples/evidence/captured-local-verification.json): successful [run37700939902](https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/37700939902),2,133,268 unique requests across2135 page operations. All1,306,911,416 decompressed bytes match SHA256`91d84eb6d02dafc402a892298ba92cb121e8e905a189fb75f31b19d4d43aeec7`. Every record was streamed locally to verify strict ascending unique keys, creation dates inside April1-Nov1 2025 and the maximum source update. The163,696,296-byte gzip and [canonical source manifest](../examples/evidence/captured-manifest.json) are retained. No raw JSONL file or full ID set was materialized locally; verification took47.703seconds. Source before/after counts, metadata and revisions reconcile in the manifest; the local check did not re-query the changing provider.
 - [Actual Elastic9.5.5 parity on v0.7](../examples/evidence/live-parity-9.5.5-v0.7.json):14 families,32 authored records, real PIT/composite pagination and full CSV membership. Kibana health was observed separately; browser rendering was not part of this check.
 - [Earlier acquisition failures](../examples/evidence/capture-attempts-v0.7.json): first request timeout30s; a local count took43.891s. Second attempt passed counts but timed out on its first5000-row page after bounded120s retries, leaving zero captured rows. The successful third run used1000-row pages. Historical failures remain; success does not establish a general network-throughput guarantee.
 - [Official boundaries](../examples/evidence/official-nta2020-26b.json):4,532,381 captured bytes, SHA256`5049760a4d0936e1d3dbf70d745e2cee4286bd163b11c702f15fa28db46a001e`, matching source metadata before/after download.
-- [Evaluator implementation checks](../examples/evidence/agent-evaluator-v1-checks.json):24 focused tests. These use an authored tiny corpus and mock model; they are not the actual120-trial experiment.
+- [Evaluator implementation checks](../examples/evidence/agent-evaluator-v1-checks.json):53 focused tests passed in3.133seconds. These use an authored tiny corpus and mock model; they are not the actual120-trial experiment or native model grammar qualification.
 
 ## Real-corpus execution and independent receipt review
 
@@ -68,10 +68,12 @@ all pre-browser failures remain explicit. Sixteen compact JSON artifacts are
 archived; raw records, individual-ID lists and CSV bodies are excluded. This
 offline review does not repeat the live service or independently reassign polygons.
 
-The [v0.7 offline packages](../examples/evidence/build-v0.7.json) passed clean-install
-checks for their recorded source hashes on CPython3.12 Windows x64 only. Pending
-core Maps changes are outside that qualification; packages must be rebuilt and
-rechecked against the final source. No new package build is claimed here.
+The [v0.7 r2 offline packages](../examples/evidence/build-v0.7-r2.json) passed fresh
+clean-install checks against the repaired Maps modules on CPython3.12 Windows x64
+only. All36 wheels,3,959 RECORD entries,23 source modules, five resources and both
+bundle inventories passed independent integrity checks. The original0.7 packages
+remain unchanged and source-specific. Neither package smoke runs real services or
+qualifies model/Maps acceptance. [Distribution details](distribution.md).
 
 The earlier run remains below as a separate, preserved observation.
 

@@ -19,3 +19,5 @@
 - Earlier localdiskfull recoveredexternally; automaticapprovalreviewblockedduplicateextractcleanup, copiesretained. Lowdiskcompressedcapturefallback23testspass butdidnotproduceactualCIcorpus. No globalCodexruntimefiles copied/synced. Detailedledger docs/acceptance.md.
 
 - Latest checkpoint: full535checks/534pass/1Windows symlink skip,53.299s; exact-source receipt test-report-v0.7-maps-schema.json. Public AnalysisSpec schema + exact unchanged dataset references ready; preserves raw traces/ownership. Maps uses supported legacy wrapper to browser locator and returned object ID; qualification/centroid fixes reviewed. Fresh model smoke/live renderer required.
+
+- Active2026-10-10: smoke38025617751 (010bac0), realcore38025638157 (03fd0c0); both running fresh source d56f028. Allcode changes frozen during campaign; documents/packagingonly independent work.

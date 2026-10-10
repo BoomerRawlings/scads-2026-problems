@@ -1,0 +1,126 @@
+{
+  "name": "analytics311",
+  "version": "0.7.0",
+  "distribution": "core",
+  "target": {
+    "os": "Windows",
+    "architecture": "ARM64",
+    "python_implementation": "CPython",
+    "python_version": "3.12.14",
+    "python_platform": "win-amd64",
+    "python_cache_tag": "cpython-312",
+    "dependency_target": "current interpreter and platform only"
+  },
+  "install_requirement": "analytics311==0.7.0",
+  "requires_python": ">=3.11",
+  "artifacts": [
+    {
+      "file": "analytics311-0.7.0-py3-none-any.whl",
+      "sha256": "617efe9ba9a098b833f34f31f8be0115c2f2df93907d830c15a2db7eea0af8d1",
+      "bytes": 92999,
+      "wheel_tags": {
+        "python": "py3",
+        "abi": "none",
+        "platform": "any"
+      }
+    },
+    {
+      "file": "dependencies/tzdata-2026.5-py2.py3-none-any.whl",
+      "sha256": "b683bd1b6659ddcd810ff02ad09ba821d4bf1065072805063eb35c49617905ac",
+      "bytes": 347996,
+      "wheel_tags": {
+        "python": "py2.py3",
+        "abi": "none",
+        "platform": "any"
+      }
+    }
+  ],
+  "bundled_assets_sha256": {
+    "config/development.json": "ebeeb4cd9f05c2aae513b4f6b2395ac542e60de56cfcb0f50503e97529190988",
+    "config/catalog.json": "589b4dd202aa5d69315dc920499bcc0d75e130e8d164e1dfb927c3f2c1d66736",
+    "config/mapping.json": "3c1d6db8fa1fe597ca43a23a8e00df168beffe4f2ecbc0b99165d8b0a0ccca95",
+    "fixtures/manifest.json": "f2e3831e6a350f7fabb0a1f3eaa44c5dbff46684ce9baf6721b831f66b7b6668",
+    "fixtures/requests.jsonl": "e34bba882616d4e04d9994642c2cc66effed110e3fa544039ef967d6da36997c"
+  },
+  "build_network_disabled": true,
+  "verification": {
+    "status": "passed",
+    "fresh_venv": true,
+    "outside_checkout": true,
+    "installation": "pip --no-index",
+    "network_audit_guard": true,
+    "network_guard_scope": "Python audit hook; not an OS sandbox",
+    "network_guard_exception": "stdlib socketpair only; Windows uses loopback TCP internally",
+    "package_version": "0.7.0",
+    "dataset_version": "fixture-v1",
+    "evidence_level": "fixture_only",
+    "matching_records": 4,
+    "preview_records": 2,
+    "export_rows": 4,
+    "export_sha256": "ba7c22b1effcd036aea35031df3d0c6edfe8274a8d9aa911a7ddd0c461b29381",
+    "capacity_plan": {
+      "status": "passed",
+      "target_rows": 1000,
+      "evidence_kind": "modeled_capacity",
+      "ready_for_production": false
+    },
+    "default_output": "work/runs",
+    "installed_assets_unchanged": true,
+    "handoff": {
+      "status": "passed",
+      "live_parity": "argument parsing only; no server",
+      "capacity_scenarios": 9,
+      "reference_benchmark": {
+        "records": 100,
+        "cases": 5,
+        "evidence_level": "generated_reference_only"
+      },
+      "export_stress": {
+        "status": "passed",
+        "owned_processes_started": 7,
+        "peak_owned_processes_alive": 2,
+        "seconds": 1.812,
+        "crash_method": "parent_gate_then_worker_os._exit",
+        "worker_exit_code": 86,
+        "evidence_level": "measured_bounded_local_process_only"
+      }
+    },
+    "mcp_tested": false,
+    "geo_tested": false,
+    "elastic_kibana_tested": false
+  },
+  "extras_bundled": [],
+  "handoff_files": [
+    {
+      "file": "tools/live_parity.py",
+      "sha256": "53a705dce5019df25347abfc1951dc078f3389848585b924ba3bbbd167afd5be",
+      "bytes": 20786
+    },
+    {
+      "file": "tools/capacity_scenarios.py",
+      "sha256": "2bade6d08d0b75a63fad23e931e13d0d495933e472efcdbe07e2ae3a01ad6cd3",
+      "bytes": 5789
+    },
+    {
+      "file": "tools/benchmark_fixture.py",
+      "sha256": "8fc9c4a95d5ca2d0107a553c1955a36433c90408e7607a8f1ee151f1895e4477",
+      "bytes": 6462
+    },
+    {
+      "file": "tools/stress_exports.py",
+      "sha256": "71a6e213da6feff1c5303f990c79156cb0ecb298f66bd1a937ff7df1852d80ed",
+      "bytes": 19792
+    },
+    {
+      "file": "examples/capacity/scenarios.json",
+      "sha256": "bfb89a53e4524260090b3b423ea956a3f7cc86fe27eea3c5878a30886b22c299",
+      "bytes": 2123
+    }
+  ],
+  "limits": [
+    "Only selected extras are bundled; dependency wheels target the recorded Python/platform.",
+    "Python socket audit instrumentation is not an OS network sandbox.",
+    "Fixture execution is software evidence, not live Elasticsearch/Kibana or real NYC evidence.",
+    "Install wheels with pip; direct zip-import execution is not a supported deployment."
+  ]
+}
