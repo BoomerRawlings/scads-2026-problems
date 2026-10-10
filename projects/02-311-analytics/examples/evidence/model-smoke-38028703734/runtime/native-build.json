@@ -1,0 +1,7 @@
+{
+  "source_commit": "5ad1c5da0ad7f6176256b823925aad19134f0263",
+  "build_type": "Release",
+  "native": true,
+  "blas": "OpenBLAS",
+  "binary_sha256": "d6c770b9a982db607590cc9e2ce48d4cc80f0bd56c3904bda2522ec2a999e5a0"
+}

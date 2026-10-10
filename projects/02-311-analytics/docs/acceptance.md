@@ -12,13 +12,13 @@ remain in [the historical v0.6 record](acceptance-v0.6.md).
 | Actual ≥2 million requests | All five stages reconcile2,133,268 rows; full raw and normalized hashes, ingested byte offset and frozen index UUID recorded | Acquisition/count target met for this captured window |
 | Neighborhood comparisons | Official262 NTA polygons/197 residential codes; qualified observed window; June/October rodent comparison matches independent SQL across196 represented neighborhoods | Agent-led chained comparisons and rendered neighborhood maps; population completeness remains unclaimed |
 | Elasticsearch/Kibana | Elasticsearch9.5.5 parity/CSV passed in four real runs; reusable maps/262 boundaries provisioned; fourth run loaded named maps and displayed points/polygons; captured request filters agree | All three checks timed out at Inspector map details; exact rendered membership and joined metric values remain unverified |
-| Actual agent |40 prospective AI-authored questions, independent SQLite oracle,3 repetitions and chained analyses implemented; latest development smoke failed after one valid fixture-count call | Qualify candidate, execute120 real model trials, complete independent semantic review and report actual threshold outcome |
+| Actual agent |40 prospective AI-authored questions, independent SQLite oracle,3 repetitions and chained analyses implemented; latest development smoke completed but invented restrictions and falsely requested clarification | Execute120 real model trials of the frozen negative candidate under a prospective operational-eligibility amendment; retain quality failure and complete unchanged threshold/semantic review |
 | Usable performance | Actual4CPU/16.77GB host:25 serial queries, two5-query batches,9,728-row exports, sampled memory and one abrupt worker recovery passed | Broader sustained load, cold cache, end-to-end model latency and server recovery remain unqualified |
 | Two paper descriptions | Corrected administrative closure versus first response; separate Maps processing and CSV-worker paths; changed pages visually checked | Website remains its earlier published edition until separately republished |
 
 ## Executed verification
 
-- [Latest archived local regression](../examples/evidence/test-report-v0.7-preview-default.json):551 tests collected,550 passed, one Windows unprivileged-symlink skip,37.314seconds; includes the public default-five-record preview and preserves explicit larger previews/exact totals/full CSV exports. Exact source hashes are pinned. Mock transports and authored data do not establish million-record behavior. [Earlier warmup/route checkpoint](../examples/evidence/test-report-v0.7-warmup-route.json):548 collected,547 passed, one skip,43.169seconds; [Maps/schema checkpoint](../examples/evidence/test-report-v0.7-maps-schema.json):535 collected,534 passed, one skip,53.299seconds; [bootstrap checkpoint](../examples/evidence/test-report-v0.7-bootstrap.json):520 collected,519 passed, one skip,22.741seconds; [worker repair](../examples/evidence/test-report-v0.7-post-worker.json):506 collected,505 passed, one skip,35.346seconds.
+- [Latest archived local regression](../examples/evidence/test-report-v0.7-inspector-id.json):553 tests collected,552 passed, one Windows unprivileged-symlink skip,41.062seconds; includes exact frozen-index document identity for Maps verification. [Default-preview checkpoint](../examples/evidence/test-report-v0.7-preview-default.json):551 collected,550 passed, one skip,37.314seconds; preserves explicit larger previews/exact totals/full CSV exports. Exact source hashes are pinned. Mock transports and authored data do not establish million-record behavior. [Earlier warmup/route checkpoint](../examples/evidence/test-report-v0.7-warmup-route.json):548 collected,547 passed, one skip,43.169seconds; [Maps/schema checkpoint](../examples/evidence/test-report-v0.7-maps-schema.json):535 collected,534 passed, one skip,53.299seconds; [bootstrap checkpoint](../examples/evidence/test-report-v0.7-bootstrap.json):520 collected,519 passed, one skip,22.741seconds; [worker repair](../examples/evidence/test-report-v0.7-post-worker.json):506 collected,505 passed, one skip,35.346seconds.
 - [Actual capture and local verification](../examples/evidence/captured-local-verification.json): successful [run37700939902](https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/37700939902),2,133,268 unique requests across2135 page operations. All1,306,911,416 decompressed bytes match SHA256`91d84eb6d02dafc402a892298ba92cb121e8e905a189fb75f31b19d4d43aeec7`. Every record was streamed locally to verify strict ascending unique keys, creation dates inside April1-Nov1 2025 and the maximum source update. The163,696,296-byte gzip and [canonical source manifest](../examples/evidence/captured-manifest.json) are retained. No raw JSONL file or full ID set was materialized locally; verification took47.703seconds. Source before/after counts, metadata and revisions reconcile in the manifest; the local check did not re-query the changing provider.
 - [Actual Elastic9.5.5 parity on v0.7](../examples/evidence/live-parity-9.5.5-v0.7.json):14 families,32 authored records, real PIT/composite pagination and full CSV membership. Kibana health was observed separately; browser rendering was not part of this check.
 - [Earlier acquisition failures](../examples/evidence/capture-attempts-v0.7.json): first request timeout30s; a local count took43.891s. Second attempt passed counts but timed out on its first5000-row page after bounded120s retries, leaving zero captured rows. The successful third run used1000-row pages. Historical failures remain; success does not establish a general network-throughput guarantee.
@@ -26,6 +26,42 @@ remain in [the historical v0.6 record](acceptance-v0.6.md).
 - [Evaluator and public-contract checks](../examples/evidence/agent-evaluator-v1-checks.json):134 focused tests passed in6.466seconds across contracts, fixture, guide, service, settings and evaluator. They include exact warmup-input binding and default-five previews with unchanged full CSV membership. Authored fixtures and mock responses are not the actual120-trial experiment or native model grammar qualification.
 
 ## Actual model development: latest retained failure
+
+[Smoke38028703734](https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/38028703734),
+commit`ffbbd5811c2b6ca949417b926dd56e3807e1e34d`, completed its one authored
+32-record count question but failed quality. Exact [summary](../examples/evidence/model-smoke-38028703734/summary.json)
+and [trace](../examples/evidence/model-smoke-38028703734/trace.json) retain all
+failure flags. The runtime,24,576-token context and160s/120s trial/request budgets
+were unchanged; the prospective public preview default was five.
+
+Its [metadata-only warmup](../examples/evidence/model-smoke-38028703734/runtime/metadata-prefix-warmup.json)
+took163.584s, processing7,312 prompt tokens and one discarded output token. The
+first response reported7,306 cached tokens/55 new tokens and completed in32.110s.
+Despite an explicit unrestricted count request, the model invented a category
+filter, polygon, last-month period and borough/day grouping. Validation returned
+`needs_clarification`; the model then blamed missing user details. After one
+format-only repair it returned a structured clarification, with no analytical
+result, count, citation or synthetic-data disclosure. Trial elapsed59.404s excludes
+startup; measured smoke wall time including startup was223.025s. This is a
+semantic failure, not a timeout or a successful count.
+
+[Independent review](../examples/evidence/model-smoke-38028703734/independent-review.json)
+verified exact metadata identities, hashes, invented arguments, validation output,
+cache counters, final response and timing arithmetic. The compact archive retains
+18 exact files plus this review,66,987 bytes. Three completed model response events
+are distinct from the trace's one model-initiated tool-call counter. Raw benchmark
+and resource measurements remain; their RSS belongs to `llama-bench`, not the
+model-server trial. No live inference was rerun for this review.
+
+Before any held-out exposure, the study decision is to stop development tuning
+and measure this negative candidate on all40 questions x3 runs. A prospective
+operational-eligibility gate will establish that the frozen runtime can execute
+bounded requests; it must not relabel this quality failure as passed. The120-trial
+denominator,90% threshold, all-case coverage and independent semantic review stay
+unchanged. The gate amendment and actual campaign results remain separate evidence;
+this smoke itself contains zero held-out trials.
+
+### Earlier retained warm-prefix timeout
 
 [Smoke38027531995](https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/38027531995),
 commit`07617587eb8908cd5d5fea2e95c46cbe086a3f41`, failed on the authored

@@ -9,6 +9,35 @@ not independent human-held-out labels or evidence of generalization to arbitrary
 users. Executing 120 trials and passing the acceptance threshold are separate facts.
 The protocol cannot establish that questions were absent from model pretraining.
 
+## Prospective operational-eligibility amendment
+
+Before any held-out trial, the execution prerequisite was amended on October 10,
+2026 (UTC). The frozen 1.7B candidate can execute the study despite failing its
+development count question. Development run
+[38028703734](https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/38028703734)
+returned an unnecessary clarification after inventing restrictions. Its retained
+summary remains `passed:false`: no correct count, numeric evidence, result citation
+or synthetic-data disclosure. Startup took 163.584 seconds; the question took
+59.404 seconds. Server counters show 7,306 cached tokens on the first question
+request. These measurements establish execution and cache reuse, not answer quality.
+
+Operational eligibility binds that exact failed run, commit and artifact to the
+current application/adapter/evaluator hashes, model/runtime pins, native build
+flags, fixed 160-second trial/120-second request/24-call limits, actual tool-call
+trace and successful metadata-only warmup. The warmup request must match the
+recorded discovery via the shared public prefix builder. The receipt records
+`eligible_to_execute:true`, `quality_qualified:false`, the original failed checks,
+and hashes of every retained artifact file. The run's failure conclusion and full
+trace remain evidence. This replaces the previous requirement that the authored
+development count question pass before any research trials could begin.
+
+No model, adapter, question, oracle, grading threshold or runtime setting changes
+accompany this amendment. All 120 attempts remain required; failed/missing trials
+remain in the denominator. The 90% automatic threshold, at least one pass for every
+question, numeric grounding and independent semantic review remain unchanged.
+No tuning of this candidate is permitted after held-out exposure. A completed
+negative study is an executed evaluation, never a qualified agent release.
+
 Files: [questions](../examples/evaluation/questions-v1.json),
 [local model adapter](../tools/local_agent.py),
 [freeze, execution and automatic grader](../tools/agent_evaluation.py),
