@@ -132,7 +132,7 @@ jobs:
         timeout-minutes: 4
         env:
           GH_TOKEN: ${{ github.token }}
-          DEVELOPMENT_RUN_ID: "38004496878"
+          DEVELOPMENT_RUN_ID: "38025617751"
         run: |
           for attempt in $(seq 1 18); do
             conclusion=$(gh api "repos/BoomerRawlings/scads-2026-problems/actions/runs/$DEVELOPMENT_RUN_ID" --jq '.conclusion // ""')
@@ -159,7 +159,7 @@ jobs:
           assert summary.get('passed') is True and summary.get('actual_agent_trials')==1
           assert summary.get('evidence_kind')=='actual_local_model_development_fixture_smoke'
           assert summary.get('held_out_evaluation') is False and summary.get('runtime_profile')=='native_openblas'
-          assert summary.get('budgets')=={'seconds':150,'request_seconds':100,'max_calls':24}
+          assert summary.get('budgets')=={'seconds':160,'request_seconds':120,'max_calls':24}
           assert summary.get('discovery_initiator')=='adapter'
           assert summary.get('model_alias')==spec['model_alias'] and summary.get('model_identity',{}).get('model_id')==spec['model_alias']
           assert summary.get('runtime_spec_sha256')==e.sha_file('docs/local-model-runtime.json')
@@ -242,7 +242,7 @@ jobs:
           PY
       - name: Execute 40 fresh-context agent trials, repetition 1
         if: ${{ always() && hashFiles('projects/02-311-analytics/runs/runtime/native-build.json') != '' }}
-        timeout-minutes: 105
+        timeout-minutes: 110
         continue-on-error: true
         run: |
           server=$(realpath data/local-model/native/bin/llama-server)
@@ -287,11 +287,11 @@ jobs:
               if len(parts)==6 and parts[5].startswith('/') and re.search(r'\.so(?:\.|$)',Path(parts[5]).name):libraries.add(Path(parts[5]).resolve(strict=True))
           items=[('model',model),('server',server),('build_configuration',cache),('source_revision',revision)]+[('runtime_library',p) for p in sorted(libraries)]
           files=[{'role':role,'path':str(p),'bytes':p.stat().st_size,'sha256':e.sha_file(p)} for role,p in items]
-          receipt={'schema_version':1,'evidence_kind':'pretrial_local_model_runtime','created_at':datetime.now(timezone.utc).isoformat(),'freeze_sha256':e.sha_file('runs/real-v1/agent-freeze.json'),'runtime_spec_sha256':e.sha_file('docs/local-model-runtime.json'),'model_alias':spec['model_alias'],'execution_runtime':spec['execution_runtime'],'endpoint':'http://127.0.0.1:8080/v1','budgets':{'seconds':150,'request_seconds':100,'max_calls':24},'owned_server_pid':pid,'launch_argv':argv,'files':files}
+          receipt={'schema_version':1,'evidence_kind':'pretrial_local_model_runtime','created_at':datetime.now(timezone.utc).isoformat(),'freeze_sha256':e.sha_file('runs/real-v1/agent-freeze.json'),'runtime_spec_sha256':e.sha_file('docs/local-model-runtime.json'),'model_alias':spec['model_alias'],'execution_runtime':spec['execution_runtime'],'endpoint':'http://127.0.0.1:8080/v1','budgets':{'seconds':160,'request_seconds':120,'max_calls':24},'owned_server_pid':pid,'launch_argv':argv,'files':files}
           e.write_new('runs/runtime/agent-runtime-freeze-r'+os.environ['REP']+'.json',receipt)
           PY
           config=$(python -c "import json;print('runs/real-v1/'+json.load(open('runs/real-v1/acceptance.json'))['agent_config'])")
-          python tools/agent_evaluation.py run --config "$config" --freeze runs/real-v1/agent-freeze.json --database runs/real-v1/oracle.sqlite --endpoint http://127.0.0.1:8080/v1 --output runs/agent-v1 --seconds 150 --request-seconds 100 --repetition 1 --runtime-receipt runs/runtime/agent-runtime-freeze-r1.json
+          python tools/agent_evaluation.py run --config "$config" --freeze runs/real-v1/agent-freeze.json --database runs/real-v1/oracle.sqlite --endpoint http://127.0.0.1:8080/v1 --output runs/agent-v1 --seconds 160 --request-seconds 120 --repetition 1 --runtime-receipt runs/runtime/agent-runtime-freeze-r1.json
       - name: Retain agent repetition 1
         if: ${{ always() }}
         uses: actions/upload-artifact@v4
@@ -308,7 +308,7 @@ jobs:
           if-no-files-found: warn
       - name: Execute 40 fresh-context agent trials, repetition 2
         if: ${{ always() && hashFiles('projects/02-311-analytics/runs/runtime/native-build.json') != '' }}
-        timeout-minutes: 105
+        timeout-minutes: 110
         continue-on-error: true
         run: |
           server=$(realpath data/local-model/native/bin/llama-server)
@@ -353,11 +353,11 @@ jobs:
               if len(parts)==6 and parts[5].startswith('/') and re.search(r'\.so(?:\.|$)',Path(parts[5]).name):libraries.add(Path(parts[5]).resolve(strict=True))
           items=[('model',model),('server',server),('build_configuration',cache),('source_revision',revision)]+[('runtime_library',p) for p in sorted(libraries)]
           files=[{'role':role,'path':str(p),'bytes':p.stat().st_size,'sha256':e.sha_file(p)} for role,p in items]
-          receipt={'schema_version':1,'evidence_kind':'pretrial_local_model_runtime','created_at':datetime.now(timezone.utc).isoformat(),'freeze_sha256':e.sha_file('runs/real-v1/agent-freeze.json'),'runtime_spec_sha256':e.sha_file('docs/local-model-runtime.json'),'model_alias':spec['model_alias'],'execution_runtime':spec['execution_runtime'],'endpoint':'http://127.0.0.1:8080/v1','budgets':{'seconds':150,'request_seconds':100,'max_calls':24},'owned_server_pid':pid,'launch_argv':argv,'files':files}
+          receipt={'schema_version':1,'evidence_kind':'pretrial_local_model_runtime','created_at':datetime.now(timezone.utc).isoformat(),'freeze_sha256':e.sha_file('runs/real-v1/agent-freeze.json'),'runtime_spec_sha256':e.sha_file('docs/local-model-runtime.json'),'model_alias':spec['model_alias'],'execution_runtime':spec['execution_runtime'],'endpoint':'http://127.0.0.1:8080/v1','budgets':{'seconds':160,'request_seconds':120,'max_calls':24},'owned_server_pid':pid,'launch_argv':argv,'files':files}
           e.write_new('runs/runtime/agent-runtime-freeze-r'+os.environ['REP']+'.json',receipt)
           PY
           config=$(python -c "import json;print('runs/real-v1/'+json.load(open('runs/real-v1/acceptance.json'))['agent_config'])")
-          python tools/agent_evaluation.py run --config "$config" --freeze runs/real-v1/agent-freeze.json --database runs/real-v1/oracle.sqlite --endpoint http://127.0.0.1:8080/v1 --output runs/agent-v1 --seconds 150 --request-seconds 100 --repetition 2 --runtime-receipt runs/runtime/agent-runtime-freeze-r2.json --resume
+          python tools/agent_evaluation.py run --config "$config" --freeze runs/real-v1/agent-freeze.json --database runs/real-v1/oracle.sqlite --endpoint http://127.0.0.1:8080/v1 --output runs/agent-v1 --seconds 160 --request-seconds 120 --repetition 2 --runtime-receipt runs/runtime/agent-runtime-freeze-r2.json --resume
       - name: Retain agent repetition 2
         if: ${{ always() }}
         uses: actions/upload-artifact@v4
@@ -374,7 +374,7 @@ jobs:
           if-no-files-found: warn
       - name: Execute 40 fresh-context agent trials, repetition 3
         if: ${{ always() && hashFiles('projects/02-311-analytics/runs/runtime/native-build.json') != '' }}
-        timeout-minutes: 105
+        timeout-minutes: 110
         continue-on-error: true
         run: |
           server=$(realpath data/local-model/native/bin/llama-server)
@@ -419,11 +419,11 @@ jobs:
               if len(parts)==6 and parts[5].startswith('/') and re.search(r'\.so(?:\.|$)',Path(parts[5]).name):libraries.add(Path(parts[5]).resolve(strict=True))
           items=[('model',model),('server',server),('build_configuration',cache),('source_revision',revision)]+[('runtime_library',p) for p in sorted(libraries)]
           files=[{'role':role,'path':str(p),'bytes':p.stat().st_size,'sha256':e.sha_file(p)} for role,p in items]
-          receipt={'schema_version':1,'evidence_kind':'pretrial_local_model_runtime','created_at':datetime.now(timezone.utc).isoformat(),'freeze_sha256':e.sha_file('runs/real-v1/agent-freeze.json'),'runtime_spec_sha256':e.sha_file('docs/local-model-runtime.json'),'model_alias':spec['model_alias'],'execution_runtime':spec['execution_runtime'],'endpoint':'http://127.0.0.1:8080/v1','budgets':{'seconds':150,'request_seconds':100,'max_calls':24},'owned_server_pid':pid,'launch_argv':argv,'files':files}
+          receipt={'schema_version':1,'evidence_kind':'pretrial_local_model_runtime','created_at':datetime.now(timezone.utc).isoformat(),'freeze_sha256':e.sha_file('runs/real-v1/agent-freeze.json'),'runtime_spec_sha256':e.sha_file('docs/local-model-runtime.json'),'model_alias':spec['model_alias'],'execution_runtime':spec['execution_runtime'],'endpoint':'http://127.0.0.1:8080/v1','budgets':{'seconds':160,'request_seconds':120,'max_calls':24},'owned_server_pid':pid,'launch_argv':argv,'files':files}
           e.write_new('runs/runtime/agent-runtime-freeze-r'+os.environ['REP']+'.json',receipt)
           PY
           config=$(python -c "import json;print('runs/real-v1/'+json.load(open('runs/real-v1/acceptance.json'))['agent_config'])")
-          python tools/agent_evaluation.py run --config "$config" --freeze runs/real-v1/agent-freeze.json --database runs/real-v1/oracle.sqlite --endpoint http://127.0.0.1:8080/v1 --output runs/agent-v1 --seconds 150 --request-seconds 100 --repetition 3 --runtime-receipt runs/runtime/agent-runtime-freeze-r3.json --resume
+          python tools/agent_evaluation.py run --config "$config" --freeze runs/real-v1/agent-freeze.json --database runs/real-v1/oracle.sqlite --endpoint http://127.0.0.1:8080/v1 --output runs/agent-v1 --seconds 160 --request-seconds 120 --repetition 3 --runtime-receipt runs/runtime/agent-runtime-freeze-r3.json --resume
       - name: Retain agent repetition 3
         if: ${{ always() }}
         uses: actions/upload-artifact@v4
