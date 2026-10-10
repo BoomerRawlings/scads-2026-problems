@@ -1,0 +1,150 @@
+name: Project 2 rendered Maps verification
+on:
+  push:
+    branches: [codex/project2-acceptance-20261007]
+    paths: [".github/workflows/project2-maps.yml"]
+  workflow_dispatch:
+    inputs:
+      capture_run:
+        description: Successful real-capture workflow run ID
+        required: true
+        default: "37705537519"
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: project2-rendered-maps
+  cancel-in-progress: false
+jobs:
+  verify_maps:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 75
+    services:
+      elasticsearch:
+        image: docker.elastic.co/elasticsearch/elasticsearch:9.5.5
+        env:
+          discovery.type: single-node
+          xpack.security.enabled: "false"
+          xpack.security.enrollment.enabled: "false"
+          xpack.ml.enabled: "false"
+          ingest.geoip.downloader.enabled: "false"
+          node.store.allow_mmap: "false"
+          ES_JAVA_OPTS: "-Xms2g -Xmx2g"
+        ports: ["127.0.0.1:9200:9200"]
+        options: >-
+          --memory 4g --cpus 2
+          --health-cmd "curl --fail --silent http://localhost:9200/_cluster/health?wait_for_status=yellow"
+          --health-interval 10s --health-timeout 5s --health-retries 30
+      kibana:
+        image: docker.elastic.co/kibana/kibana:9.5.5
+        env:
+          ELASTICSEARCH_HOSTS: '["http://elasticsearch:9200"]'
+          TELEMETRY_OPTIN: "false"
+          MAP_INCLUDEELASTICMAPSSERVICE: "false"
+          STATUS_ALLOWANONYMOUS: "true"
+          NODE_OPTIONS: "--max-old-space-size=1024"
+        ports: ["127.0.0.1:5601:5601"]
+        options: >-
+          --memory 2g --cpus 1
+          --health-cmd "curl --fail --silent http://localhost:5601/api/status"
+          --health-interval 15s --health-timeout 10s --health-retries 40
+    defaults:
+      run:
+        working-directory: projects/02-311-analytics
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Enable Maps inspection in the owned CI service
+        timeout-minutes: 6
+        env:
+          KIBANA_CONTAINER: ${{ job.services.kibana.id }}
+        run: |
+          docker exec --user 0 -i "$KIBANA_CONTAINER" sh -c 'cat >> /usr/share/kibana/config/kibana.yml' <<'YAML'
+          
+          xpack.maps.showMapsInspectorAdapter: true
+          xpack.maps.preserveDrawingBuffer: true
+          YAML
+          docker restart "$KIBANA_CONTAINER" > /dev/null
+          deadline=$((SECONDS + 240))
+          ready=false
+          while [ "$SECONDS" -lt "$deadline" ]; do
+            if curl --fail --silent --max-time 5 http://127.0.0.1:5601/api/status > /dev/null; then
+              ready=true
+              break
+            fi
+            sleep 3
+          done
+          test "$ready" = true
+      - name: Install analytical and browser runtimes
+        run: |
+          python -m pip install ".[geo,mcp]" playwright
+          python -m playwright install --with-deps chromium
+          mkdir -p runs/runtime data
+          python -m pip freeze > runs/runtime/python-packages.txt
+          python -m analytics311 doctor > runs/runtime/host.json
+          curl --fail --silent http://127.0.0.1:9200/ > runs/runtime/elasticsearch-version.json
+          curl --fail --silent http://127.0.0.1:5601/api/status > runs/runtime/kibana-status.json
+          docker stats --no-stream --format '{{json .}}' > runs/runtime/container-stats-start.jsonl
+      - uses: actions/download-artifact@v4
+        with:
+          name: analytics311-real-capture
+          path: projects/02-311-analytics/data/
+          run-id: ${{ inputs.capture_run || '37705537519' }}
+          github-token: ${{ github.token }}
+      - name: Verify acquired bytes and stage official boundaries
+        run: |
+          python - <<'PY'
+          import gzip,hashlib,json,urllib.request
+          from pathlib import Path
+          folder=Path('data');manifest=json.loads((folder/'april-october-2025.manifest.json').read_text())
+          assert manifest['row_count'] >= 2000000 and manifest['bytes'] <= 2500000000
+          digest=hashlib.sha256();size=0
+          with gzip.open(folder/'april-october-2025.jsonl.gz','rb') as source,(folder/'april-october-2025.jsonl').open('xb') as dest:
+              for chunk in iter(lambda:source.read(1024*1024),b''):
+                  size+=len(chunk)
+                  assert size <= manifest['bytes']
+                  dest.write(chunk);digest.update(chunk)
+          assert size == manifest['bytes'] and digest.hexdigest() == manifest['sha256']
+          url='https://data.cityofnewyork.us/resource/9nt8-h7nd.geojson?%24select=nta2020%2Cntaname%2Cntatype%2Cthe_geom&%24order=nta2020&%24limit=1000'
+          with urllib.request.urlopen(url,timeout=120) as response: raw=response.read(16*1024*1024+1)
+          receipt=json.loads(Path('examples/evidence/official-nta2020-26b.json').read_text())
+          assert len(raw) <= 16*1024*1024 and hashlib.sha256(raw).hexdigest() == receipt['sha256']
+          (folder/'nta2020-26b.geojson').write_bytes(raw)
+          Path('runs/runtime/acquisition.json').write_text(json.dumps({'captured_rows':manifest['row_count'],'captured_bytes':size,'sha256':digest.hexdigest(),'boundary_sha256':receipt['sha256']}))
+          PY
+      - name: Current regression suite
+        run: python -m unittest discover -s tests -q
+      - name: Normalize, reconcile, index, render and measure real corpus
+        id: corpus
+        continue-on-error: true
+        timeout-minutes: 60
+        run: |
+          model_alias=$(python -c "import json;print(json.load(open('docs/local-model-runtime.json'))['model_alias'])")
+          python tools/run_real_acceptance.py --raw data/april-october-2025.jsonl --boundaries data/nta2020-26b.geojson --nta-receipt examples/evidence/official-nta2020-26b.json --index nyc311-real-2025-v1 --output-dir runs/real-v1 --model "$model_alias"
+      - name: Retain corpus and rendered Maps evidence
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: analytics311-corpus-evidence
+          path: |
+            projects/02-311-analytics/runs/real-v1/
+            projects/02-311-analytics/runs/runtime/
+            !projects/02-311-analytics/runs/real-v1/*.sqlite
+            !projects/02-311-analytics/runs/real-v1/normalized.jsonl
+            !projects/02-311-analytics/runs/real-v1/normalized.jsonl.part
+          retention-days: 30
+          compression-level: 6
+          if-no-files-found: warn
+      - name: Require measured corpus and Maps acceptance
+        if: ${{ always() }}
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          report=json.loads(Path('runs/real-v1/acceptance.json').read_text())
+          assert report['passed'] is True, report['stages']
+          assert all(report['stages'][name]['status']=='passed' for name in ('map_points','map_trends','map_selected_trends'))
+          print(json.dumps({'real_corpus_maps_verified':True,'overall_release_verified':False,'agent_trials_executed_here':0}))
+          PY
