@@ -58,7 +58,8 @@ against the installed0.7 package. The versioned core CLI is packaged; the ZIP is
 not a complete copy of the repository's latest acceptance experiment.
 
 The newer `tools/run_real_acceptance.py`, `tools/live_maps.py`,
-`tools/measure_live.py`, `tools/agent_evaluation.py`, `tools/local_agent.py`
+`tools/measure_live.py`, `tools/agent_evaluation.py`, `tools/local_agent.py`,
+`tools/agent_campaign.py`, `tools/csv_cell_audit_38029812736.py`
 and `tools/capture_compressed.py` are **not transferred**.
 To reproduce the real-corpus/agent study, use the matching repository revision,
 its configuration and pinned evaluation/runtime definitions, official-boundary

@@ -1,0 +1,224 @@
+{
+  "schema_version": 1,
+  "run_id": 38083900641,
+  "source_commit": "b20a06e166e65f71d6aaf4cc1a0c1220c55853c5",
+  "review_method": "Independent standard-library CSV, rendered style geometry/metrics/visibility, and captured request checks plus direct retained screenshot inspection; not live checker replay",
+  "bounded_maps_qualification_passed": true,
+  "overall_release_verified": false,
+  "ci_regression": {
+    "tests": 559,
+    "skipped": 1,
+    "seconds": 7.174,
+    "passed": true,
+    "source": "GitHub Actions log 2026-10-10T20:32:40Z"
+  },
+  "corpus": {
+    "row_count": 2133268,
+    "scope": "reconciled_observed_snapshot",
+    "population_complete": false,
+    "boundary_sha256": "5049760a4d0936e1d3dbf70d745e2cee4286bd163b11c702f15fa28db46a001e"
+  },
+  "cases": {
+    "points": {
+      "reported_passed": true,
+      "independent_checks_passed": true,
+      "csv_rows": 242,
+      "csv_sha256": "0662c1ce8514ee203c453a2060139372515a835aca3c9ca106bd89cd66f6d301",
+      "exact_browser_saved_filter_matches": 1,
+      "browser_search_count": 2,
+      "style_sha256": "d9af82932020f104539cae5ceca052e2874a6bac4de47c77ab056cedb85247a1",
+      "inspector_utf8_bytes": 146089,
+      "inspector_original_text_sha256": "0dc3568c09583269e4f7bc6a5c205544b4da123f40ef666c6f2ad8b462819583",
+      "screenshot_sha256": "06216a289f6603eed65d67adfe7627129ba37e155d0859736240307245f3ba20",
+      "screenshot_visually_reviewed": true,
+      "inspector_closed_visible_geometry": true,
+      "stage_elapsed_seconds": 13.48398479900004,
+      "qualification_deadline_seconds": 120,
+      "rendered_points": 242,
+      "independent_rendered_ids_passed": true,
+      "live_id_source_binding_receipt": true,
+      "source_index": "nyc311-real-2025-v1"
+    },
+    "trends": {
+      "reported_passed": true,
+      "independent_checks_passed": true,
+      "csv_rows": 196,
+      "csv_sha256": "14a04be7f676f0d6cbbfed4db18751b390e99ce6e24a65a51137418f260991b7",
+      "exact_browser_saved_filter_matches": 1,
+      "browser_search_count": 4,
+      "style_sha256": "cd0d3a6ae1ca424154935d1be138ec2b9fa94ec11fed1959b7d58d6e24510b73",
+      "inspector_utf8_bytes": 15127404,
+      "inspector_original_text_sha256": "35aec28612bb70d76b678d0e26d1109691a7e751dd4a3dc93eafb49181eb48d8",
+      "screenshot_sha256": "5ca8bbdce957adf6d20c6d55fadb280427e7f871283f93d6569888805ac7cd90",
+      "screenshot_visually_reviewed": true,
+      "inspector_closed_visible_geometry": true,
+      "stage_elapsed_seconds": 74.9119301400001,
+      "qualification_deadline_seconds": 120,
+      "rendered_joined_groups": 196,
+      "joined_metric_fields": [
+        "baseline_count",
+        "current_count",
+        "absolute_change",
+        "relative_change",
+        "rate_change"
+      ],
+      "official_polygon_geometry_exact": 262,
+      "centroids": 262,
+      "join_visible_polygons": 196,
+      "join_hidden_polygons": 66,
+      "independent_rendered_metrics_passed": true,
+      "metric_paint_expression": [
+        "interpolate",
+        [
+          "linear"
+        ],
+        [
+          "coalesce",
+          [
+            "case",
+            [
+              "==",
+              [
+                "feature-state",
+                "__kbnjoin__max_of_rate_change__analytics311-nta-join"
+              ],
+              null
+            ],
+            -4.886021505376345,
+            [
+              "max",
+              [
+                "min",
+                [
+                  "to-number",
+                  [
+                    "feature-state",
+                    "__kbnjoin__max_of_rate_change__analytics311-nta-join"
+                  ]
+                ],
+                0.31720430107526887
+              ],
+              -3.8860215053763443
+            ]
+          ],
+          -4.886021505376345
+        ],
+        -4.886021505376345,
+        "rgba(0,0,0,0)",
+        -3.8860215053763443,
+        "#24c292",
+        -3.3606182795698927,
+        "#69d5b2",
+        -2.835215053763441,
+        "#aee8d2",
+        -2.3098118279569895,
+        "#d5e0ab",
+        -1.7844086021505379,
+        "#fed1a3",
+        -1.2590053763440863,
+        "#ffc9c2",
+        -0.7336021505376347,
+        "#fb9e96",
+        -0.20819892473118307,
+        "#f6726a"
+      ],
+      "selected_nta_codes": null
+    },
+    "selected_trends": {
+      "reported_passed": true,
+      "independent_checks_passed": true,
+      "csv_rows": 3,
+      "csv_sha256": "4a4b3de4a46c817b96e8146d8fbf2622661cf41b1d0e439d9431c64a51c1efec",
+      "exact_browser_saved_filter_matches": 1,
+      "browser_search_count": 4,
+      "style_sha256": "9d5de43461cf6d9db006544aca0e7e5d03e0da0794508498ef57c371f5d86fe8",
+      "inspector_utf8_bytes": 14946544,
+      "inspector_original_text_sha256": "d54f99857bc733ff550cfad510ba26edb528a79faa60aac461813d93d6af164f",
+      "screenshot_sha256": "43247c633a653b61e3afe424e5eb38f1100dd9bfa6a16730756ff773d3bf57cf",
+      "screenshot_visually_reviewed": true,
+      "inspector_closed_visible_geometry": true,
+      "stage_elapsed_seconds": 71.87007887200002,
+      "qualification_deadline_seconds": 120,
+      "rendered_joined_groups": 3,
+      "joined_metric_fields": [
+        "baseline_count",
+        "current_count",
+        "absolute_change",
+        "relative_change",
+        "rate_change"
+      ],
+      "official_polygon_geometry_exact": 262,
+      "centroids": 262,
+      "join_visible_polygons": 3,
+      "join_hidden_polygons": 259,
+      "independent_rendered_metrics_passed": true,
+      "metric_paint_expression": [
+        "interpolate",
+        [
+          "linear"
+        ],
+        [
+          "coalesce",
+          [
+            "case",
+            [
+              "==",
+              [
+                "feature-state",
+                "__kbnjoin__max_of_rate_change__analytics311-nta-join"
+              ],
+              null
+            ],
+            -0.7139784946236559,
+            [
+              "max",
+              [
+                "min",
+                [
+                  "to-number",
+                  [
+                    "feature-state",
+                    "__kbnjoin__max_of_rate_change__analytics311-nta-join"
+                  ]
+                ],
+                0.31720430107526887
+              ],
+              0.2860215053763441
+            ]
+          ],
+          -0.7139784946236559
+        ],
+        -0.7139784946236559,
+        "rgba(0,0,0,0)",
+        0.2860215053763441,
+        "#24c292",
+        0.2899193548387097,
+        "#69d5b2",
+        0.2938172043010753,
+        "#aee8d2",
+        0.2977150537634409,
+        "#d5e0ab",
+        0.3016129032258065,
+        "#fed1a3",
+        0.30551075268817207,
+        "#ffc9c2",
+        0.30940860215053767,
+        "#fb9e96",
+        0.31330645161290327,
+        "#f6726a"
+      ],
+      "selected_nta_codes": [
+        "BK1502",
+        "BX0802",
+        "QN0201"
+      ]
+    }
+  },
+  "limitations": [
+    "Finite three-map qualification on this corpus, stack and runner only; no rendering throughput or hardware generalization.",
+    "Point coordinates have Point type but were not independently compared with normalized coordinate values.",
+    "Trend palette spans each current cohort minimum/maximum, not a fixed zero-centered change scale; green does not necessarily mean improvement and colors are not comparable between filtered cohorts.",
+    "Screenshots establish visible geometry with Inspector closed, not exhaustive pixel-color correctness; source metrics and paint expression are independently checked.",
+    "No basemap configured. Telemetry banner and unsecured CI-cluster notice remain visible."
+  ]
+}

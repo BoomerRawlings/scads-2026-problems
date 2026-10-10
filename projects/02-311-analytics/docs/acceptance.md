@@ -4,14 +4,15 @@ Version **0.7.0** remediation is in progress. Executable tooling, executed check
 and acceptance outcomes are distinct. **2,133,268 real unique requests reconcile
 through capture, normalization, an immutable Elasticsearch index and an independent
 SQLite reference.** Five real-data analytical families and a bounded performance
-workload passed. **Two bounded rendered Maps checks pass; full-neighborhood Maps and actual-agent acceptance remain incomplete.** The original published findings
+workload passed. **All three bounded rendered Maps checks pass:242 requests,
+196 neighborhoods and three selected neighborhoods. Actual-agent acceptance remains incomplete.** The original published findings
 remain in [the historical v0.6 record](acceptance-v0.6.md).
 
 | Requested gap | Current evidence | Remaining execution |
 | --- | --- | --- |
 | Actual ≥2 million requests | All five stages reconcile2,133,268 rows; full raw and normalized hashes, ingested byte offset and frozen index UUID recorded | Acquisition/count target met for this captured window |
-| Neighborhood comparisons | Official262 NTA polygons/197 residential codes; qualified observed window; June/October rodent comparison matches independent SQL across196 represented neighborhoods | Agent-led chained comparisons and full196-neighborhood rendering; selected3-neighborhood rendered values pass, population completeness remains unclaimed |
-| Elasticsearch/Kibana | Elasticsearch9.5.5 parity/CSV passed in eight real core executions; seventh verifies242 rendered point IDs and selected3-neighborhood values plus262 exact official polygon geometries; eighth repeats point parity | Eighth run both trend views timed out at Inspector tab selection despite painted geometry; full196-neighborhood rendered values remain unverified |
+| Neighborhood comparisons | Official262 NTA polygons/197 residential codes; qualified observed window; June/October rodent comparison matches independent SQL across196 represented neighborhoods; full196 and selected3 rendered metrics pass | Agent-led chained comparisons remain to be evaluated; population completeness remains unclaimed |
+| Elasticsearch/Kibana | Elasticsearch9.5.5 parity/CSV passed in nine real core executions; ninth verifies242 rendered point IDs, all five metrics for196/3 neighborhoods, and262 exact official polygon geometries in both trend views | Bounded rendered-map target met; broader rendering throughput/hardware coverage remains unqualified |
 | Actual agent |40 prospective AI-authored questions and independent SQLite oracles frozen; first campaign reached zero questions because all three metadata startups exceeded300seconds; failed development answer preserved | Execute three40-trial replicas with separately measured900-second startup bound; unchanged160/120/24 trial limits,120 denominator,90% threshold, per-case coverage and semantic review |
 | Usable performance | Actual4CPU/16.77GB host:25 serial queries, two5-query batches,9,728-row exports, sampled memory and one abrupt worker recovery passed | Broader sustained load, cold cache, end-to-end model latency and server recovery remain unqualified |
 | Two paper descriptions | Corrected administrative closure versus first response; separate Maps processing and CSV-worker paths; changed pages visually checked | Website remains its earlier published edition until separately republished |
@@ -24,6 +25,19 @@ remain in [the historical v0.6 record](acceptance-v0.6.md).
 - [Earlier acquisition failures](../examples/evidence/capture-attempts-v0.7.json): first request timeout30s; a local count took43.891s. Second attempt passed counts but timed out on its first5000-row page after bounded120s retries, leaving zero captured rows. The successful third run used1000-row pages. Historical failures remain; success does not establish a general network-throughput guarantee.
 - [Official boundaries](../examples/evidence/official-nta2020-26b.json):4,532,381 captured bytes, SHA256`5049760a4d0936e1d3dbf70d745e2cee4286bd163b11c702f15fa28db46a001e`, matching source metadata before/after download.
 - [Evaluator and public-contract checks](../examples/evidence/agent-evaluator-v1-checks.json):134 focused tests passed in6.466seconds across contracts, fixture, guide, service, settings and evaluator. They include exact warmup-input binding and default-five previews with unchanged full CSV membership. Authored fixtures and mock responses are not the actual120-trial experiment or native model grammar qualification.
+
+## Independent raw-capture check of exported values
+
+For the9,728-row October Brooklyn Noise - Residential cohort, an independent
+raw-capture reconstruction checked all nine columns in four retained CSVs:
+350,208 exact cell matches, zero mismatches. The four exports have identical bytes,
+so this represents87,552 unique logical cells. Original official boundaries yielded
+9,705 matching NTA assignments and23 missing locations. The audit streamed and
+rehashed all2,133,268 raw rows without materializing the full dataset. It imports
+no application normalizer, exporter, compiler or agent oracle. Shared Shapely/GEOS
+and timezone libraries remain a stated dependence. Other cohorts and unobserved
+DST, negative/null-closure, formula and boundary-edge cases remain unqualified.
+[Exact audit receipt](../examples/evidence/csv-cell-audit-38029812736.json) · [Method and reproduction](csv-cell-audit.md).
 
 ## Actual campaign: startup failed before any held-out question
 
@@ -113,6 +127,55 @@ acceptance. Earlier cold timeouts and invalid-call failures remain preserved.
 
 ## Real-corpus execution and independent receipt review
 
+The ninth [core run38083900641](https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/38083900641)
+executed commit`b20a06e166e65f71d6aaf4cc1a0c1220c55853c5` on2026-10-10,
+20:32:40–20:44:37UTC. Its [core acceptance receipt](../examples/evidence/real-core-38083900641/acceptance.json)
+passes, while `overall_release_verified` remains false pending actual-agent
+evaluation. All five stages reconcile2,133,268 records; frozen index UUID
+`PQndJQDUQb2LV_upGfu0pQ`, identical raw/normalized hashes and official NTA
+identity. Normalization153.315s and ingestion285.376s preceded successful
+independent analytical/CSV parity, provisioning and finite performance checks.
+This Maps-only workflow made no model calls. Its regression suite collected559
+tests,558 passed and one skipped in7.174s.
+
+All three actual browser cases pass: [242 request IDs](../examples/evidence/real-core-38083900641/render-points.json),
+[196 neighborhoods](../examples/evidence/real-core-38083900641/render-trends.json)
+and [three selected neighborhoods](../examples/evidence/real-core-38083900641/render-selected_trends.json).
+Full stage times were13.484s,74.912s and71.870s under the unchanged120s
+qualification deadline. [Independent Maps review](../examples/evidence/real-core-38083900641/maps-independent-review.json)
+checked exact CSV membership, captured browser DSL, all five joined metrics,
+visibility196/3,262 checked centroid companions, and exact equality of all262
+polygon coordinate objects with the official boundary file in both trend views.
+The retained [point](../examples/evidence/real-core-38083900641/render-points-map.png),
+[full-neighborhood](../examples/evidence/real-core-38083900641/render-trends-map.png)
+and [selected-neighborhood](../examples/evidence/real-core-38083900641/render-selected_trends-map.png)
+screenshots show visible geometry with Inspector closed. Colors span each
+displayed cohort's range; green does not necessarily mean improvement, and colors
+are not comparable between filtered cohorts. The global time picker is not the
+analytical period for these no-time data views; the saved result/filter is authoritative.
+No basemap or exhaustive pixel-color validation is claimed.
+
+[Measurements](../examples/evidence/real-core-38083900641/measurements.json):
+serial median/max milliseconds were filter21.494/25.694, grouping39.014/92.278,
+closure27.506/49.628, proximity27.700/32.815 and comparison46.784/127.108.
+Five-query batches took0.151s at concurrency1 and0.124s at concurrency2. Four
+9,728-row/nine-column exports had identical1,139,937 bytes and exact independent
+ID membership: normal0.895s, two concurrent0.787s, recovered-job re-export0.541s.
+Abrupt worker exit86 recovery alone took0.012s; total measured workload3.846s.
+Five memory samples observed runner RSS128,274,432 bytes, Elasticsearch heap
+1,673,527,296 of2,147,483,648 configured bytes, one-worker RSS31,006,720 bytes
+and simultaneous-worker RSS59,203,584 bytes. These are finite warm/uncontrolled-cache
+observations, not latency tails, peak capacity or server recovery.
+
+[Independent receipt review](../examples/evidence/real-core-38083900641/independent-review.json)
+rechecked the five count fields, qualification seals,35 query-result digests,
+latency arithmetic, four full CSV memberships, actual failed worker state,
+provisioned identities and all three rendered-map results. Maximum numeric
+difference was`2.842170943040401e-14`. The compact archive retains21 byte-identical
+original files plus two derived summaries,593,980 bytes. Raw records, individual
+oracle IDs, full style bodies and CSV contents remain outside that compact archive.
+All earlier failures below remain unchanged evidence.
+
 The eighth [core run38031560273](https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/38031560273)
 executed commit`2ab96473fd927d5a5bae4bc48e2c50e372150ab4` on2026-10-10,
 06:41:17–06:56:33UTC. Its [acceptance receipt](../examples/evidence/real-core-38031560273/acceptance.json)
@@ -135,8 +198,8 @@ and [selected-view geometry](../examples/evidence/real-core-38031560273/render-s
 behind an Inspector displaying JSON; this is not joined-value verification.
 [Independent Maps review](../examples/evidence/real-core-38031560273/maps-independent-review.json)
 identifies the tab action's nested30s timeout within the declared120s render budget.
-A subsequent tool-only fix spends the remaining shared budget; it still requires
-fresh actual execution. The seventh run's selected-view pass remains separate evidence.
+A subsequent tool-only fix spends the remaining shared budget; the ninth run above
+supplies its fresh actual qualification. The seventh run's selected-view pass remains separate evidence.
 
 [Measurements](../examples/evidence/real-core-38031560273/measurements.json):
 serial median/max milliseconds were filter28.574/31.957, grouping53.787/109.474,

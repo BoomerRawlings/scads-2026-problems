@@ -12,11 +12,13 @@ Turn analytical questions into inspectable filters, geographic queries, grouped 
 
 An agent supplies a typed request to one analytical service through JSON CLI or seven MCP tools. The service owns dataset definitions, calculations, provenance and export recovery. Fixture and Elasticsearch adapters share the contract.
 
-Current **v0.7** branch evidence reconciles **2,133,268 real requests** across capture, normalization, frozen Elasticsearch and an independent SQLite reference. Five real runs passed analytical-query and CSV-membership checks; comparisons describe the reconciled observed snapshot, not complete citywide reporting. Rendered Maps verification and the40-question ×3 agent study are underway, with no overall acceptance claim. [Current evidence](docs/acceptance.md) includes retained failures and measurement limits. The public demo and PDF linked above remain the earlier published edition.
+Current **v0.7** branch evidence reconciles **2,133,268 real requests** across capture, normalization, frozen Elasticsearch and an independent SQLite reference. Repeated real runs passed analytical-query and CSV-membership checks; comparisons describe the reconciled observed snapshot, not complete citywide reporting. Live Kibana Maps now verify242 points,196 neighborhood groups and a selected three-neighborhood view against filters, five metrics, CSVs and official polygons. The40-question ×3 agent study is executing; model quality and overall acceptance remain unqualified. [Current evidence](docs/acceptance.md) includes retained failures and measurement limits. The public demo and PDF linked above remain the earlier published edition.
 
 ## Run locally
 
 Python 3.11+. The included 32-record synthetic fixture runs without Elasticsearch, Docker or a model server. [Runtime guide](docs/runtime.md) covers optional Elasticsearch/Kibana and agent integration.
+
+For a deep Windows checkout, enable Git long-path support for this repository with `git config --local core.longpaths true`; archived evidence filenames include full SHA256 values. For a new checkout, use `git -c core.longpaths=true clone <repository-url>`.
 
 Run from this project directory. Activate `.venv` with `.venv/Scripts/Activate.ps1` on Windows or `source .venv/bin/activate` on macOS/Linux.
 
