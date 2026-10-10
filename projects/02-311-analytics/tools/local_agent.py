@@ -24,12 +24,21 @@ class AgentFailure(RuntimeError):
         super().__init__(code)
 
 
+class ToolArgumentError(ValueError):
+    def __init__(self, details):
+        self.details = details
+        super().__init__("invalid_tool_arguments")
+
+
 def canonical(value):
     return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":"), allow_nan=False)
 
 
 CONTEXT_PROJECTION = "discovery-rules-v2"
+RESULT_CONTEXT_PROJECTION = "matching-dataset-reference-v1"
+BOOTSTRAP_DATASET_REFERENCE = "tool:adapter_discovery#/dataset"
 MAX_FORMAT_REPAIRS = 2
+MAX_IDENTICAL_INVALID_CALLS = 3
 FINAL_FORMAT_FEEDBACK = (
     "Adapter format feedback: the previous response was not a final JSON object with a valid status. "
     "Return JSON without markdown fences, using status (answered, needs_clarification, unsupported, "
@@ -117,8 +126,8 @@ def _metadata_references(value, path, seen):
     return projected
 
 
-def project_tool_output(name, result):
-    """Question-independent discovery projection; never alter analytical results.
+def project_tool_output(name, result, *, bootstrap_dataset_canonical=None):
+    """Question-independent projection; analytical values and full traces stay intact.
 
     Preserve every request-building rule verbatim, full catalog/limits, and all
     top-level discovery fields. Remove illustrative requests, repeated workflow,
@@ -127,7 +136,12 @@ def project_tool_output(name, result):
     Repeated metadata objects reference identical earlier data; unknown fields
     and source text remain visible. No questions or expected answers are inputs.
     """
-    if name != "describe_dataset" or not isinstance(result, dict) or "error" in result:
+    if not isinstance(result, dict) or "error" in result:
+        return result
+    if name != "describe_dataset":
+        if (isinstance(bootstrap_dataset_canonical, str) and isinstance(result.get("dataset"), dict)
+                and canonical(result["dataset"]) == bootstrap_dataset_canonical):
+            return {**result, "dataset": {"$ref": BOOTSTRAP_DATASET_REFERENCE}}
         return result
     projected = copy.deepcopy(result)
     guide = projected.get("analysis_guide")
@@ -242,6 +256,72 @@ class LocalModel:
         }, timeout=timeout)
 
 
+def analysis_parameters():
+    """Public AnalysisSpec shape; service validation still governs semantic combinations."""
+    from analytics311.contracts import FIELDS, METRICS
+
+    def obj(properties, required=()):
+        return {"type": "object", "properties": properties, "required": list(required), "additionalProperties": False}
+
+    def array(items, minimum=0):
+        return {"type": "array", "items": items, "minItems": minimum}
+
+    text = {"type": "string", "minLength": 1, "maxLength": 512}
+    date = {"type": "string", "minLength": 1, "maxLength": 100,
+            "description": "ISO8601 datetime with explicit offset."}
+    number = {"type": "number"}
+    scalar = {"anyOf": [text, number, {"type": "boolean"}]}
+    bounds = obj({"gte": date, "lt": date}, ("gte", "lt"))
+    point = obj({"lat": {"type": "number", "minimum": -90, "maximum": 90},
+                 "lon": {"type": "number", "minimum": -180, "maximum": 180}}, ("lat", "lon"))
+    filter_ref = {"$ref": "#/$defs/filter"}
+    range_value = obj({key: {"anyOf": [date, number]} for key in ("gt", "gte", "lt", "lte")})
+    range_value["minProperties"] = 1
+    predicate = obj({"field": {"enum": list(FIELDS)}, "op": {"enum": ["eq", "in", "range", "exists"]},
+                     "value": {"anyOf": [text, number, {"type": "boolean"}, array(scalar, 1), range_value]}},
+                    ("field", "op", "value"))
+    filter_schema = {"anyOf": [obj({"all": array(filter_ref, 1)}, ("all",)),
+                                obj({"any": array(filter_ref, 1)}, ("any",)),
+                                obj({"not": filter_ref}, ("not",)),
+                                obj({"category_family": text}, ("category_family",)), predicate]}
+    date_field = {"enum": ["created_date", "closed_date"]}
+    time_schema = {"anyOf": [obj({"field": date_field, "gte": date, "lt": date}, ("gte", "lt")),
+                              obj({"field": date_field, "preset": {"enum": ["last_month"]}}, ("preset",))]}
+    geo = {"anyOf": [
+        obj({"type": {"enum": ["radius"]}, **point["properties"],
+             "distance_m": {"type": "number", "exclusiveMinimum": 0, "maximum": 20040000}},
+            ("type", "lat", "lon", "distance_m")),
+        obj({"type": {"enum": ["bbox"]}, "top_left": point, "bottom_right": point},
+            ("type", "top_left", "bottom_right")),
+        obj({"type": {"enum": ["polygon"]}, "points": array(point, 3)}, ("type", "points")),
+    ]}
+    dimensions = array(obj({"field": {"enum": [key for key, kind in FIELDS.items() if kind in {"keyword", "date", "boolean"}]},
+                            "interval": {"enum": ["day", "week", "month"]}}, ("field",)))
+    dimensions["maxItems"] = 3
+    metrics = array({"enum": list(METRICS)}, 1)
+    metrics["uniqueItems"] = True
+    spec = obj({
+        "schema_version": {"enum": ["1"]},
+        "dataset_version": {"type": "string", "minLength": 1, "maxLength": 128,
+                            "description": "Exact dataset_version from provided discovery."},
+        "operation": {"enum": ["records", "aggregate", "compare_periods"],
+                      "description": "aggregate computes counts/metrics; records returns request previews; compare_periods compares baseline/current."},
+        "timezone": {"type": "string", "minLength": 1, "maxLength": 100}, "as_of": date,
+        "time": time_schema, "filters": filter_ref, "geo": geo,
+        "group_by": dimensions, "metrics": metrics,
+        "periods": obj({"baseline": bounds, "current": bounds}, ("baseline", "current")),
+        "preview_limit": {"type": "integer", "minimum": 1, "maximum": 100,
+                          "description": "Use a small conversational preview such as 10 unless more rows were requested. CSV exports cover the full selected cohort independently."},
+        "top_n": {"type": "integer", "minimum": 1, "maximum": 100},
+        "rank_by": {"enum": ["count", "absolute_change", "relative_change", "rate_change"]},
+        "rank_order": {"enum": ["asc", "desc"]},
+        "minimum_count": {"type": "integer", "minimum": 0, "maximum": 1000000},
+    }, ("dataset_version", "operation"))
+    parameters = obj({"spec": spec}, ("spec",))
+    parameters["$defs"] = {"filter": filter_schema}
+    return parameters
+
+
 def tool_schemas():
     text, obj = {"type": "string"}, {"type": "object"}
     arr = {"type": "array", "items": text}
@@ -263,16 +343,20 @@ def tool_schemas():
          ["result_id", "mode", "cohort_scope"]),
     ]
     return [{"type": "function", "function": {"name": name, "description": description,
-             "parameters": {"type": "object", "properties": properties, "required": required,
-                            "additionalProperties": False}}}
+             "parameters": analysis_parameters() if name in {"run_analysis", "validate_analysis"} else {
+                 "type": "object", "properties": properties, "required": required, "additionalProperties": False}}}
             for name, description, properties, required in definitions]
 
 
-def check_tool_arguments(arguments, schema):
+def check_tool_arguments(arguments, schema, path=""):
     """Validate the small public tool envelope; analytical semantics stay in the service."""
     if (not isinstance(arguments, dict) or set(arguments) - set(schema["properties"])
             or set(schema["required"]) - set(arguments)):
-        raise ValueError("invalid_tool_arguments")
+        keys = set(arguments) if isinstance(arguments, dict) else set()
+        raise ToolArgumentError({"path": path or "/", "expected_type": "object",
+                                 "rejected_keys": [str(key)[:64] for key in sorted(keys - set(schema["properties"]), key=str)[:20]],
+                                 "missing_keys": sorted(set(schema["required"]) - keys),
+                                 "allowed_keys": sorted(schema["properties"])})
     for key, value in arguments.items():
         rule = schema["properties"][key]
         expected = rule.get("type")
@@ -280,19 +364,28 @@ def check_tool_arguments(arguments, schema):
                 or (expected == "object" and not isinstance(value, dict))
                 or (expected == "integer" and type(value) is not int)
                 or (expected == "array" and (not isinstance(value, list)
-                    or any(not isinstance(item, str) for item in value)))):
-            raise ValueError("invalid_tool_arguments")
+                    or rule.get("items", {}).get("type") == "string" and any(not isinstance(item, str) for item in value)))):
+            raise ToolArgumentError({"path": path + "/" + key, "expected_type": expected})
         if ("enum" in rule and value not in rule["enum"]
                 or "minimum" in rule and value < rule["minimum"]
                 or "maximum" in rule and value > rule["maximum"]):
-            raise ValueError("invalid_tool_arguments")
+            raise ToolArgumentError({"path": path + "/" + key, "constraint": {k: rule[k] for k in ("enum", "minimum", "maximum") if k in rule}})
+        if expected == "object" and "properties" in rule:
+            check_tool_arguments(value, rule, path + "/" + key)
 
 
-def tool_error(name, code, schema):
+def tool_error(name, code, schema, details=None):
     """Fixed local-contract feedback; never expose arbitrary exception messages."""
     error = {"code": code}
     if code in {"invalid_tool_arguments", "invalid_spec", "discovery_required", "foreign_result_id"}:
-        error["argument_schema"] = schema
+        if name in {"run_analysis", "validate_analysis"}:
+            spec = schema["properties"]["spec"]
+            error["allowed_spec_keys"] = sorted(spec["properties"])
+            error["required_spec_keys"] = spec["required"]
+        else:
+            error["argument_schema"] = schema
+        if details is not None:
+            error["details"] = details
         if name == "describe_dataset" or code == "discovery_required":
             error["recovery"] = "Call describe_dataset with {} for complete discovery; field is optional and must be an exact returned field name."
         elif code == "foreign_result_id":
@@ -318,6 +411,8 @@ their codes appear in catalog.residential_nta2020. A chained query must actually
 the selected first-stage NTA codes in its next query. Numeric claims require saved
 result IDs. Discovery provenance $ref points to identical data in that response.
 Discovery context omits audit hashes; coverage and qualification flags remain.
+In later tool outputs, dataset.$ref="tool:adapter_discovery#/dataset" means the
+unchanged dataset already supplied by the adapter; all other result fields are direct.
 No analysis or export IDs exist at the start. Call run_analysis with your chosen
 AnalysisSpec to create an analysis, then use its returned result_id. get_result
 only reads existing owned results; it cannot create an analysis or invent an ID.
@@ -349,14 +444,17 @@ def discovery_valid(result):
             and all(isinstance(result.get(key), dict) for key in ("fields", "catalog", "limits")))
 
 
-def tool_event(name, arguments, result, *, initiated_by, elapsed_seconds):
+def tool_event(name, arguments, result, *, initiated_by, elapsed_seconds, bootstrap_dataset_canonical=None):
+    result = copy.deepcopy(result)
     event = {"kind": "tool", "name": name, "arguments": arguments, "initiated_by": initiated_by,
              "output": result, "elapsed_seconds": elapsed_seconds}
-    content = canonical(project_tool_output(name, result))
-    if name == "describe_dataset":
+    projected = project_tool_output(name, result, bootstrap_dataset_canonical=bootstrap_dataset_canonical)
+    content = canonical(projected)
+    if name == "describe_dataset" or projected is not result:
         original = canonical(result).encode()
         event["model_context"] = {
-            "projection": CONTEXT_PROJECTION, "content": content,
+            "projection": CONTEXT_PROJECTION if name == "describe_dataset" else RESULT_CONTEXT_PROJECTION,
+            "content": content,
             "sha256": hashlib.sha256(content.encode()).hexdigest(), "utf8_bytes": len(content.encode()),
             "full_output_utf8_bytes": len(original), "full_output_sha256": hashlib.sha256(original).hexdigest(),
         }
@@ -372,9 +470,11 @@ def run_trial(service, model, question, *, seed, seconds=300, max_calls=24, untr
     trace = {"question": question, "seed": seed, "model": model.model, "events": [], "final": None,
              "status": "failed", "calls": 0, "fresh_context": True, "semantic_review": "pending",
              "context_projection": CONTEXT_PROJECTION, "format_repairs": 0,
+             "result_context_projection": RESULT_CONTEXT_PROJECTION,
              "max_format_repairs": MAX_FORMAT_REPAIRS, "adapter_calls": 0, "model_calls": 0,
-             "discovery_initiated_by": "adapter"}
+             "discovery_initiated_by": "adapter", "max_identical_invalid_calls": MAX_IDENTICAL_INVALID_CALLS}
     discovered, created_results, created_jobs = False, set(), set()
+    invalid_calls = {}
     schemas = {item["function"]["name"]: item["function"]["parameters"] for item in tool_schemas()}
     try:
         # A deterministic transport envelope allows identical metadata to form a
@@ -397,6 +497,7 @@ def run_trial(service, model, question, *, seed, seconds=300, max_calls=24, untr
         trace["events"].append(event)
         if not discovery_valid(discovery):
             raise AgentFailure("discovery_bootstrap_failed")
+        bootstrap_dataset_canonical = canonical(discovery["dataset"])
         discovered = True
         messages.extend([{"role": "tool", "tool_call_id": "adapter_discovery", "content": content},
                          {"role": "user", "content": question}])
@@ -458,8 +559,10 @@ def run_trial(service, model, question, *, seed, seconds=300, max_calls=24, untr
                 if name not in schemas or not isinstance(identifier, str) or not identifier:
                     raise AgentFailure("unknown_tool")
                 arguments = {}
+                parsed_arguments = False
                 try:
                     arguments = json.loads(fn.get("arguments", "{}"))
+                    parsed_arguments = True
                     check_tool_arguments(arguments, schemas[name])
                     if name != "describe_dataset" and not discovered:
                         raise AgentFailure("discovery_required")
@@ -480,15 +583,25 @@ def run_trial(service, model, question, *, seed, seconds=300, max_calls=24, untr
                         created_jobs.add(result["job_id"])
                 except AgentFailure as exc:
                     result = tool_error(name, exc.code, schemas[name])
+                except ToolArgumentError as exc:
+                    result = tool_error(name, "invalid_tool_arguments", schemas[name], exc.details)
                 except (ValueError, TypeError, KeyError):
                     result = tool_error(name, "invalid_tool_arguments", schemas[name])
                 except Exception as exc:
                     # Tool errors expose stable codes, not credentials, source text or server traces.
                     result = tool_error(name, getattr(exc, "code", "tool_execution_failed"), schemas[name])
                 event, content = tool_event(name, arguments, result, initiated_by="model",
-                                            elapsed_seconds=round(time.monotonic() - started, 6))
+                                            elapsed_seconds=round(time.monotonic() - started, 6),
+                                            bootstrap_dataset_canonical=bootstrap_dataset_canonical)
+                code = result.get("error", {}).get("code")
+                if code in {"invalid_tool_arguments", "invalid_spec", "foreign_result_id"}:
+                    fingerprint = canonical([name, arguments if parsed_arguments else {"unparsed_arguments": fn.get("arguments")}, code])
+                    invalid_calls[fingerprint] = invalid_calls.get(fingerprint, 0) + 1
+                    event["identical_invalid_count"] = invalid_calls[fingerprint]
                 trace["events"].append(event)
                 messages.append({"role": "tool", "tool_call_id": identifier, "content": content})
+                if event.get("identical_invalid_count", 0) >= MAX_IDENTICAL_INVALID_CALLS:
+                    raise AgentFailure("repeated_invalid_tool_call")
                 if len(canonical(trace).encode()) > 8 * 1024 * 1024:
                     raise AgentFailure("transcript_byte_budget")
         else:

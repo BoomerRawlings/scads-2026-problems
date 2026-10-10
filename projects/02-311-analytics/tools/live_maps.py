@@ -257,7 +257,7 @@ def inspect_style(style, mode, expectation):
         return {"rendered_points": len(observed), "membership_sha256": fingerprint(sorted(observed))}
     expected = expectation.get("groups")
     require(isinstance(expected, dict) and 0 < len(expected) <= 1000, "Expected joined groups must be bounded.")
-    observed = {}
+    observed, polygons, centroids = {}, {}, []
     for feature in features:
         properties = feature.get("properties", {})
         nta = properties.get("nta2020")
@@ -265,9 +265,22 @@ def inspect_style(style, mode, expectation):
         metrics = {name: properties.get(key(name)) for name in METRIC_UNITS}
         if metrics["baseline_count"] is None and metrics["current_count"] is None:
             continue
+        if properties.get("__kbn_is_centroid_feature__") is True:
+            require(feature.get("geometry", {}).get("type") == "Point", "Kibana centroid flag appears on non-point geometry.")
+            centroids.append((nta, feature, metrics))
+            continue
         require(isinstance(nta, str) and nta not in observed and feature.get("geometry", {}).get("type") in {"Polygon", "MultiPolygon"},
                 "Rendered join omitted unique NTA polygon identity.")
         observed[nta] = metrics
+        polygons[nta] = feature
+    centroid_ntas = set()
+    for nta, feature, metrics in centroids:
+        polygon = polygons.get(nta)
+        require(polygon is not None and nta not in centroid_ntas and polygon.get("id") is not None
+                and feature.get("id") == polygon["id"]
+                and all(value_equal(metrics[name], observed[nta][name]) for name in METRIC_UNITS),
+                "Kibana centroid does not match its unique joined polygon identity and metrics.")
+        centroid_ntas.add(nta)
     require(set(observed) == set(expected), "Rendered joined neighborhood selection differs.")
     for nta, metrics in expected.items():
         require(set(metrics) == set(METRIC_UNITS), "Expected join must define all supported metrics.")
@@ -431,7 +444,10 @@ def render(config_path, result_id, mode, expectation_path, csv_path, output_dir,
         receipt.update({"passed": True, "rendered_parity_verified": True})
     except AnalyticsError as exc:
         receipt["error"] = {"stage": stage, "code": exc.code}
-        if exc.code == "acceptance_failed": receipt["error"]["reason"] = exc.message
+        if exc.code in {"acceptance_failed", "backend_unavailable", "coverage_gap"}:
+            receipt["error"]["reason"] = exc.message
+        if getattr(exc, "backend_details", None):
+            receipt["error"]["backend"] = exc.backend_details
     except Exception as exc:
         receipt["error"] = {"stage": stage, "code": "acceptance_failed", "type": type(exc).__name__}
     finally:

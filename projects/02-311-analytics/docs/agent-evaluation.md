@@ -68,7 +68,7 @@ build. Development-only freezes may omit runtime binding.
 ```text
 python tools/agent_evaluation.py prepare --config config/live.json --source data/normalized.jsonl --database data/oracle.sqlite --output runs/agent-freeze-v1.json --model analytics311-qwen3-1-7b
 
-python tools/agent_evaluation.py run --config config/live.json --freeze runs/agent-freeze-v1.json --database data/oracle.sqlite --output runs/agent-evaluation-v1 --endpoint http://127.0.0.1:8080/v1 --seconds 120 --request-seconds 60 --runtime-receipt runs/runtime/agent-runtime-freeze-r1.json
+python tools/agent_evaluation.py run --config config/live.json --freeze runs/agent-freeze-v1.json --database data/oracle.sqlite --output runs/agent-evaluation-v1 --endpoint http://127.0.0.1:8080/v1 --seconds 160 --request-seconds 120 --runtime-receipt runs/runtime/agent-runtime-freeze-r1.json
 ```
 
 The freeze pins question bytes, all runtime Python source, evaluator source,
@@ -87,8 +87,8 @@ requests and repeated workflow guidance; exact duplicate fields/version remain i
 the top-level descriptor. Repeated provenance values use JSON Pointer `$ref` links
 to identical ancestor data; repeated metadata objects reference earlier unchanged
 objects within that response. No questions, expected answers,
-or question-specific shortcuts inform this projection. All other tool results are
-unchanged. The transcript retains full original discovery alongside the exact
+or question-specific shortcuts inform this projection. The transcript retains
+full original discovery alongside the exact
 model-visible JSON string, its SHA-256, byte counts and projection version.
 Reduced context bytes alone do not establish faster or more accurate inference.
 
@@ -105,6 +105,17 @@ source text, source URLs, dataset version, NTA version, qualification scope/stag
 population and transaction flags, coverage periods, counts, quality and budgets.
 The full tool output remains in the trace. This is context projection, not a
 modified certificate or a replacement for evaluator provenance validation.
+
+For subsequent non-error tool results, `matching-dataset-reference-v1` replaces
+only `result.dataset` with `{"$ref":"tool:adapter_discovery#/dataset"}` when its
+complete canonical JSON exactly equals the original bootstrap dataset. That
+cross-tool reference points to the adapter's already supplied dataset context.
+Different, changed or missing datasets remain untouched; Boolean/integer and
+integer/float distinctions cannot match accidentally. Every affected event keeps
+the full original snapshot and its hash, plus exact projected content, hash and
+byte counts. Rows, numbers, query specs, coverage flags, warnings and every other
+field remain unchanged. The projection does not change service results, saved
+artifacts, numeric citation paths or evaluator evidence.
 
 The adapter actually calls `describe_dataset()` before presenting the question.
 A deterministic assistant/tool transport envelope places that response in the
@@ -132,6 +143,22 @@ attempts and exact feedback remain in the trace. These turns share the original
 deadline, context and tool-call budgets. Valid final answers are not rewritten,
 and numeric grading, evidence ownership and pending-export cleanup are unchanged.
 
+`run_analysis` and `validate_analysis` expose the public AnalysisSpec JSON Schema
+in their tool parameters: the exact 16 allowed top-level properties, required
+dataset version and operation, recursive Boolean filters, typed operand shapes,
+three geometries, time ranges, periods, groups, metrics and output/ranking bounds.
+The schema comes from the public contracts and guide, never benchmark questions.
+Application validation remains responsible for semantic combinations, coverage,
+catalog membership, date ordering, polygon validity and configured budgets.
+
+Rejected top-level argument/spec keys receive bounded, explicit diagnostics;
+the adapter does not delete or repair model arguments. The third identical invalid
+call with the same tool, arguments and error code ends the trial as a retained
+failure. This applies to invalid arguments/specs and foreign result IDs, not
+transient backend failures. Small conversational record previews are recommended
+in the schema, but a requested larger valid preview remains available and no
+service default is changed. Full CSV membership is independent of preview size.
+
 Before the first model call of each real-data invocation, create a new runtime
 receipt after the owned Linux server is healthy. `--runtime-receipt` otherwise
 defaults to `runs/runtime/agent-runtime-freeze.json`. Its schema is:
@@ -146,7 +173,7 @@ defaults to `runs/runtime/agent-runtime-freeze.json`. Its schema is:
   "model_alias": "exact pinned alias",
   "execution_runtime": {"...": "exact object from runtime specification"},
   "endpoint": "http://127.0.0.1:8080/v1",
-  "budgets": {"seconds": 120, "request_seconds": 60, "max_calls": 24},
+  "budgets": {"seconds": 160, "request_seconds": 120, "max_calls": 24},
   "owned_server_pid": 123,
   "launch_argv": ["actual argv from /proc/PID/cmdline"],
   "files": [
@@ -178,7 +205,8 @@ model after failures requires a separate declared study, never replacement trial
 
 Defaults: 300 seconds per trial, 90 seconds per model request, 24 tool calls,
 2,048 output tokens per request, 256 KiB serialized request context, 1 MiB model
-response, and 8 MiB transcript. CLI budgets above deliberately tighten deadlines.
+response, and 8 MiB transcript. The CLI example uses the prospective study's
+explicit 160-second trial and 120-second model-request budgets.
 The model decides tool arguments; application validation remains authoritative.
 Result IDs are confined to that trial. Model reasoning fields are not retained.
 When returned, finite numeric llama.cpp prompt/cache/generation timing counters are

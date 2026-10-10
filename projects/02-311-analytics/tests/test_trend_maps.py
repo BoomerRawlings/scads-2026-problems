@@ -7,7 +7,10 @@ import unittest
 from unittest.mock import patch
 
 from analytics311.errors import AnalyticsError
+from analytics311.service import AnalyticsService
+from analytics311.qualification import SCOPE, qualify_frozen_index
 from analytics311.trend_maps import RESULT_MAPPING, publish_trend_map
+from tests.test_qualification import frozen
 
 
 RESULT_INDEX = "analytics311-results-v1"
@@ -71,6 +74,7 @@ class TrendMapTests(unittest.TestCase):
                                  "current": {"gte": "2025-12-01T00:00:00-05:00", "lt": "2026-01-01T00:00:00-05:00"}}},
             "all_rows": [row("BK0101", 2, 4, "bk"), row("QN0101", 0, 3, "qn"), row(None, 1, 2, "unknown")],
         }
+        self.service._coverage = lambda spec: AnalyticsService._coverage(self.service, spec)
         self.client = FakeArtifactClient()
         self.mock_client = patch("analytics311.trend_maps.ElasticClient", return_value=self.client).start()
         self.addCleanup(patch.stopall)
@@ -182,6 +186,41 @@ class TrendMapTests(unittest.TestCase):
         modified["current_count"] = 9000
         self.assert_error("invalid_spec", [modified])
         self.assertEqual(self.client.calls, [])
+
+    def observed_snapshot(self):
+        normalized, ingestion, snapshot, bounds, manifest = frozen()
+        manifest["comparison_qualification"] = qualify_frozen_index(normalized, ingestion, snapshot, bounds)
+        manifest["geography"] = self.service.manifest["geography"]
+        self.service.manifest = manifest
+        self.saved["coverage_complete"] = False
+        self.saved["comparison_scope"] = SCOPE
+        self.saved["spec"]["periods"] = {
+            "baseline": {"gte": "2025-05-01T00:00:00-04:00", "lt": "2025-06-01T00:00:00-04:00"},
+            "current": {"gte": "2025-06-01T00:00:00-04:00", "lt": "2025-07-01T00:00:00-04:00"}}
+
+    def test_qualified_observed_trends_publish_without_population_claim(self):
+        self.observed_snapshot()
+        result = publish_trend_map(self.service, self.saved, None)
+        self.assertEqual(result["comparison_scope"], SCOPE)
+        self.assertFalse(result["coverage_complete"])
+        self.assertFalse(result["source_snapshot_coverage"]["complete"])
+        self.assertTrue(any("not proof" in warning for warning in result["warnings"]))
+        self.assertEqual(result["published_group_count"], 2)
+
+    def test_saved_scope_alone_changed_certificate_or_outside_period_never_publishes(self):
+        for change in ("certificate", "period", "scope", "complete", "execution", "missing_certificate"):
+            with self.subTest(change=change):
+                self.observed_snapshot()
+                self.saved["execution_complete"] = True
+                if change == "certificate": self.service.manifest["comparison_qualification"]["row_count"] = 3
+                elif change == "period": self.saved["spec"]["periods"]["current"]["lt"] = "2025-08-01T00:00:00-04:00"
+                elif change == "scope": self.saved["comparison_scope"] = "complete_declared_corpus"
+                elif change == "complete": self.saved["coverage_complete"] = True
+                elif change == "execution": self.saved["execution_complete"] = False
+                else: self.service.manifest.pop("comparison_qualification")
+                with self.assertRaises(AnalyticsError):
+                    publish_trend_map(self.service, self.saved, None)
+                self.assertEqual(self.client.calls, [])
 
 
 if __name__ == "__main__":

@@ -13,6 +13,11 @@ from unittest.mock import patch
 from tools import agent_evaluation as evaluation
 from tools import local_agent
 
+try:
+    from jsonschema import Draft202012Validator
+except ImportError:
+    Draft202012Validator = None
+
 
 CATALOG = {"families": {"noise": ["Noise - Residential", "Noise - Commercial"], "rodent": ["Rodent"]}}
 
@@ -440,6 +445,92 @@ class ProtocolTests(unittest.TestCase):
         error = {"error": {"code": "unavailable"}, "untrusted_source_note": "Preserve"}
         self.assertIs(local_agent.project_tool_output("describe_dataset", error), error)
 
+    def test_result_dataset_reference_requires_exact_canonical_match(self):
+        dataset = {"dataset_version": "unit", "coverage": {"complete": False}, "row_count": 5,
+                   "unknown_source_text": "Do not hide changed provenance."}
+        output = {"dataset": copy.deepcopy(dataset), "rows": [{"count": 5}], "total": {"value": 5},
+                  "spec": {"dataset_version": "unit", "operation": "aggregate"},
+                  "coverage_complete": False, "warnings": ["Keep this warning."]}
+        original = copy.deepcopy(output)
+        for tool in ("run_analysis", "get_result", "export_csv", "create_map_link"):
+            projected = local_agent.project_tool_output(tool, output, bootstrap_dataset_canonical=local_agent.canonical(dataset))
+            self.assertEqual(projected["dataset"], {"$ref": local_agent.BOOTSTRAP_DATASET_REFERENCE})
+            self.assertEqual({k: v for k, v in projected.items() if k != "dataset"},
+                             {k: v for k, v in original.items() if k != "dataset"})
+        self.assertEqual(output, original)
+        changes = [{**dataset, "coverage": {"complete": 0}}, {**dataset, "row_count": 5.0},
+                   {**dataset, "unknown_source_text": "A new source instruction."},
+                   {**dataset, "new_field": "Keep this."}, "not a dataset object"]
+        for changed in changes:
+            result = dict(output, dataset=changed)
+            self.assertIs(local_agent.project_tool_output("run_analysis", result,
+                          bootstrap_dataset_canonical=local_agent.canonical(dataset)), result)
+        self.assertIs(local_agent.project_tool_output("run_analysis", output), output)
+
+    def test_result_context_hashes_preserve_original_snapshot_and_numeric_fact_paths(self):
+        source = discovery()
+        class Service:
+            def describe_dataset(self):
+                return source
+            def run_analysis(self, spec):
+                return {"result_id": "unit-result", "dataset": source["dataset"], "spec": spec,
+                        "total": {"value": 5}, "rows": [{"count": 5}], "coverage_complete": False,
+                        "warnings": ["Observed data only."]}
+        final = {"status": "answered", "answer": "Five observed requests.", "result_ids": ["unit-result"],
+                 "facts": [{"result_id": "unit-result", "path": "/total/value", "value": 5},
+                           {"result_id": "unit-result", "path": "/rows/0/count", "value": 5}]}
+        model = ScriptedModel([tool_message("run_analysis", {"spec": {"dataset_version": "unit", "operation": "aggregate"}}),
+                               {"role": "assistant", "content": json.dumps(final)}])
+        trace = local_agent.run_trial(Service(), model, "Authored unit request", seed=1)
+        event = next(e for e in trace["events"] if e["kind"] == "tool" and e["name"] == "run_analysis")
+        context = event["model_context"]
+        seen = json.loads(model.requests[1][-1]["content"])
+        self.assertEqual(seen["dataset"], {"$ref": local_agent.BOOTSTRAP_DATASET_REFERENCE})
+        self.assertEqual(context["projection"], local_agent.RESULT_CONTEXT_PROJECTION)
+        self.assertEqual(context["content"], model.requests[1][-1]["content"])
+        self.assertEqual(context["sha256"], hashlib.sha256(context["content"].encode()).hexdigest())
+        original_hash = hashlib.sha256(local_agent.canonical(event["output"]).encode()).hexdigest()
+        self.assertEqual(context["full_output_sha256"], original_hash)
+        for fact in final["facts"]:
+            self.assertEqual(evaluation.pointer(seen, fact["path"]), fact["value"])
+            self.assertEqual(evaluation.pointer(event["output"], fact["path"]), fact["value"])
+        grade = evaluation.grade_trial({"expected_status": "answered", "steps": []}, trace, None, None)
+        self.assertEqual(grade["hard_failures"], [])
+        modified = copy.deepcopy(trace)
+        modified["final"]["facts"][0]["value"] = 6
+        self.assertIn("fabricated_or_mismatched_numeric_evidence", evaluation.grade_trial(
+            {"expected_status": "answered", "steps": []}, modified, None, None)["hard_failures"])
+        source["dataset"]["dataset_version"] = "changed after snapshot"
+        self.assertEqual(event["output"]["dataset"]["dataset_version"], "unit")
+        self.assertEqual(trace["events"][1]["output"]["dataset"]["dataset_version"], "unit")
+        self.assertEqual(hashlib.sha256(local_agent.canonical(event["output"]).encode()).hexdigest(), original_hash)
+
+    def test_mutated_dataset_stays_full_and_does_not_change_id_ownership(self):
+        source = discovery()
+        class Service:
+            def __init__(self):
+                self.reads = []
+            def describe_dataset(self):
+                return source
+            def run_analysis(self, spec):
+                source["dataset"]["new_source_warning"] = "Preserve newly observed metadata."
+                return {"result_id": "own-result", "dataset": source["dataset"], "total": {"value": 5}}
+            def get_result(self, result_id):
+                self.reads.append(result_id)
+                return {}
+        service = Service()
+        model = ScriptedModel([tool_message("run_analysis", {"spec": {"dataset_version": "unit", "operation": "aggregate"}}),
+                               tool_message("get_result", {"result_id": "foreign-result"}),
+                               {"role": "assistant", "content": '{"status":"failed"}'}])
+        trace = local_agent.run_trial(service, model, "Authored unit request", seed=1)
+        run = next(e for e in trace["events"] if e["kind"] == "tool" and e["name"] == "run_analysis")
+        self.assertNotIn("model_context", run)
+        self.assertEqual(json.loads(model.requests[1][-1]["content"])["dataset"], source["dataset"])
+        self.assertEqual(trace["events"][1]["output"]["dataset"], {"dataset_version": "unit"})
+        self.assertEqual(service.reads, [])
+        denied = next(e for e in trace["events"] if e["kind"] == "tool" and e["name"] == "get_result")
+        self.assertEqual(denied["output"]["error"]["code"], "foreign_result_id")
+
     def test_projection_omits_only_known_valid_audit_hashes(self):
         certificate = {"capture_manifest_sha256": "a" * 64, "capture_sha256": "b" * 64,
                        "normalized_sha256": "c" * 64, "qualification_sha256": "d" * 64,
@@ -785,6 +876,117 @@ class ProtocolTests(unittest.TestCase):
         self.assertEqual(failed_tool["output"]["error"]["code"], "invalid_tool_arguments")
         self.assertEqual(trace["status"], "finished")
 
+    @unittest.skipIf(Draft202012Validator is None, "Optional MCP jsonschema dependency not installed")
+    def test_public_analysis_schema_accepts_guide_and_all_supported_structures(self):
+        from analytics311.contracts import FIELDS, METRICS, normalize_spec
+        from analytics311.guide import analysis_guide
+        schema = local_agent.analysis_parameters()
+        Draft202012Validator.check_schema(schema)
+        validator = Draft202012Validator(schema)
+        base = {"dataset_version": "unit", "operation": "aggregate"}
+        cases = [base, {**base, "operation": "records"}]
+        cases.extend(analysis_guide("unit")["examples"].values())
+        cases.extend([
+            {**base, "filters": {"all": [{"category_family": "noise"},
+                {"any": [{"field": "borough", "op": "eq", "value": "QUEENS"},
+                         {"not": {"field": "is_closed", "op": "eq", "value": True}}]},
+                {"field": "closure_hours", "op": "range", "value": {"gte": 0, "lt": 48}},
+                {"field": "location", "op": "exists", "value": True}]}},
+            {**base, "filters": {"field": "created_date", "op": "range", "value": {"gte": "2025-01-01T00:00:00Z"}}},
+            {**base, "filters": {"field": "agency", "op": "in", "value": ["A", "B"]},
+             "geo": {"type": "radius", "lat": 40.7, "lon": -73.9, "distance_m": 1500}},
+            {**base, "geo": {"type": "bbox", "top_left": {"lat": 40.8, "lon": -74},
+                             "bottom_right": {"lat": 40.6, "lon": -73.8}}},
+            {**base, "geo": {"type": "polygon", "points": [{"lat": 40.6, "lon": -74},
+                {"lat": 40.8, "lon": -74}, {"lat": 40.7, "lon": -73.8}]}},
+            {**base, "time": {"gte": "2025-01-01T00:00:00Z", "lt": "2025-02-01T00:00:00Z"},
+             "group_by": [{"field": "created_date", "interval": "day"}, {"field": "is_closed"}, {"field": "agency"}],
+             "metrics": list(METRICS), "preview_limit": 100, "top_n": 100, "minimum_count": 1000000},
+        ])
+        for number, request in enumerate(cases):
+            with self.subTest(number=number):
+                validator.validate({"spec": request})
+                local_agent.check_tool_arguments({"spec": request}, schema)
+                normalize_spec(request, CATALOG)
+        predicate = schema["$defs"]["filter"]["anyOf"][-1]
+        self.assertEqual(set(predicate["properties"]["field"]["enum"]), set(FIELDS))
+        self.assertEqual(set(schema["properties"]["spec"]["properties"]["metrics"]["items"]["enum"]), set(METRICS))
+
+    @unittest.skipIf(Draft202012Validator is None, "Optional MCP jsonschema dependency not installed")
+    def test_analysis_schema_rejects_guide_metadata_raw_dsl_and_malformed_nesting(self):
+        schema = local_agent.analysis_parameters()
+        validator = Draft202012Validator(schema)
+        allowed = {"schema_version", "dataset_version", "operation", "timezone", "as_of", "time", "filters", "geo",
+                   "group_by", "metrics", "periods", "preview_limit", "top_n", "rank_by", "rank_order", "minimum_count"}
+        self.assertEqual(set(schema["properties"]["spec"]["properties"]), allowed)
+        self.assertEqual(schema["properties"]["spec"]["required"], ["dataset_version", "operation"])
+        base = {"dataset_version": "unit", "operation": "aggregate"}
+        invalid = [{**base, key: {}} for key in ("required", "unknown_keys", "query", "aggs")]
+        invalid.extend([{}, {**base, "operation": "sql"}, {**base, "schema_version": 1},
+                        {**base, "filters": {"all": [{"query": "arbitrary DSL"}]}},
+                        {**base, "geo": {"type": "radius", "lat": 40.7, "lon": -73.9}},
+                        {**base, "periods": {"baseline": {"gte": "x", "lt": "y"}}},
+                        {**base, "group_by": [{"field": "location"}]}, {**base, "preview_limit": True}])
+        for value in invalid:
+            with self.subTest(request=value):
+                self.assertFalse(validator.is_valid({"spec": value}))
+        for tool in local_agent.tool_schemas():
+            if tool["function"]["name"] in {"run_analysis", "validate_analysis"}:
+                self.assertEqual(tool["function"]["parameters"], schema)
+
+    def test_rejected_spec_keys_are_bounded_actionable_and_stop_third_identical_invalid_call(self):
+        invalid = {"dataset_version": "unit", "operation": "records", "required": ["dataset_version"], "unknown_keys": []}
+        class Service(MetadataService):
+            def run_analysis(self, spec):
+                raise AssertionError("Invalid envelope must not reach service")
+        model = ScriptedModel([tool_message("run_analysis", {"spec": invalid}, str(i)) for i in range(5)])
+        trace = local_agent.run_trial(Service(), model, "Authored unit request", seed=1)
+        self.assertEqual(trace["error"]["code"], "repeated_invalid_tool_call")
+        self.assertEqual((trace["adapter_calls"], trace["model_calls"], trace["calls"]), (1, 3, 4))
+        self.assertEqual(len(model.requests), 3)
+        failures = [event for event in trace["events"] if event["kind"] == "tool" and event["initiated_by"] == "model"]
+        self.assertEqual([event["identical_invalid_count"] for event in failures], [1, 2, 3])
+        details = failures[0]["output"]["error"]["details"]
+        self.assertEqual(details["path"], "/spec")
+        self.assertEqual(details["rejected_keys"], ["required", "unknown_keys"])
+        self.assertEqual(details["missing_keys"], [])
+        self.assertIn("operation", details["allowed_keys"])
+        self.assertLess(len(local_agent.canonical(failures[0]["output"])), 2000)
+        huge = {"spec": {"dataset_version": "unit", "operation": "records", **{("x" * 500) + str(i): 1 for i in range(100)}}}
+        with self.assertRaises(local_agent.ToolArgumentError) as raised:
+            local_agent.check_tool_arguments(huge, local_agent.analysis_parameters())
+        self.assertEqual(len(raised.exception.details["rejected_keys"]), 20)
+        self.assertTrue(all(len(key) <= 64 for key in raised.exception.details["rejected_keys"]))
+
+    def test_model_can_repair_spec_after_specific_feedback_without_rewriting_arguments(self):
+        class Service(MetadataService):
+            def __init__(self):
+                self.requests = []
+            def run_analysis(self, spec):
+                self.requests.append(copy.deepcopy(spec))
+                return {"result_id": "unit-result", "total": {"value": 5}}
+        valid = {"dataset_version": "unit", "operation": "aggregate"}
+        model = ScriptedModel([tool_message("run_analysis", {"spec": {**valid, "unknown_keys": []}}),
+                               tool_message("run_analysis", {"spec": valid}),
+                               {"role": "assistant", "content": '{"status":"answered"}'}])
+        service = Service()
+        trace = local_agent.run_trial(service, model, "Authored unit request", seed=1)
+        self.assertEqual(trace["status"], "finished")
+        self.assertEqual(service.requests, [valid])
+        self.assertEqual(trace["model_calls"], 2)
+
+    def test_distinct_malformed_argument_strings_do_not_share_repeat_counter(self):
+        messages = []
+        for text in ("{", "[", "not JSON"):
+            message = tool_message("run_analysis", {})
+            message["tool_calls"][0]["function"]["arguments"] = text
+            messages.append(message)
+        messages.append({"role": "assistant", "content": '{"status":"failed"}'})
+        trace = local_agent.run_trial(MetadataService(), ScriptedModel(messages), "Authored unit request", seed=1)
+        self.assertEqual(trace["status"], "finished")
+        errors = [e for e in trace["events"] if e["kind"] == "tool" and e["initiated_by"] == "model"]
+        self.assertEqual([e["identical_invalid_count"] for e in errors], [1, 1, 1])
+
     def test_format_exhaustion_still_cancels_only_owned_pending_export(self):
         class Service:
             def __init__(self):
@@ -801,7 +1003,7 @@ class ProtocolTests(unittest.TestCase):
             def cancel_export(self, job_id):
                 self.cancelled.append(job_id)
         service = Service()
-        model = ScriptedModel([tool_message("describe_dataset", {}), tool_message("run_analysis", {"spec": {}}),
+        model = ScriptedModel([tool_message("describe_dataset", {}), tool_message("run_analysis", {"spec": {"dataset_version": "unit", "operation": "aggregate"}}),
                                tool_message("export_csv", {"result_id": "own-result", "mode": "records", "cohort_scope": "all_matching"})]
                               + [{"role": "assistant", "content": "Not JSON"}] * 3)
         trace = local_agent.run_trial(service, model, "Authored unit request", seed=1)

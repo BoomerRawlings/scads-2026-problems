@@ -1,0 +1,204 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-10T04:05:30.740411+00:00",
+  "review_source_sha256": "153f3d38f71878ffe3e18613b875450eb129db1c0604771d567032a08e553b8f",
+  "method": "Offline independent arithmetic, nested numerical comparisons, identity/hash reconciliation, and actual retained CSV set comparisons. No service, model, raw-corpus or SQLite recomputation.",
+  "workflow": {
+    "run_id": 38004540380,
+    "url": "https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/38004540380",
+    "head_sha": "78bae7eac0e33d28deb0cb404295f6f900a85db7",
+    "conclusion": "failure"
+  },
+  "checks": {
+    "raw_normalized_index_counts_reconcile": true,
+    "hash_provenance_chain": true,
+    "qualification_seals": true,
+    "official_nta_identity_and_residential_codes": true,
+    "five_api_cases_match_retained_independent_oracle": true,
+    "thirty_five_performance_results_match_checked_api_cases": true,
+    "latency_summary_arithmetic": true,
+    "four_full_exports_match_exact_independent_ids": true,
+    "point_and_selected_all_trend_csv_parity": true,
+    "failed_streaming_job_matches_recovery": true,
+    "provision_receipt_matches_generated_profile": true,
+    "three_prebrowser_map_failures_preserved": true
+  },
+  "maximum_absolute_numeric_difference": 2.842170943040401e-14,
+  "review_relative_tolerance": 1e-10,
+  "review_absolute_tolerance": 1e-09,
+  "record_reconciliation": {
+    "captured": 3,
+    "normalized": 2133268,
+    "ingested": 2133268,
+    "frozen_index": 2133268,
+    "oracle": 2133268
+  },
+  "export_artifacts": [
+    {
+      "job_id": "5e6c2ddf38c04b6eafb4f64273111499",
+      "bytes": 1139937,
+      "rows": 9728,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c",
+      "exact_membership_equal": true
+    },
+    {
+      "job_id": "662d9005cbd94ac1bef1b8541b6aaf1d",
+      "bytes": 1139937,
+      "rows": 9728,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c",
+      "exact_membership_equal": true
+    },
+    {
+      "job_id": "be7c09631b6a4d9db886db7f702d37f8",
+      "bytes": 1139937,
+      "rows": 9728,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c",
+      "exact_membership_equal": true
+    },
+    {
+      "job_id": "c544f1d49af24866a7ecbf10cdf77bb2",
+      "bytes": 1139937,
+      "rows": 9728,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c",
+      "exact_membership_equal": true
+    }
+  ],
+  "maps": {
+    "provision_passed": true,
+    "rendered_parity_verified": false,
+    "render_failures": {
+      "points": {
+        "stage": "map_link",
+        "code": "backend_unavailable",
+        "csv_rows": 242,
+        "browser_reached": false
+      },
+      "trends": {
+        "stage": "map_link",
+        "code": "coverage_gap",
+        "csv_rows": 196,
+        "browser_reached": false
+      },
+      "selected_trends": {
+        "stage": "map_link",
+        "code": "coverage_gap",
+        "csv_rows": 3,
+        "browser_reached": false
+      }
+    }
+  },
+  "sampled_memory": {
+    "samples": 5,
+    "runner_max_rss_bytes": 107851776,
+    "node_heap_max_observed_bytes": 1090519040,
+    "node_heap_configured_bytes": 2147483648,
+    "worker_max_sampled_rss_bytes": 32387072,
+    "workers_max_sampled_total_rss_bytes": 59174912,
+    "fault_worker_self_reported_rss_bytes": 33828864
+  },
+  "preserved_originals": [
+    {
+      "file": "acceptance.json",
+      "source": "runs/real-core-38004540380/real-v1/acceptance.json",
+      "bytes": 3274,
+      "sha256": "22d92f6f656b83d3c83ca8a9a6378f04b6bfb85af1ac7796bb1c960369e1d86b"
+    },
+    {
+      "file": "normalized.manifest.json",
+      "source": "runs/real-core-38004540380/real-v1/normalized.manifest.json",
+      "bytes": 5154,
+      "sha256": "a110e9f0f3223877fbf29cfa4aba106d34864684ce7cbcc1f9d08df191547bc1"
+    },
+    {
+      "file": "index.manifest.json",
+      "source": "runs/real-core-38004540380/real-v1/index.manifest.json",
+      "bytes": 7578,
+      "sha256": "d48a78d3fc82726021537d7a648184ffbb0afcb379de3f6d1dea1bd5c976c159"
+    },
+    {
+      "file": "ingest.json",
+      "source": "runs/real-core-38004540380/real-v1/ingest.json",
+      "bytes": 750,
+      "sha256": "28fbbbf85945e53e78f78ace246aac282a381824c5de29597fc32d05861cdb4e"
+    },
+    {
+      "file": "measurement-suite.json",
+      "source": "runs/real-core-38004540380/real-v1/measurement-suite.json",
+      "bytes": 4369,
+      "sha256": "9affb148b108e27e56eba2b2fd629a78ca6822a065927cc43aa6d8def0ac07ea"
+    },
+    {
+      "file": "measurements.json",
+      "source": "runs/real-core-38004540380/real-v1/measurements.json",
+      "bytes": 27405,
+      "sha256": "aa7d9faa781dfd465aec205cb232a4836223a8472beeeab45c0179f9bccb114c"
+    },
+    {
+      "file": "maps-provision.json",
+      "source": "runs/real-core-38004540380/real-v1/maps-provision.json",
+      "bytes": 779,
+      "sha256": "d1d3e42447d9e8cb8ead356679e387f8cdb1c3782a1e7516dcad33f602c3cb4d"
+    },
+    {
+      "file": "catalog.json",
+      "source": "runs/real-core-38004540380/real-v1/catalog.json",
+      "bytes": 3704,
+      "sha256": "220926b186aa38f0292d7e2f789e8186a026b27a6e6c366297cf0a472ec7629b"
+    },
+    {
+      "file": "host.json",
+      "source": "runs/real-core-38004540380/runtime/host.json",
+      "bytes": 1364,
+      "sha256": "015584f6b8b265d82f4806769fcf6b8300bb558128ae5cb92eefa76fd8bd1774"
+    },
+    {
+      "file": "elasticsearch-version.json",
+      "source": "runs/real-core-38004540380/runtime/elasticsearch-version.json",
+      "bytes": 540,
+      "sha256": "aa1dae34b79c0e41a63746c7d192ac497e593d59089515baf505ae8d8f1ee200"
+    },
+    {
+      "file": "kibana-status.json",
+      "source": "runs/real-core-38004540380/runtime/kibana-status.json",
+      "bytes": 23138,
+      "sha256": "fa875efc8e267d589dd04129e8420abd648bc24c7f6d278522489922fb173642"
+    },
+    {
+      "file": "render-points.json",
+      "source": "runs/real-core-38004540380/real-v1/render-points/receipt.json",
+      "bytes": 665,
+      "sha256": "2a2620630c2505f576b78c3fb84b7f8597fbfe56a7f7328a6a3254a9c6d6d47e"
+    },
+    {
+      "file": "render-trends.json",
+      "source": "runs/real-core-38004540380/real-v1/render-trends/receipt.json",
+      "bytes": 669,
+      "sha256": "680ecbb059fac88114aa3057a347245f09a4f3766cd16b230ec60014350af0b9"
+    },
+    {
+      "file": "render-selected_trends.json",
+      "source": "runs/real-core-38004540380/real-v1/render-selected_trends/receipt.json",
+      "bytes": 667,
+      "sha256": "8b40327c0c97ddac9120f4311dab4a9ca2309379377e875dc052bd5df18c431e"
+    }
+  ],
+  "excluded_artifacts": [
+    "raw or normalized record files",
+    "individual oracle IDs and point expectation",
+    "saved record previews",
+    "CSV record bodies",
+    "locks",
+    "unexecuted agent freeze"
+  ],
+  "limitations": [
+    "Local review validates retained evidence, not a rerun of Elasticsearch or complete re-normalization.",
+    "SQLite oracle shares normalization and NTA assignments; this does not independently prove spatial assignment correctness.",
+    "Five analytical cases, 25 serial repeats and two batches of five queries; total measured workload 3.437 seconds with previously queried index and uncontrolled caches.",
+    "Nine-column exports checked complete IDs, headers and byte stability; non-ID cells lack an independent cell-by-cell real-corpus oracle.",
+    "Sampled heap and RSS are not peak capacity; node process metric is virtual memory, not RSS; Kibana and ingestion peak memory unmeasured.",
+    "Recovery is one abrupt local export worker exit at first-row streaming; not server/index/node or mid-bulk-ingestion recovery.",
+    "Maps provisioning passed its live stored-object readback checks. All three render paths stopped at map_link before browser launch; no rendered geometry, IDs, joined values or browser filters were checked. Local review reconciles the provisioning receipt/profile, not raw HTTP response logs or a second live session.",
+    "Frozen questions are not model trials. No held-out model outcome or end-to-end conversational latency.",
+    "Source before/after reconciliation is observed-corpus qualification, not transactional isolation or complete citywide reporting."
+  ]
+}

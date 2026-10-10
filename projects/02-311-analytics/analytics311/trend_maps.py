@@ -96,8 +96,16 @@ def publish_trend_map(service, saved, selected):
         raise AnalyticsError("unsupported_operation", "Trend maps require a real immutable Elasticsearch dataset")
     if spec.get("operation") != "compare_periods" or spec.get("group_by") != [{"field": "nta2020"}]:
         raise AnalyticsError("unsupported_operation", "Trend maps require a period comparison grouped only by nta2020")
-    if saved.get("execution_complete") is not True or saved.get("coverage_complete") is not True:
-        raise AnalyticsError("coverage_gap", "Trend maps require a complete comparison with complete source coverage")
+    if saved.get("execution_complete") is not True:
+        raise AnalyticsError("coverage_gap", "Trend maps require a completely executed comparison")
+    # Revalidate the current manifest's certificate and exact creation periods;
+    # a saved scope label by itself is not evidence of observed coverage.
+    covered, qualified = service._coverage(spec)
+    scope = qualified["scope"] if qualified else "complete_declared_corpus"
+    if (not (covered or qualified) or saved.get("coverage_complete") is not covered
+            or (qualified and qualified.get("stage") != "frozen_index")
+            or saved.get("comparison_scope", "complete_declared_corpus") != scope):
+        raise AnalyticsError("coverage_gap", "Trend maps require current complete declared coverage or a validated frozen observed-snapshot comparison")
     config = service.config.get("kibana", {})
     for key in ("trend_map_id", "trend_data_view_id"):
         if not isinstance(config.get(key), str) or not config[key] or config[key].startswith("CONFIGURE_"):
@@ -170,10 +178,12 @@ def publish_trend_map(service, saved, selected):
     return {"locator_request": locator, "result_index": index, "metric": metric, "metric_units": METRIC_UNITS[metric],
             "source_result_id": result_id, "source_dataset_version": spec["dataset_version"],
             "source_periods": spec["periods"], "source_snapshot_coverage": service.manifest.get("coverage"),
+            "comparison_scope": qualified["scope"] if qualified else "complete_declared_corpus",
+            "coverage_complete": covered,
             "nta_version": nta_version, "published_group_count": len(documents), "mapped_group_count": len(documents),
             "excluded_group_count": excluded, "selected_nta_ids": ntas if selected is not None else None,
             "cohort_scope": scope, "group_ids": [row["group_id"] for row in rows] if selected is not None else None,
             "parity_verified": False,
-            "warnings": ["Published groups have NTA identifiers; actual boundary joins and rendered feature counts remain unverified.",
+            "warnings": ([qualified["warning"]] if qualified else []) + ["Published groups have NTA identifiers; actual boundary joins and rendered feature counts remain unverified.",
                          "Configure the trend data view without a time field. The NTA join layer must honor result filters and style the declared metric.",
                          "Groups missing NTA identifiers are excluded. Relative change is null for a zero baseline."]}

@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "observed_at": "2026-10-09T23:25:16.765475+00:00",
+  "observed_at": "2026-10-10T04:50:32.905248+00:00",
   "evidence_kind": "focused_implementation_checks",
   "command": "python -m unittest tests.test_agent_evaluation -q",
-  "tests": 45,
-  "passed": 45,
+  "tests": 53,
+  "passed": 53,
   "failures": 0,
   "errors": 0,
   "skipped": 0,
-  "reported_elapsed_seconds": 1.752,
+  "reported_elapsed_seconds": 3.133,
   "fixture_rows": 5,
   "actual_agent_trials": 0,
   "live_services_started": false,
@@ -23,14 +23,15 @@
     "Numeric server timings are retained when present; mock checks do not measure model performance.",
     "Runtime pin, live-process inventory parser and restart/resume checks use authored files and process metadata; no local model is launched.",
     "Bounded tool-contract feedback and terminal-format retries are checked with authored model messages; real model repair success remains unverified.",
-    "Adapter-provided discovery is separately attributed and included in the shared24-call budget; prefix identity and ownership checks do not measure real model cache reuse."
+    "Adapter-provided discovery is separately attributed and included in the shared24-call budget; prefix identity and ownership checks do not measure real model cache reuse.",
+    "Public AnalysisSpec schemas validate with JSONschema and public examples; actual pinned llama grammar acceptance remains a separate development-smoke gate."
   ],
   "files_sha256": {
     "tools/agent_evaluation.py": "4a3ed2177f52ec420ce74ddccfa443143d9c437456f121df31ffb1325a02c36f",
-    "tools/local_agent.py": "23ba2002648ccdf1033df39d36b211a0310f615df4c07a7fae2b049560b5502a",
+    "tools/local_agent.py": "7b1a9aa50556d6d713e3e10227cffae0c9ea8008d0bdee1d65869bbecf9e22dc",
     "examples/evaluation/questions-v1.json": "ed05a71b10fabe0a94dbd3b76e53d8751f10c6021b420e93d61ac634c634c132",
-    "tests/test_agent_evaluation.py": "fa1417c93f2e50c623be7a630b4d45c9a006f0917bcd2bb56027d81292da2538",
-    "docs/agent-evaluation.md": "6ad2ea4086d8707622a22f6743e4fa020d8ef09291a6d646ac67a64a6735d32a",
+    "tests/test_agent_evaluation.py": "d65ff713ab70d10c0173edcf8a37f367bd490467e1d88e370cfd4495cfcd76bd",
+    "docs/agent-evaluation.md": "2cb66f6c466152da18155d194a50b335b7bccad043ec61f51b6117a575bab4a9",
     "docs/local-model-runtime.json": "661569ca45a1e2eaaa7e178209d3349dc27cab86351444cbea5be1d3d3c49937"
   },
   "context_projection": {
@@ -51,6 +52,11 @@
   "context_projection_v2": {
     "receipt": "examples/evidence/discovery-projection-v2-real-metadata.json",
     "sha256": "5f3a1794fe1b3a77ede6bb755bfe5b9bc5fa0fb5de6ccaeaff9d74cf7728f8e6",
+    "actual_model_rerun": false
+  },
+  "result_context_projection": {
+    "receipt": "examples\\evidence\\matching-dataset-reference-real-results.json",
+    "sha256": "21ffef2127f6e9debc14fe52a6e991371b8e6f908b99dda49078800d2af75f81",
     "actual_model_rerun": false
   }
 }

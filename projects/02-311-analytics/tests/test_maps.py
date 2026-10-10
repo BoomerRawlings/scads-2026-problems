@@ -5,6 +5,8 @@ from pathlib import Path
 import tempfile
 from types import SimpleNamespace
 import unittest
+from urllib.error import HTTPError
+from urllib.parse import parse_qs, urlsplit
 from unittest.mock import patch
 
 from analytics311.maps import build_map_request, create_map_link, KibanaClient
@@ -26,10 +28,12 @@ class FakeKibanaOpener:
             if request.get_method() != "GET" or request.data is not None:
                 raise AssertionError("Data view must be read using GET without a body")
             response = {"data_view": self.view}
+        elif request.full_url.endswith("/api/status"):
+            response = {"version": {"number": "9.5.5"}}
         elif request.full_url.endswith("/api/short_url"):
             if request.get_method() != "POST":
                 raise AssertionError("Short URL creation must remain POST")
-            response = {"slug": "verified-config-test"}
+            response = {"id": "verified-object-id", "slug": "different-slug"}
         else:
             raise AssertionError(f"Unexpected mocked URL: {request.full_url}")
         return io.BytesIO(json.dumps(response).encode())
@@ -89,7 +93,7 @@ class MapTests(unittest.TestCase):
                 result = create_map_link(service, saved, "requests", "all_matching", None)
             self.assertEqual((result["source_count"], result["mapped_count"], result["missing_location_count"]), (3, 2, 1))
             self.assertFalse(result["parity_verified"])
-            self.assertEqual([request.get_method() for request in opener.calls], ["GET", "POST"])
+            self.assertEqual([request.get_method() for request in opener.calls], ["GET", "GET", "POST"])
             self.assertEqual(opener.calls[0].full_url, "http://localhost:5601/s/test-space/api/data_views/data_view/snapshot-data")
             self.assertEqual(result["locator_request"]["params"]["filters"][0]["query"], {"match_all": {}})
             self.assertNotIn("created_date", json.dumps(result["locator_request"]["params"]["filters"]))
@@ -141,8 +145,53 @@ class MapTests(unittest.TestCase):
             with patch("analytics311.maps.build_opener", return_value=opener), patch("analytics311.trend_maps.publish_trend_map", side_effect=publish):
                 result = create_map_link(service, saved, "neighborhood_trends", "all_matching", None)
             self.assertFalse(result["parity_verified"])
-            self.assertEqual([request.get_method() for request in opener.calls], ["GET", "POST"])
-            self.assertIn("/goto/verified-config-test", result["url"])
+            self.assertEqual([request.get_method() for request in opener.calls], ["GET", "GET", "POST"])
+            self.assertEqual(result["url"], "http://localhost:5601/s/test-space/goto/verified-object-id")
+
+    def test_browser_locator_short_url_preserves_exact_state_and_actual_version(self):
+        with tempfile.TemporaryDirectory() as directory:
+            service, saved = self.local_service(directory)
+            opener = FakeKibanaOpener({"title": "nyc311-demo-v1"})
+            with patch("analytics311.maps.build_opener", return_value=opener):
+                result = create_map_link(service, saved, "requests", "all_matching", None)
+            request = json.loads(opener.calls[-1].data)
+            self.assertEqual(request["locatorId"], "LEGACY_SHORT_URL_LOCATOR")
+            redirect = urlsplit(request["params"]["url"])
+            self.assertEqual((redirect.scheme, redirect.netloc, redirect.path), ("", "", "/app/r/"))
+            query = parse_qs(redirect.query)
+            self.assertEqual(query["l"], ["MAPS_APP_LOCATOR"])
+            self.assertEqual(query["v"], ["9.5.5"])
+            self.assertEqual(json.loads(query["p"][0]), result["locator_request"]["params"])
+            self.assertEqual(result["short_url_request"], request)
+            self.assertEqual(result["url"], "http://localhost:5601/s/test-space/goto/verified-object-id")
+            self.assertEqual(result["short_url_id"], "verified-object-id")
+
+    def test_locator_version_missing_blocks_short_url_creation(self):
+        with tempfile.TemporaryDirectory() as directory:
+            service, saved = self.local_service(directory)
+            opener = FakeKibanaOpener({"title": "nyc311-demo-v1"})
+            original = opener.open
+            def open_request(request, timeout):
+                if request.full_url.endswith("/api/status"):
+                    opener.calls.append(request)
+                    return io.BytesIO(b'{"status":{"overall":{"level":"available"}}}')
+                return original(request, timeout)
+            opener.open = open_request
+            with patch("analytics311.maps.build_opener", return_value=opener), self.assertRaises(AnalyticsError) as caught:
+                create_map_link(service, saved, "requests", "all_matching", None)
+            self.assertEqual(caught.exception.code, "backend_unavailable")
+            self.assertTrue(all(request.get_method() == "GET" for request in opener.calls))
+
+    def test_http_failure_retains_status_without_server_body_or_secrets(self):
+        client = KibanaClient({"url": "http://localhost:5601", "allow_insecure_local": True})
+        failure = HTTPError("http://localhost:5601/api/short_url", 409, "Conflict", {},
+                            io.BytesIO(b'{"message":"secret-untrusted-server-body"}'))
+        with patch("analytics311.maps.build_opener") as opener:
+            opener.return_value.open.side_effect = failure
+            with self.assertRaises(AnalyticsError) as caught:
+                client.request("/api/short_url", {"locatorId": "MAPS_APP_LOCATOR", "params": {}})
+        self.assertEqual(caught.exception.backend_details, {"http_status": 409, "method": "POST", "path": "/api/short_url"})
+        self.assertNotIn("secret", caught.exception.message)
 
 
 if __name__ == "__main__":

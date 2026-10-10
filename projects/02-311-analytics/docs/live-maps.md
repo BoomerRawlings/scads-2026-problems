@@ -29,6 +29,24 @@ The Maps Inspector selectors are used by
 [Kibana's GIS tests](https://github.com/elastic/kibana/blob/v9.5.5/x-pack/platform/test/functional/page_objects/gis_page.ts)
 and [Inspector tests](https://github.com/elastic/kibana/blob/v9.5.5/src/platform/test/functional/services/inspector.ts).
 
+Maps registers `MAPS_APP_LOCATOR` in the browser. The server short-URL API
+requires a server-registered locator, so it cannot accept that ID directly.
+The bridge retains the original Maps locator payload and wraps its exact
+`l`, actual Kibana `v`, and JSON `p` parameters in an internal `/app/r/` URL,
+using `LEGACY_SHORT_URL_LOCATOR` for server storage. No filters are translated
+to KQL or reconstructed as Rison. See the pinned
+[Maps registration](https://github.com/elastic/kibana/blob/v9.5.5/x-pack/platform/plugins/shared/maps/public/plugin.ts),
+[short-URL route](https://github.com/elastic/kibana/blob/v9.5.5/src/platform/plugins/shared/share/server/url_service/http/short_urls/register_create_route.ts),
+[redirect parameters](https://github.com/elastic/kibana/blob/v9.5.5/src/platform/plugins/shared/share/common/url_service/locators/redirect/format_search_params.ts),
+and [legacy URL locator](https://github.com/elastic/kibana/blob/v9.5.5/src/platform/plugins/shared/share/common/url_service/locators/legacy_short_url_locator.ts).
+The link uses the returned object ID at `/goto/{id}`; a slug is never passed
+to that route. Its legacy branch performs a full browser navigation, so the
+inner redirect app mounts afresh. The trailing slash in `/app/r/` keeps the
+legacy app/path parser from consuming the query as the application name.
+See the pinned [redirect manager](https://github.com/elastic/kibana/blob/v9.5.5/src/platform/plugins/shared/share/public/url_service/redirect/redirect_manager.ts).
+HTTP failures retain status, method, and API path in the render receipt;
+arbitrary server bodies and credentials are omitted.
+
 ## Provision
 
 Start with a frozen source index and its validated profile. Its result index
@@ -54,6 +72,12 @@ The boundary source ignores request/result filters; its NTA terms join applies
 the result filter to the dedicated result index. `max` of each metric selects
 the single immutable result document for each neighborhood. The map styles
 `rate_change`, measured in requests per calendar day.
+
+Trend publication revalidates the saved comparison against the current
+manifest and exact period bounds. A validated frozen `reconciled_observed_snapshot`
+certificate qualifies these comparisons while `coverage_complete` remains false.
+The map response preserves that scope and its population/reporting caveat;
+a saved scope label without a matching certificate cannot authorize publication.
 
 ## Render and compare
 
@@ -106,6 +130,12 @@ directory. Reference membership and numeric disagreement, missing Inspector
 data, absent DSL, application error or absent canvas fail closed. Timeout and
 UI incompatibility leave `rendered_parity_verified=false`; failed screenshots
 aid diagnosis. A passing bounded-map check never sets overall release acceptance.
+
+Kibana adds flagged centroid Points alongside polygons for labels and symbols.
+The checker separates only these flagged companions, verifies each against its
+polygon's ID, NTA, and all five joined metrics, and counts the polygon once.
+Unflagged points, orphan/mismatched centroids, and duplicate polygons still fail.
+This follows the pinned [centroid implementation](https://github.com/elastic/kibana/blob/v9.5.5/x-pack/platform/plugins/shared/maps/public/classes/layers/vector_layer/geojson_vector_layer/get_centroid_features.ts).
 
 Rendered-source checks establish the values supplied to visible layers, not
 human perceptual accuracy or exhaustive pixel-level map correctness. Inspect

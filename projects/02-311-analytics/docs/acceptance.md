@@ -11,14 +11,14 @@ remain in [the historical v0.6 record](acceptance-v0.6.md).
 | --- | --- | --- |
 | Actual ≥2 million requests | All five stages reconcile2,133,268 rows; full raw and normalized hashes, ingested byte offset and frozen index UUID recorded | Acquisition/count target met for this captured window |
 | Neighborhood comparisons | Official262 NTA polygons/197 residential codes; qualified observed window; June/October rodent comparison matches independent SQL across196 represented neighborhoods | Agent-led chained comparisons and rendered neighborhood maps; population completeness remains unclaimed |
-| Elasticsearch/Kibana | Elasticsearch9.5.5 real-corpus filter/group/closure/geo/comparison parity and exact CSV membership passed | Maps provisioning failed at version discovery; reusable maps and browser-rendered filters/values/membership unverified |
+| Elasticsearch/Kibana | Elasticsearch9.5.5 real-corpus filter/group/closure/geo/comparison parity and exact CSV membership passed; second run provisioned reusable point/trend maps and262 boundaries in Kibana9.5.5 | All three map checks stopped at link creation before browser rendering; rendered filters/values/membership unverified |
 | Actual agent |40 prospective AI-authored questions, independent SQLite oracle,3 repetitions, chained analyses and retained failures implemented | Execute120 real model trials, independent semantic review and report actual threshold outcome |
 | Usable performance | Actual4CPU/16.77GB host:25 serial queries, two5-query batches,9,728-row exports, sampled memory and one abrupt worker recovery passed | Broader sustained load, cold cache, end-to-end model latency and server recovery remain unqualified |
 | Two paper descriptions | Corrected administrative closure versus first response; separate Maps processing and CSV-worker paths; changed pages visually checked | Website remains its earlier published edition until separately republished |
 
 ## Executed verification
 
-- [Current local regression](../examples/evidence/test-report-v0.7-post-worker.json):506 tests collected,505 passed, one Windows unprivileged-symlink skip,35.346seconds. Mock transports and authored data do not establish million-record behavior.
+- [Latest archived local regression](../examples/evidence/test-report-v0.7-bootstrap.json):520 tests collected,519 passed, one Windows unprivileged-symlink skip,22.741seconds. This receipt pins its source hashes; subsequent Maps/schema edits require new qualification. Mock transports and authored data do not establish million-record behavior. [Earlier worker repair](../examples/evidence/test-report-v0.7-post-worker.json):506 collected,505 passed, one skip,35.346seconds.
 - [Actual capture and local verification](../examples/evidence/captured-local-verification.json): successful [run37700939902](https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/37700939902),2,133,268 unique requests across2135 page operations. All1,306,911,416 decompressed bytes match SHA256`91d84eb6d02dafc402a892298ba92cb121e8e905a189fb75f31b19d4d43aeec7`. Every record was streamed locally to verify strict ascending unique keys, creation dates inside April1-Nov1 2025 and the maximum source update. The163,696,296-byte gzip and [canonical source manifest](../examples/evidence/captured-manifest.json) are retained. No raw JSONL file or full ID set was materialized locally; verification took47.703seconds. Source before/after counts, metadata and revisions reconcile in the manifest; the local check did not re-query the changing provider.
 - [Actual Elastic9.5.5 parity on v0.7](../examples/evidence/live-parity-9.5.5-v0.7.json):14 families,32 authored records, real PIT/composite pagination and full CSV membership. Kibana health was observed separately; browser rendering was not part of this check.
 - [Earlier acquisition failures](../examples/evidence/capture-attempts-v0.7.json): first request timeout30s; a local count took43.891s. Second attempt passed counts but timed out on its first5000-row page after bounded120s retries, leaving zero captured rows. The successful third run used1000-row pages. Historical failures remain; success does not establish a general network-throughput guarantee.
@@ -26,6 +26,54 @@ remain in [the historical v0.6 record](acceptance-v0.6.md).
 - [Evaluator implementation checks](../examples/evidence/agent-evaluator-v1-checks.json):24 focused tests. These use an authored tiny corpus and mock model; they are not the actual120-trial experiment.
 
 ## Real-corpus execution and independent receipt review
+
+The second [core run38004540380](https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/38004540380)
+executed commit`78bae7eac0e33d28deb0cb404295f6f900a85db7` on2026-10-09,
+23:31:03–23:38:53UTC. Its [acceptance receipt](../examples/evidence/real-core-38004540380/acceptance.json)
+retains `passed:false` and `overall_release_verified:false`. Capture, normalization,
+completed ingestion, frozen index and SQLite again reconcile2,133,268 rows with
+the same raw/normalized byte counts and hashes below. The new frozen index UUID is
+`7FQfb9nTR2S2JB0E7tIsmQ`. Normalization took136.674s; ingestion/freeze226.918s.
+Different single-run timings are not a controlled optimization comparison.
+
+[Maps provisioning passed](../examples/evidence/real-core-38004540380/maps-provision.json):
+actual Elasticsearch/Kibana9.5.5,262 indexed boundaries, three exact-index data
+views without time fields, and reusable point/trend saved maps. The provisioner
+read back stored layers/references. All three subsequent checks stopped at
+`map_link`: [points](../examples/evidence/real-core-38004540380/render-points.json)
+reported `backend_unavailable`; [all trends](../examples/evidence/real-core-38004540380/render-trends.json)
+and [selected trends](../examples/evidence/real-core-38004540380/render-selected_trends.json)
+reported `coverage_gap`. CSV cohorts242/196/3 had already passed. No browser,
+screenshot, rendered membership, joined metric or browser-filter success occurred.
+
+The second [performance receipt](../examples/evidence/real-core-38004540380/measurements.json)
+contains25 serial queries plus two five-query batches. Median/maximum milliseconds
+were22.898/34.373 for filter,42.799/71.068 for grouping,23.901/27.675 for closure,
+24.474/27.897 for geo and46.866/91.814 for comparison. Batch times were0.152s at
+concurrency1 and0.138s at2. The same9,728-row nine-column export took0.617s alone
+and0.788s for two together. All four retained CSVs match the independent IDs and
+the prior run's exact bytes. Actual first-row worker exit86, lease protection,
+cleanup and exact re-export passed again; recovery call0.0129s excludes detection
+and re-export. Total measured workload3.437s; uncontrolled caches and five periodic
+memory samples do not establish sustained capacity, tail latency or peak memory.
+Those samples reached107,851,776B runner RSS and1,090,519,040B Elasticsearch heap;
+externally sampled owned-worker RSS reached32,387,072B individually/59,174,912B
+combined. Non-ID CSV cells and broader crash recovery remain unqualified.
+
+[Independent receipt review](../examples/evidence/real-core-38004540380/independent-review.json)
+rechecked all provenance/count seals, five complete saved results,35 query-result
+digests, four export memberships, point/trend CSVs and timing arithmetic. Maximum
+numeric difference remains2.84e-14. Provision IDs match the generated profile;
+all pre-browser failures remain explicit. Sixteen compact JSON artifacts are
+archived; raw records, individual-ID lists and CSV bodies are excluded. This
+offline review does not repeat the live service or independently reassign polygons.
+
+The [v0.7 offline packages](../examples/evidence/build-v0.7.json) passed clean-install
+checks for their recorded source hashes on CPython3.12 Windows x64 only. Pending
+core Maps changes are outside that qualification; packages must be rebuilt and
+rechecked against the final source. No new package build is claimed here.
+
+The earlier run remains below as a separate, preserved observation.
 
 [Core run37705537519](https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/37705537519)
 executed commit`40a52917373bc54a0685b3b8ae35d261967c504f` on Linux. Its
@@ -124,7 +172,7 @@ archiving it did not rerun verification.
 Earlier failures remain part of the record: the499-test local run had one failure,
 five errors and one skip when disk fell below the unchanged1GB reserve; CI500 had
 498 passes, one failure and one skip in65.215seconds after a worker launched from
-another working directory exposed an import failure. The506-test run above passes
+another working directory exposed an import failure. The506-test worker-repair run passed
 after the repairs. Initial4B development smokes timed out; an intermediate smoke
 workflow stopped at tests without running the model. The smaller1.7B candidate
 and generic bounded repair remain development work. No120-trial quality outcome

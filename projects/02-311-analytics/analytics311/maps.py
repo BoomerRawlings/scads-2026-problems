@@ -3,8 +3,9 @@ import copy
 import ipaddress
 import json
 import os
+import re
 from urllib.error import HTTPError, URLError
-from urllib.parse import quote, urlsplit
+from urllib.parse import quote, urlencode, urlsplit
 from urllib.request import Request, build_opener
 
 from .compiler import compile_query
@@ -59,7 +60,12 @@ class KibanaClient:
                 raise ValueError("Expected a JSON object")
             return result
         except HTTPError as exc:
-            raise AnalyticsError("backend_unavailable", f"Kibana returned HTTP {exc.code}; check configuration and privileges") from None
+            error = AnalyticsError("backend_unavailable", f"Kibana returned HTTP {exc.code}; check configuration and privileges")
+            # Retain actionable transport evidence, never arbitrary server bodies,
+            # credentials, or query parameters in a public failure receipt.
+            error.backend_details = {"http_status": exc.code, "method": method,
+                                     "path": path.split("?", 1)[0]}
+            raise error from None
         except (URLError, OSError, ValueError):
             raise AnalyticsError("backend_unavailable", "Kibana is unavailable or returned invalid JSON") from None
 
@@ -75,6 +81,31 @@ def _verify_data_view(client, data_view_id, index):
         raise AnalyticsError("invalid_configuration", "Kibana data view must target exactly the configured concrete index")
     if view.get("timeFieldName") not in (None, ""):
         raise AnalyticsError("invalid_configuration", "Kibana data view must have no time field; all date selection belongs to the saved DSL")
+
+
+def _create_locator_link(client, payload):
+    """Bridge browser-only Maps locators through Kibana's server URL locator.
+
+    Maps 9.5.5 registers MAPS_APP_LOCATOR in the browser, so passing it directly
+    to the server short-URL API returns 409. The public /app/r redirect resolves
+    the exact versioned locator state in the browser, without reimplementing
+    Maps' Rison URL encoding or altering any query/filter.
+    """
+    status = client.request("/api/status", method="GET")
+    version = status.get("version", {}).get("number")
+    if not isinstance(version, str) or len(version) > 64 or not re.fullmatch(r"\d+\.\d+\.\d+(?:-[A-Za-z0-9.-]+)?", version):
+        raise AnalyticsError("backend_unavailable", "Kibana locator links require the actual version.number from /api/status; configure status access")
+    redirect = "/app/r/?" + urlencode({"l": payload["locatorId"], "v": version,
+                                      "p": json.dumps(payload["params"], separators=(",", ":"), allow_nan=False)})
+    request = {"locatorId": "LEGACY_SHORT_URL_LOCATOR", "params": {"url": redirect}}
+    response = client.request("/api/short_url", request)
+    identifier = response.get("id")
+    if not isinstance(identifier, str) or not identifier or len(identifier) > 255:
+        raise AnalyticsError("backend_unavailable", "Kibana did not return a short URL object ID")
+    # /goto resolves object IDs and performs a full navigation for this legacy
+    # wrapper, ensuring the browser locator redirect app mounts afresh.
+    return {"url": client.url + client.prefix + "/goto/" + quote(identifier, safe=""),
+            "short_url_request": request, "short_url_id": identifier, "locator_version": version}
 
 
 def build_map_request(service, saved, mode, cohort_scope, selected):
@@ -109,11 +140,7 @@ def create_map_link(service, saved, mode, cohort_scope, selected):
         _verify_data_view(client, config.get("trend_data_view_id"), config.get("result_index"))
         publication = publish_trend_map(service, saved, selected)
         payload = publication["locator_request"]
-        response = client.request("/api/short_url", payload)
-        slug = response.get("slug")
-        if not isinstance(slug, str) or not slug:
-            raise AnalyticsError("backend_unavailable", "Kibana did not return a short URL slug")
-        return {**publication, "result_id": saved["result_id"], "url": client.url + client.prefix + "/goto/" + quote(slug, safe="")}
+        return {**publication, "result_id": saved["result_id"], **_create_locator_link(client, payload)}
     payload = build_map_request(service, saved, mode, cohort_scope, selected)
     client = KibanaClient(service.config["kibana"])
     _verify_data_view(client, service.config["kibana"]["data_view_id"], service.config.get("index"))
@@ -124,11 +151,7 @@ def create_map_link(service, saved, mode, cohort_scope, selected):
         located = copy.deepcopy(spec)
         located["filters"] = {"all": [spec.get("filters", {"all": []}), {"field": "location", "op": "exists", "value": True}]}
         mapped += service.backend.execute(located)["total"]
-    response = client.request("/api/short_url", payload)
-    slug = response.get("slug")
-    if not isinstance(slug, str) or not slug:
-        raise AnalyticsError("backend_unavailable", "Kibana did not return a short URL slug")
-    return {"result_id": saved["result_id"], "url": client.url + client.prefix + "/goto/" + quote(slug, safe=""),
+    return {"result_id": saved["result_id"], **_create_locator_link(client, payload),
             "cohort_scope": cohort_scope, "group_ids": [r["group_id"] for r in selected] if selected is not None else None,
             "source_count": count, "mapped_count": mapped, "missing_location_count": count - mapped,
             "locator_request": payload, "parity_verified": False,

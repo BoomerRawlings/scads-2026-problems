@@ -85,6 +85,29 @@ class LiveMapsTests(unittest.TestCase):
         self.assertTrue(maps.contains_tree(body, query))
         self.assertFalse(maps.contains_tree(body, {"term": {"borough": "QUEENS"}}))
 
+    def test_kibana_centroid_companions_are_checked_without_counting_as_polygons(self):
+        metrics = {"baseline_count": 2, "current_count": 3, "absolute_change": 1,
+                   "relative_change": 0.5, "rate_change": 0.1}
+        polygon = {"id": "source-document", "geometry": {"type": "MultiPolygon", "coordinates": []},
+                   "properties": {"nta2020": "BK0101", **{maps.key(k): v for k, v in metrics.items()}}}
+        centroid = copy.deepcopy(polygon)
+        centroid["geometry"] = {"type": "Point", "coordinates": [-74, 40.7]}
+        centroid["properties"]["__kbn_is_centroid_feature__"] = True
+        expected = {"groups": {"BK0101": metrics}}
+        self.assertEqual(maps.inspect_style(style([centroid, polygon]), "neighborhood_trends", expected)["rendered_joined_groups"], 1)
+        for change in ("id", "metric", "unflagged", "orphan", "duplicate", "polygon_flag", "duplicate_polygon"):
+            bad = copy.deepcopy(centroid)
+            features = [polygon, bad]
+            if change == "id": bad["id"] = "another"
+            elif change == "metric": bad["properties"][maps.key("current_count")] = 9
+            elif change == "unflagged": bad["properties"].pop("__kbn_is_centroid_feature__")
+            elif change == "orphan": features = [bad]
+            elif change == "duplicate": features.append(copy.deepcopy(bad))
+            elif change == "polygon_flag": bad["geometry"]["type"] = "Polygon"
+            else: features.append(copy.deepcopy(polygon))
+            with self.subTest(change=change), self.assertRaises(AnalyticsError):
+                maps.inspect_style(style(features), "neighborhood_trends", expected)
+
     def test_csv_point_membership_includes_unmapped_requests(self):
         with tempfile.TemporaryDirectory() as temp:
             path = Path(temp) / "source.csv"
@@ -143,6 +166,23 @@ class LiveMapsTests(unittest.TestCase):
             path.write_text("original")
             with self.assertRaises(AnalyticsError): maps.new_path(path)
             self.assertEqual(path.read_text(), "original")
+
+    def test_render_receipt_retains_safe_map_link_http_diagnostics(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            expectation = root / "expected.json"
+            expectation.write_text(json.dumps({"dataset_version": "test-v1", "reference": {"sha256": "a" * 64}}))
+            failure = AnalyticsError("backend_unavailable", "Kibana returned HTTP 409; check configuration and privileges")
+            failure.backend_details = {"http_status": 409, "method": "POST", "path": "/api/short_url"}
+            def create(*args): raise failure
+            service = SimpleNamespace(config={"backend": "elastic"}, manifest={"dataset_version": "test-v1"},
+                                      create_map_link=create)
+            with patch.object(maps, "AnalyticsService", return_value=service), patch.object(maps, "inspect_csv", return_value={}):
+                result = maps.render(root / "profile.json", "a" * 32, "requests", expectation, root / "file.csv", root / "render")
+            self.assertFalse(result["passed"])
+            self.assertEqual(result["error"]["stage"], "map_link")
+            self.assertEqual(result["error"]["backend"], failure.backend_details)
+            self.assertEqual(result["error"]["reason"], failure.message)
 
     def test_kibana_redacted_or_wrong_version_never_mutates_indices(self):
         # The first body is the actual /api/status shape retained from the
