@@ -4,6 +4,7 @@ Requires reportlab, pypdf. Run from any directory. Editable prose: papers.py.
 Font fallback keeps generation portable; exact source hashes are recorded.
 """
 from pathlib import Path
+from datetime import date
 import argparse
 import hashlib
 import json
@@ -61,8 +62,29 @@ styles = {
 }
 
 BASE = 'https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/'
+def _paper_provenance(paper):
+    commit = paper.get('evidence_commit')
+    if commit is not None and (not isinstance(commit, str) or re.fullmatch(r'[0-9a-f]{40}', commit) is None):
+        raise ValueError('evidence_commit must be a full lowercase Git commit SHA')
+    dates = paper.get('external_source_dates', {})
+    external = {path for _, path in paper['refs'] if path.startswith('https://')}
+    if not isinstance(dates, dict) or set(dates) - external:
+        raise ValueError('external_source_dates must map cited external URLs to verification dates')
+    for verified in dates.values():
+        if not isinstance(verified, str) or re.fullmatch(r'\d{4}-\d{2}-\d{2}', verified) is None:
+            raise ValueError('external source dates must use YYYY-MM-DD')
+        date.fromisoformat(verified)
+    return commit, dates
+
 def ref_url(paper,path):
-    return path if path.startswith('https://') else BASE+paper['slug']+'/'+path
+    commit, _ = _paper_provenance(paper)
+    if path.startswith('https://'):
+        return path
+    if commit:
+        return 'https://github.com/BoomerRawlings/scads-2026-problems/blob/'+commit+'/projects/'+paper['slug']+'/'+path
+    if paper.get('local_revision'):
+        return '../../../projects/'+paper['slug']+'/'+path
+    return BASE+paper['slug']+'/'+path
 def fmt(text, paper):
     text = escape(text).replace('\n', '<br/>')
     def cite(m):
@@ -122,9 +144,12 @@ def page_chrome(canvas, doc):
 manifest={'edition':'2026-10-07','scope':'Evidence-linked publication of recorded development results; no new model or scale experiments.','papers':[]}
 if _args.paper:
     manifest=json.loads((HERE/'evidence-manifest.json').read_text(encoding='utf-8'))
+if any(paper.get('local_revision') or paper.get('evidence_commit') for paper in PAPERS):
+    manifest['scope'] = 'Evidence-linked working papers. Per-paper evidence_scope identifies local measured revisions; other entries preserve the prior publication evidence. No external republication is implied.'
 for paper in PAPERS:
     if _args.paper and paper['slug'] != _args.paper:
         continue
+    commit, external_dates = _paper_provenance(paper)
     dest=OUT/(paper['slug']+'.pdf')
     doc=SimpleDocTemplate(str(dest),pagesize=(612,792),leftMargin=62,rightMargin=62,topMargin=69,bottomMargin=63,title=paper['title'],author='Boomer Rawlings',subject=paper['subtitle'])
     doc.paper=paper
@@ -147,7 +172,7 @@ for paper in PAPERS:
     sources=[]
     for label,path in paper['refs']:
         if path.startswith('https://'):
-            sources.append({'title':label,'url':path,'verified':'2026-10-07','kind':'primary external source'})
+            sources.append({'title':label,'url':path,'verified':external_dates.get(path, '2026-10-07'),'kind':'primary external source'})
             continue
         source=ROOT/'projects'/paper['slug']/path
         if path=='IMPLEMENTATION.md' and not source.is_file():
@@ -155,6 +180,12 @@ for paper in PAPERS:
         if not source.is_file(): raise FileNotFoundError(source)
         sources.append({'path':str(source.relative_to(ROOT)).replace('\\','/'),'publication_path':'projects/'+paper['slug']+'/'+path,'sha256':hashlib.sha256(source.read_bytes()).hexdigest()})
     entry={'file':str(dest.relative_to(HERE)).replace('\\','/'),'pages':len(reader.pages),'bytes':dest.stat().st_size,'sha256':hashlib.sha256(dest.read_bytes()).hexdigest(),'sources':sources}
+    if paper.get('evidence_scope'):
+        entry['evidence_scope'] = paper['evidence_scope']
+    if commit:
+        entry['evidence_commit'] = commit
+    if external_dates:
+        entry['external_source_dates'] = external_dates
     if _args.paper:
         index=next(i for i,item in enumerate(manifest['papers']) if item['file']==entry['file'])
         manifest['papers'][index]=entry
