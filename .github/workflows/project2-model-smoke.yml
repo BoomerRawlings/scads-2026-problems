@@ -101,17 +101,18 @@ jobs:
           LD_LIBRARY_PATH="$(dirname "$release_bench")" /usr/bin/time -v -o runs/model-smoke/runtime/release-resources.txt "$release_bench" -m "data/model-smoke/$model_file" -p 512 -n 32 -r 1 -t 4 -ngl 0 -b 2048 -ub 512 -o json > runs/model-smoke/runtime/release-benchmark.json
           OPENBLAS_NUM_THREADS=4 /usr/bin/time -v -o runs/model-smoke/runtime/native-resources.txt data/model-smoke/native/bin/llama-bench -m "data/model-smoke/$model_file" -p 512 -n 32 -r 1 -t 4 -ngl 0 -b 2048 -ub 512 -o json > runs/model-smoke/runtime/native-benchmark.json
       - name: Execute one actual model development question
-        timeout-minutes: 6
+        timeout-minutes: 12
         run: |
           set -euo pipefail
           server=data/model-smoke/native/bin/llama-server
           test -n "$server"
           model_file=$(python -c "import json;print(json.load(open('docs/local-model-runtime.json'))['model']['filename'])")
           model_alias=$(python -c "import json;print(json.load(open('docs/local-model-runtime.json'))['model_alias'])")
+          context_tokens=$(python -c "import json;print(json.load(open('docs/local-model-runtime.json'))['inference']['context_tokens'])")
           export OPENBLAS_NUM_THREADS=4
           export LD_LIBRARY_PATH="$(dirname "$server"):${LD_LIBRARY_PATH:-}"
           "$server" --version > runs/model-smoke/runtime/llama-version.txt 2>&1
-          "$server" -m "data/model-smoke/$model_file" --host 127.0.0.1 --port 8080 --alias "$model_alias" --threads 4 --threads-batch 4 --batch-size 2048 --ubatch-size 512 --ctx-size 16384 --parallel 1 --gpu-layers 0 --jinja --reasoning off --reasoning-budget 0 --no-context-shift > runs/model-smoke/runtime/model-server.log 2>&1 &
+          "$server" -m "data/model-smoke/$model_file" --host 127.0.0.1 --port 8080 --alias "$model_alias" --threads 4 --threads-batch 4 --batch-size 2048 --ubatch-size 512 --ctx-size "$context_tokens" --parallel 1 --gpu-layers 0 --jinja --reasoning off --reasoning-budget 0 --no-context-shift > runs/model-smoke/runtime/model-server.log 2>&1 &
           server_pid=$!
           trap 'kill "$server_pid" 2>/dev/null || true; wait "$server_pid" 2>/dev/null || true' EXIT
           python - <<'PY'
@@ -132,7 +133,7 @@ jobs:
           from pathlib import Path
           from analytics311.service import AnalyticsService
           from tools import agent_evaluation as e
-          from tools.local_agent import LocalModel,run_trial,project_tool_output,canonical,SYSTEM,tool_schemas
+          from tools.local_agent import LocalModel,run_trial,project_tool_output,canonical,SYSTEM,tool_schemas,warm_metadata_prefix
 
           folder=Path('runs/model-smoke')
           spec=e.load('docs/local-model-runtime.json')
@@ -187,6 +188,10 @@ jobs:
                   tokenization['parts'][name]={'utf8_bytes':len(content.encode()),'tokens':len(tokens)}
               (folder/'runtime/real-metadata-tokenization.json').write_text(json.dumps(tokenization,indent=2))
               question='Use the analytical tools to count all records in this configured dataset. Apply no date, category, status or geographic restrictions. Give the exact count, cite your analysis result, and say whether this dataset is real or synthetic.'
+              warmup=warm_metadata_prefix(service,model,seconds=spec['inference']['prefix_warmup']['request_seconds'])
+              e.write_new(folder/'runtime/metadata-prefix-warmup.json',warmup)
+              report['prefix_warmup']={'passed':warmup.get('passed') is True,'elapsed_seconds':warmup.get('elapsed_seconds'),'receipt_sha256':e.sha_file(folder/'runtime/metadata-prefix-warmup.json'),'policy':spec['inference']['prefix_warmup']}
+              assert warmup.get('passed') is True, 'metadata_prefix_warmup_failed'
               trace=run_trial(service,model,question,seed=7,seconds=160)
               report['budgets']={'seconds':160,'request_seconds':120,'max_calls':24}
               report['discovery_initiator']='adapter' if trace.get('events') and trace['events'][0].get('initiated_by')=='adapter' else 'model'
