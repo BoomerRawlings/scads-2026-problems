@@ -148,65 +148,190 @@ jobs:
           retention-days: 30
           compression-level: 6
           if-no-files-found: warn
-      - name: Require actual development model qualification
+      - name: Verify exact negative development candidate is operationally executable
         id: development
         if: ${{ always() && hashFiles('projects/02-311-analytics/runs/real-v1/agent-freeze.json') != '' }}
         timeout-minutes: 4
         env:
           GH_TOKEN: ${{ github.token }}
-          DEVELOPMENT_RUN_ID: "38028703734"
         run: |
-          for attempt in $(seq 1 18); do
-            conclusion=$(gh api "repos/BoomerRawlings/scads-2026-problems/actions/runs/$DEVELOPMENT_RUN_ID" --jq '.conclusion // ""')
-            if [ "$conclusion" = success ]; then
-              gh api "repos/BoomerRawlings/scads-2026-problems/actions/runs/$DEVELOPMENT_RUN_ID" --jq '{id,head_sha,status,conclusion,html_url}' > runs/runtime/development-run.json
-              break
-            fi
-            if [ -n "$conclusion" ]; then
-              echo "Development model did not qualify; no held-out questions executed."
-              exit 1
-            fi
-            sleep 10
-          done
-          test "$conclusion" = success
-          gh run download "$DEVELOPMENT_RUN_ID" --repo BoomerRawlings/scads-2026-problems --name analytics311-development-model-smoke --dir runs/development-qualification
+          gh api repos/BoomerRawlings/scads-2026-problems/actions/runs/38028703734 > runs/runtime/development-run.json
+          gh api repos/BoomerRawlings/scads-2026-problems/actions/artifacts/11661052895 > runs/runtime/development-artifact.json
+          gh api repos/BoomerRawlings/scads-2026-problems/actions/artifacts/11661052895/zip > runs/runtime/development-artifact.zip
           python - <<'PY'
-          import os,re
+          """Prospective workflow proposal, not an agent-quality grader or model invocation."""
+          import json
+          import math
+          import re
           from pathlib import Path
+          
           from tools import agent_evaluation as e
+          from tools.local_agent import metadata_prefix_request, discovery_envelope
+          
+          RUN_ID = 38028703734
+          HEAD_SHA = 'ffbbd5811c2b6ca949417b926dd56e3807e1e34d'
+          ARTIFACT_ID = 11661052895
+          ARTIFACT_SHA256 = '9664fa7851ebf9c4771012ea490cb322760a83ab87af917bb29f65653770d290'
+          ARTIFACT_BYTES = 31348
+          
+          
+          def require(condition, code):
+              if not condition:
+                  raise ValueError(code)
+          
+          
+          def positive_number(value, maximum):
+              return type(value) in (int, float) and math.isfinite(value) and 0 < value <= maximum
+          
+          
+          def check(folder, run, artifact):
+              folder = Path(folder)
+              require(run.get('id') == RUN_ID and run.get('head_sha') == HEAD_SHA
+                      and run.get('head_branch') == 'codex/project2-acceptance-20261007'
+                      and run.get('status') == 'completed' and run.get('conclusion') == 'failure'
+                      and run.get('path') == '.github/workflows/project2-model-smoke.yml'
+                      and run.get('event') == 'push' and run.get('run_attempt') == 1,
+                      'different_development_run')
+              require(artifact.get('id') == ARTIFACT_ID
+                      and artifact.get('name') == 'analytics311-development-model-smoke'
+                      and artifact.get('size_in_bytes') == ARTIFACT_BYTES
+                      and artifact.get('digest') == 'sha256:' + ARTIFACT_SHA256
+                      and artifact.get('expired') is False
+                      and artifact.get('workflow_run', {}).get('id') == RUN_ID
+                      and artifact.get('workflow_run', {}).get('head_sha') == HEAD_SHA,
+                      'different_development_artifact')
+              spec = e.load('docs/local-model-runtime.json')
+              summary = e.load(folder / 'summary.json')
+              trace = e.load(folder / 'trace.json')
+              warm_path = folder / 'runtime/metadata-prefix-warmup.json'
+              warm = e.load(warm_path)
+              require(summary.get('passed') is False and summary.get('actual_agent_trials') == 1
+                      and summary.get('evidence_kind') == 'actual_local_model_development_fixture_smoke'
+                      and summary.get('held_out_evaluation') is False
+                      and summary.get('real_data_acceptance') is False
+                      and summary.get('overall_release_verified') is False,
+                      'development_failure_relabelled')
+              require(summary.get('runtime_profile') == 'native_openblas'
+                      and summary.get('budgets') == {'seconds': 160, 'request_seconds': 120, 'max_calls': 24}
+                      and summary.get('discovery_initiator') == 'adapter'
+                      and summary.get('model_alias') == spec['model_alias']
+                      and summary.get('model_identity', {}).get('model_id') == spec['model_alias']
+                      and summary.get('runtime_spec_sha256') == e.sha_file('docs/local-model-runtime.json')
+                      and summary.get('code_sha256') == e.code_hashes(), 'candidate_identity_changed')
+              checks = summary.get('checks', {})
+              require(checks == {'finished': True, 'answered': False, 'discovered_first': True,
+                                'executed_unfiltered_count': False, 'numeric_evidence': False,
+                                'cited_result': False, 'synthetic_label': False}, 'smoke_checks_changed')
+              require(summary.get('fixture') == {'kind': 'synthetic_fixture', 'rows': 32,
+                      'sha256': 'e34bba882616d4e04d9994642c2cc66effed110e3fa544039ef967d6da36997c'},
+                      'different_development_fixture')
+              require(trace.get('status') == 'finished' and trace.get('fresh_context') is True
+                      and trace.get('model') == spec['model_alias'] and trace.get('seed') == 7
+                      and trace.get('discovery_initiated_by') == 'adapter'
+                      and trace.get('adapter_calls') == 1 and trace.get('model_calls') == 1
+                      and trace.get('calls') == 2
+                      and trace.get('final', {}).get('status') == 'needs_clarification'
+                      and positive_number(trace.get('elapsed_seconds'), 160)
+                      and summary.get('elapsed_seconds') == trace['elapsed_seconds'],
+                      'development_trace_not_completed')
+              events = trace.get('events', [])
+              require(len(events) >= 4 and events[0].get('kind') == 'adapter_tool_call'
+                      and events[0].get('initiated_by') == 'adapter'
+                      and events[0].get('message') == discovery_envelope(), 'bootstrap_transport_changed')
+              discovery = events[1]
+              require(discovery.get('kind') == 'tool' and discovery.get('name') == 'describe_dataset'
+                      and discovery.get('initiated_by') == 'adapter' and discovery.get('arguments') == {},
+                      'bootstrap_discovery_missing')
+              payload, expected = metadata_prefix_request(discovery['output'], spec['model_alias'])
+              require(discovery.get('model_context', {}).get('content') == payload['messages'][2]['content']
+                      and all(type(warm.get(key)) is type(value) and warm.get(key) == value
+                              for key, value in expected.items()), 'warmup_metadata_binding_changed')
+              policy = spec['inference']['prefix_warmup']
+              require(warm.get('passed') is True and warm.get('schema_version') == 1
+                      and warm.get('evidence_kind') == 'metadata_only_model_prefix_warmup'
+                      and warm.get('model_alias') == spec['model_alias']
+                      and warm.get('question_supplied') is False and warm.get('analytical_tool_calls') == 0
+                      and warm.get('generated_content_retained') is False
+                      and all(type(warm.get(key)) is type(value) and warm.get(key) == value
+                              for key, value in policy.items())
+                      and positive_number(warm.get('elapsed_seconds'), policy['request_seconds'])
+                      and summary.get('prefix_warmup') == {'passed': True,
+                          'elapsed_seconds': warm['elapsed_seconds'], 'receipt_sha256': e.sha_file(warm_path),
+                          'policy': policy}, 'warmup_receipt_changed')
+              usage = warm.get('usage', {})
+              require(set(usage) == {'prompt_tokens', 'completion_tokens', 'total_tokens'}
+                      and all(type(v) is int for v in usage.values()) and usage['prompt_tokens'] > 0
+                      and usage['completion_tokens'] in (0, 1)
+                      and usage['total_tokens'] == usage['prompt_tokens'] + usage['completion_tokens'],
+                      'warmup_usage_invalid')
+              model_events = [event for event in events if event.get('kind') == 'model']
+              analytical = [event for event in events if event.get('kind') == 'tool'
+                            and event.get('initiated_by') == 'model' and event.get('name') == 'run_analysis']
+              require(len(model_events) == 3 and len(analytical) == 1
+                      and all(event.get('message', {}).get('role') == 'assistant'
+                              and type(event.get('usage', {}).get('prompt_tokens')) is int
+                              and event['usage']['prompt_tokens'] > 0 for event in model_events),
+                      'actual_model_tool_protocol_missing')
+              call = model_events[0]['message'].get('tool_calls', [])
+              require(len(call) == 1 and call[0].get('function', {}).get('name') == 'run_analysis'
+                      and json.loads(call[0]['function']['arguments']) == analytical[0].get('arguments')
+                      and analytical[0].get('output') == {'error': {'code': 'needs_clarification'}},
+                      'actual_analytical_tool_response_missing')
+              assets = e.load(folder / 'runtime/model-assets.json')
+              require(assets.get('downloaded_and_hash_verified') is True
+                      and all(assets.get(key) == value for key, value in spec.items()), 'model_assets_changed')
+              expected_assets = [{'kind': name, 'filename': spec[name]['filename'],
+                                  'bytes': spec[name]['size'], 'sha256': spec[name]['sha256']}
+                                 for name in ('runtime', 'model')]
+              require(assets.get('staged_assets') == expected_assets
+                      and e.load(folder / 'runtime/asset-downloads.json') == expected_assets, 'asset_hashes_changed')
+              build = e.load(folder / 'runtime/native-build.json')
+              require(build.get('source_commit') == spec['execution_runtime']['source_commit']
+                      and build.get('build_type') == 'Release' and build.get('native') is True
+                      and build.get('blas') == 'OpenBLAS'
+                      and re.fullmatch(r'[0-9a-f]{64}', str(build.get('binary_sha256', ''))), 'native_build_changed')
+              cache = folder / 'runtime/native-cmake-cache.txt'
+              values = {line.split(':', 1)[0]: line.split('=', 1)[1] for line in cache.read_text().splitlines()
+                        if ':' in line and '=' in line and not line.startswith(('//', '#'))}
+              require(all(values.get(flag[2:].split('=', 1)[0]) == flag[2:].split('=', 1)[1]
+                          for flag in spec['execution_runtime']['cmake_flags']), 'native_flags_changed')
+              return {'schema_version': 1, 'policy': 'negative-development-operational-eligibility-v1',
+                      'eligible_to_execute': True, 'quality_qualified': False, 'development_passed': False,
+                      'development_checks': checks, 'development_count_result': summary['count_result'],
+                      'development_failed_check_count': sum(value is False for value in checks.values()),
+                      'run': run, 'artifact': artifact, 'runtime_spec_sha256': summary['runtime_spec_sha256'],
+                      'code_sha256': summary['code_sha256'], 'budgets': summary['budgets'],
+                      'warmup_request_identity': expected, 'warmup_elapsed_seconds': warm['elapsed_seconds'],
+                      'trial_elapsed_seconds': trace['elapsed_seconds'],
+                      'artifact_files': {str(path.relative_to(folder)).replace('\\', '/'): e.sha_file(path)
+                                         for path in sorted(folder.rglob('*')) if path.is_file()},
+                      'scope': 'Exact negative development candidate is operationally executable. The development question failed. '
+                               'This does not pass, lower or replace any 120-trial quality, per-question, semantic or release gate.'}
+          
+          
+          import hashlib,io,stat,zipfile
+          archive=Path('runs/runtime/development-artifact.zip').read_bytes()
+          require(len(archive)==ARTIFACT_BYTES and hashlib.sha256(archive).hexdigest()==ARTIFACT_SHA256, 'artifact_archive_changed')
           folder=Path('runs/development-qualification')
-          spec=e.load('docs/local-model-runtime.json');summary=e.load(folder/'summary.json')
-          run=e.load('runs/runtime/development-run.json')
-          assert str(run['id'])==os.environ['DEVELOPMENT_RUN_ID'] and run['status']=='completed' and run['conclusion']=='success'
-          assert summary.get('passed') is True and summary.get('actual_agent_trials')==1
-          assert summary.get('evidence_kind')=='actual_local_model_development_fixture_smoke'
-          assert summary.get('held_out_evaluation') is False and summary.get('runtime_profile')=='native_openblas'
-          assert summary.get('budgets')=={'seconds':160,'request_seconds':120,'max_calls':24}
-          assert summary.get('discovery_initiator')=='adapter'
-          warmup=e.load('runs/development-qualification/runtime/metadata-prefix-warmup.json')
-          assert warmup.get('passed') is True and summary.get('prefix_warmup',{}).get('passed') is True
-          assert summary['prefix_warmup']['policy']==spec['inference']['prefix_warmup']
-          assert summary['prefix_warmup']['receipt_sha256']==e.sha_file('runs/development-qualification/runtime/metadata-prefix-warmup.json')
-          assert summary.get('model_alias')==spec['model_alias'] and summary.get('model_identity',{}).get('model_id')==spec['model_alias']
-          assert summary.get('runtime_spec_sha256')==e.sha_file('docs/local-model-runtime.json')
-          assert summary.get('code_sha256')==e.code_hashes()
-          assets=e.load(folder/'runtime/model-assets.json')
-          assert assets.get('downloaded_and_hash_verified') is True and all(assets.get(key)==value for key,value in spec.items())
-          expected=[{'kind':name,'filename':spec[name]['filename'],'bytes':spec[name]['size'],'sha256':spec[name]['sha256']} for name in ('runtime','model')]
-          assert assets.get('staged_assets')==expected and e.load(folder/'runtime/asset-downloads.json')==expected
-          build=e.load(folder/'runtime/native-build.json')
-          assert build.get('source_commit')==spec['execution_runtime']['source_commit'] and build.get('build_type')=='Release'
-          assert build.get('native') is True and build.get('blas')=='OpenBLAS' and re.fullmatch(r'[0-9a-f]{64}',str(build.get('binary_sha256','')))
-          cache=folder/'runtime/native-cmake-cache.txt'
-          values={line.split(':',1)[0]:line.split('=',1)[1] for line in cache.read_text().splitlines() if ':' in line and '=' in line and not line.startswith(('//','#'))}
-          for flag in spec['execution_runtime']['cmake_flags']:
-              name,value=flag[2:].split('=',1);assert values.get(name)==value
-          files=[folder/'summary.json',folder/'runtime/model-assets.json',folder/'runtime/asset-downloads.json',folder/'runtime/native-build.json',cache]
-          e.write_new('runs/runtime/development-qualification.json',{'passed':True,'run':run,'model_alias':spec['model_alias'],
-              'runtime_spec_sha256':summary['runtime_spec_sha256'],'code_sha256':summary['code_sha256'],
-              'budgets':summary['budgets'],'discovery_initiator':summary['discovery_initiator'],
-              'artifact_files':{str(path.relative_to(folder)):e.sha_file(path) for path in files},
-              'scope':'Exact development candidate and application code; this is not held-out acceptance.'})
+          folder.mkdir(parents=True,exist_ok=False)
+          with zipfile.ZipFile(io.BytesIO(archive)) as bundle:
+              entries=bundle.infolist()
+              require(len(entries)<=64 and sum(item.file_size for item in entries)<=2*1024*1024, 'artifact_archive_limit')
+              names=set()
+              for item in entries:
+                  require(item.filename not in names and not item.filename.startswith(('/', '\\'))
+                          and not stat.S_ISLNK(item.external_attr>>16), 'artifact_archive_entry')
+                  names.add(item.filename)
+                  target=(folder/item.filename).resolve()
+                  require(target.is_relative_to(folder.resolve()), 'artifact_archive_path')
+                  if item.is_dir():
+                      target.mkdir(parents=True,exist_ok=True)
+                  else:
+                      target.parent.mkdir(parents=True,exist_ok=True)
+                      with target.open('xb') as stream:
+                          stream.write(bundle.read(item))
+          e.write_new('runs/runtime/development-eligibility.json',check(folder,
+              e.load('runs/runtime/development-run.json'),e.load('runs/runtime/development-artifact.json')))
           PY
       - name: Stage pinned local model assets
         if: ${{ always() && steps.development.outcome == 'success' && hashFiles('projects/02-311-analytics/runs/real-v1/agent-freeze.json') != '' }}
