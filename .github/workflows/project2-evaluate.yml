@@ -111,6 +111,7 @@ jobs:
         timeout-minutes: 60
         run: |
           model_alias=$(python -c "import json;print(json.load(open('docs/local-model-runtime.json'))['model_alias'])")
+          context_tokens=$(python -c "import json;print(json.load(open('docs/local-model-runtime.json'))['inference']['context_tokens'])")
           python tools/run_real_acceptance.py --raw data/april-october-2025.jsonl --boundaries data/nta2020-26b.geojson --nta-receipt examples/evidence/official-nta2020-26b.json --index nyc311-real-2025-v1 --output-dir runs/real-v1 --model "$model_alias"
       - name: Retain corpus evidence before agent inference
         if: ${{ always() }}
@@ -132,7 +133,7 @@ jobs:
         timeout-minutes: 4
         env:
           GH_TOKEN: ${{ github.token }}
-          DEVELOPMENT_RUN_ID: "38025617751"
+          DEVELOPMENT_RUN_ID: "38027531995"
         run: |
           for attempt in $(seq 1 18); do
             conclusion=$(gh api "repos/BoomerRawlings/scads-2026-problems/actions/runs/$DEVELOPMENT_RUN_ID" --jq '.conclusion // ""')
@@ -161,6 +162,10 @@ jobs:
           assert summary.get('held_out_evaluation') is False and summary.get('runtime_profile')=='native_openblas'
           assert summary.get('budgets')=={'seconds':160,'request_seconds':120,'max_calls':24}
           assert summary.get('discovery_initiator')=='adapter'
+          warmup=e.load('runs/development-qualification/runtime/metadata-prefix-warmup.json')
+          assert warmup.get('passed') is True and summary.get('prefix_warmup',{}).get('passed') is True
+          assert summary['prefix_warmup']['policy']==spec['inference']['prefix_warmup']
+          assert summary['prefix_warmup']['receipt_sha256']==e.sha_file('runs/development-qualification/runtime/metadata-prefix-warmup.json')
           assert summary.get('model_alias')==spec['model_alias'] and summary.get('model_identity',{}).get('model_id')==spec['model_alias']
           assert summary.get('runtime_spec_sha256')==e.sha_file('docs/local-model-runtime.json')
           assert summary.get('code_sha256')==e.code_hashes()
@@ -242,7 +247,7 @@ jobs:
           PY
       - name: Execute 40 fresh-context agent trials, repetition 1
         if: ${{ always() && hashFiles('projects/02-311-analytics/runs/runtime/native-build.json') != '' }}
-        timeout-minutes: 110
+        timeout-minutes: 116
         continue-on-error: true
         run: |
           server=$(realpath data/local-model/native/bin/llama-server)
@@ -250,9 +255,10 @@ jobs:
           test -n "$server"
           model_file=$(python -c "import json;print(json.load(open('docs/local-model-runtime.json'))['model']['filename'])")
           model_alias=$(python -c "import json;print(json.load(open('docs/local-model-runtime.json'))['model_alias'])")
+          context_tokens=$(python -c "import json;print(json.load(open('docs/local-model-runtime.json'))['inference']['context_tokens'])")
           export LD_LIBRARY_PATH="$(dirname "$server"):${LD_LIBRARY_PATH:-}"
           "$server" --version > runs/runtime/llama-version-r1.txt 2>&1
-          "$server" -m "data/local-model/$model_file" --host 127.0.0.1 --port 8080 --alias "$model_alias" --threads 4 --threads-batch 4 --batch-size 2048 --ubatch-size 512 --ctx-size 16384 --parallel 1 --gpu-layers 0 --jinja --reasoning off --reasoning-budget 0 --no-context-shift > runs/runtime/model-server-r1.log 2>&1 &
+          "$server" -m "data/local-model/$model_file" --host 127.0.0.1 --port 8080 --alias "$model_alias" --threads 4 --threads-batch 4 --batch-size 2048 --ubatch-size 512 --ctx-size "$context_tokens" --parallel 1 --gpu-layers 0 --jinja --reasoning off --reasoning-budget 0 --no-context-shift > runs/runtime/model-server-r1.log 2>&1 &
           server_pid=$!
           trap 'kill "$server_pid" 2>/dev/null || true; wait "$server_pid" 2>/dev/null || true' EXIT
           python - <<'PY'
@@ -308,7 +314,7 @@ jobs:
           if-no-files-found: warn
       - name: Execute 40 fresh-context agent trials, repetition 2
         if: ${{ always() && hashFiles('projects/02-311-analytics/runs/runtime/native-build.json') != '' }}
-        timeout-minutes: 110
+        timeout-minutes: 116
         continue-on-error: true
         run: |
           server=$(realpath data/local-model/native/bin/llama-server)
@@ -316,9 +322,10 @@ jobs:
           test -n "$server"
           model_file=$(python -c "import json;print(json.load(open('docs/local-model-runtime.json'))['model']['filename'])")
           model_alias=$(python -c "import json;print(json.load(open('docs/local-model-runtime.json'))['model_alias'])")
+          context_tokens=$(python -c "import json;print(json.load(open('docs/local-model-runtime.json'))['inference']['context_tokens'])")
           export LD_LIBRARY_PATH="$(dirname "$server"):${LD_LIBRARY_PATH:-}"
           "$server" --version > runs/runtime/llama-version-r2.txt 2>&1
-          "$server" -m "data/local-model/$model_file" --host 127.0.0.1 --port 8080 --alias "$model_alias" --threads 4 --threads-batch 4 --batch-size 2048 --ubatch-size 512 --ctx-size 16384 --parallel 1 --gpu-layers 0 --jinja --reasoning off --reasoning-budget 0 --no-context-shift > runs/runtime/model-server-r2.log 2>&1 &
+          "$server" -m "data/local-model/$model_file" --host 127.0.0.1 --port 8080 --alias "$model_alias" --threads 4 --threads-batch 4 --batch-size 2048 --ubatch-size 512 --ctx-size "$context_tokens" --parallel 1 --gpu-layers 0 --jinja --reasoning off --reasoning-budget 0 --no-context-shift > runs/runtime/model-server-r2.log 2>&1 &
           server_pid=$!
           trap 'kill "$server_pid" 2>/dev/null || true; wait "$server_pid" 2>/dev/null || true' EXIT
           python - <<'PY'
@@ -374,7 +381,7 @@ jobs:
           if-no-files-found: warn
       - name: Execute 40 fresh-context agent trials, repetition 3
         if: ${{ always() && hashFiles('projects/02-311-analytics/runs/runtime/native-build.json') != '' }}
-        timeout-minutes: 110
+        timeout-minutes: 116
         continue-on-error: true
         run: |
           server=$(realpath data/local-model/native/bin/llama-server)
@@ -382,9 +389,10 @@ jobs:
           test -n "$server"
           model_file=$(python -c "import json;print(json.load(open('docs/local-model-runtime.json'))['model']['filename'])")
           model_alias=$(python -c "import json;print(json.load(open('docs/local-model-runtime.json'))['model_alias'])")
+          context_tokens=$(python -c "import json;print(json.load(open('docs/local-model-runtime.json'))['inference']['context_tokens'])")
           export LD_LIBRARY_PATH="$(dirname "$server"):${LD_LIBRARY_PATH:-}"
           "$server" --version > runs/runtime/llama-version-r3.txt 2>&1
-          "$server" -m "data/local-model/$model_file" --host 127.0.0.1 --port 8080 --alias "$model_alias" --threads 4 --threads-batch 4 --batch-size 2048 --ubatch-size 512 --ctx-size 16384 --parallel 1 --gpu-layers 0 --jinja --reasoning off --reasoning-budget 0 --no-context-shift > runs/runtime/model-server-r3.log 2>&1 &
+          "$server" -m "data/local-model/$model_file" --host 127.0.0.1 --port 8080 --alias "$model_alias" --threads 4 --threads-batch 4 --batch-size 2048 --ubatch-size 512 --ctx-size "$context_tokens" --parallel 1 --gpu-layers 0 --jinja --reasoning off --reasoning-budget 0 --no-context-shift > runs/runtime/model-server-r3.log 2>&1 &
           server_pid=$!
           trap 'kill "$server_pid" 2>/dev/null || true; wait "$server_pid" 2>/dev/null || true' EXIT
           python - <<'PY'
