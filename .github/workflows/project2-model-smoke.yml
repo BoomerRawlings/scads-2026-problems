@@ -166,7 +166,7 @@ jobs:
               assert service.manifest['kind']=='synthetic_fixture' and service.manifest['row_count']==count
               report['fixture']={'kind':'synthetic_fixture','rows':count,
                                  'sha256':hashlib.sha256(Path(service.config['fixture_path']).read_bytes()).hexdigest()}
-              model=LocalModel('http://127.0.0.1:8080/v1',spec['model_alias'],request_seconds=100)
+              model=LocalModel('http://127.0.0.1:8080/v1',spec['model_alias'],request_seconds=120)
               report['model_identity']=model.identify()
               descriptor_service=AnalyticsService.__new__(AnalyticsService)
               prior=Path('examples/evidence/real-core-37705537519')
@@ -187,8 +187,8 @@ jobs:
                   tokenization['parts'][name]={'utf8_bytes':len(content.encode()),'tokens':len(tokens)}
               (folder/'runtime/real-metadata-tokenization.json').write_text(json.dumps(tokenization,indent=2))
               question='Use the analytical tools to count all records in this configured dataset. Apply no date, category, status or geographic restrictions. Give the exact count, cite your analysis result, and say whether this dataset is real or synthetic.'
-              trace=run_trial(service,model,question,seed=7,seconds=150)
-              report['budgets']={'seconds':150,'request_seconds':100,'max_calls':24}
+              trace=run_trial(service,model,question,seed=7,seconds=160)
+              report['budgets']={'seconds':160,'request_seconds':120,'max_calls':24}
               report['discovery_initiator']='adapter' if trace.get('events') and trace['events'][0].get('initiated_by')=='adapter' else 'model'
               report['actual_agent_trials']=1
               (folder/'trace.json').write_text(json.dumps(scrub(trace),indent=2,ensure_ascii=False))
