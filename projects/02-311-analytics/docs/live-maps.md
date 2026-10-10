@@ -168,6 +168,21 @@ aid diagnosis. A passing bounded-map check never sets overall release acceptance
 `browser-diagnostics.json` and the render receipt retain the last browser stage,
 final path, expected saved-map ID, path-identity check, and bounded error types.
 Query/fragment state, credentials and raw DOM are omitted from these diagnostics.
+The style reader targets only `code[data-code-language="json"]` inside the
+Inspector and reads its `textContent`. In pinned EUI116.5.0, the surrounding
+code-block wrapper also contains screen-reader labels and no-copy markers;
+its complete `innerText` is not JSON. `textContent` also avoids forcing layout
+of the large highlighted polygon text. Kibana's
+[MapDetails](https://github.com/elastic/kibana/blob/a2890159e2486503b9e3a0c6f422b153a746651a/x-pack/platform/plugins/shared/maps/public/inspector/map_adapter/map_details.tsx)
+does not enable Copy or virtualization. EUI's
+[code block](https://github.com/elastic/eui/blob/v116.5.0/packages/eui/src/components/code/code_block.tsx)
+and [line renderer](https://github.com/elastic/eui/blob/v116.5.0/packages/eui/src/components/code/utils.tsx)
+preserve the complete JSON text and newlines in this code element. The read uses
+the remaining declared render deadline and retains the observed UTF-8 byte count,
+SHA256, and any JSON error position, without retaining non-JSON raw text. The
+32 MiB style limit and full source/metric checks remain in force. Real run
+`38028955870` reached Map details and verified 242 live document identities but
+failed the old wrapper-text extraction; it remains failed evidence until rerun.
 
 Kibana loads tooltip fields lazily. The initial point GeoJSON can therefore omit
 `unique_key` while retaining Elasticsearch `_id` and `_index`. Our ingester

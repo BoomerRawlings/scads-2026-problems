@@ -1,6 +1,8 @@
 """Deterministic qualification-runner checks, never live Maps evidence."""
 import copy
 import importlib.util
+from html import escape
+from html.parser import HTMLParser
 import json
 from pathlib import Path
 import tempfile
@@ -230,6 +232,50 @@ class LiveMapsTests(unittest.TestCase):
         self.assertNotIn("private-source", json.dumps(actual))
         page.url = "http://localhost:5601/app/maps/map#/actual?_a=private-source"
         self.assertFalse(maps._browser_diagnostics(page, "saved_map_path", "actual", [])["saved_map_path_verified"])
+
+    def test_inspector_reads_code_text_not_eui_accessibility_siblings(self):
+        # Pinned EUI116.5.0: screen-reader label precedes <code>; token/line spans
+        # preserve text nodes/newlines. Container innerText is not valid JSON.
+        value = {"sources": {"actual": {"data": "quoted ' ! \\n snow \u96ea"}}, "layers": []}
+        raw = json.dumps(value, indent=2, ensure_ascii=False)
+        html = ('<div data-test-subj="mapboxStyleContainer"><pre>'
+                '<span>\ufeff</span><div class="euiScreenReaderOnly">json code block:</div><span>\ufeff</span>'
+                '<code data-code-language="json">' + ''.join('<span>' + escape(line) + '</span>' for line in raw.splitlines(keepends=True))
+                + '</code></pre></div>')
+        class TextNodes(HTMLParser):
+            def __init__(self): super().__init__(); self.inside = False; self.all = []; self.code = []
+            def handle_starttag(self, tag, attrs):
+                if tag == "code": self.inside = True
+            def handle_endtag(self, tag):
+                if tag == "code": self.inside = False
+            def handle_data(self, data):
+                self.all.append(data)
+                if self.inside: self.code.append(data)
+        dom = TextNodes(); dom.feed(html)
+        with self.assertRaises(json.JSONDecodeError): json.loads("".join(dom.all))
+        page = unittest.mock.Mock()
+        container = page.locator.return_value
+        code = container.locator.return_value
+        code.text_content.return_value = "".join(dom.code)
+        parsed, details = maps.read_inspector_style(page, timeout_ms=1234)
+        self.assertEqual(parsed, value)
+        page.locator.assert_called_once_with('[data-test-subj="mapboxStyleContainer"]')
+        container.locator.assert_called_once_with('code[data-code-language="json"]')
+        code.text_content.assert_called_once_with(timeout=1234)
+        container.inner_text.assert_not_called()
+        self.assertEqual(details["utf8_bytes"], len(raw.encode("utf-8")))
+        self.assertEqual(details["sha256"], maps.hashlib.sha256(raw.encode("utf-8")).hexdigest())
+
+    def test_inspector_parse_failure_has_bounded_identity_and_position_not_source_text(self):
+        page = unittest.mock.Mock()
+        page.locator.return_value.locator.return_value.text_content.return_value = 'private-source {broken'
+        with self.assertRaises(AnalyticsError) as caught:
+            maps.read_inspector_style(page, timeout_ms=100)
+        details = caught.exception.inspector_details
+        self.assertEqual(details["parse_error"], {"line": 1, "column": 1, "position": 0})
+        self.assertEqual(details["utf8_bytes"], 22)
+        self.assertNotIn("private-source", json.dumps(details))
+        self.assertNotIn("private-source", caught.exception.message)
 
     def test_render_failure_receipt_includes_specific_browser_stage(self):
         with tempfile.TemporaryDirectory() as temporary:

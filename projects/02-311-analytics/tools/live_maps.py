@@ -379,6 +379,32 @@ def _browser_diagnostics(page, stage, map_id, errors):
             "saved_map_path_verified": path.endswith(target), "page_error_types": list(errors)}
 
 
+def read_inspector_style(page, *, timeout_ms):
+    """Read actual code DOM, excluding EUI's sibling accessibility labels.
+
+    MapDetails uses nonvirtualized EuiCodeBlock. textContent preserves its code
+    text without forcing layout of the potentially large highlighted geometry.
+    No application internals, network responses, or reconstructed state are used.
+    """
+    raw = _subject(page, "mapboxStyleContainer").locator('code[data-code-language="json"]').text_content(timeout=timeout_ms)
+    require(isinstance(raw, str), "Inspector code text is missing.")
+    encoded = raw.encode("utf-8")
+    details = {"method": "inspector_code_text_content", "utf8_bytes": len(encoded),
+               "sha256": hashlib.sha256(encoded).hexdigest()}
+    if len(encoded) > 32 * 1024 * 1024:
+        error = AnalyticsError("acceptance_failed", "Inspector style exceeds budget.")
+        error.inspector_details = details
+        raise error
+    try:
+        value = json.loads(raw)
+    except json.JSONDecodeError as exc:
+        error = AnalyticsError("acceptance_failed", "Inspector code is not complete JSON.")
+        error.inspector_details = {**details, "parse_error": {"line": exc.lineno, "column": exc.colno, "position": exc.pos}}
+        raise error from None
+    require(isinstance(value, dict), "Inspector style must be a JSON object.")
+    return value, details
+
+
 def browser_style(url, output_dir, filter_query, mode, expectation, *, map_id, source_index=None, timeout_seconds=120):
     """Uses public Inspector UI selectors also used by pinned Kibana FTR tests."""
     from playwright.sync_api import sync_playwright
@@ -409,6 +435,7 @@ def browser_style(url, output_dir, filter_query, mode, expectation, *, map_id, s
         page.on("request", capture)
         page.on("pageerror", lambda error: errors.append(type(error).__name__) if len(errors) < 100 else None)
         style = None
+        inspector_read = None
         stage = "navigation"
         try:
             page.goto(url, wait_until="domcontentloaded", timeout=timeout_seconds * 1000)
@@ -437,13 +464,16 @@ def browser_style(url, output_dir, filter_query, mode, expectation, *, map_id, s
             failure = None
             while time.monotonic() - start < timeout_seconds:
                 try:
-                    raw = _subject(page, "mapboxStyleContainer").inner_text()
-                    require(len(raw.encode()) <= 32 * 1024 * 1024, "Inspector style exceeds budget.")
-                    style = json.loads(raw)
+                    stage = "inspector_style_code"
+                    remaining_ms = max(1, int((timeout_seconds - (time.monotonic() - start)) * 1000))
+                    style, inspector_read = read_inspector_style(page, timeout_ms=remaining_ms)
+                    require(time.monotonic() - start <= timeout_seconds, "Inspector code exceeded the render deadline.")
+                    stage = "rendered_source_parity"
                     verified = inspect_style(style, mode, expectation, source_index=source_index)
                     require(any(contains_tree(call["body"], filter_query) for call in calls), "Actual browser search omitted saved DSL filter.")
                     break
                 except (AnalyticsError, ValueError) as exc:
+                    if getattr(exc, "inspector_details", None): inspector_read = exc.inspector_details
                     failure = exc
                     page.wait_for_timeout(500)
             else:
@@ -463,9 +493,12 @@ def browser_style(url, output_dir, filter_query, mode, expectation, *, map_id, s
             stage = "complete"
             return {**verified, "browser_search_count": len(calls), "saved_filter_observed": True,
                     "browser_saved_map_path_verified": True,
+                    "inspector_read": inspector_read,
                     "browser_page_errors": 0, "screenshot_sha256": hashlib.sha256((output_dir / "map.png").read_bytes()).hexdigest()}
         finally:
-            atomic_json(output_dir / "browser-diagnostics.json", _browser_diagnostics(page, stage, map_id, errors))
+            diagnostics = _browser_diagnostics(page, stage, map_id, errors)
+            if inspector_read is not None: diagnostics["inspector_read"] = inspector_read
+            atomic_json(output_dir / "browser-diagnostics.json", diagnostics)
             if style is not None:
                 atomic_json(output_dir / "rendered-style.json", style)
             if not (output_dir / "map.png").exists():
