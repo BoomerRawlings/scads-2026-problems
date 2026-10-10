@@ -374,8 +374,15 @@ def _subject(page, name):
 
 def _remaining_timeout_ms(deadline):
     remaining = deadline - time.monotonic()
-    require(remaining > 0, "Map layer loading exceeded the render deadline.")
+    require(remaining > 0, "Map rendering exceeded the declared deadline.")
     return max(1, int(remaining * 1000))
+
+
+def _render_action(deadline, action, *args, **kwargs):
+    """A blocking UI action spends the remaining shared budget, never a fresh one."""
+    value = action(*args, timeout=_remaining_timeout_ms(deadline), **kwargs)
+    _remaining_timeout_ms(deadline)
+    return value
 
 
 def wait_for_map_layers(page, mode, *, deadline):
@@ -436,6 +443,7 @@ def browser_style(url, output_dir, filter_query, mode, expectation, *, map_id, s
     from playwright.sync_api import sync_playwright
     calls, errors = [], []
     start = time.monotonic()
+    deadline = start + timeout_seconds
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True, args=["--use-gl=angle", "--use-angle=swiftshader", "--enable-unsafe-swiftshader"])
         api_key = os.environ.get("KIBANA_API_KEY")
@@ -465,36 +473,36 @@ def browser_style(url, output_dir, filter_query, mode, expectation, *, map_id, s
         layer_loading = None
         stage = "navigation"
         try:
-            page.goto(url, wait_until="domcontentloaded", timeout=timeout_seconds * 1000)
+            _render_action(deadline, page.goto, url, wait_until="domcontentloaded")
             stage = "saved_map_path"
             target = "/app/maps/map/" + quote(map_id, safe="")
-            page.wait_for_url(lambda address: urlsplit(address).path.endswith(target), timeout=timeout_seconds * 1000)
+            _render_action(deadline, page.wait_for_url, lambda address: urlsplit(address).path.endswith(target))
             stage = "map_container"
-            _subject(page, "mapContainer").wait_for(state="visible", timeout=timeout_seconds * 1000)
+            _render_action(deadline, _subject(page, "mapContainer").wait_for, state="visible")
             stage = "map_canvas"
-            page.locator("canvas").first.wait_for(state="visible")
+            _render_action(deadline, page.locator("canvas").first.wait_for, state="visible")
             stage = "map_layer_loading"
-            layer_loading = wait_for_map_layers(page, mode, deadline=start + timeout_seconds)
+            layer_loading = wait_for_map_layers(page, mode, deadline=deadline)
             # Loading indicators are a prerequisite only. Actual source and
             # membership assertions below remain the decisive readiness gate.
             stage = "inspector_open"
             overflow = _subject(page, "app-menu-overflow-button")
-            if overflow.is_visible(): overflow.click()
-            _subject(page, "openInspectorButton").click()
-            _subject(page, "inspectorPanel").wait_for(state="visible")
+            if overflow.is_visible(): _render_action(deadline, overflow.click)
+            _render_action(deadline, _subject(page, "openInspectorButton").click)
+            _render_action(deadline, _subject(page, "inspectorPanel").wait_for, state="visible")
             stage = "inspector_map_details"
             chooser = _subject(page, "inspectorViewChooser")
             if _subject(page, "inspectorViewChooserMap details").count() == 0:
-                chooser.click()
-            _subject(page, "inspectorViewChooserMap details").click()
+                _render_action(deadline, chooser.click)
+            _render_action(deadline, _subject(page, "inspectorViewChooserMap details").click)
             stage = "inspector_style_tab"
-            _subject(page, "mapboxStyleTab").click()
+            _render_action(deadline, _subject(page, "mapboxStyleTab").click)
             stage = "rendered_source_parity"
             failure = None
             while time.monotonic() - start < timeout_seconds:
                 try:
                     stage = "inspector_style_code"
-                    remaining_ms = max(1, int((timeout_seconds - (time.monotonic() - start)) * 1000))
+                    remaining_ms = _remaining_timeout_ms(deadline)
                     style, inspector_read = read_inspector_style(page, timeout_ms=remaining_ms)
                     require(time.monotonic() - start <= timeout_seconds, "Inspector code exceeded the render deadline.")
                     stage = "rendered_source_parity"
@@ -504,21 +512,21 @@ def browser_style(url, output_dir, filter_query, mode, expectation, *, map_id, s
                 except (AnalyticsError, ValueError) as exc:
                     if getattr(exc, "inspector_details", None): inspector_read = exc.inspector_details
                     failure = exc
-                    page.wait_for_timeout(500)
+                    page.wait_for_timeout(min(500, _remaining_timeout_ms(deadline)))
             else:
                 raise failure or AnalyticsError("acceptance_failed", "Rendered data readiness timed out.")
             require(not errors, "Browser reported an application error.")
             atomic_json(output_dir / "rendered-style.json", style)
             atomic_json(output_dir / "browser-searches.json", calls)
             stage = "inspector_close"
-            page.keyboard.press("Escape")
             await_close = _subject(page, "inspectorPanel")
             if await_close.is_visible():
-                close = await_close.get_by_role("button", name="Close", exact=False)
-                if close.count(): close.first.click()
-            await_close.wait_for(state="hidden")
+                close = await_close.get_by_role("button", name="Close Inspector", exact=True)
+                require(close.count() == 1, "Inspector must expose one close button.")
+                _render_action(deadline, close.click)
+            _render_action(deadline, await_close.wait_for, state="hidden")
             stage = "screenshot"
-            page.screenshot(path=str(output_dir / "map.png"), full_page=True)
+            _render_action(deadline, page.screenshot, path=str(output_dir / "map.png"), full_page=True)
             stage = "complete"
             return {**verified, "browser_search_count": len(calls), "saved_filter_observed": True,
                     "browser_saved_map_path_verified": True,
@@ -529,12 +537,18 @@ def browser_style(url, output_dir, filter_query, mode, expectation, *, map_id, s
             diagnostics = _browser_diagnostics(page, stage, map_id, errors)
             if layer_loading is not None: diagnostics["layer_loading_precondition"] = layer_loading
             if inspector_read is not None: diagnostics["inspector_read"] = inspector_read
-            atomic_json(output_dir / "browser-diagnostics.json", diagnostics)
             if style is not None:
                 atomic_json(output_dir / "rendered-style.json", style)
             if not (output_dir / "map.png").exists():
-                try: page.screenshot(path=str(output_dir / "failure.png"), full_page=True)
-                except Exception: pass
+                failure_capture_start = time.monotonic()
+                diagnostics["failure_screenshot_timeout_ms"] = 5000
+                try:
+                    page.screenshot(path=str(output_dir / "failure.png"), full_page=True, timeout=5000)
+                    diagnostics["failure_screenshot_saved"] = True
+                except Exception:
+                    diagnostics["failure_screenshot_saved"] = False
+                diagnostics["failure_screenshot_elapsed_seconds"] = time.monotonic() - failure_capture_start
+            atomic_json(output_dir / "browser-diagnostics.json", diagnostics)
             atomic_json(output_dir / "browser-searches.json", calls)
             context.close()
             browser.close()

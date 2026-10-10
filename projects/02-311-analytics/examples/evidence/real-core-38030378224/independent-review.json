@@ -1,0 +1,336 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-10T06:41:56.704638+00:00",
+  "review_source_sha256": "89e2dfbe25f5cfa18deb2266cf66b07c3909afb794ab1de016157cc76dfe8b4f",
+  "method": "Offline independent arithmetic, nested numerical comparisons, identity/hash reconciliation, and actual retained CSV set comparisons. No service, model, raw-corpus or SQLite recomputation.",
+  "workflow": {
+    "run_id": 38030378224,
+    "url": "https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/38030378224",
+    "head_sha": "8c692cb13565a62a18782302eb1d4c82ca26c8a1",
+    "conclusion": "failure"
+  },
+  "checks": {
+    "raw_normalized_index_counts_reconcile": true,
+    "hash_provenance_chain": true,
+    "qualification_seals": true,
+    "official_nta_identity_and_residential_codes": true,
+    "five_api_cases_match_retained_independent_oracle": true,
+    "thirty_five_performance_results_match_checked_api_cases": true,
+    "latency_summary_arithmetic": true,
+    "four_full_exports_match_exact_independent_ids": true,
+    "point_and_selected_all_trend_csv_parity": true,
+    "failed_streaming_job_matches_recovery": true,
+    "provision_receipt_matches_generated_profile": true,
+    "two_render_passes_and_full_trend_failure_preserved": true,
+    "independent_actual_point_ids_and_selected_metrics_checked": true,
+    "all_rendered_nta_geometry_exactly_official": true,
+    "browser_search_records_and_screenshots_reviewed": true
+  },
+  "maximum_absolute_numeric_difference": 2.842170943040401e-14,
+  "review_relative_tolerance": 1e-10,
+  "review_absolute_tolerance": 1e-09,
+  "record_reconciliation": {
+    "captured": 2133268,
+    "normalized": 2133268,
+    "ingested": 2133268,
+    "frozen_index": 2133268,
+    "oracle": 2133268
+  },
+  "export_artifacts": [
+    {
+      "job_id": "0cdb398a9a0d4ea4bc48bf917220aa65",
+      "bytes": 1139937,
+      "rows": 9728,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c",
+      "exact_membership_equal": true
+    },
+    {
+      "job_id": "47c43ab00c5a4cf0b12bac4f24b0eda2",
+      "bytes": 1139937,
+      "rows": 9728,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c",
+      "exact_membership_equal": true
+    },
+    {
+      "job_id": "b7076baed7394ade9005acfbc36f8036",
+      "bytes": 1139937,
+      "rows": 9728,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c",
+      "exact_membership_equal": true
+    },
+    {
+      "job_id": "c9e6e83fc4c746e4818c9038cd37a7eb",
+      "bytes": 1139937,
+      "rows": 9728,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c",
+      "exact_membership_equal": true
+    }
+  ],
+  "maps": {
+    "provision_passed": true,
+    "rendered_parity_verified": false,
+    "cases": {
+      "points": {
+        "passed": true,
+        "browser_stage": "complete",
+        "error": null,
+        "csv_rows": 242,
+        "saved_map_path_verified": true,
+        "captured_initial_data_searches": 1,
+        "captured_async_search_polls": 0,
+        "captured_metadata_searches": 1,
+        "captured_request_index_and_filters_checked": true,
+        "live_point_document_id_binding_receipt_verified": true,
+        "screenshot_observation": "Visible point markers on the named saved map; full242-ID membership independently checked in Inspector source."
+      },
+      "trends": {
+        "passed": false,
+        "browser_stage": "inspector_style_code",
+        "error": {
+          "code": "acceptance_failed",
+          "stage": "browser",
+          "type": "TimeoutError"
+        },
+        "csv_rows": 196,
+        "saved_map_path_verified": true,
+        "captured_initial_data_searches": 2,
+        "captured_async_search_polls": 1,
+        "captured_metadata_searches": 1,
+        "captured_request_index_and_filters_checked": true,
+        "live_point_document_id_binding_receipt_verified": false,
+        "screenshot_observation": "No screenshot retained. Last parsed style contains zero features; subsequent read timed out. All196-group rendered acceptance failed."
+      },
+      "selected_trends": {
+        "passed": true,
+        "browser_stage": "complete",
+        "error": null,
+        "csv_rows": 3,
+        "saved_map_path_verified": true,
+        "captured_initial_data_searches": 2,
+        "captured_async_search_polls": 0,
+        "captured_metadata_searches": 1,
+        "captured_request_index_and_filters_checked": true,
+        "live_point_document_id_binding_receipt_verified": false,
+        "screenshot_observation": "Three colored polygons visible on named selected-trend map. Green is lower relative positive change, not improvement; scale and telemetry/security banners need explanatory context."
+      }
+    },
+    "rendered_style_evidence": {
+      "points": {
+        "file": "runs/maps-core-38030378224/real-v1/render-points/rendered-style.json",
+        "bytes": 78297,
+        "sha256": "abccfe934ffe6f724fa431a8807c7efa1132733f0386efea699a20cc8507bd4c",
+        "inspector_read": {
+          "method": "inspector_code_text_content",
+          "sha256": "8aedfd5c2108a93ec728907d79a33dabb5f835186461663ab42e288af88553ef",
+          "utf8_bytes": 146089
+        },
+        "independent_exact_rendered_id_count": 242
+      },
+      "trends": {
+        "file": "runs/maps-core-38030378224/real-v1/render-trends/rendered-style.json",
+        "bytes": 3614,
+        "sha256": "657daae9a5d4a612705a8dc99868c2bbd41284e1ef05d4522cd2fa1b9fa965bb",
+        "inspector_read": {
+          "method": "inspector_code_text_content",
+          "sha256": "e24a92a20f5043fd1f478ffcadd3d1ecfede68e7238adf8ea4a016c3cd293d62",
+          "utf8_bytes": 7599
+        },
+        "last_parsed_features": 0
+      },
+      "selected_trends": {
+        "file": "runs/maps-core-38030378224/real-v1/render-selected_trends/rendered-style.json",
+        "bytes": 4657316,
+        "sha256": "7d364af865c95009239e7ddad8094a2a8ad3712760ac32983590f1070a992f56",
+        "inspector_read": {
+          "method": "inspector_code_text_content",
+          "sha256": "58be1beeb1478c2d578c88a173d111f30b6a38e413437932ed0e230b1fb6f409",
+          "utf8_bytes": 14946544
+        },
+        "official_polygon_geometries_exact": 262,
+        "centroids": 262,
+        "visible_groups": 3,
+        "hidden_groups": 259,
+        "independently_checked_joined_metrics": {
+          "QN0201": {
+            "absolute_change": 10,
+            "baseline_count": 5,
+            "current_count": 15,
+            "rate_change": 0.31720430107526887,
+            "relative_change": 2
+          },
+          "BX0802": {
+            "absolute_change": 10,
+            "baseline_count": 5,
+            "current_count": 15,
+            "rate_change": 0.31720430107526887,
+            "relative_change": 2
+          },
+          "BK1502": {
+            "absolute_change": 9,
+            "baseline_count": 4,
+            "current_count": 13,
+            "rate_change": 0.2860215053763441,
+            "relative_change": 2.25
+          }
+        },
+        "cohort_rate_change_range": [
+          0.2860215053763441,
+          0.31720430107526887
+        ],
+        "positive_minimum_color": "#24c292",
+        "color_interpretation": "Green denotes the lower positive rate change within this selected cohort, not improvement. All three changes are positive; color scale is cohort-relative."
+      }
+    }
+  },
+  "sampled_memory": {
+    "samples": 5,
+    "runner_max_rss_bytes": 128512000,
+    "node_heap_max_observed_bytes": 1071648768,
+    "node_heap_configured_bytes": 2147483648,
+    "worker_max_sampled_rss_bytes": 33103872,
+    "workers_max_sampled_total_rss_bytes": 59035648,
+    "fault_worker_self_reported_rss_bytes": 33693696
+  },
+  "preserved_originals": [
+    {
+      "file": "acceptance.json",
+      "source": "runs/maps-core-38030378224/real-v1/acceptance.json",
+      "bytes": 3105,
+      "sha256": "c6604248d9e14924b335ddf8fd245c28266df21ae95d33d2cbcbda201e018115"
+    },
+    {
+      "file": "normalized.manifest.json",
+      "source": "runs/maps-core-38030378224/real-v1/normalized.manifest.json",
+      "bytes": 5154,
+      "sha256": "a110e9f0f3223877fbf29cfa4aba106d34864684ce7cbcc1f9d08df191547bc1"
+    },
+    {
+      "file": "index.manifest.json",
+      "source": "runs/maps-core-38030378224/real-v1/index.manifest.json",
+      "bytes": 7578,
+      "sha256": "71ec656b8dc37b008cd80f2982edc1a111659eaef61e9fc8fd18e1da2ee42656"
+    },
+    {
+      "file": "ingest.json",
+      "source": "runs/maps-core-38030378224/real-v1/ingest.json",
+      "bytes": 750,
+      "sha256": "7f060cccb451ba9c49b5bef987f222b89eeb039e4c793a8e7d3a1b41a8821775"
+    },
+    {
+      "file": "measurement-suite.json",
+      "source": "runs/maps-core-38030378224/real-v1/measurement-suite.json",
+      "bytes": 4369,
+      "sha256": "9affb148b108e27e56eba2b2fd629a78ca6822a065927cc43aa6d8def0ac07ea"
+    },
+    {
+      "file": "measurements.json",
+      "source": "runs/maps-core-38030378224/real-v1/measurements.json",
+      "bytes": 27421,
+      "sha256": "17d046b4c448cb6eec110f4d04101090fbc6954c02e6403545153cdbce966008"
+    },
+    {
+      "file": "maps-provision.json",
+      "source": "runs/maps-core-38030378224/real-v1/maps-provision.json",
+      "bytes": 779,
+      "sha256": "87985a280a2363249d828148c73064e22991a4490eb832a4b9e2eeb62fef27b2"
+    },
+    {
+      "file": "catalog.json",
+      "source": "runs/maps-core-38030378224/real-v1/catalog.json",
+      "bytes": 3704,
+      "sha256": "220926b186aa38f0292d7e2f789e8186a026b27a6e6c366297cf0a472ec7629b"
+    },
+    {
+      "file": "host.json",
+      "source": "runs/maps-core-38030378224/runtime/host.json",
+      "bytes": 1364,
+      "sha256": "15fc55fb807da14461f644c95e7b86a20b0c53027a23272c7840189149ca2c38"
+    },
+    {
+      "file": "elasticsearch-version.json",
+      "source": "runs/maps-core-38030378224/runtime/elasticsearch-version.json",
+      "bytes": 540,
+      "sha256": "830e1ff22cd5e4439237e1df1f7a8146abecf112b6ec36ce9b7d0d83b7a46453"
+    },
+    {
+      "file": "kibana-status.json",
+      "source": "runs/maps-core-38030378224/runtime/kibana-status.json",
+      "bytes": 23144,
+      "sha256": "6ba2d6b2b7a6765f83e34530dfc150f7974d6372cf802c89165e7d119806169a"
+    },
+    {
+      "file": "maps-independent-review.json",
+      "source": "runs/maps-core-38030378224/maps-independent-review.json",
+      "bytes": 3184,
+      "sha256": "b8cca45a544f511db8d7209a48f8f719265bbf7209c9ca27f83cad8107409916"
+    },
+    {
+      "file": "render-points.json",
+      "source": "runs/maps-core-38030378224/real-v1/render-points/receipt.json",
+      "bytes": 1742,
+      "sha256": "e612358035e540154485d40d8b4e6542b688c9436681dcc46e4f730b8d1ab3b2"
+    },
+    {
+      "file": "render-trends.json",
+      "source": "runs/maps-core-38030378224/real-v1/render-trends/receipt.json",
+      "bytes": 1161,
+      "sha256": "a717ac17be848851528bf6a0ca7297eba5aed89d38eae684abfb6c016e4c7a00"
+    },
+    {
+      "file": "render-selected_trends.json",
+      "source": "runs/maps-core-38030378224/real-v1/render-selected_trends/receipt.json",
+      "bytes": 1546,
+      "sha256": "070a112bf4f302d39f3611f0297283545957728c2643518a5541ac34f935af5c"
+    },
+    {
+      "file": "browser-searches-points.json",
+      "source": "runs/maps-core-38030378224/real-v1/render-points/browser-searches.json",
+      "bytes": 1127,
+      "sha256": "fa6a87f9b55caf898520be07e55ebd4a073fed1e7259f60aaa2bce77d9e4cdfc"
+    },
+    {
+      "file": "render-points-map.png",
+      "source": "runs/maps-core-38030378224/real-v1/render-points/map.png",
+      "bytes": 111455,
+      "sha256": "84971cd182ca28bd590ee82542295f6251f6738fd0f79e91628ea32e9fb87b7b"
+    },
+    {
+      "file": "browser-searches-trends.json",
+      "source": "runs/maps-core-38030378224/real-v1/render-trends/browser-searches.json",
+      "bytes": 2286,
+      "sha256": "75469d94c6388e95b7c8df709438603c306eae68edbc9f324b0175e8fefced6a"
+    },
+    {
+      "file": "browser-searches-selected_trends.json",
+      "source": "runs/maps-core-38030378224/real-v1/render-selected_trends/browser-searches.json",
+      "bytes": 2007,
+      "sha256": "fe8b44b1b24d12bbbb081c01b431f1b31405ed086d3408f3e6c246f518828614"
+    },
+    {
+      "file": "render-selected_trends-map.png",
+      "source": "runs/maps-core-38030378224/real-v1/render-selected_trends/map.png",
+      "bytes": 88540,
+      "sha256": "deb027a0e6c3fc0913a8a44fad5b16eac518a809db9c2217b107c10197ebeb26"
+    }
+  ],
+  "excluded_artifacts": [
+    "raw or normalized record files",
+    "individual oracle IDs and point expectation",
+    "saved record previews",
+    "full rendered style bodies retained only in original run with hashes here",
+    "CSV record bodies",
+    "locks",
+    "unexecuted agent freeze"
+  ],
+  "limitations": [
+    "Local review validates retained evidence, not a rerun of Elasticsearch or complete re-normalization.",
+    "SQLite oracle shares normalization and NTA assignments; this does not independently prove spatial assignment correctness.",
+    "Five analytical cases, 25 serial repeats and two batches of five queries; total measured workload 3.433 seconds with previously queried index and uncontrolled caches.",
+    "Nine-column exports checked complete IDs, headers and byte stability; non-ID cells lack an independent cell-by-cell real-corpus oracle.",
+    "Sampled heap and RSS are not peak capacity; node process metric is virtual memory, not RSS; Kibana and ingestion peak memory unmeasured.",
+    "Recovery is one abrupt local export worker exit at first-row streaming; not server/index/node or mid-bulk-ingestion recovery.",
+    "Actual Inspector and browser evidence pass bounded242-point and three-selected-neighborhood parity, including all five joined metrics and exact official262 polygon geometries. Full196-neighborhood view remains failed: its last parsed style has zero features and a subsequent read timed out. Screenshots show geometry but do not independently validate every pixel color or point coordinate against normalized coordinates. Selected palette is cohort-relative; all three rate changes are positive, so green does not mean improvement. No basemap is configured; telemetry/security banners remain visible. Global time display is not the analytical period for no-time data views; saved filter/result cohort is authoritative.",
+    "Frozen questions are not model trials. No held-out model outcome or end-to-end conversational latency.",
+    "Source before/after reconciliation is observed-corpus qualification, not transactional isolation or complete citywide reporting."
+  ]
+}

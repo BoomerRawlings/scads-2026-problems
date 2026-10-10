@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "run_id": 38030378224,
+  "source_commit": "8c692cb13565a62a18782302eb1d4c82ca26c8a1",
+  "review_method": "Independent standard-library CSV/style/request inspection plus direct retained screenshot review; not checker replay",
+  "overall_maps_passed": false,
+  "cases": {
+    "points": {
+      "reported_passed": true,
+      "csv_rows": 242,
+      "csv_sha256": "0662c1ce8514ee203c453a2060139372515a835aca3c9ca106bd89cd66f6d301",
+      "independent_csv_passed": true,
+      "exact_browser_saved_filter_matches": 1,
+      "browser_search_count": 2,
+      "diagnostic_stage": "complete",
+      "inspector_utf8_bytes": 146089,
+      "style_sha256": "abccfe934ffe6f724fa431a8807c7efa1132733f0386efea699a20cc8507bd4c",
+      "screenshot_sha256": "84971cd182ca28bd590ee82542295f6251f6738fd0f79e91628ea32e9fb87b7b",
+      "screenshot_visually_reviewed": true,
+      "rendered_points": 242,
+      "live_id_source_binding_receipt": true,
+      "independent_rendered_ids_passed": true
+    },
+    "trends": {
+      "reported_passed": false,
+      "csv_rows": 196,
+      "csv_sha256": "0bbb824d89f70a7d11f2674f8541452daaf0ee4c82e1aff2ef27618c8bc79937",
+      "independent_csv_passed": true,
+      "exact_browser_saved_filter_matches": 1,
+      "browser_search_count": 4,
+      "diagnostic_stage": "inspector_style_code",
+      "inspector_utf8_bytes": 7599,
+      "style_sha256": "657daae9a5d4a612705a8dc99868c2bbd41284e1ef05d4522cd2fa1b9fa965bb",
+      "rendered_features": 0,
+      "render_acceptance": false
+    },
+    "selected_trends": {
+      "reported_passed": true,
+      "csv_rows": 3,
+      "csv_sha256": "4a4b3de4a46c817b96e8146d8fbf2622661cf41b1d0e439d9431c64a51c1efec",
+      "independent_csv_passed": true,
+      "exact_browser_saved_filter_matches": 1,
+      "browser_search_count": 3,
+      "diagnostic_stage": "complete",
+      "inspector_utf8_bytes": 14946544,
+      "style_sha256": "7d364af865c95009239e7ddad8094a2a8ad3712760ac32983590f1070a992f56",
+      "screenshot_sha256": "deb027a0e6c3fc0913a8a44fad5b16eac518a809db9c2217b107c10197ebeb26",
+      "screenshot_visually_reviewed": true,
+      "rendered_joined_groups": 3,
+      "joined_metric_fields": [
+        "baseline_count",
+        "current_count",
+        "absolute_change",
+        "relative_change",
+        "rate_change"
+      ],
+      "official_polygon_geometry_exact": 262,
+      "centroids": 262,
+      "join_visible_polygons": 3,
+      "join_hidden_polygons": 259,
+      "independent_rendered_metrics_passed": true
+    }
+  },
+  "limitations": [
+    "All-trend render remains failed; its last parsed style contains no features.",
+    "Point coordinates have Point type but were not independently compared with normalized coordinate values.",
+    "Trend paint is cohort-relative Green to Red; green does not mean negative change. Selected three rate changes are all positive.",
+    "Screenshots establish visible geometry, not exhaustive pixel color correctness; Inspector supplies source metrics and style binding.",
+    "Telemetry banner and unsecured CI-cluster notice remain visible; no basemap configured."
+  ]
+}

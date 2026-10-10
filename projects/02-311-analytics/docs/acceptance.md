@@ -4,14 +4,14 @@ Version **0.7.0** remediation is in progress. Executable tooling, executed check
 and acceptance outcomes are distinct. **2,133,268 real unique requests reconcile
 through capture, normalization, an immutable Elasticsearch index and an independent
 SQLite reference.** Five real-data analytical families and a bounded performance
-workload passed. **Rendered Maps and actual-agent acceptance remain incomplete.** The original published findings
+workload passed. **Two bounded rendered Maps checks pass; full-neighborhood Maps and actual-agent acceptance remain incomplete.** The original published findings
 remain in [the historical v0.6 record](acceptance-v0.6.md).
 
 | Requested gap | Current evidence | Remaining execution |
 | --- | --- | --- |
 | Actual ≥2 million requests | All five stages reconcile2,133,268 rows; full raw and normalized hashes, ingested byte offset and frozen index UUID recorded | Acquisition/count target met for this captured window |
-| Neighborhood comparisons | Official262 NTA polygons/197 residential codes; qualified observed window; June/October rodent comparison matches independent SQL across196 represented neighborhoods | Agent-led chained comparisons and rendered neighborhood maps; population completeness remains unclaimed |
-| Elasticsearch/Kibana | Elasticsearch9.5.5 parity/CSV passed in six real core executions; reusable maps/262 boundaries provisioned; saved maps reached; captured request filters agree | Sixth core failed point JSON extraction and timed out on both trend style tabs; exact rendered membership and joined metric values remain unverified |
+| Neighborhood comparisons | Official262 NTA polygons/197 residential codes; qualified observed window; June/October rodent comparison matches independent SQL across196 represented neighborhoods | Agent-led chained comparisons and full196-neighborhood rendering; selected3-neighborhood rendered values pass, population completeness remains unclaimed |
+| Elasticsearch/Kibana | Elasticsearch9.5.5 parity/CSV passed in seven real core executions; seventh verifies242 rendered point IDs and selected3-neighborhood joined values against independent expectations;262 rendered polygon geometries exactly match official boundaries | Full196-neighborhood render failed after an empty initial style; source values for that complete view remain unverified |
 | Actual agent |40 prospective AI-authored questions, independent SQLite oracle,3 repetitions and chained analyses implemented; latest development smoke completed but invented restrictions and falsely requested clarification | Execute120 real model trials of the frozen negative candidate under a prospective operational-eligibility amendment; retain quality failure and complete unchanged threshold/semantic review |
 | Usable performance | Actual4CPU/16.77GB host:25 serial queries, two5-query batches,9,728-row exports, sampled memory and one abrupt worker recovery passed | Broader sustained load, cold cache, end-to-end model latency and server recovery remain unqualified |
 | Two paper descriptions | Corrected administrative closure versus first response; separate Maps processing and CSV-worker paths; changed pages visually checked | Website remains its earlier published edition until separately republished |
@@ -90,6 +90,72 @@ intermediate tool call and observed cache reuse do not establish conversational
 acceptance. Earlier cold timeouts and invalid-call failures remain preserved.
 
 ## Real-corpus execution and independent receipt review
+
+The seventh [core run38030378224](https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/38030378224)
+executed commit`8c692cb13565a62a18782302eb1d4c82ca26c8a1` on2026-10-10,
+06:20:21–06:29:32UTC. Its [acceptance receipt](../examples/evidence/real-core-38030378224/acceptance.json)
+remains false because the full-neighborhood map failed. All five stages reconcile
+2,133,268 records with the same raw/normalized hashes and observed qualification;
+index UUID`EPAp0NR1SSW4bMFNLedg0g`. Normalization79.254s, ingestion170.307s;
+independent analytical/CSV parity, provisioning and finite performance checks passed.
+This Maps workflow runs no model trials.
+
+Two actual browser cases now pass. The [point receipt](../examples/evidence/real-core-38030378224/render-points.json)
+and [screenshot](../examples/evidence/real-core-38030378224/render-points-map.png)
+verify242 distinct rendered source IDs in the exact frozen index against independent
+membership and CSV. The [selected-neighborhood receipt](../examples/evidence/real-core-38030378224/render-selected_trends.json)
+and [screenshot](../examples/evidence/real-core-38030378224/render-selected_trends-map.png)
+verify3 selected NTAs, each with baseline/current counts, absolute/relative count
+change and daily-rate change. All262 source polygons exactly match official
+geometry;3 are visible through the join and259 hidden. All262 centroid entries
+retain matching identities/visibility and the selected five metric values. Actual
+browser filters match the saved cohort and selected codes. Full stage elapsed
+10.602s for points and44.479s for selected neighborhoods; these are bounded
+verification-stage observations, not general interactive latency guarantees.
+
+**Map interpretation:** selected daily-rate changes are all positive:
+BK1502 `+0.2860215054`, BX0802/QN0201 `+0.3172043011` requests/day.
+The green-to-red scale is relative to that selected cohort. Green denotes its
+lower positive increase, **not improvement or negative change**. Screenshots lack
+an expanded numeric legend and basemap; telemetry/security notices remain visible.
+The global time picker on these no-time data views is not the analytical comparison
+period; saved result filters and June/October exposure periods define the cohort.
+Inspector evidence validates source values and style binding, not every pixel's
+color or point coordinates against an independent coordinate oracle.
+
+The [full-neighborhood receipt](../examples/evidence/real-core-38030378224/render-trends.json)
+still fails `TimeoutError` at `inspector_style_code`. Its last parsed7,599-byte
+Inspector style contains zero features; no full-view screenshot was retained.
+The196-group CSV and browser request filter pass, but neither replaces complete
+rendered parity. The separate [Maps review](../examples/evidence/real-core-38030378224/maps-independent-review.json)
+retains both successful cases and this failure. No original geometry was simplified.
+
+Seventh-run [measurements](../examples/evidence/real-core-38030378224/measurements.json)
+contain25 serial queries and two five-query batches. Median/maximum milliseconds:
+filter20.567/25.832, group54.304/67.381, closure23.006/23.430,
+geo22.291/27.977, compare62.787/125.240. The batches took0.161s at concurrency1
+and0.122s at concurrency2. The9,728-row, nine-column export took0.692s; two
+concurrent exports0.678s; post-recovery export0.481s. All four1,139,937-byte CSVs
+match exact independent IDs and identical bytes. Actual exit86 and lease/file
+recovery passed; recovery alone0.011s excludes detection and re-export.
+
+The workload lasted3.433s with five samples: runner RSS up to128,512,000 bytes,
+Elasticsearch heap1,071,648,768 bytes of configured2GiB, one worker33,103,872 bytes
+and combined workers59,035,648 bytes. Prior analysis and browser work had occurred;
+cache state was uncontrolled. Sampled memory, finite batches and one abrupt worker
+exit do not establish peak capacity, sustained performance or server recovery.
+
+[Independent core review](../examples/evidence/real-core-38030378224/independent-review.json)
+rechecked all provenance/count/seal identities,35 performance-result digests,
+full export IDs, map CSVs, actual point IDs, all selected joined values, official
+polygon geometry and screenshots. Maximum numerical difference2.842e-14. The
+compact archive contains20 JSON files and two PNGs,402,722 bytes:20 byte-identical
+retained files, including the separate Maps review, plus two new derived summaries.
+Full rendered-style bodies remain in the original run; their hashes and Inspector
+byte identities are retained in the review. Record-level CSVs and oracle IDs are
+excluded from the compact archive.
+
+### Sixth retained core execution
 
 The sixth core, within [agent campaign38029812736](https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/38029812736),
 executed commit`663a5b16fa8ddeec08970bc5cf71f0eb2e71582e` on2026-10-10,

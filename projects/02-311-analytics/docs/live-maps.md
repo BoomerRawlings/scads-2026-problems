@@ -163,6 +163,18 @@ This sequencing avoids opening the large highlighted style while the layer is
 still loading. Real run `38030378224` passed point and selected-trend rendering,
 but its full-trend Inspector timed out after an initial empty style; those failed
 results remain retained, and only a fresh actual run can qualify the change.
+Every blocking navigation/Inspector action, including the Mapbox style tab,
+close button and final screenshot, receives the remaining shared deadline and
+is checked again afterward. It does not receive a fresh per-action budget.
+The close control uses pinned Inspector's exact [Close Inspector accessible name](https://github.com/elastic/kibana/blob/a2890159e2486503b9e3a0c6f422b153a746651a/src/platform/plugins/shared/inspector/public/plugin.tsx), scoped to its flyout.
+Run `38031560273` passed loading readiness but both trend maps hit the prior
+implicit 30-second tab-click timeout; failure screenshots subsequently showed
+the style and polygon map. That run remains failed. The default qualification
+deadline stays 120 seconds. A failed run may additionally spend at most a
+requested 5 seconds capturing a diagnostic screenshot, followed by browser
+cleanup; this is outside qualification time and is reported separately in
+browser diagnostics. Cleanup and diagnostic capture explain why raw stage
+elapsed time can exceed the qualification deadline.
 The browser captures actual search bodies,
 requires the saved DSL filter in a browser search, and opens Inspector's Map
 details. It compares the **rendered style's GeoJSON source** IDs or joined

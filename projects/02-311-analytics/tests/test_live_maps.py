@@ -270,6 +270,24 @@ class LiveMapsTests(unittest.TestCase):
                     maps.wait_for_map_layers(page, "requests", deadline=120)
                 if failure != "spinner_timeout": spinners.first.wait_for.assert_not_called()
 
+    def test_inspector_actions_share_remaining_budget_beyond_default_thirty_seconds(self):
+        tab, close, screenshot = (unittest.mock.Mock() for _ in range(3))
+        with patch.object(maps.time, "monotonic", side_effect=[100, 149, 150, 151, 190, 191]):
+            maps._render_action(220, tab.click)
+            maps._render_action(220, close.click)
+            maps._render_action(220, screenshot, path="map.png", full_page=True)
+        tab.click.assert_called_once_with(timeout=120000)
+        close.click.assert_called_once_with(timeout=70000)
+        screenshot.assert_called_once_with(timeout=30000, path="map.png", full_page=True)
+
+    def test_inspector_action_cannot_start_or_succeed_after_shared_deadline(self):
+        for times, invoked in (([220], False), ([100, 221], True)):
+            with self.subTest(times=times):
+                action = unittest.mock.Mock(return_value="late value")
+                with patch.object(maps.time, "monotonic", side_effect=times), self.assertRaises(AnalyticsError):
+                    maps._render_action(220, action)
+                self.assertEqual(action.called, invoked)
+
     def test_inspector_reads_code_text_not_eui_accessibility_siblings(self):
         # Pinned EUI116.5.0: screen-reader label precedes <code>; token/line spans
         # preserve text nodes/newlines. Container innerText is not valid JSON.
