@@ -1,0 +1,275 @@
+{
+  "provenance": {
+    "kibana_version": "9.5.5",
+    "kibana_commit": "a2890159e2486503b9e3a0c6f422b153a746651a",
+    "sources": [
+      "https://github.com/elastic/kibana/blob/a2890159e2486503b9e3a0c6f422b153a746651a/x-pack/platform/plugins/shared/maps/public/locators/map_locator/get_location.ts",
+      "https://github.com/elastic/kibana/blob/a2890159e2486503b9e3a0c6f422b153a746651a/x-pack/platform/plugins/shared/maps/public/render_app.tsx",
+      "https://github.com/elastic/kibana/blob/a2890159e2486503b9e3a0c6f422b153a746651a/x-pack/platform/plugins/shared/maps/public/routes/map_page/map_app/map_app.tsx",
+      "https://github.com/elastic/kibana/blob/a2890159e2486503b9e3a0c6f422b153a746651a/src/platform/plugins/shared/kibana_utils/public/state_sync/state_sync_state_storage/create_kbn_url_state_storage.ts",
+      "https://github.com/elastic/kibana/blob/a2890159e2486503b9e3a0c6f422b153a746651a/src/platform/plugins/shared/kibana_utils/public/state_management/url/kbn_url_storage.ts",
+      "https://github.com/elastic/kibana/blob/a2890159e2486503b9e3a0c6f422b153a746651a/package.json"
+    ],
+    "decoder_url": "https://raw.githubusercontent.com/w33ble/rison-node/beffed9ed3ea6c94904041820373f108ee545f5b/js/rison.js",
+    "decoder_source_sha256": "8fcefee595274380cf896e1dc0b2c5a2facd0ffb75858e0bff71043f2feb7d32",
+    "decoder_version": "rison-node 2.1.1",
+    "verification": "Each encoded fixture was decoded by the upstream JavaScript parser in Node and compared with the complete JSON value; no live Kibana claim."
+  },
+  "params": {
+    "mapId": "map-probe-v1",
+    "query": {
+      "language": "kuery",
+      "query": ""
+    },
+    "timeRange": {
+      "from": "2025-04-01T00:00:00-04:00",
+      "to": "2025-11-01T00:00:00-04:00"
+    },
+    "refreshInterval": {
+      "pause": true,
+      "value": 0
+    },
+    "filters": [
+      {
+        "meta": {
+          "index": "requests-v1",
+          "alias": "NYC O'Brien! + / \u96ea",
+          "disabled": false,
+          "negate": false
+        },
+        "$state": {
+          "store": "appState"
+        },
+        "query": {
+          "bool": {
+            "should": [
+              {
+                "term": {
+                  "nta2020": "BK0101"
+                }
+              },
+              {
+                "range": {
+                  "created_date": {
+                    "gte": "2025-06-01",
+                    "lt": "2025-07-01"
+                  }
+                }
+              }
+            ],
+            "minimum_should_match": 1,
+            "filter": [
+              {
+                "geo_distance": {
+                  "distance": "1km",
+                  "location": {
+                    "lat": 40.7,
+                    "lon": -73.9
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "$state": {
+          "store": "globalState"
+        },
+        "meta": {
+          "disabled": false
+        },
+        "query": {
+          "terms": {
+            "borough": [
+              "BROOKLYN",
+              "QUEENS"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "app": {
+    "query": {
+      "language": "kuery",
+      "query": ""
+    },
+    "filters": [
+      {
+        "meta": {
+          "index": "requests-v1",
+          "alias": "NYC O'Brien! + / \u96ea",
+          "disabled": false,
+          "negate": false
+        },
+        "$state": {
+          "store": "appState"
+        },
+        "query": {
+          "bool": {
+            "should": [
+              {
+                "term": {
+                  "nta2020": "BK0101"
+                }
+              },
+              {
+                "range": {
+                  "created_date": {
+                    "gte": "2025-06-01",
+                    "lt": "2025-07-01"
+                  }
+                }
+              }
+            ],
+            "minimum_should_match": 1,
+            "filter": [
+              {
+                "geo_distance": {
+                  "distance": "1km",
+                  "location": {
+                    "lat": 40.7,
+                    "lon": -73.9
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "global": {
+    "filters": [
+      {
+        "$state": {
+          "store": "globalState"
+        },
+        "meta": {
+          "disabled": false
+        },
+        "query": {
+          "terms": {
+            "borough": [
+              "BROOKLYN",
+              "QUEENS"
+            ]
+          }
+        }
+      }
+    ],
+    "time": {
+      "from": "2025-04-01T00:00:00-04:00",
+      "to": "2025-11-01T00:00:00-04:00"
+    },
+    "refreshInterval": {
+      "pause": true,
+      "value": 0
+    }
+  },
+  "cases": [
+    {
+      "value": {
+        "query": {
+          "language": "kuery",
+          "query": ""
+        },
+        "filters": [
+          {
+            "meta": {
+              "index": "requests-v1",
+              "alias": "NYC O'Brien! + / \u96ea",
+              "disabled": false,
+              "negate": false
+            },
+            "$state": {
+              "store": "appState"
+            },
+            "query": {
+              "bool": {
+                "should": [
+                  {
+                    "term": {
+                      "nta2020": "BK0101"
+                    }
+                  },
+                  {
+                    "range": {
+                      "created_date": {
+                        "gte": "2025-06-01",
+                        "lt": "2025-07-01"
+                      }
+                    }
+                  }
+                ],
+                "minimum_should_match": 1,
+                "filter": [
+                  {
+                    "geo_distance": {
+                      "distance": "1km",
+                      "location": {
+                        "lat": 40.7,
+                        "lon": -73.9
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "rison": "('query':('language':'kuery','query':''),'filters':!(('meta':('index':'requests-v1','alias':'NYC O!'Brien!! + / \u96ea','disabled':!f,'negate':!f),'$state':('store':'appState'),'query':('bool':('should':!(('term':('nta2020':'BK0101')),('range':('created_date':('gte':'2025-06-01','lt':'2025-07-01')))),'minimum_should_match':1,'filter':!(('geo_distance':('distance':'1km','location':('lat':40.7,'lon':-73.9)))))))))"
+    },
+    {
+      "value": {
+        "filters": [
+          {
+            "$state": {
+              "store": "globalState"
+            },
+            "meta": {
+              "disabled": false
+            },
+            "query": {
+              "terms": {
+                "borough": [
+                  "BROOKLYN",
+                  "QUEENS"
+                ]
+              }
+            }
+          }
+        ],
+        "time": {
+          "from": "2025-04-01T00:00:00-04:00",
+          "to": "2025-11-01T00:00:00-04:00"
+        },
+        "refreshInterval": {
+          "pause": true,
+          "value": 0
+        }
+      },
+      "rison": "('filters':!(('$state':('store':'globalState'),'meta':('disabled':!f),'query':('terms':('borough':!('BROOKLYN','QUEENS'))))),'time':('from':'2025-04-01T00:00:00-04:00','to':'2025-11-01T00:00:00-04:00'),'refreshInterval':('pause':!t,'value':0))"
+    },
+    {
+      "value": [
+        null,
+        true,
+        false,
+        [],
+        {},
+        0,
+        -1,
+        1e-08,
+        1e+20,
+        "a'!\n\t ",
+        {
+          "\u96ea": "a!b'c"
+        }
+      ],
+      "rison": "!(!n,!t,!f,!(),(),0,-1,1e-08,1e20,'a!'!!\n\t ',('\u96ea':'a!!b!'c'))"
+    }
+  ]
+}

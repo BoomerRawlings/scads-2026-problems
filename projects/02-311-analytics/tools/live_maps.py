@@ -329,7 +329,15 @@ def _subject(page, name):
     return page.locator('[data-test-subj="' + name + '"]')
 
 
-def browser_style(url, output_dir, filter_query, mode, expectation, *, timeout_seconds=120):
+def _browser_diagnostics(page, stage, map_id, errors):
+    # Path only: never retain credentials, query state, source text, or raw DOM.
+    path = urlsplit(page.url).path
+    target = "/app/maps/map/" + quote(map_id, safe="")
+    return {"stage": stage, "final_path": path[:1024], "expected_map_id": map_id,
+            "saved_map_path_verified": path.endswith(target), "page_error_types": list(errors)}
+
+
+def browser_style(url, output_dir, filter_query, mode, expectation, *, map_id, timeout_seconds=120):
     """Uses public Inspector UI selectors also used by pinned Kibana FTR tests."""
     from playwright.sync_api import sync_playwright
     calls, errors = [], []
@@ -359,21 +367,31 @@ def browser_style(url, output_dir, filter_query, mode, expectation, *, timeout_s
         page.on("request", capture)
         page.on("pageerror", lambda error: errors.append(type(error).__name__) if len(errors) < 100 else None)
         style = None
+        stage = "navigation"
         try:
             page.goto(url, wait_until="domcontentloaded", timeout=timeout_seconds * 1000)
+            stage = "saved_map_path"
+            target = "/app/maps/map/" + quote(map_id, safe="")
+            page.wait_for_url(lambda address: urlsplit(address).path.endswith(target), timeout=timeout_seconds * 1000)
+            stage = "map_container"
             _subject(page, "mapContainer").wait_for(state="visible", timeout=timeout_seconds * 1000)
+            stage = "map_canvas"
             page.locator("canvas").first.wait_for(state="visible")
             # The actual source and membership assertions are the readiness gate.
             # Do not infer success merely from an arbitrary loading delay.
+            stage = "inspector_open"
             overflow = _subject(page, "app-menu-overflow-button")
             if overflow.is_visible(): overflow.click()
             _subject(page, "openInspectorButton").click()
             _subject(page, "inspectorPanel").wait_for(state="visible")
+            stage = "inspector_map_details"
             chooser = _subject(page, "inspectorViewChooser")
             if _subject(page, "inspectorViewChooserMap details").count() == 0:
                 chooser.click()
             _subject(page, "inspectorViewChooserMap details").click()
+            stage = "inspector_style_tab"
             _subject(page, "mapboxStyleTab").click()
+            stage = "rendered_source_parity"
             failure = None
             while time.monotonic() - start < timeout_seconds:
                 try:
@@ -391,16 +409,21 @@ def browser_style(url, output_dir, filter_query, mode, expectation, *, timeout_s
             require(not errors, "Browser reported an application error.")
             atomic_json(output_dir / "rendered-style.json", style)
             atomic_json(output_dir / "browser-searches.json", calls)
+            stage = "inspector_close"
             page.keyboard.press("Escape")
             await_close = _subject(page, "inspectorPanel")
             if await_close.is_visible():
                 close = await_close.get_by_role("button", name="Close", exact=False)
                 if close.count(): close.first.click()
             await_close.wait_for(state="hidden")
+            stage = "screenshot"
             page.screenshot(path=str(output_dir / "map.png"), full_page=True)
+            stage = "complete"
             return {**verified, "browser_search_count": len(calls), "saved_filter_observed": True,
+                    "browser_saved_map_path_verified": True,
                     "browser_page_errors": 0, "screenshot_sha256": hashlib.sha256((output_dir / "map.png").read_bytes()).hexdigest()}
         finally:
+            atomic_json(output_dir / "browser-diagnostics.json", _browser_diagnostics(page, stage, map_id, errors))
             if style is not None:
                 atomic_json(output_dir / "rendered-style.json", style)
             if not (output_dir / "map.png").exists():
@@ -440,7 +463,8 @@ def render(config_path, result_id, mode, expectation_path, csv_path, output_dir,
             require(mapped["published_group_count"] == len(expectation.get("groups", {})), "Published groups differ from reference.")
         stage = "browser"
         query = mapped["locator_request"]["params"]["filters"][0]["query"]
-        receipt["checks"].update(browser_style(mapped["url"], output_dir, query, mode, expectation, timeout_seconds=timeout_seconds))
+        receipt["checks"].update(browser_style(mapped["url"], output_dir, query, mode, expectation,
+                                               map_id=mapped["locator_request"]["params"]["mapId"], timeout_seconds=timeout_seconds))
         receipt.update({"passed": True, "rendered_parity_verified": True})
     except AnalyticsError as exc:
         receipt["error"] = {"stage": stage, "code": exc.code}
@@ -451,6 +475,9 @@ def render(config_path, result_id, mode, expectation_path, csv_path, output_dir,
     except Exception as exc:
         receipt["error"] = {"stage": stage, "code": "acceptance_failed", "type": type(exc).__name__}
     finally:
+        diagnostic_path = output_dir / "browser-diagnostics.json"
+        if diagnostic_path.exists():
+            receipt["browser_diagnostics"] = read_json(diagnostic_path)
         atomic_json(output_dir / "receipt.json", receipt)
     return receipt
 

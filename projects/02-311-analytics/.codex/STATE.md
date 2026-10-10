@@ -21,3 +21,10 @@
 - Latest checkpoint: full535checks/534pass/1Windows symlink skip,53.299s; exact-source receipt test-report-v0.7-maps-schema.json. Public AnalysisSpec schema + exact unchanged dataset references ready; preserves raw traces/ownership. Maps uses supported legacy wrapper to browser locator and returned object ID; qualification/centroid fixes reviewed. Fresh model smoke/live renderer required.
 
 - Active2026-10-10: smoke38025617751 (010bac0), realcore38025638157 (03fd0c0); both running fresh source d56f028. Allcode changes frozen during campaign; documents/packagingonly independent work.
+
+- Latest model38025617751:160/120s candidatefailed120.003s beforefirstresponse, cold7314tokenprompt; diagnostic2048tokens38.53s/53.15tps,4096tokens85.48s/47.92tps. Schema3552rawtokens,realmetadata4704,system514. No grammarerror or heldouttrial. Implementing declared metadata-only prefixwarmup≤300s/1token with separate immutable startupcost; noquestions/results, trialbudgetsunchanged. Core38025638157 stillrunning.
+- Fresh r2offlinepackagesqualified53.299sfullsource; core504935B/agent30047215B,36wheels3959RECORDentries; 441a1b2archivesreceipts. Onlycorepackagedchanges maps.py/trend_maps.py. Runtimeadapter/evaluator remainrepositorytools; newwarmupdoesnotchangepackagedcore.
+
+- Core38025638157 completed:2,133,268reconcile/API/CSV/perfpass; Mapsprovisionpass/linkscreated, all3browserTimeoutError. Screenshotsreviewed: Create/blankcanvas/InspectorNoRequests. PinnedKibana9.5.5 locator emitslegacyhashroute whileappconsumespathsavedID; coverageownerimplementingversionedcanonicalroutebridge preservingRisonstate. Developmentgatefailure blockedheldout,0trials. Artifactsretainedlocally; independentarchiveinprogress.
+
+- Finalcandidatecheckpoint: exact9.5.5savedpath/hash-Risonbridge, explicitbrowserstage diagnostics; metadataonlyprefixwarmupboundtoexactfrozenrequest,300smax/startupreportedseparately. Runtime24576tokens/nocontextshift; F16KVestimate2.625GiB,actualRSS/HWMrequired. Full548/547pass/1Windows skip43.169s; test-report-v0.7-warmup-route.json. Independentwarmupreview61focusedtests, bindingfixre-reviewpending. Needfreshsmoke+realcore;0heldouttrials.

@@ -28,7 +28,8 @@ from zoneinfo import ZoneInfo
 ROOT = Path(__file__).resolve().parents[1]
 if __package__ in (None, ""):
     sys.path.insert(0, str(ROOT))
-from tools.local_agent import AgentFailure, LocalModel, canonical, endpoint_parts, run_trial
+from tools.local_agent import (AgentFailure, LocalModel, canonical, endpoint_parts, metadata_prefix_request, prefix_warmup_policy,
+                               run_trial, warm_metadata_prefix)
 
 
 QUESTIONS = ROOT / "examples/evaluation/questions-v1.json"
@@ -432,6 +433,10 @@ def runtime_definition(path, model):
             or not isinstance(execution.get("cmake_flags"), list) or not execution["cmake_flags"]
             or not all(isinstance(flag, str) and flag.startswith("-D") for flag in execution["cmake_flags"])):
         raise ValueError("invalid_runtime_definition")
+    try:
+        prefix_warmup_policy(definition)
+    except AgentFailure as exc:
+        raise ValueError(exc.code) from None
     return {"sha256": hashlib.sha256(raw).hexdigest(), "definition": definition}
 
 
@@ -513,6 +518,8 @@ def verify_runtime_receipt(path, frozen, freeze_hash, *, endpoint, seconds, requ
         for flag, expected in expected_flags.items():
             if argv.count(flag) != 1 or argv[argv.index(flag) + 1] != str(expected):
                 raise ValueError()
+        if inference.get("context_shift") is False and (argv.count("--no-context-shift") != 1 or "--context-shift" in argv):
+            raise ValueError()
     except (IndexError, ValueError):
         raise ValueError("runtime_launch_mismatch") from None
     check_owned_runtime_process(receipt, artifact_paths, library_paths)
@@ -537,6 +544,84 @@ def check_archived_runtime_launch(directory, receipt_hash, identity):
         raise ValueError("runtime_launch_receipt_changed")
 
 
+def check_archived_prefix_warmup(directory, warm_hash, launch_hash, frozen, execution_hash):
+    if not all(isinstance(value, str) and re.fullmatch(r"[0-9a-f]{64}", value) for value in (warm_hash, launch_hash)):
+        raise ValueError("prefix_warmup_receipt_missing")
+    path = Path(directory) / ("metadata-prefix-warmup-" + launch_hash + ".json")
+    receipt = load(path)
+    policy = prefix_warmup_policy(frozen["runtime_spec"]["definition"])
+    usage = receipt.get("usage", {})
+    if (sha_file(path) != warm_hash or receipt.get("passed") is not True
+            or receipt.get("schema_version") != 1
+            or receipt.get("evidence_kind") != "metadata_only_model_prefix_warmup"
+            or receipt.get("runtime_receipt_sha256") != launch_hash
+            or receipt.get("runtime_spec_sha256") != frozen["runtime_spec"]["sha256"]
+            or receipt.get("execution_sha256") != execution_hash or receipt.get("model_alias") != frozen["model"]
+            or receipt.get("question_supplied") is not False or receipt.get("analytical_tool_calls") != 0
+            or receipt.get("generated_content_retained") is not False or not policy
+            or not isinstance(usage, dict) or set(usage) != {"prompt_tokens", "completion_tokens", "total_tokens"}
+            or any(type(value) is not int for value in usage.values())
+            or usage.get("prompt_tokens", 0) <= 0 or usage.get("completion_tokens") not in (0, 1)
+            or usage.get("total_tokens") != usage.get("prompt_tokens", 0) + usage.get("completion_tokens", 0)
+            or any(not isinstance(receipt.get(key + "_sha256"), str)
+                   or not re.fullmatch(r"[0-9a-f]{64}", receipt[key + "_sha256"])
+                   or type(receipt.get(key + "_utf8_bytes")) is not int or receipt[key + "_utf8_bytes"] <= 0
+                   for key in ("request", "prefix", "original_descriptor", "projected_descriptor"))
+            or any(type(receipt.get(key)) is not type(value) or receipt.get(key) != value for key, value in policy.items())
+            or type(receipt.get("elapsed_seconds")) not in (int, float)
+            or not 0 <= receipt["elapsed_seconds"] <= policy["request_seconds"]):
+        raise ValueError("prefix_warmup_receipt_changed")
+    expected = frozen.get("prefix_warmup_request")
+    identity_keys = {"context_projection"} | {name + suffix for name in
+                    ("request", "prefix", "original_descriptor", "projected_descriptor") for suffix in ("_sha256", "_utf8_bytes")}
+    if (not isinstance(expected, dict) or set(expected) != identity_keys
+            or any(type(receipt.get(key)) is not type(value) or receipt.get(key) != value for key, value in expected.items())):
+        raise ValueError("prefix_warmup_input_identity_mismatch")
+    return receipt
+
+
+def prefix_warmup_summary(directories):
+    receipts = {}
+    for directory in directories:
+        for path in sorted(Path(directory).glob("metadata-prefix-warmup-*.json")):
+            value = load(path)
+            receipt_hash = sha_file(path)
+            receipts[receipt_hash] = {"sha256": receipt_hash, "file": path.name,
+                                     "passed": value.get("passed") is True,
+                                     "runtime_receipt_sha256": value.get("runtime_receipt_sha256"),
+                                     "elapsed_seconds": value["elapsed_seconds"]}
+    return {"performed": bool(receipts), "receipt_count": len(receipts), "receipts": list(receipts.values()),
+            "startup_seconds_total": sum(item["elapsed_seconds"] for item in receipts.values()),
+            "excluded_from_trial_latency": True,
+            "limitation": "Metadata-only startup is reported separately; completion does not itself prove cache reuse or cold-request latency."}
+
+
+def runtime_memory_snapshot(pid, *, proc_root=Path("/proc")):
+    """Bounded numeric kernel counters; VmHWM is process-lifetime, never trial peak."""
+    result = {"source": "linux_proc_status", "available": False,
+              "observed_at": datetime.now(timezone.utc).isoformat(),
+              "scope": "RSS at observation; HWM since this owned process started, not a trial-specific peak."}
+    if sys.platform != "linux" or type(pid) is not int or pid <= 0:
+        result["reason"] = "unsupported_platform_or_pid"
+        return result
+    try:
+        with (proc_root / str(pid) / "status").open("rb") as stream:
+            raw = stream.read(65537)
+        if len(raw) > 65536:
+            raise ValueError()
+        text = raw.decode("ascii")
+        values = {}
+        for name, target in (("VmRSS", "rss_bytes"), ("VmHWM", "process_lifetime_hwm_bytes")):
+            match = re.search(r"^" + name + r":\s*(\d+)\s+kB\s*$", text, re.MULTILINE)
+            if not match:
+                raise ValueError()
+            values[target] = int(match.group(1)) * 1024
+        result.update(available=True, **values)
+    except (OSError, UnicodeError, ValueError):
+        result["reason"] = "status_unavailable_or_invalid"
+    return result
+
+
 def prepare(config, source, database, output, *, model, questions=QUESTIONS, nta_receipt=NTA_RECEIPT,
             development=False, runtime_spec=RUNTIME_SPEC):
     from analytics311.service import AnalyticsService
@@ -556,6 +641,9 @@ def prepare(config, source, database, output, *, model, questions=QUESTIONS, nta
         if any(term in canonical(manifest).lower() for term in ('"synthetic_fixture"', '"generated_workload"')):
             raise ValueError("real_corpus_required")
     runtime = None if development else runtime_definition(runtime_spec, model)
+    warmup_request = None
+    if runtime and prefix_warmup_policy(runtime["definition"]):
+        _, warmup_request = metadata_prefix_request(service.describe_dataset(), model)
     if Path(output).exists():
         raise ValueError("freeze_exists")
     if not Path(database).exists():
@@ -596,6 +684,7 @@ def prepare(config, source, database, output, *, model, questions=QUESTIONS, nta
                 "created_at": datetime.now(timezone.utc).isoformat(), "development_only": development,
                 "questions_sha256": sha_file(questions), "code_sha256": code_hashes(), "model": model,
                 "runtime_spec": runtime,
+                "prefix_warmup_request": warmup_request,
                 "model_settings": {"temperature": 0.2, "seeds": [101, 202, 303], "max_tokens": 2048},
                 "manifest_sha256": digest(manifest), "catalog_sha256": digest(service.catalog),
                 "database_sha256": sha_file(database), "source": source_info,
@@ -876,11 +965,15 @@ def review(freeze, runs, reviews, output):
                 raise ValueError("duplicate_or_foreign_trial")
             if execution_hash is not None:
                 check_archived_runtime_launch(directory, trial.get("runtime_receipt_sha256"), runtime)
+                if prefix_warmup_policy(frozen["runtime_spec"]["definition"]):
+                    check_archived_prefix_warmup(directory, trial.get("prefix_warmup_sha256"),
+                                                  trial.get("runtime_receipt_sha256"), frozen, execution_hash)
             paths[key] = path
             actual.append(trial)
     if len(execution_ids) > 1:
         raise ValueError("mixed_runtime_or_budgets")
     report = summarize(frozen, actual)
+    report["prefix_warmup"] = prefix_warmup_summary(runs)
     judgments = {}
     for item in supplied.get("reviews", []):
         key = (item.get("question_id"), item.get("repeat"))
@@ -933,11 +1026,13 @@ def run(config, freeze, database, output, *, endpoint, seconds=300, request_seco
         raise ValueError("frozen_inputs_changed")
     freeze_hash = sha_file(freeze)
     runtime = None
+    warmup_policy = None
     if not frozen["development_only"]:
         if frozen.get("runtime_spec") != runtime_definition(runtime_spec, frozen["model"]):
             raise ValueError("frozen_runtime_changed")
         runtime = verify_runtime_receipt(runtime_receipt, frozen, freeze_hash,
                                          endpoint=endpoint, seconds=seconds, request_seconds=request_seconds)
+        warmup_policy = prefix_warmup_policy(frozen["runtime_spec"]["definition"])
     output.mkdir(parents=True, exist_ok=resume)
     model = LocalModel(endpoint, frozen["model"], request_seconds=request_seconds)
     run_identity = {"freeze_sha256": freeze_hash, "model": frozen["model"], "seconds": seconds,
@@ -969,12 +1064,16 @@ def run(config, freeze, database, output, *, endpoint, seconds=300, request_seco
             raise ValueError("resume_trial_mismatch")
         if runtime is not None:
             check_archived_runtime_launch(output, trial.get("runtime_receipt_sha256"), runtime["identity"])
+            if warmup_policy:
+                check_archived_prefix_warmup(output, trial.get("prefix_warmup_sha256"),
+                                              trial.get("runtime_receipt_sha256"), frozen, execution_hash)
         trials.append(trial)
     completed = {(trial["question_id"], trial["repeat"]) for trial in trials}
 
     def save_summary(report):
         # Earlier summaries and every trial remain immutable. Only this convenient
         # latest pointer is replaced during explicit missing-only resumption.
+        report["prefix_warmup"] = prefix_warmup_summary([output])
         snapshot = output / f"summary-{time.time_ns()}.json"
         write_new(snapshot, report)
         temporary = output / f"summary-{time.time_ns()}.tmp"
@@ -988,6 +1087,24 @@ def run(config, freeze, database, output, *, endpoint, seconds=300, request_seco
         report.update(error={"code": exc.code}, freeze_sha256=freeze_hash, development_only=frozen["development_only"])
         save_summary(report)
         return report
+    warmup_hash = None
+    if warmup_policy:
+        warmup_path = output / ("metadata-prefix-warmup-" + runtime["sha256"] + ".json")
+        if not warmup_path.exists():
+            warmup = warm_metadata_prefix(service, model, seconds=warmup_policy["request_seconds"])
+            warmup.update(runtime_receipt_sha256=runtime["sha256"], execution_sha256=execution_hash,
+                          runtime_spec_sha256=frozen["runtime_spec"]["sha256"],
+                          runtime_memory=runtime_memory_snapshot(runtime["receipt"]["owned_server_pid"]))
+            write_new(warmup_path, warmup)
+        warmup = load(warmup_path)
+        if warmup.get("passed") is not True:
+            report = summarize(frozen, trials)
+            report.update(error={"code": "prefix_warmup_failed"}, freeze_sha256=freeze_hash,
+                          development_only=frozen["development_only"], execution_complete=False)
+            save_summary(report)
+            return report
+        warmup_hash = sha_file(warmup_path)
+        check_archived_prefix_warmup(output, warmup_hash, runtime["sha256"], frozen, execution_hash)
     oracle = Oracle(database, service.catalog, frozen["residential_nta_codes"])
     try:
         for repeat, seed in enumerate(frozen["model_settings"]["seeds"], 1):
@@ -1000,6 +1117,7 @@ def run(config, freeze, database, output, *, endpoint, seconds=300, request_seco
                 # Hidden specifications, expected values and other sessions never do.
                 trace = run_trial(service, model, case["question"], seed=seed, seconds=seconds,
                                   untrusted_note=case.get("untrusted_note"))
+                memory = runtime_memory_snapshot(runtime["receipt"]["owned_server_pid"]) if runtime else None
                 try:
                     grade = grade_trial(case, trace, service, oracle)
                 except (OSError, ValueError, KeyError, TypeError, sqlite3.Error, csv.Error) as exc:
@@ -1007,6 +1125,8 @@ def run(config, freeze, database, output, *, endpoint, seconds=300, request_seco
                              "semantic_review": "pending", "end_to_end_pass": False}
                 trial = {"question_id": case["id"], "repeat": repeat, "freeze_sha256": freeze_hash,
                          "execution_sha256": execution_hash,
+                         "prefix_warmup_sha256": warmup_hash,
+                         "runtime_memory": memory,
                          "runtime_receipt_sha256": runtime["sha256"] if runtime else None, "trace": trace, "grade": grade}
                 write_new(output / f"{case['id']}-r{repeat}.json", trial)
                 trials.append(trial)

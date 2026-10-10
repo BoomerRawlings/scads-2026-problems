@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "observed_at": "2026-10-10T05:22:12.814217+00:00",
+  "observed_at": "2026-10-10T04:50:32.905248+00:00",
   "evidence_kind": "focused_implementation_checks",
   "command": "python -m unittest tests.test_agent_evaluation -q",
-  "tests": 61,
-  "passed": 61,
+  "tests": 53,
+  "passed": 53,
   "failures": 0,
   "errors": 0,
   "skipped": 0,
-  "reported_elapsed_seconds": 2.951,
+  "reported_elapsed_seconds": 3.133,
   "fixture_rows": 5,
   "actual_agent_trials": 0,
   "live_services_started": false,
@@ -24,18 +24,15 @@
     "Runtime pin, live-process inventory parser and restart/resume checks use authored files and process metadata; no local model is launched.",
     "Bounded tool-contract feedback and terminal-format retries are checked with authored model messages; real model repair success remains unverified.",
     "Adapter-provided discovery is separately attributed and included in the shared24-call budget; prefix identity and ownership checks do not measure real model cache reuse.",
-    "Public AnalysisSpec schemas validate with JSONschema and public examples; actual pinned llama grammar acceptance remains a separate development-smoke gate.",
-    "Metadata-only startup, deadline, usage, immutable launch-bound receipt/resume, no generated-content/tool execution and process-memory parsing use authored metadata and mock model responses; no actual cache reuse or runtime memory measured locally.",
-    "Prospective24,576-token context derives from independently read pinned GGUF header; storage arithmetic is not a total-memory capacity measurement.",
-    "Independent review required exact warmup input identity binding at prepare; a different-metadata receipt with relabeled runtime identity and recomputed file hash is rejected."
+    "Public AnalysisSpec schemas validate with JSONschema and public examples; actual pinned llama grammar acceptance remains a separate development-smoke gate."
   ],
   "files_sha256": {
-    "tools/agent_evaluation.py": "47716672839816ad43f93fce1b809326bbd61f9d16a0d77f1318d812bdc1c5a2",
-    "tools/local_agent.py": "7ce9b65e737da9a428c1adb21b227fe707a2a9a6f1bf910b4a4ad4af863f9173",
+    "tools/agent_evaluation.py": "4a3ed2177f52ec420ce74ddccfa443143d9c437456f121df31ffb1325a02c36f",
+    "tools/local_agent.py": "7b1a9aa50556d6d713e3e10227cffae0c9ea8008d0bdee1d65869bbecf9e22dc",
     "examples/evaluation/questions-v1.json": "ed05a71b10fabe0a94dbd3b76e53d8751f10c6021b420e93d61ac634c634c132",
-    "tests/test_agent_evaluation.py": "985f589349eff6298cf4454eefc557e4c045bf503ff8fc45d6bd20f8026a620c",
-    "docs/agent-evaluation.md": "0a041dc303dda2f4a05e978e9497362deeb70dc8f56543ff1e1068cc7f9edf13",
-    "docs/local-model-runtime.json": "2ff41f3779e8c2e342281239f06a22130474f622ab487ffdc2530e5e510a37d9"
+    "tests/test_agent_evaluation.py": "d65ff713ab70d10c0173edcf8a37f367bd490467e1d88e370cfd4495cfcd76bd",
+    "docs/agent-evaluation.md": "2cb66f6c466152da18155d194a50b335b7bccad043ec61f51b6117a575bab4a9",
+    "docs/local-model-runtime.json": "661569ca45a1e2eaaa7e178209d3349dc27cab86351444cbea5be1d3d3c49937"
   },
   "context_projection": {
     "version": "discovery-rules-v1",
@@ -61,14 +58,5 @@
     "receipt": "examples\\evidence\\matching-dataset-reference-real-results.json",
     "sha256": "21ffef2127f6e9debc14fe52a6e991371b8e6f908b99dda49078800d2af75f81",
     "actual_model_rerun": false
-  },
-  "prefix_warmup": {
-    "policy": "metadata-prefix-v1",
-    "request_seconds": 300,
-    "max_output_tokens": 1,
-    "seed": 0,
-    "actual_model_rerun": false,
-    "cold_failure_receipt": "examples/evidence/qwen3-1-7b-development-cold-prefix-failure.json",
-    "context_estimate_receipt": "examples/evidence/qwen3-1-7b-context-budget.json"
   }
 }

@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "evidence_kind": "actual_model_development_candidate_failure",
+  "source_run": {
+    "id": 38025617751,
+    "url": "https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/38025617751"
+  },
+  "passed": false,
+  "actual_agent_trials": 1,
+  "held_out_evaluation": false,
+  "real_data_acceptance": false,
+  "model_alias": "analytics311-qwen3-1-7b",
+  "runtime_spec_sha256": "661569ca45a1e2eaaa7e178209d3349dc27cab86351444cbea5be1d3d3c49937",
+  "code_sha256": {
+    "analytics311/__init__.py": "010dabac662e1135b14a8a5fa508468aaf641a4980262b3c34524ca312cd545d",
+    "analytics311/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "analytics311/capacity.py": "35d9ff679dffc7d02c314d4f71984240341bb42e1983d2029cfe00bd7bd00224",
+    "analytics311/capture.py": "8897af4c877c206cddb92707b973d5f7fe5f62b558c4eb625a8f382c43fadf02",
+    "analytics311/cli.py": "c2c0c9299220ee81dc931cfe7529dce7b5843aa94b67dea4b642584deeb4a389",
+    "analytics311/compiler.py": "d64685b83ddb6727145c8166f87586226d10f348147e094da124d780572390b2",
+    "analytics311/contracts.py": "77380332b2dd25e2aa367cc9f08680b5ece02d29bfe5bd9cd9eb22b77b58e596",
+    "analytics311/elastic.py": "4bbbe82d73038c3fff69cbcdae1f1ed4d86292b57706158c0bebe5f1cac1bcc7",
+    "analytics311/errors.py": "d61e9b5d5b14716720477a9cf1005f377ca79ab4b61f6ca61d6822c7d51d5414",
+    "analytics311/fixture.py": "b4f303e4fa7e53e9974491964c9524187ba485283d75e12a5c3d48ae5b8a6487",
+    "analytics311/geography.py": "b066038c1105047fbb1025cba4efb2ca82e35679fd27afadb51e30734621baf5",
+    "analytics311/guide.py": "45d4d9b54e6e662d9268c4dcbd333711d3b16007b58e97d6eb86481d156962aa",
+    "analytics311/ingest.py": "632caee86a4230d4ba50c05d782902d7d1f7782fe348526f63872ded7a7585e4",
+    "analytics311/jobs.py": "93ce4a241abe484408ce1f606a120b6cd614c8f8757e2cedb3a9155d28da7b75",
+    "analytics311/maps.py": "8f446c6ce566139ae82c9b07adcefedd9e71b4f5e5853dc148a34c70eb9eb80d",
+    "analytics311/mcp_server.py": "72d7794ec72782b1b0198327a20ff20210abe1febeef7736a22edccefcc55526",
+    "analytics311/metadata_io.py": "7a765bd91b5275f76e743a78c869a99c7c3d3736a21c15b7ed789c73c71ba556",
+    "analytics311/qualification.py": "31161ced2c85089ce643bae30845b29a340eb47d2e7c8f6fbf430a673cfe2582",
+    "analytics311/resources.py": "b89b3e2b8561593561d72b31994ff4072b149c8f9df764b26161e972511aa6b3",
+    "analytics311/service.py": "c3b34b4547151a04760ab0925dd8ea318add316c068d04fcda603b339a874663",
+    "analytics311/settings.py": "70a9422e36659bcd9f2e6b9e00615b098e147bc55e06497a8abc3c898c5eb3d4",
+    "analytics311/trend_maps.py": "982ab45bb5368a08764a1f7ee0717f30e656029c3167100b35d594439c7f980f",
+    "analytics311/workloads.py": "3782154b92087ecdb87a8a25cfaaf2b5810cb762635fcf14d885a7369f034819",
+    "tools/agent_evaluation.py": "4a3ed2177f52ec420ce74ddccfa443143d9c437456f121df31ffb1325a02c36f",
+    "tools/local_agent.py": "7b1a9aa50556d6d713e3e10227cffae0c9ea8008d0bdee1d65869bbecf9e22dc"
+  },
+  "budgets": {
+    "seconds": 160,
+    "request_seconds": 120,
+    "max_calls": 24
+  },
+  "trial": {
+    "elapsed_seconds": 120.003281,
+    "status": "failed",
+    "error": {
+      "code": "model_timeout"
+    },
+    "final": null,
+    "calls": 1,
+    "adapter_calls": 1,
+    "model_calls": 0
+  },
+  "checks": {
+    "finished": false,
+    "answered": false,
+    "discovered_first": true,
+    "executed_unfiltered_count": false,
+    "numeric_evidence": false,
+    "cited_result": false,
+    "synthetic_label": false
+  },
+  "received_model_responses": 0,
+  "sanitized_server_prompt_progress": [
+    {
+      "processed_tokens": 2048,
+      "progress_fraction": 0.28,
+      "elapsed_seconds": 38.53,
+      "tokens_per_second": 53.15
+    },
+    {
+      "processed_tokens": 4096,
+      "progress_fraction": 0.56,
+      "elapsed_seconds": 85.48,
+      "tokens_per_second": 47.92
+    }
+  ],
+  "actual_raw_tokenization": {
+    "scope": "Raw text tokenization of actual real-corpus metadata only; no questions, oracle, chat-template overhead or inference.",
+    "model_alias": "analytics311-qwen3-1-7b",
+    "descriptor_sha256": "9fbe5dc908b1f86eb43974652f2d4c0da48c289cdd6e62f2b3bcc462ca6ddb48",
+    "parts": {
+      "real_descriptor": {
+        "utf8_bytes": 14732,
+        "tokens": 4704
+      },
+      "system": {
+        "utf8_bytes": 2525,
+        "tokens": 514
+      },
+      "tool_schemas": {
+        "utf8_bytes": 14817,
+        "tokens": 3552
+      }
+    }
+  },
+  "native_microbenchmark": [
+    {
+      "prompt_tokens": 512,
+      "generated_tokens": 0,
+      "tokens_per_second": 59.824654
+    },
+    {
+      "prompt_tokens": 0,
+      "generated_tokens": 32,
+      "tokens_per_second": 30.86554
+    }
+  ],
+  "source_files": {
+    "runs/model-smoke-38025617751/summary.json": {
+      "bytes": 4127,
+      "sha256": "6db381252a3dbe1a6703f986cd7e6d10bd88a5e736c1107a690eca8b2466a019"
+    },
+    "runs/model-smoke-38025617751/trace.json": {
+      "bytes": 27148,
+      "sha256": "2e26b469eb24e7bb93c292fe3ee079b1aa793e62434c412c143cc1892258747d"
+    },
+    "runs/model-smoke-38025617751/runtime/model-assets.json": {
+      "bytes": 3085,
+      "sha256": "aebab66a394c1fb367f0271eb51ca541be3da89e74a4725eae743c617d80a540"
+    },
+    "runs/model-smoke-38025617751/runtime/native-build.json": {
+      "bytes": 219,
+      "sha256": "68499baa2bd859d46e7c654e09d65f962d2899192e520561f62b28dd89996d44"
+    },
+    "runs/model-smoke-38025617751/runtime/real-metadata-tokenization.json": {
+      "bytes": 512,
+      "sha256": "813f0442273eb98550ec41d6942f89e6723287dbac08734592710e3d63322f10"
+    },
+    "runs/model-smoke-38025617751/runtime/model-server-tail.txt": {
+      "bytes": 1570,
+      "sha256": "a4c7e976d6906c40cde5efd6d4f1af3eb6096e03854abbe0fd9e3919d7284faa"
+    },
+    "runs/model-smoke-38025617751/runtime/native-benchmark.json": {
+      "bytes": 2362,
+      "sha256": "356b180ba9a7891334afdc76b2549b31a308773cc4098711d732265e0b51f1f2"
+    },
+    "runs/model-smoke-38025617751/runtime/native-resources.txt": {
+      "bytes": 865,
+      "sha256": "43af8d95650366700fa5b6f0a67155f7ae58c72027f1cf23a1aaac8abd586366"
+    }
+  },
+  "limits": [
+    "One authored development question over32synthetic records, not held-out evaluation.",
+    "Cold full-schema request timed out before any model response or successful analysis; failure preserved.",
+    "Raw tokenizer counts exclude chat-template overhead; benchmark512-token prefill is not cold chat latency.",
+    "Measured metadata-only prefix warmup and24,576-token context were selected prospectively after this failure; no held-out trials had executed."
+  ]
+}

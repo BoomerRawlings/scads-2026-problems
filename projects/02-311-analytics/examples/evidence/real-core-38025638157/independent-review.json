@@ -1,0 +1,253 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-10T05:11:56.033650+00:00",
+  "review_source_sha256": "2d160cea97c5149799c207e604ee51eb383cf20720249c870eb12605dccb4a6e",
+  "method": "Offline independent arithmetic, nested numerical comparisons, identity/hash reconciliation, and actual retained CSV set comparisons. No service, model, raw-corpus or SQLite recomputation.",
+  "workflow": {
+    "run_id": 38025638157,
+    "url": "https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/38025638157",
+    "head_sha": "03fd0c094f99396f9af1106823811c3a5c5d1c55",
+    "conclusion": "failure"
+  },
+  "checks": {
+    "raw_normalized_index_counts_reconcile": true,
+    "hash_provenance_chain": true,
+    "qualification_seals": true,
+    "official_nta_identity_and_residential_codes": true,
+    "five_api_cases_match_retained_independent_oracle": true,
+    "thirty_five_performance_results_match_checked_api_cases": true,
+    "latency_summary_arithmetic": true,
+    "four_full_exports_match_exact_independent_ids": true,
+    "point_and_selected_all_trend_csv_parity": true,
+    "failed_streaming_job_matches_recovery": true,
+    "provision_receipt_matches_generated_profile": true,
+    "three_browser_map_failures_preserved": true,
+    "browser_search_records_and_screenshots_reviewed": true
+  },
+  "maximum_absolute_numeric_difference": 2.842170943040401e-14,
+  "review_relative_tolerance": 1e-10,
+  "review_absolute_tolerance": 1e-09,
+  "record_reconciliation": {
+    "captured": 3,
+    "normalized": 2133268,
+    "ingested": 2133268,
+    "frozen_index": 2133268,
+    "oracle": 2133268
+  },
+  "export_artifacts": [
+    {
+      "job_id": "1a298a7af9c3499ba4b8ef3b1ce2a1cc",
+      "bytes": 1139937,
+      "rows": 9728,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c",
+      "exact_membership_equal": true
+    },
+    {
+      "job_id": "342b7feebb154a1fa783190fc8e6d7d2",
+      "bytes": 1139937,
+      "rows": 9728,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c",
+      "exact_membership_equal": true
+    },
+    {
+      "job_id": "55c919ac349846808db34bdfbcb3bc43",
+      "bytes": 1139937,
+      "rows": 9728,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c",
+      "exact_membership_equal": true
+    },
+    {
+      "job_id": "c9e186633bdb4436930605f0865077eb",
+      "bytes": 1139937,
+      "rows": 9728,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c",
+      "exact_membership_equal": true
+    }
+  ],
+  "maps": {
+    "provision_passed": true,
+    "rendered_parity_verified": false,
+    "render_failures": {
+      "points": {
+        "stage": "browser",
+        "code": "acceptance_failed",
+        "type": "TimeoutError",
+        "csv_rows": 242,
+        "browser_reached": true,
+        "captured_data_searches": 0,
+        "captured_metadata_searches": 1,
+        "screenshot_observation": "Maps/Create breadcrumb, filter chip, empty map canvas and Inspector No requests logged; no rendered request geometry or trend joins visible."
+      },
+      "trends": {
+        "stage": "browser",
+        "code": "acceptance_failed",
+        "type": "TimeoutError",
+        "csv_rows": 196,
+        "browser_reached": true,
+        "captured_data_searches": 0,
+        "captured_metadata_searches": 1,
+        "screenshot_observation": "Maps/Create breadcrumb, filter chip, empty map canvas and Inspector No requests logged; no rendered request geometry or trend joins visible."
+      },
+      "selected_trends": {
+        "stage": "browser",
+        "code": "acceptance_failed",
+        "type": "TimeoutError",
+        "csv_rows": 3,
+        "browser_reached": true,
+        "captured_data_searches": 0,
+        "captured_metadata_searches": 1,
+        "screenshot_observation": "Maps/Create breadcrumb, filter chip, empty map canvas and Inspector No requests logged; no rendered request geometry or trend joins visible."
+      }
+    }
+  },
+  "sampled_memory": {
+    "samples": 5,
+    "runner_max_rss_bytes": 125046784,
+    "node_heap_max_observed_bytes": 1609966624,
+    "node_heap_configured_bytes": 2147483648,
+    "worker_max_sampled_rss_bytes": 31997952,
+    "workers_max_sampled_total_rss_bytes": 59256832,
+    "fault_worker_self_reported_rss_bytes": 33845248
+  },
+  "preserved_originals": [
+    {
+      "file": "acceptance.json",
+      "source": "runs/real-core-38025638157/real-v1/acceptance.json",
+      "bytes": 3263,
+      "sha256": "678f5e8c4d360b078b219b5882d91f00a2388ee79fcce2aa412ebd5f97ba5be1"
+    },
+    {
+      "file": "normalized.manifest.json",
+      "source": "runs/real-core-38025638157/real-v1/normalized.manifest.json",
+      "bytes": 5154,
+      "sha256": "a110e9f0f3223877fbf29cfa4aba106d34864684ce7cbcc1f9d08df191547bc1"
+    },
+    {
+      "file": "index.manifest.json",
+      "source": "runs/real-core-38025638157/real-v1/index.manifest.json",
+      "bytes": 7578,
+      "sha256": "c4213fe766d2e9d7173a15a7a14b930932d1c1034743c152076b43de5e2dcea8"
+    },
+    {
+      "file": "ingest.json",
+      "source": "runs/real-core-38025638157/real-v1/ingest.json",
+      "bytes": 750,
+      "sha256": "6b1a4379bbc74e99b2f40bf90b6f0b6910d63c01e49f543b14c3d75812ef21b6"
+    },
+    {
+      "file": "measurement-suite.json",
+      "source": "runs/real-core-38025638157/real-v1/measurement-suite.json",
+      "bytes": 4369,
+      "sha256": "9affb148b108e27e56eba2b2fd629a78ca6822a065927cc43aa6d8def0ac07ea"
+    },
+    {
+      "file": "measurements.json",
+      "source": "runs/real-core-38025638157/real-v1/measurements.json",
+      "bytes": 27417,
+      "sha256": "0b15ca4fd72d59e77e1496976dc6daeabcba354987929fcb9d040faab1392b36"
+    },
+    {
+      "file": "maps-provision.json",
+      "source": "runs/real-core-38025638157/real-v1/maps-provision.json",
+      "bytes": 779,
+      "sha256": "5878426d0c271812de2384414a3f371e125e3589655baaf6ed3b5726f69cf7ed"
+    },
+    {
+      "file": "catalog.json",
+      "source": "runs/real-core-38025638157/real-v1/catalog.json",
+      "bytes": 3704,
+      "sha256": "220926b186aa38f0292d7e2f789e8186a026b27a6e6c366297cf0a472ec7629b"
+    },
+    {
+      "file": "host.json",
+      "source": "runs/real-core-38025638157/runtime/host.json",
+      "bytes": 1364,
+      "sha256": "c9ab14be5ba93f90e624f99a6543f848b27fc4d33c3511766f3fa319e5a7ea44"
+    },
+    {
+      "file": "elasticsearch-version.json",
+      "source": "runs/real-core-38025638157/runtime/elasticsearch-version.json",
+      "bytes": 540,
+      "sha256": "21dd06764b1fc0e0fb836e579b731519ba3f51cac5709db262715b38b4f82d87"
+    },
+    {
+      "file": "kibana-status.json",
+      "source": "runs/real-core-38025638157/runtime/kibana-status.json",
+      "bytes": 23141,
+      "sha256": "c2c353d91cbf1a315868b33f77df26722a979d7b5fbbb7df278daf0ae212e6b6"
+    },
+    {
+      "file": "render-points.json",
+      "source": "runs/real-core-38025638157/real-v1/render-points/receipt.json",
+      "bytes": 767,
+      "sha256": "6b6e0399cbd8c211506985b1c17303e0d994a893c6681a41c6193af85798bae1"
+    },
+    {
+      "file": "render-trends.json",
+      "source": "runs/real-core-38025638157/real-v1/render-trends/receipt.json",
+      "bytes": 778,
+      "sha256": "f0436bb036b6c7b9496c2f21a3380f502a691066268e2dd9b27f1c1eec189bd9"
+    },
+    {
+      "file": "render-selected_trends.json",
+      "source": "runs/real-core-38025638157/real-v1/render-selected_trends/receipt.json",
+      "bytes": 779,
+      "sha256": "933341a88352fa680897826a8e72b610fe95921a4f3717405f2a88c873283e63"
+    },
+    {
+      "file": "browser-searches-points.json",
+      "source": "runs/real-core-38025638157/real-v1/render-points/browser-searches.json",
+      "bytes": 196,
+      "sha256": "04f6151f2ee2691eafdf00eaf209fe8506554220d1be9691428b13742442169d"
+    },
+    {
+      "file": "render-points-failure.png",
+      "source": "runs/real-core-38025638157/real-v1/render-points/failure.png",
+      "bytes": 72050,
+      "sha256": "accb23b2b31bbfd50857dee3297f59aa06addbc5eab1370b5671942af41b8380"
+    },
+    {
+      "file": "browser-searches-trends.json",
+      "source": "runs/real-core-38025638157/real-v1/render-trends/browser-searches.json",
+      "bytes": 196,
+      "sha256": "04f6151f2ee2691eafdf00eaf209fe8506554220d1be9691428b13742442169d"
+    },
+    {
+      "file": "render-trends-failure.png",
+      "source": "runs/real-core-38025638157/real-v1/render-trends/failure.png",
+      "bytes": 73077,
+      "sha256": "2eebd1ec9835ac8652988a15566428f2699b3b66d51e4f6ebe1fc946373f45c8"
+    },
+    {
+      "file": "browser-searches-selected_trends.json",
+      "source": "runs/real-core-38025638157/real-v1/render-selected_trends/browser-searches.json",
+      "bytes": 196,
+      "sha256": "04f6151f2ee2691eafdf00eaf209fe8506554220d1be9691428b13742442169d"
+    },
+    {
+      "file": "render-selected_trends-failure.png",
+      "source": "runs/real-core-38025638157/real-v1/render-selected_trends/failure.png",
+      "bytes": 73348,
+      "sha256": "f10a40fe23db49af09c3c3cc382f7cb0e1265e9e0bcda15ab6fb48724e0f7f23"
+    }
+  ],
+  "excluded_artifacts": [
+    "raw or normalized record files",
+    "individual oracle IDs and point expectation",
+    "saved record previews",
+    "CSV record bodies",
+    "locks",
+    "unexecuted agent freeze"
+  ],
+  "limitations": [
+    "Local review validates retained evidence, not a rerun of Elasticsearch or complete re-normalization.",
+    "SQLite oracle shares normalization and NTA assignments; this does not independently prove spatial assignment correctness.",
+    "Five analytical cases, 25 serial repeats and two batches of five queries; total measured workload 3.711 seconds with previously queried index and uncontrolled caches.",
+    "Nine-column exports checked complete IDs, headers and byte stability; non-ID cells lack an independent cell-by-cell real-corpus oracle.",
+    "Sampled heap and RSS are not peak capacity; node process metric is virtual memory, not RSS; Kibana and ingestion peak memory unmeasured.",
+    "Recovery is one abrupt local export worker exit at first-row streaming; not server/index/node or mid-bulk-ingestion recovery.",
+    "Maps provisioning and link-stage count checks completed; all three browser paths timed out. Failure screenshots show Maps/Create, empty canvas and Inspector No requests logged. Captured browser-search records contain only index-pattern metadata lookup. No rendered geometry, IDs, joined values or exact browser filters passed verification. Local review does not repeat the browser session or establish the eventual defect cause.",
+    "Frozen questions are not model trials. No held-out model outcome or end-to-end conversational latency.",
+    "Source before/after reconciliation is observed-corpus qualification, not transactional isolation or complete citywide reporting."
+  ]
+}

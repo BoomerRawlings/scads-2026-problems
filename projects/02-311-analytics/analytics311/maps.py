@@ -2,6 +2,7 @@
 import copy
 import ipaddress
 import json
+import math
 import os
 import re
 from urllib.error import HTTPError, URLError
@@ -83,29 +84,78 @@ def _verify_data_view(client, data_view_id, index):
         raise AnalyticsError("invalid_configuration", "Kibana data view must have no time field; all date selection belongs to the saved DSL")
 
 
-def _create_locator_link(client, payload):
-    """Bridge browser-only Maps locators through Kibana's server URL locator.
+def _rison(value, depth=0):
+    """Encode JSON state without changing strings or DSL structure.
 
-    Maps 9.5.5 registers MAPS_APP_LOCATOR in the browser, so passing it directly
-    to the server short-URL API returns 409. The public /app/r redirect resolves
-    the exact versioned locator state in the browser, without reimplementing
-    Maps' Rison URL encoding or altering any query/filter.
+    Quoted identifiers are valid Rison; always quoting avoids identifier rules.
+    Compatibility fixtures are decoded by Kibana's pinned rison-node 2.1.1.
     """
+    if depth > 48:
+        raise AnalyticsError("invalid_configuration", "Map URL state exceeds nesting budget")
+    if value is None: return "!n"
+    if type(value) is bool: return "!t" if value else "!f"
+    if isinstance(value, str): return "'" + value.replace("!", "!!").replace("'", "!'") + "'"
+    if type(value) in (int, float):
+        if type(value) is float and not math.isfinite(value):
+            raise AnalyticsError("invalid_configuration", "Map URL state requires finite numbers")
+        return str(value).replace("e+", "e")
+    if isinstance(value, list):
+        return "!(" + ",".join(_rison(item, depth + 1) for item in value) + ")"
+    if isinstance(value, dict) and all(isinstance(key, str) for key in value):
+        return "(" + ",".join(_rison(key, depth + 1) + ":" + _rison(item, depth + 1)
+                              for key, item in value.items()) + ")"
+    raise AnalyticsError("invalid_configuration", "Map URL state must contain only JSON values")
+
+
+def _saved_map_url_955(payload):
+    """9.5.5 locator/router compatibility bridge; see docs/live-maps.md.
+
+    The upstream locator emits /map#/ID, but the router matches /map first.
+    MapApp still reads _a/_g from the hash query, even on the new path route.
+    Fail closed on parameters this bounded bridge has not qualified.
+    """
+    params = payload.get("params", {})
+    allowed = {"mapId", "query", "filters", "timeRange", "refreshInterval"}
+    if payload.get("locatorId") != "MAPS_APP_LOCATOR" or not isinstance(params, dict) or set(params) - allowed:
+        raise AnalyticsError("invalid_configuration", "Unsupported Kibana 9.5.5 Maps locator parameters")
+    identifier = params.get("mapId")
+    if not isinstance(identifier, str) or not identifier or identifier in (".", "..") or len(identifier) > 255:
+        raise AnalyticsError("invalid_configuration", "A saved map ID is required")
+    app, global_state = {}, {}
+    if params.get("query") is not None: app["query"] = params["query"]
+    filters = params.get("filters", [])
+    if not isinstance(filters, list) or any(not isinstance(item, dict) or
+                                            not isinstance(item.get("$state", {}), dict) for item in filters):
+        raise AnalyticsError("invalid_configuration", "Map filters must be JSON objects")
+    if filters:
+        pinned = lambda item: item.get("$state", {}).get("store") == "globalState"
+        app["filters"] = [item for item in filters if not pinned(item)]
+        global_state["filters"] = [item for item in filters if pinned(item)]
+    if params.get("timeRange") is not None: global_state["time"] = params["timeRange"]
+    if params.get("refreshInterval") is not None: global_state["refreshInterval"] = params["refreshInterval"]
+    state = urlencode({"_g": _rison(global_state), "_a": _rison(app)}, quote_via=quote)
+    return "/app/maps/map/" + quote(identifier, safe="") + "#/?" + state
+
+
+def _create_locator_link(client, payload):
+    """Store a browser navigation in Kibana's server-registered URL locator."""
     status = client.request("/api/status", method="GET")
     version = status.get("version", {}).get("number")
     if not isinstance(version, str) or len(version) > 64 or not re.fullmatch(r"\d+\.\d+\.\d+(?:-[A-Za-z0-9.-]+)?", version):
         raise AnalyticsError("backend_unavailable", "Kibana locator links require the actual version.number from /api/status; configure status access")
-    redirect = "/app/r/?" + urlencode({"l": payload["locatorId"], "v": version,
-                                      "p": json.dumps(payload["params"], separators=(",", ":"), allow_nan=False)})
+    redirect = (_saved_map_url_955(payload) if version == "9.5.5" else
+                "/app/r/?" + urlencode({"l": payload["locatorId"], "v": version,
+                                        "p": json.dumps(payload["params"], separators=(",", ":"), allow_nan=False)}))
     request = {"locatorId": "LEGACY_SHORT_URL_LOCATOR", "params": {"url": redirect}}
     response = client.request("/api/short_url", request)
     identifier = response.get("id")
     if not isinstance(identifier, str) or not identifier or len(identifier) > 255:
         raise AnalyticsError("backend_unavailable", "Kibana did not return a short URL object ID")
     # /goto resolves object IDs and performs a full navigation for this legacy
-    # wrapper, ensuring the browser locator redirect app mounts afresh.
+    # wrapper, including the exact-version canonical saved-map route.
     return {"url": client.url + client.prefix + "/goto/" + quote(identifier, safe=""),
-            "short_url_request": request, "short_url_id": identifier, "locator_version": version}
+            "short_url_request": request, "short_url_id": identifier, "locator_version": version,
+            "navigation_contract": "saved-map-path-hash-state-9.5.5" if version == "9.5.5" else "browser-locator"}
 
 
 def build_map_request(service, saved, mode, cohort_scope, selected):

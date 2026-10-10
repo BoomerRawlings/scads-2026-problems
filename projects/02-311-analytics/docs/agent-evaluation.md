@@ -203,6 +203,48 @@ runtime identity; artifact content hashes remain mandatory. Review rejects mixed
 execution identities or altered/missing launch receipts. Changing a budget or
 model after failures requires a separate declared study, never replacement trials.
 
+The prospective runtime pin now declares `inference.prefix_warmup` with policy
+`metadata-prefix-v1`, a 300-second startup bound, seed 0 and one output token.
+After runtime identity verification, the adapter makes one metadata-only model
+request for each owned-server launch. Its messages are exactly the timed trial's
+system, fixed discovery tool-call envelope and actual projected discovery response,
+before any user question. Tools, temperature and nonthinking template settings
+match normal inference. No question, oracle, analysis or prior result enters this
+request. Generated text and tool calls are discarded without execution. Positive
+prompt-token usage and at most one completion token are required; malformed or
+failed warmup responses stop the campaign before any timed trial.
+
+The immutable `metadata-prefix-warmup-<launch-receipt-sha256>.json` records measured
+startup time, exact request/prefix/descriptor hashes and byte counts, server timing
+counters, usage and any error. Each trial cites its warmup receipt hash. Startup,
+resume and review require exact equality with the expected request, prefix and original/
+projected descriptor identities stored during `prepare`; a receipt for different
+metadata cannot qualify by merely relabeling its runtime fields. The same pure
+builder supplies these identities at freeze and actual startup, without inference.
+A resumed same-server segment reuses the receipt; a new server launch requires a new measured
+warmup. Failed receipts are retained and never silently retried. Summaries report
+startup totals separately from trial latency; all work inside `run_trial`, including
+its own metadata discovery, remains under the original trial deadline. The absence
+of this explicit runtime policy retains the cold execution path.
+
+This models a persistent local service with separately measured startup. It does
+not establish cold-request latency or guarantee cache reuse; inspect actual server
+cache counters and wall time. The cold full-schema development failure remains in
+`examples/evidence/qwen3-1-7b-development-cold-prefix-failure.json`; its exact old
+runtime pin is `docs/local-model-runtime-qwen3-1-7b-cold.json`. No held-out question
+had been executed when this startup policy was chosen.
+
+The same prospective pin sets a 24,576-token context and disables context shifting;
+the evaluator requires `--no-context-shift` in the owned server's launch arguments.
+Pinned GGUF header metadata reports 28 layers, 8 KV heads and 128 dimensions for
+each key/value head. With F16 K/V, cache storage alone is estimated at 2.625 GiB,
+896 MiB above a 16,384-token context. This excludes weights, compute buffers and
+other services and is not a measured capacity guarantee. The header verification
+and arithmetic are retained in `examples/evidence/qwen3-1-7b-context-budget.json`.
+After warmup and each trial, bounded `/proc/PID/status` reads record the verified
+owned process's RSS and process-lifetime VmHWM. These are snapshots and a lifetime
+high-water mark, not per-trial peak measurements; missing counters stay unavailable.
+
 Defaults: 300 seconds per trial, 90 seconds per model request, 24 tool calls,
 2,048 output tokens per request, 256 KiB serialized request context, 1 MiB model
 response, and 8 MiB transcript. The CLI example uses the prospective study's

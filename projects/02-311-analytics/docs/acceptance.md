@@ -11,7 +11,7 @@ remain in [the historical v0.6 record](acceptance-v0.6.md).
 | --- | --- | --- |
 | Actual ≥2 million requests | All five stages reconcile2,133,268 rows; full raw and normalized hashes, ingested byte offset and frozen index UUID recorded | Acquisition/count target met for this captured window |
 | Neighborhood comparisons | Official262 NTA polygons/197 residential codes; qualified observed window; June/October rodent comparison matches independent SQL across196 represented neighborhoods | Agent-led chained comparisons and rendered neighborhood maps; population completeness remains unclaimed |
-| Elasticsearch/Kibana | Elasticsearch9.5.5 real-corpus filter/group/closure/geo/comparison parity and exact CSV membership passed; second run provisioned reusable point/trend maps and262 boundaries in Kibana9.5.5 | All three map checks stopped at link creation before browser rendering; rendered filters/values/membership unverified |
+| Elasticsearch/Kibana | Elasticsearch9.5.5 real-corpus filter/group/closure/geo/comparison parity and exact CSV membership passed; reusable point/trend maps and262 boundaries provisioned; third run reached the browser | All three browser checks timed out with an empty Maps/Create canvas; rendered filters/values/membership unverified |
 | Actual agent |40 prospective AI-authored questions, independent SQLite oracle,3 repetitions, chained analyses and retained failures implemented | Execute120 real model trials, independent semantic review and report actual threshold outcome |
 | Usable performance | Actual4CPU/16.77GB host:25 serial queries, two5-query batches,9,728-row exports, sampled memory and one abrupt worker recovery passed | Broader sustained load, cold cache, end-to-end model latency and server recovery remain unqualified |
 | Two paper descriptions | Corrected administrative closure versus first response; separate Maps processing and CSV-worker paths; changed pages visually checked | Website remains its earlier published edition until separately republished |
@@ -26,6 +26,49 @@ remain in [the historical v0.6 record](acceptance-v0.6.md).
 - [Evaluator implementation checks](../examples/evidence/agent-evaluator-v1-checks.json):53 focused tests passed in3.133seconds. These use an authored tiny corpus and mock model; they are not the actual120-trial experiment or native model grammar qualification.
 
 ## Real-corpus execution and independent receipt review
+
+The third [core run38025638157](https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/38025638157)
+executed commit`03fd0c094f99396f9af1106823811c3a5c5d1c55` on2026-10-10,
+04:56:56–05:08:26UTC. Its [acceptance receipt](../examples/evidence/real-core-38025638157/acceptance.json)
+retains both overall flags false. The same2,133,268 rows and raw/normalized hashes
+reconcile across all five stages; frozen index UUID`_U8LIYhTRiSH69BdO3yTBw`.
+Normalization took155.052s and ingestion/freeze301.047s. Observed-snapshot
+qualification and its population/transaction-isolation limitations remain unchanged.
+
+[Maps provisioning](../examples/evidence/real-core-38025638157/maps-provision.json)
+again passed. Links were created and source/published-group count checks completed.
+All three [point](../examples/evidence/real-core-38025638157/render-points.json),
+[all-trend](../examples/evidence/real-core-38025638157/render-trends.json) and
+[selected-trend](../examples/evidence/real-core-38025638157/render-selected_trends.json)
+browser checks then failed with `TimeoutError`. Reviewed screenshots show the
+Maps/Create breadcrumb, a filter chip, empty canvas and Inspector reporting no
+requests. The captured search records contain only index-pattern metadata lookup.
+This establishes browser navigation, not loading the intended saved layers or
+correct DSL, rendered geometry, membership or joins. The exact
+[point screenshot](../examples/evidence/real-core-38025638157/render-points-failure.png),
+[trend screenshot](../examples/evidence/real-core-38025638157/render-trends-failure.png)
+and [selected screenshot](../examples/evidence/real-core-38025638157/render-selected_trends-failure.png)
+remain archived. The suspected locator defect requires a corrected live run.
+
+Third-run [measurements](../examples/evidence/real-core-38025638157/measurements.json)
+again include25 serial queries and two five-query batches. Median/maximum
+milliseconds: filter22.237/28.918, group45.513/98.267, closure24.338/29.240,
+geo25.050/29.652 and comparison71.292/103.995. Batches took0.174s at concurrency1
+and0.126s at2. The9,728-row export took0.696s alone,0.800s for two together and
+0.594s after actual first-row exit86/recovery; all four CSVs retain the same exact
+independent membership and bytes. Recovery call0.0137s excludes detection and
+re-export. Total measured workload3.711s; five periodic samples observed runner
+RSS125,046,784B and Elasticsearch heap1,609,966,624B. These remain finite,
+uncontrolled-cache observations, not peak capacity or an optimization comparison.
+
+The [independent offline review](../examples/evidence/real-core-38025638157/independent-review.json)
+rechecked provenance/counts, certificate seals, all five saved results,35 measured
+result digests, four full CSV memberships, point/trend CSVs and timing arithmetic.
+Maximum numeric difference2.84e-14; no new analytical mismatch found. The compact
+archive contains19 JSON receipts and three unchanged failure screenshots,
+407,699 bytes total. No raw corpus, individual-ID lists or CSV bodies were copied.
+Further Maps repairs require renewed live checks and source-matching packaging;
+the r2 bundle receipt below qualifies only its recorded source.
 
 The second [core run38004540380](https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/38004540380)
 executed commit`78bae7eac0e33d28deb0cb404295f6f900a85db7` on2026-10-09,

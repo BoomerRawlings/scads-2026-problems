@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "purpose": "Prospective fourth development candidate: smaller Qwen3-1.7B via the pinned Unsloth Q4_K_M conversion after both release and native/OpenBLAS Qwen3-4B timed out. Official Qwen upstream and third-party conversion are distinct. No held-out trial observed or scored during model selection; throughput and quality remain unqualified.",
+  "purpose": "Prospective Qwen3-1.7B Unsloth Q4_K_M native CPU candidate with measured metadata-only startup after the cold full-schema development request timed out. Weights, source build and analytical tool schemas unchanged. No held-out trial observed or scored during development; agent quality remains unqualified.",
   "target": "Linux x86_64",
   "model_alias": "analytics311-qwen3-1-7b",
   "execution_runtime": {
@@ -46,11 +46,18 @@
     "bind": "127.0.0.1",
     "port": 8080,
     "threads": 4,
-    "context_tokens": 16384,
+    "context_tokens": 24576,
     "parallel_slots": 1,
     "gpu_layers": 0,
     "thinking": false,
     "network": "Only loopback model calls; downloads needed during staging. No paid inference provider.",
-    "limitation": "CPU resource limits and this one model are an experimental configuration, not a universal supported-hardware minimum. Fresh conversations may reuse an identical prompt-prefix cache."
+    "limitation": "CPU resource limits and this one model are experimental, not a universal hardware minimum. Before each owned-server campaign, one metadata-only request may populate an identical prompt-prefix cache; startup cost is measured separately. Timed trials still begin with fresh conversations; cache reuse is not guaranteed or proof of cold latency.",
+    "prefix_warmup": {
+      "policy": "metadata-prefix-v1",
+      "request_seconds": 300,
+      "max_output_tokens": 1,
+      "seed": 0
+    },
+    "context_shift": false
   }
 }

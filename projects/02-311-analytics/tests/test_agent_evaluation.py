@@ -214,8 +214,158 @@ class OracleTests(unittest.TestCase):
 
 
 class ProtocolTests(unittest.TestCase):
-    def runtime_fixture(self, root):
+    def test_metadata_warmup_matches_trial_prefix_without_question_or_generated_content(self):
+        requests = []
+        response = {"choices": [{"message": {"role": "assistant", "content": "DISCARDED GENERATED TEXT",
+                    "reasoning_content": "DISCARDED REASONING", "tool_calls": [
+                        {"function": {"name": "run_analysis", "arguments": "{"}}]}}],
+                    "usage": {"prompt_tokens": 123, "completion_tokens": 1, "total_tokens": 124},
+                    "timings": {"prompt_n": 123, "prompt_ms": 250, "unsafe": "DISCARD"}}
+        model = local_agent.LocalModel("http://127.0.0.1:8080/v1", "unit-model", request_seconds=120)
+        def respond(client, path, payload, **kwargs):
+            requests.append((client, path, copy.deepcopy(payload), kwargs))
+            return response
+        with patch.object(local_agent.LocalModel, "request", autospec=True, side_effect=respond):
+            receipt = local_agent.warm_metadata_prefix(MetadataService(), model)
+        self.assertTrue(receipt["passed"])
+        client, path, payload, options = requests[0]
+        self.assertIsNot(client, model)
+        self.assertEqual((client.request_seconds, model.request_seconds), (300, 120))
+        self.assertEqual(path, "/chat/completions")
+        self.assertLessEqual(options["timeout"], 300)
+        self.assertEqual((payload["max_tokens"], payload["seed"]), (1, 0))
+        self.assertFalse(any(message["role"] == "user" for message in payload["messages"]))
+        scripted = ScriptedModel([{"role": "assistant", "content": '{"status":"needs_clarification"}'}])
+        trace = local_agent.run_trial(MetadataService(), scripted, "A question absent from startup", seed=303)
+        self.assertEqual(payload["messages"], scripted.requests[0][:-1])
+        normal = model.completion_payload(scripted.requests[0], seed=303)
+        self.assertEqual({key: value for key, value in payload.items() if key not in {"messages", "seed", "max_tokens"}},
+                         {key: value for key, value in normal.items() if key not in {"messages", "seed", "max_tokens"}})
+        self.assertEqual(receipt["request_sha256"], evaluation.digest(payload))
+        self.assertEqual(receipt["prefix_sha256"], evaluation.digest(payload["messages"]))
+        self.assertEqual(receipt["projected_descriptor_sha256"], trace["events"][1]["model_context"]["sha256"])
+        self.assertEqual(receipt["analytical_tool_calls"], 0)
+        self.assertEqual(receipt["server_timings"], {"prompt_n": 123, "prompt_ms": 250})
+        self.assertNotIn("DISCARD", json.dumps(receipt))
+        self.assertEqual(trace["calls"], 1)
+
+    def test_metadata_warmup_preserves_source_text_and_does_not_mutate_metadata(self):
+        original = discovery(untrusted_source_note="untrusted source text remains data")
+        before = copy.deepcopy(original)
+        service = SimpleNamespace(describe_dataset=lambda: original)
+        requests = []
+        def respond(client, path, payload, **kwargs):
+            requests.append(copy.deepcopy(payload))
+            return {"choices": [{"message": {"role": "assistant", "content": ""}}],
+                    "usage": {"prompt_tokens": 123, "completion_tokens": 1, "total_tokens": 124}}
+        model = local_agent.LocalModel("http://[::1]:8080/v1", "unit-model")
+        with patch.object(local_agent.LocalModel, "request", autospec=True, side_effect=respond):
+            first = local_agent.warm_metadata_prefix(service, model, seconds=5)
+            second = local_agent.warm_metadata_prefix(service, model, seconds=5)
+        self.assertTrue(first["passed"] and second["passed"])
+        self.assertEqual(first["request_sha256"], second["request_sha256"])
+        self.assertEqual(original, before)
+        self.assertIn("untrusted source text remains data", requests[0]["messages"][2]["content"])
+        self.assertNotIn("untrusted source text remains data", requests[0]["messages"][0]["content"])
+
+    def test_metadata_warmup_all_failures_return_bounded_receipts_without_dispatch(self):
+        model = local_agent.LocalModel("http://127.0.0.1:8080/v1", "unit-model")
+        cases = [({}, "malformed_model_response"),
+                 ({"choices": [{"message": {"role": "user"}}]}, "malformed_model_response"),
+                 ({"choices": [{"message": {"role": "assistant"}}]}, "prefix_warmup_usage_missing_or_invalid"),
+                 ({"choices": [{"message": {"role": "assistant"}}], "usage": {"prompt_tokens": 123, "completion_tokens": 2, "total_tokens": 125}}, "prefix_warmup_output_budget")]
+        for response, code in cases:
+            with self.subTest(code=code), patch.object(local_agent.LocalModel, "request", return_value=response):
+                receipt = local_agent.warm_metadata_prefix(MetadataService(), model)
+                self.assertFalse(receipt["passed"])
+                self.assertEqual(receipt["error"]["code"], code)
+                self.assertGreaterEqual(receipt["elapsed_seconds"], 0)
+        with patch.object(local_agent.LocalModel, "request", side_effect=local_agent.AgentFailure("model_timeout")):
+            receipt = local_agent.warm_metadata_prefix(MetadataService(), model)
+            self.assertEqual(receipt["error"], {"code": "model_timeout"})
+        with patch.object(local_agent.LocalModel, "request") as request:
+            for seconds in (True, 0, 301):
+                receipt = local_agent.warm_metadata_prefix(MetadataService(), model, seconds=seconds)
+                self.assertEqual(receipt["error"], {"code": "invalid_prefix_warmup_budget"})
+            receipt = local_agent.warm_metadata_prefix(SimpleNamespace(describe_dataset=lambda: {"error": {"code": "unavailable"}}), model)
+            self.assertEqual(receipt["error"], {"code": "discovery_bootstrap_failed"})
+            request.assert_not_called()
+
+    def test_metadata_warmup_deadline_includes_discovery(self):
+        clock = [0]
+        def metadata():
+            clock[0] = 301
+            return discovery()
+        model = local_agent.LocalModel("http://127.0.0.1:8080/v1", "unit-model")
+        with patch.object(local_agent.time, "monotonic", side_effect=lambda: clock[0]), patch.object(local_agent.LocalModel, "request") as request:
+            receipt = local_agent.warm_metadata_prefix(SimpleNamespace(describe_dataset=metadata), model)
+        self.assertEqual(receipt["error"], {"code": "prefix_warmup_deadline"})
+        self.assertEqual(receipt["elapsed_seconds"], 301)
+        request.assert_not_called()
+
+    def test_metadata_warmup_policy_frozen_exactly_and_absence_remains_cold(self):
+        self.assertIsNone(local_agent.prefix_warmup_policy({}))
+        valid = {"policy": "metadata-prefix-v1", "request_seconds": 300, "max_output_tokens": 1, "seed": 0}
+        self.assertEqual(local_agent.prefix_warmup_policy({"inference": {"prefix_warmup": valid}}), valid)
+        for change in ({"request_seconds": 301}, {"request_seconds": True}, {"max_output_tokens": 2}, {"seed": 101}, {"policy": "unknown"}, {"question": "forbidden"}):
+            with self.subTest(change=change), self.assertRaisesRegex(local_agent.AgentFailure, "invalid_prefix_warmup_policy"):
+                local_agent.prefix_warmup_policy({"inference": {"prefix_warmup": dict(valid, **change)}})
+        with self.assertRaises(local_agent.AgentFailure):
+            local_agent.prefix_warmup_policy({"inference": {"prefix_warmup": None}})
+
+    def test_runtime_memory_records_only_numeric_kernel_counters_and_missing_is_unavailable(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            process = root / "123"
+            process.mkdir()
+            path = process / "status"
+            path.write_bytes(b"Name:\tprivate-command\nVmHWM:\t3072 kB\nVmRSS:\t2048 kB\nOther:\tprivate-data\n")
+            with patch.object(evaluation.sys, "platform", "linux"):
+                result = evaluation.runtime_memory_snapshot(123, proc_root=root)
+                self.assertTrue(result["available"])
+                self.assertEqual(result["rss_bytes"], 2048 * 1024)
+                self.assertEqual(result["process_lifetime_hwm_bytes"], 3072 * 1024)
+                self.assertIn("not a trial-specific peak", result["scope"])
+                self.assertNotIn("private", json.dumps(result))
+                for raw in (b"VmRSS: 0 kB\n", b"VmRSS: bad kB\nVmHWM: 2 kB\n", b"x" * 65537):
+                    path.write_bytes(raw)
+                    missing = evaluation.runtime_memory_snapshot(123, proc_root=root)
+                    self.assertFalse(missing["available"])
+                    self.assertNotIn("rss_bytes", missing)
+                missing = evaluation.runtime_memory_snapshot(456, proc_root=root)
+                self.assertFalse(missing["available"])
+                self.assertNotIn("process_lifetime_hwm_bytes", missing)
+
+    def test_warmup_from_different_metadata_cannot_be_rebound_to_this_freeze(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            _, frozen, _, _ = self.runtime_fixture(root, warmup=True)
+            model = local_agent.LocalModel("http://127.0.0.1:8080/v1", "unit-model")
+            altered = discovery(dataset={"dataset_version": "other-corpus"})
+            service = SimpleNamespace(describe_dataset=lambda: altered)
+            with patch.object(local_agent.LocalModel, "request", return_value={
+                    "choices": [{"message": {"role": "assistant", "content": "discard"}}],
+                    "usage": {"prompt_tokens": 123, "completion_tokens": 1, "total_tokens": 124}}):
+                warmup = local_agent.warm_metadata_prefix(service, model)
+            self.assertTrue(warmup["passed"])
+            launch, execution = "a" * 64, "b" * 64
+            warmup.update(runtime_receipt_sha256=launch, execution_sha256=execution,
+                          runtime_spec_sha256=frozen["runtime_spec"]["sha256"])
+            path = root / ("metadata-prefix-warmup-" + launch + ".json")
+            evaluation.write_new(path, warmup)
+            # The receipt's own hash and declared runtime match, but input identity does not.
+            with self.assertRaisesRegex(ValueError, "prefix_warmup_input_identity_mismatch"):
+                evaluation.check_archived_prefix_warmup(root, evaluation.sha_file(path), launch, frozen, execution)
+            for changes in ({"model_alias": "different-model"}, {"request_sha256": "c" * 64}):
+                changed = dict(warmup, **changes)
+                path.write_text(json.dumps(changed), encoding="utf-8")
+                with self.assertRaises(ValueError):
+                    evaluation.check_archived_prefix_warmup(root, evaluation.sha_file(path), launch, frozen, execution)
+
+    def runtime_fixture(self, root, *, warmup=False):
         definition = evaluation.load(evaluation.RUNTIME_SPEC)
+        if not warmup:
+            definition["inference"].pop("prefix_warmup", None)
         definition["model_alias"] = "unit-model"
         files = []
         for role in ("model", "server", "build_configuration"):
@@ -226,13 +376,16 @@ class ProtocolTests(unittest.TestCase):
         spec_path = root / "runtime-spec.json"
         spec_path.write_text(json.dumps(definition), encoding="utf-8")
         frozen = {"model": "unit-model", "runtime_spec": evaluation.runtime_definition(spec_path, "unit-model")}
+        if warmup:
+            frozen["prefix_warmup_request"] = local_agent.metadata_prefix_request(discovery(), "unit-model")[1]
         receipt = {"schema_version": 1, "evidence_kind": "pretrial_local_model_runtime",
                    "freeze_sha256": "f" * 64, "runtime_spec_sha256": frozen["runtime_spec"]["sha256"],
                    "model_alias": "unit-model", "execution_runtime": definition["execution_runtime"],
                    "endpoint": "http://127.0.0.1:8080/v1",
                    "budgets": {"seconds": 120, "request_seconds": 60, "max_calls": 24},
                    "owned_server_pid": 12345, "launch_argv": [files[1]["path"], "-m", files[0]["path"], "--alias", "unit-model",
-                       "--host", "127.0.0.1", "--port", "8080", "--threads", "4", "--ctx-size", "16384", "--parallel", "1", "--gpu-layers", "0"],
+                       "--host", "127.0.0.1", "--port", "8080", "--threads", "4", "--ctx-size", str(definition["inference"]["context_tokens"]),
+                       "--parallel", "1", "--gpu-layers", "0", "--no-context-shift"],
                    "files": files}
         receipt_path = root / "runtime-receipt.json"
         receipt_path.write_text(json.dumps(receipt), encoding="utf-8")
@@ -263,6 +416,7 @@ class ProtocolTests(unittest.TestCase):
                                  ("execution_runtime", {"source_commit": "0" * 40}),
                                  ("runtime_spec_sha256", "0" * 64),
                                  ("endpoint", "http://127.0.0.1:8081/v1"),
+                                 ("launch_argv", [arg for arg in receipt["launch_argv"] if arg != "--no-context-shift"]),
                                  ("launch_argv", receipt["launch_argv"] + ["--model", "other"]),
                                  ("launch_argv", [receipt["files"][1]["path"], "-m", receipt["files"][0]["path"], "--alias", "other"])):
                 altered = copy.deepcopy(receipt)
@@ -321,7 +475,7 @@ class ProtocolTests(unittest.TestCase):
     def test_restarted_runtime_resumes_with_new_launch_receipt_and_same_identity(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
-            spec_path, frozen, receipt_path, receipt = self.runtime_fixture(root)
+            spec_path, frozen, receipt_path, receipt = self.runtime_fixture(root, warmup=True)
             database = root / "oracle.sqlite"
             evaluation.connect(database, readonly=False).close()
             service = SimpleNamespace(manifest={"unit": True}, catalog=CATALOG)
@@ -342,7 +496,12 @@ class ProtocolTests(unittest.TestCase):
                 return evaluation.run("unused", freeze_path, database, output, endpoint=receipt["endpoint"],
                     seconds=120, request_seconds=60, runtime_spec=spec_path, runtime_receipt=receipt_path,
                     repetition=repeat, resume=resume)
-            with patch("analytics311.service.AnalyticsService", return_value=service), patch.object(evaluation, "LocalModel") as model, patch.object(evaluation, "run_trial", side_effect=failed), patch.object(evaluation, "check_owned_runtime_process"):
+            warm_model = local_agent.LocalModel(receipt["endpoint"], "unit-model")
+            with patch.object(local_agent.LocalModel, "request", return_value={
+                    "choices": [{"message": {"role": "assistant", "content": "discard"}}],
+                    "usage": {"prompt_tokens": 123, "completion_tokens": 1, "total_tokens": 124}}):
+                warm_receipt = local_agent.warm_metadata_prefix(MetadataService(), warm_model)
+            with patch("analytics311.service.AnalyticsService", return_value=service), patch.object(evaluation, "LocalModel") as model, patch.object(evaluation, "run_trial", side_effect=failed), patch.object(evaluation, "check_owned_runtime_process"), patch.object(evaluation, "warm_metadata_prefix", side_effect=lambda *args, **kwargs: copy.deepcopy(warm_receipt)) as warm:
                 model.return_value.identify.return_value = {"model_id": "unit-model"}
                 execute(1)
                 identity_hash = evaluation.sha_file(output / "run-identity.json")
@@ -356,13 +515,29 @@ class ProtocolTests(unittest.TestCase):
                 self.assertEqual(evaluation.sha_file(output / "Q01-r1.json"), first_trial_hash)
                 self.assertEqual(first["execution_sha256"], second["execution_sha256"])
                 self.assertNotEqual(first["runtime_receipt_sha256"], second["runtime_receipt_sha256"])
+                self.assertNotEqual(first["prefix_warmup_sha256"], second["prefix_warmup_sha256"])
                 self.assertEqual(len(list(output.glob("runtime-launch-*.json"))), 2)
+                self.assertEqual(len(list(output.glob("metadata-prefix-warmup-*.json"))), 2)
+                self.assertEqual(warm.call_count, 2)
+                unchanged = execute(2, resume=True)
+                self.assertEqual(warm.call_count, 2)
+                self.assertEqual(unchanged["prefix_warmup"]["receipt_count"], 2)
+                self.assertEqual(unchanged["prefix_warmup"]["startup_seconds_total"], 2 * warm_receipt["elapsed_seconds"])
                 review_path = root / "reviews.json"
                 evaluation.write_new(review_path, {"freeze_sha256": evaluation.sha_file(freeze_path),
                     "reviewer": {"id": "unit-reviewer", "kind": "independent_ai_session", "was_answering_agent": False}, "reviews": []})
                 reviewed = evaluation.review(freeze_path, [output], review_path, root / "reviewed.json")
                 self.assertEqual(reviewed["attempted_trials"], 80)
+                self.assertEqual(reviewed["prefix_warmup"]["receipt_count"], 2)
                 self.assertFalse(reviewed["agent_quality_gate_passed"])
+                warm_path = output / ("metadata-prefix-warmup-" + first["runtime_receipt_sha256"] + ".json")
+                original_warm = warm_path.read_bytes()
+                altered = evaluation.load(warm_path)
+                altered["question_supplied"] = True
+                warm_path.write_text(json.dumps(altered), encoding="utf-8")
+                with self.assertRaisesRegex(ValueError, "prefix_warmup_receipt_changed"):
+                    execute(3, resume=True)
+                warm_path.write_bytes(original_warm)
                 # Historical launch corruption must prevent subsequent resumption.
                 launch_path = output / ("runtime-launch-" + first["runtime_receipt_sha256"] + ".json")
                 launch = evaluation.load(launch_path)
@@ -370,6 +545,44 @@ class ProtocolTests(unittest.TestCase):
                 launch_path.write_text(json.dumps(launch), encoding="utf-8")
                 with self.assertRaisesRegex(ValueError, "runtime_launch_receipt_changed"):
                     execute(3, resume=True)
+
+    def test_failed_warmup_is_immutable_and_aborts_before_trials_or_oracle(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            spec_path, frozen, receipt_path, receipt = self.runtime_fixture(root, warmup=True)
+            database = root / "database"
+            database.write_bytes(b"oracle must remain unopened")
+            service = SimpleNamespace(manifest={"unit": True}, catalog=CATALOG)
+            frozen.update(code_sha256=evaluation.code_hashes(), questions_sha256=evaluation.sha_file(evaluation.QUESTIONS),
+                          database_sha256=evaluation.sha_file(database), manifest_sha256=evaluation.digest(service.manifest),
+                          catalog_sha256=evaluation.digest(service.catalog), development_only=False,
+                          cases=[{"id": f"Q{n:02}", "question": "Authored unit question", "steps": []} for n in range(1, 41)],
+                          model_settings={"seeds": [101, 202, 303]}, pass_threshold=.9, residential_nta_codes=[])
+            freeze_path = root / "freeze.json"
+            evaluation.write_new(freeze_path, frozen)
+            receipt["freeze_sha256"] = evaluation.sha_file(freeze_path)
+            receipt_path.write_text(json.dumps(receipt), encoding="utf-8")
+            output = root / "run"
+            with patch("analytics311.service.AnalyticsService", return_value=service), patch.object(evaluation, "LocalModel") as model, patch.object(evaluation, "run_trial") as trial, patch.object(evaluation, "Oracle") as oracle, patch.object(evaluation, "check_owned_runtime_process"), patch.object(evaluation, "warm_metadata_prefix", return_value={"passed": False, "elapsed_seconds": 300.01, "error": {"code": "model_timeout"}}) as warm:
+                model.return_value.identify.return_value = {"model_id": "unit-model"}
+                def execute(resume=False):
+                    return evaluation.run("unused", freeze_path, database, output, endpoint=receipt["endpoint"],
+                        seconds=120, request_seconds=60, runtime_spec=spec_path, runtime_receipt=receipt_path,
+                        repetition=1, resume=resume)
+                first = execute()
+                self.assertEqual(first["error"], {"code": "prefix_warmup_failed"})
+                self.assertEqual(first["attempted_trials"], 0)
+                self.assertFalse(first["automatic_gate_passed"])
+                self.assertEqual(first["prefix_warmup"]["startup_seconds_total"], 300.01)
+                path = next(output.glob("metadata-prefix-warmup-*.json"))
+                before = path.read_bytes()
+                second = execute(resume=True)
+                self.assertEqual(second["error"], first["error"])
+                self.assertEqual(path.read_bytes(), before)
+                warm.assert_called_once()
+                trial.assert_not_called()
+                oracle.assert_not_called()
+                self.assertEqual(list(output.glob("Q*-r*.json")), [])
 
     def test_server_timing_metadata_excludes_text_nonfinite_and_invalid_numbers(self):
         measured = {"cache_n": 100, "prompt_n": 20, "prompt_ms": 123.4,

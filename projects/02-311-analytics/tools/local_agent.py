@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import http.client
 import copy
+from datetime import datetime, timezone
 import hashlib
 import ipaddress
 import json
@@ -39,6 +40,7 @@ RESULT_CONTEXT_PROJECTION = "matching-dataset-reference-v1"
 BOOTSTRAP_DATASET_REFERENCE = "tool:adapter_discovery#/dataset"
 MAX_FORMAT_REPAIRS = 2
 MAX_IDENTICAL_INVALID_CALLS = 3
+PREFIX_WARMUP_POLICY = "metadata-prefix-v1"
 FINAL_FORMAT_FEEDBACK = (
     "Adapter format feedback: the previous response was not a final JSON object with a valid status. "
     "Return JSON without markdown fences, using status (answered, needs_clarification, unsupported, "
@@ -247,13 +249,20 @@ class LocalModel:
             raise AgentFailure("model_identity_mismatch")
         return {"model_id": self.model, "advertised_ids": ids}
 
-    def complete(self, messages, *, seed, timeout):
-        return self.request("/chat/completions", {
-            "model": self.model, "messages": messages, "tools": tool_schemas(),
+    @staticmethod
+    def build_completion_payload(model_alias, messages, *, seed, max_tokens=2048):
+        return {
+            "model": model_alias, "messages": messages, "tools": tool_schemas(),
             "tool_choice": "auto", "parallel_tool_calls": False,
-            "temperature": 0.2, "seed": seed, "max_tokens": 2048,
+            "temperature": 0.2, "seed": seed, "max_tokens": max_tokens,
             "stream": False, "chat_template_kwargs": {"enable_thinking": False},
-        }, timeout=timeout)
+        }
+
+    def completion_payload(self, messages, *, seed, max_tokens=2048):
+        return self.build_completion_payload(self.model, messages, seed=seed, max_tokens=max_tokens)
+
+    def complete(self, messages, *, seed, timeout):
+        return self.request("/chat/completions", self.completion_payload(messages, seed=seed), timeout=timeout)
 
 
 def analysis_parameters():
@@ -461,6 +470,104 @@ def tool_event(name, arguments, result, *, initiated_by, elapsed_seconds, bootst
     return event, content
 
 
+def discovery_envelope():
+    """Shared fixed transport for metadata bootstrap and metadata-only startup."""
+    return {"role": "assistant", "content": "", "tool_calls": [{
+        "id": "adapter_discovery", "type": "function",
+        "function": {"name": "describe_dataset", "arguments": "{}"}}]}
+
+
+def prefix_warmup_policy(definition):
+    """Absent means cold execution; unknown or weakened policies fail closed."""
+    inference = definition.get("inference", {})
+    if not isinstance(inference, dict):
+        raise AgentFailure("invalid_prefix_warmup_policy")
+    policy = inference.get("prefix_warmup")
+    if policy is None and "prefix_warmup" not in inference:
+        return None
+    if (not isinstance(policy, dict) or set(policy) != {"policy", "request_seconds", "max_output_tokens", "seed"}
+            or policy.get("policy") != PREFIX_WARMUP_POLICY
+            or type(policy.get("request_seconds")) is not int or not 1 <= policy["request_seconds"] <= 300
+            or type(policy.get("max_output_tokens")) is not int or policy["max_output_tokens"] != 1
+            or type(policy.get("seed")) is not int or policy["seed"] != 0):
+        raise AgentFailure("invalid_prefix_warmup_policy")
+    return dict(policy)
+
+
+def metadata_prefix_request(discovery, model_alias):
+    """Pure shared request/identity builder; no question input or inference."""
+    if not discovery_valid(discovery):
+        raise AgentFailure("discovery_bootstrap_failed")
+    event, content = tool_event("describe_dataset", {}, discovery, initiated_by="adapter", elapsed_seconds=0)
+    context = event["model_context"]
+    identity = {"original_descriptor_sha256": context["full_output_sha256"],
+                "original_descriptor_utf8_bytes": context["full_output_utf8_bytes"],
+                "projected_descriptor_sha256": context["sha256"],
+                "projected_descriptor_utf8_bytes": context["utf8_bytes"],
+                "context_projection": CONTEXT_PROJECTION}
+    messages = [{"role": "system", "content": SYSTEM}, discovery_envelope(),
+                {"role": "tool", "tool_call_id": "adapter_discovery", "content": content}]
+    payload = LocalModel.build_completion_payload(model_alias, messages, seed=0, max_tokens=1)
+    for name, value in (("prefix", messages), ("request", payload)):
+        raw = canonical(value).encode()
+        identity[name + "_sha256"] = hashlib.sha256(raw).hexdigest()
+        identity[name + "_utf8_bytes"] = len(raw)
+    return payload, identity
+
+
+def warm_metadata_prefix(service, model, *, seconds=300):
+    """Measured startup only: no question, analysis, generated content or tool execution."""
+    started = time.monotonic()
+    receipt = {"schema_version": 1, "evidence_kind": "metadata_only_model_prefix_warmup",
+               "policy": PREFIX_WARMUP_POLICY, "passed": False,
+               "started_at": datetime.now(timezone.utc).isoformat(),
+               "request_seconds": seconds if type(seconds) is int else None, "seed": 0, "max_output_tokens": 1,
+               "question_supplied": False, "analytical_tool_calls": 0,
+               "generated_content_retained": False, "context_projection": CONTEXT_PROJECTION,
+               "usage": {}, "server_timings": {}}
+    try:
+        if type(seconds) is not int or not 1 <= seconds <= 300:
+            raise AgentFailure("invalid_prefix_warmup_budget")
+        # A separate request deadline leaves the answering model's limits intact.
+        host = "[" + model.host + "]" if ":" in model.host else model.host
+        client = LocalModel(f"http://{host}:{model.port}{model.prefix}", model.model,
+                            request_seconds=seconds, max_context_bytes=model.max_context_bytes)
+        receipt["model_alias"] = model.model
+        discovery = service.describe_dataset()
+        payload, identity = metadata_prefix_request(discovery, model.model)
+        receipt.update(identity)
+        remaining = seconds - (time.monotonic() - started)
+        if remaining <= 0:
+            raise AgentFailure("prefix_warmup_deadline")
+        response = client.request("/chat/completions", payload, timeout=remaining)
+        if time.monotonic() - started > seconds:
+            raise AgentFailure("prefix_warmup_deadline")
+        choices = response.get("choices")
+        if (not isinstance(choices, list) or len(choices) != 1 or not isinstance(choices[0], dict)
+                or not isinstance(choices[0].get("message"), dict)
+                or choices[0]["message"].get("role") != "assistant"):
+            raise AgentFailure("malformed_model_response")
+        receipt["usage"] = {key: value for key, value in response.get("usage", {}).items()
+                            if key in {"prompt_tokens", "completion_tokens", "total_tokens"}
+                            and type(value) is int and value >= 0} if isinstance(response.get("usage"), dict) else {}
+        receipt["server_timings"] = numeric_timings(response)
+        if (set(receipt["usage"]) != {"prompt_tokens", "completion_tokens", "total_tokens"}
+                or receipt["usage"]["prompt_tokens"] <= 0
+                or receipt["usage"]["total_tokens"] != receipt["usage"]["prompt_tokens"] + receipt["usage"]["completion_tokens"]):
+            raise AgentFailure("prefix_warmup_usage_missing_or_invalid")
+        if receipt["usage"].get("completion_tokens", 0) > 1:
+            raise AgentFailure("prefix_warmup_output_budget")
+        receipt["passed"] = True
+    except Exception as exc:
+        receipt["error"] = {"code": exc.code if isinstance(exc, AgentFailure) else "prefix_warmup_failed"}
+    finally:
+        receipt["elapsed_seconds"] = round(time.monotonic() - started, 6)
+        receipt["finished_at"] = datetime.now(timezone.utc).isoformat()
+        if receipt["passed"] and receipt["elapsed_seconds"] > seconds:
+            receipt.update(passed=False, error={"code": "prefix_warmup_deadline"})
+    return receipt
+
+
 def run_trial(service, model, question, *, seed, seconds=300, max_calls=24, untrusted_note=None):
     """Adapter provides metadata; the real model chooses all analysis and artifacts."""
     if type(seconds) is not int or not 1 <= seconds <= 1800 or type(max_calls) is not int or not 1 <= max_calls <= 50:
@@ -479,9 +586,7 @@ def run_trial(service, model, question, *, seed, seconds=300, max_calls=24, untr
     try:
         # A deterministic transport envelope allows identical metadata to form a
         # reusable prefix. This is adapter work, not a sampled model decision.
-        bootstrap = {"role": "assistant", "content": "", "tool_calls": [{
-            "id": "adapter_discovery", "type": "function",
-            "function": {"name": "describe_dataset", "arguments": "{}"}}]}
+        bootstrap = discovery_envelope()
         messages.append(bootstrap)
         trace["events"].append({"kind": "adapter_tool_call", "initiated_by": "adapter",
                                 "message": bootstrap, "elapsed_seconds": round(time.monotonic() - started, 6)})

@@ -9,7 +9,7 @@ from urllib.error import HTTPError
 from urllib.parse import parse_qs, urlsplit
 from unittest.mock import patch
 
-from analytics311.maps import build_map_request, create_map_link, KibanaClient
+from analytics311.maps import build_map_request, create_map_link, KibanaClient, _rison, _saved_map_url_955
 from analytics311.fixture import FixtureBackend
 from analytics311.service import AnalyticsService
 from analytics311.errors import AnalyticsError
@@ -18,8 +18,9 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class FakeKibanaOpener:
-    def __init__(self, view):
+    def __init__(self, view, version="9.5.5"):
         self.view = view
+        self.version = version
         self.calls = []
 
     def open(self, request, timeout):
@@ -29,7 +30,7 @@ class FakeKibanaOpener:
                 raise AssertionError("Data view must be read using GET without a body")
             response = {"data_view": self.view}
         elif request.full_url.endswith("/api/status"):
-            response = {"version": {"number": "9.5.5"}}
+            response = {"version": {"number": self.version}}
         elif request.full_url.endswith("/api/short_url"):
             if request.get_method() != "POST":
                 raise AssertionError("Short URL creation must remain POST")
@@ -137,7 +138,7 @@ class MapTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             service, saved = self.local_service(directory)
             opener = FakeKibanaOpener({"title": "analytics311-results-v1", "timeFieldName": ""})
-            publication = {"locator_request": {"locatorId": "MAPS_APP_LOCATOR", "params": {}}, "parity_verified": False}
+            publication = {"locator_request": {"locatorId": "MAPS_APP_LOCATOR", "params": {"mapId": "trend-map"}}, "parity_verified": False}
             def publish(*args):
                 self.assertEqual(len(opener.calls), 1)
                 self.assertTrue(opener.calls[0].full_url.endswith("/data_view/result-data"))
@@ -148,7 +149,7 @@ class MapTests(unittest.TestCase):
             self.assertEqual([request.get_method() for request in opener.calls], ["GET", "GET", "POST"])
             self.assertEqual(result["url"], "http://localhost:5601/s/test-space/goto/verified-object-id")
 
-    def test_browser_locator_short_url_preserves_exact_state_and_actual_version(self):
+    def test_955_short_url_uses_saved_path_and_hash_query_state(self):
         with tempfile.TemporaryDirectory() as directory:
             service, saved = self.local_service(directory)
             opener = FakeKibanaOpener({"title": "nyc311-demo-v1"})
@@ -157,14 +158,56 @@ class MapTests(unittest.TestCase):
             request = json.loads(opener.calls[-1].data)
             self.assertEqual(request["locatorId"], "LEGACY_SHORT_URL_LOCATOR")
             redirect = urlsplit(request["params"]["url"])
+            self.assertEqual((redirect.scheme, redirect.netloc, redirect.path, redirect.query), ("", "", "/app/maps/map/map", ""))
+            self.assertTrue(redirect.fragment.startswith("/?"))
+            state = parse_qs(urlsplit(redirect.fragment).query)
+            params = result["locator_request"]["params"]
+            self.assertEqual(state["_a"], [_rison({"query": params["query"], "filters": params["filters"]})])
+            self.assertEqual(state["_g"], [_rison({"filters": [], "time": params["timeRange"]})])
+            self.assertEqual(result["navigation_contract"], "saved-map-path-hash-state-9.5.5")
+            self.assertEqual(result["short_url_request"], request)
+            self.assertEqual(result["url"], "http://localhost:5601/s/test-space/goto/verified-object-id")
+
+    def test_other_versions_keep_browser_locator_transport_without_955_bridge(self):
+        with tempfile.TemporaryDirectory() as directory:
+            service, saved = self.local_service(directory)
+            opener = FakeKibanaOpener({"title": "nyc311-demo-v1"}, version="9.5.6")
+            with patch("analytics311.maps.build_opener", return_value=opener):
+                result = create_map_link(service, saved, "requests", "all_matching", None)
+            request = json.loads(opener.calls[-1].data)
+            self.assertEqual(request["locatorId"], "LEGACY_SHORT_URL_LOCATOR")
+            redirect = urlsplit(request["params"]["url"])
             self.assertEqual((redirect.scheme, redirect.netloc, redirect.path), ("", "", "/app/r/"))
             query = parse_qs(redirect.query)
             self.assertEqual(query["l"], ["MAPS_APP_LOCATOR"])
-            self.assertEqual(query["v"], ["9.5.5"])
+            self.assertEqual(query["v"], ["9.5.6"])
             self.assertEqual(json.loads(query["p"][0]), result["locator_request"]["params"])
             self.assertEqual(result["short_url_request"], request)
             self.assertEqual(result["url"], "http://localhost:5601/s/test-space/goto/verified-object-id")
             self.assertEqual(result["short_url_id"], "verified-object-id")
+
+    def test_pinned_upstream_decoded_rison_fixtures_and_full_dsl(self):
+        fixture = json.loads((ROOT / "tests/fixtures/kibana-9.5.5-map-url.json").read_text())
+        self.assertEqual(fixture["provenance"]["kibana_commit"], "a2890159e2486503b9e3a0c6f422b153a746651a")
+        for case in fixture["cases"]:
+            self.assertEqual(_rison(case["value"]), case["rison"])
+        payload = {"locatorId": "MAPS_APP_LOCATOR", "params": fixture["params"]}
+        original = copy.deepcopy(payload)
+        address = urlsplit(_saved_map_url_955(payload))
+        self.assertEqual(address.path, "/app/maps/map/map-probe-v1")
+        self.assertEqual(address.query, "")
+        state = parse_qs(urlsplit(address.fragment).query)
+        self.assertEqual(state, {"_a": [fixture["cases"][0]["rison"]], "_g": [fixture["cases"][1]["rison"]]})
+        self.assertEqual(payload, original)
+
+    def test_955_bridge_fails_closed_on_unqualified_state_or_nonfinite_values(self):
+        for params in ({"mapId": "map", "initialLayers": [{}]}, {"mapId": "map", "dataViewSpec": {}},
+                       {"mapId": ".."}, {"mapId": "map", "query": {"value": float("nan")}}):
+            with self.subTest(params=params), self.assertRaises(AnalyticsError):
+                _saved_map_url_955({"locatorId": "MAPS_APP_LOCATOR", "params": params})
+        cycle = []
+        cycle.append(cycle)
+        with self.assertRaises(AnalyticsError): _rison(cycle)
 
     def test_locator_version_missing_blocks_short_url_creation(self):
         with tempfile.TemporaryDirectory() as directory:

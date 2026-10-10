@@ -31,21 +31,44 @@ and [Inspector tests](https://github.com/elastic/kibana/blob/v9.5.5/src/platform
 
 Maps registers `MAPS_APP_LOCATOR` in the browser. The server short-URL API
 requires a server-registered locator, so it cannot accept that ID directly.
-The bridge retains the original Maps locator payload and wraps its exact
-`l`, actual Kibana `v`, and JSON `p` parameters in an internal `/app/r/` URL,
-using `LEGACY_SHORT_URL_LOCATOR` for server storage. No filters are translated
-to KQL or reconstructed as Rison. See the pinned
+The bridge retains the original Maps locator payload and uses
+`LEGACY_SHORT_URL_LOCATOR` for server storage. See the pinned
 [Maps registration](https://github.com/elastic/kibana/blob/v9.5.5/x-pack/platform/plugins/shared/maps/public/plugin.ts),
 [short-URL route](https://github.com/elastic/kibana/blob/v9.5.5/src/platform/plugins/shared/share/server/url_service/http/short_urls/register_create_route.ts),
 [redirect parameters](https://github.com/elastic/kibana/blob/v9.5.5/src/platform/plugins/shared/share/common/url_service/locators/redirect/format_search_params.ts),
 and [legacy URL locator](https://github.com/elastic/kibana/blob/v9.5.5/src/platform/plugins/shared/share/common/url_service/locators/legacy_short_url_locator.ts).
 The link uses the returned object ID at `/goto/{id}`; a slug is never passed
-to that route. Its legacy branch performs a full browser navigation, so the
-inner redirect app mounts afresh. The trailing slash in `/app/r/` keeps the
-legacy app/path parser from consuming the query as the application name.
+to that route. Its legacy branch performs a full browser navigation.
 See the pinned [redirect manager](https://github.com/elastic/kibana/blob/v9.5.5/src/platform/plugins/shared/share/public/url_service/redirect/redirect_manager.ts).
 HTTP failures retain status, method, and API path in the render receipt;
 arbitrary server bodies and credentials are omitted.
+
+Kibana **9.5.5** has a locator/router mismatch, confirmed by the blank Create
+screen and absent Maps searches in real run `38025638157`. Its locator emits
+`/map#/{mapId}`, but the router matches the exact `/map` creation route before
+its legacy hash redirect. `mapId` is the correct locator parameter; renaming it
+would discard the saved-map identity. This exact version therefore uses
+`/app/maps/map/{mapId}#/?_g=...&_a=...` inside the legacy short URL. The canonical
+path loads the saved object. State remains in the **fragment query**, since
+MapApp's URL storage retains `useHashQuery=true`; `useHash=false` disables
+session-storage state hashes, not the fragment query. Complete DSL filters,
+query, time range and optional refresh interval are Rison encoded unchanged;
+pinned filters go to `_g`, other filters to `_a`. Unqualified locator options
+such as ad-hoc data views and initial layers fail closed. No KQL translation
+or implicit date selection is introduced.
+
+This narrow bridge follows source commit
+`a2890159e2486503b9e3a0c6f422b153a746651a`:
+[locator](https://github.com/elastic/kibana/blob/a2890159e2486503b9e3a0c6f422b153a746651a/x-pack/platform/plugins/shared/maps/public/locators/map_locator/get_location.ts),
+[router](https://github.com/elastic/kibana/blob/a2890159e2486503b9e3a0c6f422b153a746651a/x-pack/platform/plugins/shared/maps/public/render_app.tsx),
+[MapApp](https://github.com/elastic/kibana/blob/a2890159e2486503b9e3a0c6f422b153a746651a/x-pack/platform/plugins/shared/maps/public/routes/map_page/map_app/map_app.tsx),
+[storage defaults](https://github.com/elastic/kibana/blob/a2890159e2486503b9e3a0c6f422b153a746651a/src/platform/plugins/shared/kibana_utils/public/state_sync/state_sync_state_storage/create_kbn_url_state_storage.ts),
+and [state reader](https://github.com/elastic/kibana/blob/a2890159e2486503b9e3a0c6f422b153a746651a/src/platform/plugins/shared/kibana_utils/public/state_management/url/kbn_url_storage.ts).
+`tests/fixtures/kibana-9.5.5-map-url.json` retains exact references and encoded
+fixtures independently decoded by the upstream `rison-node 2.1.1` parser, including
+escaped text, nested selections, dates, coordinates and JSON primitives.
+Other versions keep the versioned browser locator `/app/r/?l=...&v=...&p=...`
+transport; they are not qualified by the 9.5.5 integration runner or this fix.
 
 ## Provision
 
@@ -119,7 +142,8 @@ Use `--mode neighborhood_trends` for the joined map, and repeat `--group-id`
 to qualify an explicit saved-group selection. Cover both all-matching and
 selected-groups cases during acceptance.
 
-The browser opens the actual locator URL, captures actual search bodies,
+The browser opens the actual short URL, requires the expected saved-map path
+before inspecting layers, captures actual search bodies,
 requires the saved DSL filter in a browser search, and opens Inspector's Map
 details. It compares the **rendered style's GeoJSON source** IDs or joined
 metrics with the independent expectation and CSV; a server response alone
@@ -130,6 +154,9 @@ directory. Reference membership and numeric disagreement, missing Inspector
 data, absent DSL, application error or absent canvas fail closed. Timeout and
 UI incompatibility leave `rendered_parity_verified=false`; failed screenshots
 aid diagnosis. A passing bounded-map check never sets overall release acceptance.
+`browser-diagnostics.json` and the render receipt retain the last browser stage,
+final path, expected saved-map ID, path-identity check, and bounded error types.
+Query/fragment state, credentials and raw DOM are omitted from these diagnostics.
 
 Kibana adds flagged centroid Points alongside polygons for labels and symbols.
 The checker separates only these flagged companions, verifies each against its

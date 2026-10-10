@@ -184,6 +184,39 @@ class LiveMapsTests(unittest.TestCase):
             self.assertEqual(result["error"]["backend"], failure.backend_details)
             self.assertEqual(result["error"]["reason"], failure.message)
 
+    def test_browser_diagnostics_preserve_stage_identity_without_url_state(self):
+        page = SimpleNamespace(url="http://name:secret@localhost:5601/s/test/app/maps/map/actual#/?_a=private-source")
+        actual = maps._browser_diagnostics(page, "inspector_map_details", "actual", ["Error"])
+        self.assertEqual(actual, {"stage": "inspector_map_details", "final_path": "/s/test/app/maps/map/actual",
+                                 "expected_map_id": "actual", "saved_map_path_verified": True, "page_error_types": ["Error"]})
+        self.assertNotIn("secret", json.dumps(actual))
+        self.assertNotIn("private-source", json.dumps(actual))
+        page.url = "http://localhost:5601/app/maps/map#/actual?_a=private-source"
+        self.assertFalse(maps._browser_diagnostics(page, "saved_map_path", "actual", [])["saved_map_path_verified"])
+
+    def test_render_failure_receipt_includes_specific_browser_stage(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            expectation = root / "expected.json"
+            expectation.write_text(json.dumps({"dataset_version": "test-v1", "reference": {"sha256": "a" * 64},
+                                              "source_count": 0, "mapped_unique_keys": []}))
+            mapped = {"source_count": 0, "mapped_count": 0, "url": "http://localhost/goto/id",
+                      "locator_request": {"params": {"mapId": "actual", "filters": [{"query": {"match_all": {}}}]}}}
+            service = SimpleNamespace(config={"backend": "elastic"}, manifest={"dataset_version": "test-v1"},
+                                      create_map_link=lambda *args: mapped)
+            diagnostics = {"stage": "inspector_map_details", "final_path": "/app/maps/map/actual",
+                           "expected_map_id": "actual", "saved_map_path_verified": True, "page_error_types": []}
+            def browser(*args, **kwargs):
+                self.assertEqual(kwargs["map_id"], "actual")
+                (args[1] / "browser-diagnostics.json").write_text(json.dumps(diagnostics))
+                raise TimeoutError()
+            with patch.object(maps, "AnalyticsService", return_value=service), patch.object(maps, "inspect_csv", return_value={}), \
+                 patch.object(maps, "browser_style", side_effect=browser):
+                result = maps.render(root / "profile.json", "a" * 32, "requests", expectation, root / "file.csv", root / "render")
+            self.assertFalse(result["passed"])
+            self.assertEqual(result["error"], {"stage": "browser", "code": "acceptance_failed", "type": "TimeoutError"})
+            self.assertEqual(result["browser_diagnostics"], diagnostics)
+
     def test_kibana_redacted_or_wrong_version_never_mutates_indices(self):
         # The first body is the actual /api/status shape retained from the
         # real-corpus run. HTTP 200/available alone must never qualify a version.
