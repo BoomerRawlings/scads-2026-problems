@@ -1,0 +1,10 @@
+{
+  "repetition": 3,
+  "evaluator_exit_code": 1,
+  "expected_trial_records": 40,
+  "actual_trial_records": 40,
+  "exact_trial_files": true,
+  "execution_complete": true,
+  "quality_denominator": 120,
+  "quality_verdict": "deferred_to_campaign_merge"
+}

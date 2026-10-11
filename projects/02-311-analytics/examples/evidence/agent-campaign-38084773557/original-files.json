@@ -1,0 +1,2674 @@
+{
+  "schema_version": 1,
+  "evidence_kind": "exact_original_agent_campaign_archive",
+  "archived_at": "2026-10-11T06:10:46.238791+00:00",
+  "workflow_run_id": 38084773557,
+  "source_commit": "d3be88e72cf5e7920f2861eaa7c21f6dd26abdb3",
+  "exact_original_files": 531,
+  "exact_original_bytes": 60714165,
+  "all_120_original_trials_retained": true,
+  "artifact_contents_trimmed": false,
+  "files": [
+    {
+      "path": "replica-1/agent-v1/metadata-prefix-warmup-0aa12c0183f923f204cb45443ad68c017834f6e32cfb41bd4bc24e336182ad99.json",
+      "bytes": 2048,
+      "sha256": "95c5b0f0e9d17cfcb70dfd29f8749cfd4e5bcab7ef97fb70e4952e5e17faaf8a"
+    },
+    {
+      "path": "replica-1/agent-v1/Q01-r1.json",
+      "bytes": 54376,
+      "sha256": "24603a608bb62a510c3ea0071b23fffb6e1146f64a6725a0af58509b86823090"
+    },
+    {
+      "path": "replica-1/agent-v1/Q02-r1.json",
+      "bytes": 58645,
+      "sha256": "a5764f11291acddc62c1bcfa67687e88b130c4f73cf5fba25d681ff42e7d8c8f"
+    },
+    {
+      "path": "replica-1/agent-v1/Q03-r1.json",
+      "bytes": 107589,
+      "sha256": "ee7b8b353eb1e2de342c5fbc5fb5bed3353b79030abffc51f84e4b2712af49e2"
+    },
+    {
+      "path": "replica-1/agent-v1/Q04-r1.json",
+      "bytes": 63445,
+      "sha256": "13b7bc0189f0ebe9b985fa797dbabd6fccdbc2d2b64c1c4ab5b645bd605563b9"
+    },
+    {
+      "path": "replica-1/agent-v1/Q05-r1.json",
+      "bytes": 61253,
+      "sha256": "be5c88b8d1ead96fefc1b0fab9e1f65f5c706c86019faa9c86532c9f0cda2f43"
+    },
+    {
+      "path": "replica-1/agent-v1/Q06-r1.json",
+      "bytes": 103997,
+      "sha256": "a4c9cc057ecd44ab2e2f8f3b2f4f3aebc164c8cb4828d6431c22c08220e06160"
+    },
+    {
+      "path": "replica-1/agent-v1/Q07-r1.json",
+      "bytes": 57569,
+      "sha256": "2ae2df0a924b0a92b31fb2d08d7fb60e310f483b3c7d87551977a3d9cd8fe151"
+    },
+    {
+      "path": "replica-1/agent-v1/Q08-r1.json",
+      "bytes": 107530,
+      "sha256": "ec32fc00a86814f819ae86a25f330b80cdc419ce630b513516146e55aeef7c90"
+    },
+    {
+      "path": "replica-1/agent-v1/Q09-r1.json",
+      "bytes": 60649,
+      "sha256": "645f7a0eceeef900eb856f1e2b4f973490db6c9ff24e0cf17dfa02feb85e27c1"
+    },
+    {
+      "path": "replica-1/agent-v1/Q10-r1.json",
+      "bytes": 58727,
+      "sha256": "735d84854e889ec27d5a87692d1c62db966a3b985b42e67b61040ae28c6149fa"
+    },
+    {
+      "path": "replica-1/agent-v1/Q11-r1.json",
+      "bytes": 60531,
+      "sha256": "af06023a4b7f48a5fb96ee05d97b1d61e7522f7154514734972fb837ce783368"
+    },
+    {
+      "path": "replica-1/agent-v1/Q12-r1.json",
+      "bytes": 63489,
+      "sha256": "b786ba78e0ac57949010a786744e05fe20630454448edc62deba1932f2093bd0"
+    },
+    {
+      "path": "replica-1/agent-v1/Q13-r1.json",
+      "bytes": 58476,
+      "sha256": "c06164795c5c4eddf7ddbdc73057d557b0cd4bdcbc55330bb5d039f89f63a9d3"
+    },
+    {
+      "path": "replica-1/agent-v1/Q14-r1.json",
+      "bytes": 58635,
+      "sha256": "6ca26eb07e855aa409432969d2f1e0aa9b8200ee6dc9b260f2543ca5a3b5698f"
+    },
+    {
+      "path": "replica-1/agent-v1/Q15-r1.json",
+      "bytes": 58969,
+      "sha256": "dda325ad00c74e06db70c5025a8c4ce38ed97aaf7355157a12131429738b0c62"
+    },
+    {
+      "path": "replica-1/agent-v1/Q16-r1.json",
+      "bytes": 111940,
+      "sha256": "447a69e6d32588322501b8d252655f3699d960122ff2851596895769962179d2"
+    },
+    {
+      "path": "replica-1/agent-v1/Q17-r1.json",
+      "bytes": 74671,
+      "sha256": "28a5918fda30d557d9e3a1fb693c3fc1584ade2fc81a5dc2e0e3b06be2a41cad"
+    },
+    {
+      "path": "replica-1/agent-v1/Q18-r1.json",
+      "bytes": 63322,
+      "sha256": "0de9704dd07181b89ebcb983580065cb423d0c3df7f3554d30c8850a9bd64510"
+    },
+    {
+      "path": "replica-1/agent-v1/Q19-r1.json",
+      "bytes": 104004,
+      "sha256": "b9fbad9c1f90baf42d870ebfcffaaee5aa4b068fedb38595c89d33932884c61e"
+    },
+    {
+      "path": "replica-1/agent-v1/Q20-r1.json",
+      "bytes": 52726,
+      "sha256": "6e48b25c2d81ca42cd1191147c07336a30d4afbb12c3b4cd511f41043c5263fe"
+    },
+    {
+      "path": "replica-1/agent-v1/Q21-r1.json",
+      "bytes": 60074,
+      "sha256": "27e02b6d15441f6035ec551b8794af5ec66deca840648270955deda509c2119d"
+    },
+    {
+      "path": "replica-1/agent-v1/Q22-r1.json",
+      "bytes": 54627,
+      "sha256": "6ab91c6446b73668c9ce1113b0374145ea55e6634de9fc410988579bcf78999f"
+    },
+    {
+      "path": "replica-1/agent-v1/Q23-r1.json",
+      "bytes": 59018,
+      "sha256": "29f5d57e1a9b2fc433abf0ace08069d6e22fe708630b93f2fc8e553ae70ac2c3"
+    },
+    {
+      "path": "replica-1/agent-v1/Q24-r1.json",
+      "bytes": 57955,
+      "sha256": "dd9c2eddfc3456cc88bf87dfdb623a0daacb69be8e1cc8b18beb8a93e2f99fb2"
+    },
+    {
+      "path": "replica-1/agent-v1/Q25-r1.json",
+      "bytes": 64013,
+      "sha256": "1737f4fc40151f6c08110bfbe5f30ec4bf80edaf56554efce43812de964a80cc"
+    },
+    {
+      "path": "replica-1/agent-v1/Q26-r1.json",
+      "bytes": 59457,
+      "sha256": "d84e95856481367cdaedbe30dc4270b7f5131a477b59866dcd8878b7d02f6cef"
+    },
+    {
+      "path": "replica-1/agent-v1/Q27-r1.json",
+      "bytes": 60575,
+      "sha256": "177966bf30848872bdd9792118cfa3ca8487e44bf36876789c0c5b1703de5644"
+    },
+    {
+      "path": "replica-1/agent-v1/Q28-r1.json",
+      "bytes": 63686,
+      "sha256": "2eff881fc5e7771954bfa59bd0d43b50d283e009d6c7466225dd69d4b00842c7"
+    },
+    {
+      "path": "replica-1/agent-v1/Q29-r1.json",
+      "bytes": 62908,
+      "sha256": "a4bbf704f2f440f9666d4015e6300f95ec6de5a3cb371fa6116c5347ea7b38b4"
+    },
+    {
+      "path": "replica-1/agent-v1/Q30-r1.json",
+      "bytes": 60727,
+      "sha256": "56aaa8a93836d2163ad25f7853f10e5057290e331fa0bd4824c58851de5c2c94"
+    },
+    {
+      "path": "replica-1/agent-v1/Q31-r1.json",
+      "bytes": 61041,
+      "sha256": "e8c07715ab93bc66562719b26ded9e0fa67e4fdafb4ea7077aa065a9de66837c"
+    },
+    {
+      "path": "replica-1/agent-v1/Q32-r1.json",
+      "bytes": 104532,
+      "sha256": "e875bfcfb24b2b6b1a693fa09c1080f44dbe3bfd99cc8495af4ec08cc081cd8b"
+    },
+    {
+      "path": "replica-1/agent-v1/Q33-r1.json",
+      "bytes": 92390,
+      "sha256": "10bfe0ea3b08cc31b28ea77ce88b3428cbd812c3f0e006305857f2791632c56a"
+    },
+    {
+      "path": "replica-1/agent-v1/Q34-r1.json",
+      "bytes": 54178,
+      "sha256": "331bb50d715af45d9ca2360dc77888eb48b09016f3dca423515209de932f33ae"
+    },
+    {
+      "path": "replica-1/agent-v1/Q35-r1.json",
+      "bytes": 103870,
+      "sha256": "096def8f1a2cda21689c6ae727c13973b401f09c0ebdc2ac9c49488c41b7bf02"
+    },
+    {
+      "path": "replica-1/agent-v1/Q36-r1.json",
+      "bytes": 72844,
+      "sha256": "bd031d8ddf50d809cce9d83f258c0096f9e2784067c92c678bbf09f9c3499d2f"
+    },
+    {
+      "path": "replica-1/agent-v1/Q37-r1.json",
+      "bytes": 57254,
+      "sha256": "ec8bd84359caba83121aa06e59aeed49bbf3f952bad658db4d6e644167014f1f"
+    },
+    {
+      "path": "replica-1/agent-v1/Q38-r1.json",
+      "bytes": 57095,
+      "sha256": "7757860a4dcc6177088cb89bfc12678c3497e0463e741e3e9a5621d3702abc87"
+    },
+    {
+      "path": "replica-1/agent-v1/Q39-r1.json",
+      "bytes": 54204,
+      "sha256": "a876448cfa1744f82be0a875fb82667ce42aadf0e36d0b1b4ef0625bbe196a7b"
+    },
+    {
+      "path": "replica-1/agent-v1/Q40-r1.json",
+      "bytes": 104993,
+      "sha256": "dc329ef3842783b534c8cd0ac4b97b053ade17ecf1fcfc53de13f46e73bf2945"
+    },
+    {
+      "path": "replica-1/agent-v1/run-identity.json",
+      "bytes": 5105,
+      "sha256": "4cf680b7d70d3f0d359418f270554bd63a60aa11742bb99268a89dc4b7c99b6a"
+    },
+    {
+      "path": "replica-1/agent-v1/runtime-launch-0aa12c0183f923f204cb45443ad68c017834f6e32cfb41bd4bc24e336182ad99.json",
+      "bytes": 20659,
+      "sha256": "a1edf7d4f5f0e3eddb546f9efb555e0e8f859437d4af7be031574c0c6c5360ef"
+    },
+    {
+      "path": "replica-1/agent-v1/summary-1791671286867537729.json",
+      "bytes": 7693,
+      "sha256": "4bbf9426f41e7b2533bf2127b1f17d2690a599fc19f692a07e66aa6dee3f4e21"
+    },
+    {
+      "path": "replica-1/agent-v1/summary.json",
+      "bytes": 7693,
+      "sha256": "4bbf9426f41e7b2533bf2127b1f17d2690a599fc19f692a07e66aa6dee3f4e21"
+    },
+    {
+      "path": "replica-1/real-v1/acceptance.json",
+      "bytes": 3006,
+      "sha256": "f250d4f1687bd20a48f65a4ce56ae3a86a416d3ea8430d8b6c2b56c334ddd604"
+    },
+    {
+      "path": "replica-1/real-v1/agent-freeze.json",
+      "bytes": 823619,
+      "sha256": "55554130880e9d0cc47a56dba4d87761e6aa80f1872c350a7d444cd546a97381"
+    },
+    {
+      "path": "replica-1/real-v1/catalog.json",
+      "bytes": 3704,
+      "sha256": "220926b186aa38f0292d7e2f789e8186a026b27a6e6c366297cf0a472ec7629b"
+    },
+    {
+      "path": "replica-1/real-v1/independent-parity.json",
+      "bytes": 97033,
+      "sha256": "88396ec8da76afc0bbdfc0b854215adb3d37b8616f75196e4763cf2c7ff00304"
+    },
+    {
+      "path": "replica-1/real-v1/index.manifest.json",
+      "bytes": 7578,
+      "sha256": "dcc659d0beaf8f2fff74e8bdf6349114320e713fcacf58b81f700148bb05356c"
+    },
+    {
+      "path": "replica-1/real-v1/ingest-output.json",
+      "bytes": 1096,
+      "sha256": "bd1e374efe70c267e4adba269f88c4ddee85eb70f2ba331da11b7179e4d6f87e"
+    },
+    {
+      "path": "replica-1/real-v1/ingest.json",
+      "bytes": 750,
+      "sha256": "2e9974b70cce402d1acb7fa6978748f9e62dae50edfc3f443ec0e0c2bcad5b7e"
+    },
+    {
+      "path": "replica-1/real-v1/ingest.json.lock",
+      "bytes": 1,
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+    },
+    {
+      "path": "replica-1/real-v1/maps-profile.json",
+      "bytes": 1140,
+      "sha256": "9beb90553f92057daafd2ebf73233ffc6a431bb508483bb0ee86a931a10c1d4d"
+    },
+    {
+      "path": "replica-1/real-v1/maps-provision.json",
+      "bytes": 779,
+      "sha256": "755bca78fef67cd582d1bd4e50eba2a81c6a0246e85035747056927d028b4cf7"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-suite.json",
+      "bytes": 4369,
+      "sha256": "9affb148b108e27e56eba2b2fd629a78ca6822a065927cc43aa6d8def0ac07ea"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/fault.exit",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/fault.ready",
+      "bytes": 37,
+      "sha256": "4e83f5f84d3351ddb50274dd6572dec2eaf6182a6dc097aa98f2fb2a8793c6c8"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/profile.json",
+      "bytes": 1178,
+      "sha256": "6f065be922ed4d5051d19176ea6cac8497668f607cee7c51bc1cb26f8137982a"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/05a3717c7d9d4d61aa2ec76c2d92f55c.json",
+      "bytes": 20590,
+      "sha256": "6a9691e524259abaea1bf4746d61c63db73ab9b8083ac32dcb5f47cb3ddeb9a4"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/105d860170d84edba885ddd3335aab07.json",
+      "bytes": 20590,
+      "sha256": "159b05668d401667d3ec3c48a2925a78d83e071b409d3f057c45d8aa7dd3fdc8"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/125d55b2d5834319b356a6634445fb1c.json",
+      "bytes": 1213,
+      "sha256": "48c5b30ac43b509b8f8bbf7de0b004b21e23b648b7c85eaa684caa59df47526b"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/125d55b2d5834319b356a6634445fb1c.lock",
+      "bytes": 1,
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/1d356aa90bc14e1b994f849fab8e8103.json",
+      "bytes": 12764,
+      "sha256": "ca1180921a8416b2c9bca08c17d10f999659455e37c8d9c2ff1a15784dbf6d12"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/228f44e247314547a6cff06fa81128fa.json",
+      "bytes": 9759,
+      "sha256": "edf4bcbd46a889cd6d543a61d3d68fb09578136c0b7fc4b89ed938482f5f007c"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/2c68178deca84cb998584dbeb20de4ad.json",
+      "bytes": 12764,
+      "sha256": "6e4c000974f0dd89a9e986344f2830ce586183141ffbc47b098ab162fe7dc995"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/306fb8554a444115ba994ebb6ebe2185.json",
+      "bytes": 104849,
+      "sha256": "3a9345b95cfca58807b7f658fee49cbaafc4554b17b129ab7343e029bb86cec7"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/32339a0116d445d1a500ab97f1694854.json",
+      "bytes": 12764,
+      "sha256": "f1fd80505911c4f63ec6da963cf24c70569e540fb5196660b84be6e3a433df38"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/3af1333ff2634086b068a539efe3fdaf.json",
+      "bytes": 12764,
+      "sha256": "a8e5844a22ad5e0dc9447fb5f8032fd4d8f585983ece2bede066781c84a9afc7"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/41993018356244c98e07b9b4c25cea55.json",
+      "bytes": 9759,
+      "sha256": "2e0218a79026f830fa8ae9f07dd4b5308cbc543f6225bbd53a93263a5dd69d6f"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/43816a8bfe2045eeb63cd81d25114578.csv",
+      "bytes": 1139937,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/43816a8bfe2045eeb63cd81d25114578.json",
+      "bytes": 1342,
+      "sha256": "4835e916d6f9f1b4ea9b91a508b098e9fe4de2d57cbc84a4d92e0ef7c57050d2"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/43816a8bfe2045eeb63cd81d25114578.lock",
+      "bytes": 1,
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/46123f7ea36848f7b24dc0f7e92e201d.json",
+      "bytes": 9916,
+      "sha256": "19189df4c32c0074de24e4e50e4aa386cfe273ba5fc3bd8e4df0b4472999220e"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/509bddd5038643ad9dd2278440c66feb.json",
+      "bytes": 9759,
+      "sha256": "8255f300ed3b772539af5eca20115d457597c6b677151e6b2c2e2f7a6fad06f2"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/579f2f7ef4b44aceacf7b0bfca9886de.json",
+      "bytes": 20590,
+      "sha256": "e3fe6598d2db180eac97ef4c8416546402831c52f2d222f7dcffd36d3ed10cfc"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/5f7a9bfd738e4e4a9d3d5c678a157c73.json",
+      "bytes": 104849,
+      "sha256": "14c1d8b2ba439fed5adfff608ecd392394b2e0c846f0e8a304380c080f474bdb"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/62d7e89c95e74476bd6d3acafe5bf8f0.json",
+      "bytes": 104849,
+      "sha256": "89bf4d7f4756116b9b65ed5186d2eb22829852f6aa56d648f5e0743ff64e45fb"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/67212c2e64cd4026b037306d67b3f3c9.json",
+      "bytes": 9916,
+      "sha256": "52043ab126e1332a2ec2d83f908a6d148ce39431ac70f8c91d24f2d93b26a7c8"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/6ad543cbe83a4cbd9001ee722f4d0575.json",
+      "bytes": 9759,
+      "sha256": "1b809be895fb64e59a4dbfc22df4921a79d53b08060e84eefb6f328ac2c4f128"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/7ee7447840ac4007a1158787c2e4f8a0.json",
+      "bytes": 20590,
+      "sha256": "ef708217531ea3b69c1df5ad24a949feadcc3c6bc0069ac343e192145b28f966"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/87476348373d411689a6b7756b692247.json",
+      "bytes": 9916,
+      "sha256": "15fe22b9b1d87bffcf0259d69887f891e155419f5fcc2aca82102f712b61cd10"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/88c56af417cf4b8ca4734a105ec5f1ad.json",
+      "bytes": 20590,
+      "sha256": "c5ffdd8751a5561bcb5bdf59f2a68c43ea6b4a45ac80da3618356e2d2d2b5b6d"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/8eeada73022a4b7bad49b4a9385f4695.json",
+      "bytes": 9915,
+      "sha256": "29b2f9998aaa51abae56eca6ce9a0b3b5e7e55afe7baeefa7838459859d485bd"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/954f9b27566d4f249be0b575a9165de0.json",
+      "bytes": 9759,
+      "sha256": "c416ca388d35682ec5ac6a133369ccc7a992903f1165702c3083045e8c68e49f"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/9ac5fb0f10ac423d9e8ae0981c925c99.json",
+      "bytes": 12764,
+      "sha256": "b07566b22fc0401fbf77bd159e418bf17dbc576e6b65f9e32dfa455ea42e448a"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/a304abc678f34010904051c808ebad1e.json",
+      "bytes": 104847,
+      "sha256": "69666e1ddd42920c8b16620a8c84ae53d6565e82cc2980ca79b611fc86b6a039"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/a62bff6bee8c489e873340cd4362bdf4.json",
+      "bytes": 9916,
+      "sha256": "5f782e32f96b45fa73b7493c51b7d5be478f04517517c538b3e73bd9fc274cb6"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/b8c5518c1497485692b4f00008a46c62.json",
+      "bytes": 9759,
+      "sha256": "43fba264e230519ca8b41bd9e7205887b394e802b8270144586214dd46a2de78"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/be2c832e82954c7181b2a8a815925963.json",
+      "bytes": 104849,
+      "sha256": "7810ca90350d1118e61e463313817f6deef1587c3b5ad868924dd368ea839c28"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/cb8a0a83df224d4291634e7064de8e22.csv",
+      "bytes": 1139937,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/cb8a0a83df224d4291634e7064de8e22.json",
+      "bytes": 1342,
+      "sha256": "b240cb647295346b003c7858c75b74f960f2da61a50b72ecdd542fb89c96dfc8"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/cb8a0a83df224d4291634e7064de8e22.lock",
+      "bytes": 1,
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/cc36966d87494f1a935c643ca300f1fe.json",
+      "bytes": 20590,
+      "sha256": "b2e1e66b91008015ed78605c683ee33b3f9ab0256ce211ccac592187db39e9e9"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/d1ffa4b2a10144e2aa49819ecf5c496d.json",
+      "bytes": 9916,
+      "sha256": "80758a629cfc774be3f48636d68e75d821b893caa2865e7aa9197920c1a5d055"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/de5ce5ff172849edbfe5ef4a84120959.json",
+      "bytes": 20590,
+      "sha256": "3ca921a35493d61f39da612edf5a0b3eb1f35ba2ab317475d3b29a8b4de917cc"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/ed4752b7e57d4f059a66743e276cd824.csv",
+      "bytes": 1139937,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/ed4752b7e57d4f059a66743e276cd824.json",
+      "bytes": 1342,
+      "sha256": "2815260f05d32b7f8f5653c5991d1dec7544618402c1ec0ebca1d04bf5a21a6c"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/ed4752b7e57d4f059a66743e276cd824.lock",
+      "bytes": 1,
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/ee06f545321d4b2ea9ce5321ee712067.json",
+      "bytes": 104849,
+      "sha256": "c43d21103e2a8bbcb4acfc467db52a4903d20cf509dea1f2271d3cc175e2354d"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/f274eae680ef4bd18a043b8615ad235e.json",
+      "bytes": 12764,
+      "sha256": "ecf9f633d6ac6fc75e263c119deaecefb5a7e57c379c5b820d0c279ab12a6218"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/f42c4cce1e2c4da094406745a59050f4.json",
+      "bytes": 12763,
+      "sha256": "2479b42f8503ce18abfd8940702cedfacd270028dd4fd3176277fae96507af77"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/f5d2ab78acf4416291f7e8aff745dd98.json",
+      "bytes": 9759,
+      "sha256": "b1a1ca2e4fdab5c1dfa5ae960e88428ad49be66faf47d3258bc078aa16049af6"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/f75bcce1ddc24dd1bd9e198149a4f12a.json",
+      "bytes": 9916,
+      "sha256": "569bc39ad0b0a76e5465fced294234b8516151abea3e04cacd2f4325d85a2aae"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/f9665bfaec834611abca7deff0ead0fb.json",
+      "bytes": 12764,
+      "sha256": "45823ff39b84171bb2dae92a12a07465f7aebe15ff8cec35a75f96ef0a9d8f7a"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/ff00e0ee46904f4b871a3d808d80cce7.json",
+      "bytes": 104849,
+      "sha256": "da4a3520be17314e2b7a43be745f2166cb51e1e0f282717c7fb09ce3c9f9b76a"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/ffffcf9b04794a99a67594c2eba3882b.csv",
+      "bytes": 1139937,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/ffffcf9b04794a99a67594c2eba3882b.json",
+      "bytes": 1341,
+      "sha256": "59ed0288e01aafe26af76943856e526b17f9dfc0013362b0512e214f3761b029"
+    },
+    {
+      "path": "replica-1/real-v1/measurement-work/runs/ffffcf9b04794a99a67594c2eba3882b.lock",
+      "bytes": 1,
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+    },
+    {
+      "path": "replica-1/real-v1/measurements.json",
+      "bytes": 29575,
+      "sha256": "cd5b2f58dd5b2479dd2f58bdba1168273f4736ca839d33e5c22bc4602bc25b85"
+    },
+    {
+      "path": "replica-1/real-v1/normalized.manifest.json",
+      "bytes": 5154,
+      "sha256": "a110e9f0f3223877fbf29cfa4aba106d34864684ce7cbcc1f9d08df191547bc1"
+    },
+    {
+      "path": "replica-1/real-v1/oracle-export-ids.csv",
+      "bytes": 97292,
+      "sha256": "b9ef567a01db6f4736bf0251118e3645c6839c16498fd2132819bc9a76e877fd"
+    },
+    {
+      "path": "replica-1/real-v1/point-expectation.json",
+      "bytes": 5559,
+      "sha256": "e09bbcd26c9c51796080f30051afb33a25b670e6e9268bc9d850546bf280095e"
+    },
+    {
+      "path": "replica-1/real-v1/profile.json",
+      "bytes": 982,
+      "sha256": "ed9712d8d54593132cbbf8acd250c5a6cc3855f346a58bef94f401bef26af351"
+    },
+    {
+      "path": "replica-1/real-v1/render-points/browser-diagnostics.json",
+      "bytes": 483,
+      "sha256": "76800342742fd6b6147fd160c0c2d384c1adffac66754842437278d8e505d3b7"
+    },
+    {
+      "path": "replica-1/real-v1/render-points/browser-searches.json",
+      "bytes": 1127,
+      "sha256": "5393534b28c8a38513a6051290b4ec1ad46773dbbbf2998be5fcb41ca9d755db"
+    },
+    {
+      "path": "replica-1/real-v1/render-points/map.png",
+      "bytes": 111590,
+      "sha256": "46c97b9b653f87f8eabb3e3d9adfcae25ba358a3419868c8656ff3032d6b9db4"
+    },
+    {
+      "path": "replica-1/real-v1/render-points/receipt.json",
+      "bytes": 2008,
+      "sha256": "b4fa6744931e39f8235f79b8012b14d9aa1339cc5204035f6ead8ec00dba6966"
+    },
+    {
+      "path": "replica-1/real-v1/render-points/rendered-style.json",
+      "bytes": 78297,
+      "sha256": "6cf207521875c4f0637582bcfde04b71669f5308bab335b6e59b5d67a598d4a1"
+    },
+    {
+      "path": "replica-1/real-v1/render-selected_trends/browser-diagnostics.json",
+      "bytes": 511,
+      "sha256": "b45bfe27cee4aaabbcbba21df063f6512f2df239879876450cf65b326eacefd7"
+    },
+    {
+      "path": "replica-1/real-v1/render-selected_trends/browser-searches.json",
+      "bytes": 2621,
+      "sha256": "7ac23f482186b3df71561505d481beabee14dcdeb1c8742fada76d16364ffcc1"
+    },
+    {
+      "path": "replica-1/real-v1/render-selected_trends/map.png",
+      "bytes": 88380,
+      "sha256": "830b400eb9497a47a232b8d68fe5aa2b6875fd0ac688264ff67c03b8ba8f78a2"
+    },
+    {
+      "path": "replica-1/real-v1/render-selected_trends/receipt.json",
+      "bytes": 1864,
+      "sha256": "f90199bace3d29dd12dc8205d4ecb8ba554aa59f8163c925e4ec18d0772522b3"
+    },
+    {
+      "path": "replica-1/real-v1/render-selected_trends/rendered-style.json",
+      "bytes": 4657316,
+      "sha256": "bd254a653aa4cd8f510dda9c1fa398a30e5c8d54d1191c66f43c32ba3535c11f"
+    },
+    {
+      "path": "replica-1/real-v1/render-trends/browser-diagnostics.json",
+      "bytes": 511,
+      "sha256": "dab11c228b05bcd1c6a904803958bdb6d749b8fe47af9737f026944ac7018ed4"
+    },
+    {
+      "path": "replica-1/real-v1/render-trends/browser-searches.json",
+      "bytes": 2286,
+      "sha256": "ee7e2f4a3b00d0043c5c2ddf150c90ac4fdf89a1006869756c02ae9603c881c5"
+    },
+    {
+      "path": "replica-1/real-v1/render-trends/map.png",
+      "bytes": 186699,
+      "sha256": "9326a0aee04e4db528b79a990bf30c911e070229835940aea363da81d93ea07a"
+    },
+    {
+      "path": "replica-1/real-v1/render-trends/receipt.json",
+      "bytes": 1865,
+      "sha256": "18e0c0dc793a1234e56d2465783a4e086f21360921a4e3f11ca6f0900c0c9c6c"
+    },
+    {
+      "path": "replica-1/real-v1/render-trends/rendered-style.json",
+      "bytes": 4801120,
+      "sha256": "d4409d8180e598c3dac1712eb9aa681e80588fc4132070469d02206e950b3bb9"
+    },
+    {
+      "path": "replica-1/real-v1/runs/43093be48ff24bdea622a0fba02934ed.json",
+      "bytes": 9951,
+      "sha256": "cb315eacdad561030e06a90dd2208b0de4480cd4dca418015ca78023741cab7d"
+    },
+    {
+      "path": "replica-1/real-v1/runs/48ab6db4b2ff4348961b5894865e1492.json",
+      "bytes": 9916,
+      "sha256": "5018906b312eb186ef76a4d26c2fac0b9a3e15ef7ce253e279a82f98acbb4a9f"
+    },
+    {
+      "path": "replica-1/real-v1/runs/5d14cd318abe4ae5b4add2a11636c141.json",
+      "bytes": 9759,
+      "sha256": "5d0851a3ca67d008904136a8a658f5d679cd510cd0bd3edd7729532a0f505728"
+    },
+    {
+      "path": "replica-1/real-v1/runs/66b0ed8214b04db98151ab13e4a0bf4f.csv",
+      "bytes": 855,
+      "sha256": "4a4b3de4a46c817b96e8146d8fbf2622661cf41b1d0e439d9431c64a51c1efec"
+    },
+    {
+      "path": "replica-1/real-v1/runs/66b0ed8214b04db98151ab13e4a0bf4f.json",
+      "bytes": 1481,
+      "sha256": "af9cafc4258708719f4a82128d71742a270f04c07764c234104bc22f4349778c"
+    },
+    {
+      "path": "replica-1/real-v1/runs/66b0ed8214b04db98151ab13e4a0bf4f.lock",
+      "bytes": 1,
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+    },
+    {
+      "path": "replica-1/real-v1/runs/703bedd3c0a440cf9e8eece594dc791f.csv",
+      "bytes": 2435,
+      "sha256": "0662c1ce8514ee203c453a2060139372515a835aca3c9ca106bd89cd66f6d301"
+    },
+    {
+      "path": "replica-1/real-v1/runs/703bedd3c0a440cf9e8eece594dc791f.json",
+      "bytes": 1122,
+      "sha256": "a453c798b07e51a5e0821f613acf5ab141c0df4c730f766f796635c5259b3870"
+    },
+    {
+      "path": "replica-1/real-v1/runs/703bedd3c0a440cf9e8eece594dc791f.lock",
+      "bytes": 1,
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+    },
+    {
+      "path": "replica-1/real-v1/runs/85a3ae97f2a0417da3881672f265a1dc.json",
+      "bytes": 12907,
+      "sha256": "46d68b99cea1b82abc21ef0eb8ac5fb957cc6657e48af414092aa66352cb800c"
+    },
+    {
+      "path": "replica-1/real-v1/runs/8ab222d5af134cc990303dbf310b8031.json",
+      "bytes": 12764,
+      "sha256": "a382a05cbd0130cfea68068319992a2781d97f60e9ccf754356b9eb5b3290d9c"
+    },
+    {
+      "path": "replica-1/real-v1/runs/aa5204ee48144f8086e3cb497ed73bfe.json",
+      "bytes": 9477,
+      "sha256": "d08f929c0a8488cefcf1f5d82191649e65d4da1942379a79a8bfec9bf833c5ff"
+    },
+    {
+      "path": "replica-1/real-v1/runs/b11dae50703d41c79c2c953c26526d20.json",
+      "bytes": 9302,
+      "sha256": "faa1d59a45d81bbf34cd3e6f20c20a51b94c786085c6e5d1885850aab6b4e42d"
+    },
+    {
+      "path": "replica-1/real-v1/runs/b8ddb0463295402386dd99292e699dea.json",
+      "bytes": 104849,
+      "sha256": "383697c07e19c33df81c6dec33fe4603ae030f96d45b302c9bf3ebeb1d4c68bb"
+    },
+    {
+      "path": "replica-1/real-v1/runs/bb4ce709bec24ed9b3b813dd774afb50.json",
+      "bytes": 20590,
+      "sha256": "863d9250728ba1fa38f04be5dafcebfc1771d1927eea081bd6eeef6ce2fbabf1"
+    },
+    {
+      "path": "replica-1/real-v1/runs/ea05d85a4d8a4324bb3e46278ed4d770.csv",
+      "bytes": 45063,
+      "sha256": "b2e822a72926aee7d85a19fe6b5fe9b900e403ec18079437f1297ea8d1fb8d1a"
+    },
+    {
+      "path": "replica-1/real-v1/runs/ea05d85a4d8a4324bb3e46278ed4d770.json",
+      "bytes": 1326,
+      "sha256": "57463b8419a83b53837df64bc08e4387c9a337dfc382bdf3a057283f3f22ebbe"
+    },
+    {
+      "path": "replica-1/real-v1/runs/ea05d85a4d8a4324bb3e46278ed4d770.lock",
+      "bytes": 1,
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+    },
+    {
+      "path": "replica-1/real-v1/selected-trend-expectation.json",
+      "bytes": 590,
+      "sha256": "153edd1abcbf9708497a6d2af46380ff71a138fce724587acd007e8414167982"
+    },
+    {
+      "path": "replica-1/real-v1/trend-expectation.json",
+      "bytes": 26800,
+      "sha256": "031b7c7677e9b784027f388d5e38c72c49c53b655da3ba0ffa4486165166e2be"
+    },
+    {
+      "path": "replica-1/runtime/acquisition.json",
+      "bytes": 221,
+      "sha256": "e41aa73d4556177f86c576d4af64c284c22da9869e02277ee5863a9c4053c7e7"
+    },
+    {
+      "path": "replica-1/runtime/agent-runtime-freeze-r1.json",
+      "bytes": 7302,
+      "sha256": "0aa12c0183f923f204cb45443ad68c017834f6e32cfb41bd4bc24e336182ad99"
+    },
+    {
+      "path": "replica-1/runtime/blas-package.txt",
+      "bytes": 43,
+      "sha256": "0a48eec74661a5ca2ee87cb603003df9f5ccd559efd8034be1576cda2e4c1b91"
+    },
+    {
+      "path": "replica-1/runtime/compiler.txt",
+      "bytes": 246,
+      "sha256": "88b7c4b67564a146863224148116065fee418539f0a408f3636a68f3bde51805"
+    },
+    {
+      "path": "replica-1/runtime/container-stats-end.jsonl",
+      "bytes": 529,
+      "sha256": "8fa89b7030680511293c75d744210938404c8c8cf6cd7ad4ef56e8662934f83c"
+    },
+    {
+      "path": "replica-1/runtime/container-stats-start.jsonl",
+      "bytes": 527,
+      "sha256": "575227c91900f361ecbda3fecf88336ba5bc99edd893983457b09b9ce6ec0563"
+    },
+    {
+      "path": "replica-1/runtime/cpu.txt",
+      "bytes": 3189,
+      "sha256": "4476e601951bb5e5dc85ca4b9d2e3bc795bb83c0d4e62b8d9f2bdec6659b0e7a"
+    },
+    {
+      "path": "replica-1/runtime/development-artifact.json",
+      "bytes": 761,
+      "sha256": "0b6d7acf7f6acb4a0046ea9824ffd4ac1e006ce455b5aa0bc6a0a9a4a9f72421"
+    },
+    {
+      "path": "replica-1/runtime/development-artifact.zip",
+      "bytes": 31348,
+      "sha256": "9664fa7851ebf9c4771012ea490cb322760a83ab87af917bb29f65653770d290"
+    },
+    {
+      "path": "replica-1/runtime/development-eligibility.json",
+      "bytes": 25741,
+      "sha256": "b6dea7179e9951eb9bc273739ae81df947084565e502329714acf593c44ba17d"
+    },
+    {
+      "path": "replica-1/runtime/development-run.json",
+      "bytes": 13885,
+      "sha256": "bb66c0c03a43cc5bca7eb8497e4bdb66d3abe6654e944d50f870b5a952b738a1"
+    },
+    {
+      "path": "replica-1/runtime/disk-end.txt",
+      "bytes": 127,
+      "sha256": "e6118cd57857844ac4b57a9bcb4fc63c8130d150e65cd6dbe4bf72d6d7fc1df7"
+    },
+    {
+      "path": "replica-1/runtime/elasticsearch-version.json",
+      "bytes": 540,
+      "sha256": "1030a940a095c2c4774ee5bfae1fb44786449436c4365700c3d7ce382d885309"
+    },
+    {
+      "path": "replica-1/runtime/host.json",
+      "bytes": 1364,
+      "sha256": "003af87cfce31011daa954c36fb41a47a883f77d74dc35a18f0715445e7b62d0"
+    },
+    {
+      "path": "replica-1/runtime/kibana-status.json",
+      "bytes": 23116,
+      "sha256": "cfc47a1f613d5303b51ec4fa5918b6d8af96698c452e654829a88d2f82d07973"
+    },
+    {
+      "path": "replica-1/runtime/llama-version-r1.txt",
+      "bytes": 84,
+      "sha256": "d64ed60f024df2d1390d3df5b15edf2d5bbbc038e2914fa2d6c85f67b8e92d4d"
+    },
+    {
+      "path": "replica-1/runtime/model-assets.json",
+      "bytes": 2978,
+      "sha256": "1955bd99ddc624a6c55c77c6dbaea914202bffde5976e13e87a22589ad65afcc"
+    },
+    {
+      "path": "replica-1/runtime/model-health-r1.json",
+      "bytes": 16,
+      "sha256": "08e2c358ce13cb67f94ebb35b0f67c8763190a857c0db68da6eb196dfe9da46a"
+    },
+    {
+      "path": "replica-1/runtime/model-server-r1-tail.txt",
+      "bytes": 13826,
+      "sha256": "927c5bcd81c199c7f80cc775e8dd90393da37cd717e1eb47082dda0a4ceea78b"
+    },
+    {
+      "path": "replica-1/runtime/model-server-r1.log",
+      "bytes": 115880,
+      "sha256": "16ef6018ccc7d51dc5008179766c7d7af4f39059090b36374ca83ca4b922db5b"
+    },
+    {
+      "path": "replica-1/runtime/native-build.json",
+      "bytes": 219,
+      "sha256": "e48a6f9a9e8d4a9a0cf7451ae15a4e365913bcd94b708caf0c0fcb9e71afe1d7"
+    },
+    {
+      "path": "replica-1/runtime/native-cmake-cache.txt",
+      "bytes": 38172,
+      "sha256": "ced5bb961568e1914eb52b9fee4beebe1c1294d4137fd3310810750d7909a91c"
+    },
+    {
+      "path": "replica-1/runtime/native-source-commit.txt",
+      "bytes": 41,
+      "sha256": "745e93fc6b095ea32b15d6c327a06c10f7cdd2b33b4e994266abd9ece82a3c56"
+    },
+    {
+      "path": "replica-1/runtime/python-packages.txt",
+      "bytes": 734,
+      "sha256": "25c20fbdf5156ebd1ccf479fcd91853fdac5b83b45034410b9b789d8f0c8918b"
+    },
+    {
+      "path": "replica-1/runtime/replica-execution-r1.json",
+      "bytes": 251,
+      "sha256": "1747ca754bc6bd3dc57d4e188b9762bd313f93aa9015a4f4d4c6d804193f26b6"
+    },
+    {
+      "path": "replica-2/agent-v1/metadata-prefix-warmup-e99b5db7d46466cbcca950eae56f0c72f677dc104f31c2d102a366066ba81e91.json",
+      "bytes": 2048,
+      "sha256": "8b90848c2e93ae238f4399a4b5398ffa133684be35e52cae96e9d9b6559998c5"
+    },
+    {
+      "path": "replica-2/agent-v1/Q01-r2.json",
+      "bytes": 54375,
+      "sha256": "3f7720987fa04f7602be69ce9d341ceff079922e67c990429877ad75538d4f9c"
+    },
+    {
+      "path": "replica-2/agent-v1/Q02-r2.json",
+      "bytes": 58532,
+      "sha256": "6a44422192b5a0de0a7f5c10f0f59524fcef74d1f0547d5ab9db0d78efad3d0b"
+    },
+    {
+      "path": "replica-2/agent-v1/Q03-r2.json",
+      "bytes": 110096,
+      "sha256": "dc3b986cb29711e800801b0f389aee8dd401040d5e8da066299af9085d3e5f32"
+    },
+    {
+      "path": "replica-2/agent-v1/Q04-r2.json",
+      "bytes": 58954,
+      "sha256": "6aa9e8f0040b263a390e25c7e0c906b87cb98423430cdfa12d6393eb0588f481"
+    },
+    {
+      "path": "replica-2/agent-v1/Q05-r2.json",
+      "bytes": 59505,
+      "sha256": "52b532efae60bd5f47c24a67aa3514f8587693971ca393737ff2327ea0c0a5b2"
+    },
+    {
+      "path": "replica-2/agent-v1/Q06-r2.json",
+      "bytes": 103997,
+      "sha256": "eacc06b123c8493edefacb8cffad9938c1cbe49f2ec1d38ab892052813d3372a"
+    },
+    {
+      "path": "replica-2/agent-v1/Q07-r2.json",
+      "bytes": 55744,
+      "sha256": "78bcdb7198af795f1b0233cb456d6e4f9de7856de05091267fcccdd8767e034f"
+    },
+    {
+      "path": "replica-2/agent-v1/Q08-r2.json",
+      "bytes": 77573,
+      "sha256": "d199964d25aea944dd95b72f27f2dabeddbf1a1483a37eee8dabd785e41801be"
+    },
+    {
+      "path": "replica-2/agent-v1/Q09-r2.json",
+      "bytes": 56702,
+      "sha256": "e13587362c1f4c0fb468a8c2f5a6a56651ccbe64b7de91efc836bc887ceae7fb"
+    },
+    {
+      "path": "replica-2/agent-v1/Q10-r2.json",
+      "bytes": 58826,
+      "sha256": "558cdb47c7b2ddc43bdf19100c6dd172e017bc6899c31af3fd9555f899f5682e"
+    },
+    {
+      "path": "replica-2/agent-v1/Q11-r2.json",
+      "bytes": 74145,
+      "sha256": "ccc62367d41722c7229952d1ea2bb1136f875d94744e27924c7ac07d8de0c9a5"
+    },
+    {
+      "path": "replica-2/agent-v1/Q12-r2.json",
+      "bytes": 73384,
+      "sha256": "23059e04d59ce523a6b8bab38043219c80ff8c99b7edbcb575879b6b94752280"
+    },
+    {
+      "path": "replica-2/agent-v1/Q13-r2.json",
+      "bytes": 104042,
+      "sha256": "511585ac47687616fcb34a94fc4573d6d3460dd0140a4a0d1c75e58a1c1a3e0e"
+    },
+    {
+      "path": "replica-2/agent-v1/Q14-r2.json",
+      "bytes": 58204,
+      "sha256": "697eb9c9c220287389f3ed1816fe626a10dad75c5bb16a562ecef4afa436724b"
+    },
+    {
+      "path": "replica-2/agent-v1/Q15-r2.json",
+      "bytes": 59179,
+      "sha256": "a1b368c39f545c6429098bc45799a38bd0538090845a639854a5ab3bee1285e0"
+    },
+    {
+      "path": "replica-2/agent-v1/Q16-r2.json",
+      "bytes": 77706,
+      "sha256": "c7b2b91770c9d48ad887e19efec9a21ae8a80131312f93a2d51a51e6b298c7d0"
+    },
+    {
+      "path": "replica-2/agent-v1/Q17-r2.json",
+      "bytes": 76980,
+      "sha256": "5c5b133838e42d24bd27ba1c29d88d53fc306f2143714921444fc5600144b0fc"
+    },
+    {
+      "path": "replica-2/agent-v1/Q18-r2.json",
+      "bytes": 59384,
+      "sha256": "776ab4c7f1a869d52da350967dc15e0a92d168ce70c45094580165a764e1cad0"
+    },
+    {
+      "path": "replica-2/agent-v1/Q19-r2.json",
+      "bytes": 104001,
+      "sha256": "4af0e460d2c1c1ce706dc98ada6e310a9da876059eacaf7a8e8cca9d4b247f6b"
+    },
+    {
+      "path": "replica-2/agent-v1/Q20-r2.json",
+      "bytes": 56143,
+      "sha256": "2a2a80e12cdb7be504f9f1501d3579f11e695f68c7883d6156c218b5ca2245ad"
+    },
+    {
+      "path": "replica-2/agent-v1/Q21-r2.json",
+      "bytes": 56841,
+      "sha256": "041e7504e31052fbddf0ebf41b469bc8bb98e535956b547c9d3aee6325aa0c55"
+    },
+    {
+      "path": "replica-2/agent-v1/Q22-r2.json",
+      "bytes": 53954,
+      "sha256": "fdd2bfbbe4a83efe1d1f2a95395f40c8a4b6dfca5a7a59163493ae2aff455b1f"
+    },
+    {
+      "path": "replica-2/agent-v1/Q23-r2.json",
+      "bytes": 58208,
+      "sha256": "d616aea5e9fe57ff01f1a2cd11fcda17a7a7b92a598d6f573247f36764e9e5f8"
+    },
+    {
+      "path": "replica-2/agent-v1/Q24-r2.json",
+      "bytes": 58093,
+      "sha256": "7f1cc1707d255738d6687ccce651440eb52bac9b2e6116539d9cca50b814a660"
+    },
+    {
+      "path": "replica-2/agent-v1/Q25-r2.json",
+      "bytes": 59397,
+      "sha256": "4d22f7319d270b060058fea6b0e70b91ad53f21abc161672420d31f2bf2f1782"
+    },
+    {
+      "path": "replica-2/agent-v1/Q26-r2.json",
+      "bytes": 64038,
+      "sha256": "459a31cee375ca91427f6e81503d3101e2c60e3cdc8364678a2c456cbec0d096"
+    },
+    {
+      "path": "replica-2/agent-v1/Q27-r2.json",
+      "bytes": 60280,
+      "sha256": "bf2420006efa209c0ca75cbbe3c59845f008530fc62985d51363d4b2d30a22c6"
+    },
+    {
+      "path": "replica-2/agent-v1/Q28-r2.json",
+      "bytes": 59171,
+      "sha256": "93a69e9c09954d55be445023b35fd01df2566e1b7fd753c712f062876b3c1312"
+    },
+    {
+      "path": "replica-2/agent-v1/Q29-r2.json",
+      "bytes": 59132,
+      "sha256": "7a1790e1e4200e2b4a3eb6d8f225f03f2249726b7bd5506279b84370d5fe2e27"
+    },
+    {
+      "path": "replica-2/agent-v1/Q30-r2.json",
+      "bytes": 60955,
+      "sha256": "6aea6fe2332abdc08d82c8806d0d14c3b4c1090ab726f89bef17d677e79ab22b"
+    },
+    {
+      "path": "replica-2/agent-v1/Q31-r2.json",
+      "bytes": 104518,
+      "sha256": "22cfcf65bef1f83decd9fbb2ba4ffd2b128bf60c664158e4bcf8e264529c2a79"
+    },
+    {
+      "path": "replica-2/agent-v1/Q32-r2.json",
+      "bytes": 104538,
+      "sha256": "ce285cbdd35f9216b6f1a701f0832cfafaf5862f2b99c2ef4c438ae10a960073"
+    },
+    {
+      "path": "replica-2/agent-v1/Q33-r2.json",
+      "bytes": 104526,
+      "sha256": "4d907c1e42563659b5c7a28752338eed0e82d0a0864ba6cfd48fddb3ad857f16"
+    },
+    {
+      "path": "replica-2/agent-v1/Q34-r2.json",
+      "bytes": 54185,
+      "sha256": "f23695c577c9d4401853161d490d1c0212992953ccbaf22d4a5c1feaf0200bdc"
+    },
+    {
+      "path": "replica-2/agent-v1/Q35-r2.json",
+      "bytes": 103869,
+      "sha256": "07b2fe5f585cf09714154a16a534c750a578cc6a4f7cbd22f7adaf02dfe89f2c"
+    },
+    {
+      "path": "replica-2/agent-v1/Q36-r2.json",
+      "bytes": 73081,
+      "sha256": "cdf05c22099334c7a47c13bb2a41bbaf2192a0d4315b27254fbd03d6630fd730"
+    },
+    {
+      "path": "replica-2/agent-v1/Q37-r2.json",
+      "bytes": 57171,
+      "sha256": "c2e9e8b817303ecf777dcbb556a0026c285720728003590425104098d4b30049"
+    },
+    {
+      "path": "replica-2/agent-v1/Q38-r2.json",
+      "bytes": 57053,
+      "sha256": "9854231f533fbe92bc2995624751647a130e469f9650e8f02d30086f68f0093f"
+    },
+    {
+      "path": "replica-2/agent-v1/Q39-r2.json",
+      "bytes": 103903,
+      "sha256": "f470568c50d753aa1a3f416d2319f8eec37948da0d2b36c0bd8e8d743b87baab"
+    },
+    {
+      "path": "replica-2/agent-v1/Q40-r2.json",
+      "bytes": 104987,
+      "sha256": "381621ace6b45f719d0453a7b187961cce272ace242e283ca8686acafd910dba"
+    },
+    {
+      "path": "replica-2/agent-v1/run-identity.json",
+      "bytes": 5105,
+      "sha256": "2e95c45ae0dceac5e0b1f186dbbd1e90d18278cf9efe03af1cca66042a7498ec"
+    },
+    {
+      "path": "replica-2/agent-v1/runtime-launch-e99b5db7d46466cbcca950eae56f0c72f677dc104f31c2d102a366066ba81e91.json",
+      "bytes": 20659,
+      "sha256": "c460d99473bc3ba55502507ac50ab17cc1d31520b4bc98a1fda95dea3f2b1d25"
+    },
+    {
+      "path": "replica-2/agent-v1/summary-1791671280651481694.json",
+      "bytes": 7677,
+      "sha256": "42fcf879078167d7efd0c532f48e7dcabf8ada708421704e232ceffe65440abe"
+    },
+    {
+      "path": "replica-2/agent-v1/summary.json",
+      "bytes": 7677,
+      "sha256": "42fcf879078167d7efd0c532f48e7dcabf8ada708421704e232ceffe65440abe"
+    },
+    {
+      "path": "replica-2/real-v1/acceptance.json",
+      "bytes": 3008,
+      "sha256": "9215d1873b1f5734f59491c34adeed88e7f07469bf0008a8182a0357e228aa07"
+    },
+    {
+      "path": "replica-2/real-v1/agent-freeze.json",
+      "bytes": 823619,
+      "sha256": "22be79ded5901056455b77ddda8f243dccd73609938c45ebeb0d5e0923a6defc"
+    },
+    {
+      "path": "replica-2/real-v1/catalog.json",
+      "bytes": 3704,
+      "sha256": "220926b186aa38f0292d7e2f789e8186a026b27a6e6c366297cf0a472ec7629b"
+    },
+    {
+      "path": "replica-2/real-v1/independent-parity.json",
+      "bytes": 97033,
+      "sha256": "9313c096b9b1578936159f1fabba06d01a9c82d90e70632995b79f20ef0440cf"
+    },
+    {
+      "path": "replica-2/real-v1/index.manifest.json",
+      "bytes": 7578,
+      "sha256": "a176f9414bf7ed92a09296e879e54b911a36413b982e7cb57287738e55941147"
+    },
+    {
+      "path": "replica-2/real-v1/ingest-output.json",
+      "bytes": 1096,
+      "sha256": "0deddb4c3d8370b92822096459f16d5908b3564ba499eeb3b1ccdf219eb6a981"
+    },
+    {
+      "path": "replica-2/real-v1/ingest.json",
+      "bytes": 750,
+      "sha256": "d96a555927be5d0bc6e6f8569f463161c18a07e83e1cae52e7bc9dff8205c8ea"
+    },
+    {
+      "path": "replica-2/real-v1/ingest.json.lock",
+      "bytes": 1,
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+    },
+    {
+      "path": "replica-2/real-v1/maps-profile.json",
+      "bytes": 1140,
+      "sha256": "25db2f8a643e8293b6da5b0be0cf3c4d04b2a0441336799538bf41d2cdbddb67"
+    },
+    {
+      "path": "replica-2/real-v1/maps-provision.json",
+      "bytes": 779,
+      "sha256": "854e702b1c607c3819fe6d34a0a8d888eec9c57b03405820cfbca27331488662"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-suite.json",
+      "bytes": 4369,
+      "sha256": "9affb148b108e27e56eba2b2fd629a78ca6822a065927cc43aa6d8def0ac07ea"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/fault.exit",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/fault.ready",
+      "bytes": 36,
+      "sha256": "96b33cf90a799046f591d5c4816c19cdbce8a5d05dc08365b810098535e22c24"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/profile.json",
+      "bytes": 1178,
+      "sha256": "30fef497316b06ba6175c6bf0ddac01843cc9eb56beceea8533415daa7687392"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/0723ca1b4b784498a972a3d48badcbec.json",
+      "bytes": 104841,
+      "sha256": "fbe8b5e2af61fcce9cdd17b86e77a2a4b6bd46f87d247925d811985664775c85"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/12499fa09c094b568359a56d3c54084f.json",
+      "bytes": 12764,
+      "sha256": "1984fb6885a3b98188fc88127832274c12f62cc630163023ac0a020893864802"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/12b716dec0f04fdeb5374bd7cc98da2d.json",
+      "bytes": 20590,
+      "sha256": "376d90e439b7c7389986fb01a14518a551b58750b9e1275007c1fd00c91193de"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/1517a2513b4d40708a3c1a0fdb988d94.json",
+      "bytes": 9916,
+      "sha256": "4b612d31d37cc80368f243b78827cf9570c9fd6d4508c5e27e60945d0f4f99bd"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/1672a9574ec140f691965d4c078c0c72.json",
+      "bytes": 9916,
+      "sha256": "3ee34dd838a6b2d65b4f45b1a0fcd50c47716b3bb35075353ec7565d205e3d11"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/306a0ee9c8dd4b16928072bacdfecd5c.json",
+      "bytes": 12764,
+      "sha256": "c6b4a0e86e647989513b6cb104218e166eefe562d4a6689e406d17bae75ee738"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/34672fbae07c4830b51f19df1f734aae.json",
+      "bytes": 104841,
+      "sha256": "e96d18546409ee6f5d2a7cd2361b312d6625766515891348c55a86dbf9d56e86"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/35915632f0374feebd9e80b4a276d96b.json",
+      "bytes": 9916,
+      "sha256": "42318959aeaa5ed98e152847b0bb5d63ac8e6726e34bb7b5658c7f8184538a59"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/35c4544c86ca4caaa871e08754860687.json",
+      "bytes": 9915,
+      "sha256": "a10ccc82032d16a226187c49903dc667879d9c7dbc26ca22832617f23f964d5c"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/36318c2145174bb6b79db6e8c4251ea6.json",
+      "bytes": 12764,
+      "sha256": "c8ad74fd121fbb7eba69602a94ff6232024dcbe7f8dd0e2678103fc4f3c81b1d"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/3d4c9bbe29824ab3ab0d9b812970c6a2.json",
+      "bytes": 9916,
+      "sha256": "796da3545876e512eed5fda0b645b0f314927f072028ae90938336d23bf57fd7"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/43f4a34e12894a6398c636f57320fb65.json",
+      "bytes": 9916,
+      "sha256": "e985bfa2fa75fdd0f6a99abb8bfa00fb421477f09d9acfd957f5000656187509"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/4eeeec1c4c2a49a78505b4ceb918e9f6.json",
+      "bytes": 104841,
+      "sha256": "d9701ddd1d0fe87855eb82ab17cbfe307922728faf3d4892e4f67ba9d49a6aea"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/4f7c69a17a234c738c161d5d5f2b9269.json",
+      "bytes": 9759,
+      "sha256": "1f2329e7ecd58e0ced2b259db8cfae90b66e0201d91abaec275646517592e929"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/52c3bc95ea454be6876b5182ea431d81.json",
+      "bytes": 9759,
+      "sha256": "f465372ea70d39c9d9105fd868f4b108ab6cf7e4fd8e8c4a740df153c21817fe"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/5625e50e09b74edaa5fae59030713c51.json",
+      "bytes": 1213,
+      "sha256": "bd49f024c5d6e38cc63c6b0da78b374730a5e2f6863088d2f30320a59ee947ce"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/5625e50e09b74edaa5fae59030713c51.lock",
+      "bytes": 1,
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/585db697de3a4396a16a287101700ee2.csv",
+      "bytes": 1139937,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/585db697de3a4396a16a287101700ee2.json",
+      "bytes": 1342,
+      "sha256": "d61da26da8188aa79dd0971138111ad305315d3676782e5fadc4f8b2a4272b13"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/585db697de3a4396a16a287101700ee2.lock",
+      "bytes": 1,
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/5a48836715df4ae6a2d0958897df88d5.json",
+      "bytes": 20590,
+      "sha256": "6392db2c28d5caf88d217fdf31da8e43e0fe68d595e520efd2629c9ba00472b6"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/6392334d8cbe4148af825c6c8acea3ac.json",
+      "bytes": 12764,
+      "sha256": "f8d6146f730fcf67bb343cb48f79d5bad8414d5af5074ad316aa3ca60d242517"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/6a4b23d313a74bae97de6510cb3d503c.json",
+      "bytes": 20590,
+      "sha256": "08d543e44768d2b1a030f602b799eaee857e15c455b48ce126618803da0a0bef"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/7d44624e7b8848b48e6946a6652257af.csv",
+      "bytes": 1139937,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/7d44624e7b8848b48e6946a6652257af.json",
+      "bytes": 1342,
+      "sha256": "cecd4049920abb76d4b1aed2630426811fc9705b892d110a28faf4062a3cbc73"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/7d44624e7b8848b48e6946a6652257af.lock",
+      "bytes": 1,
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/7e4f789e50c141b19f8b4f6d57608b41.json",
+      "bytes": 104841,
+      "sha256": "8280c1f0a36634cc9f47b370cec0a6d241e7d625ca5451b68670a3d8b0412e7b"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/819318d5f1ac45e98cfaec43d2223c2f.json",
+      "bytes": 20590,
+      "sha256": "2078830de60b81753eab86c671cbebd52f5ca0da1100a4ab762fa3e0a20c0b7f"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/8c4de5bd02ea4be59a6c65b8deb1404e.json",
+      "bytes": 104841,
+      "sha256": "a3f78bcf954b2df0b2a5cbfb15365f714cdc6a3da1d9f953668e01765a074078"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/9e5e9b718ecd4506bb5ea7c2467eeda9.json",
+      "bytes": 12764,
+      "sha256": "bffb823064ad734c1a1477b5651ecf17fb3fdf1405372ad304c6d1646ff704bd"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/a815e5195917401aaf68e71fc84364dd.json",
+      "bytes": 20590,
+      "sha256": "60c94696168ad8c782c9ca3e37940acdf9e5bcd5542ee390ea6dd949215442b9"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/b46977fce499423bbbb9c51475592841.json",
+      "bytes": 12764,
+      "sha256": "f8a576b07b885e83451302f70bb7651187cf5316583a493734aebaab349e5e99"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/b60fbf3fba81447ebdcfe6ae6c5b5727.json",
+      "bytes": 9759,
+      "sha256": "7b187dfebc57092a51c9632c1026efe7977fc3f15747dd3f2977db2f471976e3"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/c551e6eabe7946cf9acd2c783b44330c.json",
+      "bytes": 9916,
+      "sha256": "f3dc8fe36d42354cbfda80bcee01f274f6b7d9b28757cd740e110237ee7470ef"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/c5f30f29b5c34647a676cdb8bab41e97.json",
+      "bytes": 12765,
+      "sha256": "6a8d59f3d04cbe6d385529b85a53e0b3e998a8af8dcaf033510a725d7189fceb"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/c83bd3c43d774e028f70d403ed17e9df.json",
+      "bytes": 9759,
+      "sha256": "1554ac0f4f3dab470a2c7ffb7c69f81713a043be7a68c4f86840b1f249d8a89d"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/cd931562a8b24e4f8ce8f20655fb2141.json",
+      "bytes": 12763,
+      "sha256": "72612fd2c564751a3fa49ac7f33df3b3d01269c2b76b62e0d50c5db9db2af3d1"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/cddaa66d64844302bfce88fb7779fd2c.json",
+      "bytes": 20590,
+      "sha256": "e72a54d6ca7848a738a834d9a201fe9658dc855acfa9d3161ea4d80956b960bd"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/d1a053a7f68b4990856b92c368a32723.json",
+      "bytes": 104841,
+      "sha256": "be50fa28389b1d22a2d4a411fb15a2868248187a08c9f9d7db32a6d53ebf5a2d"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/d80a9d505c4d46f880ce29cd056d9c3b.json",
+      "bytes": 9759,
+      "sha256": "9889645e737145b4ba8db0a0952f7466cfc9ca67af792000ec7e94df797998c8"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/db9600800cea4bb1a8b8531975709f6e.csv",
+      "bytes": 1139937,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/db9600800cea4bb1a8b8531975709f6e.json",
+      "bytes": 1342,
+      "sha256": "e3c2a5db2459f293df0b94e740e25e05785b594418a801db783227e72f943583"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/db9600800cea4bb1a8b8531975709f6e.lock",
+      "bytes": 1,
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/dbee0b6827c1472cb543695d20863c94.json",
+      "bytes": 20590,
+      "sha256": "08a547877dc3d37a22fb0b3084e506e43f75b7955dbb3fecf05a5fe83ba9a8c9"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/dc31208b0ade422d9ccc93822c74c434.csv",
+      "bytes": 1139937,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/dc31208b0ade422d9ccc93822c74c434.json",
+      "bytes": 1342,
+      "sha256": "3ee403c61595ebca9cb9565244017a27d44613335ceaee322e1fd8579416caad"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/dc31208b0ade422d9ccc93822c74c434.lock",
+      "bytes": 1,
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/e92f309c1f224afd81094308f08459b9.json",
+      "bytes": 9759,
+      "sha256": "b6c0fb467bb5abeea1bcffdb5c0ca9bf0b554cb7b33999e9a4455ea2574d7c05"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/f432e983b0d14ae891a9dda0caa0a0cf.json",
+      "bytes": 104841,
+      "sha256": "df03caf7acd35e197113bdf1652e906701d97c54c5beba38fab7833a40c1bf91"
+    },
+    {
+      "path": "replica-2/real-v1/measurement-work/runs/f5ccedae0e404a29ba8a78ec23708062.json",
+      "bytes": 9759,
+      "sha256": "899042a4e5f2e7f667314b6b98fd2fe6fea67d291d1de280a6ea602a04c4b206"
+    },
+    {
+      "path": "replica-2/real-v1/measurements.json",
+      "bytes": 29581,
+      "sha256": "8eaabf893c2a4621a23022e067e6bb86cc6a65800d79649f6c9fa88aae2e1832"
+    },
+    {
+      "path": "replica-2/real-v1/normalized.manifest.json",
+      "bytes": 5154,
+      "sha256": "a110e9f0f3223877fbf29cfa4aba106d34864684ce7cbcc1f9d08df191547bc1"
+    },
+    {
+      "path": "replica-2/real-v1/oracle-export-ids.csv",
+      "bytes": 97292,
+      "sha256": "b9ef567a01db6f4736bf0251118e3645c6839c16498fd2132819bc9a76e877fd"
+    },
+    {
+      "path": "replica-2/real-v1/point-expectation.json",
+      "bytes": 5559,
+      "sha256": "e09bbcd26c9c51796080f30051afb33a25b670e6e9268bc9d850546bf280095e"
+    },
+    {
+      "path": "replica-2/real-v1/profile.json",
+      "bytes": 982,
+      "sha256": "ed9712d8d54593132cbbf8acd250c5a6cc3855f346a58bef94f401bef26af351"
+    },
+    {
+      "path": "replica-2/real-v1/render-points/browser-diagnostics.json",
+      "bytes": 483,
+      "sha256": "77f8851428593389125a4aefbe1d386c532a6ec38678f1148e07ac31caca7f55"
+    },
+    {
+      "path": "replica-2/real-v1/render-points/browser-searches.json",
+      "bytes": 1127,
+      "sha256": "0a1da59547c47878f9ddb8b9d3969150bcabc597f093451242658dac41a0c598"
+    },
+    {
+      "path": "replica-2/real-v1/render-points/map.png",
+      "bytes": 111547,
+      "sha256": "c56c6058d4cdad65c0f2390fb290323e60416fb3b9114fed14a67886e5d4d502"
+    },
+    {
+      "path": "replica-2/real-v1/render-points/receipt.json",
+      "bytes": 2008,
+      "sha256": "a54a7f0e1337fd238932ceffefc660bc7e29f363a4cdd4601108b01709c3d3a1"
+    },
+    {
+      "path": "replica-2/real-v1/render-points/rendered-style.json",
+      "bytes": 78297,
+      "sha256": "33a7aaa6c79aad07c80160946c0f288113fa53153ee6042ae1860fadc86d8dad"
+    },
+    {
+      "path": "replica-2/real-v1/render-selected_trends/browser-diagnostics.json",
+      "bytes": 511,
+      "sha256": "e7f3bd3112e7c2a4c665403541789ea58bf3353fac11332eca27cbe9fb7635f9"
+    },
+    {
+      "path": "replica-2/real-v1/render-selected_trends/browser-searches.json",
+      "bytes": 2359,
+      "sha256": "2e33aca8e0359d0b437bbcf53ef4e24bceffb901aa106affcc00cfc8fb56c787"
+    },
+    {
+      "path": "replica-2/real-v1/render-selected_trends/map.png",
+      "bytes": 88387,
+      "sha256": "d19ba4a23316035fb9e0eeea581f3982c08f1913efdceb3b9e2b6bfbf9af9920"
+    },
+    {
+      "path": "replica-2/real-v1/render-selected_trends/receipt.json",
+      "bytes": 1864,
+      "sha256": "47b425d1c80ef90e23c261eb901c011d3dd6e6b46be2e6307002c2efa60b0f31"
+    },
+    {
+      "path": "replica-2/real-v1/render-selected_trends/rendered-style.json",
+      "bytes": 4657316,
+      "sha256": "8df47bff323c0fbdfbce50aab3db157d7f291f06b618f47d93b908754aa2cc62"
+    },
+    {
+      "path": "replica-2/real-v1/render-trends/browser-diagnostics.json",
+      "bytes": 511,
+      "sha256": "a7402aa53d18db4f3013ecf1930f294425b39a1b90adf0630368b9f4d4a4724c"
+    },
+    {
+      "path": "replica-2/real-v1/render-trends/browser-searches.json",
+      "bytes": 3252,
+      "sha256": "2391957948da0c12feede4061504f9456e1cf51165ecab0429f812e0ba174fbf"
+    },
+    {
+      "path": "replica-2/real-v1/render-trends/map.png",
+      "bytes": 186701,
+      "sha256": "aed911f95fa63205c572364c6e6a6f889737ce6191b64e55fdc43826b0d1507a"
+    },
+    {
+      "path": "replica-2/real-v1/render-trends/receipt.json",
+      "bytes": 1865,
+      "sha256": "30de4e8f6950985904c48b270bfde3120baa5ba834bc17c4fa567f3f2a129b31"
+    },
+    {
+      "path": "replica-2/real-v1/render-trends/rendered-style.json",
+      "bytes": 4801340,
+      "sha256": "a9874b076fbdfc9bdb7f8f2a9b141a6bda052faf16ef7e8ae7ad4c0ce64c5512"
+    },
+    {
+      "path": "replica-2/real-v1/runs/09d81aa1d8614c67a46cd35208b5e1db.json",
+      "bytes": 9810,
+      "sha256": "3b06c4ad3e9f1ed815be1ef306775753920563843d684c87dbdf04d377a81407"
+    },
+    {
+      "path": "replica-2/real-v1/runs/438eafc6f95b423c899f1379d597f52b.json",
+      "bytes": 104841,
+      "sha256": "b7a0dc74dae44ce9e8cbc0f3a40baac670efbec0725b6752e8bb180336c8f6aa"
+    },
+    {
+      "path": "replica-2/real-v1/runs/4ac70e17b2894ffda4b0179c052e3198.csv",
+      "bytes": 855,
+      "sha256": "4a4b3de4a46c817b96e8146d8fbf2622661cf41b1d0e439d9431c64a51c1efec"
+    },
+    {
+      "path": "replica-2/real-v1/runs/4ac70e17b2894ffda4b0179c052e3198.json",
+      "bytes": 1482,
+      "sha256": "a2520234a681b1b4c628f584a1b6d5233db1c0eb199c725c31f915134eb83195"
+    },
+    {
+      "path": "replica-2/real-v1/runs/4ac70e17b2894ffda4b0179c052e3198.lock",
+      "bytes": 1,
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+    },
+    {
+      "path": "replica-2/real-v1/runs/6eaa1a0264a74c8a884a5b53b867f871.json",
+      "bytes": 9951,
+      "sha256": "9e133d70744635777c204ea7fffd3c54a058f6815da954ef71f944464b59e6ea"
+    },
+    {
+      "path": "replica-2/real-v1/runs/7fc3b28f2638430294af83169c985cf6.json",
+      "bytes": 20590,
+      "sha256": "965d9b79138ae39d0a3745cb7f2ca4067011f8224d4147c74c24e56d30df6a38"
+    },
+    {
+      "path": "replica-2/real-v1/runs/8a7954507c114ed7a52dc28446608a50.json",
+      "bytes": 9916,
+      "sha256": "da80d0b357a7caffc4c2c8d7c153be233aaddb067299e4c0fb82da0c5c295085"
+    },
+    {
+      "path": "replica-2/real-v1/runs/b15ce57f70134312ae47e8d0741ec272.json",
+      "bytes": 12764,
+      "sha256": "b2e0afa36d2f5a6c9f7acb8b34f7e6b218a2a61c708481854739de1856c4113d"
+    },
+    {
+      "path": "replica-2/real-v1/runs/bda289edd5054d0a964f9d2a8392a60d.csv",
+      "bytes": 2435,
+      "sha256": "0662c1ce8514ee203c453a2060139372515a835aca3c9ca106bd89cd66f6d301"
+    },
+    {
+      "path": "replica-2/real-v1/runs/bda289edd5054d0a964f9d2a8392a60d.json",
+      "bytes": 1122,
+      "sha256": "4a3b6fa88de0d5d75d3200d69c5596d1e2ee552e482970abe91a641cc659fbef"
+    },
+    {
+      "path": "replica-2/real-v1/runs/bda289edd5054d0a964f9d2a8392a60d.lock",
+      "bytes": 1,
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+    },
+    {
+      "path": "replica-2/real-v1/runs/bf85a7e0c4e741c7bc448c4b88b1d65c.json",
+      "bytes": 9759,
+      "sha256": "a7300bd0aeb6d76c0ef5b466748766305dd8dd1acf0764e598184e46135c3ddc"
+    },
+    {
+      "path": "replica-2/real-v1/runs/d0269a13c1034cf49c545806eff84482.json",
+      "bytes": 9199,
+      "sha256": "30c02b1ba14daa51b7d98d74831762249419a58248ae6cc00cfcc7b1402ea55a"
+    },
+    {
+      "path": "replica-2/real-v1/runs/d612657578e24060894bcbea5d583dac.csv",
+      "bytes": 45055,
+      "sha256": "14a04be7f676f0d6cbbfed4db18751b390e99ce6e24a65a51137418f260991b7"
+    },
+    {
+      "path": "replica-2/real-v1/runs/d612657578e24060894bcbea5d583dac.json",
+      "bytes": 1326,
+      "sha256": "44aa472d7bd00c821d64ea6133dfb7431f6ccf2d8d2efe518cf1b1b984001e43"
+    },
+    {
+      "path": "replica-2/real-v1/runs/d612657578e24060894bcbea5d583dac.lock",
+      "bytes": 1,
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+    },
+    {
+      "path": "replica-2/real-v1/runs/d9f0171173904bcf9543ee6357c68a0a.json",
+      "bytes": 10076,
+      "sha256": "388b47296817a62e276418d0478c76a6fd4ebca2dba5965b45df036e0e03c438"
+    },
+    {
+      "path": "replica-2/real-v1/runs/f20563d9562f446181fcb46a58c9a4a8.json",
+      "bytes": 9199,
+      "sha256": "61eebe94378eef2dd37bf023402e4ee46515f973d301040c278e1ceddc6cc821"
+    },
+    {
+      "path": "replica-2/real-v1/runs/fe666f5158e542c19ffa18e77cf16f1a.json",
+      "bytes": 9302,
+      "sha256": "72e2c499269bbc3c517cec3bded1c8f890eafa3cfa79c769753c7eca30aa1bde"
+    },
+    {
+      "path": "replica-2/real-v1/selected-trend-expectation.json",
+      "bytes": 590,
+      "sha256": "153edd1abcbf9708497a6d2af46380ff71a138fce724587acd007e8414167982"
+    },
+    {
+      "path": "replica-2/real-v1/trend-expectation.json",
+      "bytes": 26800,
+      "sha256": "031b7c7677e9b784027f388d5e38c72c49c53b655da3ba0ffa4486165166e2be"
+    },
+    {
+      "path": "replica-2/runtime/acquisition.json",
+      "bytes": 221,
+      "sha256": "e41aa73d4556177f86c576d4af64c284c22da9869e02277ee5863a9c4053c7e7"
+    },
+    {
+      "path": "replica-2/runtime/agent-runtime-freeze-r2.json",
+      "bytes": 7302,
+      "sha256": "e99b5db7d46466cbcca950eae56f0c72f677dc104f31c2d102a366066ba81e91"
+    },
+    {
+      "path": "replica-2/runtime/blas-package.txt",
+      "bytes": 43,
+      "sha256": "0a48eec74661a5ca2ee87cb603003df9f5ccd559efd8034be1576cda2e4c1b91"
+    },
+    {
+      "path": "replica-2/runtime/compiler.txt",
+      "bytes": 246,
+      "sha256": "88b7c4b67564a146863224148116065fee418539f0a408f3636a68f3bde51805"
+    },
+    {
+      "path": "replica-2/runtime/container-stats-end.jsonl",
+      "bytes": 530,
+      "sha256": "4ab2bd84678bebf7acf3df8eecef7bcd3f9f4fd4a85bf179854efa7a65dfed60"
+    },
+    {
+      "path": "replica-2/runtime/container-stats-start.jsonl",
+      "bytes": 529,
+      "sha256": "e785d36d0cfa2533b8349e6c8ae459f630ba2610aa2f39b64e1e9cc3ddd34659"
+    },
+    {
+      "path": "replica-2/runtime/cpu.txt",
+      "bytes": 3339,
+      "sha256": "e2df535c811efa12c233d27957938e328c559882432955ed0a31588554b3338b"
+    },
+    {
+      "path": "replica-2/runtime/development-artifact.json",
+      "bytes": 761,
+      "sha256": "0b6d7acf7f6acb4a0046ea9824ffd4ac1e006ce455b5aa0bc6a0a9a4a9f72421"
+    },
+    {
+      "path": "replica-2/runtime/development-artifact.zip",
+      "bytes": 31348,
+      "sha256": "9664fa7851ebf9c4771012ea490cb322760a83ab87af917bb29f65653770d290"
+    },
+    {
+      "path": "replica-2/runtime/development-eligibility.json",
+      "bytes": 25741,
+      "sha256": "b6dea7179e9951eb9bc273739ae81df947084565e502329714acf593c44ba17d"
+    },
+    {
+      "path": "replica-2/runtime/development-run.json",
+      "bytes": 13885,
+      "sha256": "bb66c0c03a43cc5bca7eb8497e4bdb66d3abe6654e944d50f870b5a952b738a1"
+    },
+    {
+      "path": "replica-2/runtime/disk-end.txt",
+      "bytes": 127,
+      "sha256": "ec65dcb9f847711e869c89ff0a49ffc0ea2eac432eb044e4fbc2a58447132619"
+    },
+    {
+      "path": "replica-2/runtime/elasticsearch-version.json",
+      "bytes": 540,
+      "sha256": "07a8d1bcfda94c7a3679af6438552a804c112795435b745beee6ea2ec2e25e6f"
+    },
+    {
+      "path": "replica-2/runtime/host.json",
+      "bytes": 1364,
+      "sha256": "1d73e4256f479e1f9e2bf4573b6fe931e1ad78e40bedbb8e0e0236bf251d2543"
+    },
+    {
+      "path": "replica-2/runtime/kibana-status.json",
+      "bytes": 23123,
+      "sha256": "df7003ac30215d22bc12ccfbfa515a4cfa85f0d18cc63e94f073ba04764b7d5b"
+    },
+    {
+      "path": "replica-2/runtime/llama-version-r2.txt",
+      "bytes": 84,
+      "sha256": "d64ed60f024df2d1390d3df5b15edf2d5bbbc038e2914fa2d6c85f67b8e92d4d"
+    },
+    {
+      "path": "replica-2/runtime/model-assets.json",
+      "bytes": 2978,
+      "sha256": "1955bd99ddc624a6c55c77c6dbaea914202bffde5976e13e87a22589ad65afcc"
+    },
+    {
+      "path": "replica-2/runtime/model-health-r2.json",
+      "bytes": 16,
+      "sha256": "08e2c358ce13cb67f94ebb35b0f67c8763190a857c0db68da6eb196dfe9da46a"
+    },
+    {
+      "path": "replica-2/runtime/model-server-r2-tail.txt",
+      "bytes": 13778,
+      "sha256": "4924bf8a230d2556b7fed334edd15eee38973101279ad4ab1b6eddc70d50ec8a"
+    },
+    {
+      "path": "replica-2/runtime/model-server-r2.log",
+      "bytes": 113741,
+      "sha256": "cf814300d001e268f66271c8bf3b67f0ca2e5dbb6a6cce00899d8223154b7907"
+    },
+    {
+      "path": "replica-2/runtime/native-build.json",
+      "bytes": 219,
+      "sha256": "e48a6f9a9e8d4a9a0cf7451ae15a4e365913bcd94b708caf0c0fcb9e71afe1d7"
+    },
+    {
+      "path": "replica-2/runtime/native-cmake-cache.txt",
+      "bytes": 38172,
+      "sha256": "ced5bb961568e1914eb52b9fee4beebe1c1294d4137fd3310810750d7909a91c"
+    },
+    {
+      "path": "replica-2/runtime/native-source-commit.txt",
+      "bytes": 41,
+      "sha256": "745e93fc6b095ea32b15d6c327a06c10f7cdd2b33b4e994266abd9ece82a3c56"
+    },
+    {
+      "path": "replica-2/runtime/python-packages.txt",
+      "bytes": 734,
+      "sha256": "25c20fbdf5156ebd1ccf479fcd91853fdac5b83b45034410b9b789d8f0c8918b"
+    },
+    {
+      "path": "replica-2/runtime/replica-execution-r2.json",
+      "bytes": 251,
+      "sha256": "affd01a448452b7fd7e1cec6280a57661ba15aa0861d82cbaeb7ecc18f78b2d1"
+    },
+    {
+      "path": "replica-3/agent-v1/metadata-prefix-warmup-43364b897753aea1185ee65e370da6442fc1ff3acfff7d61911927ed615692e2.json",
+      "bytes": 2048,
+      "sha256": "4e5113789505a42ef92e40d8c8c5d06d6d093f65c6a8cdb50fea25432f2056bc"
+    },
+    {
+      "path": "replica-3/agent-v1/Q01-r3.json",
+      "bytes": 54378,
+      "sha256": "aac7cc98c1f45672de1ba08d9aca4661ff1779e597b549362b93b98656a44cc3"
+    },
+    {
+      "path": "replica-3/agent-v1/Q02-r3.json",
+      "bytes": 58138,
+      "sha256": "a5bf01d280ccbf444eab044fbf603d5faffafe20c666d7523d8e28b310b7433d"
+    },
+    {
+      "path": "replica-3/agent-v1/Q03-r3.json",
+      "bytes": 61853,
+      "sha256": "9676e761f3129f872f6b7b0239b53a6f8b81dcee9ed27695cecbf1df57fc9fec"
+    },
+    {
+      "path": "replica-3/agent-v1/Q04-r3.json",
+      "bytes": 63795,
+      "sha256": "65dc702e8328bee14c75809ff0b00f0ed022a92af882c18fa21738fdecaf1c6f"
+    },
+    {
+      "path": "replica-3/agent-v1/Q05-r3.json",
+      "bytes": 85540,
+      "sha256": "f101a567534665fd204674ea48a44d667a87c171e5dfa9d2a4c9e4cd0662b80e"
+    },
+    {
+      "path": "replica-3/agent-v1/Q06-r3.json",
+      "bytes": 55026,
+      "sha256": "ad8844a6c4a984acbe124a0a85769b6b28cc6ebe012b18753c16b43daba9b6b7"
+    },
+    {
+      "path": "replica-3/agent-v1/Q07-r3.json",
+      "bytes": 59090,
+      "sha256": "262237d81a1712c6169394eee6aebb5f8f1d990eeacf6676d3eef7072d2addaf"
+    },
+    {
+      "path": "replica-3/agent-v1/Q08-r3.json",
+      "bytes": 61242,
+      "sha256": "d8a79b6e86885cf6b4759e8fd4792d989832872b3e5e30c6e7dd12956b0d23dc"
+    },
+    {
+      "path": "replica-3/agent-v1/Q09-r3.json",
+      "bytes": 60972,
+      "sha256": "8ee70d6dfd6dbbd3b77bf80f6cb0d042ea42c7b0401ddfba370723eb153af519"
+    },
+    {
+      "path": "replica-3/agent-v1/Q10-r3.json",
+      "bytes": 59079,
+      "sha256": "a658ad6284902b1e0faf7b29b1f4858d4a84cee80766ad10d2b0d2b87255161a"
+    },
+    {
+      "path": "replica-3/agent-v1/Q11-r3.json",
+      "bytes": 74144,
+      "sha256": "21f37f302c49ba0640775a651528d60d8d3f55806d85ee796460c15f4748df94"
+    },
+    {
+      "path": "replica-3/agent-v1/Q12-r3.json",
+      "bytes": 63435,
+      "sha256": "f8a047c9e0b9b922be33f30822897caf3c49b9beb2a27a4bfbebd2d71031260c"
+    },
+    {
+      "path": "replica-3/agent-v1/Q13-r3.json",
+      "bytes": 58855,
+      "sha256": "1e84cd4275941ad5a6d723d6200d92a66767aacaabe1ec4318e83e57cb6fca47"
+    },
+    {
+      "path": "replica-3/agent-v1/Q14-r3.json",
+      "bytes": 58928,
+      "sha256": "76f3838ecb608e0540aeb7f187ea3920bb42097d0df5dfe5408b4f5a922f313e"
+    },
+    {
+      "path": "replica-3/agent-v1/Q15-r3.json",
+      "bytes": 62659,
+      "sha256": "7fabc0550d91bbcfe0b4a12770b920bbf15898d2c2832044ed7aed4666a3516a"
+    },
+    {
+      "path": "replica-3/agent-v1/Q16-r3.json",
+      "bytes": 115552,
+      "sha256": "f44140e1bb86ebb52d95241e27f26a288d9fc3fca9aa10af7507dcc2debbd115"
+    },
+    {
+      "path": "replica-3/agent-v1/Q17-r3.json",
+      "bytes": 52755,
+      "sha256": "744a02c0a9bd5edb7017af5941029e0354d6bec67b1ac3e06747eb175ad08907"
+    },
+    {
+      "path": "replica-3/agent-v1/Q18-r3.json",
+      "bytes": 58833,
+      "sha256": "f01985b99e8ec5474269fd159efe2512ec90a335e73769b47038b680b9a9ed9d"
+    },
+    {
+      "path": "replica-3/agent-v1/Q19-r3.json",
+      "bytes": 104003,
+      "sha256": "ad0eb4b348c4cff097b99d25aabaa592388fe32f28da2321a9ed20d0e4958234"
+    },
+    {
+      "path": "replica-3/agent-v1/Q20-r3.json",
+      "bytes": 59787,
+      "sha256": "07bafe5c6c792212a223abe2dfcb365fcd8d5fd6776ee33b83b99c934abc6a71"
+    },
+    {
+      "path": "replica-3/agent-v1/Q21-r3.json",
+      "bytes": 63678,
+      "sha256": "a9934773c17140ae1af1aa26a8c4820b6ae83edcfcacdb6664b2131be65593fa"
+    },
+    {
+      "path": "replica-3/agent-v1/Q22-r3.json",
+      "bytes": 54495,
+      "sha256": "bf0740332ee3adb694178f46e4ce0dd19eac76d197da0be0fbdad4c0f4d6dd6b"
+    },
+    {
+      "path": "replica-3/agent-v1/Q23-r3.json",
+      "bytes": 63797,
+      "sha256": "145eb905fcf8b0b4f24f61729f72c24a35c042361cd514a62a710dfa681745ab"
+    },
+    {
+      "path": "replica-3/agent-v1/Q24-r3.json",
+      "bytes": 58524,
+      "sha256": "0b2f4814720a048d22be09bd26d36d5bafafac93119e8c6b7dbd36ccbdb6203d"
+    },
+    {
+      "path": "replica-3/agent-v1/Q25-r3.json",
+      "bytes": 64265,
+      "sha256": "f3c6786da8ef781aa1592a3243c0a13de3154eaa4673fa567fe1f3c8f2c8f4e6"
+    },
+    {
+      "path": "replica-3/agent-v1/Q26-r3.json",
+      "bytes": 64172,
+      "sha256": "20f579b2d4155ded60627f6603781864b74bf071a8ee92bc2d7bc65b4e61be77"
+    },
+    {
+      "path": "replica-3/agent-v1/Q27-r3.json",
+      "bytes": 60741,
+      "sha256": "3c4feece2d4e938f7e41c609fe1a8deaa6d69bb07e8ca81f9f2926b3a2282a77"
+    },
+    {
+      "path": "replica-3/agent-v1/Q28-r3.json",
+      "bytes": 60805,
+      "sha256": "8e6c3008ed8b83bfc911dc03638c90a00056e4ec11ef9251afe725008695a8ee"
+    },
+    {
+      "path": "replica-3/agent-v1/Q29-r3.json",
+      "bytes": 63375,
+      "sha256": "fa246d522125016ce417ba3346713c859993fa729e0bfda6914a906854ed974a"
+    },
+    {
+      "path": "replica-3/agent-v1/Q30-r3.json",
+      "bytes": 60996,
+      "sha256": "caaa5e64c2a5d5e687beebd76de0696157fc55f3dd8e63ade940f23f31b4fb18"
+    },
+    {
+      "path": "replica-3/agent-v1/Q31-r3.json",
+      "bytes": 63900,
+      "sha256": "f57ebce161309877b720b2c064a900d56a4711bc64ffd75dbc72d8fe06876f82"
+    },
+    {
+      "path": "replica-3/agent-v1/Q32-r3.json",
+      "bytes": 104534,
+      "sha256": "f48fecb9a2376e484e6ac119af69da8d0d7a1acd9e1edd16522a1fedccb3e7c6"
+    },
+    {
+      "path": "replica-3/agent-v1/Q33-r3.json",
+      "bytes": 104527,
+      "sha256": "c0a63e1e070b3ca715f25623bd7711867c1cbc3c8c6e44a9b8d3fa4164c5a4e6"
+    },
+    {
+      "path": "replica-3/agent-v1/Q34-r3.json",
+      "bytes": 54168,
+      "sha256": "c98107321646087d18e5cec035f601fd8475f01ce9453d71dfe58b54bb06a478"
+    },
+    {
+      "path": "replica-3/agent-v1/Q35-r3.json",
+      "bytes": 103869,
+      "sha256": "e784732c01dc852f8ed9ec55a8a68e2e7e66fb2ea71c03aa507e0e0cebec43a0"
+    },
+    {
+      "path": "replica-3/agent-v1/Q36-r3.json",
+      "bytes": 73084,
+      "sha256": "37596ec21acec1427f91c08a4d83a06b6b862b8f76fb1f7728e7803f60e31add"
+    },
+    {
+      "path": "replica-3/agent-v1/Q37-r3.json",
+      "bytes": 57163,
+      "sha256": "3a6b83b5a314dd2e235c331fa8b51cb6dd529e203f29dca3d113cbec6aa5db76"
+    },
+    {
+      "path": "replica-3/agent-v1/Q38-r3.json",
+      "bytes": 55694,
+      "sha256": "7b8078c7ac9692f0091b40df5bcf574f7837c9230263bd1f18cf1db4998fd9b6"
+    },
+    {
+      "path": "replica-3/agent-v1/Q39-r3.json",
+      "bytes": 54044,
+      "sha256": "c825e776d822663e605fede65c285ded7eec5dc20e0cb3216c3541957f54462e"
+    },
+    {
+      "path": "replica-3/agent-v1/Q40-r3.json",
+      "bytes": 59555,
+      "sha256": "862a3c8e1c4c7b691ff5afe3839ec289fd51d0a48536c0fc5c07acb010eec3e4"
+    },
+    {
+      "path": "replica-3/agent-v1/run-identity.json",
+      "bytes": 5105,
+      "sha256": "04910c601fccd3711e0d3728b2afc7a40a7b3b86d5dc1c57fe3eb672afcc12d7"
+    },
+    {
+      "path": "replica-3/agent-v1/runtime-launch-43364b897753aea1185ee65e370da6442fc1ff3acfff7d61911927ed615692e2.json",
+      "bytes": 20659,
+      "sha256": "59c976f17ddb618d2dfedb7a1646a9142bb691573ec9829083c48cf681d88c7f"
+    },
+    {
+      "path": "replica-3/agent-v1/summary-1791671055919278481.json",
+      "bytes": 7676,
+      "sha256": "852f9ae58c9fbd67a3885fb0a8cbc1121c58fe295767b5c8b30aa1871ad0e543"
+    },
+    {
+      "path": "replica-3/agent-v1/summary.json",
+      "bytes": 7676,
+      "sha256": "852f9ae58c9fbd67a3885fb0a8cbc1121c58fe295767b5c8b30aa1871ad0e543"
+    },
+    {
+      "path": "replica-3/real-v1/acceptance.json",
+      "bytes": 3001,
+      "sha256": "62aecf4bc0b3354e48cbf99856cb58549ebbd925259fc6d0b43b0375211e1ef5"
+    },
+    {
+      "path": "replica-3/real-v1/agent-freeze.json",
+      "bytes": 823619,
+      "sha256": "61842fee55434117e99e29fd5665375f35dfa9db14aaacd4744b8b7328595c04"
+    },
+    {
+      "path": "replica-3/real-v1/catalog.json",
+      "bytes": 3704,
+      "sha256": "220926b186aa38f0292d7e2f789e8186a026b27a6e6c366297cf0a472ec7629b"
+    },
+    {
+      "path": "replica-3/real-v1/independent-parity.json",
+      "bytes": 97033,
+      "sha256": "41140e06277de98707e1a248e408d403356374aaed8b956a1d359cbd637bb7ab"
+    },
+    {
+      "path": "replica-3/real-v1/index.manifest.json",
+      "bytes": 7578,
+      "sha256": "0558e5e0b9bfe550c2c2cbec6d7ed335b2d2b7138aa0cf1e1b2285100ef15b74"
+    },
+    {
+      "path": "replica-3/real-v1/ingest-output.json",
+      "bytes": 1096,
+      "sha256": "82a0177b51fc2973395e9dbe6e238c153a7f69d68b4e242575db1fa7e0948619"
+    },
+    {
+      "path": "replica-3/real-v1/ingest.json",
+      "bytes": 750,
+      "sha256": "7a445db5294f3bf164bb0a8999a66c11fad72a76e8b9da65d5d9b571e90236c5"
+    },
+    {
+      "path": "replica-3/real-v1/ingest.json.lock",
+      "bytes": 1,
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+    },
+    {
+      "path": "replica-3/real-v1/maps-profile.json",
+      "bytes": 1140,
+      "sha256": "07dc9283f224761ae523c4a9e6fcb7f1a7df6778285afad15708e43d19449275"
+    },
+    {
+      "path": "replica-3/real-v1/maps-provision.json",
+      "bytes": 779,
+      "sha256": "1b3a63295fe62133791b924b9256b28e32d2c9facbda9fdc6014e3390c066276"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-suite.json",
+      "bytes": 4369,
+      "sha256": "9affb148b108e27e56eba2b2fd629a78ca6822a065927cc43aa6d8def0ac07ea"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/fault.exit",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/fault.ready",
+      "bytes": 37,
+      "sha256": "d738fcadb949e826660afe1cc27dacd52b61341ed8d79ef22d27ec10ef1505d7"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/profile.json",
+      "bytes": 1178,
+      "sha256": "d09aa7e7966dc047b07a8a00d5ece4beb6fd23bcb0a70119de7bcb43f5753efe"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/0837a91245ae4d1e923d657bcf3ee114.json",
+      "bytes": 104841,
+      "sha256": "4812f2beb0edd14484f52922cb8dfafb411ca74c0085a29dd3716728c88f52e0"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/11bdac129b1b427bb7cf7692b0c35785.json",
+      "bytes": 20590,
+      "sha256": "686252d20658e48df979918b8935263725c3dd80e5e19b0cfb7d513c5017575a"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/137e2aa6f7294890a017b6d0999a9c33.json",
+      "bytes": 9759,
+      "sha256": "bfc07250bd67ac3efccdeae569b6269fa1a0916670dbf3e7792d818d6fa333ad"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/1457193f28b94083b44447000d970d96.csv",
+      "bytes": 1139937,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/1457193f28b94083b44447000d970d96.json",
+      "bytes": 1342,
+      "sha256": "07fe91b78b697c0f1a81bc90ea04c18d7a64affc3857d2fbe238c474b6cd89f6"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/1457193f28b94083b44447000d970d96.lock",
+      "bytes": 1,
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/14c7a5362cd342a78d0c4996339246d3.json",
+      "bytes": 20590,
+      "sha256": "370fe200a9988bbb215a3a61a1d5682e7130ca7859e081bc4b7915414dafa670"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/266a52c7d6be4618bfc5d4e707cb727a.json",
+      "bytes": 1213,
+      "sha256": "00e3f28e3b252263fd7f2220cefe5d0fa54f01630125d14d6a68f63f2cb6f1c4"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/266a52c7d6be4618bfc5d4e707cb727a.lock",
+      "bytes": 1,
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/2770f4285f02483aa951527949d3b293.json",
+      "bytes": 20589,
+      "sha256": "2ed57393dc3fe00ca916c33348722be784e49af38994bf6e57fa48101ff19340"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/29221f98d4ca4a51a61ca6015a9bc340.json",
+      "bytes": 12764,
+      "sha256": "fe72e9cf681eacf106c83559f75b7725626f89e0d7721885fec8944ce5488c34"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/350ccd790f4e4c3ab7e3ae38cf523f4a.json",
+      "bytes": 9759,
+      "sha256": "9e5308d1c2f5ac2325516051f69c2b988ad28f23dca675228c60a0e65e781180"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/41e1fad4d5544ec9b3315472d9306462.json",
+      "bytes": 12764,
+      "sha256": "86cd39966c5aa7fe02998cda2dc7f8cd1c58409a5cada105ff872835c8e4abd7"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/425ce10ec6954f64aea4adbebc2e1c23.json",
+      "bytes": 12764,
+      "sha256": "cd8bf72b25a9a86b3a1df24067cd9662b461b87f32b8387fa95b3bb3f3b759c8"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/42f4c78417e74870b608bb7067da3914.json",
+      "bytes": 9916,
+      "sha256": "44e28264d76cecb4a0260b45e24c8d25635757714e036ff0569abb614a6b4f52"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/4522a8d0e44e4a448434fa4aa179f2c9.json",
+      "bytes": 20590,
+      "sha256": "63fce87b2142bbe8222e5b9cd792804b5f6dcee2a9e245f90371fab8616b95de"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/4e4de44518054b9b920f3c83f1364145.json",
+      "bytes": 12764,
+      "sha256": "b14891e0babfca16db0256b0b5bc31e32ed9a8d2bfbe779a8ec35a2de5d6512e"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/4ef71d96f7cf41fd94083cd5987692f7.json",
+      "bytes": 9916,
+      "sha256": "7f1bdc6ab219dbd67d290c91c3841929ce24e9bb6aaf4414bd5950aaa204a2ca"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/4fc374ab49724b868ef7f9e012ddac86.csv",
+      "bytes": 1139937,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/4fc374ab49724b868ef7f9e012ddac86.json",
+      "bytes": 1341,
+      "sha256": "a62ffa1ac24baee6123cd5b62a5201e3c64a213013dac1dd5e4a07e519c7e6bc"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/4fc374ab49724b868ef7f9e012ddac86.lock",
+      "bytes": 1,
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/56e9c6e3989245e7a487dbdb60adb686.json",
+      "bytes": 104841,
+      "sha256": "ab6d322c5392831ea3b3d877ec864bafe6b008afdc77712448cdfb19d02496b9"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/5760748f9a714619b448030f2b80e47b.json",
+      "bytes": 9916,
+      "sha256": "94c82f1cd467f6a662b9aec06f3a08587472f1664fc55490470ea4fbcaee8474"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/620fdc5211fc4d99aa50125950c62175.json",
+      "bytes": 20590,
+      "sha256": "8d675cc02eb8fec432b877754f45063f912beffc0d1ad8518a1e853ecbed0e24"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/6a80064988d54dd39f717eceb402e7f5.json",
+      "bytes": 104841,
+      "sha256": "2d9a99e0c4d31200d05e259eba63d5abbe203b083e608a9440cd174f042ffb15"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/6c6efe2103434757bffd28a978fb0fd1.json",
+      "bytes": 9759,
+      "sha256": "66ec5cb1ebd1a59c74e345fd6ac6cfdee8f27fb20986a1ed368b9705039fd05f"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/70d7a8e8dde94437be67b74766939528.json",
+      "bytes": 104841,
+      "sha256": "e2f565d73139f6612949c6d2aa0e68754d70c397f801a65cb2ef22fd12cad672"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/718535d011eb477785a96a0d86eed8ab.json",
+      "bytes": 9916,
+      "sha256": "2cbed3c30ed8939f6f8765d6234ca63291cec6df71e982ec518b9163c761583c"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/8873624da1ba436594fe36d3765028fb.csv",
+      "bytes": 1139937,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/8873624da1ba436594fe36d3765028fb.json",
+      "bytes": 1342,
+      "sha256": "123eceefd5b064511517cbd341c911d4c0fe9281f96d2968d40f20b61a4500ff"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/8873624da1ba436594fe36d3765028fb.lock",
+      "bytes": 1,
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/8cbabee393ca496690580d97f9984b84.json",
+      "bytes": 9759,
+      "sha256": "586dc1cbe4d15e2e2bb6c24be4bf2b38be9256920b2aa3fd071f73146fc58a86"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/9f67f225857e4b9c992be2d003d996c6.json",
+      "bytes": 104841,
+      "sha256": "950dddfd02048992031ad23c295850cc60981cc691038815059962496ae2f202"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/a2e14a4812254fd9a1edf56c3f51b082.json",
+      "bytes": 12765,
+      "sha256": "bbdd660ff150972e23a50b050db422279a6749266017fc4f0ad98407660fe954"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/a73166498ff2432eacb2a907cd25c820.json",
+      "bytes": 9916,
+      "sha256": "419aba0c73e7139dcce438958d08d3689c47cf465d329eb326fe934a9b80eca3"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/a7ec538a82ae4a498e5c6851fc600fec.json",
+      "bytes": 9759,
+      "sha256": "086797af2e89700cefe55b3a5c5c6c562d3269dc679aea6fea00536531c597dc"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/a998cb2b70e94501bd1e01237336124e.json",
+      "bytes": 104841,
+      "sha256": "40fd91ff417f53f65e573070d21d04157a80d9fcf74f678e4c895bab98bfaaa4"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/ab9367102a3348bcbc9453a357a55fbb.json",
+      "bytes": 9759,
+      "sha256": "f4d416c6079f9925eadafd469af5fbe00e2c8568071f6a3875f1e0d982a62364"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/b4d77459c94f49bfad2ebcd027f59312.json",
+      "bytes": 9759,
+      "sha256": "d644aa7f722584074035bceac0dc581778329ffb58405c85482fbdfb45f4df3e"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/b9eb1c5c25cb4bf788016b11a6eab055.json",
+      "bytes": 20590,
+      "sha256": "eec3cb0c0f9ea7e0ff2bd80064f6cfea8477a58eed583519af58742ee83ce404"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/bb05b960465d4da284863ba274667f00.json",
+      "bytes": 104841,
+      "sha256": "9e1a0bceea0e75c26d8c74740778612297aa10fb2b0f49bc49cde99b3b7bca46"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/bce4dcc80c5b45e888e2aa885ae3d7e4.json",
+      "bytes": 12764,
+      "sha256": "87e30b6e004890b4c7f7f2efef91acc27fd7bd11b5c4c01e545dbeb26de0bbae"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/c4a195353acf4025bba38a4dba24370c.json",
+      "bytes": 9916,
+      "sha256": "b37c7fff59a7b98b3a82318df7d7eb77439917a18c21bdd8171f6b0cbe618a86"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/c9ef48ea2a9f435ebeed04875905687d.json",
+      "bytes": 12764,
+      "sha256": "9f454ef8802526b017ba11105c1a956fbfc7b82c521d3fd78a4b04169a482e28"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/cc90d91ebadb41368d58d8162409d0a2.json",
+      "bytes": 9916,
+      "sha256": "7c69e768be42385ec9a7dadac0c629081aa551111af8493b3f230399e2524cc6"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/e0cd7fdcaa784ca0b2ba92bb270125eb.json",
+      "bytes": 20590,
+      "sha256": "80a026694d302a15a67f66c44de69a447f9ac8065c3530af6f13356b0917c96a"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/e831d5711f1c439492f92370e8ea5b3d.csv",
+      "bytes": 1139937,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/e831d5711f1c439492f92370e8ea5b3d.json",
+      "bytes": 1342,
+      "sha256": "f212c4918ed0fe2a8cda0605cce1178bcbb7acd2f96f749c35688848f7464f91"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/e831d5711f1c439492f92370e8ea5b3d.lock",
+      "bytes": 1,
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+    },
+    {
+      "path": "replica-3/real-v1/measurement-work/runs/e946763443364fdf86462725d11037e4.json",
+      "bytes": 12764,
+      "sha256": "96eb4d2cbf6443dd910e6b882608fe34cf892692efc5a80ba26130e22894a5bf"
+    },
+    {
+      "path": "replica-3/real-v1/measurements.json",
+      "bytes": 29569,
+      "sha256": "51277eada2bbada77ffaeb596817267b78b5eb1f32e96d26c43a4a5c8ce93092"
+    },
+    {
+      "path": "replica-3/real-v1/normalized.manifest.json",
+      "bytes": 5154,
+      "sha256": "a110e9f0f3223877fbf29cfa4aba106d34864684ce7cbcc1f9d08df191547bc1"
+    },
+    {
+      "path": "replica-3/real-v1/oracle-export-ids.csv",
+      "bytes": 97292,
+      "sha256": "b9ef567a01db6f4736bf0251118e3645c6839c16498fd2132819bc9a76e877fd"
+    },
+    {
+      "path": "replica-3/real-v1/point-expectation.json",
+      "bytes": 5559,
+      "sha256": "e09bbcd26c9c51796080f30051afb33a25b670e6e9268bc9d850546bf280095e"
+    },
+    {
+      "path": "replica-3/real-v1/profile.json",
+      "bytes": 982,
+      "sha256": "ed9712d8d54593132cbbf8acd250c5a6cc3855f346a58bef94f401bef26af351"
+    },
+    {
+      "path": "replica-3/real-v1/render-points/browser-diagnostics.json",
+      "bytes": 483,
+      "sha256": "f1474a8e7f2ff92397d7d89bcfb2021d248b49162087b490ca8f134dc39849c0"
+    },
+    {
+      "path": "replica-3/real-v1/render-points/browser-searches.json",
+      "bytes": 1127,
+      "sha256": "dc3c7c4049a7926c37f65483f1fd3f84819bf09b349f5e86cdd25670d88a7828"
+    },
+    {
+      "path": "replica-3/real-v1/render-points/map.png",
+      "bytes": 111387,
+      "sha256": "68010f68edcefd5026ad89b01889052aef08235531e68fe1803d497a536b44ee"
+    },
+    {
+      "path": "replica-3/real-v1/render-points/receipt.json",
+      "bytes": 2008,
+      "sha256": "f8fd1d5d185790a5803a22128b3f4cdb7c32f376cfff2b437bdc514c8871f111"
+    },
+    {
+      "path": "replica-3/real-v1/render-points/rendered-style.json",
+      "bytes": 78297,
+      "sha256": "551dfbb83f221e86ed8ae961a62db0f5d725fa60e3e7415504f07fd472c3e6b8"
+    },
+    {
+      "path": "replica-3/real-v1/render-selected_trends/browser-diagnostics.json",
+      "bytes": 511,
+      "sha256": "f38e63e6d7fe300d65429c526fa3cb04aa1dc81a896a763a7610f9cf58b40701"
+    },
+    {
+      "path": "replica-3/real-v1/render-selected_trends/browser-searches.json",
+      "bytes": 2007,
+      "sha256": "e93d5b42941ce1066b3378f637be0d5494cdd9d3aed842fe57e7e84bd6d73892"
+    },
+    {
+      "path": "replica-3/real-v1/render-selected_trends/map.png",
+      "bytes": 88382,
+      "sha256": "51955f6a64eccf246a2d781feb174227e0355bafb5dad96d2f6f7fb28b03b99e"
+    },
+    {
+      "path": "replica-3/real-v1/render-selected_trends/receipt.json",
+      "bytes": 1864,
+      "sha256": "3144a5608caacf6fde843eccad32f102df7e4d39fc963364e25915636c118a78"
+    },
+    {
+      "path": "replica-3/real-v1/render-selected_trends/rendered-style.json",
+      "bytes": 4657316,
+      "sha256": "086d6eaa813c7d800578a836cb0c24c0e1e94297e99407e574ab5abb403d9dde"
+    },
+    {
+      "path": "replica-3/real-v1/render-trends/browser-diagnostics.json",
+      "bytes": 511,
+      "sha256": "d4b3f35bf01ca63fe8c772ae12963fd4419a8e11f13ad0e5e06e300a437e1259"
+    },
+    {
+      "path": "replica-3/real-v1/render-trends/browser-searches.json",
+      "bytes": 2286,
+      "sha256": "d8a95b5e5d6f055c80acc259691557bef43d1a8c04dbdd1b6fc819c7f2f7aed8"
+    },
+    {
+      "path": "replica-3/real-v1/render-trends/map.png",
+      "bytes": 186627,
+      "sha256": "af4421bd188fe2797c46a499a4506ecc8a1413384a22aa43447b42547cd305d8"
+    },
+    {
+      "path": "replica-3/real-v1/render-trends/receipt.json",
+      "bytes": 1865,
+      "sha256": "9e09828e9dd791fe3d637491f269e9b9cb473bce545ffbc22ebd68839638bb4c"
+    },
+    {
+      "path": "replica-3/real-v1/render-trends/rendered-style.json",
+      "bytes": 4801120,
+      "sha256": "acf5a466ab70ae6f7f3f495f7016b81003c62841e62c64f58eb0af59753cd3b7"
+    },
+    {
+      "path": "replica-3/real-v1/runs/0b2d8e6c8b9a47e18a33b57416dbd3a9.csv",
+      "bytes": 347615,
+      "sha256": "9417c665d83c3e082d273b8150309ac0f7d339f60ab8d163424f63d950007492"
+    },
+    {
+      "path": "replica-3/real-v1/runs/0b2d8e6c8b9a47e18a33b57416dbd3a9.json",
+      "bytes": 1128,
+      "sha256": "374ddf57b12273d89eb1706ec0e731fb3a747f96a0214c0f648815f9808cb4b0"
+    },
+    {
+      "path": "replica-3/real-v1/runs/0b2d8e6c8b9a47e18a33b57416dbd3a9.lock",
+      "bytes": 1,
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+    },
+    {
+      "path": "replica-3/real-v1/runs/15cc49d2da684c3794cf0c2463b6a783.json",
+      "bytes": 20590,
+      "sha256": "4f151a1e09a410a1e2911435b416c72acc6bc3129aa479b1f6a1b2304e3210ac"
+    },
+    {
+      "path": "replica-3/real-v1/runs/3dc1bc127bd4428c8c29b750dd189217.json",
+      "bytes": 11171,
+      "sha256": "782898b017b5eb55774bafe983aff97182a09fe959eebd06f24001f029095cef"
+    },
+    {
+      "path": "replica-3/real-v1/runs/4a49dbecd1bf4d6cbd10eb669df7ddcf.json",
+      "bytes": 13000,
+      "sha256": "3f862ab43bd7530c7d3f409d7f24ba7e6c9d685440ba3afcba7cf42644403136"
+    },
+    {
+      "path": "replica-3/real-v1/runs/64a4c766ce88493ebffe6161c1622ead.csv",
+      "bytes": 45055,
+      "sha256": "c72d936b27aa99abc9827e40e45768aec8f032b03716b00cc1fca9e98f6ffc57"
+    },
+    {
+      "path": "replica-3/real-v1/runs/64a4c766ce88493ebffe6161c1622ead.json",
+      "bytes": 1326,
+      "sha256": "1ee99759a50503a866df5ce8469d9b50481b6adf56a30832f054a2e700cba8cd"
+    },
+    {
+      "path": "replica-3/real-v1/runs/64a4c766ce88493ebffe6161c1622ead.lock",
+      "bytes": 1,
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+    },
+    {
+      "path": "replica-3/real-v1/runs/824064ce25aa4268b6f047e3430031e5.json",
+      "bytes": 104840,
+      "sha256": "168216328b5ccaee494dcfb492810fae2e51879ca9a0ebe3b7de8f18449fa906"
+    },
+    {
+      "path": "replica-3/real-v1/runs/882f802db33e4b15ab7a9feb6abee479.json",
+      "bytes": 9915,
+      "sha256": "3d5fca154c4c948f4d365b28f332c29c444cf80e98afe463e255a8446ca275b7"
+    },
+    {
+      "path": "replica-3/real-v1/runs/909cdd0fdf614ad39ebd1dedb15cd8bc.csv",
+      "bytes": 855,
+      "sha256": "4a4b3de4a46c817b96e8146d8fbf2622661cf41b1d0e439d9431c64a51c1efec"
+    },
+    {
+      "path": "replica-3/real-v1/runs/909cdd0fdf614ad39ebd1dedb15cd8bc.json",
+      "bytes": 1482,
+      "sha256": "1f6bc6eb944a7bd1101f4eb9634ffeabac241f1b0b690dc0ee1556c13a7c08f0"
+    },
+    {
+      "path": "replica-3/real-v1/runs/909cdd0fdf614ad39ebd1dedb15cd8bc.lock",
+      "bytes": 1,
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+    },
+    {
+      "path": "replica-3/real-v1/runs/c131595ccb7d4b95a279d5a92396edc9.csv",
+      "bytes": 2435,
+      "sha256": "0662c1ce8514ee203c453a2060139372515a835aca3c9ca106bd89cd66f6d301"
+    },
+    {
+      "path": "replica-3/real-v1/runs/c131595ccb7d4b95a279d5a92396edc9.json",
+      "bytes": 1122,
+      "sha256": "423e9a721be6b45deba92f7a3bf888cc252d1ac08c679f80e22008c5ac51ff83"
+    },
+    {
+      "path": "replica-3/real-v1/runs/c131595ccb7d4b95a279d5a92396edc9.lock",
+      "bytes": 1,
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+    },
+    {
+      "path": "replica-3/real-v1/runs/cd8b3cdd8faa4afe9eafb09549ad5ec0.json",
+      "bytes": 12764,
+      "sha256": "1e20e791274a6df57d055891442f2da7e8cdfaf2837f175e61ee4b1ff6002890"
+    },
+    {
+      "path": "replica-3/real-v1/runs/d0d93a12b5214e32b8b9009611887dd4.json",
+      "bytes": 9199,
+      "sha256": "3160203f5e6a8a419bb5f9c18670c749ca7c864b2c1358208d70719773a24a39"
+    },
+    {
+      "path": "replica-3/real-v1/runs/d15850a112b34bb1a8fadcd50d608e90.json",
+      "bytes": 9302,
+      "sha256": "59265c2ca72c849938efa27be37a4e6cfcc60f41085a468dac6928b02fb63898"
+    },
+    {
+      "path": "replica-3/real-v1/runs/f1978de9f46d4f9cb03abf35041496cd.json",
+      "bytes": 9759,
+      "sha256": "77853c5ab77e8a52f3c9d21c3ec875177a738ef9943bf635af2b32a4bd2a9419"
+    },
+    {
+      "path": "replica-3/real-v1/selected-trend-expectation.json",
+      "bytes": 590,
+      "sha256": "153edd1abcbf9708497a6d2af46380ff71a138fce724587acd007e8414167982"
+    },
+    {
+      "path": "replica-3/real-v1/trend-expectation.json",
+      "bytes": 26800,
+      "sha256": "031b7c7677e9b784027f388d5e38c72c49c53b655da3ba0ffa4486165166e2be"
+    },
+    {
+      "path": "replica-3/runtime/acquisition.json",
+      "bytes": 221,
+      "sha256": "e41aa73d4556177f86c576d4af64c284c22da9869e02277ee5863a9c4053c7e7"
+    },
+    {
+      "path": "replica-3/runtime/agent-runtime-freeze-r3.json",
+      "bytes": 7302,
+      "sha256": "43364b897753aea1185ee65e370da6442fc1ff3acfff7d61911927ed615692e2"
+    },
+    {
+      "path": "replica-3/runtime/blas-package.txt",
+      "bytes": 43,
+      "sha256": "0a48eec74661a5ca2ee87cb603003df9f5ccd559efd8034be1576cda2e4c1b91"
+    },
+    {
+      "path": "replica-3/runtime/compiler.txt",
+      "bytes": 246,
+      "sha256": "88b7c4b67564a146863224148116065fee418539f0a408f3636a68f3bde51805"
+    },
+    {
+      "path": "replica-3/runtime/container-stats-end.jsonl",
+      "bytes": 533,
+      "sha256": "a05119d355a04f2959a86e9680657484f08141e18da82d20593c5e0dce921081"
+    },
+    {
+      "path": "replica-3/runtime/container-stats-start.jsonl",
+      "bytes": 529,
+      "sha256": "ae11703ae95424a31889b47b1276a596a1e2d5281d0f2ca990f5f7805cb16ddd"
+    },
+    {
+      "path": "replica-3/runtime/cpu.txt",
+      "bytes": 3189,
+      "sha256": "4476e601951bb5e5dc85ca4b9d2e3bc795bb83c0d4e62b8d9f2bdec6659b0e7a"
+    },
+    {
+      "path": "replica-3/runtime/development-artifact.json",
+      "bytes": 761,
+      "sha256": "0b6d7acf7f6acb4a0046ea9824ffd4ac1e006ce455b5aa0bc6a0a9a4a9f72421"
+    },
+    {
+      "path": "replica-3/runtime/development-artifact.zip",
+      "bytes": 31348,
+      "sha256": "9664fa7851ebf9c4771012ea490cb322760a83ab87af917bb29f65653770d290"
+    },
+    {
+      "path": "replica-3/runtime/development-eligibility.json",
+      "bytes": 25741,
+      "sha256": "b6dea7179e9951eb9bc273739ae81df947084565e502329714acf593c44ba17d"
+    },
+    {
+      "path": "replica-3/runtime/development-run.json",
+      "bytes": 13885,
+      "sha256": "bb66c0c03a43cc5bca7eb8497e4bdb66d3abe6654e944d50f870b5a952b738a1"
+    },
+    {
+      "path": "replica-3/runtime/disk-end.txt",
+      "bytes": 127,
+      "sha256": "67f017ca7b52a45220fddb36024355965f995caf9040c255b18d60ff3d438e90"
+    },
+    {
+      "path": "replica-3/runtime/elasticsearch-version.json",
+      "bytes": 540,
+      "sha256": "69ae5c4dbee0f94755c5f46bbd4b5a6be448f0bfdcebc637bb4ffeeb6c2e121c"
+    },
+    {
+      "path": "replica-3/runtime/host.json",
+      "bytes": 1364,
+      "sha256": "99d47898cd3f160e3016f2aa45899e0aa61f17144d93a91a68f0579a2a083b87"
+    },
+    {
+      "path": "replica-3/runtime/kibana-status.json",
+      "bytes": 23140,
+      "sha256": "651f60f657af94968312939cdf7e4bc1f23309ad219d284a2015a136a6c3601c"
+    },
+    {
+      "path": "replica-3/runtime/llama-version-r3.txt",
+      "bytes": 84,
+      "sha256": "d64ed60f024df2d1390d3df5b15edf2d5bbbc038e2914fa2d6c85f67b8e92d4d"
+    },
+    {
+      "path": "replica-3/runtime/model-assets.json",
+      "bytes": 2978,
+      "sha256": "1955bd99ddc624a6c55c77c6dbaea914202bffde5976e13e87a22589ad65afcc"
+    },
+    {
+      "path": "replica-3/runtime/model-health-r3.json",
+      "bytes": 16,
+      "sha256": "08e2c358ce13cb67f94ebb35b0f67c8763190a857c0db68da6eb196dfe9da46a"
+    },
+    {
+      "path": "replica-3/runtime/model-server-r3-tail.txt",
+      "bytes": 13926,
+      "sha256": "3d1e6abc6788ccb3b448140d6e6311b79fc4cbb263f4fe5392ba524f7215a46c"
+    },
+    {
+      "path": "replica-3/runtime/model-server-r3.log",
+      "bytes": 128125,
+      "sha256": "2ab1b929cfd91d499628a69cb704c62895c0c1d9dc41dcdb8b6827f91562e37e"
+    },
+    {
+      "path": "replica-3/runtime/native-build.json",
+      "bytes": 219,
+      "sha256": "e48a6f9a9e8d4a9a0cf7451ae15a4e365913bcd94b708caf0c0fcb9e71afe1d7"
+    },
+    {
+      "path": "replica-3/runtime/native-cmake-cache.txt",
+      "bytes": 38172,
+      "sha256": "ced5bb961568e1914eb52b9fee4beebe1c1294d4137fd3310810750d7909a91c"
+    },
+    {
+      "path": "replica-3/runtime/native-source-commit.txt",
+      "bytes": 41,
+      "sha256": "745e93fc6b095ea32b15d6c327a06c10f7cdd2b33b4e994266abd9ece82a3c56"
+    },
+    {
+      "path": "replica-3/runtime/python-packages.txt",
+      "bytes": 734,
+      "sha256": "25c20fbdf5156ebd1ccf479fcd91853fdac5b83b45034410b9b789d8f0c8918b"
+    },
+    {
+      "path": "replica-3/runtime/replica-execution-r3.json",
+      "bytes": 251,
+      "sha256": "a1a03530c06705fcbd09d6796e55d6b14406ba4f9951b49d2e88a96e01242e45"
+    },
+    {
+      "path": "automatic/automatic-review.json",
+      "bytes": 41046,
+      "sha256": "0ed443221a91d5e0db31b19fc5829e162b684308a19e38da2ea675ea0167bd5a"
+    },
+    {
+      "path": "automatic/merge-execution.json",
+      "bytes": 598,
+      "sha256": "da7f67df34b2ccada17eb3357f2c141e919dab161cb5607ac34c33b4059d68e8"
+    },
+    {
+      "path": "automatic/merge-stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "automatic/merge-stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "notes": [
+    "All files extracted from three final replica ZIPs and the automatic-result ZIP are retained byte-for-byte, including CSVs, rendered styles, original results and runtime logs.",
+    "The compressed transport ZIPs remain locally retained; their exact hashes and GitHub artifact identities are recorded in adjacent metadata.",
+    "The acquisition dataset, normalized JSONL, SQLite reference database, model weights, server binary and container images were excluded by the original workflow upload, not removed from these extracted archives.",
+    "No score or semantic judgment was changed by archiving; original empty semantic review remains separate from subsequent independent judgments."
+  ]
+}

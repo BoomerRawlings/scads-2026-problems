@@ -1,0 +1,811 @@
+{
+  "schema_version": 1,
+  "kind": "derived_separate_matrix_core_preflight_comparison",
+  "created_at": "2026-10-10T21:11:29.111454+00:00",
+  "workflow_run_id": 38084773557,
+  "source_commit": "d3be88e72cf5e7920f2861eaa7c21f6dd26abdb3",
+  "previous_archived_core_executions": 9,
+  "additional_study_preflights": 3,
+  "new_workloads_executed": false,
+  "scope": "Three separate study preflights additional to nine archived core executions; the same captured corpus reindexed on three runners. No pooled latency distribution or maximum-capacity claim.",
+  "derivation_checks": [
+    "Source receipt hashes recorded; frozen count/provenance/certificate identities reconciled.",
+    "Serial median/max and batch throughput arithmetic recomputed;35 query digests checked for within-replica stability.",
+    "Four retained export file hashes/byte lengths checked per replica; exported cells not re-audited here.",
+    "Map receipts/stage outcomes compared; these three sets of screenshots/styles were not independently visually/GIS re-reviewed for this comparison."
+  ],
+  "bounded_interpretation": [
+    "All three receipts report2,133,268 captured/normalized/ingested/indexed/oracle rows and successful analytical, performance/recovery and three-map preflights.",
+    "These are repeated observations of one captured dataset, not three independent dataset samples.",
+    "Queries follow earlier ingestion/parity/map workloads. Cache state is uncontrolled; no cold-cache or pooled tail/SLA claim.",
+    "Memory values are sampled observations, not peak capacity. Node process virtual-memory statistics are not RSS; Kibana/ingestion peaks are unmeasured.",
+    "Two owned export launch handles establish observed process overlap, not simultaneous CPU or row serialization.",
+    "Recovery covers one injected abrupt export-worker exit per runner, not Elasticsearch/Kibana restart, index loss or ingestion recovery.",
+    "Map stage time includes browser workflow/qualification/cleanup; do not interpret as interactive user latency alone.",
+    "No agent trial latency, completion or accuracy inferred from these preflights. Bind later actual agent/runtime evidence separately.",
+    "Host inventory is a point-in-time observation, not a resource reservation."
+  ],
+  "source_files": [
+    {
+      "path": "runs/agent-campaign-38084773557/dispatch-observation.json",
+      "bytes": 608,
+      "sha256": "661e3c68b16041807fd289b00c8ef436947883c9ae5dbb4d82f78c139acb27c5"
+    },
+    {
+      "path": "runs/agent-campaign-38084773557/corpus-r1-artifact.json",
+      "bytes": 791,
+      "sha256": "55cba627d060a0afcc5a55a88c1242e2e22d7a6cc9b49e685eeef004fcbc64c3"
+    },
+    {
+      "path": "runs/agent-campaign-38084773557/corpus-r1-verification.json",
+      "bytes": 1303,
+      "sha256": "14b0c8b9db2ef734f3d259b82d28e80c2e625a5c59c3a57220621606e2fe50f3"
+    },
+    {
+      "path": "runs/agent-campaign-38084773557/corpus-r1/real-v1/acceptance.json",
+      "bytes": 3006,
+      "sha256": "f250d4f1687bd20a48f65a4ce56ae3a86a416d3ea8430d8b6c2b56c334ddd604"
+    },
+    {
+      "path": "runs/agent-campaign-38084773557/corpus-r1/real-v1/measurements.json",
+      "bytes": 29575,
+      "sha256": "cd5b2f58dd5b2479dd2f58bdba1168273f4736ca839d33e5c22bc4602bc25b85"
+    },
+    {
+      "path": "runs/agent-campaign-38084773557/corpus-r1/real-v1/normalized.manifest.json",
+      "bytes": 5154,
+      "sha256": "a110e9f0f3223877fbf29cfa4aba106d34864684ce7cbcc1f9d08df191547bc1"
+    },
+    {
+      "path": "runs/agent-campaign-38084773557/corpus-r1/real-v1/index.manifest.json",
+      "bytes": 7578,
+      "sha256": "dcc659d0beaf8f2fff74e8bdf6349114320e713fcacf58b81f700148bb05356c"
+    },
+    {
+      "path": "runs/agent-campaign-38084773557/corpus-r1/real-v1/ingest.json",
+      "bytes": 750,
+      "sha256": "2e9974b70cce402d1acb7fa6978748f9e62dae50edfc3f443ec0e0c2bcad5b7e"
+    },
+    {
+      "path": "runs/agent-campaign-38084773557/corpus-r1/real-v1/independent-parity.json",
+      "bytes": 97033,
+      "sha256": "88396ec8da76afc0bbdfc0b854215adb3d37b8616f75196e4763cf2c7ff00304"
+    },
+    {
+      "path": "runs/agent-campaign-38084773557/corpus-r1/real-v1/measurement-suite.json",
+      "bytes": 4369,
+      "sha256": "9affb148b108e27e56eba2b2fd629a78ca6822a065927cc43aa6d8def0ac07ea"
+    },
+    {
+      "path": "runs/agent-campaign-38084773557/corpus-r1/runtime/host.json",
+      "bytes": 1364,
+      "sha256": "003af87cfce31011daa954c36fb41a47a883f77d74dc35a18f0715445e7b62d0"
+    },
+    {
+      "path": "runs/agent-campaign-38084773557/corpus-r1/real-v1/render-points/receipt.json",
+      "bytes": 2008,
+      "sha256": "b4fa6744931e39f8235f79b8012b14d9aa1339cc5204035f6ead8ec00dba6966"
+    },
+    {
+      "path": "runs/agent-campaign-38084773557/corpus-r1/real-v1/render-trends/receipt.json",
+      "bytes": 1865,
+      "sha256": "18e0c0dc793a1234e56d2465783a4e086f21360921a4e3f11ca6f0900c0c9c6c"
+    },
+    {
+      "path": "runs/agent-campaign-38084773557/corpus-r1/real-v1/render-selected_trends/receipt.json",
+      "bytes": 1864,
+      "sha256": "f90199bace3d29dd12dc8205d4ecb8ba554aa59f8163c925e4ec18d0772522b3"
+    },
+    {
+      "path": "runs/agent-campaign-38084773557/corpus-r2-artifact.json",
+      "bytes": 791,
+      "sha256": "e7576b8b01a91b6ed4e473db2ea8f689bea6342b6e13a0ff5e5966a36b28ecf7"
+    },
+    {
+      "path": "runs/agent-campaign-38084773557/corpus-r2-verification.json",
+      "bytes": 1303,
+      "sha256": "7590bb88c191c1ee7a4852d3649886db1e3ab3b685852aa354ac09a63e59aaf7"
+    },
+    {
+      "path": "runs/agent-campaign-38084773557/corpus-r2/real-v1/acceptance.json",
+      "bytes": 3008,
+      "sha256": "9215d1873b1f5734f59491c34adeed88e7f07469bf0008a8182a0357e228aa07"
+    },
+    {
+      "path": "runs/agent-campaign-38084773557/corpus-r2/real-v1/measurements.json",
+      "bytes": 29581,
+      "sha256": "8eaabf893c2a4621a23022e067e6bb86cc6a65800d79649f6c9fa88aae2e1832"
+    },
+    {
+      "path": "runs/agent-campaign-38084773557/corpus-r2/real-v1/normalized.manifest.json",
+      "bytes": 5154,
+      "sha256": "a110e9f0f3223877fbf29cfa4aba106d34864684ce7cbcc1f9d08df191547bc1"
+    },
+    {
+      "path": "runs/agent-campaign-38084773557/corpus-r2/real-v1/index.manifest.json",
+      "bytes": 7578,
+      "sha256": "a176f9414bf7ed92a09296e879e54b911a36413b982e7cb57287738e55941147"
+    },
+    {
+      "path": "runs/agent-campaign-38084773557/corpus-r2/real-v1/ingest.json",
+      "bytes": 750,
+      "sha256": "d96a555927be5d0bc6e6f8569f463161c18a07e83e1cae52e7bc9dff8205c8ea"
+    },
+    {
+      "path": "runs/agent-campaign-38084773557/corpus-r2/real-v1/independent-parity.json",
+      "bytes": 97033,
+      "sha256": "9313c096b9b1578936159f1fabba06d01a9c82d90e70632995b79f20ef0440cf"
+    },
+    {
+      "path": "runs/agent-campaign-38084773557/corpus-r2/real-v1/measurement-suite.json",
+      "bytes": 4369,
+      "sha256": "9affb148b108e27e56eba2b2fd629a78ca6822a065927cc43aa6d8def0ac07ea"
+    },
+    {
+      "path": "runs/agent-campaign-38084773557/corpus-r2/runtime/host.json",
+      "bytes": 1364,
+      "sha256": "1d73e4256f479e1f9e2bf4573b6fe931e1ad78e40bedbb8e0e0236bf251d2543"
+    },
+    {
+      "path": "runs/agent-campaign-38084773557/corpus-r2/real-v1/render-points/receipt.json",
+      "bytes": 2008,
+      "sha256": "a54a7f0e1337fd238932ceffefc660bc7e29f363a4cdd4601108b01709c3d3a1"
+    },
+    {
+      "path": "runs/agent-campaign-38084773557/corpus-r2/real-v1/render-trends/receipt.json",
+      "bytes": 1865,
+      "sha256": "30de4e8f6950985904c48b270bfde3120baa5ba834bc17c4fa567f3f2a129b31"
+    },
+    {
+      "path": "runs/agent-campaign-38084773557/corpus-r2/real-v1/render-selected_trends/receipt.json",
+      "bytes": 1864,
+      "sha256": "47b425d1c80ef90e23c261eb901c011d3dd6e6b46be2e6307002c2efa60b0f31"
+    },
+    {
+      "path": "runs/agent-campaign-38084773557/corpus-r3-artifact.json",
+      "bytes": 791,
+      "sha256": "67097c4eb6f61b33f876b4c22a4b83d3621a267b9350850a69f1e7dfb8229c68"
+    },
+    {
+      "path": "runs/agent-campaign-38084773557/corpus-r3-verification.json",
+      "bytes": 1303,
+      "sha256": "6bc5bd52598fb0cae0b4edd403f1ecd96de06c76b56590ab48ee1e962f3ca047"
+    },
+    {
+      "path": "runs/agent-campaign-38084773557/corpus-r3/real-v1/acceptance.json",
+      "bytes": 3001,
+      "sha256": "62aecf4bc0b3354e48cbf99856cb58549ebbd925259fc6d0b43b0375211e1ef5"
+    },
+    {
+      "path": "runs/agent-campaign-38084773557/corpus-r3/real-v1/measurements.json",
+      "bytes": 29569,
+      "sha256": "51277eada2bbada77ffaeb596817267b78b5eb1f32e96d26c43a4a5c8ce93092"
+    },
+    {
+      "path": "runs/agent-campaign-38084773557/corpus-r3/real-v1/normalized.manifest.json",
+      "bytes": 5154,
+      "sha256": "a110e9f0f3223877fbf29cfa4aba106d34864684ce7cbcc1f9d08df191547bc1"
+    },
+    {
+      "path": "runs/agent-campaign-38084773557/corpus-r3/real-v1/index.manifest.json",
+      "bytes": 7578,
+      "sha256": "0558e5e0b9bfe550c2c2cbec6d7ed335b2d2b7138aa0cf1e1b2285100ef15b74"
+    },
+    {
+      "path": "runs/agent-campaign-38084773557/corpus-r3/real-v1/ingest.json",
+      "bytes": 750,
+      "sha256": "7a445db5294f3bf164bb0a8999a66c11fad72a76e8b9da65d5d9b571e90236c5"
+    },
+    {
+      "path": "runs/agent-campaign-38084773557/corpus-r3/real-v1/independent-parity.json",
+      "bytes": 97033,
+      "sha256": "41140e06277de98707e1a248e408d403356374aaed8b956a1d359cbd637bb7ab"
+    },
+    {
+      "path": "runs/agent-campaign-38084773557/corpus-r3/real-v1/measurement-suite.json",
+      "bytes": 4369,
+      "sha256": "9affb148b108e27e56eba2b2fd629a78ca6822a065927cc43aa6d8def0ac07ea"
+    },
+    {
+      "path": "runs/agent-campaign-38084773557/corpus-r3/runtime/host.json",
+      "bytes": 1364,
+      "sha256": "99d47898cd3f160e3016f2aa45899e0aa61f17144d93a91a68f0579a2a083b87"
+    },
+    {
+      "path": "runs/agent-campaign-38084773557/corpus-r3/real-v1/render-points/receipt.json",
+      "bytes": 2008,
+      "sha256": "f8fd1d5d185790a5803a22128b3f4cdb7c32f376cfff2b437bdc514c8871f111"
+    },
+    {
+      "path": "runs/agent-campaign-38084773557/corpus-r3/real-v1/render-trends/receipt.json",
+      "bytes": 1865,
+      "sha256": "9e09828e9dd791fe3d637491f269e9b9cb473bce545ffbc22ebd68839638bb4c"
+    },
+    {
+      "path": "runs/agent-campaign-38084773557/corpus-r3/real-v1/render-selected_trends/receipt.json",
+      "bytes": 1864,
+      "sha256": "3144a5608caacf6fde843eccad32f102df7e4d39fc963364e25915636c118a78"
+    }
+  ],
+  "repetitions": [
+    {
+      "repetition": 1,
+      "artifact": {
+        "id": 11682791476,
+        "name": "analytics311-corpus-evidence-1",
+        "zip_sha256": "sha256:10bedfb39114e03ef2c017a066f53bea7d14e0b7861453f83624acf88d54ffaa",
+        "created_at": "2026-10-10T21:01:32Z"
+      },
+      "core_passed": true,
+      "core_started_at": "2026-10-10T20:46:15.966157+00:00",
+      "core_finished_at": "2026-10-10T21:01:30.662843+00:00",
+      "core_elapsed_seconds": 914.696686,
+      "counts": {
+        "captured": 2133268,
+        "normalized": 2133268,
+        "ingested": 2133268,
+        "frozen_index": 2133268,
+        "oracle": 2133268
+      },
+      "identity": {
+        "raw_sha256": "91d84eb6d02dafc402a892298ba92cb121e8e905a189fb75f31b19d4d43aeec7",
+        "normalized_sha256": "70ceb22b8f9f79cc03c5dcd4d1955ff0ef7148b63d07e54e9610d726c94dc18e",
+        "official_boundaries_sha256": "5049760a4d0936e1d3dbf70d745e2cee4286bd163b11c702f15fa28db46a001e",
+        "index_uuid": "0PWTIqhOTJuVbFYt8kC_lg",
+        "index_manifest_file_sha256": "dcc659d0beaf8f2fff74e8bdf6349114320e713fcacf58b81f700148bb05356c",
+        "comparison_scope": "reconciled_observed_snapshot",
+        "measurement_suite_sha256": "9affb148b108e27e56eba2b2fd629a78ca6822a065927cc43aa6d8def0ac07ea"
+      },
+      "host_inventory": {
+        "observed_at": "2026-10-10T20:45:53.603530+00:00",
+        "platform": "Linux",
+        "python": "3.12.15",
+        "logical_cpus": 4,
+        "effective_cpus": 4,
+        "total_memory_bytes": 16766414848,
+        "available_memory_bytes_at_inventory": 11343654912
+      },
+      "query_trials": {
+        "serial": 25,
+        "batch_concurrency_1": 5,
+        "batch_concurrency_2": 5,
+        "within_replica_result_digests_stable": true
+      },
+      "serial_latency_seconds": {
+        "closure": {
+          "maximum_seconds": 0.042944966000050044,
+          "median_seconds": 0.03219898099996499,
+          "runs": 5
+        },
+        "compare": {
+          "maximum_seconds": 0.12155893600015588,
+          "median_seconds": 0.08036454900002354,
+          "runs": 5
+        },
+        "filter": {
+          "maximum_seconds": 0.028841676999945776,
+          "median_seconds": 0.026883624999982203,
+          "runs": 5
+        },
+        "geo": {
+          "maximum_seconds": 0.03623556900015501,
+          "median_seconds": 0.03217915400000493,
+          "runs": 5
+        },
+        "group": {
+          "maximum_seconds": 0.09646677499995349,
+          "median_seconds": 0.04529998800012436,
+          "runs": 5
+        }
+      },
+      "query_batches": [
+        {
+          "concurrency": 1,
+          "query_count": 5,
+          "elapsed_seconds": 0.20288524100010363,
+          "observed_queries_per_second": 24.64447376927455
+        },
+        {
+          "concurrency": 2,
+          "query_count": 5,
+          "elapsed_seconds": 0.1970288329998766,
+          "observed_queries_per_second": 25.376996472405292
+        }
+      ],
+      "exports": {
+        "rows_per_file": 9728,
+        "columns": [
+          "unique_key",
+          "created_date",
+          "complaint_type",
+          "descriptor",
+          "borough",
+          "agency",
+          "status",
+          "nta2020",
+          "closure_hours"
+        ],
+        "bytes_per_file": 1139937,
+        "csv_sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c",
+        "membership_sha256": "178454a3fa308b163873425b6ad970ff031b2a7e59c270647610cde5c28383fe",
+        "independent_membership_reported": true,
+        "normal_seconds": 1.0571893369999543,
+        "two_concurrent_seconds": 1.0765149300000303,
+        "reexport_seconds": 0.6538149340001382,
+        "observed_live_launch_handle_overlap": 2,
+        "four_retained_files_hash_checked": [
+          {
+            "path": "runs/agent-campaign-38084773557/corpus-r1/real-v1/measurement-work/runs/43816a8bfe2045eeb63cd81d25114578.csv",
+            "bytes": 1139937,
+            "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c"
+          },
+          {
+            "path": "runs/agent-campaign-38084773557/corpus-r1/real-v1/measurement-work/runs/cb8a0a83df224d4291634e7064de8e22.csv",
+            "bytes": 1139937,
+            "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c"
+          },
+          {
+            "path": "runs/agent-campaign-38084773557/corpus-r1/real-v1/measurement-work/runs/ed4752b7e57d4f059a66743e276cd824.csv",
+            "bytes": 1139937,
+            "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c"
+          },
+          {
+            "path": "runs/agent-campaign-38084773557/corpus-r1/real-v1/measurement-work/runs/ffffcf9b04794a99a67594c2eba3882b.csv",
+            "bytes": 1139937,
+            "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c"
+          }
+        ]
+      },
+      "memory_observations": {
+        "samples": 6,
+        "runner_max_sampled_rss_bytes": 129822720,
+        "elasticsearch_max_sampled_heap_bytes": 1769996288,
+        "elasticsearch_configured_heap_max_bytes": [
+          2147483648
+        ],
+        "worker_max_sampled_rss_bytes": 33189888,
+        "workers_max_sampled_total_rss_bytes": 58286080,
+        "fault_worker_self_reported_rss_bytes": 33783808
+      },
+      "recovery": {
+        "active_worker_protected": true,
+        "actual_interpreter_exit": 86,
+        "partial_and_reservation_removed": true,
+        "recovered_count": 1,
+        "seconds": 0.01927648700007012,
+        "terminal_error_code": "worker_interrupted",
+        "terminal_status": "failed",
+        "worker_reported_rss_bytes_at_gate": 33783808
+      },
+      "performance_workload_seconds": 4.781967700999985,
+      "pipeline_stage_elapsed_seconds": {
+        "agent_study_freeze": 47.155016596999985,
+        "capture_preflight": 0.9226523460000067,
+        "comparison_qualification": 0.0006101799999669311,
+        "independent_api_csv": 48.91871418300002,
+        "ingest_freeze": 321.70665032499994,
+        "map_points": 17.585380611000005,
+        "map_selected_trends": 84.22601068400013,
+        "map_trends": 87.167341953,
+        "maps_provision": 32.577724486999955,
+        "normalize": 269.623131888,
+        "performance_recovery": 4.80714838699987
+      },
+      "maps": {
+        "points": {
+          "receipt_passed": true,
+          "rendered_parity_verified": true,
+          "csv_rows": 242,
+          "rendered_count": 242,
+          "stage_elapsed_seconds": 17.585380611000005,
+          "screenshot_sha256": "46c97b9b653f87f8eabb3e3d9adfcae25ba358a3419868c8656ff3032d6b9db4",
+          "inspector_utf8_bytes": 146089
+        },
+        "trends": {
+          "receipt_passed": true,
+          "rendered_parity_verified": true,
+          "csv_rows": 196,
+          "rendered_count": 196,
+          "stage_elapsed_seconds": 87.167341953,
+          "screenshot_sha256": "9326a0aee04e4db528b79a990bf30c911e070229835940aea363da81d93ea07a",
+          "inspector_utf8_bytes": 15127404
+        },
+        "selected_trends": {
+          "receipt_passed": true,
+          "rendered_parity_verified": true,
+          "csv_rows": 3,
+          "rendered_count": 3,
+          "stage_elapsed_seconds": 84.22601068400013,
+          "screenshot_sha256": "830b400eb9497a47a232b8d68fe5aa2b6875fd0ac688264ff67c03b8ba8f78a2",
+          "inspector_utf8_bytes": 14946544
+        }
+      }
+    },
+    {
+      "repetition": 2,
+      "artifact": {
+        "id": 11682496541,
+        "name": "analytics311-corpus-evidence-2",
+        "zip_sha256": "sha256:d950e46453b3e32f90ca5f96951c04b95817a6d54663e9f21795cd17666d5d8b",
+        "created_at": "2026-10-10T20:58:03Z"
+      },
+      "core_passed": true,
+      "core_started_at": "2026-10-10T20:46:13.301048+00:00",
+      "core_finished_at": "2026-10-10T20:58:02.009313+00:00",
+      "core_elapsed_seconds": 708.708265,
+      "counts": {
+        "captured": 2133268,
+        "normalized": 2133268,
+        "ingested": 2133268,
+        "frozen_index": 2133268,
+        "oracle": 2133268
+      },
+      "identity": {
+        "raw_sha256": "91d84eb6d02dafc402a892298ba92cb121e8e905a189fb75f31b19d4d43aeec7",
+        "normalized_sha256": "70ceb22b8f9f79cc03c5dcd4d1955ff0ef7148b63d07e54e9610d726c94dc18e",
+        "official_boundaries_sha256": "5049760a4d0936e1d3dbf70d745e2cee4286bd163b11c702f15fa28db46a001e",
+        "index_uuid": "q5_UOUK2Qry44_FXGkueAQ",
+        "index_manifest_file_sha256": "a176f9414bf7ed92a09296e879e54b911a36413b982e7cb57287738e55941147",
+        "comparison_scope": "reconciled_observed_snapshot",
+        "measurement_suite_sha256": "9affb148b108e27e56eba2b2fd629a78ca6822a065927cc43aa6d8def0ac07ea"
+      },
+      "host_inventory": {
+        "observed_at": "2026-10-10T20:45:53.517843+00:00",
+        "platform": "Linux",
+        "python": "3.12.15",
+        "logical_cpus": 4,
+        "effective_cpus": 4,
+        "total_memory_bytes": 16766414848,
+        "available_memory_bytes_at_inventory": 11498303488
+      },
+      "query_trials": {
+        "serial": 25,
+        "batch_concurrency_1": 5,
+        "batch_concurrency_2": 5,
+        "within_replica_result_digests_stable": true
+      },
+      "serial_latency_seconds": {
+        "closure": {
+          "maximum_seconds": 0.05688271799999711,
+          "median_seconds": 0.025369025999907535,
+          "runs": 5
+        },
+        "compare": {
+          "maximum_seconds": 0.10780015000000276,
+          "median_seconds": 0.04755127299995365,
+          "runs": 5
+        },
+        "filter": {
+          "maximum_seconds": 0.044653128000049946,
+          "median_seconds": 0.02197359400008736,
+          "runs": 5
+        },
+        "geo": {
+          "maximum_seconds": 0.03448239299996203,
+          "median_seconds": 0.02938904799998454,
+          "runs": 5
+        },
+        "group": {
+          "maximum_seconds": 0.13029760099993837,
+          "median_seconds": 0.037555420999979106,
+          "runs": 5
+        }
+      },
+      "query_batches": [
+        {
+          "concurrency": 1,
+          "query_count": 5,
+          "elapsed_seconds": 0.15033496500007004,
+          "observed_queries_per_second": 33.2590625208026
+        },
+        {
+          "concurrency": 2,
+          "query_count": 5,
+          "elapsed_seconds": 0.1272219080000241,
+          "observed_queries_per_second": 39.3014071129876
+        }
+      ],
+      "exports": {
+        "rows_per_file": 9728,
+        "columns": [
+          "unique_key",
+          "created_date",
+          "complaint_type",
+          "descriptor",
+          "borough",
+          "agency",
+          "status",
+          "nta2020",
+          "closure_hours"
+        ],
+        "bytes_per_file": 1139937,
+        "csv_sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c",
+        "membership_sha256": "178454a3fa308b163873425b6ad970ff031b2a7e59c270647610cde5c28383fe",
+        "independent_membership_reported": true,
+        "normal_seconds": 1.1996846450000476,
+        "two_concurrent_seconds": 0.78463993999992,
+        "reexport_seconds": 0.5930440299999873,
+        "observed_live_launch_handle_overlap": 2,
+        "four_retained_files_hash_checked": [
+          {
+            "path": "runs/agent-campaign-38084773557/corpus-r2/real-v1/measurement-work/runs/585db697de3a4396a16a287101700ee2.csv",
+            "bytes": 1139937,
+            "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c"
+          },
+          {
+            "path": "runs/agent-campaign-38084773557/corpus-r2/real-v1/measurement-work/runs/7d44624e7b8848b48e6946a6652257af.csv",
+            "bytes": 1139937,
+            "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c"
+          },
+          {
+            "path": "runs/agent-campaign-38084773557/corpus-r2/real-v1/measurement-work/runs/db9600800cea4bb1a8b8531975709f6e.csv",
+            "bytes": 1139937,
+            "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c"
+          },
+          {
+            "path": "runs/agent-campaign-38084773557/corpus-r2/real-v1/measurement-work/runs/dc31208b0ade422d9ccc93822c74c434.csv",
+            "bytes": 1139937,
+            "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c"
+          }
+        ]
+      },
+      "memory_observations": {
+        "samples": 6,
+        "runner_max_sampled_rss_bytes": 128245760,
+        "elasticsearch_max_sampled_heap_bytes": 1801453568,
+        "elasticsearch_configured_heap_max_bytes": [
+          2147483648
+        ],
+        "worker_max_sampled_rss_bytes": 31936512,
+        "workers_max_sampled_total_rss_bytes": 58277888,
+        "fault_worker_self_reported_rss_bytes": 33902592
+      },
+      "recovery": {
+        "active_worker_protected": true,
+        "actual_interpreter_exit": 86,
+        "partial_and_reservation_removed": true,
+        "recovered_count": 1,
+        "seconds": 0.019034575999967274,
+        "terminal_error_code": "worker_interrupted",
+        "terminal_status": "failed",
+        "worker_reported_rss_bytes_at_gate": 33902592
+      },
+      "performance_workload_seconds": 4.251288965999947,
+      "pipeline_stage_elapsed_seconds": {
+        "agent_study_freeze": 42.01559933500005,
+        "capture_preflight": 0.8045800900000017,
+        "comparison_qualification": 0.003486654000028011,
+        "independent_api_csv": 41.84326467300002,
+        "ingest_freeze": 252.37506037000003,
+        "map_points": 17.00167626999996,
+        "map_selected_trends": 80.03389407099996,
+        "map_trends": 78.6424428900001,
+        "maps_provision": 32.61001046399997,
+        "normalize": 159.091365258,
+        "performance_recovery": 4.2713553090000005
+      },
+      "maps": {
+        "points": {
+          "receipt_passed": true,
+          "rendered_parity_verified": true,
+          "csv_rows": 242,
+          "rendered_count": 242,
+          "stage_elapsed_seconds": 17.00167626999996,
+          "screenshot_sha256": "c56c6058d4cdad65c0f2390fb290323e60416fb3b9114fed14a67886e5d4d502",
+          "inspector_utf8_bytes": 146089
+        },
+        "trends": {
+          "receipt_passed": true,
+          "rendered_parity_verified": true,
+          "csv_rows": 196,
+          "rendered_count": 196,
+          "stage_elapsed_seconds": 78.6424428900001,
+          "screenshot_sha256": "aed911f95fa63205c572364c6e6a6f889737ce6191b64e55fdc43826b0d1507a",
+          "inspector_utf8_bytes": 15127624
+        },
+        "selected_trends": {
+          "receipt_passed": true,
+          "rendered_parity_verified": true,
+          "csv_rows": 3,
+          "rendered_count": 3,
+          "stage_elapsed_seconds": 80.03389407099996,
+          "screenshot_sha256": "d19ba4a23316035fb9e0eeea581f3982c08f1913efdceb3b9e2b6bfbf9af9920",
+          "inspector_utf8_bytes": 14946544
+        }
+      }
+    },
+    {
+      "repetition": 3,
+      "artifact": {
+        "id": 11681653000,
+        "name": "analytics311-corpus-evidence-3",
+        "zip_sha256": "sha256:e7fdd95d672a4df66ce692af04fb3ba33cfb35ca6b9dd5b69f373792ae83c35a",
+        "created_at": "2026-10-10T21:01:11Z"
+      },
+      "core_passed": true,
+      "core_started_at": "2026-10-10T20:46:07.398935+00:00",
+      "core_finished_at": "2026-10-10T21:01:09.301068+00:00",
+      "core_elapsed_seconds": 901.902133,
+      "counts": {
+        "captured": 2133268,
+        "normalized": 2133268,
+        "ingested": 2133268,
+        "frozen_index": 2133268,
+        "oracle": 2133268
+      },
+      "identity": {
+        "raw_sha256": "91d84eb6d02dafc402a892298ba92cb121e8e905a189fb75f31b19d4d43aeec7",
+        "normalized_sha256": "70ceb22b8f9f79cc03c5dcd4d1955ff0ef7148b63d07e54e9610d726c94dc18e",
+        "official_boundaries_sha256": "5049760a4d0936e1d3dbf70d745e2cee4286bd163b11c702f15fa28db46a001e",
+        "index_uuid": "bt3nXTUPT6uH-HQOwbDoEg",
+        "index_manifest_file_sha256": "0558e5e0b9bfe550c2c2cbec6d7ed335b2d2b7138aa0cf1e1b2285100ef15b74",
+        "comparison_scope": "reconciled_observed_snapshot",
+        "measurement_suite_sha256": "9affb148b108e27e56eba2b2fd629a78ca6822a065927cc43aa6d8def0ac07ea"
+      },
+      "host_inventory": {
+        "observed_at": "2026-10-10T20:45:45.410850+00:00",
+        "platform": "Linux",
+        "python": "3.12.15",
+        "logical_cpus": 4,
+        "effective_cpus": 4,
+        "total_memory_bytes": 16770748416,
+        "available_memory_bytes_at_inventory": 11312996352
+      },
+      "query_trials": {
+        "serial": 25,
+        "batch_concurrency_1": 5,
+        "batch_concurrency_2": 5,
+        "within_replica_result_digests_stable": true
+      },
+      "serial_latency_seconds": {
+        "closure": {
+          "maximum_seconds": 0.046650416999909794,
+          "median_seconds": 0.02807529999995495,
+          "runs": 5
+        },
+        "compare": {
+          "maximum_seconds": 0.1172717700001158,
+          "median_seconds": 0.07719091699982528,
+          "runs": 5
+        },
+        "filter": {
+          "maximum_seconds": 0.03299044100003812,
+          "median_seconds": 0.026331365000032747,
+          "runs": 5
+        },
+        "geo": {
+          "maximum_seconds": 0.03532245500014142,
+          "median_seconds": 0.03423144900011721,
+          "runs": 5
+        },
+        "group": {
+          "maximum_seconds": 0.1026274089999788,
+          "median_seconds": 0.04368985300015993,
+          "runs": 5
+        }
+      },
+      "query_batches": [
+        {
+          "concurrency": 1,
+          "query_count": 5,
+          "elapsed_seconds": 0.17897239499984607,
+          "observed_queries_per_second": 27.93726932024517
+        },
+        {
+          "concurrency": 2,
+          "query_count": 5,
+          "elapsed_seconds": 0.14910003299996788,
+          "observed_queries_per_second": 33.534533154671244
+        }
+      ],
+      "exports": {
+        "rows_per_file": 9728,
+        "columns": [
+          "unique_key",
+          "created_date",
+          "complaint_type",
+          "descriptor",
+          "borough",
+          "agency",
+          "status",
+          "nta2020",
+          "closure_hours"
+        ],
+        "bytes_per_file": 1139937,
+        "csv_sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c",
+        "membership_sha256": "178454a3fa308b163873425b6ad970ff031b2a7e59c270647610cde5c28383fe",
+        "independent_membership_reported": true,
+        "normal_seconds": 1.0567826660001174,
+        "two_concurrent_seconds": 1.0042342630001713,
+        "reexport_seconds": 0.751708631999918,
+        "observed_live_launch_handle_overlap": 2,
+        "four_retained_files_hash_checked": [
+          {
+            "path": "runs/agent-campaign-38084773557/corpus-r3/real-v1/measurement-work/runs/1457193f28b94083b44447000d970d96.csv",
+            "bytes": 1139937,
+            "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c"
+          },
+          {
+            "path": "runs/agent-campaign-38084773557/corpus-r3/real-v1/measurement-work/runs/4fc374ab49724b868ef7f9e012ddac86.csv",
+            "bytes": 1139937,
+            "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c"
+          },
+          {
+            "path": "runs/agent-campaign-38084773557/corpus-r3/real-v1/measurement-work/runs/8873624da1ba436594fe36d3765028fb.csv",
+            "bytes": 1139937,
+            "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c"
+          },
+          {
+            "path": "runs/agent-campaign-38084773557/corpus-r3/real-v1/measurement-work/runs/e831d5711f1c439492f92370e8ea5b3d.csv",
+            "bytes": 1139937,
+            "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c"
+          }
+        ]
+      },
+      "memory_observations": {
+        "samples": 6,
+        "runner_max_sampled_rss_bytes": 127361024,
+        "elasticsearch_max_sampled_heap_bytes": 1668125440,
+        "elasticsearch_configured_heap_max_bytes": [
+          2147483648
+        ],
+        "worker_max_sampled_rss_bytes": 33128448,
+        "workers_max_sampled_total_rss_bytes": 59080704,
+        "fault_worker_self_reported_rss_bytes": 33718272
+      },
+      "recovery": {
+        "active_worker_protected": true,
+        "actual_interpreter_exit": 86,
+        "partial_and_reservation_removed": true,
+        "recovered_count": 1,
+        "seconds": 0.017122479999898133,
+        "terminal_error_code": "worker_interrupted",
+        "terminal_status": "failed",
+        "worker_reported_rss_bytes_at_gate": 33718272
+      },
+      "performance_workload_seconds": 4.717359020999993,
+      "pipeline_stage_elapsed_seconds": {
+        "agent_study_freeze": 47.24791833099994,
+        "capture_preflight": 0.9169930379999869,
+        "comparison_qualification": 0.0006057709999822691,
+        "independent_api_csv": 49.150258959999974,
+        "ingest_freeze": 316.55736359499997,
+        "map_points": 15.827994854999929,
+        "map_selected_trends": 82.76354601100002,
+        "map_trends": 85.344060947,
+        "maps_provision": 32.555955909999966,
+        "normalize": 266.787692543,
+        "performance_recovery": 4.742189779
+      },
+      "maps": {
+        "points": {
+          "receipt_passed": true,
+          "rendered_parity_verified": true,
+          "csv_rows": 242,
+          "rendered_count": 242,
+          "stage_elapsed_seconds": 15.827994854999929,
+          "screenshot_sha256": "68010f68edcefd5026ad89b01889052aef08235531e68fe1803d497a536b44ee",
+          "inspector_utf8_bytes": 146089
+        },
+        "trends": {
+          "receipt_passed": true,
+          "rendered_parity_verified": true,
+          "csv_rows": 196,
+          "rendered_count": 196,
+          "stage_elapsed_seconds": 85.344060947,
+          "screenshot_sha256": "af4421bd188fe2797c46a499a4506ecc8a1413384a22aa43447b42547cd305d8",
+          "inspector_utf8_bytes": 15127404
+        },
+        "selected_trends": {
+          "receipt_passed": true,
+          "rendered_parity_verified": true,
+          "csv_rows": 3,
+          "rendered_count": 3,
+          "stage_elapsed_seconds": 82.76354601100002,
+          "screenshot_sha256": "51955f6a64eccf246a2d781feb174227e0355bafb5dad96d2f6f7fb28b03b99e",
+          "inspector_utf8_bytes": 14946544
+        }
+      }
+    }
+  ]
+}

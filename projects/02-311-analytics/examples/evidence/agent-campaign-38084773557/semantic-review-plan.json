@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "status": "Prospective review plan, no trial or judgment yet.",
+  "campaign_run_id": 38084773557,
+  "campaign_commit": "d3be88e72cf5e7920f2861eaa7c21f6dd26abdb3",
+  "reviewer": {
+    "id": "codex-agent-eval-audit-38084773557",
+    "kind": "independent_ai_session",
+    "was_answering_agent": false,
+    "disclosure": "Reviewer developed the evaluation infrastructure but did not generate the answering-model completions. This is AI-assisted independent answer-session review, not independent human gold labels or blinded model selection."
+  },
+  "prerequisites": [
+    "Verify GitHub run/artifact identity, compressed-byte digest and safe extraction; preserve exact original files.",
+    "Bind every review to the frozen benchmark SHA256, exact trial file SHA256 and repetition/question identity.",
+    "Verify immutable runtime launch and metadata-only warmup receipts through the existing review importer.",
+    "Do not mutate model, prompt, tools, questions, oracle, grader or thresholds after exposure."
+  ],
+  "method": [
+    "Read each question, final response, actual model-selected tool arguments and returned evidence; do not infer semantic correctness from the automatic pass flag.",
+    "Judge the delivered final answer. A rejected exploratory call that is correctly repaired is not automatically a fabricated user-facing claim; preserve its diagnostic error without redefining the quality gate.",
+    "Check conversational numerical claims and citations against actual returned data, including every required stage of a chained analysis.",
+    "Check that clarification or rejection addresses a genuine missing/unsupported requirement rather than an error caused by an invented restriction.",
+    "Check relevant caveats: administrative closure versus first response; reconciled observed snapshots versus population coverage; descriptive counts/rates versus underlying incidence or significance; approximate percentiles and geographic exclusions where material.",
+    "Check that requested CSVs completed before they were claimed available; preview size is not full-cohort membership. Check that map links are described as links, not as separately verified rendered parity.",
+    "Record seven existing Boolean semantic checks and concise case-specific reasons. Explain nonapplicable criteria explicitly rather than silently granting a complete pass.",
+    "A missing final response fails fulfillment. Absence of a factual or completion claim does not itself constitute fabrication; distinguish those checks in notes.",
+    "Retain all failures and missing attempts in the fixed 120 denominator; publish execution completeness separately from quality acceptance."
+  ],
+  "fixed_acceptance": {
+    "required_trials": 120,
+    "automatic_threshold": 0.9,
+    "minimum_passes_per_question": 1,
+    "independent_semantic_review_required": true,
+    "overall_release_verified": false
+  },
+  "protocol_sha256": "9194c713896130a598c160d3ffe5b541b21ac40f467d5454c3cf6f2e9a33c8d6"
+}

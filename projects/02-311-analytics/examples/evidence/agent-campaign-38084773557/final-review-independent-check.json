@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "evidence_kind": "independent_final_agent_campaign_merge_check",
+  "passed": true,
+  "workflow_run_id": 38084773557,
+  "reviewed_at": "2026-10-11T06:19:15.598233+00:00",
+  "reviewer": "codex-agent-eval-audit-38084773557",
+  "final_review_sha256": "81cd4cec6118c6a4b67519ca919a470ce3cd7ac0b38c08d06bd06fcf88a3c8e7",
+  "strict_merge_recomputed_byte_identically": true,
+  "review_sha256": {
+    "1": "3fb65cdb37c70159409e29cdf37a4e588c7a5961c8bd1a9593a851694e02ff24",
+    "2": "a19650d6059d327083bd3c1cae1a6b9e8a6f8308bd40df88e95b22dd81894481",
+    "3": "deb432a2d06f889efef7a9307cbbad4391f693bffce2c84905048c112eba0bab"
+  },
+  "original_trial_bindings_verified": 120,
+  "source_review_and_trial_receipts_unchanged": true,
+  "end_to_end_pass_trials": [
+    [
+      "Q38",
+      1
+    ]
+  ],
+  "end_to_end_passes": 1,
+  "fixed_denominator": 120,
+  "end_to_end_pass_rate": 0.008333333333333333,
+  "semantic_all_checks_pass_trials": [
+    [
+      "Q38",
+      1
+    ],
+    [
+      "Q38",
+      2
+    ]
+  ],
+  "broader_semantic_unsupported_claim_or_false_completion_count": 32,
+  "automatic_fabricated_or_mismatched_numeric_evidence_trials": [
+    [
+      "Q01",
+      1
+    ],
+    [
+      "Q21",
+      1
+    ],
+    [
+      "Q34",
+      1
+    ],
+    [
+      "Q01",
+      2
+    ],
+    [
+      "Q34",
+      2
+    ],
+    [
+      "Q01",
+      3
+    ],
+    [
+      "Q06",
+      3
+    ],
+    [
+      "Q34",
+      3
+    ]
+  ],
+  "automatic_numeric_evidence_failure_count": 8,
+  "execution_complete": true,
+  "quality_gate_passed": false,
+  "findings": [],
+  "notes": [
+    "The32 semantic flags include unsupported dataset-content/capability/input claims; they are not32 numerical fabrications. The8 numeric-evidence failures are a separate automatic classification.",
+    "Q38-r2 satisfies its reviewer semantic checks but fails frozen automatic checks; it is not added to end-to-end passes.",
+    "Legacy model_latency_seconds is end-to-end trial elapsed including tools/adapter/failed attempts. Diagnostic limitations disclose this and separate841.51803s startup.",
+    "Agent report visual_parity_verified=false does not negate the independent live Maps validation; this merger does not qualify rendering or release.",
+    "No new inference, model call, candidate edit, original grade edit, semantic judgment mutation or threshold change performed."
+  ]
+}

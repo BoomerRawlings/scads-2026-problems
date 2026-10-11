@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "evidence_kind": "unchanged_offline_automatic_report_reproduction",
+  "original_report": "automatic/automatic-review.json",
+  "original_and_reproduced_sha256": "0ed443221a91d5e0db31b19fc5829e162b684308a19e38da2ea675ea0167bd5a",
+  "byte_identical": true,
+  "exit_code": 1,
+  "exit_explanation": "Expected quality-gate failure; report was written without exception.",
+  "new_model_calls": 0,
+  "candidate_or_grader_changes": false,
+  "method": "tools.agent_campaign merge with the original protocol and all three public replica trees, omitting semantic reviews."
+}

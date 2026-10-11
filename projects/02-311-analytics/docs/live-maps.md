@@ -6,6 +6,16 @@ contract only. Its deterministic tests are not evidence of a live import or
 render. `provision` creates new objects; do not point it at indices owned by
 another run. Existing objects are never overwritten or deleted.
 
+Actual bounded qualification now passes in
+[core run38083900641](https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/38083900641):
+242 request IDs,196 neighborhood trend groups and three selected neighborhoods.
+The [independent review](../examples/evidence/real-core-38083900641/maps-independent-review.json)
+binds browser filters, CSV membership, rendered source values and original official
+polygon geometry; retained screenshots show visible layers. This is separate from
+the [failed120-trial agent-quality study](acceptance.md#completed-actual-agent-study-quality-failed).
+Earlier failed runs below document the compatibility repairs; they remain failed
+historical evidence, not the current Maps qualification result.
+
 Provision requires an actual `version.number` from Kibana `/api/status`.
 Kibana 9.5.5 can return only `status.overall.level` for callers without status
 access, including the unsecured local CI configuration. An `available` response
@@ -162,7 +172,8 @@ qualify data: the complete independent source/metric checks remain mandatory.
 This sequencing avoids opening the large highlighted style while the layer is
 still loading. Real run `38030378224` passed point and selected-trend rendering,
 but its full-trend Inspector timed out after an initial empty style; those failed
-results remain retained, and only a fresh actual run can qualify the change.
+results remain retained. The later ninth core run linked above supplies fresh
+actual qualification of the final readiness and deadline changes.
 Every blocking navigation/Inspector action, including the Mapbox style tab,
 close button and final screenshot, receives the remaining shared deadline and
 is checked again afterward. It does not receive a fresh per-action budget.
@@ -203,7 +214,8 @@ the remaining declared render deadline and retains the observed UTF-8 byte count
 SHA256, and any JSON error position, without retaining non-JSON raw text. The
 32 MiB style limit and full source/metric checks remain in force. Real run
 `38028955870` reached Map details and verified 242 live document identities but
-failed the old wrapper-text extraction; it remains failed evidence until rerun.
+failed the old wrapper-text extraction. That run remains failed evidence; the
+ninth core run above separately qualifies the corrected extraction.
 
 Kibana loads tooltip fields lazily. The initial point GeoJSON can therefore omit
 `unique_key` while retaining Elasticsearch `_id` and `_index`. Our ingester

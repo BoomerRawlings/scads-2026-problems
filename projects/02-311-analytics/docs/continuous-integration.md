@@ -20,10 +20,13 @@ loopback-only Elasticsearch 9.5.5 container on the Linux runner and executes the
 creates its own dedicated index and requests ownership-checked cleanup. The
 container is ephemeral; its disappearance is not evidence of application cleanup.
 
-Version 9.5.5 is a candidate selected from the official
+Version 9.5.5 was selected from the official
 [Elastic Docker guide](https://www.elastic.co/docs/deploy-manage/deploy/self-managed/install-elasticsearch-docker-basic),
-checked on October 7, 2026 UTC. It becomes a verified project combination only
-after successful real execution. The workflow uses GitHub's documented
+checked on October 7, 2026 UTC. Subsequent real Linux executions qualified the
+bounded Elasticsearch/Kibana combination on2,133,268 records, including three
+rendered Maps cases; the actual agent study failed its quality gate. See the
+[current measured acceptance](acceptance.md). This does not certify the separate
+multi-OS package matrix above. The workflow uses GitHub's documented
 [service-container lifecycle](https://docs.github.com/en/actions/tutorials/use-containerized-services/use-docker-service-containers).
 Container jobs require a Linux runner; running the regular package job alone
 does not exercise Elasticsearch.

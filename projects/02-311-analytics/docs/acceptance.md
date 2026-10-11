@@ -1,20 +1,23 @@
 # Verification status
 
-Version **0.7.0** remediation is in progress. Executable tooling, executed checks,
-and acceptance outcomes are distinct. **2,133,268 real unique requests reconcile
+Version **0.7.0** has completed the real-data study, with a **failed agent-quality
+outcome**. Executable tooling, executed checks and acceptance outcomes are distinct.
+**2,133,268 real unique requests reconcile
 through capture, normalization, an immutable Elasticsearch index and an independent
 SQLite reference.** Five real-data analytical families and a bounded performance
 workload passed. **All three bounded rendered Maps checks pass:242 requests,
-196 neighborhoods and three selected neighborhoods. Actual-agent acceptance remains incomplete.** The original published findings
+196 neighborhoods and three selected neighborhoods. All120 agent trials and semantic
+reviews are complete; only1/120 (0.83%) passes the combined checks. This candidate
+does not provide a usable conversational demonstration.** The original published findings
 remain in [the historical v0.6 record](acceptance-v0.6.md).
 
-| Requested gap | Current evidence | Remaining execution |
+| Requested gap | Current evidence | Outcome and limits |
 | --- | --- | --- |
 | Actual ≥2 million requests | All five stages reconcile2,133,268 rows; full raw and normalized hashes, ingested byte offset and frozen index UUID recorded | Acquisition/count target met for this captured window |
-| Neighborhood comparisons | Official262 NTA polygons/197 residential codes; qualified observed window; June/October rodent comparison matches independent SQL across196 represented neighborhoods; full196 and selected3 rendered metrics pass | Agent-led chained comparisons remain to be evaluated; population completeness remains unclaimed |
+| Neighborhood comparisons | Official262 NTA polygons/197 residential codes; qualified observed window; June/October rodent comparison matches independent SQL across196 represented neighborhoods; full196 and selected3 rendered metrics pass | Backend comparison target met within the observed corpus; all9 actual agent-led chained attempts failed; population completeness remains unclaimed |
 | Elasticsearch/Kibana | Elasticsearch9.5.5 parity/CSV passed in nine real core executions; ninth verifies242 rendered point IDs, all five metrics for196/3 neighborhoods, and262 exact official polygon geometries in both trend views | Bounded rendered-map target met; broader rendering throughput/hardware coverage remains unqualified |
-| Actual agent |40 prospective AI-authored questions and independent SQLite oracles frozen; first campaign reached zero questions because all three metadata startups exceeded300seconds; failed development answer preserved | Execute three40-trial replicas with separately measured900-second startup bound; unchanged160/120/24 trial limits,120 denominator,90% threshold, per-case coverage and semantic review |
-| Usable performance | Actual4CPU/16.77GB host:25 serial queries, two5-query batches,9,728-row exports, sampled memory and one abrupt worker recovery passed | Broader sustained load, cold cache, end-to-end model latency and server recovery remain unqualified |
+| Actual agent |40 frozen AI-authored questions ×3 actual runs, all120 semantic reviews; automatic and combined passes1/120;56 final responses,64 missing finals | Evaluation executed; unchanged90% and per-case quality gates failed. The only accepted trial rejects an unsupported forecast; no analytical or chained task passed |
+| Usable performance | Actual4CPU/16.77GB hosts: bounded backend queries,9,728-row exports, sampled memory and abrupt worker recovery passed; actual agent attempts median126.159s, maximum160.006s including failures | Backend measurements established for these workloads; usable end-to-end agent behavior was not. Sustained load, cold cache, capacity ceilings and server recovery remain unqualified |
 | Two paper descriptions | Corrected administrative closure versus first response; separate Maps processing and CSV-worker paths; changed pages visually checked | Website remains its earlier published edition until separately republished |
 
 ## Executed verification
@@ -37,9 +40,62 @@ rehashed all2,133,268 raw rows without materializing the full dataset. It import
 no application normalizer, exporter, compiler or agent oracle. Shared Shapely/GEOS
 and timezone libraries remain a stated dependence. Other cohorts and unobserved
 DST, negative/null-closure, formula and boundary-edge cases remain unqualified.
-[Exact audit receipt](../examples/evidence/csv-cell-audit-38029812736.json) · [Method and reproduction](csv-cell-audit.md).
+[Exact audit receipt](../examples/evidence/csv-cell-audit-38029812736.json) · [Method and reproduction](csv-cell-audit.md) · [Separate method review](../examples/evidence/csv-cell-method-review-38029812736.json).
 
-## Actual campaign: startup failed before any held-out question
+## Completed actual agent study: quality failed
+
+[Matrix38084773557](https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/38084773557)
+executed the frozen candidate from commit`d3be88e72cf5e7920f2861eaa7c21f6dd26abdb3`:
+40 questions on each of three separately indexed4CPU Linux hosts, using the same
+2,133,268 captured records and pinned local Qwen3-1.7B runtime. All120 original
+trials and all120 separate semantic judgments are retained. The strict
+[final report](../examples/evidence/agent-campaign-38084773557/final-review.json),
+SHA256`81cd4cec6118c6a4b67519ca919a470ce3cd7ac0b38c08d06bd06fcf88a3c8e7`,
+records `execution_complete:true`, `semantic_review:complete`,
+`agent_quality_gate_passed:false` and `release_verified:false`.
+
+Automatic and combined automatic/semantic acceptance are both **1/120 (0.83%)**.
+Only Q38-r1, a rejection of an unsupported causal rainfall/population-risk forecast,
+passes both. No analytical or chained task passed. All nine neighborhood/agency
+chained attempts lacked a final answer. Q38-r2 passes its separate semantic review
+but fails the frozen automatic status check; neither that judgment nor any other
+partial success changes the denominator or thresholds. The90% gate and at least
+one accepted repetition for each of40 questions both fail.
+
+[Actual diagnostics](../examples/evidence/agent-campaign-38084773557/actual-diagnostics.json)
+record56 terminal responses and64 trials without one:52 model timeouts,
+11 repeated-invalid-call stops and one invalid final response. Eight automatic
+numeric-evidence failures differ from the32 broader semantic flags for unsupported
+factual claims or false completion; those categories overlap and must not be added.
+Observed errors include invented filters/geometries, corpus totals substituted for
+filtered counts, unsupported result/job IDs and clarification requests for details
+already supplied. These observations do not isolate model size, CPU speed, context
+length or any other single cause; no post-exposure tuning or replacement trials
+were performed.
+
+Trial elapsed time includes model requests, tools and adapter work: median126.159s,
+maximum160.006s across all120 attempts, including unsuccessful and timed-out
+answers. The configured160-second deadline is cooperative, not a hard real-time
+guarantee. Separate metadata-only startup took295.782s,256.061s and289.676s for
+repetitions1/2/3. Downloads, builds and initial server loading precede those timings.
+Maximum sampled model-server RSS was4,887,793,664 bytes (4.888GB); the observed
+process-lifetime high-water mark was4,887,969,792 bytes. Neither is a per-trial peak
+or total-host memory measurement. Seeds and host hardware vary together, so this
+is not a controlled seed-only or hardware-speed comparison. The attempt timings
+do not establish successful-answer latency or usable conversational performance.
+
+Reviewers were separate AI sessions that contributed to the infrastructure; they
+were not the answering model, independent human gold annotators or blinded model
+selectors. Each review binds its own replica freeze and exact trial hashes.
+Initial judgments preceded inspection of automatic scores; retained corrections
+and review provenance remain visible. The three study core preflights passed
+backend and bounded Maps checks, in addition to the nine earlier archived core
+runs; they reuse the same corpus and are not independent datasets. Those core
+successes do not qualify this failed agent. The agent report's separate visual and
+second-client gates remain false; it does not overwrite the independently
+verified rendered Maps receipts. [Strict offline reproduction](agent-evaluation.md#reproduce-the-completed-campaign-review).
+
+## Historical campaign: startup failed before any held-out question
 
 [Campaign38029812736](https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/38029812736)
 finished with **zero actual held-out trials**, not120 failed answers. All three
@@ -59,7 +115,8 @@ requires identical corpus/database/oracles/candidate settings, revalidates each
 replica's index and configured Maps provenance, preserves its own native-runtime
 and metadata identities, then applies the unchanged120-trial gates. Missing
 trials or reviews never shrink the denominator. See the [prospective amendment](agent-evaluation.md#prospective-startup-and-replica-amendment).
-The new campaign has not yet executed; actual model quality remains unqualified.
+The subsequent matrix completed all120 trials and reviews, with the failed quality
+outcome above. The earlier zero-exposure startup failure remains unchanged evidence.
 
 ## Actual model development: latest retained failure
 

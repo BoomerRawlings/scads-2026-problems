@@ -1,0 +1,41 @@
+{
+  "bytes_written": 0,
+  "complete": false,
+  "dataset_identity": "6f7bcade374d65086d59fe97d9c90eada0af5627281330bf547938bcc98df0a8",
+  "deadline_at": "2026-10-10T21:00:19.278512+00:00",
+  "elapsed_seconds": 0.000778,
+  "error": {
+    "code": "worker_interrupted",
+    "message": "Export worker is no longer active; start a new export from the original analysis"
+  },
+  "job_id": "5625e50e09b74edaa5fae59030713c51",
+  "kind": "export",
+  "last_progress_at": "2026-10-10T20:57:19.368969+00:00",
+  "planned_rows": 9728,
+  "previous_status": "running",
+  "queued_at": "2026-10-10T20:57:19.165338+00:00",
+  "recovered_at": "2026-10-10T20:57:19.368969+00:00",
+  "request": {
+    "cohort_scope": "all_matching",
+    "columns": [
+      "unique_key",
+      "created_date",
+      "complaint_type",
+      "descriptor",
+      "borough",
+      "agency",
+      "status",
+      "nta2020",
+      "closure_hours"
+    ],
+    "group_ids": null,
+    "mode": "records"
+  },
+  "result_id": "c5f30f29b5c34647a676cdb8bab41e97",
+  "rows_written": 0,
+  "stage": "failed",
+  "stage_started_at": "2026-10-10T20:57:19.368969+00:00",
+  "started_at": "2026-10-10T20:57:19.278503+00:00",
+  "status": "failed",
+  "stopped_stage": "streaming"
+}

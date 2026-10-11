@@ -9,6 +9,16 @@ not independent human-held-out labels or evidence of generalization to arbitrary
 users. Executing 120 trials and passing the acceptance threshold are separate facts.
 The protocol cannot establish that questions were absent from model pretraining.
 
+The actual study is now complete: **120 trials and120 semantic reviews,1/120
+(0.83%) combined passes, agent-quality gate failed**. Only Q38-r1's unsupported
+forecast rejection passes; no analytical or chained task passed. The model's
+usable conversational behavior remains unqualified even though the real-data
+backend and bounded rendered Maps checks passed separately. [Results and measured
+limits](acceptance.md#completed-actual-agent-study-quality-failed) ·
+[Exact final report](../examples/evidence/agent-campaign-38084773557/final-review.json).
+The prospective protocol below is retained; completed execution does not change
+its thresholds or relabel the failed candidate.
+
 ## Prospective operational-eligibility amendment
 
 Before any held-out trial, the execution prerequisite was amended on October 10,
@@ -435,3 +445,38 @@ foreign or corrupted evidence fails closed. A40-file completion assertion is
 separate from model quality. The merged report retains per-host latency and native
 identity as well as pooled results. Passing model quality still does not establish
 human-held-out generalization, rendered Maps parity or an overall release.
+
+## Reproduce the completed campaign review
+
+From this project root, with its Python dependencies installed and the complete
+public archive present, run the strict offline merger against the original three
+replica trees and their own hash-bound reviews. Choose a new output filename:
+
+```text
+python -m tools.agent_campaign merge --protocol docs/agent-campaign-v1.json --replica 1=examples/evidence/agent-campaign-38084773557/replica-1 --replica 2=examples/evidence/agent-campaign-38084773557/replica-2 --replica 3=examples/evidence/agent-campaign-38084773557/replica-3 --reviews 1=examples/evidence/agent-campaign-38084773557/semantic-review-r1-v2.json --reviews 2=examples/evidence/agent-campaign-38084773557/semantic-review-r2.json --reviews 3=examples/evidence/agent-campaign-38084773557/semantic-review-r3.json --output runs/new-campaign-review.json
+```
+
+**Exit1 is expected after a report is written:** the quality gates fail. Inspect
+the generated report to distinguish this expected negative study from an input
+validation exception. Expected outcomes are120 attempted/reviewed trials, one
+automatic and one combined pass, no missing trials, `execution_complete:true`,
+`semantic_review:complete`, `agent_quality_gate_passed:false` and
+`release_verified:false`. The original [final report](../examples/evidence/agent-campaign-38084773557/final-review.json)
+has SHA256`81cd4cec6118c6a4b67519ca919a470ce3cd7ac0b38c08d06bd06fcf88a3c8e7`.
+Output location references can differ; do not replace that original receipt.
+
+Repetition1 uses the explicitly retained v2 review; its earlier
+`semantic-review-r1.json` and correction provenance remain separate evidence.
+Repetitions2/3 retain their original review filenames. Q38-r2's semantic judgment
+does not override its automatic status failure. The32 semantic flags for
+unsupported claims or false completion are broader than the eight automatic
+numeric-evidence failures, not32 independent numerical fabrications.
+
+This command starts no model, Elasticsearch or browser, and performs no new
+trials. It verifies retained evidence and applies the unchanged rules. The three
+reviewers disclose their infrastructure roles and separate AI sessions; these
+are not independent human gold labels. Actual diagnostics retain all attempts,
+including52 timeouts,11 repeated-invalid-call stops and one invalid final.
+Their126.159-second median and160.006-second maximum include tools/adapter work
+and failed attempts; separately measured metadata startup is256–296seconds.
+They do not establish successful-answer latency or a production SLA.

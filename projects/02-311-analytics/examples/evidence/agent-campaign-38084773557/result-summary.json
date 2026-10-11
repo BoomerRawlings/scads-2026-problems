@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "evidence_kind": "completed_actual_agent_evaluation_summary",
+  "created_at": "2026-10-11T06:19:16.637970+00:00",
+  "workflow_run_id": 38084773557,
+  "source_commit": "d3be88e72cf5e7920f2861eaa7c21f6dd26abdb3",
+  "final_review_sha256": "81cd4cec6118c6a4b67519ca919a470ce3cd7ac0b38c08d06bd06fcf88a3c8e7",
+  "diagnostics_sha256": "217365f6d8a41366a6745cc11fd5978d6f8546a7eb6a3ee7ad6c5fead61c8011",
+  "execution_complete": true,
+  "attempted_trials": 120,
+  "semantic_reviewed_trials": 120,
+  "automatic_passes": 1,
+  "end_to_end_passes": 1,
+  "end_to_end_pass_rate": 0.008333333333333333,
+  "end_to_end_pass_trials": [
+    [
+      "Q38",
+      1
+    ]
+  ],
+  "semantic_only_passes_by_replica": [
+    1,
+    1,
+    0
+  ],
+  "semantic_unsupported_claim_or_false_completion_trials": 32,
+  "automatic_numeric_evidence_failures": {
+    "fabricated_or_mismatched_numeric_evidence": 8
+  },
+  "terminal_responses": 56,
+  "driver_errors": {
+    "{\"code\": \"invalid_final_answer\"}": 1,
+    "{\"code\": \"model_timeout\"}": 52,
+    "{\"code\": \"repeated_invalid_tool_call\"}": 11
+  },
+  "whole_trial_elapsed_seconds": {
+    "samples": 120,
+    "minimum": 14.539215,
+    "median": 126.15948900000001,
+    "maximum": 160.006379,
+    "sum": 14018.248296
+  },
+  "observed_model_server_memory": {
+    "samples": 120,
+    "maximum_sampled_rss_bytes": 4887793664,
+    "maximum_observed_process_lifetime_hwm_bytes": 4887969792
+  },
+  "agent_quality_gate_passed": false,
+  "release_verified": false,
+  "interpretation": "The selected local model fails the frozen quality gate and is not a usable conversational demonstration. Bounded real-data backend/Maps evidence is separate.",
+  "limits": [
+    "Separate AI reviewers did not produce the answering-model completions; they disclosed infrastructure contributions. Not independent human gold or blinded model selection.",
+    "Initial cards omitted automatic grades. R1 v2 aligns one N/A criterion after rubric clarification; v1 and provenance remain. No end-to-end outcome changed.",
+    "Q38-r2 passes semantic review but fails the predeclared automatic status check; no gate was relaxed.",
+    "Elapsed times include model, tool and adapter work and failed attempts; exclude separately measured metadata startup, download, compilation and initial loading. They are not successful-answer latency or model-generation-only time.",
+    "Memory samples are owned model-server process observations; HWM is lifetime, not per-trial peak or host total. Native hosts and seeds differ together.",
+    "Original report visual_parity_verified:false is its separate agent gate; successful backend Maps receipts remain independently retained.",
+    "The exposed forty-question set must not be reused as unseen evaluation data for a tuned successor."
+  ]
+}
