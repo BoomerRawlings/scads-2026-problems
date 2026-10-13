@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "evidence_kind": "prospective_model_context_storage_estimate",
+  "observed_at": "2026-10-10T05:18:10.632388+00:00",
+  "source": "https://huggingface.co/unsloth/Qwen3-1.7B-GGUF/resolve/d7f544eead698dbd1f15126ef60b45a1e1933222/Qwen3-1.7B-Q4_K_M.gguf",
+  "header_observation": {
+    "http_status": 206,
+    "content_range": "bytes 0-65535/1107409472",
+    "header_bytes_read": 65536,
+    "gguf_version": 3,
+    "full_model_downloaded_locally": false
+  },
+  "pinned_header_values": {
+    "qwen3.block_count": 28,
+    "qwen3.context_length": 40960,
+    "qwen3.attention.head_count_kv": 8,
+    "qwen3.attention.key_length": 128,
+    "qwen3.attention.value_length": 128
+  },
+  "kv_storage_estimate": {
+    "assumption": "F16 keys and values, one sequence slot; not total resident memory.",
+    "bytes_per_token": 114688,
+    "context_16384_bytes": 1879048192,
+    "context_24576_bytes": 2818572288,
+    "increase_bytes": 939524096
+  },
+  "actual_prior_microbenchmark": {
+    "run": 38025617751,
+    "maximum_resident_set_size_kib": 1975832,
+    "scope": "512-token prefill/32-token decode microbenchmark process, not full-context server peak",
+    "source_sha256": "43af8d95650366700fa5b6f0a67155f7ae58c72027f1cf23a1aaac8abd586366"
+  },
+  "decision": {
+    "context_tokens": 24576,
+    "context_shift": false,
+    "held_out_trials_observed": 0
+  },
+  "limitations": [
+    "Header metadata read independently from pinned immutable URL; full weights hash verification belongs to the retained CI asset receipt.",
+    "KV arithmetic excludes weights, compute buffers, application processes and Elasticsearch/Kibana memory.",
+    "No measured memory-capacity or multi-step quality claim; owned-process snapshots are recorded in subsequent actual execution."
+  ]
+}

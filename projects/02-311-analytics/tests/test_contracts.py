@@ -33,6 +33,14 @@ class ContractTests(unittest.TestCase):
         self.assertEqual(result, normalize_spec(result, CATALOG))
         self.assertEqual("2025-04-15T16:00:00+00:00", result["as_of"])
 
+    def test_record_default_compiles_bounded_preview_with_exact_total(self):
+        normalized = self.normalized()
+        body = compile_search(normalized)
+        self.assertEqual(normalized["preview_limit"], 5)
+        self.assertEqual(body["size"], 5)
+        self.assertIs(body["track_total_hits"], True)
+        self.assertEqual(compile_search(self.normalized(preview_limit=100))["size"], 100)
+
     def test_last_month_resolves_calendar_across_dst(self):
         result = self.normalized(time={"preset": "last_month"})
         self.assertEqual({"field": "created_date", "gte": "2025-03-01T05:00:00+00:00",
@@ -169,7 +177,7 @@ class CompilerTests(unittest.TestCase):
         spec = self.normalized(time={"preset": "last_month"}, filters={"all": [
             {"field": "borough", "op": "eq", "value": "BROOKLYN"}, {"category_family": "noise"}]})
         body = compile_search(spec)
-        self.assertEqual(100, body["size"])
+        self.assertEqual(5, body["size"])
         self.assertTrue(body["track_total_hits"])
         self.assertEqual(set(FIELDS), set(body["_source"]))
         self.assertEqual([{"created_date": {"order": "asc", "missing": "_last"}}, {"unique_key": "asc"}], body["sort"])

@@ -14,7 +14,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 from .errors import AnalyticsError
-from .contracts import validate_source_fields
+from .contracts import DEFAULT_PREVIEW_ROWS, validate_source_fields
 
 
 MAX_LINE_BYTES = 10 * 1024 * 1024
@@ -241,7 +241,7 @@ class FixtureBackend:
             rows, total = [], 0
             for record in self.iter_records(spec, deadline=deadline):
                 total += 1
-                if len(rows) < spec.get("preview_limit", 100):
+                if len(rows) < spec.get("preview_limit", DEFAULT_PREVIEW_ROWS):
                     rows.append(record)
             if time.monotonic() > deadline:
                 raise AnalyticsError("budget_exceeded", "Fixture execution exceeded its deadline")

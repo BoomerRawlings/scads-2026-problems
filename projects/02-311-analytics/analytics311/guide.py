@@ -1,6 +1,6 @@
 """Compact request-building guidance for any tool-using agent."""
 
-from .contracts import FIELDS, METRICS
+from .contracts import DEFAULT_PREVIEW_ROWS, FIELDS, METRICS
 from .errors import AnalyticsError
 
 
@@ -34,7 +34,7 @@ def analysis_guide(dataset_version):
                 ]},
                 "last_month": "Previous complete calendar month relative to as_of; do not anchor to latest dataset record",
                 "periods": {"baseline": "{gte, lt}", "current": "{gte, lt}"},
-                "coverage": "Comparisons and date histograms require complete source coverage; unobserved dates are not zero counts",
+                "coverage": "Comparisons and date histograms require complete declared coverage or a validated comparison_qualification for a reconciled observed snapshot. Disclose comparison_scope and warnings; observed reporting growth is not proof of worsening underlying conditions. Unobserved dates are not zero counts",
             },
             "filters": {
                 "combine": {"all": "nonempty array of filters", "any": "nonempty array of filters", "not": "one filter"},
@@ -77,7 +77,7 @@ def analysis_guide(dataset_version):
                 "order": "Applied across complete groups before ranking; no significance claim",
             },
             "output_limits": {
-                "preview_limit": "Records preview 1..100, further bounded by configured max_preview_rows; default 100",
+                "preview_limit": f"Records preview 1..100, further bounded by configured max_preview_rows; default {DEFAULT_PREVIEW_ROWS}. Exact totals and full-cohort exports are independent of preview size.",
                 "top_n": "Aggregate/comparison first-page rows 1..100; default 20; not the full export cohort",
                 "rank_order": ["asc", "desc"], "rank_order_default": "desc",
                 "rank_by_aggregate": ["count"],

@@ -69,6 +69,26 @@ class ServiceTests(unittest.TestCase):
         self.assertEqual(job["rows_written"], 4)
         self.assertEqual(job["bytes_written"], Path(job["file"]).stat().st_size)
 
+    def test_default_preview_is_small_but_explicit_requests_totals_and_csv_stay_complete(self):
+        request = {"dataset_version": "fixture-v1", "operation": "records"}
+        result = self.service.run_analysis(request)
+        self.assertNotIn("preview_limit", request)
+        self.assertEqual(result["spec"]["preview_limit"], 5)
+        self.assertEqual(len(result["rows"]), 5)
+        self.assertEqual(result["total"], {"value": 32, "relation": "eq"})
+        self.assertTrue(result["preview_truncated"])
+        larger = self.service.run_analysis(dict(request, preview_limit=12))
+        self.assertEqual(len(larger["rows"]), 12)
+        self.assertEqual(larger["total"], result["total"])
+        self.assertEqual(larger["rows"][:5], result["rows"])
+        full_preview = self.service.run_analysis(dict(request, preview_limit=100))
+        self.assertEqual(len(full_preview["rows"]), 32)
+        self.assertFalse(full_preview["preview_truncated"])
+        job = self.service.export_csv(result["result_id"], "records", "all_matching", columns=["unique_key"])
+        exported = self.csv_rows(job)
+        self.assertEqual(len(exported), 32)
+        self.assertEqual({row["unique_key"] for row in exported}, {f"FIX-{number:03}" for number in range(1, 33)})
+
     def test_record_export_passes_requested_columns_to_source(self):
         result = self.service.run_analysis(self.example("brooklyn-noise"))
         with patch.object(self.service.backend, "iter_records", wraps=self.service.backend.iter_records) as source:

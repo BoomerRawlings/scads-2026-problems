@@ -1,0 +1,19 @@
+{
+  "id": 11684570694,
+  "name": "analytics311-agent-replica-3",
+  "size_in_bytes": 5260540,
+  "url": "https://api.github.com/repos/BoomerRawlings/scads-2026-problems/actions/artifacts/11684570694",
+  "archive_download_url": "https://api.github.com/repos/BoomerRawlings/scads-2026-problems/actions/artifacts/11684570694/zip",
+  "expired": false,
+  "created_at": "2026-10-10T22:24:20Z",
+  "expires_at": "2026-11-09T22:24:18Z",
+  "updated_at": "2026-10-10T22:24:20Z",
+  "digest": "sha256:07910bbde7a4331023ed51a130f1dae1b48c39950fb0d20fa290e9d443a866b8",
+  "workflow_run": {
+    "id": 38084773557,
+    "repository_id": 1409036733,
+    "head_repository_id": 1409036733,
+    "head_branch": "codex/project2-acceptance-20261007",
+    "head_sha": "d3be88e72cf5e7920f2861eaa7c21f6dd26abdb3"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "observed_at": "2026-10-10T04:50:32.894129+00:00",
+  "evidence_kind": "metadata_only_saved_result_context_measurement",
+  "projection": "matching-dataset-reference-v1",
+  "adapter_sha256": "7b1a9aa50556d6d713e3e10227cffae0c9ea8008d0bdee1d65869bbecf9e22dc",
+  "bootstrap_manifest_sha256": "e198fb320a3e7ec1153241b3b14d36012def7c6f417148bbc02dccdb9cdbd83c",
+  "source_run": "https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/37705537519",
+  "measurements": [
+    {
+      "stored_result": "runs\\real-core-37705537519\\real-v1\\runs\\0905fa0a6ef84e6dacf59ab870a34334.json",
+      "sha256": "1dd600a57288df58875d6fd84d6c45047b7cb1de64d0e20816890595c43e933a",
+      "operation": "compare_periods",
+      "returned_rows": 10,
+      "original_bytes": 20208,
+      "projected_bytes": 12672,
+      "only_dataset_changed": true
+    },
+    {
+      "stored_result": "runs\\real-core-37705537519\\real-v1\\runs\\348d1526cbff4e569350bc68814244cb.json",
+      "sha256": "852f0d4780574ebabea5074a84a058b562b83c80f11863b8f98494bccc13218f",
+      "operation": "aggregate",
+      "returned_rows": 1,
+      "original_bytes": 9871,
+      "projected_bytes": 2335,
+      "only_dataset_changed": true
+    },
+    {
+      "stored_result": "runs\\real-core-37705537519\\real-v1\\runs\\3ca1699513b948c6bfe2d4a9c0e2abc5.json",
+      "sha256": "a27862cb816e296ef17f1810446351551524ed223793f98257b3347ae5f30788",
+      "operation": "aggregate",
+      "returned_rows": 1,
+      "original_bytes": 9716,
+      "projected_bytes": 2180,
+      "only_dataset_changed": true
+    },
+    {
+      "stored_result": "runs\\real-core-37705537519\\real-v1\\runs\\a311b85f3f2540b89e6a9cf914e169c2.json",
+      "sha256": "063a36d435bde049fb23b09a38fc59152f98fac0ce99f947fbb160b6974f1531",
+      "operation": "records",
+      "returned_rows": 5,
+      "original_bytes": 12718,
+      "projected_bytes": 5182,
+      "only_dataset_changed": true
+    },
+    {
+      "stored_result": "runs\\real-core-37705537519\\real-v1\\runs\\e47ccc41ddcb458c83a63bb02e7c62c6.json",
+      "sha256": "048997759f0a83245090b8e2462864d681cf8d26e8f607e296a785d458a06c72",
+      "operation": "aggregate",
+      "returned_rows": 20,
+      "original_bytes": 12498,
+      "projected_bytes": 4962,
+      "only_dataset_changed": true
+    }
+  ],
+  "tool_schema_bytes": 14817,
+  "new_schema_token_count_measured": false,
+  "actual_agent_trials": 0,
+  "queries_executed": 0,
+  "limits": [
+    "Pure get_result method over already retained actual-service results; no new backend or model call.",
+    "Only canonically identical dataset metadata replaced. All rows, numbers, specs, coverage and warnings remain exact.",
+    "Byte reduction does not establish latency or agent quality.100-record context width remains an estimate from observed5record preview, not a measured100row response."
+  ]
+}

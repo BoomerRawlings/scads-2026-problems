@@ -1,0 +1,180 @@
+{
+  "boundaries": {
+    "all_262_used_for_point_assignment": true,
+    "all_features_valid_nonempty": true,
+    "bytes": 4532381,
+    "features": 262,
+    "path": "data/nta2020-26b.geojson",
+    "predicate": "original polygon.covers(original source point), including boundary; reject multiple hits",
+    "residential_features": 197,
+    "sha256": "5049760a4d0936e1d3dbf70d745e2cee4286bd163b11c702f15fa28db46a001e"
+  },
+  "capture": {
+    "compressed_bytes": 163696296,
+    "compressed_sha256": "a0a602baadb06df0ece450ab7b2398e52387bbc436c228ca7c653c497e7f0aba",
+    "path": "data/real-capture-2025/april-october-2025.jsonl.gz",
+    "raw_bytes": 1306911416,
+    "raw_records": 2133268,
+    "raw_sha256": "91d84eb6d02dafc402a892298ba92cb121e8e905a189fb75f31b19d4d43aeec7",
+    "scan_seconds": 24.485000000044238,
+    "strict_ascending_unique_identifiers": true
+  },
+  "cohort": {
+    "assigned_points_exactly_on_polygon_boundary": 0,
+    "category_created_date_states_all_capture_periods": {
+      "local_unambiguous": 64785
+    },
+    "closed_date_states": {
+      "local_unambiguous": 9728
+    },
+    "closure_states": {
+      "numeric_nonnegative_closed": 9728
+    },
+    "coordinate_sources": {
+      "latitude_longitude": 9728
+    },
+    "created_date_states": {
+      "local_unambiguous": 9728
+    },
+    "distinct_nonempty_nta_codes": 56,
+    "escaped_formula_cells_by_column": {
+      "agency": 0,
+      "borough": 0,
+      "closure_hours": 0,
+      "complaint_type": 0,
+      "created_date": 0,
+      "descriptor": 0,
+      "nta2020": 0,
+      "status": 0,
+      "unique_key": 0
+    },
+    "geometry_states": {
+      "matched": 9705,
+      "missing_geometry": 23
+    },
+    "rows": 9728,
+    "unique_logical_cells": 87552
+  },
+  "created_at": "2026-10-10T20:50:38.817064+00:00",
+  "csv_file_count": 4,
+  "csv_files": [
+    {
+      "bytes": 1139937,
+      "cells_compared": 87552,
+      "duplicate_rows": 0,
+      "invalid_numeric_cells": 0,
+      "maximum_closure_numeric_absolute_error_hours": 0.0,
+      "mismatches_by_column": {},
+      "missing_rows": 0,
+      "passed": true,
+      "path": "runs/agent-campaign-38029812736/corpus/real-v1/measurement-work/runs/2e4ac33fa357419987d54df8c4603fdb.csv",
+      "rows": 9728,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c",
+      "unknown_rows": 0
+    },
+    {
+      "bytes": 1139937,
+      "cells_compared": 87552,
+      "duplicate_rows": 0,
+      "invalid_numeric_cells": 0,
+      "maximum_closure_numeric_absolute_error_hours": 0.0,
+      "mismatches_by_column": {},
+      "missing_rows": 0,
+      "passed": true,
+      "path": "runs/agent-campaign-38029812736/corpus/real-v1/measurement-work/runs/6b594cbb72cd43058d8a4498b8f94c89.csv",
+      "rows": 9728,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c",
+      "unknown_rows": 0
+    },
+    {
+      "bytes": 1139937,
+      "cells_compared": 87552,
+      "duplicate_rows": 0,
+      "invalid_numeric_cells": 0,
+      "maximum_closure_numeric_absolute_error_hours": 0.0,
+      "mismatches_by_column": {},
+      "missing_rows": 0,
+      "passed": true,
+      "path": "runs/agent-campaign-38029812736/corpus/real-v1/measurement-work/runs/8390b40f5a034890809a2f87fa9be783.csv",
+      "rows": 9728,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c",
+      "unknown_rows": 0
+    },
+    {
+      "bytes": 1139937,
+      "cells_compared": 87552,
+      "duplicate_rows": 0,
+      "invalid_numeric_cells": 0,
+      "maximum_closure_numeric_absolute_error_hours": 0.0,
+      "mismatches_by_column": {},
+      "missing_rows": 0,
+      "passed": true,
+      "path": "runs/agent-campaign-38029812736/corpus/real-v1/measurement-work/runs/b012655c17494c42af2a478454887171.csv",
+      "rows": 9728,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c",
+      "unknown_rows": 0
+    }
+  ],
+  "elapsed_seconds": 25.51600000000326,
+  "inputs_unchanged_by_size_mtime_ns": true,
+  "kind": "independent_raw_capture_csv_cell_audit",
+  "limitations": [
+    "Only this 9728-row October Brooklyn Noise - Residential cohort and four retained CSVs receive cell-level qualification; other exports and the remaining captured records do not.",
+    "Source contract/source implementation were read before constructing this independent code. No analytics311, query compiler, normalizer, exporter or agent oracle module is imported; not a blinded audit.",
+    "Point-in-polygon implementation is separate but shares Shapely/GEOS and Python timezone data with the product. This is not an independent GIS-library or human boundary-ground-truth validation.",
+    "Closure is elapsed time to administrative closed_date when status is Closed, observed at capture; not first response and not historical closure status at the analysis as_of.",
+    "Any absent DST, invalid-date, negative-duration, formula or boundary-edge examples remain unqualified by this actual cohort; self-checks are method checks, not observed real-data cases.",
+    "All four CSV files have identical bytes. This checks four actual export/recovery artifacts but does not imply four independent data samples or broader load qualification."
+  ],
+  "method": {
+    "cohort": {
+      "borough": "BROOKLYN",
+      "complaint_type": "Noise - Residential",
+      "created_gte": "2025-10-01T04:00:00+00:00",
+      "created_lt": "2025-11-01T04:00:00+00:00",
+      "nta_filter": null,
+      "source_timezone": "America/New_York"
+    },
+    "columns": [
+      "unique_key",
+      "created_date",
+      "complaint_type",
+      "descriptor",
+      "borough",
+      "agency",
+      "status",
+      "nta2020",
+      "closure_hours"
+    ],
+    "comparison": "exact decoded CSV cell strings; no numeric tolerance; UTF-8 BOM decoded; CSV formula escaping independently applied",
+    "description": "Stream raw capture; select cohort without consulting exported IDs; independently derive text, UTC milliseconds, administrative closure and original official polygon covers; exact compare every cell of all four actual CSV files.",
+    "geos": "3.13.1",
+    "implementation": "CPython",
+    "imports_application_modules": false,
+    "maximum_raw_line_bytes": 4194304,
+    "maximum_seconds": 240,
+    "maximum_stored_cohort_rows": 20000,
+    "python": "3.12.14",
+    "script": "runs/csv-cell-audit-38029812736.py",
+    "script_sha256": "9d888346d4f0525d4fde175940eb921402ae1daf8712f815a4e9f83dda47a16e",
+    "self_checks": {
+      "aware_fold_is_resolvable": true,
+      "boolean_keyword_rejected": true,
+      "date_only_rejected": true,
+      "formula_escape": true,
+      "missing_date": true,
+      "null_csv_empty": true,
+      "nyc_fall_fold_rejected": true,
+      "nyc_october_to_utc": true,
+      "nyc_spring_gap_rejected": true
+    },
+    "shapely": "2.1.2",
+    "tzdata": "2026.5"
+  },
+  "mismatches_by_column": {},
+  "passed": true,
+  "run_id": "38029812736",
+  "schema_version": "1",
+  "source_head": "663a5b16fa8ddeec08970bc5cf71f0eb2e71582e",
+  "total_cells_compared": 350208
+}

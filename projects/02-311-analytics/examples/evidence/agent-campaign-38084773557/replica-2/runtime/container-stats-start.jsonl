@@ -1,0 +1,2 @@
+{"BlockIO":"0B / 0B","CPUPerc":"0.31%","Container":"d5366c5abaa8","ID":"d5366c5abaa8","MemPerc":"51.43%","MemUsage":"1.029GiB / 2GiB","Name":"a074bf9601ce4059b8ddd824b3660347_dockerelasticcokibanakibana955_22ade2","NetIO":"2.31MB / 2.9MB","PIDs":"12"}
+{"BlockIO":"32.8kB / 19.7MB","CPUPerc":"18.21%","Container":"851e9757fb8c","ID":"851e9757fb8c","MemPerc":"61.85%","MemUsage":"2.474GiB / 4GiB","Name":"62b8c57c709d4ad2a048a0d9035f584a_dockerelasticcoelasticsearchelasticsearch955_5be5ad","NetIO":"7.51MB / 4.39MB","PIDs":"104"}

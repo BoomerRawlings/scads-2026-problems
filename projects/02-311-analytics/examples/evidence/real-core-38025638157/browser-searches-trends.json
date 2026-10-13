@@ -1,0 +1,1 @@
+[{"body":{"contentTypeId":"index-pattern","options":{"fields":["title","type","typeMeta","name","timeFieldName"]},"query":{"limit":10000},"version":1},"path":"/api/content_management/rpc/search"}]

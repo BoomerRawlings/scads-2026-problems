@@ -1,0 +1,208 @@
+{
+  "schema_version": 1,
+  "evidence_kind": "independent_offline_review_of_actual_failed_development_smoke",
+  "reviewed_at": "2026-10-10T06:01:58.872851+00:00",
+  "review_script_sha256": "2480dc9ef0a858243fa0cc49ed93e539ff75c0dc65e088ae8e7480786a997f57",
+  "run": {
+    "id": 38028703734,
+    "head_sha": "ffbbd5811c2b6ca949417b926dd56e3807e1e34d",
+    "status": "completed",
+    "conclusion": "failure",
+    "created_at": "2026-10-10T05:47:28Z",
+    "updated_at": "2026-10-10T05:55:26Z",
+    "url": "https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/38028703734"
+  },
+  "copied_files": [
+    {
+      "source": "summary.json",
+      "bytes": 4432,
+      "sha256": "1abfddc82a33f73b6e4069a8be60bc43179309d883396b6913b717cfd429b1b0",
+      "copied_exactly": true
+    },
+    {
+      "source": "trace.json",
+      "bytes": 32507,
+      "sha256": "a03a164961976972ab3cf9f3e01cc9b588e0407c5767bcb2577cbb0f24721311",
+      "copied_exactly": true
+    },
+    {
+      "source": "runtime/metadata-prefix-warmup.json",
+      "bytes": 1450,
+      "sha256": "238c1a72d43508e3060cb5bb16cc48d072577cb4b97ef27a11403af2ea4af13a",
+      "copied_exactly": true
+    },
+    {
+      "source": "runtime/model-assets.json",
+      "bytes": 3395,
+      "sha256": "223d51f9a5e4e1dc55524c7370bf1a9ceb08e7921832ffe361b83219025c23fb",
+      "copied_exactly": true
+    },
+    {
+      "source": "runtime/asset-downloads.json",
+      "bytes": 370,
+      "sha256": "1ca387a42456f3bfa41d8a7d139369adc9cd04208d983301948977a150bee24d",
+      "copied_exactly": true
+    },
+    {
+      "source": "runtime/native-build.json",
+      "bytes": 219,
+      "sha256": "68499baa2bd859d46e7c654e09d65f962d2899192e520561f62b28dd89996d44",
+      "copied_exactly": true
+    },
+    {
+      "source": "runtime/native-benchmark.json",
+      "bytes": 2362,
+      "sha256": "1e8635dd45dddec0ae088c8530f8f56db6cec02e0771452bc35bf70f30dc2496",
+      "copied_exactly": true
+    },
+    {
+      "source": "runtime/release-benchmark.json",
+      "bytes": 2353,
+      "sha256": "049605c70f7e84348367103eec57574b6dfde1d2e97e986b03006e65798d26a2",
+      "copied_exactly": true
+    },
+    {
+      "source": "runtime/real-metadata-tokenization.json",
+      "bytes": 512,
+      "sha256": "1183d86c99bb8e07414d9d16a59cb5d412df19d0d1572fda75664540f645269f",
+      "copied_exactly": true
+    },
+    {
+      "source": "runtime/host.json",
+      "bytes": 1364,
+      "sha256": "6617d5537cac7a0d4ff4cb61f004466e36c4d6064e5b331d656481a898b28f05",
+      "copied_exactly": true
+    },
+    {
+      "source": "runtime/model-health.json",
+      "bytes": 16,
+      "sha256": "08e2c358ce13cb67f94ebb35b0f67c8763190a857c0db68da6eb196dfe9da46a",
+      "copied_exactly": true
+    },
+    {
+      "source": "runtime/native-resources.txt",
+      "bytes": 865,
+      "sha256": "4184d7aa43ed75551e025a3d8b4494a302e73470c8175a97dc082313c183dd32",
+      "copied_exactly": true
+    },
+    {
+      "source": "runtime/release-resources.txt",
+      "bytes": 872,
+      "sha256": "068b2648d0b3045b7efc9142973a3789ee11c37b3424fb552b07e4f641492b2d",
+      "copied_exactly": true
+    },
+    {
+      "source": "runtime/model-server-tail.txt",
+      "bytes": 5170,
+      "sha256": "03ff22fd44949f7c9eb059cc08931c6b2506e119e0521b566c1ece808f81cbb6",
+      "copied_exactly": true
+    },
+    {
+      "source": "runtime/cpu.txt",
+      "bytes": 3339,
+      "sha256": "e2df535c811efa12c233d27957938e328c559882432955ed0a31588554b3338b",
+      "copied_exactly": true
+    },
+    {
+      "source": "runtime/compiler.txt",
+      "bytes": 246,
+      "sha256": "88b7c4b67564a146863224148116065fee418539f0a408f3636a68f3bde51805",
+      "copied_exactly": true
+    },
+    {
+      "source": "runtime/blas-package.txt",
+      "bytes": 43,
+      "sha256": "0a48eec74661a5ca2ee87cb603003df9f5ccd559efd8034be1576cda2e4c1b91",
+      "copied_exactly": true
+    },
+    {
+      "source": "runtime/llama-version.txt",
+      "bytes": 84,
+      "sha256": "d64ed60f024df2d1390d3df5b15edf2d5bbbc038e2914fa2d6c85f67b8e92d4d",
+      "copied_exactly": true
+    }
+  ],
+  "copied_bytes": 59599,
+  "review_checks_passed": true,
+  "smoke_passed": false,
+  "held_out_trials": 0,
+  "observations": {
+    "metadata_only_startup_seconds": 163.583575,
+    "startup_prompt_tokens": 7312,
+    "startup_completion_tokens": 1,
+    "first_model_response_seconds": 32.109938,
+    "first_response_prompt_cached_tokens": 7306,
+    "first_response_prompt_new_tokens": 55,
+    "completed_model_response_events": 3,
+    "model_initiated_analytical_tool_calls": 1,
+    "adapter_discovery_tool_calls": 1,
+    "model_initiated_analysis_spec": {
+      "dataset_version": "fixture-v1",
+      "operation": "aggregate",
+      "filters": {
+        "category_family": "{category_family: name}; use catalog.families; expands approved complaint_type values"
+      },
+      "geo": {
+        "points": [
+          {
+            "lat": 40.65,
+            "lon": -73.98
+          },
+          {
+            "lat": 40.72,
+            "lon": -73.98
+          },
+          {
+            "lat": 40.72,
+            "lon": -73.9
+          }
+        ],
+        "type": "polygon"
+      },
+      "group_by": [
+        {
+          "field": "borough",
+          "interval": "day"
+        }
+      ],
+      "metrics": [
+        "count"
+      ],
+      "minimum_count": 0,
+      "rank_by": "count",
+      "rank_order": "desc",
+      "time": {
+        "preset": "last_month"
+      }
+    },
+    "analysis_output": {
+      "error": {
+        "code": "needs_clarification"
+      }
+    },
+    "analysis_count_result_ids": [],
+    "final": {
+      "status": "needs_clarification",
+      "answer": "Please provide the necessary details to proceed with the analysis.",
+      "result_ids": [],
+      "facts": [],
+      "artifacts": [],
+      "limitations": []
+    },
+    "format_repairs": 1,
+    "failed_trial_seconds_excluding_startup": 59.403592,
+    "measured_smoke_wall_seconds_including_startup": 223.024667,
+    "failure": "Clear unrestricted count request was narrowed by invented category, polygon, period and borough/day grouping; validation returned needs_clarification; model wrongly requested user details, with no result, count, citation or synthetic-data disclosure."
+  },
+  "limits": [
+    "One authored development question,32 synthetic records; no real-corpus agent evaluation.",
+    "Successful metadata startup, cache reuse and a bounded structured final response establish operation, not analytical correctness.",
+    "This retained quality failure is not regraded as a pass if a later prospective operational gate permits its evaluation.",
+    "Three model response events are distinct from the trace model_calls counter, which counts model-initiated tool calls. Event elapsed_seconds values are cumulative within the trial.",
+    "Startup timing excludes earlier native compilation, model download, server loading and benchmarks.",
+    "Native/release benchmark samples are separate single512-token prefill/32-token decode measurements, not conversational latency or controlled comparative performance.",
+    "Resource TXT maximum RSS belongs to llama-bench processes, not the model-server trial; this artifact has no server VmRSS/VmHWM trial observations.",
+    "Receipt review checks retained evidence without rerunning inference or services.",
+    "Raw trace and measurements remain unchanged; no successful quality score inferred."
+  ]
+}

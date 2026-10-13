@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "evidence_kind": "actual_model_development_candidate_failure",
+  "source_run": {
+    "id": 38004496878,
+    "url": "https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/38004496878"
+  },
+  "passed": false,
+  "actual_agent_trials": 1,
+  "held_out_evaluation": false,
+  "real_data_acceptance": false,
+  "model_alias": "analytics311-qwen3-1-7b",
+  "runtime_spec_sha256": "661569ca45a1e2eaaa7e178209d3349dc27cab86351444cbea5be1d3d3c49937",
+  "code_sha256": {
+    "analytics311/__init__.py": "010dabac662e1135b14a8a5fa508468aaf641a4980262b3c34524ca312cd545d",
+    "analytics311/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "analytics311/capacity.py": "35d9ff679dffc7d02c314d4f71984240341bb42e1983d2029cfe00bd7bd00224",
+    "analytics311/capture.py": "8897af4c877c206cddb92707b973d5f7fe5f62b558c4eb625a8f382c43fadf02",
+    "analytics311/cli.py": "c2c0c9299220ee81dc931cfe7529dce7b5843aa94b67dea4b642584deeb4a389",
+    "analytics311/compiler.py": "d64685b83ddb6727145c8166f87586226d10f348147e094da124d780572390b2",
+    "analytics311/contracts.py": "77380332b2dd25e2aa367cc9f08680b5ece02d29bfe5bd9cd9eb22b77b58e596",
+    "analytics311/elastic.py": "4bbbe82d73038c3fff69cbcdae1f1ed4d86292b57706158c0bebe5f1cac1bcc7",
+    "analytics311/errors.py": "d61e9b5d5b14716720477a9cf1005f377ca79ab4b61f6ca61d6822c7d51d5414",
+    "analytics311/fixture.py": "b4f303e4fa7e53e9974491964c9524187ba485283d75e12a5c3d48ae5b8a6487",
+    "analytics311/geography.py": "b066038c1105047fbb1025cba4efb2ca82e35679fd27afadb51e30734621baf5",
+    "analytics311/guide.py": "45d4d9b54e6e662d9268c4dcbd333711d3b16007b58e97d6eb86481d156962aa",
+    "analytics311/ingest.py": "632caee86a4230d4ba50c05d782902d7d1f7782fe348526f63872ded7a7585e4",
+    "analytics311/jobs.py": "93ce4a241abe484408ce1f606a120b6cd614c8f8757e2cedb3a9155d28da7b75",
+    "analytics311/maps.py": "f97d2dfda8fc7b1fa410a5ad0f7751ca1c9c55bfb81d79415e1bb12ce5b0f287",
+    "analytics311/mcp_server.py": "72d7794ec72782b1b0198327a20ff20210abe1febeef7736a22edccefcc55526",
+    "analytics311/metadata_io.py": "7a765bd91b5275f76e743a78c869a99c7c3d3736a21c15b7ed789c73c71ba556",
+    "analytics311/qualification.py": "31161ced2c85089ce643bae30845b29a340eb47d2e7c8f6fbf430a673cfe2582",
+    "analytics311/resources.py": "b89b3e2b8561593561d72b31994ff4072b149c8f9df764b26161e972511aa6b3",
+    "analytics311/service.py": "c3b34b4547151a04760ab0925dd8ea318add316c068d04fcda603b339a874663",
+    "analytics311/settings.py": "70a9422e36659bcd9f2e6b9e00615b098e147bc55e06497a8abc3c898c5eb3d4",
+    "analytics311/trend_maps.py": "8d0fe301a0a6f0165998965d2660ae2a5bee5cf4ba9bc59065dfb8f43698393b",
+    "analytics311/workloads.py": "3782154b92087ecdb87a8a25cfaaf2b5810cb762635fcf14d885a7369f034819",
+    "tools/agent_evaluation.py": "4a3ed2177f52ec420ce74ddccfa443143d9c437456f121df31ffb1325a02c36f",
+    "tools/local_agent.py": "23ba2002648ccdf1033df39d36b211a0310f615df4c07a7fae2b049560b5502a"
+  },
+  "budgets": {
+    "seconds": 150,
+    "request_seconds": 100,
+    "max_calls": 24
+  },
+  "trial": {
+    "elapsed_seconds": 150.001822,
+    "status": "failed",
+    "error": {
+      "code": "model_timeout"
+    },
+    "final": null,
+    "calls": 14,
+    "adapter_calls": 1,
+    "model_calls": 13,
+    "checks": {
+      "finished": false,
+      "answered": false,
+      "discovered_first": true,
+      "executed_unfiltered_count": false,
+      "numeric_evidence": false,
+      "cited_result": false,
+      "synthetic_label": false
+    },
+    "first_model_request": {
+      "usage": {
+        "completion_tokens": 55,
+        "prompt_tokens": 3213,
+        "total_tokens": 3268
+      },
+      "server_timings": {
+        "cache_n": 0,
+        "prompt_n": 3213,
+        "prompt_ms": 25676.873,
+        "prompt_per_token_ms": 7.991557111733583,
+        "prompt_per_second": 125.13205949961275,
+        "predicted_n": 55,
+        "predicted_ms": 2512.407,
+        "predicted_per_token_ms": 46.52605555555556,
+        "predicted_per_second": 21.493332887545687
+      },
+      "elapsed_seconds": 28.202993
+    },
+    "invalid_analysis_calls": 13,
+    "distinct_analysis_arguments": 1,
+    "repeated_arguments": {
+      "spec": {
+        "dataset_version": "fixture-v1",
+        "operation": "records",
+        "required": [
+          "dataset_version",
+          "operation"
+        ],
+        "unknown_keys": [
+          "dataset_version",
+          "operation"
+        ]
+      }
+    }
+  },
+  "actual_raw_tokenization": {
+    "scope": "Raw text tokenization of actual real-corpus metadata only; no questions, oracle, chat-template overhead or inference.",
+    "model_alias": "analytics311-qwen3-1-7b",
+    "descriptor_sha256": "9fbe5dc908b1f86eb43974652f2d4c0da48c289cdd6e62f2b3bcc462ca6ddb48",
+    "parts": {
+      "real_descriptor": {
+        "utf8_bytes": 14732,
+        "tokens": 4704
+      },
+      "system": {
+        "utf8_bytes": 2358,
+        "tokens": 478
+      },
+      "tool_schemas": {
+        "utf8_bytes": 2655,
+        "tokens": 542
+      }
+    }
+  },
+  "source_files": {
+    "runs\\model-smoke-38004496878\\summary.json": {
+      "bytes": 4127,
+      "sha256": "261adcac8774acdb98836ecd709f4d3b4ffd3762fb4ae31a69cf954d33f7fd2b"
+    },
+    "runs\\model-smoke-38004496878\\trace.json": {
+      "bytes": 58128,
+      "sha256": "1860fa4528f0ed83dd817bf92c0c336fdacd223cbd75af1c2d66956854b095ef"
+    },
+    "runs\\model-smoke-38004496878\\runtime\\model-assets.json": {
+      "bytes": 3085,
+      "sha256": "aebab66a394c1fb367f0271eb51ca541be3da89e74a4725eae743c617d80a540"
+    },
+    "runs\\model-smoke-38004496878\\runtime\\native-build.json": {
+      "bytes": 219,
+      "sha256": "68499baa2bd859d46e7c654e09d65f962d2899192e520561f62b28dd89996d44"
+    },
+    "runs\\model-smoke-38004496878\\runtime\\real-metadata-tokenization.json": {
+      "bytes": 510,
+      "sha256": "cdd3817ed6236df3ae728888d9215bd343cc2c0072068226e78315f8808c3f8f"
+    }
+  },
+  "limits": [
+    "One authored development question over32synthetic records, not held-out evaluation.",
+    "Adapter discovery transport was accepted, and the model chose run_analysis; it copied guide-metadata keys into every invalid spec.",
+    "No successful analytical result or final answer occurred. The deadline failure remains retained.",
+    "Public AnalysisSpec grammar, explicit rejected-key feedback, repeat-failure stopping and repeated-dataset references were implemented after this run.",
+    "Raw tokenization excludes chat-template overhead and inference; old tool-schema token count does not describe the subsequently expanded schema."
+  ]
+}

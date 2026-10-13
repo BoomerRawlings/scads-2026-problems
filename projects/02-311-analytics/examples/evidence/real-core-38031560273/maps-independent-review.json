@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "run_id": 38031560273,
+  "source_commit": "2ab96473fd927d5a5bae4bc48e2c50e372150ab4",
+  "review_method": "Independent standard-library CSV/style/request checks and retained screenshot inspection; no checker replay",
+  "overall_maps_passed": false,
+  "ci_regression": {
+    "tests": 557,
+    "skipped": 1,
+    "seconds": 6.571,
+    "passed": true,
+    "source": "GitHub Actions log 2026-10-10T06:41:17Z"
+  },
+  "cases": {
+    "points": {
+      "reported_passed": true,
+      "csv_rows": 242,
+      "csv_sha256": "0662c1ce8514ee203c453a2060139372515a835aca3c9ca106bd89cd66f6d301",
+      "independent_csv_passed": true,
+      "exact_browser_dsl_matches": 1,
+      "loading_precondition": {
+        "layer_label": "311 requests",
+        "method": "named_toc_layer_then_no_loading_spinner",
+        "named_layer_count": 1
+      },
+      "last_stage": "complete",
+      "screenshot_sha256": "2709280c2deb86cf80702d82834ae68a84e1311bcfe896892b6a8de73e46dab4",
+      "screenshot_kind": "success",
+      "screenshot_visually_reviewed": true,
+      "rendered_style_available": true,
+      "rendered_points": 242,
+      "independent_rendered_ids_passed": true,
+      "live_id_source_binding_receipt": true
+    },
+    "trends": {
+      "reported_passed": false,
+      "csv_rows": 196,
+      "csv_sha256": "312a38bda2d85fbd465711f2fd3b06e1eec6137f0ec08deb14f4008bb92cdfb9",
+      "independent_csv_passed": true,
+      "exact_browser_dsl_matches": 1,
+      "loading_precondition": {
+        "layer_label": "NTA closure-independent request trends",
+        "method": "named_toc_layer_then_no_loading_spinner",
+        "named_layer_count": 1
+      },
+      "last_stage": "inspector_style_tab",
+      "screenshot_sha256": "b824f0410c21abeefb04ee66d9dd6a9413ba87ccb6eca9a498856de317133b40",
+      "screenshot_kind": "diagnostic_failure",
+      "screenshot_visually_reviewed": true,
+      "rendered_style_available": false,
+      "rendered_parity_verified": false
+    },
+    "selected_trends": {
+      "reported_passed": false,
+      "csv_rows": 3,
+      "csv_sha256": "4a4b3de4a46c817b96e8146d8fbf2622661cf41b1d0e439d9431c64a51c1efec",
+      "independent_csv_passed": true,
+      "exact_browser_dsl_matches": 1,
+      "loading_precondition": {
+        "layer_label": "NTA closure-independent request trends",
+        "method": "named_toc_layer_then_no_loading_spinner",
+        "named_layer_count": 1
+      },
+      "last_stage": "inspector_style_tab",
+      "screenshot_sha256": "459c5c3a7c6c38ed5782f9f2510682262f83294b74949389c5a5e230ece9f19d",
+      "screenshot_kind": "diagnostic_failure",
+      "screenshot_visually_reviewed": true,
+      "rendered_style_available": false,
+      "rendered_parity_verified": false
+    }
+  },
+  "diagnosis": {
+    "confirmed": "Both trends passed named-layer/no-spinner precondition, then timed out at inspector_style_tab; no parsed style retained. Tab click used default30000ms instead of remaining120s. Failure screenshots show active style tab with JSON and visible polygon geometry behind Inspector.",
+    "inference": "Large highlighted style construction on the slower runner likely exceeded the nested action timeout. Fresh rerun required to qualify deadline fix.",
+    "qualification_deadline_seconds": 120,
+    "prior_failure_screenshot_default_ms": 30000
+  },
+  "limitations": [
+    "Trend metric/style extraction did not complete and remains failed despite painted geometry in diagnostic screenshots.",
+    "Point geometry type was checked, not independent coordinate equality.",
+    "No pixel-level color or whole-index map performance qualification."
+  ]
+}

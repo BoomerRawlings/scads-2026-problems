@@ -1,104 +1,734 @@
 # Verification status
 
-The local implementation is version 0.6.0. Static scale reasoning led to normalization disk/byte guards, exact export admission and CSV source-field projection. **119 focused tests passed**, zero failures/errors/skips; [receipt and source hashes](../examples/evidence/test-report-v0.6-focused.json), [reasoning and boundaries](forecast-v0.6.md). No scale simulation, benchmark, stress workload, live service or bulk capture ran for this change. The current build skips installation/workload smoke checks; the complete 0.5 verification below remains historical, not a full 0.6 regression claim.
+Version **0.7.0** has completed the real-data study, with a **failed agent-quality
+outcome**. Executable tooling, executed checks and acceptance outcomes are distinct.
+**2,133,268 real unique requests reconcile
+through capture, normalization, an immutable Elasticsearch index and an independent
+SQLite reference.** Five real-data analytical families and a bounded performance
+workload passed. **All three bounded rendered Maps checks pass:242 requests,
+196 neighborhoods and three selected neighborhoods. All120 agent trials and semantic
+reviews are complete; only1/120 (0.83%) passes the combined checks. This candidate
+does not provide a usable conversational demonstration.** The original published findings
+remain in [the historical v0.6 record](acceptance-v0.6.md).
 
-Core and optional-agent 0.6 wheels are built. Static archive/metadata/hash checks passed for all 36 wheels; all 27 packaged runtime/resource files match current source, and the focused test source hashes still match. Their manifests deliberately retain installation verification `not_run`. [Build receipt](../examples/evidence/build-v0.6.json), [distribution instructions](distribution.md).
+| Requested gap | Current evidence | Outcome and limits |
+| --- | --- | --- |
+| Actual ≥2 million requests | All five stages reconcile2,133,268 rows; full raw and normalized hashes, ingested byte offset and frozen index UUID recorded | Acquisition/count target met for this captured window |
+| Neighborhood comparisons | Official262 NTA polygons/197 residential codes; qualified observed window; June/October rodent comparison matches independent SQL across196 represented neighborhoods; full196 and selected3 rendered metrics pass | Backend comparison target met within the observed corpus; all9 actual agent-led chained attempts failed; population completeness remains unclaimed |
+| Elasticsearch/Kibana | Elasticsearch9.5.5 parity/CSV passed in nine real core executions; ninth verifies242 rendered point IDs, all five metrics for196/3 neighborhoods, and262 exact official polygon geometries in both trend views | Bounded rendered-map target met; broader rendering throughput/hardware coverage remains unqualified |
+| Actual agent |40 frozen AI-authored questions ×3 actual runs, all120 semantic reviews; automatic and combined passes1/120;56 final responses,64 missing finals | Evaluation executed; unchanged90% and per-case quality gates failed. The only accepted trial rejects an unsupported forecast; no analytical or chained task passed |
+| Usable performance | Actual4CPU/16.77GB hosts: bounded backend queries,9,728-row exports, sampled memory and abrupt worker recovery passed; actual agent attempts median126.159s, maximum160.006s including failures | Backend measurements established for these workloads; usable end-to-end agent behavior was not. Sustained load, cold cache, capacity ceilings and server recovery remain unqualified |
+| Two paper descriptions | Corrected administrative closure versus first response; separate Maps processing and CSV-worker paths; changed pages visually checked | Website remains its earlier published edition until separately republished |
 
-The original multi-million-record Elasticsearch/Kibana demonstration is **not yet accepted**. This record separates code checks, a real agent smoke demonstration, public-data sampling, generated workloads and modeled projections from outstanding release evidence. [Reliability workflow](reliability.md), [earlier performance audit](audit-v0.4.md).
+## Executed verification
 
-## Local checks
+- [Latest archived local regression](../examples/evidence/test-report-v0.7-matrix.json):576 tests collected,575 passed, one Windows unprivileged-symlink skip,66.672seconds. Exact source remained unchanged during execution; includes startup-only transport bounds, replica provenance, immutable review bindings and fixed120-trial aggregation. [Inspector extraction checkpoint](../examples/evidence/test-report-v0.7-inspector-text.json):555 collected,554 passed, one skip,37.978seconds. [Document-identity checkpoint](../examples/evidence/test-report-v0.7-inspector-id.json):553 collected,552 passed, one skip,41.062seconds; verifies exact frozen-index document identity for Maps. [Default-preview checkpoint](../examples/evidence/test-report-v0.7-preview-default.json):551 collected,550 passed, one skip,37.314seconds; preserves explicit larger previews/exact totals/full CSV exports. Exact source hashes are pinned. Mock transports and authored data do not establish million-record behavior. [Earlier warmup/route checkpoint](../examples/evidence/test-report-v0.7-warmup-route.json):548 collected,547 passed, one skip,43.169seconds; [Maps/schema checkpoint](../examples/evidence/test-report-v0.7-maps-schema.json):535 collected,534 passed, one skip,53.299seconds; [bootstrap checkpoint](../examples/evidence/test-report-v0.7-bootstrap.json):520 collected,519 passed, one skip,22.741seconds; [worker repair](../examples/evidence/test-report-v0.7-post-worker.json):506 collected,505 passed, one skip,35.346seconds.
+- [Actual capture and local verification](../examples/evidence/captured-local-verification.json): successful [run37700939902](https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/37700939902),2,133,268 unique requests across2135 page operations. All1,306,911,416 decompressed bytes match SHA256`91d84eb6d02dafc402a892298ba92cb121e8e905a189fb75f31b19d4d43aeec7`. Every record was streamed locally to verify strict ascending unique keys, creation dates inside April1-Nov1 2025 and the maximum source update. The163,696,296-byte gzip and [canonical source manifest](../examples/evidence/captured-manifest.json) are retained. No raw JSONL file or full ID set was materialized locally; verification took47.703seconds. Source before/after counts, metadata and revisions reconcile in the manifest; the local check did not re-query the changing provider.
+- [Actual Elastic9.5.5 parity on v0.7](../examples/evidence/live-parity-9.5.5-v0.7.json):14 families,32 authored records, real PIT/composite pagination and full CSV membership. Kibana health was observed separately; browser rendering was not part of this check.
+- [Earlier acquisition failures](../examples/evidence/capture-attempts-v0.7.json): first request timeout30s; a local count took43.891s. Second attempt passed counts but timed out on its first5000-row page after bounded120s retries, leaving zero captured rows. The successful third run used1000-row pages. Historical failures remain; success does not establish a general network-throughput guarantee.
+- [Official boundaries](../examples/evidence/official-nta2020-26b.json):4,532,381 captured bytes, SHA256`5049760a4d0936e1d3dbf70d745e2cee4286bd163b11c702f15fa28db46a001e`, matching source metadata before/after download.
+- [Evaluator and public-contract checks](../examples/evidence/agent-evaluator-v1-checks.json):134 focused tests passed in6.466seconds across contracts, fixture, guide, service, settings and evaluator. They include exact warmup-input binding and default-five previews with unchanged full CSV membership. Authored fixtures and mock responses are not the actual120-trial experiment or native model grammar qualification.
 
-The test suite covers strict contracts, query compilation, independently authored fixture answers, DST and missing-data behavior, 10,003-row mocked PIT pagination, a 10,001-row local CSV export, cooperative cancellation, row/byte budgets, source/index identity, checkpoints, NTA geometry, trend publishing and HTTP failure handling. CLI tests launch actual subprocesses and a background export. MCP tests use the installed official SDK over actual stdio and compare returned structured data with the service.
+## Independent raw-capture check of exported values
 
-The last full suite, **version 0.5**, had **361 passed, one skipped, zero failures/errors** on Python 3.12.14/Windows (362 tests collected, 29.434 seconds). The skip is unprivileged symbolic-link creation denied by Windows; actual NTFS junction, hardlink, OS lease and interpreter-death checks passed. Exact status: [version 0.5 report](../examples/evidence/test-report-v0.5.json). Earlier [v0.4](../examples/evidence/test-report-v0.4.json), [v0.3](../examples/evidence/test-report-v0.3.json), [v0.2](../examples/evidence/test-report-v0.2.json) and [first milestone](../examples/evidence/test-report.json) reports remain historical evidence. Full-suite command for a later unrestricted verification run:
+For the9,728-row October Brooklyn Noise - Residential cohort, an independent
+raw-capture reconstruction checked all nine columns in four retained CSVs:
+350,208 exact cell matches, zero mismatches. The four exports have identical bytes,
+so this represents87,552 unique logical cells. Original official boundaries yielded
+9,705 matching NTA assignments and23 missing locations. The audit streamed and
+rehashed all2,133,268 raw rows without materializing the full dataset. It imports
+no application normalizer, exporter, compiler or agent oracle. Shared Shapely/GEOS
+and timezone libraries remain a stated dependence. Other cohorts and unobserved
+DST, negative/null-closure, formula and boundary-edge cases remain unqualified.
+[Exact audit receipt](../examples/evidence/csv-cell-audit-38029812736.json) · [Method and reproduction](csv-cell-audit.md) · [Separate method review](../examples/evidence/csv-cell-method-review-38029812736.json).
 
-```text
-python -m unittest discover -s tests -v
-```
+## Completed actual agent study: quality failed
 
-Elasticsearch/Kibana traffic in these tests is mocked. Geographic tests use synthetic polygons. Those tests do not establish real server compatibility, rendered map parity, real-world agent accuracy or physical cluster capacity.
+[Matrix38084773557](https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/38084773557)
+executed the frozen candidate from commit`d3be88e72cf5e7920f2861eaa7c21f6dd26abdb3`:
+40 questions on each of three separately indexed4CPU Linux hosts, using the same
+2,133,268 captured records and pinned local Qwen3-1.7B runtime. All120 original
+trials and all120 separate semantic judgments are retained. The strict
+[final report](../examples/evidence/agent-campaign-38084773557/final-review.json),
+SHA256`81cd4cec6118c6a4b67519ca919a470ce3cd7ac0b38c08d06bd06fcf88a3c8e7`,
+records `execution_complete:true`, `semantic_review:complete`,
+`agent_quality_gate_passed:false` and `release_verified:false`.
 
-## Reliability findings and actual process trials
+Automatic and combined automatic/semantic acceptance are both **1/120 (0.83%)**.
+Only Q38-r1, a rejection of an unsupported causal rainfall/population-risk forecast,
+passes both. No analytical or chained task passed. All nine neighborhood/agency
+chained attempts lacked a final answer. Q38-r2 passes its separate semantic review
+but fails the frozen automatic status check; neither that judgment nor any other
+partial success changes the denominator or thresholds. The90% gate and at least
+one accepted repetition for each of40 questions both fail.
 
-The new concurrent export harness reproduced Windows access-denied failures during JSON metadata polling/publication. Actual held-reader and instrumented worker runs identified the failing operations. Narrow retries now cover those Windows errors only, with eight attempts and 225 ms of nominal sleeps; malformed data and persistent failures still fail. [Diagnosis](../examples/evidence/export-io-v0.5.json), [failed trial](../examples/evidence/export-stress-v0.5-initial.json).
+[Actual diagnostics](../examples/evidence/agent-campaign-38084773557/actual-diagnostics.json)
+record56 terminal responses and64 trials without one:52 model timeouts,
+11 repeated-invalid-call stops and one invalid final response. Eight automatic
+numeric-evidence failures differ from the32 broader semantic flags for unsupported
+factual claims or false completion; those categories overlap and must not be added.
+Observed errors include invented filters/geometries, corpus totals substituted for
+filtered counts, unsupported result/job IDs and clarification requests for details
+already supplied. These observations do not isolate model size, CPU speed, context
+length or any other single cause; no post-exposure tuning or replacement trials
+were performed.
 
-A separate probe found that this Windows virtual environment's launcher and executing interpreter have different PIDs. Killing only a launcher was insufficient proof of worker death. Crash tests now signal the executing interpreter to call `os._exit` while holding its lease, verify the exit code and absence of normal cleanup, then check recovery. Four ingestion/job tests use exit77; the portable harness uses exit86.
+Trial elapsed time includes model requests, tools and adapter work: median126.159s,
+maximum160.006s across all120 attempts, including unsuccessful and timed-out
+answers. The configured160-second deadline is cooperative, not a hard real-time
+guarantee. Separate metadata-only startup took295.782s,256.061s and289.676s for
+repetitions1/2/3. Downloads, builds and initial server loading precede those timings.
+Maximum sampled model-server RSS was4,887,793,664 bytes (4.888GB); the observed
+process-lifetime high-water mark was4,887,969,792 bytes. Neither is a per-trial peak
+or total-host memory measurement. Seeds and host hardware vary together, so this
+is not a controlled seed-only or hardware-speed comparison. The attempt timings
+do not establish successful-answer latency or usable conversational performance.
 
-The [final default trial](../examples/evidence/export-stress-v0.5.json) completed in **3.109 seconds** including cleanup: 11 launches, peak two live owned launch handles, ten CSVs with exactly four expected fixture IDs and matching byte counts/SHA256, plus one deliberate abrupt worker exit, active-worker protection, recovery and re-export. Two-worker batches also cover a changed working directory. Launch counts exclude extra Windows redirector descendants. This is finite software evidence from 32 authored records, not sustained load, capacity or real NYC data. [Reproduce](reliability.md).
+Reviewers were separate AI sessions that contributed to the infrastructure; they
+were not the answering model, independent human gold annotators or blinded model
+selectors. Each review binds its own replica freeze and exact trial hashes.
+Initial judgments preceded inspection of automatic scores; retained corrections
+and review provenance remain visible. The three study core preflights passed
+backend and bounded Maps checks, in addition to the nine earlier archived core
+runs; they reuse the same corpus and are not independent datasets. Those core
+successes do not qualify this failed agent. The agent report's separate visual and
+second-client gates remain false; it does not overwrite the independently
+verified rendered Maps receipts. [Strict offline reproduction](agent-evaluation.md#reproduce-the-completed-campaign-review).
 
-The [initial v0.4 timeout](../examples/evidence/test-report-v0.4-initial.json) remains unexplained. Its isolated/full reruns passed unchanged; the new reproduced defects do not establish its historical cause. No timeout or polling interval was relaxed to make these checks pass.
+## Historical campaign: startup failed before any held-out question
 
-## Production build checks
+[Campaign38029812736](https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/38029812736)
+finished with **zero actual held-out trials**, not120 failed answers. All three
+metadata-only requests timed out at300seconds. Server logs show10,163 prompt
+tokens finishing after316.612,316.210 and305.810seconds, following cancellation.
+No question reached the model. The [independent review and artifact provenance](../examples/evidence/agent-startup-failure-38029812736/independent-review.json)
+retain all three original startup/launch receipts, server diagnostics, immutable
+freeze and [zero-attempt summary](../examples/evidence/agent-startup-failure-38029812736/agent-v1/summary.json).
+No grammar, context-limit or OOM error appears in those retained diagnostics.
 
-Version 0.2.0 introduces per-job OS leases, a default two-worker admission limit and explicit recovery. Tests kill real worker processes, verify locks are released by the OS, prevent duplicate writers, reclaim abandoned reservations and preserve unverified orphan CSVs. Actual CLI checks confirm recovery still works after manifest deletion and background exports remain in the original workspace after a caller changes its working directory.
+The prospective [matrix protocol](agent-campaign-v1.json) increases only metadata
+startup's upper bound to900seconds and runs40 questions per independent host.
+The [historical300-second runtime](local-model-runtime-qwen3-1-7b-startup300.json)
+remains unchanged. Analytical request content, model and160-second trial/
+120-second request/24-call budgets remain fixed. The [campaign checker](../tools/agent_campaign.py)
+requires identical corpus/database/oracles/candidate settings, revalidates each
+replica's index and configured Maps provenance, preserves its own native-runtime
+and metadata identities, then applies the unchanged120-trial gates. Missing
+trials or reviews never shrink the denominator. See the [prospective amendment](agent-evaluation.md#prospective-startup-and-replica-amendment).
+The subsequent matrix completed all120 trials and reviews, with the failed quality
+outcome above. The earlier zero-exposure startup failure remains unchanged evidence.
 
-The release builder built both final 0.5 wheels without network dependency resolution and installed each into a clean temporary environment outside the checkout using `pip --no-index`. Both passed discovery, validation, analysis, background export, exact four-row membership, capacity planning and unchanged installed resources. Transferred tools also ran outside the checkout: nine capacity scenarios, five reference cases on 100 generated rows and live-parity argument parsing. Both installed packages also passed seven export-worker launches, exact CSV membership, the changed-working-directory case, abrupt interpreter exit86 and recovery/re-export. The agent bundle additionally passed actual MCP stdio discovery (seven tools), four valid calls, one rejected operation and native Shapely inside/outside geometry checks. Artifact sizes, SHA256 hashes and all 27 packaged runtime/resource files were independently checked against current source. See [distribution instructions](distribution.md), the [core receipt](../examples/evidence/release-core-v0.5.json) and [agent receipt](../examples/evidence/release-agent-v0.5.json).
+## Actual model development: latest retained failure
 
-Core wheels total 434,331 bytes; agent wheels total 29,952,073 bytes across the project wheel and 33 dependency wheels. The agent target is CPython 3.12 x64 on Windows (`win_amd64`), even though the host is ARM64. Use a separately built wheelhouse for native ARM64 Python or other OS/interpreter targets. The Python audit hook blocks ordinary sockets and DNS while permitting standard-library socketpair initialization, which uses loopback TCP on Windows. This is test instrumentation, **not OS-level network isolation**. Neither bundle includes Python, model assets, Elasticsearch or Kibana.
+[Smoke38028703734](https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/38028703734),
+commit`ffbbd5811c2b6ca949417b926dd56e3807e1e34d`, completed its one authored
+32-record count question but failed quality. Exact [summary](../examples/evidence/model-smoke-38028703734/summary.json)
+and [trace](../examples/evidence/model-smoke-38028703734/trace.json) retain all
+failure flags. The runtime,24,576-token context and160s/120s trial/request budgets
+were unchanged; the prospective public preview default was five.
 
-Transfer ZIPs additionally include installation instructions, four checked tools and capacity inputs. Core ZIP: **498,271 bytes / 11 entries**; agent ZIP: **30,040,551 bytes / 43 entries**. Every entry was independently re-read, CRC-checked and SHA256-checked against its input and embedded inventory. [Archive receipts](../examples/evidence/handoff-bundles-v0.5.json). This confirms archive contents; it is not a separate target-OS or live-engine test.
+Its [metadata-only warmup](../examples/evidence/model-smoke-38028703734/runtime/metadata-prefix-warmup.json)
+took163.584s, processing7,312 prompt tokens and one discarded output token. The
+first response reported7,306 cached tokens/55 new tokens and completed in32.110s.
+Despite an explicit unrestricted count request, the model invented a category
+filter, polygon, last-month period and borough/day grouping. Validation returned
+`needs_clarification`; the model then blamed missing user details. After one
+format-only repair it returned a structured clarification, with no analytical
+result, count, citation or synthetic-data disclosure. Trial elapsed59.404s excludes
+startup; measured smoke wall time including startup was223.025s. This is a
+semantic failure, not a timeout or a successful count.
 
-Capture has 26 mocked transport/storage tests covering interrupted pages, resume, uniqueness, source drift, stale replicas, budgets and interrupted artifact publication, including a deadline during SQLite resume reconciliation. A live bounded December 1 2025 preflight on October 7 UTC returned `source_stale`: the provider marked the count response out of date. The job paused at **zero rows/pages**, with no JSONL or completed manifest published. [Probe evidence](../examples/evidence/capture-probe-v0.2.json). This establishes correct failure handling, not successful bulk acquisition. A successful observed reconciliation still leaves `coverage.complete=false`; provider transaction isolation remains unproven.
+[Independent review](../examples/evidence/model-smoke-38028703734/independent-review.json)
+verified exact metadata identities, hashes, invented arguments, validation output,
+cache counters, final response and timing arithmetic. The compact archive retains
+18 exact files plus this review,66,987 bytes. Three completed model response events
+are distinct from the trace's one model-initiated tool-call counter. Raw benchmark
+and resource measurements remain; their RSS belongs to `llama-bench`, not the
+model-server trial. No live inference was rerun for this review.
 
-## Capacity and portable live verification
+Before any held-out exposure, the study decision is to stop development tuning
+and measure this negative candidate on all40 questions x3 runs. A prospective
+operational-eligibility gate will establish that the frozen runtime can execute
+bounded requests; it must not relabel this quality failure as passed. The120-trial
+denominator,90% threshold, all-case coverage and independent semantic review stay
+unchanged. The gate amendment and actual campaign results remain separate evidence;
+this smoke itself contains zero held-out trials.
 
-The October 7 live-completion attempt remains blocked by the execution target. A fresh [host preflight](../examples/evidence/live-preflight-host.json) observed 640,290,816 bytes available RAM, 5,766,598,656 bytes free disk, no Docker/Podman/Java, WSL not installed, and closed loopback ports 9200/5601. No configured alternative host was found. The existing two-million-row capacity model reports memory and disk shortages; those assumptions are not measured engine requirements. No other project's workloads were stopped and no heavy services or bulk corpus were started.
+### Earlier retained warm-prefix timeout
 
-The latest bounded [source preflight](../examples/evidence/live-preflight-source.json) cleared the earlier observed stale-response condition: the provider reported **3,655,041 rows and distinct keys for 2025**, with matching nonstale revision headers on the aggregate and 50 ordered records. Only 57,142 response bytes were fetched. This is upstream aggregate/sample evidence, not local acquisition or complete coverage. A later capture must repeat freshness checks. The [standalone live runbook](live-runbook.md) covers target inventory, pinned containers, authored parity, real capture/ingestion, Kibana assets and bounded API/CSV acceptance. The separate [live kit](../examples/evidence/live-kit-v0.5-r2.json) preserves all original core entries and adds six verified deployment assets; no runtime changed. Coverage qualification and rendered maps remain separate gates.
+[Smoke38027531995](https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/38027531995),
+commit`07617587eb8908cd5d5fea2e95c46cbe086a3f41`, failed on the authored
+32-record fixture. The exact [summary](../examples/evidence/model-smoke-38027531995/summary.json)
+and [trace](../examples/evidence/model-smoke-38027531995/trace.json) remain unchanged.
+The Qwen3-1.7B native OpenBLAS candidate used24,576 context tokens with context
+shifting disabled and the declared160s trial/120s request budgets.
 
-The actual [scenario replay](../examples/evidence/capacity-scenarios-v0.3.json) executed nine bounded arithmetic combinations: three hypothetical hosts at 1,000 fixture, two million full-demo and one billion scale-lab rows. Six met the stated assumptions; three reported shortages. These are **modeled estimates**, not generated datasets or engine benchmarks. Every plan retains the requested row count and reports `ready_for_production=false`. The [observed-host plan](../examples/evidence/host-plan-v0.3.json) separately records this machine's inventory and modeled shortages. [Planning assumptions and reproduction](capacity.md).
+The [metadata-only warmup](../examples/evidence/model-smoke-38027531995/runtime/metadata-prefix-warmup.json)
+took190.317s, processing7,230 prompt tokens and one discarded output token without
+a question or analytical call. The first timed model response reported7,224 cached
+tokens and55 new prompt tokens; in9.067s it issued a valid unrestricted records
+query whose exact total was32. Its projected result contained11,663 UTF-8 bytes.
+The following model request timed out before any final answer, numerical claim,
+result citation or synthetic-data disclosure. Trial elapsed129.074s excludes
+startup; measured smoke wall time including startup was319.442s. Downloads,
+compilation and initial server loading precede that interval.
 
-The [live parity runner](live-parity.md) now provides 14 authored query families, exact full CSV membership and duplicate checks, selected independent metric anchors, and forced PIT/composite continuation. Its 15 local tests check oracle behavior and failure/cleanup safeguards using fake transports. **No live engine run occurred here**: Docker remained unavailable, and loopback ports 9200/5601 were closed. A fixture substituted for Elasticsearch deliberately fails the transport-evidence gate.
+[Independent review](../examples/evidence/model-smoke-38027531995/independent-review.json)
+verified warmup/trace hashes, exact metadata identities, query arguments, count,
+cache counters, failure and elapsed-time arithmetic. The compact archive retains
+18 exact files plus this review,94,075 bytes. Raw benchmark and resource measurements
+remain available; their RSS values belong to `llama-bench`, not this model-server
+trial. This was one failed development question, zero held-out trials. A valid
+intermediate tool call and observed cache reuse do not establish conversational
+acceptance. Earlier cold timeouts and invalid-call failures remain preserved.
 
-The [CI workflow](continuous-integration.md) configures Windows/Linux/macOS package checks plus an opt-in Elasticsearch 9.5.5 service job. Those jobs are **configured but unrun**; version compatibility and non-Windows execution remain unverified. The live parity runner does not test Kibana rendering, approximate percentiles, actual NTA enrichment or held-out agent quality.
+## Real-corpus execution and independent receipt review
 
-## Agent demonstration
+The ninth [core run38083900641](https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/38083900641)
+executed commit`b20a06e166e65f71d6aaf4cc1a0c1220c55853c5` on2026-10-10,
+20:32:40–20:44:37UTC. Its [core acceptance receipt](../examples/evidence/real-core-38083900641/acceptance.json)
+passes, while `overall_release_verified` remains false pending actual-agent
+evaluation. All five stages reconcile2,133,268 records; frozen index UUID
+`PQndJQDUQb2LV_upGfu0pQ`, identical raw/normalized hashes and official NTA
+identity. Normalization153.315s and ingestion285.376s preceded successful
+independent analytical/CSV parity, provisioning and finite performance checks.
+This Maps-only workflow made no model calls. Its regression suite collected559
+tests,558 passed and one skipped in7.174s.
 
-A separate Codex agent received five natural-language questions and permission to inspect CLI help, discovery responses and execution results. It did not inspect source, fixtures, tests or prewritten request files. The discovery tool does expose example request shapes and fixture notes, so this is an authored integration smoke demonstration, **not a held-out evaluation**.
+All three actual browser cases pass: [242 request IDs](../examples/evidence/real-core-38083900641/render-points.json),
+[196 neighborhoods](../examples/evidence/real-core-38083900641/render-trends.json)
+and [three selected neighborhoods](../examples/evidence/real-core-38083900641/render-selected_trends.json).
+Full stage times were13.484s,74.912s and71.870s under the unchanged120s
+qualification deadline. [Independent Maps review](../examples/evidence/real-core-38083900641/maps-independent-review.json)
+checked exact CSV membership, captured browser DSL, all five joined metrics,
+visibility196/3,262 checked centroid companions, and exact equality of all262
+polygon coordinate objects with the official boundary file in both trend views.
+The retained [point](../examples/evidence/real-core-38083900641/render-points-map.png),
+[full-neighborhood](../examples/evidence/real-core-38083900641/render-trends-map.png)
+and [selected-neighborhood](../examples/evidence/real-core-38083900641/render-selected_trends-map.png)
+screenshots show visible geometry with Inspector closed. Colors span each
+displayed cohort's range; green does not necessarily mean improvement, and colors
+are not comparable between filtered cohorts. The global time picker is not the
+analytical period for these no-time data views; the saved result/filter is authoritative.
+No basemap or exhaustive pixel-color validation is claimed.
 
-Preserved: [agent answers](../examples/agent-demo/answer.md), [21-action trace](../examples/agent-demo/trace.json), request JSONs alongside it, and the independently checked [four-row CSV](../examples/agent-demo/brooklyn-noise.csv).
+[Measurements](../examples/evidence/real-core-38083900641/measurements.json):
+serial median/max milliseconds were filter21.494/25.694, grouping39.014/92.278,
+closure27.506/49.628, proximity27.700/32.815 and comparison46.784/127.108.
+Five-query batches took0.151s at concurrency1 and0.124s at concurrency2. Four
+9,728-row/nine-column exports had identical1,139,937 bytes and exact independent
+ID membership: normal0.895s, two concurrent0.787s, recovered-job re-export0.541s.
+Abrupt worker exit86 recovery alone took0.012s; total measured workload3.846s.
+Five memory samples observed runner RSS128,274,432 bytes, Elasticsearch heap
+1,673,527,296 of2,147,483,648 configured bytes, one-worker RSS31,006,720 bytes
+and simultaneous-worker RSS59,203,584 bytes. These are finite warm/uncontrolled-cache
+observations, not latency tails, peak capacity or server recovery.
 
-| Question | Observed behavior |
-| --- | --- |
-| Brooklyn noise last month, historical Jan 2 2026 reference date | Four December matches; preview two; export all four |
-| November vs December rodent complaints by neighborhood | Six groups, 17 requests; ranks daily-rate changes and distinguishes unequal month lengths |
-| Brooklyn agency closure durations | Compares means/percentiles; adds a second query for missing closure durations; explains closure is not response |
-| January vs February 2026 trends | Both validation and execution reject uncovered periods with `coverage_gap` |
-| Open fixture noise results in Kibana | Returns `unsupported_operation`; no fabricated URL |
+[Independent receipt review](../examples/evidence/real-core-38083900641/independent-review.json)
+rechecked the five count fields, qualification seals,35 query-result digests,
+latency arithmetic, four full CSV memberships, actual failed worker state,
+provisioned identities and all three rendered-map results. Maximum numeric
+difference was`2.842170943040401e-14`. The compact archive retains21 byte-identical
+original files plus two derived summaries,593,980 bytes. Raw records, individual
+oracle IDs, full style bodies and CSV contents remain outside that compact archive.
+All earlier failures below remain unchanged evidence.
 
-All numerical findings above concern 32 synthetic authored records. Parent review checked the CSV SHA256 and exact four request IDs independently. CLI agent use plus MCP protocol testing does not equal two independently evaluated agent hosts.
+The eighth [core run38031560273](https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/38031560273)
+executed commit`2ab96473fd927d5a5bae4bc48e2c50e372150ab4` on2026-10-10,
+06:41:17–06:56:33UTC. Its [acceptance receipt](../examples/evidence/real-core-38031560273/acceptance.json)
+remains false. All five stages again reconcile2,133,268 records; frozen index
+UUID`QDCkdPdnQLK_QEB5bzFUvQ`, identical raw/normalized hashes, official NTA
+identity and observed qualification. Normalization282.763s, ingestion337.796s;
+all five analytical families, exact CSV membership, provisioning and finite
+performance checks passed. This workflow made no model calls.
 
-## Data and generated workloads
+The [point receipt](../examples/evidence/real-core-38031560273/render-points.json)
+and [screenshot](../examples/evidence/real-core-38031560273/render-points-map.png)
+again verify242 exact rendered source IDs; full stage18.498s. Both
+[full196-neighborhood](../examples/evidence/real-core-38031560273/render-trends.json)
+and [selected3-neighborhood](../examples/evidence/real-core-38031560273/render-selected_trends.json)
+checks failed `TimeoutError` at `inspector_style_tab`, after the named-layer/no-spinner
+precondition. Their stages lasted70.513s and68.557s, including failure capture.
+No parsed trend style was retained. Diagnostic screenshots show
+[full-view geometry](../examples/evidence/real-core-38031560273/render-trends-failure.png)
+and [selected-view geometry](../examples/evidence/real-core-38031560273/render-selected_trends-failure.png)
+behind an Inspector displaying JSON; this is not joined-value verification.
+[Independent Maps review](../examples/evidence/real-core-38031560273/maps-independent-review.json)
+identifies the tab action's nested30s timeout within the declared120s render budget.
+A subsequent tool-only fix spends the remaining shared budget; the ninth run above
+supplies its fresh actual qualification. The seventh run's selected-view pass remains separate evidence.
 
-On 2026-10-06 local time (October 7 UTC), a bounded 50-record request to the official [NYC source API](https://data.cityofnewyork.us/resource/erm2-nwe9.json) succeeded for December 1 2025. All 50 normalized with no rejected records. The source hash was `e626771eee7d635c663d94e76975eb844c995b7e8f5a39e9e6b8f166bfec81bf`; the normalized hash was `f185ffca9779ebae4c570be876d67fd40a0de935abd9d4f66c0acdd608e5fd64`. Coverage remains incomplete. Raw sample records remain in ignored local storage, not release evidence.
+[Measurements](../examples/evidence/real-core-38031560273/measurements.json):
+serial median/max milliseconds were filter28.574/31.957, grouping53.787/109.474,
+closure32.736/57.581, proximity33.002/41.906 and comparison77.207/141.573.
+Five-query batches took0.201s at concurrency1 and0.157s at concurrency2. All four
+9,728-row/nine-column exports had identical1,139,937 bytes and exact independent
+ID membership: normal1.060s, two concurrent1.112s, recovered-job re-export0.770s.
+Abrupt worker exit86 recovery alone took0.018s; total measured workload5.034s.
+Six memory samples observed runner RSS127,606,784 bytes, Elasticsearch heap
+1,474,297,856 of2,147,483,648 configured bytes, one-worker RSS33,124,352 bytes
+and simultaneous-worker RSS58,691,584 bytes. These remain finite, uncontrolled-cache
+measurements; sampled memory is not peak capacity and worker recovery is not server recovery.
 
-Two seeded synthetic corpora were generated and actually analyzed on the Windows development host. Each query grouped by borough and complaint type, returning 15 groups and the exact generated row count. Three sequential runs per corpus:
+[Independent review](../examples/evidence/real-core-38031560273/independent-review.json)
+rechecked all five count fields, qualification seals,35 query result digests,
+latency arithmetic, all four CSV memberships, recovery state, exact browser filters
+and point Inspector IDs; all three screenshots were visually inspected. Maximum
+numeric difference was`2.842170943040401e-14`. Archive:21 byte-identical retained
+files plus two derived summaries,569,005 bytes. Both trend failures remain false;
+raw record bodies, oracle IDs and full style bodies stay outside this compact archive.
 
-| Generated rows | Corpus bytes | Tool median | Tool maximum | Evidence |
-| --- | ---: | ---: | ---: | --- |
-| 10,000 | 3,447,078 | 0.176 s | 0.208 s | [10k measurements](../examples/evidence/generated-benchmark.json) |
-| 100,000 | 34,494,671 | 13.074 s | 15.228 s | [100k measurements](../examples/evidence/generated-100000-benchmark.json) |
+The seventh [core run38030378224](https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/38030378224)
+executed commit`8c692cb13565a62a18782302eb1d4c82ca26c8a1` on2026-10-10,
+06:20:21–06:29:32UTC. Its [acceptance receipt](../examples/evidence/real-core-38030378224/acceptance.json)
+remains false because the full-neighborhood map failed. All five stages reconcile
+2,133,268 records with the same raw/normalized hashes and observed qualification;
+index UUID`EPAp0NR1SSW4bMFNLedg0g`. Normalization79.254s, ingestion170.307s;
+independent analytical/CSV parity, provisioning and finite performance checks passed.
+This Maps workflow runs no model trials.
 
-These used the development reference backend, not Elasticsearch. The 100k individual times were 13.074, 4.588 and 15.228 seconds: substantial variability under concurrent desktop work. Caches, workload concurrency and server hardware were not controlled. No scaling law, tail-latency claim, million-record extrapolation, or NYC conclusion follows from them. Generation, bounded execution and visible resource limits are established; scalable Elasticsearch performance is still to be measured.
+Two actual browser cases now pass. The [point receipt](../examples/evidence/real-core-38030378224/render-points.json)
+and [screenshot](../examples/evidence/real-core-38030378224/render-points-map.png)
+verify242 distinct rendered source IDs in the exact frozen index against independent
+membership and CSV. The [selected-neighborhood receipt](../examples/evidence/real-core-38030378224/render-selected_trends.json)
+and [screenshot](../examples/evidence/real-core-38030378224/render-selected_trends-map.png)
+verify3 selected NTAs, each with baseline/current counts, absolute/relative count
+change and daily-rate change. All262 source polygons exactly match official
+geometry;3 are visible through the join and259 hidden. All262 centroid entries
+retain matching identities/visibility and the selected five metric values. Actual
+browser filters match the saved cohort and selected codes. Full stage elapsed
+10.602s for points and44.479s for selected neighborhoods; these are bounded
+verification-stage observations, not general interactive latency guarantees.
 
-## Live acceptance runner
+**Map interpretation:** selected daily-rate changes are all positive:
+BK1502 `+0.2860215054`, BX0802/QN0201 `+0.3172043011` requests/day.
+The green-to-red scale is relative to that selected cohort. Green denotes its
+lower positive increase, **not improvement or negative change**. Screenshots lack
+an expanded numeric legend and basemap; telemetry/security notices remain visible.
+The global time picker on these no-time data views is not the analytical comparison
+period; saved result filters and June/October exposure periods define the cohort.
+Inspector evidence validates source values and style binding, not every pixel's
+color or point coordinates against an independent coordinate oracle.
 
-After provisioning a real immutable Elasticsearch profile and choosing a request within its coverage:
+The [full-neighborhood receipt](../examples/evidence/real-core-38030378224/render-trends.json)
+still fails `TimeoutError` at `inspector_style_code`. Its last parsed7,599-byte
+Inspector style contains zero features; no full-view screenshot was retained.
+The196-group CSV and browser request filter pass, but neither replaces complete
+rendered parity. The separate [Maps review](../examples/evidence/real-core-38030378224/maps-independent-review.json)
+retains both successful cases and this failure. No original geometry was simplified.
 
-```text
-python tools/live_acceptance.py --config YOUR_ELASTIC_CONFIG.json --spec YOUR_REQUEST.json --output runs/live-evidence.json
-```
+Seventh-run [measurements](../examples/evidence/real-core-38030378224/measurements.json)
+contain25 serial queries and two five-query batches. Median/maximum milliseconds:
+filter20.567/25.832, group54.304/67.381, closure23.006/23.430,
+geo22.291/27.977, compare62.787/125.240. The batches took0.161s at concurrency1
+and0.122s at concurrency2. The9,728-row, nine-column export took0.692s; two
+concurrent exports0.678s; post-recovery export0.481s. All four1,139,937-byte CSVs
+match exact independent IDs and identical bytes. Actual exit86 and lease/file
+recovery passed; recovery alone0.011s excludes detection and re-export.
 
-Optionally add `--map requests` or `--map neighborhood_trends` after configuring saved maps. The runner refuses fixture profiles, captures the real Elasticsearch software version and sanitized source identity, executes the analysis, exports all matching source records, independently counts parsed CSV records and hashes file bytes, and records pass/fail. It polls for at most 120 seconds and requests cancellation on timeout; choose a bounded acceptance cohort before attempting larger exports.
+The workload lasted3.433s with five samples: runner RSS up to128,512,000 bytes,
+Elasticsearch heap1,071,648,768 bytes of configured2GiB, one worker33,103,872 bytes
+and combined workers59,035,648 bytes. Prior analysis and browser work had occurred;
+cache state was uncontrolled. Sampled memory, finite batches and one abrupt worker
+exit do not establish peak capacity, sustained performance or server recovery.
 
-The runner's own behavior has mocked tests. It has **not run against a live cluster here**. Its `passed` field means those API/CSV checks passed; `overall_release_verified` and `visual_parity_verified` remain false. Exact record membership and semantic truth need independent expected results, beyond matching counts and checksums.
+[Independent core review](../examples/evidence/real-core-38030378224/independent-review.json)
+rechecked all provenance/count/seal identities,35 performance-result digests,
+full export IDs, map CSVs, actual point IDs, all selected joined values, official
+polygon geometry and screenshots. Maximum numerical difference2.842e-14. The
+compact archive contains20 JSON files and two PNGs,402,722 bytes:20 byte-identical
+retained files, including the separate Maps review, plus two new derived summaries.
+Full rendered-style bodies remain in the original run; their hashes and Inspector
+byte identities are retained in the review. Record-level CSVs and oracle IDs are
+excluded from the compact archive.
 
-## Remaining release gates
+### Sixth retained core execution
 
-1. **Live integration:** pin and record a supported Elastic/Kibana version; run the acceptance runner; validate geographic boundary behavior, timeout/partial failures, and records/aggregations against independent expected results. Verify both raw point maps and metric-based NTA trend maps in the rendered browser, including selected groups and missing geometry.
-2. **Original scale:** run the resumable capture or another qualified source-export workflow for at least two million real unique requests, independently qualify source coverage, freeze a versioned index and verify timezone quality, vocabulary and official NTA enrichment. Capture code now exists; successful full acquisition and source-coverage certification remain unverified.
-3. **Agent quality:** freeze at least 40 held-out questions with independent expected answers, run each three times, achieve the planned 90% end-to-end target plus every mandatory case. Include a second actual agent client, ambiguity, unsupported requests and misleading retrieved text. Author-written regression cases are not this benchmark.
-4. **Physical scaling:** measure representative real and generated loads on documented hardware/topology, distributions, concurrency and failure conditions. Use measured datasets and resource budgets; label separate modeled capacity estimates. Billion-record capacity remains a design target.
-5. **Operational locality:** stage images/dependencies/data/geography/map tiles/model assets and verify behavior with external networking disabled. Fully local model operation and multi-user operational hardening remain later milestones.
+The sixth core, within [agent campaign38029812736](https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/38029812736),
+executed commit`663a5b16fa8ddeec08970bc5cf71f0eb2e71582e` on2026-10-10,
+06:11:17–06:27:51UTC. Its completed [core receipt](../examples/evidence/real-core-38029812736/acceptance.json)
+retains both overall flags false. This is core-stage evidence from the ongoing
+campaign, not an agent-quality result or the campaign's final conclusion. All five
+counts reconcile2,133,268 again, with identical raw/normalized hashes and observed
+snapshot qualification; index UUID`YX0M5BTATcGCaHqCfJXxfQ`. Normalization277.647s,
+ingestion327.824s; five-family API/CSV parity and Maps provisioning passed.
 
-The current machine has constrained available memory/disk and no Docker runtime configured. No heavy services or bulk corpus were started here. [Local stack instructions](local-stack.md) and resource profiles provide the next execution path on suitable hardware.
+[Points](../examples/evidence/real-core-38029812736/render-points.json) failed
+`JSONDecodeError` at `rendered_source_parity`; [all-trend](../examples/evidence/real-core-38029812736/render-trends.json)
+and [selected-trend](../examples/evidence/real-core-38029812736/render-selected_trends.json)
+attempts timed out at `inspector_style_tab`. Exact saved-map paths and captured
+request filters match. The [point screenshot](../examples/evidence/real-core-38029812736/render-points-failure.png)
+shows visible markers and Mapbox-style identities/coordinates. The [selected-trend screenshot](../examples/evidence/real-core-38029812736/render-selected_trends-failure.png)
+shows the named map, small visible polygon portions and style polygon coordinates,
+despite the recorded tab-stage timeout. No all-trend screenshot or complete parsed
+styles are retained; none establishes rendered source membership or joined values.
+The reported pre-render242-document ID binding matches independent membership.
+
+Sixth-core [measurements](../examples/evidence/real-core-38029812736/measurements.json)
+include25 serial queries and two five-query batches. Median/maximum milliseconds:
+filter28.327/34.955, group47.714/107.920, closure35.623/53.983,
+geo37.335/43.223, compare65.952/131.826. Batches took0.200s at concurrency1 and
+0.158s at concurrency2. The9,728-row, nine-column export took1.137s; two overlapping
+exports1.068s; post-recovery export0.757s. All four1,139,937-byte CSVs match exact
+independent IDs and identical bytes. Actual worker exit86 and recovery passed;
+lease/file recovery alone took0.018s, excluding detection and re-export.
+
+The finite workload took5.046s. Six samples observed runner RSS up to126,865,408
+bytes and Elasticsearch heap1,096,456,528 bytes of its2GiB configured heap;
+individual/combined worker RSS maxima33,198,080/59,170,816 bytes. Caches were
+uncontrolled and prior analysis/browser work had occurred. These are sampled
+observations, not peak capacity, sustained throughput or a cross-run speed study.
+
+[Independent review](../examples/evidence/real-core-38029812736/independent-review.json)
+verified all102 extracted files against the exact1,190,899-byte [artifact](../examples/evidence/real-core-38029812736/corpus-artifact.json),
+SHA256`416ea16fffec6bf77573beb1e75d03c0438c7d3c12aaba62e450070c3e8cb5e9`.
+Count/provenance/qualification checks,35 performance-result digests, four full CSV
+memberships, point/trend CSV values, failure receipts and screenshots were checked;
+maximum numerical difference2.842e-14. The compact archive retains20 JSON files
+and two PNGs,449,030 bytes:20 exact originals plus two derived summaries. The
+campaign freeze hash is`080e76a2e1635bba36ace74a398097f3d7be2789fa8fdb609929c0970c228490`;
+freezing questions is separate from running and reviewing the120 actual trials.
+
+### Fifth retained core run
+
+The fifth [core run38028955870](https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/38028955870)
+executed commit`868168ef480bd0574bc2440fa8a3f0d4aea5c62f` on2026-10-10,
+05:55:10–06:07:14UTC. Its [acceptance receipt](../examples/evidence/real-core-38028955870/acceptance.json)
+retains both overall flags false. All five stages again reconcile2,133,268 requests,
+identical raw/normalized hashes and qualified observed-snapshot scope. New frozen
+index UUID`2R2S_pEhRtqPpjj2dM8ZsQ`; normalization77.401s, ingestion179.414s.
+Independent five-family API/CSV parity passed again; provisioned Kibana9.5.5
+retained262 official boundaries, exact no-time data views and two reusable maps.
+
+All three browsers reached the exact saved-map paths and Map-details Inspector.
+[Point extraction](../examples/evidence/real-core-38028955870/render-points.json)
+failed `JSONDecodeError` at `rendered_source_parity`; [all-trend](../examples/evidence/real-core-38028955870/render-trends.json)
+and [selected-trend](../examples/evidence/real-core-38028955870/render-selected_trends.json)
+extractions timed out at that stage. The only retained [screenshot](../examples/evidence/real-core-38028955870/render-points-failure.png)
+shows the named point map, visible markers and actual Mapbox-style Point coordinates
+with `_id`/`_index` properties. No complete parsed style or trend screenshot was
+retained. The pre-render point document-ID binding receipt agrees with the242-ID
+independent expectation. Request indices, filter DSL and selected NTA codes match
+saved cohorts; these narrower checks do not establish rendered membership or
+joined metric parity. All three rendered-parity flags remain false.
+
+Fifth-run [measurements](../examples/evidence/real-core-38028955870/measurements.json)
+contain25 serial queries, then two five-query batches. Median/maximum milliseconds:
+filter16.484/26.893, group34.371/80.208, closure19.033/55.388,
+geo19.119/27.821, compare40.622/116.549. The batches took0.123s at concurrency1
+and0.113s at concurrency2. The9,728-row, nine-column,1,139,937-byte export took
+0.732s; two overlapping exports0.566s; post-recovery export0.429s. All four CSVs
+match exact independent IDs and identical bytes. Actual worker exit86 was retained;
+lease/file recovery alone took0.009s, excluding detection and re-export.
+
+The complete measured workload was3.133s with five memory samples. Maximum sampled
+runner RSS540,340,224 bytes; observed Elasticsearch heap1,694,498,816 bytes of its
+2GiB configured heap; one worker33,112,064 bytes and simultaneous worker total
+59,224,064 bytes. These are sampled observations after earlier queries/browser work,
+not peak capacity or isolated cold-cache measurements. Non-ID CSV cells, independent
+polygon assignment, sustained load and server/node recovery remain unqualified.
+
+[Independent offline review](../examples/evidence/real-core-38028955870/independent-review.json)
+reconciled source/index/oracle identities and qualification seals, rechecked all35
+performance-result digests against the independently checked five cases, validated
+all CSV memberships and recovery evidence, and preserved the three Maps failures.
+Maximum numerical difference was2.842e-14. The compact archive contains19 JSON files
+and one PNG,335,302 bytes:18 exact originals plus two derived summaries. Original
+record bodies, oracle ID lists and CSV bodies remain outside the compact archive.
+
+### Fourth retained core run
+
+The fourth [core run38027551047](https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/38027551047)
+executed commit`6c39592ab00c2271203141ede36a25c98104e6da` on2026-10-10,
+05:30:42–05:42:45UTC. Its [acceptance receipt](../examples/evidence/real-core-38027551047/acceptance.json)
+retains both overall flags false. All five stages again reconcile2,133,268 requests,
+the same raw/normalized hashes and unchanged observed-snapshot qualification.
+Frozen index UUID`WiMgFvI_Sp2pbTgsL05Zhw`; normalization201.585s,
+ingestion/freeze274.365s. These are separate run observations.
+
+Maps provisioning and the saved-map route passed. Reviewed
+[point](../examples/evidence/real-core-38027551047/render-points-failure.png),
+[all-trend](../examples/evidence/real-core-38027551047/render-trends-failure.png) and
+[selected-trend](../examples/evidence/real-core-38027551047/render-selected_trends-failure.png)
+screenshots show named saved maps, visible points/polygons and the Requests
+Inspector:242 point hits or262 boundary hits. All three checks timed out at
+`inspector_map_details`. Exact paths and no page-error types are recorded in the
+[point](../examples/evidence/real-core-38027551047/render-points.json),
+[trend](../examples/evidence/real-core-38027551047/render-trends.json) and
+[selected](../examples/evidence/real-core-38027551047/render-selected_trends.json)
+receipts. Retained browser requests match the saved point filter, exact source
+indexes, result-ID predicate and selected NTA codes. Request-side agreement and
+visible geometry do not establish complete rendered membership or joined values;
+all rendered-parity flags remain false.
+
+Fourth-run [measurements](../examples/evidence/real-core-38027551047/measurements.json)
+again contain25 serial queries plus two five-query batches. Median/maximum
+milliseconds: filter25.541/29.004, group48.939/98.036, closure29.541/34.555,
+geo30.239/39.498 and comparison85.909/114.786. Batches took0.187s at concurrency1
+and0.144s at2. The same9,728-row, nine-column,1,139,937-byte export took0.956s
+alone,0.990s for two together and0.702s after actual exit86/recovery. All four
+complete CSVs retain exact independent membership and identical bytes. Recovery
+call0.0159s excludes detection/re-export. Total workload4.585s; six periodic
+samples reached runner RSS127,008,768B and Elasticsearch heap1,071,525,576B.
+Uncontrolled caches, short load and sampled memory retain the earlier limits.
+
+[Independent offline review](../examples/evidence/real-core-38027551047/independent-review.json)
+rechecked all count/provenance seals, five full results,35 measured query digests,
+four full-export memberships, point/trend CSVs, request filters and timing arithmetic.
+Maximum numerical difference2.84e-14. The archive contains19 JSON receipts and
+three unchanged screenshots,530,068 bytes; no raw records or individual-ID lists.
+Earlier failures and their distinct observations remain below.
+
+Audit-summary correction: the second, third and fourth derived reviews previously
+serialized `captured:3` after reusing a map-cohort loop variable. Full offline
+checks were rerun; all five reconciliation fields now read2,133,268. Each corrected
+review records its previous hash and correction. Original execution receipts,
+CSV evidence, screenshots and analytical results remain byte-identical; the first
+review's count was already correct.
+
+The third [core run38025638157](https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/38025638157)
+executed commit`03fd0c094f99396f9af1106823811c3a5c5d1c55` on2026-10-10,
+04:56:56–05:08:26UTC. Its [acceptance receipt](../examples/evidence/real-core-38025638157/acceptance.json)
+retains both overall flags false. The same2,133,268 rows and raw/normalized hashes
+reconcile across all five stages; frozen index UUID`_U8LIYhTRiSH69BdO3yTBw`.
+Normalization took155.052s and ingestion/freeze301.047s. Observed-snapshot
+qualification and its population/transaction-isolation limitations remain unchanged.
+
+[Maps provisioning](../examples/evidence/real-core-38025638157/maps-provision.json)
+again passed. Links were created and source/published-group count checks completed.
+All three [point](../examples/evidence/real-core-38025638157/render-points.json),
+[all-trend](../examples/evidence/real-core-38025638157/render-trends.json) and
+[selected-trend](../examples/evidence/real-core-38025638157/render-selected_trends.json)
+browser checks then failed with `TimeoutError`. Reviewed screenshots show the
+Maps/Create breadcrumb, a filter chip, empty canvas and Inspector reporting no
+requests. The captured search records contain only index-pattern metadata lookup.
+This establishes browser navigation, not loading the intended saved layers or
+correct DSL, rendered geometry, membership or joins. The exact
+[point screenshot](../examples/evidence/real-core-38025638157/render-points-failure.png),
+[trend screenshot](../examples/evidence/real-core-38025638157/render-trends-failure.png)
+and [selected screenshot](../examples/evidence/real-core-38025638157/render-selected_trends-failure.png)
+remain archived. The suspected locator defect requires a corrected live run.
+
+Third-run [measurements](../examples/evidence/real-core-38025638157/measurements.json)
+again include25 serial queries and two five-query batches. Median/maximum
+milliseconds: filter22.237/28.918, group45.513/98.267, closure24.338/29.240,
+geo25.050/29.652 and comparison71.292/103.995. Batches took0.174s at concurrency1
+and0.126s at2. The9,728-row export took0.696s alone,0.800s for two together and
+0.594s after actual first-row exit86/recovery; all four CSVs retain the same exact
+independent membership and bytes. Recovery call0.0137s excludes detection and
+re-export. Total measured workload3.711s; five periodic samples observed runner
+RSS125,046,784B and Elasticsearch heap1,609,966,624B. These remain finite,
+uncontrolled-cache observations, not peak capacity or an optimization comparison.
+
+The [independent offline review](../examples/evidence/real-core-38025638157/independent-review.json)
+rechecked provenance/counts, certificate seals, all five saved results,35 measured
+result digests, four full CSV memberships, point/trend CSVs and timing arithmetic.
+Maximum numeric difference2.84e-14; no new analytical mismatch found. The compact
+archive contains19 JSON receipts and three unchanged failure screenshots,
+408,173 bytes total after the derived-summary correction. No raw corpus, individual-ID lists or CSV bodies were copied.
+The saved-map route repair now has source-matching r3 packages below; renewed
+live checks remain necessary. Packaging does not promote this failed render run.
+
+The second [core run38004540380](https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/38004540380)
+executed commit`78bae7eac0e33d28deb0cb404295f6f900a85db7` on2026-10-09,
+23:31:03–23:38:53UTC. Its [acceptance receipt](../examples/evidence/real-core-38004540380/acceptance.json)
+retains `passed:false` and `overall_release_verified:false`. Capture, normalization,
+completed ingestion, frozen index and SQLite again reconcile2,133,268 rows with
+the same raw/normalized byte counts and hashes below. The new frozen index UUID is
+`7FQfb9nTR2S2JB0E7tIsmQ`. Normalization took136.674s; ingestion/freeze226.918s.
+Different single-run timings are not a controlled optimization comparison.
+
+[Maps provisioning passed](../examples/evidence/real-core-38004540380/maps-provision.json):
+actual Elasticsearch/Kibana9.5.5,262 indexed boundaries, three exact-index data
+views without time fields, and reusable point/trend saved maps. The provisioner
+read back stored layers/references. All three subsequent checks stopped at
+`map_link`: [points](../examples/evidence/real-core-38004540380/render-points.json)
+reported `backend_unavailable`; [all trends](../examples/evidence/real-core-38004540380/render-trends.json)
+and [selected trends](../examples/evidence/real-core-38004540380/render-selected_trends.json)
+reported `coverage_gap`. CSV cohorts242/196/3 had already passed. No browser,
+screenshot, rendered membership, joined metric or browser-filter success occurred.
+
+The second [performance receipt](../examples/evidence/real-core-38004540380/measurements.json)
+contains25 serial queries plus two five-query batches. Median/maximum milliseconds
+were22.898/34.373 for filter,42.799/71.068 for grouping,23.901/27.675 for closure,
+24.474/27.897 for geo and46.866/91.814 for comparison. Batch times were0.152s at
+concurrency1 and0.138s at2. The same9,728-row nine-column export took0.617s alone
+and0.788s for two together. All four retained CSVs match the independent IDs and
+the prior run's exact bytes. Actual first-row worker exit86, lease protection,
+cleanup and exact re-export passed again; recovery call0.0129s excludes detection
+and re-export. Total measured workload3.437s; uncontrolled caches and five periodic
+memory samples do not establish sustained capacity, tail latency or peak memory.
+Those samples reached107,851,776B runner RSS and1,090,519,040B Elasticsearch heap;
+externally sampled owned-worker RSS reached32,387,072B individually/59,174,912B
+combined. Non-ID CSV cells and broader crash recovery remain unqualified.
+
+[Independent receipt review](../examples/evidence/real-core-38004540380/independent-review.json)
+rechecked all provenance/count seals, five complete saved results,35 query-result
+digests, four export memberships, point/trend CSVs and timing arithmetic. Maximum
+numeric difference remains2.84e-14. Provision IDs match the generated profile;
+all pre-browser failures remain explicit. Sixteen compact JSON artifacts are
+archived; raw records, individual-ID lists and CSV bodies are excluded. This
+offline review does not repeat the live service or independently reassign polygons.
+
+The [v0.7 r4 offline packages](../examples/evidence/build-v0.7-r4.json) passed fresh
+clean-install checks with the public default-five-record preview on CPython3.12 Windows x64
+only. All36 wheels,3,959 RECORD entries,23 source modules, five resources and both
+bundle inventories passed independent integrity checks. The original0.7, r2 and r3 packages
+remain unchanged and source-specific. Neither package smoke runs real services or
+qualifies model/Maps acceptance. [Distribution details](distribution.md).
+
+The earlier run remains below as a separate, preserved observation.
+
+[Core run37705537519](https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/37705537519)
+executed commit`40a52917373bc54a0685b3b8ae35d261967c504f` on Linux. Its
+[unaltered acceptance receipt](../examples/evidence/real-core-37705537519/acceptance.json)
+retains `passed:false`: Maps provisioning failed and the separate development-model
+gate blocked held-out inference. Passing stages are reported individually.
+
+| Reconciliation stage | Rows | Bytes or identity |
+| --- | ---: | --- |
+| Captured unique real requests | 2,133,268 | 1,306,911,416 raw JSONL bytes |
+| Normalized requests | 2,133,268 | 1,582,275,376 JSONL bytes |
+| Completed ingestion | 2,133,268 | Exact normalized byte offset and SHA-256 matched |
+| Frozen Elasticsearch index | 2,133,268 | `nyc311-real-2025-v1`; UUID `JVlj8cmQQWmf-7R8ESy3IA` |
+| Independent SQLite reference | 2,133,268 | Same complete normalized-file SHA-256 |
+
+Raw SHA-256 is `91d84eb6d02dafc402a892298ba92cb121e8e905a189fb75f31b19d4d43aeec7`;
+normalized SHA-256 is `70ceb22b8f9f79cc03c5dcd4d1955ff0ef7148b63d07e54e9610d726c94dc18e`.
+Normalization took277.390s; ingestion and index freeze324.558s. These are single-run
+stage timings. [Normalized manifest](../examples/evidence/real-core-37705537519/normalized.manifest.json),
+[frozen manifest](../examples/evidence/real-core-37705537519/index.manifest.json).
+
+The captured creation-date window is April1–November1,2025, NYC local time, end
+exclusive. Qualification binds the official NTA hash and the197-code residential
+whitelist. No records were dropped;32,843 lack geometry and474 have coordinates
+unmatched to a polygon. Other retained quality flags include35,944 missing closed
+dates,415 negative closure durations and14 ambiguous closed dates; flags can overlap.
+Affected records remain in counts; invalid durations do not contribute to closure
+means. Closure measures describe administrative closure recorded in the October2026
+capture, not first response or reconstructed historical status.
+
+[Independent SQL parity](../examples/evidence/real-core-37705537519/independent-parity-summary.json)
+covered242 Brooklyn residential-noise requests on October1;336,612 October requests
+across81 borough/agency groups;1,935 October rodent requests with agency closure
+metrics;3,286 October requests within1km of the declared downtown coordinate; and
+June versus October rodent reporting across196 represented residential NTAs.
+The comparison includes3,680 June and1,928 October requests, with30/31-day rate
+denominators. Exact point CSV membership242, complete trend CSV196 groups and
+selected trend CSV3 groups passed. SQL shares the normalized records and spatial
+assignments; it independently checks querying, not the correctness of every polygon
+assignment. The chained natural-language neighborhood/agency task remains untested.
+
+| Real-index query family | Median ms | Maximum ms | Serial runs |
+| --- | ---: | ---: | ---: |
+| Filter and record preview | 27.991 | 30.111 | 5 |
+| Borough/agency aggregation | 55.000 | 109.768 | 5 |
+| Administrative closure mean | 31.223 | 35.684 | 5 |
+| Geographic radius | 36.095 | 38.413 | 5 |
+| Neighborhood period comparison | 61.901 | 114.754 | 5 |
+
+The [performance receipt](../examples/evidence/real-core-37705537519/measurements.json)
+also records one5-query batch at concurrency1 in0.199s and one at concurrency2 in0.151s.
+An October Brooklyn residential-noise export contained9,728 rows, nine columns and
+1,139,937 bytes:0.854s individually,1.087s for two concurrent exports together,
+and0.703s for a fresh export after recovery. All four CSVs match the independent
+ID set and have identical SHA-256. Non-ID cells lack an independent cell-by-cell
+real-corpus oracle. The1-day map cohort is separate from this full-month export.
+
+The actual worker exited86 after reaching first-row streaming. Recovery protected
+its active lease before exit, then marked the abandoned job failed, removed its
+partial file/reservation and allowed exact re-export. The recovery call took0.0179s;
+that excludes worker launch, failure detection and re-export. This is a local export
+worker test, not Elasticsearch/node or mid-ingestion crash recovery.
+
+Six memory observations found runner RSS up to105,132,032 bytes and Elasticsearch
+heap use up to783,136,704 bytes with a2GiB configured heap. Externally sampled worker
+RSS reached33,099,776 bytes individually and57,856,000 bytes combined; the fault
+worker separately reported33,693,696 bytes at its gate. These are sampled values,
+not guaranteed peaks. Elasticsearch's process-memory field is virtual memory,
+not RSS; ingestion and Kibana peak memory were not measured.
+
+The entire measured workload lasted4.607s, after prior queries on the same index.
+Caches were uncontrolled; client timings include service initialization and result
+persistence but exclude LLM and browser latency. Five repetitions and two short
+batches cannot establish p95/p99, sustained throughput, capacity ceilings or an SLA.
+Observed worker-process overlap does not establish simultaneous CPU execution.
+
+[Independent offline review](../examples/evidence/real-core-37705537519/independent-review.json)
+rechecked provenance hashes/counts, qualification seals, all five saved query results,
+all35 performance-result digests, timing arithmetic and all retained CSV memberships.
+Maximum numerical difference was2.84e-14 with tighter1e-10 relative/1e-9 absolute
+tolerances. Thirteen compact JSON artifacts are archived; no raw records, individual
+oracle-ID lists, CSV bodies or locks were copied. This is a review of retained
+execution evidence, not a second live run.
+
+[Maps failure](../examples/evidence/real-core-37705537519/maps-provision.json)
+occurred before map creation or rendering. The captured Kibana health payload lacks
+version metadata, so the version-check failure does not prove a different version
+was running. No rendered Maps parity is claimed.
+
+The [archived verification source](../examples/evidence/capture-verification-source.py)
+is byte-identical to the executed script: its SHA-256 matches the local receipt's
+`local_verification.script_sha256`. The receipt preserves the original run-directory
+path. This is frozen study code with exclusive output creation, not a general CLI;
+archiving it did not rerun verification.
+
+Earlier failures remain part of the record: the499-test local run had one failure,
+five errors and one skip when disk fell below the unchanged1GB reserve; CI500 had
+498 passes, one failure and one skip in65.215seconds after a worker launched from
+another working directory exposed an import failure. The506-test worker-repair run passed
+after the repairs. Initial4B development smokes timed out; an intermediate smoke
+workflow stopped at tests without running the model. The smaller1.7B candidate
+and generic bounded repair remain development work. No120-trial quality outcome
+is claimed.
+Real-corpus processing run37705537519 ran2026-10-08 00:05:35–00:17:14UTC; its
+successful analytical stages and retained Maps failure are documented above.
+
+The actual workflows and their retained failures are visible on
+[the acceptance branch](https://github.com/BoomerRawlings/scads-2026-problems/tree/codex/project2-acceptance-20261007).
+The frozen publication commit488c57c is preserved.
+The current capture is also retained locally. GitHub metadata for the renewed
+capture artifact in [core run37705537519](https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/37705537519)
+reports creation2026-10-08 00:05:20UTC and expiry2026-11-07 00:05:16UTC, confirming
+the new30-day retention setting for that copy.
+
+## What each gate means
+
+Source-reconciled observations qualify comparisons only inside their captured
+creation-date window. `coverage.complete` remains false: public reporting is not
+population completeness, and matching revisions do not prove transaction isolation.
+Comparison answers retain this scope. Missing creation timestamps or lost records
+block qualification. Residential NTA areas are distinguished from parks, airports
+and other special areas. [Qualification rules](qualification.md).
+
+The real-corpus runner hashes the captured bytes, enriches with the pinned polygons,
+normalizes without dropped records, verifies indexed counts and UUID, then builds
+an independent SQLite reference. Browser checks inspect the actual rendered source
+IDs and joined metrics plus the browser's filters; a locator URL alone cannot pass.
+[Runner](real-acceptance-runner.md), [maps](live-maps.md).
+
+Agent cases are frozen before model exposure. Questions are prospective and held
+out from answering contexts; they are AI-authored, not independent human labels or
+proof of unseen pretraining content. Missing, malformed and failed trials remain
+in the120 denominator. Passing requires the declared90% threshold, mandatory
+case coverage, numerical/artifact checks and separate semantic review.
+[Protocol](agent-evaluation.md), [pinned local runtime](local-model-runtime.json).
+
+Performance measurements report actual query distributions, concurrent requests
+and exports, client/worker RSS and Elasticsearch JVM/process/cache observations.
+The recovery trial terminates its own interpreter while holding a job lease and
+checks exact re-export membership. These finite observations establish neither
+maximum capacity nor a production SLA. [Measurement protocol](live-performance.md).
+
+## Reproduction and limits
+
+Run `python -m unittest discover -s tests -q` for implementation checks. The
+acquisition and evaluation workflows run on a capable host; they do not require
+a paid model provider. Installation/staging needs network access. Fully offline
+operation, a second independently evaluated agent client and billion-record
+physical capacity remain separate later milestones, not claims from this study.
+
+The corrected paper remains a historical report with editorial repairs; its
+original empirical claims were not promoted to new outcomes. The scope, hashes and
+visual checks are recorded in
+[the paper correction receipt](../../../publication/papers/paper-02-corrections.json).

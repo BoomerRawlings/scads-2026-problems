@@ -1,6 +1,6 @@
 {
   "edition": "2026-10-07",
-  "scope": "Evidence-linked publication of recorded development results; no new model or scale experiments.",
+  "scope": "Evidence-linked working papers. Per-paper evidence_scope identifies local measured revisions; other entries preserve the prior publication evidence. No external republication is implied.",
   "papers": [
     {
       "file": "pdf/01-sensemaking.pdf",
@@ -76,67 +76,292 @@
     {
       "file": "pdf/02-311-analytics.pdf",
       "pages": 10,
-      "bytes": 171431,
-      "sha256": "c0368e9577425796fe7c8c7038e5c2da9c25e0bf23d4032581225d997799993a",
+      "bytes": 182553,
+      "sha256": "a63c5464114b589f9b5f90bfd9821f3cded0926bfe072810bfd621e1db4c33cd",
       "sources": [
         {
           "path": "projects/02-311-analytics/IMPLEMENTATION.md",
           "publication_path": "projects/02-311-analytics/IMPLEMENTATION.md",
-          "sha256": "69b18e348d7f8321751b2ddcaf556cf2372e4c4128b277d23c95f26b2c4fd677"
+          "sha256": "180ad959fc9a3d2cfbc1708d6db712f51d25c0166e92f6c0d0df29a1b1334e53"
         },
         {
           "path": "projects/02-311-analytics/docs/tool-contract.md",
           "publication_path": "projects/02-311-analytics/docs/tool-contract.md",
-          "sha256": "390d76eee43fb37de1d49bd5ae275248d29d5c590deefd4d3ffe1f3ab6c06702"
+          "sha256": "cc4cd2b22ca7f5bec20d07dae99ef18091022a232d878b9f732cef8f7a106ce2"
         },
         {
-          "path": "projects/02-311-analytics/examples/agent-demo/answer.md",
-          "publication_path": "projects/02-311-analytics/examples/agent-demo/answer.md",
-          "sha256": "8d2a2c877cad134ee49cac7ed50a77ec78667cda91604d6f80b12dce50a623c4"
+          "path": "projects/02-311-analytics/examples/evidence/captured-local-verification.json",
+          "publication_path": "projects/02-311-analytics/examples/evidence/captured-local-verification.json",
+          "sha256": "16652a230114046abd584e4345f3ef451b7ae7db03c0b82de1639601b8e25765"
         },
         {
-          "path": "projects/02-311-analytics/examples/evidence/generated-100000-benchmark.json",
-          "publication_path": "projects/02-311-analytics/examples/evidence/generated-100000-benchmark.json",
-          "sha256": "287a914704141e36db8ae54a74286b9d23ae252ecb5204413b3e011ff9b5a5c2"
+          "path": "projects/02-311-analytics/examples/evidence/real-core-38083900641/independent-review.json",
+          "publication_path": "projects/02-311-analytics/examples/evidence/real-core-38083900641/independent-review.json",
+          "sha256": "778c76a818bab6ce0f0c0affc986a1aaff7ec01c83a505d137c3504f0c66f0bd"
         },
         {
-          "path": "projects/02-311-analytics/examples/evidence/test-report-v0.6-focused.json",
-          "publication_path": "projects/02-311-analytics/examples/evidence/test-report-v0.6-focused.json",
-          "sha256": "ca85075b5ce8b95d6fc97318bb74bd067f6accecec781ae94ec76f838fa2051a"
+          "path": "projects/02-311-analytics/examples/evidence/real-core-38031560273/measurements.json",
+          "publication_path": "projects/02-311-analytics/examples/evidence/real-core-38031560273/measurements.json",
+          "sha256": "9d63b84b8d8118f744ec613719478fb89d7746ab20eb0ff307e63ad798204feb"
         },
         {
-          "path": "projects/02-311-analytics/docs/forecast-v0.6.md",
-          "publication_path": "projects/02-311-analytics/docs/forecast-v0.6.md",
-          "sha256": "50a71a99e463186a7bdebb1403bb1f5a8d270f46c002dacdf934e7d76f784e0e"
+          "path": "projects/02-311-analytics/examples/evidence/test-report-v0.7-matrix.json",
+          "publication_path": "projects/02-311-analytics/examples/evidence/test-report-v0.7-matrix.json",
+          "sha256": "6059e4e3dea3cfe025e04bb437346626143ba3021105eba1cc4aa13ae54a53db"
         },
         {
-          "path": "projects/02-311-analytics/docs/runtime.md",
-          "publication_path": "projects/02-311-analytics/docs/runtime.md",
-          "sha256": "52fed1d9d584b3f1257a513c5edfdd6a5cee9892a23f7b025016f55e9d6ee410"
+          "path": "projects/02-311-analytics/docs/distribution.md",
+          "publication_path": "projects/02-311-analytics/docs/distribution.md",
+          "sha256": "781772fa7f80bc1a355b9eb35e1565d73404debb95884190d48dbe2cbd968a3e"
         },
         {
-          "title": "Yu et al. (2018). Spider: A Large-Scale Human-Labeled Dataset for Complex and Cross-Domain Semantic Parsing and Text-to-SQL Task. EMNLP.",
+          "path": "projects/02-311-analytics/examples/evidence/model-smoke-38028703734/independent-review.json",
+          "publication_path": "projects/02-311-analytics/examples/evidence/model-smoke-38028703734/independent-review.json",
+          "sha256": "7f95e1b69425b15f2ffb0ae433b00e0672b78b98d023b5da2e72c3967e016448"
+        },
+        {
+          "title": "Yu et al. (2018). Spider. EMNLP.",
           "url": "https://arxiv.org/abs/1809.08887",
-          "verified": "2026-10-07",
+          "verified": "2026-10-09",
           "kind": "primary external source"
         },
         {
-          "title": "Elastic. Paginate search results. Elasticsearch reference, accessed October 7, 2026.",
+          "title": "Elastic. Paginate search results. Accessed October 9, 2026.",
           "url": "https://www.elastic.co/docs/reference/elasticsearch/rest-apis/paginate-search-results",
-          "verified": "2026-10-07",
+          "verified": "2026-10-09",
           "kind": "primary external source"
         },
         {
           "path": "projects/02-311-analytics/docs/acceptance.md",
           "publication_path": "projects/02-311-analytics/docs/acceptance.md",
-          "sha256": "3e4f8148d0e7f2b612a5247fd67b4d8006fe2c522c78cc9a1b55251840643bdf"
+          "sha256": "51c312b4adb337ecd8f7285ef33ffd81a79a4c7b2bd66afa1c28361492c31a38"
         },
         {
-          "path": "projects/02-311-analytics/docs/reliability.md",
-          "publication_path": "projects/02-311-analytics/docs/reliability.md",
-          "sha256": "375d340a497ca83057330aa21bfef9d6b0cf6ac8691d5765432760419e907c3c"
+          "path": "projects/02-311-analytics/examples/evidence/official-nta2020-26b.json",
+          "publication_path": "projects/02-311-analytics/examples/evidence/official-nta2020-26b.json",
+          "sha256": "3244575e0cf3619fb3c2dfdb6641a3d4063b08ff2b465d4f0494e3cd9c2f91e7"
+        },
+        {
+          "path": "projects/02-311-analytics/examples/evidence/agent-startup-failure-38029812736/independent-review.json",
+          "publication_path": "projects/02-311-analytics/examples/evidence/agent-startup-failure-38029812736/independent-review.json",
+          "sha256": "daf3aca500faf2887533506ddec6bc8ad512d3a7a521a1fd26f1dd82788620f1"
+        },
+        {
+          "path": "projects/02-311-analytics/docs/agent-campaign-v1.json",
+          "publication_path": "projects/02-311-analytics/docs/agent-campaign-v1.json",
+          "sha256": "9194c713896130a598c160d3ffe5b541b21ac40f467d5454c3cf6f2e9a33c8d6"
+        },
+        {
+          "path": "projects/02-311-analytics/examples/evidence/csv-cell-audit-38029812736.json",
+          "publication_path": "projects/02-311-analytics/examples/evidence/csv-cell-audit-38029812736.json",
+          "sha256": "d644bfe6bc1250bd15046242255264ea4bf6071f222c737601e382036f848c53"
+        },
+        {
+          "path": "projects/02-311-analytics/examples/evidence/agent-campaign-38084773557/final-review.json",
+          "publication_path": "projects/02-311-analytics/examples/evidence/agent-campaign-38084773557/final-review.json",
+          "sha256": "81cd4cec6118c6a4b67519ca919a470ce3cd7ac0b38c08d06bd06fcf88a3c8e7"
+        },
+        {
+          "path": "projects/02-311-analytics/examples/evidence/agent-campaign-38084773557/actual-diagnostics.json",
+          "publication_path": "projects/02-311-analytics/examples/evidence/agent-campaign-38084773557/actual-diagnostics.json",
+          "sha256": "217365f6d8a41366a6745cc11fd5978d6f8546a7eb6a3ee7ad6c5fead61c8011"
         }
-      ]
+      ],
+      "evidence_scope": {
+        "kind": "actual_empirical_backend_qualification_and_negative_agent_evaluation",
+        "version": "0.7.0",
+        "real_core_runs": [
+          {
+            "run": 37705537519,
+            "commit": "40a52917373bc54a0685b3b8ae35d261967c504f",
+            "index_uuid": "JVlj8cmQQWmf-7R8ESy3IA",
+            "review_sha256": "ed6d24e55253ae1044ce11b70c0dfaa6abcd37b1d3cf7ef7635bd685e199556a"
+          },
+          {
+            "run": 38004540380,
+            "commit": "78bae7eac0e33d28deb0cb404295f6f900a85db7",
+            "index_uuid": "7FQfb9nTR2S2JB0E7tIsmQ",
+            "review_sha256": "49d6c24af71db65a54662fa68b9176df23a4558b54cb6401b3a72a1c5c101c21"
+          },
+          {
+            "run": 38025638157,
+            "commit": "03fd0c094f99396f9af1106823811c3a5c5d1c55",
+            "index_uuid": "_U8LIYhTRiSH69BdO3yTBw",
+            "review_sha256": "22de2939dd977b9eb5ff4fad670e248f5194b8fe6c87c9abd81e6b88d5f44c68"
+          },
+          {
+            "run": 38027551047,
+            "commit": "6c39592ab00c2271203141ede36a25c98104e6da",
+            "index_uuid": "WiMgFvI_Sp2pbTgsL05Zhw",
+            "review_sha256": "c735eebbb972346bd38d73891a1c432c9a8240a48c926af99c263e4eaec3f9ec"
+          },
+          {
+            "run": 38028955870,
+            "commit": "868168ef480bd0574bc2440fa8a3f0d4aea5c62f",
+            "index_uuid": "2R2S_pEhRtqPpjj2dM8ZsQ",
+            "review_sha256": "5e2a4f59e4a4fab3f63595428dfb5f2081a8b2516b6d57f60feba3e2dd059ebc"
+          },
+          {
+            "run": 38029812736,
+            "commit": "663a5b16fa8ddeec08970bc5cf71f0eb2e71582e",
+            "index_uuid": "YX0M5BTATcGCaHqCfJXxfQ",
+            "review_sha256": "f39228d178e27bfd7470bfbc39ba1fe41d8f9c869b59a8ae4626b77dca2904d4"
+          },
+          {
+            "run": 38030378224,
+            "commit": "8c692cb13565a62a18782302eb1d4c82ca26c8a1",
+            "index_uuid": "EPAp0NR1SSW4bMFNLedg0g",
+            "review_sha256": "c6d9f21d1c57823d45a3d65d777517d5d3e0bcc06ff5730661f8e3c3afce435e"
+          },
+          {
+            "run": 38031560273,
+            "commit": "2ab96473fd927d5a5bae4bc48e2c50e372150ab4",
+            "index_uuid": "QDCkdPdnQLK_QEB5bzFUvQ",
+            "review_sha256": "975c2315c7f408ec0c86cb2d3735da37cd317b33d06c609dfabf0da928f1f3ee"
+          },
+          {
+            "run": 38083900641,
+            "commit": "b20a06e166e65f71d6aaf4cc1a0c1220c55853c5",
+            "index_uuid": "PQndJQDUQb2LV_upGfu0pQ",
+            "review_sha256": "778c76a818bab6ce0f0c0affc986a1aaff7ec01c83a505d137c3504f0c66f0bd"
+          }
+        ],
+        "performance_table_run": 38031560273,
+        "software_regression_current": "examples/evidence/test-report-v0.7-matrix.json",
+        "software_regression_final": "examples/evidence/test-report-v0.7-matrix.json",
+        "offline_bundle_revision": "r4",
+        "model_development_run": 38028703734,
+        "model_development_commit": "ffbbd5811c2b6ca949417b926dd56e3807e1e34d",
+        "zero_trial_startup_campaign": 38029812736,
+        "prospective_matrix_protocol_sha256": "9194c713896130a598c160d3ffe5b541b21ac40f467d5454c3cf6f2e9a33c8d6",
+        "scope": "Nine archived pre-study cores reconcile 2,133,268 captured requests; the ninth passes all three Maps checks. Four sixth-run exports pass independent raw-to-nine-column reconstruction for one 9,728-row cohort. Three additional matrix core preflights pass. All 120 model trials execute and receive semantic review; one passes both automatic and semantic checks (0.8333%), so agent quality and overall release fail. Eight earlier core failures and three zero-question startup failures remain retained. Qualification is bounded to the observed corpus, cohorts, workloads and runtime tested.",
+        "final_maps_run": 38083900641,
+        "csv_cell_audit": {
+          "path": "examples/evidence/csv-cell-audit-38029812736.json",
+          "sha256": "d644bfe6bc1250bd15046242255264ea4bf6071f222c737601e382036f848c53",
+          "original_export_run": 38029812736,
+          "logical_rows": 9728,
+          "logical_cells": 87552,
+          "artifact_cells": 350208,
+          "passed": true
+        },
+        "software_regression_platform": {
+          "os": "Windows",
+          "tests": 576,
+          "passed": 575,
+          "skipped": 1,
+          "seconds": 66.672,
+          "skipped_test": "test_jobs.JobLeaseTests.test_symlink_lock_is_refused",
+          "reason": "Windows unprivileged symbolic-link creation denied; not the Linux CI skip"
+        },
+        "maps_ci_regression": {
+          "run": 38083900641,
+          "commit": "b20a06e166e65f71d6aaf4cc1a0c1220c55853c5",
+          "os": "Linux",
+          "tests": 559,
+          "passed": 558,
+          "skipped": 1,
+          "seconds": 7.174,
+          "source": "examples/evidence/real-core-38083900641/maps-independent-review.json",
+          "skip_identity": "Not named in retained quiet CI summary; do not relabel it as Windows symlink denial"
+        },
+        "matrix_core_preflight": {
+          "run": 38084773557,
+          "actual_core_receipts": [
+            {
+              "replica": 1,
+              "path": "runs/agent-campaign-38084773557/corpus-r1/real-v1/acceptance.json",
+              "sha256": "f250d4f1687bd20a48f65a4ce56ae3a86a416d3ea8430d8b6c2b56c334ddd604",
+              "passed": true,
+              "index_uuid": "0PWTIqhOTJuVbFYt8kC_lg",
+              "overall_release_verified": false
+            },
+            {
+              "replica": 2,
+              "path": "runs/agent-campaign-38084773557/corpus-r2/real-v1/acceptance.json",
+              "sha256": "9215d1873b1f5734f59491c34adeed88e7f07469bf0008a8182a0357e228aa07",
+              "passed": true,
+              "index_uuid": "q5_UOUK2Qry44_FXGkueAQ",
+              "overall_release_verified": false
+            },
+            {
+              "replica": 3,
+              "path": "runs/agent-campaign-38084773557/corpus-r3/real-v1/acceptance.json",
+              "sha256": "62aecf4bc0b3354e48cbf99856cb58549ebbd925259fc6d0b43b0375211e1ef5",
+              "passed": true,
+              "index_uuid": "bt3nXTUPT6uH-HQOwbDoEg",
+              "overall_release_verified": false
+            }
+          ],
+          "excluded_from_nine_pre_study_core_count": true,
+          "all_three_passed": true
+        },
+        "prepared_date_utc": "2026-10-11",
+        "agent_matrix": {
+          "run": 38084773557,
+          "commit": "d3be88e72cf5e7920f2861eaa7c21f6dd26abdb3",
+          "execution_complete": true,
+          "required_trials": 120,
+          "executed_trials": 120,
+          "reviewed_trials": 120,
+          "automatic_passes": 1,
+          "end_to_end_passes": 1,
+          "pass_rate": 0.008333333333333333,
+          "passing_trial": "Q38-r1",
+          "semantic_only_passes": 2,
+          "semantic_only_passing_trials": [
+            "Q38-r1",
+            "Q38-r2"
+          ],
+          "semantic_unsupported_claim_or_false_completion_trials": 32,
+          "automatic_numeric_evidence_hard_failure_trials": 8,
+          "chained_trial_passes": 0,
+          "chained_trials": 9,
+          "delivered_finals": 56,
+          "timeouts": 52,
+          "repeated_invalid_tool_call_failures": 11,
+          "invalid_final_answer_failures": 1,
+          "trial_elapsed_seconds": {
+            "samples": 120,
+            "minimum": 14.539215,
+            "median": 126.15948900000001,
+            "maximum": 160.006379,
+            "sum": 14018.248296
+          },
+          "latency_scope": "Whole trial including model/tool/adapter and failed attempts; excludes startup/download/build; not generation-only or successful-answer latency.",
+          "warmup_by_replica": [
+            {
+              "repetition": 1,
+              "seconds": 295.781533
+            },
+            {
+              "repetition": 2,
+              "seconds": 256.060538
+            },
+            {
+              "repetition": 3,
+              "seconds": 289.675959
+            }
+          ],
+          "final_report": {
+            "path": "examples/evidence/agent-campaign-38084773557/final-review.json",
+            "sha256": "81cd4cec6118c6a4b67519ca919a470ce3cd7ac0b38c08d06bd06fcf88a3c8e7"
+          },
+          "diagnostics": {
+            "path": "examples/evidence/agent-campaign-38084773557/actual-diagnostics.json",
+            "sha256": "217365f6d8a41366a6745cc11fd5978d6f8546a7eb6a3ee7ad6c5fead61c8011"
+          },
+          "archive_diagnostics_review_sha256": "aa19af3e57879df4de839a829e101c0b9da5372dcd827c96214636a7e5d6270a",
+          "agent_quality_gate_passed": false,
+          "overall_release_verified": false,
+          "semantic_review_scope": "Three AI infrastructure contributors reviewed a separate answering-model session; exact trial hashes; initial cards hid automatic grades. Not independent human gold or blinded model selection."
+        }
+      },
+      "evidence_commit": "4668139874139b597157d01daf475eeacbededfe",
+      "external_source_dates": {
+        "https://arxiv.org/abs/1809.08887": "2026-10-09",
+        "https://www.elastic.co/docs/reference/elasticsearch/rest-apis/paginate-search-results": "2026-10-09"
+      }
     },
     {
       "file": "pdf/03-semantic-discovery.pdf",

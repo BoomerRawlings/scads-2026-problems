@@ -22,7 +22,9 @@ class SettingsTests(unittest.TestCase):
     def test_omitted_preview_uses_lower_configured_cap(self):
         from analytics311.contracts import normalize_spec
         spec={'dataset_version':'fixture-v1','operation':'aggregate'}
-        self.assertEqual(normalize_spec(spec,{}, {'max_preview_rows':10})['preview_limit'],10)
+        self.assertEqual(normalize_spec(spec,{}, {'max_preview_rows':10})['preview_limit'],5)
+        self.assertEqual(normalize_spec(spec,{}, {'max_preview_rows':3})['preview_limit'],3)
+        self.assertEqual(normalize_spec({**spec,'preview_limit':10},{},{'max_preview_rows':10})['preview_limit'],10)
         with self.assertRaises(AnalyticsError):
             normalize_spec({**spec,'preview_limit':11},{},{'max_preview_rows':10})
 

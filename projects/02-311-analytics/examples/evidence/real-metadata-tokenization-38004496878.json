@@ -1,0 +1,19 @@
+{
+  "scope": "Raw text tokenization of actual real-corpus metadata only; no questions, oracle, chat-template overhead or inference.",
+  "model_alias": "analytics311-qwen3-1-7b",
+  "descriptor_sha256": "9fbe5dc908b1f86eb43974652f2d4c0da48c289cdd6e62f2b3bcc462ca6ddb48",
+  "parts": {
+    "real_descriptor": {
+      "utf8_bytes": 14732,
+      "tokens": 4704
+    },
+    "system": {
+      "utf8_bytes": 2358,
+      "tokens": 478
+    },
+    "tool_schemas": {
+      "utf8_bytes": 2655,
+      "tokens": 542
+    }
+  }
+}

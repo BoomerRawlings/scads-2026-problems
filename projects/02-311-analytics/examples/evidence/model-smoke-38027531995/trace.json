@@ -1,0 +1,1163 @@
+{
+  "question": "Use the analytical tools to count all records in this configured dataset. Apply no date, category, status or geographic restrictions. Give the exact count, cite your analysis result, and say whether this dataset is real or synthetic.",
+  "seed": 7,
+  "model": "analytics311-qwen3-1-7b",
+  "events": [
+    {
+      "kind": "adapter_tool_call",
+      "initiated_by": "adapter",
+      "message": {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "id": "adapter_discovery",
+            "type": "function",
+            "function": {
+              "name": "describe_dataset",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "elapsed_seconds": 8e-05
+    },
+    {
+      "kind": "tool",
+      "name": "describe_dataset",
+      "arguments": {},
+      "initiated_by": "adapter",
+      "output": {
+        "dataset": {
+          "dataset_version": "fixture-v1",
+          "kind": "synthetic_fixture",
+          "source": "authored fixture; not real NYC service requests",
+          "row_count": 32,
+          "coverage": {
+            "gte": "2025-11-01T00:00:00-04:00",
+            "lt": "2026-01-01T00:00:00-05:00",
+            "complete": true
+          },
+          "notes": [
+            "Complete coverage means the full authored fixture, not source coverage of NYC.",
+            "Neighborhood identifiers and locations are synthetic labels, not official NTA assignments.",
+            "Closed FIX-013 deliberately lacks closed_date and closure_hours.",
+            "Two November records exercise repeated local DST time with distinct offsets."
+          ]
+        },
+        "backend": "fixture",
+        "fields": {
+          "unique_key": "keyword",
+          "complaint_type": "keyword",
+          "descriptor": "keyword",
+          "agency": "keyword",
+          "agency_name": "keyword",
+          "status": "keyword",
+          "borough": "keyword",
+          "incident_zip": "keyword",
+          "nta2020": "keyword",
+          "ntaname": "keyword",
+          "community_board": "keyword",
+          "council_district": "keyword",
+          "police_precinct": "keyword",
+          "created_date": "date",
+          "closed_date": "date",
+          "closure_hours": "number",
+          "is_closed": "boolean",
+          "location": "geo"
+        },
+        "catalog": {
+          "version": "nyc311-v1",
+          "description": "Explicit starter category families. Validate against each real snapshot vocabulary before making completeness claims.",
+          "families": {
+            "noise": [
+              "Noise - Residential",
+              "Noise - Street/Sidewalk",
+              "Noise - Commercial",
+              "Noise - Vehicle",
+              "Noise - Park",
+              "Noise - Helicopter",
+              "Noise",
+              "Noise - House of Worship"
+            ],
+            "rodent": [
+              "Rodent"
+            ],
+            "sanitation": [
+              "Dirty Conditions",
+              "Sanitation Condition",
+              "Missed Collection (All Materials)",
+              "Missed Collection",
+              "Illegal Dumping",
+              "Overflowing Litter Baskets",
+              "Derelict Vehicles"
+            ]
+          },
+          "metric_definitions": {
+            "count": "Number of matching service requests; exact when execution is complete.",
+            "closed_count": "Requests with is_closed=true, including records whose closure duration is invalid or absent.",
+            "open_count": "Requests with is_closed=false. Administrative non-closed status, not proof that a case remains actionable.",
+            "mean_closure_hours": "Arithmetic mean of valid nonnegative created-to-closed hours in closed requests; excludes missing durations.",
+            "median_closure_hours": "50th percentile of valid closure hours. Elasticsearch percentiles are approximate.",
+            "p90_closure_hours": "90th percentile of valid closure hours. Elasticsearch percentiles are approximate."
+          },
+          "semantics": {
+            "closure": "Administrative time to closure; not first response, confirmed resolution, or repair time.",
+            "neighborhood": "nta2020 and ntaname require versioned official NTA polygon enrichment; never substitute ZIP codes.",
+            "trend": "Descriptive reported-request counts and rates; not incidence, causality, or statistical significance.",
+            "relative_change": "(current - baseline) / baseline; null when baseline is zero.",
+            "minimum_count": "Aggregate threshold uses group count; comparison threshold uses combined baseline/current count. Applied before ranking; not statistical significance.",
+            "last_month": "Previous complete calendar month in the requested timezone, anchored to as_of."
+          }
+        },
+        "limits": {
+          "max_fixture_rows": 100000,
+          "max_groups": 50000,
+          "page_size": 500,
+          "deadline_seconds": 30,
+          "max_preview_rows": 100,
+          "max_filter_depth": 12,
+          "max_filter_nodes": 100,
+          "max_filter_values": 1000,
+          "max_polygon_points": 100,
+          "max_export_rows": 1000000,
+          "max_export_bytes": 268435456,
+          "export_deadline_seconds": 300,
+          "max_concurrent_exports": 2,
+          "max_map_groups": 5000
+        },
+        "evidence_level": "fixture_only",
+        "operations": [
+          "records",
+          "aggregate",
+          "compare_periods"
+        ],
+        "analysis_guide": {
+          "schema_version": "1",
+          "workflow": [
+            "describe_dataset",
+            "validate_analysis",
+            "run_analysis",
+            "get_result",
+            "export_csv or create_map_link"
+          ],
+          "rules": {
+            "required": [
+              "dataset_version",
+              "operation"
+            ],
+            "unknown_keys": "rejected; do not submit raw Elasticsearch DSL",
+            "dataset_version": "fixture-v1",
+            "operation": {
+              "records": "Matching requests; no group_by, aggregate metrics, or minimum_count.",
+              "aggregate": "Counts/metrics; empty group_by computes one overall group.",
+              "compare_periods": "Two non-overlapping creation-date periods; use periods instead of time; no date grouping."
+            },
+            "fields": {
+              "unique_key": "keyword",
+              "complaint_type": "keyword",
+              "descriptor": "keyword",
+              "agency": "keyword",
+              "agency_name": "keyword",
+              "status": "keyword",
+              "borough": "keyword",
+              "incident_zip": "keyword",
+              "nta2020": "keyword",
+              "ntaname": "keyword",
+              "community_board": "keyword",
+              "council_district": "keyword",
+              "police_precinct": "keyword",
+              "created_date": "date",
+              "closed_date": "date",
+              "closure_hours": "number",
+              "is_closed": "boolean",
+              "location": "geo"
+            },
+            "dates": {
+              "format": "ISO 8601 datetime with explicit offset; normalized to UTC",
+              "bounds": {
+                "gte": "inclusive start",
+                "lt": "exclusive end"
+              },
+              "timezone": "IANA timezone; default America/New_York; governs calendar buckets and exposure days",
+              "as_of": "Defaults to request time; anchors relative dates, not snapshot history or a data cutoff",
+              "time": {
+                "field": [
+                  "created_date",
+                  "closed_date"
+                ],
+                "forms": [
+                  {
+                    "field": "created_date",
+                    "gte": "2025-12-01T00:00:00-05:00",
+                    "lt": "2026-01-01T00:00:00-05:00"
+                  },
+                  {
+                    "field": "created_date",
+                    "preset": "last_month"
+                  }
+                ]
+              },
+              "last_month": "Previous complete calendar month relative to as_of; do not anchor to latest dataset record",
+              "periods": {
+                "baseline": "{gte, lt}",
+                "current": "{gte, lt}"
+              },
+              "coverage": "Comparisons and date histograms require complete declared coverage or a validated comparison_qualification for a reconciled observed snapshot. Disclose comparison_scope and warnings; observed reporting growth is not proof of worsening underlying conditions. Unobserved dates are not zero counts"
+            },
+            "filters": {
+              "combine": {
+                "all": "nonempty array of filters",
+                "any": "nonempty array of filters",
+                "not": "one filter"
+              },
+              "predicate": {
+                "field": "known field",
+                "op": [
+                  "eq",
+                  "in",
+                  "range",
+                  "exists"
+                ],
+                "value": "typed operand"
+              },
+              "eq": "One exact typed value; keyword matching is case-sensitive",
+              "in": "Nonempty array of exact typed values",
+              "range": "Date/number only; value has gt or gte and/or lt or lte",
+              "exists": "Boolean value; false selects missing fields; null is not an equality value",
+              "category_family": "{category_family: name}; use catalog.families; expands approved complaint_type values",
+              "limits": "Use describe_dataset.limits for filter depth/node/value budgets"
+            },
+            "geo": {
+              "forms": [
+                {
+                  "type": "radius",
+                  "lat": 40.68,
+                  "lon": -73.95,
+                  "distance_m": 1500
+                },
+                {
+                  "type": "bbox",
+                  "top_left": {
+                    "lat": 40.75,
+                    "lon": -74.0
+                  },
+                  "bottom_right": {
+                    "lat": 40.6,
+                    "lon": -73.85
+                  }
+                },
+                {
+                  "type": "polygon",
+                  "points": [
+                    {
+                      "lat": 40.65,
+                      "lon": -73.98
+                    },
+                    {
+                      "lat": 40.72,
+                      "lon": -73.98
+                    },
+                    {
+                      "lat": 40.72,
+                      "lon": -73.9
+                    }
+                  ]
+                }
+              ],
+              "coordinates": "WGS84 latitude [-90,90], longitude [-180,180]; distance in meters",
+              "restrictions": "One geometry; positive radius <=20040000m; simple nonzero-area polygon; no dateline-crossing bbox/polygon",
+              "missing_location": "Excluded from geographic queries; disclose map exclusions"
+            },
+            "group_by": {
+              "forms": [
+                {
+                  "field": "borough"
+                },
+                {
+                  "field": "created_date",
+                  "interval": "week"
+                }
+              ],
+              "maximum_dimensions": 3,
+              "field_types": [
+                "keyword",
+                "boolean",
+                "date"
+              ],
+              "date_intervals": [
+                "day",
+                "week",
+                "month"
+              ],
+              "date_rule": "At most one date dimension; requires bounded time on the same field; weeks start Monday",
+              "missing_values": "Preserved as null groups",
+              "zero_fill": "Only covered calendar buckets; categorical combinations must be observed in the selected cohort"
+            },
+            "metrics": {
+              "allowed": [
+                "count",
+                "closed_count",
+                "open_count",
+                "mean_closure_hours",
+                "median_closure_hours",
+                "p90_closure_hours"
+              ],
+              "default": [
+                "count"
+              ],
+              "definitions": "See catalog.metric_definitions; closure is administrative time to closure, not first response",
+              "missing_durations": "Excluded from closure-duration metrics; closed_count still includes closed requests without a duration",
+              "percentiles": "Elasticsearch median/p90 are approximate; inspect result.approximate"
+            },
+            "minimum_count": {
+              "integer_range": [
+                0,
+                1000000
+              ],
+              "default": 0,
+              "aggregate": "Retain groups with count >= minimum_count",
+              "compare_periods": "Retain groups with baseline_count + current_count >= minimum_count",
+              "order": "Applied across complete groups before ranking; no significance claim"
+            },
+            "output_limits": {
+              "preview_limit": "Records preview 1..100, further bounded by configured max_preview_rows; default 100",
+              "top_n": "Aggregate/comparison first-page rows 1..100; default 20; not the full export cohort",
+              "rank_order": [
+                "asc",
+                "desc"
+              ],
+              "rank_order_default": "desc",
+              "rank_by_aggregate": [
+                "count"
+              ],
+              "rank_by_compare_periods": [
+                "count",
+                "absolute_change",
+                "relative_change",
+                "rate_change"
+              ],
+              "rank_by_compare_default": "absolute_change",
+              "comparison_count": "Current-period count",
+              "absolute_change": "current_count - baseline_count",
+              "relative_change": "(current_count - baseline_count) / baseline_count; fraction, null for zero baseline",
+              "rate_change": "current_count/current_calendar_days - baseline_count/baseline_calendar_days; requests/day"
+            },
+            "artifacts": "Use saved result_id; explicitly choose all_matching or selected_groups and saved group_ids. Record exports use the full selected cohort, not the preview."
+          },
+          "examples_note": "Illustrative historical dates and request parameters only; check actual snapshot coverage and catalog before execution. No expected findings are supplied.",
+          "examples": {
+            "records": {
+              "schema_version": "1",
+              "dataset_version": "fixture-v1",
+              "timezone": "America/New_York",
+              "as_of": "2026-01-02T12:00:00-05:00",
+              "operation": "records",
+              "time": {
+                "field": "created_date",
+                "preset": "last_month"
+              },
+              "filters": {
+                "all": [
+                  {
+                    "field": "borough",
+                    "op": "eq",
+                    "value": "BROOKLYN"
+                  },
+                  {
+                    "category_family": "noise"
+                  }
+                ]
+              },
+              "preview_limit": 10
+            },
+            "aggregate": {
+              "schema_version": "1",
+              "dataset_version": "fixture-v1",
+              "timezone": "America/New_York",
+              "as_of": "2026-01-02T12:00:00-05:00",
+              "operation": "aggregate",
+              "time": {
+                "field": "created_date",
+                "gte": "2025-12-01T00:00:00-05:00",
+                "lt": "2026-01-01T00:00:00-05:00"
+              },
+              "filters": {
+                "category_family": "noise"
+              },
+              "group_by": [
+                {
+                  "field": "created_date",
+                  "interval": "week"
+                },
+                {
+                  "field": "borough"
+                }
+              ],
+              "metrics": [
+                "count",
+                "closed_count",
+                "mean_closure_hours"
+              ],
+              "minimum_count": 5,
+              "top_n": 10,
+              "rank_by": "count",
+              "rank_order": "desc"
+            },
+            "compare_periods": {
+              "schema_version": "1",
+              "dataset_version": "fixture-v1",
+              "timezone": "America/New_York",
+              "as_of": "2026-01-02T12:00:00-05:00",
+              "operation": "compare_periods",
+              "periods": {
+                "baseline": {
+                  "gte": "2025-11-01T00:00:00-04:00",
+                  "lt": "2025-12-01T00:00:00-05:00"
+                },
+                "current": {
+                  "gte": "2025-12-01T00:00:00-05:00",
+                  "lt": "2026-01-01T00:00:00-05:00"
+                }
+              },
+              "filters": {
+                "category_family": "rodent"
+              },
+              "group_by": [
+                {
+                  "field": "nta2020"
+                }
+              ],
+              "metrics": [
+                "count",
+                "mean_closure_hours"
+              ],
+              "minimum_count": 20,
+              "top_n": 10,
+              "rank_by": "rate_change",
+              "rank_order": "desc"
+            }
+          }
+        }
+      },
+      "elapsed_seconds": 0.000121,
+      "model_context": {
+        "projection": "discovery-rules-v2",
+        "content": "{\"analysis_guide\":{\"rules\":{\"artifacts\":\"Use saved result_id; explicitly choose all_matching or selected_groups and saved group_ids. Record exports use the full selected cohort, not the preview.\",\"dates\":{\"as_of\":\"Defaults to request time; anchors relative dates, not snapshot history or a data cutoff\",\"bounds\":{\"gte\":\"inclusive start\",\"lt\":\"exclusive end\"},\"coverage\":\"Comparisons and date histograms require complete declared coverage or a validated comparison_qualification for a reconciled observed snapshot. Disclose comparison_scope and warnings; observed reporting growth is not proof of worsening underlying conditions. Unobserved dates are not zero counts\",\"format\":\"ISO 8601 datetime with explicit offset; normalized to UTC\",\"last_month\":\"Previous complete calendar month relative to as_of; do not anchor to latest dataset record\",\"periods\":{\"baseline\":\"{gte, lt}\",\"current\":\"{gte, lt}\"},\"time\":{\"field\":[\"created_date\",\"closed_date\"],\"forms\":[{\"field\":\"created_date\",\"gte\":\"2025-12-01T00:00:00-05:00\",\"lt\":\"2026-01-01T00:00:00-05:00\"},{\"field\":\"created_date\",\"preset\":\"last_month\"}]},\"timezone\":\"IANA timezone; default America/New_York; governs calendar buckets and exposure days\"},\"filters\":{\"category_family\":\"{category_family: name}; use catalog.families; expands approved complaint_type values\",\"combine\":{\"all\":\"nonempty array of filters\",\"any\":\"nonempty array of filters\",\"not\":\"one filter\"},\"eq\":\"One exact typed value; keyword matching is case-sensitive\",\"exists\":\"Boolean value; false selects missing fields; null is not an equality value\",\"in\":\"Nonempty array of exact typed values\",\"limits\":\"Use describe_dataset.limits for filter depth/node/value budgets\",\"predicate\":{\"field\":\"known field\",\"op\":[\"eq\",\"in\",\"range\",\"exists\"],\"value\":\"typed operand\"},\"range\":\"Date/number only; value has gt or gte and/or lt or lte\"},\"geo\":{\"coordinates\":\"WGS84 latitude [-90,90], longitude [-180,180]; distance in meters\",\"forms\":[{\"distance_m\":1500,\"lat\":40.68,\"lon\":-73.95,\"type\":\"radius\"},{\"bottom_right\":{\"lat\":40.6,\"lon\":-73.85},\"top_left\":{\"lat\":40.75,\"lon\":-74.0},\"type\":\"bbox\"},{\"points\":[{\"lat\":40.65,\"lon\":-73.98},{\"lat\":40.72,\"lon\":-73.98},{\"lat\":40.72,\"lon\":-73.9}],\"type\":\"polygon\"}],\"missing_location\":\"Excluded from geographic queries; disclose map exclusions\",\"restrictions\":\"One geometry; positive radius <=20040000m; simple nonzero-area polygon; no dateline-crossing bbox/polygon\"},\"group_by\":{\"date_intervals\":[\"day\",\"week\",\"month\"],\"date_rule\":\"At most one date dimension; requires bounded time on the same field; weeks start Monday\",\"field_types\":[\"keyword\",\"boolean\",\"date\"],\"forms\":[{\"field\":\"borough\"},{\"field\":\"created_date\",\"interval\":\"week\"}],\"maximum_dimensions\":3,\"missing_values\":\"Preserved as null groups\",\"zero_fill\":\"Only covered calendar buckets; categorical combinations must be observed in the selected cohort\"},\"metrics\":{\"allowed\":[\"count\",\"closed_count\",\"open_count\",\"mean_closure_hours\",\"median_closure_hours\",\"p90_closure_hours\"],\"default\":[\"count\"],\"definitions\":\"See catalog.metric_definitions; closure is administrative time to closure, not first response\",\"missing_durations\":\"Excluded from closure-duration metrics; closed_count still includes closed requests without a duration\",\"percentiles\":\"Elasticsearch median/p90 are approximate; inspect result.approximate\"},\"minimum_count\":{\"aggregate\":\"Retain groups with count >= minimum_count\",\"compare_periods\":\"Retain groups with baseline_count + current_count >= minimum_count\",\"default\":0,\"integer_range\":[0,1000000],\"order\":\"Applied across complete groups before ranking; no significance claim\"},\"operation\":{\"aggregate\":\"Counts/metrics; empty group_by computes one overall group.\",\"compare_periods\":\"Two non-overlapping creation-date periods; use periods instead of time; no date grouping.\",\"records\":\"Matching requests; no group_by, aggregate metrics, or minimum_count.\"},\"output_limits\":{\"absolute_change\":\"current_count - baseline_count\",\"comparison_count\":\"Current-period count\",\"preview_limit\":\"Records preview 1..100, further bounded by configured max_preview_rows; default 100\",\"rank_by_aggregate\":[\"count\"],\"rank_by_compare_default\":\"absolute_change\",\"rank_by_compare_periods\":[\"count\",\"absolute_change\",\"relative_change\",\"rate_change\"],\"rank_order\":[\"asc\",\"desc\"],\"rank_order_default\":\"desc\",\"rate_change\":\"current_count/current_calendar_days - baseline_count/baseline_calendar_days; requests/day\",\"relative_change\":\"(current_count - baseline_count) / baseline_count; fraction, null for zero baseline\",\"top_n\":\"Aggregate/comparison first-page rows 1..100; default 20; not the full export cohort\"},\"required\":[\"dataset_version\",\"operation\"],\"unknown_keys\":\"rejected; do not submit raw Elasticsearch DSL\"},\"schema_version\":\"1\"},\"backend\":\"fixture\",\"catalog\":{\"description\":\"Explicit starter category families. Validate against each real snapshot vocabulary before making completeness claims.\",\"families\":{\"noise\":[\"Noise - Residential\",\"Noise - Street/Sidewalk\",\"Noise - Commercial\",\"Noise - Vehicle\",\"Noise - Park\",\"Noise - Helicopter\",\"Noise\",\"Noise - House of Worship\"],\"rodent\":[\"Rodent\"],\"sanitation\":[\"Dirty Conditions\",\"Sanitation Condition\",\"Missed Collection (All Materials)\",\"Missed Collection\",\"Illegal Dumping\",\"Overflowing Litter Baskets\",\"Derelict Vehicles\"]},\"metric_definitions\":{\"closed_count\":\"Requests with is_closed=true, including records whose closure duration is invalid or absent.\",\"count\":\"Number of matching service requests; exact when execution is complete.\",\"mean_closure_hours\":\"Arithmetic mean of valid nonnegative created-to-closed hours in closed requests; excludes missing durations.\",\"median_closure_hours\":\"50th percentile of valid closure hours. Elasticsearch percentiles are approximate.\",\"open_count\":\"Requests with is_closed=false. Administrative non-closed status, not proof that a case remains actionable.\",\"p90_closure_hours\":\"90th percentile of valid closure hours. Elasticsearch percentiles are approximate.\"},\"semantics\":{\"closure\":\"Administrative time to closure; not first response, confirmed resolution, or repair time.\",\"last_month\":\"Previous complete calendar month in the requested timezone, anchored to as_of.\",\"minimum_count\":\"Aggregate threshold uses group count; comparison threshold uses combined baseline/current count. Applied before ranking; not statistical significance.\",\"neighborhood\":\"nta2020 and ntaname require versioned official NTA polygon enrichment; never substitute ZIP codes.\",\"relative_change\":\"(current - baseline) / baseline; null when baseline is zero.\",\"trend\":\"Descriptive reported-request counts and rates; not incidence, causality, or statistical significance.\"},\"version\":\"nyc311-v1\"},\"dataset\":{\"coverage\":{\"complete\":true,\"gte\":\"2025-11-01T00:00:00-04:00\",\"lt\":\"2026-01-01T00:00:00-05:00\"},\"dataset_version\":\"fixture-v1\",\"kind\":\"synthetic_fixture\",\"notes\":[\"Complete coverage means the full authored fixture, not source coverage of NYC.\",\"Neighborhood identifiers and locations are synthetic labels, not official NTA assignments.\",\"Closed FIX-013 deliberately lacks closed_date and closure_hours.\",\"Two November records exercise repeated local DST time with distinct offsets.\"],\"row_count\":32,\"source\":\"authored fixture; not real NYC service requests\"},\"evidence_level\":\"fixture_only\",\"fields\":{\"agency\":\"keyword\",\"agency_name\":\"keyword\",\"borough\":\"keyword\",\"closed_date\":\"date\",\"closure_hours\":\"number\",\"community_board\":\"keyword\",\"complaint_type\":\"keyword\",\"council_district\":\"keyword\",\"created_date\":\"date\",\"descriptor\":\"keyword\",\"incident_zip\":\"keyword\",\"is_closed\":\"boolean\",\"location\":\"geo\",\"nta2020\":\"keyword\",\"ntaname\":\"keyword\",\"police_precinct\":\"keyword\",\"status\":\"keyword\",\"unique_key\":\"keyword\"},\"limits\":{\"deadline_seconds\":30,\"export_deadline_seconds\":300,\"max_concurrent_exports\":2,\"max_export_bytes\":268435456,\"max_export_rows\":1000000,\"max_filter_depth\":12,\"max_filter_nodes\":100,\"max_filter_values\":1000,\"max_fixture_rows\":100000,\"max_groups\":50000,\"max_map_groups\":5000,\"max_polygon_points\":100,\"max_preview_rows\":100,\"page_size\":500},\"operations\":[\"records\",\"aggregate\",\"compare_periods\"]}",
+        "sha256": "886cb13a2d40b046f9680c4206a87eee87c34a228d27fcd5b5f1216573ea20d3",
+        "utf8_bytes": 8103,
+        "full_output_utf8_bytes": 10195,
+        "full_output_sha256": "c41b647dd66726071512d8cbe8f551d4614c97de72e4fcbfc1348118847104f1"
+      }
+    },
+    {
+      "kind": "model",
+      "message": {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "type": "function",
+            "function": {
+              "name": "run_analysis",
+              "arguments": "{\"spec\": {\"dataset_version\": \"fixture-v1\", \"operation\": \"records\"}}"
+            },
+            "id": "ULihzxtLINhKXp0AsaznjsLq00LBJGy3"
+          }
+        ]
+      },
+      "usage": {
+        "completion_tokens": 33,
+        "prompt_tokens": 7279,
+        "total_tokens": 7312
+      },
+      "server_timings": {
+        "cache_n": 7224,
+        "prompt_n": 55,
+        "prompt_ms": 5496.991,
+        "prompt_per_token_ms": 99.94529090909091,
+        "prompt_per_second": 10.005473903813924,
+        "predicted_n": 33,
+        "predicted_ms": 3531.119,
+        "predicted_per_token_ms": 110.34746875,
+        "predicted_per_second": 9.06228308929832
+      },
+      "elapsed_seconds": 9.067444
+    },
+    {
+      "kind": "tool",
+      "name": "run_analysis",
+      "arguments": {
+        "spec": {
+          "dataset_version": "fixture-v1",
+          "operation": "records"
+        }
+      },
+      "initiated_by": "model",
+      "output": {
+        "approximate": false,
+        "catalog_sha256": "3377613fd3874cc04f0b2830c5c8ea0763c24f04a7bff97f2d2290f666f9066a",
+        "comparison_scope": "complete_declared_corpus",
+        "compiled_queries": [
+          {
+            "body": {
+              "_source": [
+                "unique_key",
+                "complaint_type",
+                "descriptor",
+                "agency",
+                "agency_name",
+                "status",
+                "borough",
+                "incident_zip",
+                "nta2020",
+                "ntaname",
+                "community_board",
+                "council_district",
+                "police_precinct",
+                "created_date",
+                "closed_date",
+                "closure_hours",
+                "is_closed",
+                "location"
+              ],
+              "query": {
+                "match_all": {}
+              },
+              "size": 100,
+              "sort": [
+                {
+                  "created_date": {
+                    "missing": "_last",
+                    "order": "asc"
+                  }
+                },
+                {
+                  "unique_key": "asc"
+                }
+              ],
+              "track_total_hits": true
+            }
+          }
+        ],
+        "coverage_complete": true,
+        "created_at": "2026-10-10T05:35:19.029893+00:00",
+        "dataset": {
+          "coverage": {
+            "complete": true,
+            "gte": "2025-11-01T00:00:00-04:00",
+            "lt": "2026-01-01T00:00:00-05:00"
+          },
+          "dataset_version": "fixture-v1",
+          "kind": "synthetic_fixture",
+          "notes": [
+            "Complete coverage means the full authored fixture, not source coverage of NYC.",
+            "Neighborhood identifiers and locations are synthetic labels, not official NTA assignments.",
+            "Closed FIX-013 deliberately lacks closed_date and closure_hours.",
+            "Two November records exercise repeated local DST time with distinct offsets."
+          ],
+          "row_count": 32,
+          "source": "authored fixture; not real NYC service requests"
+        },
+        "elapsed_seconds": 0.001192,
+        "evidence_level": "fixture_only",
+        "execution_complete": true,
+        "group_count": null,
+        "kind": "analysis",
+        "result_id": "ca0c2b9400fe4522ab9cf3072982f4a4",
+        "spec": {
+          "as_of": "2026-10-10T05:35:19.028782+00:00",
+          "dataset_version": "fixture-v1",
+          "group_by": [],
+          "metrics": [
+            "count"
+          ],
+          "operation": "records",
+          "preview_limit": 100,
+          "rank_by": "count",
+          "rank_order": "desc",
+          "schema_version": "1",
+          "timezone": "America/New_York",
+          "top_n": 20
+        },
+        "total": {
+          "relation": "eq",
+          "value": 32
+        },
+        "warnings": [
+          "Synthetic bounded fixture; results are development evidence, not NYC findings or scale measurements.",
+          "Development reference backend execution does not validate Elasticsearch, Kibana, or citywide findings. Inspect dataset.kind for source provenance."
+        ],
+        "rows": [
+          {
+            "agency": "DOHMH",
+            "borough": "BROOKLYN",
+            "closed_date": "2025-11-02T09:00:00-05:00",
+            "closure_hours": 24,
+            "complaint_type": "Rodent",
+            "created_date": "2025-11-01T10:00:00-04:00",
+            "is_closed": true,
+            "location": {
+              "lat": 40.68,
+              "lon": -73.95
+            },
+            "nta2020": "FIXTURE-BK-A",
+            "ntaname": "Synthetic area BK-A",
+            "status": "Closed",
+            "unique_key": "FIX-001"
+          },
+          {
+            "agency": "DOHMH",
+            "borough": "BROOKLYN",
+            "closed_date": "2025-11-07T12:00:00-05:00",
+            "closure_hours": 48,
+            "complaint_type": "Rodent",
+            "created_date": "2025-11-05T12:00:00-05:00",
+            "is_closed": true,
+            "location": {
+              "lat": 40.68,
+              "lon": -73.95
+            },
+            "nta2020": "FIXTURE-BK-A",
+            "ntaname": "Synthetic area BK-A",
+            "status": "Closed",
+            "unique_key": "FIX-002"
+          },
+          {
+            "agency": "NYPD",
+            "borough": "BROOKLYN",
+            "closed_date": "2025-11-07T22:00:00-05:00",
+            "closure_hours": 2,
+            "complaint_type": "Noise - Residential",
+            "created_date": "2025-11-07T20:00:00-05:00",
+            "is_closed": true,
+            "location": {
+              "lat": 40.68,
+              "lon": -73.95
+            },
+            "nta2020": "FIXTURE-BK-A",
+            "ntaname": "Synthetic area BK-A",
+            "status": "Closed",
+            "unique_key": "FIX-003"
+          },
+          {
+            "agency": "NYPD",
+            "borough": "BROOKLYN",
+            "closed_date": null,
+            "closure_hours": null,
+            "complaint_type": "Noise - Street/Sidewalk",
+            "created_date": "2025-11-12T20:00:00-05:00",
+            "is_closed": false,
+            "location": {
+              "lat": 40.7,
+              "lon": -73.94
+            },
+            "nta2020": "FIXTURE-BK-B",
+            "ntaname": "Synthetic area BK-B",
+            "status": "Open",
+            "unique_key": "FIX-004"
+          },
+          {
+            "agency": "DOHMH",
+            "borough": "MANHATTAN",
+            "closed_date": "2025-11-06T12:00:00-05:00",
+            "closure_hours": 72,
+            "complaint_type": "Rodent",
+            "created_date": "2025-11-03T12:00:00-05:00",
+            "is_closed": true,
+            "location": {
+              "lat": 40.75,
+              "lon": -73.99
+            },
+            "nta2020": "FIXTURE-MN-A",
+            "ntaname": "Synthetic area MN-A",
+            "status": "Closed",
+            "unique_key": "FIX-005"
+          },
+          {
+            "agency": "NYPD",
+            "borough": "MANHATTAN",
+            "closed_date": "2025-11-16T00:00:00-05:00",
+            "closure_hours": 4,
+            "complaint_type": "Noise - Residential",
+            "created_date": "2025-11-15T20:00:00-05:00",
+            "is_closed": true,
+            "location": {
+              "lat": 40.75,
+              "lon": -73.99
+            },
+            "nta2020": "FIXTURE-MN-A",
+            "ntaname": "Synthetic area MN-A",
+            "status": "Closed",
+            "unique_key": "FIX-006"
+          },
+          {
+            "agency": "DOHMH",
+            "borough": "QUEENS",
+            "closed_date": null,
+            "closure_hours": null,
+            "complaint_type": "Rodent",
+            "created_date": "2025-11-20T12:00:00-05:00",
+            "is_closed": false,
+            "location": {
+              "lat": 40.73,
+              "lon": -73.82
+            },
+            "nta2020": "FIXTURE-QN-A",
+            "ntaname": "Synthetic area QN-A",
+            "status": "Open",
+            "unique_key": "FIX-007"
+          },
+          {
+            "agency": "DSNY",
+            "borough": "QUEENS",
+            "closed_date": "2025-11-23T00:00:00-05:00",
+            "closure_hours": 12,
+            "complaint_type": "Dirty Conditions",
+            "created_date": "2025-11-22T12:00:00-05:00",
+            "is_closed": true,
+            "location": {
+              "lat": 40.73,
+              "lon": -73.82
+            },
+            "nta2020": "FIXTURE-QN-A",
+            "ntaname": "Synthetic area QN-A",
+            "status": "Closed",
+            "unique_key": "FIX-008"
+          },
+          {
+            "agency": "DOHMH",
+            "borough": "BRONX",
+            "closed_date": "2025-11-26T00:00:00-05:00",
+            "closure_hours": 36,
+            "complaint_type": "Rodent",
+            "created_date": "2025-11-24T12:00:00-05:00",
+            "is_closed": true,
+            "location": {
+              "lat": 40.85,
+              "lon": -73.9
+            },
+            "nta2020": "FIXTURE-BX-A",
+            "ntaname": "Synthetic area BX-A",
+            "status": "Closed",
+            "unique_key": "FIX-009"
+          },
+          {
+            "agency": "NYPD",
+            "borough": "STATEN ISLAND",
+            "closed_date": null,
+            "closure_hours": null,
+            "complaint_type": "Blocked Driveway",
+            "created_date": "2025-11-26T12:00:00-05:00",
+            "is_closed": false,
+            "location": {
+              "lat": 40.58,
+              "lon": -74.15
+            },
+            "nta2020": "FIXTURE-SI-A",
+            "ntaname": "Synthetic area SI-A",
+            "status": "Open",
+            "unique_key": "FIX-010"
+          },
+          {
+            "agency": "NYPD",
+            "borough": "BROOKLYN",
+            "closed_date": "2025-11-30T04:00:00-05:00",
+            "closure_hours": 8,
+            "complaint_type": "Noise - Commercial",
+            "created_date": "2025-11-29T20:00:00-05:00",
+            "is_closed": true,
+            "location": {
+              "lat": 40.7,
+              "lon": -73.94
+            },
+            "nta2020": "FIXTURE-BK-B",
+            "ntaname": "Synthetic area BK-B",
+            "status": "Closed",
+            "unique_key": "FIX-011"
+          },
+          {
+            "agency": "NYPD",
+            "borough": "MANHATTAN",
+            "closed_date": "2025-12-01T00:00:00-05:00",
+            "closure_hours": 1,
+            "complaint_type": "Noise - Vehicle",
+            "created_date": "2025-11-30T23:00:00-05:00",
+            "is_closed": true,
+            "location": {
+              "lat": 40.75,
+              "lon": -73.99
+            },
+            "nta2020": "FIXTURE-MN-A",
+            "ntaname": "Synthetic area MN-A",
+            "status": "Closed",
+            "unique_key": "FIX-012"
+          },
+          {
+            "agency": "DOHMH",
+            "borough": "BROOKLYN",
+            "closed_date": null,
+            "closure_hours": null,
+            "complaint_type": "Rodent",
+            "created_date": "2025-11-18T12:00:00-05:00",
+            "is_closed": true,
+            "location": {
+              "lat": 40.7,
+              "lon": -73.94
+            },
+            "nta2020": "FIXTURE-BK-B",
+            "ntaname": "Synthetic area BK-B",
+            "status": "Closed",
+            "unique_key": "FIX-013"
+          },
+          {
+            "agency": "DOHMH",
+            "borough": "MANHATTAN",
+            "closed_date": null,
+            "closure_hours": null,
+            "complaint_type": "Rodent",
+            "created_date": "2025-11-19T12:00:00-05:00",
+            "is_closed": false,
+            "location": null,
+            "nta2020": null,
+            "ntaname": null,
+            "status": "Open",
+            "unique_key": "FIX-014"
+          },
+          {
+            "agency": "NYPD",
+            "borough": "QUEENS",
+            "closed_date": "2025-11-02T06:30:00-05:00",
+            "closure_hours": 6,
+            "complaint_type": "Noise - Residential",
+            "created_date": "2025-11-02T01:30:00-04:00",
+            "is_closed": true,
+            "location": {
+              "lat": 40.73,
+              "lon": -73.82
+            },
+            "nta2020": "FIXTURE-QN-A",
+            "ntaname": "Synthetic area QN-A",
+            "status": "Closed",
+            "unique_key": "FIX-015"
+          },
+          {
+            "agency": "DOHMH",
+            "borough": "BRONX",
+            "closed_date": "2025-11-02T02:30:00-05:00",
+            "closure_hours": 1,
+            "complaint_type": "Rodent",
+            "created_date": "2025-11-02T01:30:00-05:00",
+            "is_closed": true,
+            "location": {
+              "lat": 40.85,
+              "lon": -73.9
+            },
+            "nta2020": "FIXTURE-BX-A",
+            "ntaname": "Synthetic area BX-A",
+            "status": "Closed",
+            "unique_key": "FIX-016"
+          },
+          {
+            "agency": "DOHMH",
+            "borough": "BROOKLYN",
+            "closed_date": "2025-12-02T00:00:00-05:00",
+            "closure_hours": 12,
+            "complaint_type": "Rodent",
+            "created_date": "2025-12-01T12:00:00-05:00",
+            "is_closed": true,
+            "location": {
+              "lat": 40.68,
+              "lon": -73.95
+            },
+            "nta2020": "FIXTURE-BK-A",
+            "ntaname": "Synthetic area BK-A",
+            "status": "Closed",
+            "unique_key": "FIX-017"
+          },
+          {
+            "agency": "DOHMH",
+            "borough": "BROOKLYN",
+            "closed_date": "2025-12-06T12:00:00-05:00",
+            "closure_hours": 24,
+            "complaint_type": "Rodent",
+            "created_date": "2025-12-05T12:00:00-05:00",
+            "is_closed": true,
+            "location": {
+              "lat": 40.68,
+              "lon": -73.95
+            },
+            "nta2020": "FIXTURE-BK-A",
+            "ntaname": "Synthetic area BK-A",
+            "status": "Closed",
+            "unique_key": "FIX-018"
+          },
+          {
+            "agency": "DOHMH",
+            "borough": "BROOKLYN",
+            "closed_date": null,
+            "closure_hours": null,
+            "complaint_type": "Rodent",
+            "created_date": "2025-12-10T12:00:00-05:00",
+            "is_closed": false,
+            "location": {
+              "lat": 40.7,
+              "lon": -73.94
+            },
+            "nta2020": "FIXTURE-BK-B",
+            "ntaname": "Synthetic area BK-B",
+            "status": "Open",
+            "unique_key": "FIX-019"
+          },
+          {
+            "agency": "DOHMH",
+            "borough": "BROOKLYN",
+            "closed_date": "2025-12-17T12:00:00-05:00",
+            "closure_hours": 48,
+            "complaint_type": "Rodent",
+            "created_date": "2025-12-15T12:00:00-05:00",
+            "is_closed": true,
+            "location": {
+              "lat": 40.7,
+              "lon": -73.94
+            },
+            "nta2020": "FIXTURE-BK-B",
+            "ntaname": "Synthetic area BK-B",
+            "status": "Closed",
+            "unique_key": "FIX-020"
+          },
+          {
+            "agency": "NYPD",
+            "borough": "BROOKLYN",
+            "closed_date": "2025-12-03T22:00:00-05:00",
+            "closure_hours": 2,
+            "complaint_type": "Noise - Residential",
+            "created_date": "2025-12-03T20:00:00-05:00",
+            "is_closed": true,
+            "location": {
+              "lat": 40.68,
+              "lon": -73.95
+            },
+            "nta2020": "FIXTURE-BK-A",
+            "ntaname": "Synthetic area BK-A",
+            "status": "Closed",
+            "unique_key": "FIX-021"
+          },
+          {
+            "agency": "NYPD",
+            "borough": "BROOKLYN",
+            "closed_date": null,
+            "closure_hours": null,
+            "complaint_type": "Noise - Street/Sidewalk",
+            "created_date": "2025-12-09T20:00:00-05:00",
+            "is_closed": false,
+            "location": {
+              "lat": 40.7,
+              "lon": -73.94
+            },
+            "nta2020": "FIXTURE-BK-B",
+            "ntaname": "Synthetic area BK-B",
+            "status": "Open",
+            "unique_key": "FIX-022"
+          },
+          {
+            "agency": "NYPD",
+            "borough": "BROOKLYN",
+            "closed_date": "2025-12-21T00:00:00-05:00",
+            "closure_hours": 4,
+            "complaint_type": "Noise - Commercial",
+            "created_date": "2025-12-20T20:00:00-05:00",
+            "is_closed": true,
+            "location": {
+              "lat": 40.7,
+              "lon": -73.94
+            },
+            "nta2020": "FIXTURE-BK-B",
+            "ntaname": "Synthetic area BK-B",
+            "status": "Closed",
+            "unique_key": "FIX-023"
+          },
+          {
+            "agency": "DOHMH",
+            "borough": "MANHATTAN",
+            "closed_date": "2025-12-08T12:00:00-05:00",
+            "closure_hours": 96,
+            "complaint_type": "Rodent",
+            "created_date": "2025-12-04T12:00:00-05:00",
+            "is_closed": true,
+            "location": {
+              "lat": 40.75,
+              "lon": -73.99
+            },
+            "nta2020": "FIXTURE-MN-A",
+            "ntaname": "Synthetic area MN-A",
+            "status": "Closed",
+            "unique_key": "FIX-024"
+          },
+          {
+            "agency": "NYPD",
+            "borough": "MANHATTAN",
+            "closed_date": "2025-12-11T21:00:00-05:00",
+            "closure_hours": 1,
+            "complaint_type": "Noise - Vehicle",
+            "created_date": "2025-12-11T20:00:00-05:00",
+            "is_closed": true,
+            "location": {
+              "lat": 40.75,
+              "lon": -73.99
+            },
+            "nta2020": "FIXTURE-MN-A",
+            "ntaname": "Synthetic area MN-A",
+            "status": "Closed",
+            "unique_key": "FIX-025"
+          },
+          {
+            "agency": "DOHMH",
+            "borough": "QUEENS",
+            "closed_date": "2025-12-07T12:00:00-05:00",
+            "closure_hours": 24,
+            "complaint_type": "Rodent",
+            "created_date": "2025-12-06T12:00:00-05:00",
+            "is_closed": true,
+            "location": {
+              "lat": 40.73,
+              "lon": -73.82
+            },
+            "nta2020": "FIXTURE-QN-A",
+            "ntaname": "Synthetic area QN-A",
+            "status": "Closed",
+            "unique_key": "FIX-026"
+          },
+          {
+            "agency": "DOHMH",
+            "borough": "QUEENS",
+            "closed_date": null,
+            "closure_hours": null,
+            "complaint_type": "Rodent",
+            "created_date": "2025-12-12T12:00:00-05:00",
+            "is_closed": false,
+            "location": {
+              "lat": 40.73,
+              "lon": -73.82
+            },
+            "nta2020": "FIXTURE-QN-A",
+            "ntaname": "Synthetic area QN-A",
+            "status": "Open",
+            "unique_key": "FIX-027"
+          },
+          {
+            "agency": "DSNY",
+            "borough": "QUEENS",
+            "closed_date": "2025-12-19T18:00:00-05:00",
+            "closure_hours": 6,
+            "complaint_type": "Dirty Conditions",
+            "created_date": "2025-12-19T12:00:00-05:00",
+            "is_closed": true,
+            "location": {
+              "lat": 40.73,
+              "lon": -73.82
+            },
+            "nta2020": "FIXTURE-QN-A",
+            "ntaname": "Synthetic area QN-A",
+            "status": "Closed",
+            "unique_key": "FIX-028"
+          },
+          {
+            "agency": "DOHMH",
+            "borough": "BRONX",
+            "closed_date": "2025-12-24T12:00:00-05:00",
+            "closure_hours": 72,
+            "complaint_type": "Rodent",
+            "created_date": "2025-12-21T12:00:00-05:00",
+            "is_closed": true,
+            "location": {
+              "lat": 40.85,
+              "lon": -73.9
+            },
+            "nta2020": "FIXTURE-BX-A",
+            "ntaname": "Synthetic area BX-A",
+            "status": "Closed",
+            "unique_key": "FIX-029"
+          },
+          {
+            "agency": "NYPD",
+            "borough": "STATEN ISLAND",
+            "closed_date": "2025-12-24T15:00:00-05:00",
+            "closure_hours": 3,
+            "complaint_type": "Blocked Driveway",
+            "created_date": "2025-12-24T12:00:00-05:00",
+            "is_closed": true,
+            "location": {
+              "lat": 40.58,
+              "lon": -74.15
+            },
+            "nta2020": "FIXTURE-SI-A",
+            "ntaname": "Synthetic area SI-A",
+            "status": "Closed",
+            "unique_key": "FIX-030"
+          },
+          {
+            "agency": "DOHMH",
+            "borough": null,
+            "closed_date": null,
+            "closure_hours": null,
+            "complaint_type": "Rodent",
+            "created_date": "2025-12-25T12:00:00-05:00",
+            "is_closed": false,
+            "location": null,
+            "nta2020": null,
+            "ntaname": null,
+            "status": "Open",
+            "unique_key": "FIX-031"
+          },
+          {
+            "agency": "NYPD",
+            "borough": "BROOKLYN",
+            "closed_date": "2026-01-01T01:30:00-05:00",
+            "closure_hours": 2,
+            "complaint_type": "Noise - Residential",
+            "created_date": "2025-12-31T23:30:00-05:00",
+            "is_closed": true,
+            "location": {
+              "lat": 40.68,
+              "lon": -73.95
+            },
+            "nta2020": "FIXTURE-BK-A",
+            "ntaname": "Synthetic area BK-A",
+            "status": "Closed",
+            "unique_key": "FIX-032"
+          }
+        ],
+        "next_cursor": null,
+        "preview_truncated": false
+      },
+      "elapsed_seconds": 9.070273,
+      "model_context": {
+        "projection": "matching-dataset-reference-v1",
+        "content": "{\"approximate\":false,\"catalog_sha256\":\"3377613fd3874cc04f0b2830c5c8ea0763c24f04a7bff97f2d2290f666f9066a\",\"comparison_scope\":\"complete_declared_corpus\",\"compiled_queries\":[{\"body\":{\"_source\":[\"unique_key\",\"complaint_type\",\"descriptor\",\"agency\",\"agency_name\",\"status\",\"borough\",\"incident_zip\",\"nta2020\",\"ntaname\",\"community_board\",\"council_district\",\"police_precinct\",\"created_date\",\"closed_date\",\"closure_hours\",\"is_closed\",\"location\"],\"query\":{\"match_all\":{}},\"size\":100,\"sort\":[{\"created_date\":{\"missing\":\"_last\",\"order\":\"asc\"}},{\"unique_key\":\"asc\"}],\"track_total_hits\":true}}],\"coverage_complete\":true,\"created_at\":\"2026-10-10T05:35:19.029893+00:00\",\"dataset\":{\"$ref\":\"tool:adapter_discovery#/dataset\"},\"elapsed_seconds\":0.001192,\"evidence_level\":\"fixture_only\",\"execution_complete\":true,\"group_count\":null,\"kind\":\"analysis\",\"next_cursor\":null,\"preview_truncated\":false,\"result_id\":\"ca0c2b9400fe4522ab9cf3072982f4a4\",\"rows\":[{\"agency\":\"DOHMH\",\"borough\":\"BROOKLYN\",\"closed_date\":\"2025-11-02T09:00:00-05:00\",\"closure_hours\":24,\"complaint_type\":\"Rodent\",\"created_date\":\"2025-11-01T10:00:00-04:00\",\"is_closed\":true,\"location\":{\"lat\":40.68,\"lon\":-73.95},\"nta2020\":\"FIXTURE-BK-A\",\"ntaname\":\"Synthetic area BK-A\",\"status\":\"Closed\",\"unique_key\":\"FIX-001\"},{\"agency\":\"DOHMH\",\"borough\":\"BROOKLYN\",\"closed_date\":\"2025-11-07T12:00:00-05:00\",\"closure_hours\":48,\"complaint_type\":\"Rodent\",\"created_date\":\"2025-11-05T12:00:00-05:00\",\"is_closed\":true,\"location\":{\"lat\":40.68,\"lon\":-73.95},\"nta2020\":\"FIXTURE-BK-A\",\"ntaname\":\"Synthetic area BK-A\",\"status\":\"Closed\",\"unique_key\":\"FIX-002\"},{\"agency\":\"NYPD\",\"borough\":\"BROOKLYN\",\"closed_date\":\"2025-11-07T22:00:00-05:00\",\"closure_hours\":2,\"complaint_type\":\"Noise - Residential\",\"created_date\":\"2025-11-07T20:00:00-05:00\",\"is_closed\":true,\"location\":{\"lat\":40.68,\"lon\":-73.95},\"nta2020\":\"FIXTURE-BK-A\",\"ntaname\":\"Synthetic area BK-A\",\"status\":\"Closed\",\"unique_key\":\"FIX-003\"},{\"agency\":\"NYPD\",\"borough\":\"BROOKLYN\",\"closed_date\":null,\"closure_hours\":null,\"complaint_type\":\"Noise - Street/Sidewalk\",\"created_date\":\"2025-11-12T20:00:00-05:00\",\"is_closed\":false,\"location\":{\"lat\":40.7,\"lon\":-73.94},\"nta2020\":\"FIXTURE-BK-B\",\"ntaname\":\"Synthetic area BK-B\",\"status\":\"Open\",\"unique_key\":\"FIX-004\"},{\"agency\":\"DOHMH\",\"borough\":\"MANHATTAN\",\"closed_date\":\"2025-11-06T12:00:00-05:00\",\"closure_hours\":72,\"complaint_type\":\"Rodent\",\"created_date\":\"2025-11-03T12:00:00-05:00\",\"is_closed\":true,\"location\":{\"lat\":40.75,\"lon\":-73.99},\"nta2020\":\"FIXTURE-MN-A\",\"ntaname\":\"Synthetic area MN-A\",\"status\":\"Closed\",\"unique_key\":\"FIX-005\"},{\"agency\":\"NYPD\",\"borough\":\"MANHATTAN\",\"closed_date\":\"2025-11-16T00:00:00-05:00\",\"closure_hours\":4,\"complaint_type\":\"Noise - Residential\",\"created_date\":\"2025-11-15T20:00:00-05:00\",\"is_closed\":true,\"location\":{\"lat\":40.75,\"lon\":-73.99},\"nta2020\":\"FIXTURE-MN-A\",\"ntaname\":\"Synthetic area MN-A\",\"status\":\"Closed\",\"unique_key\":\"FIX-006\"},{\"agency\":\"DOHMH\",\"borough\":\"QUEENS\",\"closed_date\":null,\"closure_hours\":null,\"complaint_type\":\"Rodent\",\"created_date\":\"2025-11-20T12:00:00-05:00\",\"is_closed\":false,\"location\":{\"lat\":40.73,\"lon\":-73.82},\"nta2020\":\"FIXTURE-QN-A\",\"ntaname\":\"Synthetic area QN-A\",\"status\":\"Open\",\"unique_key\":\"FIX-007\"},{\"agency\":\"DSNY\",\"borough\":\"QUEENS\",\"closed_date\":\"2025-11-23T00:00:00-05:00\",\"closure_hours\":12,\"complaint_type\":\"Dirty Conditions\",\"created_date\":\"2025-11-22T12:00:00-05:00\",\"is_closed\":true,\"location\":{\"lat\":40.73,\"lon\":-73.82},\"nta2020\":\"FIXTURE-QN-A\",\"ntaname\":\"Synthetic area QN-A\",\"status\":\"Closed\",\"unique_key\":\"FIX-008\"},{\"agency\":\"DOHMH\",\"borough\":\"BRONX\",\"closed_date\":\"2025-11-26T00:00:00-05:00\",\"closure_hours\":36,\"complaint_type\":\"Rodent\",\"created_date\":\"2025-11-24T12:00:00-05:00\",\"is_closed\":true,\"location\":{\"lat\":40.85,\"lon\":-73.9},\"nta2020\":\"FIXTURE-BX-A\",\"ntaname\":\"Synthetic area BX-A\",\"status\":\"Closed\",\"unique_key\":\"FIX-009\"},{\"agency\":\"NYPD\",\"borough\":\"STATEN ISLAND\",\"closed_date\":null,\"closure_hours\":null,\"complaint_type\":\"Blocked Driveway\",\"created_date\":\"2025-11-26T12:00:00-05:00\",\"is_closed\":false,\"location\":{\"lat\":40.58,\"lon\":-74.15},\"nta2020\":\"FIXTURE-SI-A\",\"ntaname\":\"Synthetic area SI-A\",\"status\":\"Open\",\"unique_key\":\"FIX-010\"},{\"agency\":\"NYPD\",\"borough\":\"BROOKLYN\",\"closed_date\":\"2025-11-30T04:00:00-05:00\",\"closure_hours\":8,\"complaint_type\":\"Noise - Commercial\",\"created_date\":\"2025-11-29T20:00:00-05:00\",\"is_closed\":true,\"location\":{\"lat\":40.7,\"lon\":-73.94},\"nta2020\":\"FIXTURE-BK-B\",\"ntaname\":\"Synthetic area BK-B\",\"status\":\"Closed\",\"unique_key\":\"FIX-011\"},{\"agency\":\"NYPD\",\"borough\":\"MANHATTAN\",\"closed_date\":\"2025-12-01T00:00:00-05:00\",\"closure_hours\":1,\"complaint_type\":\"Noise - Vehicle\",\"created_date\":\"2025-11-30T23:00:00-05:00\",\"is_closed\":true,\"location\":{\"lat\":40.75,\"lon\":-73.99},\"nta2020\":\"FIXTURE-MN-A\",\"ntaname\":\"Synthetic area MN-A\",\"status\":\"Closed\",\"unique_key\":\"FIX-012\"},{\"agency\":\"DOHMH\",\"borough\":\"BROOKLYN\",\"closed_date\":null,\"closure_hours\":null,\"complaint_type\":\"Rodent\",\"created_date\":\"2025-11-18T12:00:00-05:00\",\"is_closed\":true,\"location\":{\"lat\":40.7,\"lon\":-73.94},\"nta2020\":\"FIXTURE-BK-B\",\"ntaname\":\"Synthetic area BK-B\",\"status\":\"Closed\",\"unique_key\":\"FIX-013\"},{\"agency\":\"DOHMH\",\"borough\":\"MANHATTAN\",\"closed_date\":null,\"closure_hours\":null,\"complaint_type\":\"Rodent\",\"created_date\":\"2025-11-19T12:00:00-05:00\",\"is_closed\":false,\"location\":null,\"nta2020\":null,\"ntaname\":null,\"status\":\"Open\",\"unique_key\":\"FIX-014\"},{\"agency\":\"NYPD\",\"borough\":\"QUEENS\",\"closed_date\":\"2025-11-02T06:30:00-05:00\",\"closure_hours\":6,\"complaint_type\":\"Noise - Residential\",\"created_date\":\"2025-11-02T01:30:00-04:00\",\"is_closed\":true,\"location\":{\"lat\":40.73,\"lon\":-73.82},\"nta2020\":\"FIXTURE-QN-A\",\"ntaname\":\"Synthetic area QN-A\",\"status\":\"Closed\",\"unique_key\":\"FIX-015\"},{\"agency\":\"DOHMH\",\"borough\":\"BRONX\",\"closed_date\":\"2025-11-02T02:30:00-05:00\",\"closure_hours\":1,\"complaint_type\":\"Rodent\",\"created_date\":\"2025-11-02T01:30:00-05:00\",\"is_closed\":true,\"location\":{\"lat\":40.85,\"lon\":-73.9},\"nta2020\":\"FIXTURE-BX-A\",\"ntaname\":\"Synthetic area BX-A\",\"status\":\"Closed\",\"unique_key\":\"FIX-016\"},{\"agency\":\"DOHMH\",\"borough\":\"BROOKLYN\",\"closed_date\":\"2025-12-02T00:00:00-05:00\",\"closure_hours\":12,\"complaint_type\":\"Rodent\",\"created_date\":\"2025-12-01T12:00:00-05:00\",\"is_closed\":true,\"location\":{\"lat\":40.68,\"lon\":-73.95},\"nta2020\":\"FIXTURE-BK-A\",\"ntaname\":\"Synthetic area BK-A\",\"status\":\"Closed\",\"unique_key\":\"FIX-017\"},{\"agency\":\"DOHMH\",\"borough\":\"BROOKLYN\",\"closed_date\":\"2025-12-06T12:00:00-05:00\",\"closure_hours\":24,\"complaint_type\":\"Rodent\",\"created_date\":\"2025-12-05T12:00:00-05:00\",\"is_closed\":true,\"location\":{\"lat\":40.68,\"lon\":-73.95},\"nta2020\":\"FIXTURE-BK-A\",\"ntaname\":\"Synthetic area BK-A\",\"status\":\"Closed\",\"unique_key\":\"FIX-018\"},{\"agency\":\"DOHMH\",\"borough\":\"BROOKLYN\",\"closed_date\":null,\"closure_hours\":null,\"complaint_type\":\"Rodent\",\"created_date\":\"2025-12-10T12:00:00-05:00\",\"is_closed\":false,\"location\":{\"lat\":40.7,\"lon\":-73.94},\"nta2020\":\"FIXTURE-BK-B\",\"ntaname\":\"Synthetic area BK-B\",\"status\":\"Open\",\"unique_key\":\"FIX-019\"},{\"agency\":\"DOHMH\",\"borough\":\"BROOKLYN\",\"closed_date\":\"2025-12-17T12:00:00-05:00\",\"closure_hours\":48,\"complaint_type\":\"Rodent\",\"created_date\":\"2025-12-15T12:00:00-05:00\",\"is_closed\":true,\"location\":{\"lat\":40.7,\"lon\":-73.94},\"nta2020\":\"FIXTURE-BK-B\",\"ntaname\":\"Synthetic area BK-B\",\"status\":\"Closed\",\"unique_key\":\"FIX-020\"},{\"agency\":\"NYPD\",\"borough\":\"BROOKLYN\",\"closed_date\":\"2025-12-03T22:00:00-05:00\",\"closure_hours\":2,\"complaint_type\":\"Noise - Residential\",\"created_date\":\"2025-12-03T20:00:00-05:00\",\"is_closed\":true,\"location\":{\"lat\":40.68,\"lon\":-73.95},\"nta2020\":\"FIXTURE-BK-A\",\"ntaname\":\"Synthetic area BK-A\",\"status\":\"Closed\",\"unique_key\":\"FIX-021\"},{\"agency\":\"NYPD\",\"borough\":\"BROOKLYN\",\"closed_date\":null,\"closure_hours\":null,\"complaint_type\":\"Noise - Street/Sidewalk\",\"created_date\":\"2025-12-09T20:00:00-05:00\",\"is_closed\":false,\"location\":{\"lat\":40.7,\"lon\":-73.94},\"nta2020\":\"FIXTURE-BK-B\",\"ntaname\":\"Synthetic area BK-B\",\"status\":\"Open\",\"unique_key\":\"FIX-022\"},{\"agency\":\"NYPD\",\"borough\":\"BROOKLYN\",\"closed_date\":\"2025-12-21T00:00:00-05:00\",\"closure_hours\":4,\"complaint_type\":\"Noise - Commercial\",\"created_date\":\"2025-12-20T20:00:00-05:00\",\"is_closed\":true,\"location\":{\"lat\":40.7,\"lon\":-73.94},\"nta2020\":\"FIXTURE-BK-B\",\"ntaname\":\"Synthetic area BK-B\",\"status\":\"Closed\",\"unique_key\":\"FIX-023\"},{\"agency\":\"DOHMH\",\"borough\":\"MANHATTAN\",\"closed_date\":\"2025-12-08T12:00:00-05:00\",\"closure_hours\":96,\"complaint_type\":\"Rodent\",\"created_date\":\"2025-12-04T12:00:00-05:00\",\"is_closed\":true,\"location\":{\"lat\":40.75,\"lon\":-73.99},\"nta2020\":\"FIXTURE-MN-A\",\"ntaname\":\"Synthetic area MN-A\",\"status\":\"Closed\",\"unique_key\":\"FIX-024\"},{\"agency\":\"NYPD\",\"borough\":\"MANHATTAN\",\"closed_date\":\"2025-12-11T21:00:00-05:00\",\"closure_hours\":1,\"complaint_type\":\"Noise - Vehicle\",\"created_date\":\"2025-12-11T20:00:00-05:00\",\"is_closed\":true,\"location\":{\"lat\":40.75,\"lon\":-73.99},\"nta2020\":\"FIXTURE-MN-A\",\"ntaname\":\"Synthetic area MN-A\",\"status\":\"Closed\",\"unique_key\":\"FIX-025\"},{\"agency\":\"DOHMH\",\"borough\":\"QUEENS\",\"closed_date\":\"2025-12-07T12:00:00-05:00\",\"closure_hours\":24,\"complaint_type\":\"Rodent\",\"created_date\":\"2025-12-06T12:00:00-05:00\",\"is_closed\":true,\"location\":{\"lat\":40.73,\"lon\":-73.82},\"nta2020\":\"FIXTURE-QN-A\",\"ntaname\":\"Synthetic area QN-A\",\"status\":\"Closed\",\"unique_key\":\"FIX-026\"},{\"agency\":\"DOHMH\",\"borough\":\"QUEENS\",\"closed_date\":null,\"closure_hours\":null,\"complaint_type\":\"Rodent\",\"created_date\":\"2025-12-12T12:00:00-05:00\",\"is_closed\":false,\"location\":{\"lat\":40.73,\"lon\":-73.82},\"nta2020\":\"FIXTURE-QN-A\",\"ntaname\":\"Synthetic area QN-A\",\"status\":\"Open\",\"unique_key\":\"FIX-027\"},{\"agency\":\"DSNY\",\"borough\":\"QUEENS\",\"closed_date\":\"2025-12-19T18:00:00-05:00\",\"closure_hours\":6,\"complaint_type\":\"Dirty Conditions\",\"created_date\":\"2025-12-19T12:00:00-05:00\",\"is_closed\":true,\"location\":{\"lat\":40.73,\"lon\":-73.82},\"nta2020\":\"FIXTURE-QN-A\",\"ntaname\":\"Synthetic area QN-A\",\"status\":\"Closed\",\"unique_key\":\"FIX-028\"},{\"agency\":\"DOHMH\",\"borough\":\"BRONX\",\"closed_date\":\"2025-12-24T12:00:00-05:00\",\"closure_hours\":72,\"complaint_type\":\"Rodent\",\"created_date\":\"2025-12-21T12:00:00-05:00\",\"is_closed\":true,\"location\":{\"lat\":40.85,\"lon\":-73.9},\"nta2020\":\"FIXTURE-BX-A\",\"ntaname\":\"Synthetic area BX-A\",\"status\":\"Closed\",\"unique_key\":\"FIX-029\"},{\"agency\":\"NYPD\",\"borough\":\"STATEN ISLAND\",\"closed_date\":\"2025-12-24T15:00:00-05:00\",\"closure_hours\":3,\"complaint_type\":\"Blocked Driveway\",\"created_date\":\"2025-12-24T12:00:00-05:00\",\"is_closed\":true,\"location\":{\"lat\":40.58,\"lon\":-74.15},\"nta2020\":\"FIXTURE-SI-A\",\"ntaname\":\"Synthetic area SI-A\",\"status\":\"Closed\",\"unique_key\":\"FIX-030\"},{\"agency\":\"DOHMH\",\"borough\":null,\"closed_date\":null,\"closure_hours\":null,\"complaint_type\":\"Rodent\",\"created_date\":\"2025-12-25T12:00:00-05:00\",\"is_closed\":false,\"location\":null,\"nta2020\":null,\"ntaname\":null,\"status\":\"Open\",\"unique_key\":\"FIX-031\"},{\"agency\":\"NYPD\",\"borough\":\"BROOKLYN\",\"closed_date\":\"2026-01-01T01:30:00-05:00\",\"closure_hours\":2,\"complaint_type\":\"Noise - Residential\",\"created_date\":\"2025-12-31T23:30:00-05:00\",\"is_closed\":true,\"location\":{\"lat\":40.68,\"lon\":-73.95},\"nta2020\":\"FIXTURE-BK-A\",\"ntaname\":\"Synthetic area BK-A\",\"status\":\"Closed\",\"unique_key\":\"FIX-032\"}],\"spec\":{\"as_of\":\"2026-10-10T05:35:19.028782+00:00\",\"dataset_version\":\"fixture-v1\",\"group_by\":[],\"metrics\":[\"count\"],\"operation\":\"records\",\"preview_limit\":100,\"rank_by\":\"count\",\"rank_order\":\"desc\",\"schema_version\":\"1\",\"timezone\":\"America/New_York\",\"top_n\":20},\"total\":{\"relation\":\"eq\",\"value\":32},\"warnings\":[\"Synthetic bounded fixture; results are development evidence, not NYC findings or scale measurements.\",\"Development reference backend execution does not validate Elasticsearch, Kibana, or citywide findings. Inspect dataset.kind for source provenance.\"]}",
+        "sha256": "125ac56812f1caa93af73b78122cbcb03f02b38c5af3fee1fe5153f6f6162685",
+        "utf8_bytes": 11663,
+        "full_output_utf8_bytes": 12180,
+        "full_output_sha256": "e0f744451570b2410f4189c913e9d4f04afab7294d3c81193a68b9bbe0d8d705"
+      }
+    }
+  ],
+  "final": null,
+  "status": "failed",
+  "calls": 2,
+  "fresh_context": true,
+  "semantic_review": "pending",
+  "context_projection": "discovery-rules-v2",
+  "format_repairs": 0,
+  "result_context_projection": "matching-dataset-reference-v1",
+  "max_format_repairs": 2,
+  "adapter_calls": 1,
+  "model_calls": 1,
+  "discovery_initiated_by": "adapter",
+  "max_identical_invalid_calls": 3,
+  "error": {
+    "code": "model_timeout"
+  },
+  "cleanup": [],
+  "elapsed_seconds": 129.073621
+}

@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "observed_at": "2026-10-08T00:27:28.754091+00:00",
+  "evidence_kind": "metadata_only_context_projection_measurement",
+  "projection": "discovery-rules-v2",
+  "files_sha256": {
+    "runs\\real-core-37705537519\\real-v1\\index.manifest.json": "e198fb320a3e7ec1153241b3b14d36012def7c6f417148bbc02dccdb9cdbd83c",
+    "runs\\real-core-37705537519\\real-v1\\catalog.json": "220926b186aa38f0292d7e2f789e8186a026b27a6e6c366297cf0a472ec7629b",
+    "runs\\real-core-37705537519\\real-v1\\profile.json": "ed9712d8d54593132cbbf8acd250c5a6cc3855f346a58bef94f401bef26af351"
+  },
+  "adapter_sha256": "111ffd9d4d4f3b714724e2c2b7aa65cafe4fe98d8cbe84e705256428a520df94",
+  "full_descriptor_bytes": 19051,
+  "projected_descriptor_bytes": 14732,
+  "full_descriptor_sha256": "8585b7c4190d0a9bb05be36ea2cc30bb08f9556aad7833bda4c8a00442ee35d5",
+  "projected_descriptor_sha256": "9fbe5dc908b1f86eb43974652f2d4c0da48c289cdd6e62f2b3bcc462ca6ddb48",
+  "projected_component_bytes": {
+    "dataset": 5387,
+    "backend": 9,
+    "fields": 413,
+    "catalog": 3704,
+    "limits": 335,
+    "evidence_level": 19,
+    "operations": 41,
+    "analysis_guide": 4720
+  },
+  "removed_dataset_paths": [
+    "/dataset/comparison_qualification/capture_manifest_sha256",
+    "/dataset/comparison_qualification/capture_sha256",
+    "/dataset/comparison_qualification/normalized_sha256",
+    "/dataset/comparison_qualification/qualification_sha256",
+    "/dataset/ingestion/prefix_sha256",
+    "/dataset/ingestion/source_sha256",
+    "/dataset/provenance/comparison_qualification/capture_manifest_sha256",
+    "/dataset/provenance/comparison_qualification/capture_sha256",
+    "/dataset/provenance/comparison_qualification/normalized_sha256",
+    "/dataset/provenance/comparison_qualification/qualification_sha256",
+    "/dataset/provenance/provenance/reconciliation/final_metadata/schema_sha256",
+    "/dataset/provenance/provenance/reconciliation/initial_metadata/schema_sha256",
+    "/dataset/provenance/provenance/sha256",
+    "/dataset/provenance/sha256",
+    "/dataset/provenance/source_sha256"
+  ],
+  "remaining_dataset_expands_exactly": true,
+  "all_rules_catalog_fields_limits_preserved": true,
+  "actual_agent_trials": 0,
+  "backend_constructed": false,
+  "queries_executed": 0,
+  "held_out_questions_read": false,
+  "token_count_measured": false,
+  "limits": [
+    "Pure descriptor method called on read-only metadata attributes; no analytical backend or service constructor.",
+    "Byte reduction is not measured token count, inference latency or model quality.",
+    "Current request and context limits require actual local-model measurement before performance claims."
+  ]
+}

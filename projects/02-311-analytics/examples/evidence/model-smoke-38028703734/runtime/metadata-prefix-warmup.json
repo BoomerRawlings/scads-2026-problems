@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "evidence_kind": "metadata_only_model_prefix_warmup",
+  "policy": "metadata-prefix-v1",
+  "passed": true,
+  "started_at": "2026-10-10T05:51:39.492112+00:00",
+  "request_seconds": 300,
+  "seed": 0,
+  "max_output_tokens": 1,
+  "question_supplied": false,
+  "analytical_tool_calls": 0,
+  "generated_content_retained": false,
+  "context_projection": "discovery-rules-v2",
+  "usage": {
+    "completion_tokens": 1,
+    "prompt_tokens": 7312,
+    "total_tokens": 7313
+  },
+  "server_timings": {
+    "cache_n": 0,
+    "prompt_n": 7312,
+    "prompt_ms": 163551.363,
+    "prompt_per_token_ms": 22.367527762582057,
+    "prompt_per_second": 44.70766776795372,
+    "predicted_n": 1,
+    "predicted_ms": 0.001,
+    "predicted_per_token_ms": 0.0,
+    "predicted_per_second": 0.0
+  },
+  "model_alias": "analytics311-qwen3-1-7b",
+  "original_descriptor_sha256": "d7492b87cff3b6f25001d081e5f0d0578e90535a352e23069b1e5ecc3ac74204",
+  "original_descriptor_utf8_bytes": 10264,
+  "projected_descriptor_sha256": "02e24b4a4ef1c1e2d6a9d82448931ca642b846f989b6343561012bf261c478f9",
+  "projected_descriptor_utf8_bytes": 8172,
+  "prefix_sha256": "9a3896f0da79f728942eb629b701ffa4e1bae3c572aa6a67076b1be6297508d9",
+  "prefix_utf8_bytes": 11991,
+  "request_sha256": "8c9232c6866bb8451ae7cecc81e1577759e1a25f070d75fb79c51529086d643d",
+  "request_utf8_bytes": 27065,
+  "elapsed_seconds": 163.583575,
+  "finished_at": "2026-10-10T05:54:23.075693+00:00"
+}

@@ -1,0 +1,278 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-10T06:31:39.634825+00:00",
+  "review_source_sha256": "c7259586acad2893d84f132882db1a757f2e40ecafc26925600d24b1ecbdb8aa",
+  "method": "Offline independent arithmetic, nested numerical comparisons, identity/hash reconciliation, and actual retained CSV set comparisons. No service, model, raw-corpus or SQLite recomputation.",
+  "workflow": {
+    "run_id": 38029812736,
+    "url": "https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/38029812736",
+    "head_sha": "663a5b16fa8ddeec08970bc5cf71f0eb2e71582e",
+    "status_at_review": "in_progress",
+    "conclusion_at_review": null,
+    "core_receipt_passed": false
+  },
+  "artifact": {
+    "id": 11661983440,
+    "zip_sha256": "416ea16fffec6bf77573beb1e75d03c0438c7d3c12aaba62e450070c3e8cb5e9",
+    "zip_bytes": 1190899,
+    "extracted_files_verified": 102,
+    "campaign_freeze_sha256": "080e76a2e1635bba36ace74a398097f3d7be2789fa8fdb609929c0970c228490"
+  },
+  "checks": {
+    "downloaded_artifact_matches_exact_zip": true,
+    "raw_normalized_index_counts_reconcile": true,
+    "hash_provenance_chain": true,
+    "qualification_seals": true,
+    "official_nta_identity_and_residential_codes": true,
+    "five_api_cases_match_retained_independent_oracle": true,
+    "thirty_five_performance_results_match_checked_api_cases": true,
+    "latency_summary_arithmetic": true,
+    "four_full_exports_match_exact_independent_ids": true,
+    "point_and_selected_all_trend_csv_parity": true,
+    "failed_streaming_job_matches_recovery": true,
+    "provision_receipt_matches_generated_profile": true,
+    "three_browser_map_failures_preserved": true,
+    "browser_search_records_and_screenshots_reviewed": true
+  },
+  "maximum_absolute_numeric_difference": 2.842170943040401e-14,
+  "review_relative_tolerance": 1e-10,
+  "review_absolute_tolerance": 1e-09,
+  "record_reconciliation": {
+    "captured": 2133268,
+    "normalized": 2133268,
+    "ingested": 2133268,
+    "frozen_index": 2133268,
+    "oracle": 2133268
+  },
+  "export_artifacts": [
+    {
+      "job_id": "2e4ac33fa357419987d54df8c4603fdb",
+      "bytes": 1139937,
+      "rows": 9728,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c",
+      "exact_membership_equal": true
+    },
+    {
+      "job_id": "6b594cbb72cd43058d8a4498b8f94c89",
+      "bytes": 1139937,
+      "rows": 9728,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c",
+      "exact_membership_equal": true
+    },
+    {
+      "job_id": "8390b40f5a034890809a2f87fa9be783",
+      "bytes": 1139937,
+      "rows": 9728,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c",
+      "exact_membership_equal": true
+    },
+    {
+      "job_id": "b012655c17494c42af2a478454887171",
+      "bytes": 1139937,
+      "rows": 9728,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c",
+      "exact_membership_equal": true
+    }
+  ],
+  "maps": {
+    "provision_passed": true,
+    "rendered_parity_verified": false,
+    "render_failures": {
+      "points": {
+        "stage": "browser",
+        "browser_stage": "rendered_source_parity",
+        "code": "acceptance_failed",
+        "type": "JSONDecodeError",
+        "csv_rows": 242,
+        "browser_reached": true,
+        "saved_map_path_verified": true,
+        "captured_initial_data_searches": 1,
+        "captured_async_search_polls": 0,
+        "captured_metadata_searches": 1,
+        "captured_request_index_and_filters_checked": true,
+        "live_point_document_id_binding_receipt_verified": true,
+        "screenshot_observation": "Named saved point map, visible markers, Map details > Mapbox style with visible _id/_index and Point coordinates; JSON extraction failed, no complete rendered identity comparison."
+      },
+      "trends": {
+        "stage": "browser",
+        "browser_stage": "inspector_style_tab",
+        "code": "acceptance_failed",
+        "type": "TimeoutError",
+        "csv_rows": 196,
+        "browser_reached": true,
+        "saved_map_path_verified": true,
+        "captured_initial_data_searches": 2,
+        "captured_async_search_polls": 1,
+        "captured_metadata_searches": 1,
+        "captured_request_index_and_filters_checked": true,
+        "live_point_document_id_binding_receipt_verified": false,
+        "screenshot_observation": "No screenshot or parsed style retained for this all-trend attempt; rendered joined values remain unverified."
+      },
+      "selected_trends": {
+        "stage": "browser",
+        "browser_stage": "inspector_style_tab",
+        "code": "acceptance_failed",
+        "type": "TimeoutError",
+        "csv_rows": 3,
+        "browser_reached": true,
+        "saved_map_path_verified": true,
+        "captured_initial_data_searches": 2,
+        "captured_async_search_polls": 1,
+        "captured_metadata_searches": 1,
+        "captured_request_index_and_filters_checked": true,
+        "live_point_document_id_binding_receipt_verified": false,
+        "screenshot_observation": "Selected-trend screenshot shows named map, small visible polygon portions and Mapbox style polygon coordinates. Timeout remains recorded at inspector_style_tab; no complete parsed style or joined metric verification."
+      }
+    }
+  },
+  "sampled_memory": {
+    "samples": 6,
+    "runner_max_rss_bytes": 126865408,
+    "node_heap_max_observed_bytes": 1096456528,
+    "node_heap_configured_bytes": 2147483648,
+    "worker_max_sampled_rss_bytes": 33198080,
+    "workers_max_sampled_total_rss_bytes": 59170816,
+    "fault_worker_self_reported_rss_bytes": 33787904
+  },
+  "preserved_originals": [
+    {
+      "file": "acceptance.json",
+      "source": "runs/agent-campaign-38029812736/corpus/real-v1/acceptance.json",
+      "bytes": 3265,
+      "sha256": "db551bb530ea68ac545613801d2c2d6f5378e38dc52a29df7a98041392af5cb2"
+    },
+    {
+      "file": "normalized.manifest.json",
+      "source": "runs/agent-campaign-38029812736/corpus/real-v1/normalized.manifest.json",
+      "bytes": 5154,
+      "sha256": "a110e9f0f3223877fbf29cfa4aba106d34864684ce7cbcc1f9d08df191547bc1"
+    },
+    {
+      "file": "index.manifest.json",
+      "source": "runs/agent-campaign-38029812736/corpus/real-v1/index.manifest.json",
+      "bytes": 7578,
+      "sha256": "b77cb27b5ffacfc101b5caf3265867e0f7bc5c39d352c799bda9ed6b21cf9a7e"
+    },
+    {
+      "file": "ingest.json",
+      "source": "runs/agent-campaign-38029812736/corpus/real-v1/ingest.json",
+      "bytes": 750,
+      "sha256": "77bac1ec0af06e2e303c7a1624bae802bc52b1149f4164b8d41983d53a095abc"
+    },
+    {
+      "file": "measurement-suite.json",
+      "source": "runs/agent-campaign-38029812736/corpus/real-v1/measurement-suite.json",
+      "bytes": 4369,
+      "sha256": "9affb148b108e27e56eba2b2fd629a78ca6822a065927cc43aa6d8def0ac07ea"
+    },
+    {
+      "file": "measurements.json",
+      "source": "runs/agent-campaign-38029812736/corpus/real-v1/measurements.json",
+      "bytes": 29572,
+      "sha256": "b1c8851abde7a1591fbe6ee69aeed8d8c6f96e13507b15196e3ec45d6906c199"
+    },
+    {
+      "file": "maps-provision.json",
+      "source": "runs/agent-campaign-38029812736/corpus/real-v1/maps-provision.json",
+      "bytes": 779,
+      "sha256": "0dc11156346eb49c46704e178ef687c72b8f9ad4998a826aaf1ea36b6bcea2f9"
+    },
+    {
+      "file": "catalog.json",
+      "source": "runs/agent-campaign-38029812736/corpus/real-v1/catalog.json",
+      "bytes": 3704,
+      "sha256": "220926b186aa38f0292d7e2f789e8186a026b27a6e6c366297cf0a472ec7629b"
+    },
+    {
+      "file": "host.json",
+      "source": "runs/agent-campaign-38029812736/corpus/runtime/host.json",
+      "bytes": 1364,
+      "sha256": "ee9c0022fbce596a076ccc460b97e7435405d4e1d35cc5282fcdb1e04446f43b"
+    },
+    {
+      "file": "elasticsearch-version.json",
+      "source": "runs/agent-campaign-38029812736/corpus/runtime/elasticsearch-version.json",
+      "bytes": 540,
+      "sha256": "b97306782c3ad8a76af0fd8da6d6b36ba34472654f3ed708a1919719236c6697"
+    },
+    {
+      "file": "kibana-status.json",
+      "source": "runs/agent-campaign-38029812736/corpus/runtime/kibana-status.json",
+      "bytes": 23142,
+      "sha256": "8fdd6c465c3f2d77ab4a5984afc1f395f90fb6a4404249c52c8f1715e5400dd3"
+    },
+    {
+      "file": "corpus-artifact.json",
+      "source": "runs/agent-campaign-38029812736/corpus-artifact.json",
+      "bytes": 808,
+      "sha256": "34db9e3d504ecf0e9090d0de470c297293fe9c24bf07db9374ba154d87ee8bc6"
+    },
+    {
+      "file": "render-points.json",
+      "source": "runs/agent-campaign-38029812736/corpus/real-v1/render-points/receipt.json",
+      "bytes": 1217,
+      "sha256": "7e3cea91c3b229fb22134b285ea7d0c002dfd9813000cf6df2d658d13460a976"
+    },
+    {
+      "file": "render-trends.json",
+      "source": "runs/agent-campaign-38029812736/corpus/real-v1/render-trends/receipt.json",
+      "bytes": 1008,
+      "sha256": "be8daa064f79f6e962210eb14c98dac54e084a75f99af80fad3c940483de42bd"
+    },
+    {
+      "file": "render-selected_trends.json",
+      "source": "runs/agent-campaign-38029812736/corpus/real-v1/render-selected_trends/receipt.json",
+      "bytes": 1009,
+      "sha256": "66f6fec36bb91838ebf752a027d88c31c0cc637d1faa46cce4b37af48d620d50"
+    },
+    {
+      "file": "browser-searches-points.json",
+      "source": "runs/agent-campaign-38029812736/corpus/real-v1/render-points/browser-searches.json",
+      "bytes": 1127,
+      "sha256": "74aee6eb50deb6d80c379b42133e715d9d84b2a6bcb59a7357f052fa0cfd10d2"
+    },
+    {
+      "file": "render-points-failure.png",
+      "source": "runs/agent-campaign-38029812736/corpus/real-v1/render-points/failure.png",
+      "bytes": 139958,
+      "sha256": "1d2089c650e0167023cc8eaeadcb9a4e0bd722433c1b95826a290bb39c432154"
+    },
+    {
+      "file": "browser-searches-trends.json",
+      "source": "runs/agent-campaign-38029812736/corpus/real-v1/render-trends/browser-searches.json",
+      "bytes": 2286,
+      "sha256": "4d9ce1afbd437eef40bda63e1ecc6dec18e1cd5867dda85d112117ab7108c0cf"
+    },
+    {
+      "file": "browser-searches-selected_trends.json",
+      "source": "runs/agent-campaign-38029812736/corpus/real-v1/render-selected_trends/browser-searches.json",
+      "bytes": 2359,
+      "sha256": "49574c16b1e5c775765cd19cc3b7a3b6be5da5a310e139accc6cb6c767edfeb7"
+    },
+    {
+      "file": "render-selected_trends-failure.png",
+      "source": "runs/agent-campaign-38029812736/corpus/real-v1/render-selected_trends/failure.png",
+      "bytes": 109092,
+      "sha256": "23f6b4019b1927b22964d4190520185fc975a8ad4668748671b4465011b4a313"
+    }
+  ],
+  "excluded_artifacts": [
+    "raw or normalized record files",
+    "individual oracle IDs and point expectation",
+    "saved record previews",
+    "CSV record bodies",
+    "locks",
+    "agent freeze and trials, retained separately in campaign evidence"
+  ],
+  "limitations": [
+    "Local review validates retained evidence, not a rerun of Elasticsearch or complete re-normalization.",
+    "SQLite oracle shares normalization and NTA assignments; this does not independently prove spatial assignment correctness.",
+    "Five analytical cases, 25 serial repeats and two batches of five queries; total measured workload 5.046 seconds with previously queried index and uncontrolled caches.",
+    "Nine-column exports checked complete IDs, headers and byte stability; non-ID cells lack an independent cell-by-cell real-corpus oracle.",
+    "Sampled heap and RSS are not peak capacity; node process metric is virtual memory, not RSS; Kibana and ingestion peak memory unmeasured.",
+    "Recovery is one abrupt local export worker exit at first-row streaming; not server/index/node or mid-bulk-ingestion recovery.",
+    "Maps provisioning and saved-map navigation completed. Point extraction failed JSONDecodeError at rendered_source_parity; both trend attempts failed TimeoutError at inspector_style_tab. Point and selected-trend screenshots show named maps, visible geometry and Mapbox style source data; all-trend screenshot absent. No complete parsed style or rendered parity result is retained. Request-side indices/filter DSL match saved cohorts; live point ES document-ID binding receipt matches the242-ID independent expectation. Those narrower facts do not establish rendered membership or joined values. Local review does not repeat the browser session or independently establish the eventual browser/extraction defect cause.",
+    "This is the completed core-stage artifact of an ongoing agent campaign. Its frozen question set is not trial evidence; agent results and end-to-end conversational latency are reviewed separately.",
+    "Source before/after reconciliation is observed-corpus qualification, not transactional isolation or complete citywide reporting."
+  ]
+}

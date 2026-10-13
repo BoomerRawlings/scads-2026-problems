@@ -1,0 +1,1 @@
+{"boundaries_sha256":"5049760a4d0936e1d3dbf70d745e2cee4286bd163b11c702f15fa28db46a001e","checks":{},"error":{"code":"acceptance_failed","reason":"Kibana version differs from pinned schema.","stage":"version"},"passed":false,"rendered_parity_verified":false,"schema_version":1,"started_at":"2026-10-08T00:16:28.431287+00:00"}

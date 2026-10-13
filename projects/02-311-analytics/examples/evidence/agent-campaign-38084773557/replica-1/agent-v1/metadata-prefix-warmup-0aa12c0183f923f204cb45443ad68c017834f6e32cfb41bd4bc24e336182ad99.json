@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "evidence_kind": "metadata_only_model_prefix_warmup",
+  "policy": "metadata-prefix-v1",
+  "passed": true,
+  "started_at": "2026-10-10T21:05:40.875174+00:00",
+  "request_seconds": 900,
+  "seed": 0,
+  "max_output_tokens": 1,
+  "question_supplied": false,
+  "analytical_tool_calls": 0,
+  "generated_content_retained": false,
+  "context_projection": "discovery-rules-v2",
+  "usage": {
+    "completion_tokens": 1,
+    "prompt_tokens": 10157,
+    "total_tokens": 10158
+  },
+  "server_timings": {
+    "cache_n": 0,
+    "prompt_n": 10157,
+    "prompt_ms": 295739.638,
+    "prompt_per_token_ms": 29.116829575662102,
+    "prompt_per_second": 34.34439856858146,
+    "predicted_n": 1,
+    "predicted_ms": 0.001,
+    "predicted_per_token_ms": 0.0,
+    "predicted_per_second": 0.0
+  },
+  "model_alias": "analytics311-qwen3-1-7b",
+  "original_descriptor_sha256": "8c2266148146a60017e8b87e4fa23d97f906b30f4b8d1de3a4add3f1b20c6491",
+  "original_descriptor_utf8_bytes": 19120,
+  "projected_descriptor_sha256": "94ccb38d19dd9d13cae71c8d6f96f4deb911ec14e8e703828f99530137cf6bc8",
+  "projected_descriptor_utf8_bytes": 14801,
+  "prefix_sha256": "bbb5cd04275bd2d0747ee79cf834f43e0f613a38669186d79e32d279b3568e23",
+  "prefix_utf8_bytes": 19442,
+  "request_sha256": "e96cc5abb9f4da03601c79899d03cbfa97dcb29e15cb431322b91da8132a8976",
+  "request_utf8_bytes": 34516,
+  "elapsed_seconds": 295.781533,
+  "finished_at": "2026-10-10T21:10:36.656712+00:00",
+  "runtime_receipt_sha256": "0aa12c0183f923f204cb45443ad68c017834f6e32cfb41bd4bc24e336182ad99",
+  "execution_sha256": "ee73df656d251b728ec1af0441e8738e25986f3ad3bdb59e52bd6957ae35623b",
+  "runtime_spec_sha256": "0de2a21c278db7d268041173fdb73ab7b928c4f23e5a4dcccc5c44215df15b17",
+  "runtime_memory": {
+    "source": "linux_proc_status",
+    "available": true,
+    "observed_at": "2026-10-10T21:10:36.656794+00:00",
+    "scope": "RSS at observation; HWM since this owned process started, not a trial-specific peak.",
+    "rss_bytes": 4761853952,
+    "process_lifetime_hwm_bytes": 4761853952
+  }
+}

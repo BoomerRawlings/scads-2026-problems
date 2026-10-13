@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "evidence_kind": "metadata_only_model_prefix_warmup",
+  "policy": "metadata-prefix-v1",
+  "passed": false,
+  "started_at": "2026-10-10T06:42:46.847583+00:00",
+  "request_seconds": 300,
+  "seed": 0,
+  "max_output_tokens": 1,
+  "question_supplied": false,
+  "analytical_tool_calls": 0,
+  "generated_content_retained": false,
+  "context_projection": "discovery-rules-v2",
+  "usage": {},
+  "server_timings": {},
+  "model_alias": "analytics311-qwen3-1-7b",
+  "original_descriptor_sha256": "a61ccbea42764a23f6e364c702ed4240a5dc625074b23c5404a80c695c879463",
+  "original_descriptor_utf8_bytes": 19120,
+  "projected_descriptor_sha256": "16761e52a200584b5d250fe64a1591013dc5ace5b1177aabfb47a406812c3252",
+  "projected_descriptor_utf8_bytes": 14801,
+  "prefix_sha256": "01ab9f6656274be8ce9e23d5eb8a011882242277d210a54c71da2fe36305cda8",
+  "prefix_utf8_bytes": 19442,
+  "request_sha256": "0ad365af772a19ca74c6c5e77725e192f15d8cccd032addcd32b267aa35eda73",
+  "request_utf8_bytes": 34516,
+  "error": {
+    "code": "model_timeout"
+  },
+  "elapsed_seconds": 300.000881,
+  "finished_at": "2026-10-10T06:47:46.848472+00:00",
+  "runtime_receipt_sha256": "3361f4cad3d6d03c8595f47c7744d798599ec945a2be575dfadb0ff3cae238e5",
+  "execution_sha256": "ba5240a07e4daaf0a91897bbec6d4938b13a6992488b424cad2324076ff445f8",
+  "runtime_spec_sha256": "2ff41f3779e8c2e342281239f06a22130474f622ab487ffdc2530e5e510a37d9",
+  "runtime_memory": {
+    "source": "linux_proc_status",
+    "available": true,
+    "observed_at": "2026-10-10T06:47:46.848564+00:00",
+    "scope": "RSS at observation; HWM since this owned process started, not a trial-specific peak.",
+    "rss_bytes": 4776603648,
+    "process_lifetime_hwm_bytes": 4788518912
+  }
+}

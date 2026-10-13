@@ -1,0 +1,300 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-10T20:32:37.064532+00:00",
+  "review_source_sha256": "bb6da149b28e80bf5883c5190b7ac725dc620ae6b00ce7853069a397f4ec17b9",
+  "method": "Offline independent arithmetic, nested numerical comparisons, identity/hash reconciliation, and actual retained CSV set comparisons. No service, model, raw-corpus or SQLite recomputation.",
+  "workflow": {
+    "run_id": 38031560273,
+    "url": "https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/38031560273",
+    "head_sha": "2ab96473fd927d5a5bae4bc48e2c50e372150ab4",
+    "conclusion": "failure"
+  },
+  "checks": {
+    "raw_normalized_index_counts_reconcile": true,
+    "hash_provenance_chain": true,
+    "qualification_seals": true,
+    "official_nta_identity_and_residential_codes": true,
+    "five_api_cases_match_retained_independent_oracle": true,
+    "thirty_five_performance_results_match_checked_api_cases": true,
+    "latency_summary_arithmetic": true,
+    "four_full_exports_match_exact_independent_ids": true,
+    "point_and_selected_all_trend_csv_parity": true,
+    "failed_streaming_job_matches_recovery": true,
+    "provision_receipt_matches_generated_profile": true,
+    "point_render_pass_and_both_trend_failures_preserved": true,
+    "independent_actual_point_ids_checked": true,
+    "trend_style_absence_preserved": true,
+    "browser_search_records_and_screenshots_reviewed": true
+  },
+  "maximum_absolute_numeric_difference": 2.842170943040401e-14,
+  "review_relative_tolerance": 1e-10,
+  "review_absolute_tolerance": 1e-09,
+  "record_reconciliation": {
+    "captured": 2133268,
+    "normalized": 2133268,
+    "ingested": 2133268,
+    "frozen_index": 2133268,
+    "oracle": 2133268
+  },
+  "export_artifacts": [
+    {
+      "job_id": "2edd72b7a96d4ab8a1d5cf9ea5a5f242",
+      "bytes": 1139937,
+      "rows": 9728,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c",
+      "exact_membership_equal": true
+    },
+    {
+      "job_id": "3fc1a13515334592bf174c7fd7cd4cb4",
+      "bytes": 1139937,
+      "rows": 9728,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c",
+      "exact_membership_equal": true
+    },
+    {
+      "job_id": "4217b292ca4f44d295a84ace14d4b644",
+      "bytes": 1139937,
+      "rows": 9728,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c",
+      "exact_membership_equal": true
+    },
+    {
+      "job_id": "695d953ad74741c7a3ad07456e4e1954",
+      "bytes": 1139937,
+      "rows": 9728,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c",
+      "exact_membership_equal": true
+    }
+  ],
+  "maps": {
+    "provision_passed": true,
+    "rendered_parity_verified": false,
+    "cases": {
+      "points": {
+        "passed": true,
+        "browser_stage": "complete",
+        "error": null,
+        "csv_rows": 242,
+        "saved_map_path_verified": true,
+        "captured_initial_data_searches": 1,
+        "captured_async_search_polls": 0,
+        "captured_metadata_searches": 1,
+        "captured_request_index_and_filters_checked": true,
+        "live_point_document_id_binding_receipt_verified": true,
+        "screenshot_observation": "Visible point markers on the named saved map; full242-ID membership independently checked in Inspector source."
+      },
+      "trends": {
+        "passed": false,
+        "browser_stage": "inspector_style_tab",
+        "error": {
+          "code": "acceptance_failed",
+          "stage": "browser",
+          "type": "TimeoutError"
+        },
+        "csv_rows": 196,
+        "saved_map_path_verified": true,
+        "captured_initial_data_searches": 2,
+        "captured_async_search_polls": 1,
+        "captured_metadata_searches": 1,
+        "captured_request_index_and_filters_checked": true,
+        "live_point_document_id_binding_receipt_verified": false,
+        "screenshot_observation": "Diagnostic screenshot shows Mapbox style JSON and painted polygon geometry behind Inspector after tab timeout. No parsed full style; joined metric acceptance remains failed."
+      },
+      "selected_trends": {
+        "passed": false,
+        "browser_stage": "inspector_style_tab",
+        "error": {
+          "code": "acceptance_failed",
+          "stage": "browser",
+          "type": "TimeoutError"
+        },
+        "csv_rows": 3,
+        "saved_map_path_verified": true,
+        "captured_initial_data_searches": 2,
+        "captured_async_search_polls": 1,
+        "captured_metadata_searches": 1,
+        "captured_request_index_and_filters_checked": true,
+        "live_point_document_id_binding_receipt_verified": false,
+        "screenshot_observation": "Diagnostic screenshot shows Mapbox style JSON and painted polygon geometry behind Inspector after tab timeout. No parsed full style; joined metric acceptance remains failed."
+      }
+    },
+    "rendered_style_evidence": {
+      "points": {
+        "file": "runs/maps-core-38031560273/real-v1/render-points/rendered-style.json",
+        "bytes": 78297,
+        "sha256": "779f229bf205543dbb95f3d3c1b5eade988211d743b31177eb31d5802ea53223",
+        "inspector_read": {
+          "method": "inspector_code_text_content",
+          "sha256": "9296dea8be3ac5cd94904e76ae520c389c9f36a3e41fa3481705354e0ee1abc4",
+          "utf8_bytes": 146089
+        },
+        "independent_exact_rendered_id_count": 242
+      },
+      "trends": {
+        "rendered_style_available": false,
+        "rendered_parity_verified": false
+      },
+      "selected_trends": {
+        "rendered_style_available": false,
+        "rendered_parity_verified": false
+      }
+    }
+  },
+  "sampled_memory": {
+    "samples": 6,
+    "runner_max_rss_bytes": 127606784,
+    "node_heap_max_observed_bytes": 1474297856,
+    "node_heap_configured_bytes": 2147483648,
+    "worker_max_sampled_rss_bytes": 33124352,
+    "workers_max_sampled_total_rss_bytes": 58691584,
+    "fault_worker_self_reported_rss_bytes": 33714176
+  },
+  "preserved_originals": [
+    {
+      "file": "acceptance.json",
+      "source": "runs/maps-core-38031560273/real-v1/acceptance.json",
+      "bytes": 3180,
+      "sha256": "9c3eb42140ef47024d49df336199b06fbe3216707e3d6da9167ea598e301ed28"
+    },
+    {
+      "file": "normalized.manifest.json",
+      "source": "runs/maps-core-38031560273/real-v1/normalized.manifest.json",
+      "bytes": 5154,
+      "sha256": "a110e9f0f3223877fbf29cfa4aba106d34864684ce7cbcc1f9d08df191547bc1"
+    },
+    {
+      "file": "index.manifest.json",
+      "source": "runs/maps-core-38031560273/real-v1/index.manifest.json",
+      "bytes": 7578,
+      "sha256": "48c15f82c96a5b1cb83166b86652b05e058855b16d59fbf919a47c5f86391d48"
+    },
+    {
+      "file": "ingest.json",
+      "source": "runs/maps-core-38031560273/real-v1/ingest.json",
+      "bytes": 750,
+      "sha256": "4c96bb26ea8c23e4fc32453db0503053a7dccbb6330a51043d4e2a3c98504f16"
+    },
+    {
+      "file": "measurement-suite.json",
+      "source": "runs/maps-core-38031560273/real-v1/measurement-suite.json",
+      "bytes": 4369,
+      "sha256": "9affb148b108e27e56eba2b2fd629a78ca6822a065927cc43aa6d8def0ac07ea"
+    },
+    {
+      "file": "measurements.json",
+      "source": "runs/maps-core-38031560273/real-v1/measurements.json",
+      "bytes": 29562,
+      "sha256": "9d63b84b8d8118f744ec613719478fb89d7746ab20eb0ff307e63ad798204feb"
+    },
+    {
+      "file": "maps-provision.json",
+      "source": "runs/maps-core-38031560273/real-v1/maps-provision.json",
+      "bytes": 779,
+      "sha256": "0b61520696ab06022997f927af89604fc410193aaa6c3bf44e5a6330b61c1051"
+    },
+    {
+      "file": "catalog.json",
+      "source": "runs/maps-core-38031560273/real-v1/catalog.json",
+      "bytes": 3704,
+      "sha256": "220926b186aa38f0292d7e2f789e8186a026b27a6e6c366297cf0a472ec7629b"
+    },
+    {
+      "file": "host.json",
+      "source": "runs/maps-core-38031560273/runtime/host.json",
+      "bytes": 1364,
+      "sha256": "42b920db58acb2a8b766e9927631bcae0d7a5da2875e43245f51a39bd759e212"
+    },
+    {
+      "file": "elasticsearch-version.json",
+      "source": "runs/maps-core-38031560273/runtime/elasticsearch-version.json",
+      "bytes": 540,
+      "sha256": "f5bf6df3c07bb2eb667a362968cea8b9b6772cab9242064a38f0779da92d46ba"
+    },
+    {
+      "file": "kibana-status.json",
+      "source": "runs/maps-core-38031560273/runtime/kibana-status.json",
+      "bytes": 23125,
+      "sha256": "d0b5cd501c2aa154ac40d8610ed395c963d04b7a76059b4c6f347526094c79a4"
+    },
+    {
+      "file": "maps-independent-review.json",
+      "source": "runs/maps-core-38031560273/maps-independent-review.json",
+      "bytes": 3701,
+      "sha256": "9561d3e7f860b27362e86b306cca1c06917cfdc96501e2193a5a9f8b1b699347"
+    },
+    {
+      "file": "render-points.json",
+      "source": "runs/maps-core-38031560273/real-v1/render-points/receipt.json",
+      "bytes": 2008,
+      "sha256": "66c813be6e76327201d0220e1a6c16e88dc88b76b9fbb7a575796ea556abef51"
+    },
+    {
+      "file": "render-trends.json",
+      "source": "runs/maps-core-38031560273/real-v1/render-trends/receipt.json",
+      "bytes": 1167,
+      "sha256": "760b3779d53369496c260faa3ae70f2a76b74c7868a54c30471edd37f7a7004e"
+    },
+    {
+      "file": "render-selected_trends.json",
+      "source": "runs/maps-core-38031560273/real-v1/render-selected_trends/receipt.json",
+      "bytes": 1168,
+      "sha256": "a12e3e15e8f127b99cc6d937a5a7f3f0661227a238caac07644e5ed5442631bc"
+    },
+    {
+      "file": "browser-searches-points.json",
+      "source": "runs/maps-core-38031560273/real-v1/render-points/browser-searches.json",
+      "bytes": 1127,
+      "sha256": "9a29c2df35a329ab93fd9bbe1d8e18572b21e2e9d8083294f565837d8b447785"
+    },
+    {
+      "file": "render-points-map.png",
+      "source": "runs/maps-core-38031560273/real-v1/render-points/map.png",
+      "bytes": 111943,
+      "sha256": "2709280c2deb86cf80702d82834ae68a84e1311bcfe896892b6a8de73e46dab4"
+    },
+    {
+      "file": "browser-searches-trends.json",
+      "source": "runs/maps-core-38031560273/real-v1/render-trends/browser-searches.json",
+      "bytes": 2286,
+      "sha256": "d499e6e04ba5bac3042874efa274ac7e8fe9197d08dc8ae8c7715bc762e7c5a6"
+    },
+    {
+      "file": "render-trends-failure.png",
+      "source": "runs/maps-core-38031560273/real-v1/render-trends/failure.png",
+      "bytes": 143661,
+      "sha256": "b824f0410c21abeefb04ee66d9dd6a9413ba87ccb6eca9a498856de317133b40"
+    },
+    {
+      "file": "browser-searches-selected_trends.json",
+      "source": "runs/maps-core-38031560273/real-v1/render-selected_trends/browser-searches.json",
+      "bytes": 2359,
+      "sha256": "e527d4d31be2c70921fbb09db83c01d613e78a4a3b338b0c0463396e3035128c"
+    },
+    {
+      "file": "render-selected_trends-failure.png",
+      "source": "runs/maps-core-38031560273/real-v1/render-selected_trends/failure.png",
+      "bytes": 109261,
+      "sha256": "459c5c3a7c6c38ed5782f9f2510682262f83294b74949389c5a5e230ece9f19d"
+    }
+  ],
+  "excluded_artifacts": [
+    "raw or normalized record files",
+    "individual oracle IDs and point expectation",
+    "saved record previews",
+    "full rendered style bodies retained only in original run with hashes here",
+    "CSV record bodies",
+    "locks",
+    "unexecuted agent freeze"
+  ],
+  "limitations": [
+    "Local review validates retained evidence, not a rerun of Elasticsearch or complete re-normalization.",
+    "SQLite oracle shares normalization and NTA assignments; this does not independently prove spatial assignment correctness.",
+    "Five analytical cases, 25 serial repeats and two batches of five queries; total measured workload 5.034 seconds with previously queried index and uncontrolled caches.",
+    "Nine-column exports checked complete IDs, headers and byte stability; non-ID cells lack an independent cell-by-cell real-corpus oracle.",
+    "Sampled heap and RSS are not peak capacity; node process metric is virtual memory, not RSS; Kibana and ingestion peak memory unmeasured.",
+    "Recovery is one abrupt local export worker exit at first-row streaming; not server/index/node or mid-bulk-ingestion recovery.",
+    "Actual Inspector and browser evidence pass bounded242-point membership. Both full196 and selected3 neighborhood views remain failed at inspector_style_tab after the named-layer/no-spinner precondition. No parsed trend style retained; diagnostic screenshots show geometry and JSON later but do not validate joined metrics, official geometry equality or every pixel color. Prior seventh-run selected-metric pass remains separate evidence. Point coordinates lack independent coordinate oracle. No basemap is configured; telemetry/security banners remain visible. Global time display is not the analytical period for no-time data views; saved filter/result cohort is authoritative.",
+    "Frozen questions are not model trials. No held-out model outcome or end-to-end conversational latency.",
+    "Source before/after reconciliation is observed-corpus qualification, not transactional isolation or complete citywide reporting."
+  ]
+}

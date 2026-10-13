@@ -1,0 +1,1160 @@
+{
+  "question_id": "Q31",
+  "repeat": 1,
+  "freeze_sha256": "55554130880e9d0cc47a56dba4d87761e6aa80f1872c350a7d444cd546a97381",
+  "execution_sha256": "ee73df656d251b728ec1af0441e8738e25986f3ad3bdb59e52bd6957ae35623b",
+  "prefix_warmup_sha256": "95c5b0f0e9d17cfcb70dfd29f8749cfd4e5bcab7ef97fb70e4952e5e17faaf8a",
+  "runtime_memory": {
+    "source": "linux_proc_status",
+    "available": true,
+    "observed_at": "2026-10-10T22:12:56.606412+00:00",
+    "scope": "RSS at observation; HWM since this owned process started, not a trial-specific peak.",
+    "rss_bytes": 4724785152,
+    "process_lifetime_hwm_bytes": 4864073728
+  },
+  "runtime_receipt_sha256": "0aa12c0183f923f204cb45443ad68c017834f6e32cfb41bd4bc24e336182ad99",
+  "trace": {
+    "question": "Find the 3 official residential NTA2020 neighborhoods with the largest Rodent daily-rate increases from June to October 2025, requiring 20 combined requests. Then compare agencies within those exact selected neighborhoods for October, keeping the same complaint selection; give total, closed, nonclosed and mean administrative closure hours. Export all second-stage agency aggregate rows and make a trend map of only the selected neighborhoods.",
+    "seed": 101,
+    "model": "analytics311-qwen3-1-7b",
+    "events": [
+      {
+        "kind": "adapter_tool_call",
+        "initiated_by": "adapter",
+        "message": {
+          "role": "assistant",
+          "content": "",
+          "tool_calls": [
+            {
+              "id": "adapter_discovery",
+              "type": "function",
+              "function": {
+                "name": "describe_dataset",
+                "arguments": "{}"
+              }
+            }
+          ]
+        },
+        "elapsed_seconds": 0.000105
+      },
+      {
+        "kind": "tool",
+        "name": "describe_dataset",
+        "arguments": {},
+        "initiated_by": "adapter",
+        "output": {
+          "dataset": {
+            "comparison_qualification": {
+              "capture_manifest_sha256": "0f3651e2ea33ea78e14183efe67af6996a9202899b0da94f491b15fd8888ad9d",
+              "capture_sha256": "91d84eb6d02dafc402a892298ba92cb121e8e905a189fb75f31b19d4d43aeec7",
+              "gte": "2025-04-01T04:00:00+00:00",
+              "index": "nyc311-real-2025-v1",
+              "index_uuid": "0PWTIqhOTJuVbFYt8kC_lg",
+              "lt": "2025-11-01T04:00:00+00:00",
+              "normalized_sha256": "70ceb22b8f9f79cc03c5dcd4d1955ff0ef7148b63d07e54e9610d726c94dc18e",
+              "population_complete": false,
+              "qualification_sha256": "ed1b64766cd5690886d08d3194387d5c866b897fc694ea9d436dc1c29b2eac83",
+              "row_count": 2133268,
+              "scope": "reconciled_observed_snapshot",
+              "stage": "frozen_index",
+              "transactional_source_snapshot": false,
+              "version": 1,
+              "warning": "Comparisons describe the reconciled observed public-data snapshot only; provider transaction isolation and complete citywide reporting are not established. Complaint growth is reporting growth, not proof that underlying conditions worsened."
+            },
+            "coverage": {
+              "complete": false,
+              "gte": "2025-04-01T04:00:00+00:00",
+              "lt": "2025-11-01T04:00:00+00:00"
+            },
+            "dataset_version": "nyc311-real-2025-v1",
+            "extracted_at": "2026-10-10T20:56:08.220349+00:00",
+            "geography": {
+              "nta_version": "5049760a4d0936e1d3dbf70d745e2cee4286bd163b11c702f15fa28db46a001e"
+            },
+            "immutable": true,
+            "index": "nyc311-real-2025-v1",
+            "index_uuid": "0PWTIqhOTJuVbFYt8kC_lg",
+            "ingestion": {
+              "byte_offset": 1582275376,
+              "checkpoint_version": 2,
+              "complete": true,
+              "index": "nyc311-real-2025-v1",
+              "index_uuid": "0PWTIqhOTJuVbFYt8kC_lg",
+              "normalized_input": true,
+              "prefix_sha256": "70ceb22b8f9f79cc03c5dcd4d1955ff0ef7148b63d07e54e9610d726c94dc18e",
+              "processed_rows": 2133268,
+              "quality_counts": {
+                "ambiguous_closed_date": 14,
+                "closed_date_without_closed_status": 1981,
+                "closed_without_valid_duration": 2524,
+                "missing_closed_date": 35944,
+                "missing_geometry": 32843,
+                "negative_closure_duration": 415,
+                "nta_missing_geometry": 32843,
+                "nta_unmatched": 474
+              },
+              "quarantined": false,
+              "source_lines": 2133268,
+              "source_sha256": "70ceb22b8f9f79cc03c5dcd4d1955ff0ef7148b63d07e54e9610d726c94dc18e"
+            },
+            "kind": "reconciled_public_capture",
+            "provenance": {
+              "bytes": 1582275376,
+              "comparison_qualification": {
+                "capture_manifest_sha256": "0f3651e2ea33ea78e14183efe67af6996a9202899b0da94f491b15fd8888ad9d",
+                "capture_sha256": "91d84eb6d02dafc402a892298ba92cb121e8e905a189fb75f31b19d4d43aeec7",
+                "gte": "2025-04-01T00:00:00-04:00",
+                "lt": "2025-11-01T00:00:00-04:00",
+                "normalized_sha256": "70ceb22b8f9f79cc03c5dcd4d1955ff0ef7148b63d07e54e9610d726c94dc18e",
+                "population_complete": false,
+                "qualification_sha256": "6ba5c272182db64258ee448b69d45ed33fa6c71e1aaec952f081e7d93c612c29",
+                "row_count": 2133268,
+                "scope": "reconciled_observed_snapshot",
+                "stage": "normalized",
+                "transactional_source_snapshot": false,
+                "version": 1,
+                "warning": "Comparisons describe the reconciled observed public-data snapshot only; provider transaction isolation and complete citywide reporting are not established. Complaint growth is reporting growth, not proof that underlying conditions worsened."
+              },
+              "coverage": {
+                "complete": false
+              },
+              "dataset_version": "normalized-70ceb22b8f9f",
+              "geography": {
+                "nta_version": "5049760a4d0936e1d3dbf70d745e2cee4286bd163b11c702f15fa28db46a001e"
+              },
+              "kind": "reconciled_public_capture",
+              "normalization_limits": {
+                "max_output_bytes": 8589934592,
+                "min_free_bytes": 2147483648
+              },
+              "provenance": {
+                "bytes": 1306911416,
+                "capture_started_at": "2026-10-07T21:35:39.997632+00:00",
+                "coverage": {
+                  "complete": false,
+                  "gte": "2025-04-01T00:00:00-04:00",
+                  "lt": "2025-11-01T00:00:00-04:00",
+                  "observed_complete": true,
+                  "reason": "Observed counts/revisions reconcile; provider point-in-time isolation is not established."
+                },
+                "dataset_version": "capture-ea0bfc5fb517f086c078",
+                "extraction_complete": true,
+                "kind": "reconciled_public_capture",
+                "observed_complete": true,
+                "reconciled_at": "2026-10-07T23:40:53.619783+00:00",
+                "reconciliation": {
+                  "captured_max_updated_at": "2026-10-07T01:33:31.682000+00:00",
+                  "final_count": {
+                    "max_updated_at": "2026-10-07T01:33:31.682000+00:00",
+                    "revision_headers": {
+                      "x-soda2-secondary-last-modified": "2026-10-07T02:28:09+00:00",
+                      "x-soda2-truth-last-modified": "2026-10-07T02:28:09+00:00"
+                    },
+                    "row_count": 2133268,
+                    "unique_count": 2133268
+                  },
+                  "final_metadata": {
+                    "id": "erm2-nwe9",
+                    "rowsUpdatedAt": 1791337130,
+                    "schema": {
+                      "agency": "text",
+                      "agency_name": "text",
+                      "borough": "text",
+                      "closed_date": "calendar_date",
+                      "community_board": "text",
+                      "complaint_type": "text",
+                      "council_district": "text",
+                      "created_date": "calendar_date",
+                      "descriptor": "text",
+                      "incident_zip": "text",
+                      "latitude": "number",
+                      "location": "point",
+                      "longitude": "number",
+                      "police_precinct": "text",
+                      "status": "text",
+                      "unique_key": "text"
+                    },
+                    "schema_sha256": "a1f7897f9f43b0da7e509600d672b7675a0affb8200d6e4bb6eec9370e80a712",
+                    "viewLastModified": 1767021900
+                  },
+                  "initial_count": {
+                    "max_updated_at": "2026-10-07T01:33:31.682000+00:00",
+                    "revision_headers": {
+                      "x-soda2-secondary-last-modified": "2026-10-07T02:28:09+00:00",
+                      "x-soda2-truth-last-modified": "2026-10-07T02:28:09+00:00"
+                    },
+                    "row_count": 2133268,
+                    "unique_count": 2133268
+                  },
+                  "initial_metadata": {
+                    "id": "erm2-nwe9",
+                    "rowsUpdatedAt": 1791337130,
+                    "schema": {
+                      "agency": "text",
+                      "agency_name": "text",
+                      "borough": "text",
+                      "closed_date": "calendar_date",
+                      "community_board": "text",
+                      "complaint_type": "text",
+                      "council_district": "text",
+                      "created_date": "calendar_date",
+                      "descriptor": "text",
+                      "incident_zip": "text",
+                      "latitude": "number",
+                      "location": "point",
+                      "longitude": "number",
+                      "police_precinct": "text",
+                      "status": "text",
+                      "unique_key": "text"
+                    },
+                    "schema_sha256": "a1f7897f9f43b0da7e509600d672b7675a0affb8200d6e4bb6eec9370e80a712",
+                    "viewLastModified": 1767021900
+                  },
+                  "pages": 2135
+                },
+                "row_count": 2133268,
+                "selected_fields": [
+                  "unique_key",
+                  "created_date",
+                  "closed_date",
+                  "complaint_type",
+                  "descriptor",
+                  "agency",
+                  "agency_name",
+                  "status",
+                  "borough",
+                  "incident_zip",
+                  "community_board",
+                  "council_district",
+                  "police_precinct",
+                  "latitude",
+                  "longitude",
+                  "location",
+                  "source_row_id",
+                  "source_updated_at"
+                ],
+                "sha256": "91d84eb6d02dafc402a892298ba92cb121e8e905a189fb75f31b19d4d43aeec7",
+                "source": "https://data.cityofnewyork.us/resource/erm2-nwe9.json",
+                "source_dataset": "erm2-nwe9",
+                "source_date_bounds": {
+                  "gte": "2025-04-01T00:00:00",
+                  "lt": "2025-11-01T00:00:00"
+                },
+                "source_kind": "real_public_records",
+                "transactional_source_snapshot": false,
+                "unique_key_count": 2133268,
+                "warnings": [
+                  "Complete observed enumeration is not a transactional source snapshot or certified citywide temporal coverage.",
+                  "No operator flag can turn this capture into complete analysis coverage.",
+                  "Keep provenance and pass the separate coverage-certification gate before comparative population claims."
+                ]
+              },
+              "quality_counts": {
+                "ambiguous_closed_date": 14,
+                "closed_date_without_closed_status": 1981,
+                "closed_without_valid_duration": 2524,
+                "missing_closed_date": 35944,
+                "missing_geometry": 32843,
+                "negative_closure_duration": 415,
+                "nta_missing_geometry": 32843,
+                "nta_unmatched": 474,
+                "written": 2133268
+              },
+              "row_count": 2133268,
+              "sha256": "70ceb22b8f9f79cc03c5dcd4d1955ff0ef7148b63d07e54e9610d726c94dc18e",
+              "source": "april-october-2025.jsonl",
+              "source_sha256": "91d84eb6d02dafc402a892298ba92cb121e8e905a189fb75f31b19d4d43aeec7",
+              "warnings": [
+                "Normalization does not establish complete source coverage.",
+                "Complete observed enumeration is not a transactional source snapshot or certified citywide temporal coverage.",
+                "No operator flag can turn this capture into complete analysis coverage.",
+                "Keep provenance and pass the separate coverage-certification gate before comparative population claims."
+              ]
+            },
+            "row_count": 2133268,
+            "source": "normalized.jsonl",
+            "warnings": [
+              "Normalization does not establish complete source coverage.",
+              "Complete observed enumeration is not a transactional source snapshot or certified citywide temporal coverage.",
+              "No operator flag can turn this capture into complete analysis coverage.",
+              "Keep provenance and pass the separate coverage-certification gate before comparative population claims."
+            ]
+          },
+          "backend": "elastic",
+          "fields": {
+            "unique_key": "keyword",
+            "complaint_type": "keyword",
+            "descriptor": "keyword",
+            "agency": "keyword",
+            "agency_name": "keyword",
+            "status": "keyword",
+            "borough": "keyword",
+            "incident_zip": "keyword",
+            "nta2020": "keyword",
+            "ntaname": "keyword",
+            "community_board": "keyword",
+            "council_district": "keyword",
+            "police_precinct": "keyword",
+            "created_date": "date",
+            "closed_date": "date",
+            "closure_hours": "number",
+            "is_closed": "boolean",
+            "location": "geo"
+          },
+          "catalog": {
+            "description": "Explicit starter category families. Validate against each real snapshot vocabulary before making completeness claims.",
+            "families": {
+              "noise": [
+                "Noise - Residential",
+                "Noise - Street/Sidewalk",
+                "Noise - Commercial",
+                "Noise - Vehicle",
+                "Noise - Park",
+                "Noise - Helicopter",
+                "Noise",
+                "Noise - House of Worship"
+              ],
+              "rodent": [
+                "Rodent"
+              ],
+              "sanitation": [
+                "Dirty Conditions",
+                "Sanitation Condition",
+                "Missed Collection (All Materials)",
+                "Missed Collection",
+                "Illegal Dumping",
+                "Overflowing Litter Baskets",
+                "Derelict Vehicles"
+              ]
+            },
+            "metric_definitions": {
+              "closed_count": "Requests with is_closed=true, including records whose closure duration is invalid or absent.",
+              "count": "Number of matching service requests; exact when execution is complete.",
+              "mean_closure_hours": "Arithmetic mean of valid nonnegative created-to-closed hours in closed requests; excludes missing durations.",
+              "median_closure_hours": "50th percentile of valid closure hours. Elasticsearch percentiles are approximate.",
+              "open_count": "Requests with is_closed=false. Administrative non-closed status, not proof that a case remains actionable.",
+              "p90_closure_hours": "90th percentile of valid closure hours. Elasticsearch percentiles are approximate."
+            },
+            "residential_nta2020": [
+              "BK0101",
+              "BK0102",
+              "BK0103",
+              "BK0104",
+              "BK0201",
+              "BK0202",
+              "BK0203",
+              "BK0204",
+              "BK0301",
+              "BK0302",
+              "BK0401",
+              "BK0402",
+              "BK0501",
+              "BK0502",
+              "BK0503",
+              "BK0504",
+              "BK0505",
+              "BK0601",
+              "BK0602",
+              "BK0701",
+              "BK0702",
+              "BK0703",
+              "BK0801",
+              "BK0802",
+              "BK0901",
+              "BK0902",
+              "BK1001",
+              "BK1002",
+              "BK1101",
+              "BK1102",
+              "BK1103",
+              "BK1201",
+              "BK1202",
+              "BK1203",
+              "BK1204",
+              "BK1301",
+              "BK1302",
+              "BK1303",
+              "BK1401",
+              "BK1402",
+              "BK1403",
+              "BK1501",
+              "BK1502",
+              "BK1503",
+              "BK1601",
+              "BK1602",
+              "BK1701",
+              "BK1702",
+              "BK1703",
+              "BK1704",
+              "BK1801",
+              "BK1802",
+              "BK1803",
+              "BX0101",
+              "BX0102",
+              "BX0201",
+              "BX0202",
+              "BX0301",
+              "BX0302",
+              "BX0303",
+              "BX0401",
+              "BX0402",
+              "BX0403",
+              "BX0501",
+              "BX0502",
+              "BX0503",
+              "BX0601",
+              "BX0602",
+              "BX0603",
+              "BX0701",
+              "BX0702",
+              "BX0703",
+              "BX0801",
+              "BX0802",
+              "BX0803",
+              "BX0901",
+              "BX0902",
+              "BX0903",
+              "BX0904",
+              "BX1001",
+              "BX1002",
+              "BX1003",
+              "BX1004",
+              "BX1101",
+              "BX1102",
+              "BX1103",
+              "BX1104",
+              "BX1201",
+              "BX1202",
+              "BX1203",
+              "MN0101",
+              "MN0102",
+              "MN0201",
+              "MN0202",
+              "MN0203",
+              "MN0301",
+              "MN0302",
+              "MN0303",
+              "MN0401",
+              "MN0402",
+              "MN0501",
+              "MN0502",
+              "MN0601",
+              "MN0602",
+              "MN0603",
+              "MN0604",
+              "MN0701",
+              "MN0702",
+              "MN0703",
+              "MN0801",
+              "MN0802",
+              "MN0803",
+              "MN0901",
+              "MN0902",
+              "MN0903",
+              "MN1001",
+              "MN1002",
+              "MN1101",
+              "MN1102",
+              "MN1201",
+              "MN1202",
+              "MN1203",
+              "QN0101",
+              "QN0102",
+              "QN0103",
+              "QN0104",
+              "QN0105",
+              "QN0201",
+              "QN0202",
+              "QN0203",
+              "QN0301",
+              "QN0302",
+              "QN0303",
+              "QN0401",
+              "QN0402",
+              "QN0501",
+              "QN0502",
+              "QN0503",
+              "QN0504",
+              "QN0601",
+              "QN0602",
+              "QN0701",
+              "QN0702",
+              "QN0703",
+              "QN0704",
+              "QN0705",
+              "QN0706",
+              "QN0707",
+              "QN0801",
+              "QN0802",
+              "QN0803",
+              "QN0804",
+              "QN0805",
+              "QN0901",
+              "QN0902",
+              "QN0903",
+              "QN0904",
+              "QN0905",
+              "QN1001",
+              "QN1002",
+              "QN1003",
+              "QN1101",
+              "QN1102",
+              "QN1103",
+              "QN1104",
+              "QN1201",
+              "QN1202",
+              "QN1203",
+              "QN1204",
+              "QN1205",
+              "QN1206",
+              "QN1301",
+              "QN1302",
+              "QN1303",
+              "QN1304",
+              "QN1305",
+              "QN1306",
+              "QN1307",
+              "QN1401",
+              "QN1402",
+              "QN1403",
+              "SI0101",
+              "SI0102",
+              "SI0103",
+              "SI0104",
+              "SI0105",
+              "SI0106",
+              "SI0107",
+              "SI0201",
+              "SI0202",
+              "SI0203",
+              "SI0204",
+              "SI0301",
+              "SI0302",
+              "SI0303",
+              "SI0304",
+              "SI0305"
+            ],
+            "semantics": {
+              "closure": "Administrative time to closure; not first response, confirmed resolution, or repair time.",
+              "last_month": "Previous complete calendar month in the requested timezone, anchored to as_of.",
+              "minimum_count": "Aggregate threshold uses group count; comparison threshold uses combined baseline/current count. Applied before ranking; not statistical significance.",
+              "neighborhood": "nta2020 and ntaname require versioned official NTA polygon enrichment; never substitute ZIP codes.",
+              "relative_change": "(current - baseline) / baseline; null when baseline is zero.",
+              "trend": "Descriptive reported-request counts and rates; not incidence, causality, or statistical significance."
+            },
+            "version": "nyc311-v1"
+          },
+          "limits": {
+            "max_fixture_rows": 100000,
+            "max_groups": 50000,
+            "page_size": 500,
+            "deadline_seconds": 120,
+            "max_preview_rows": 100,
+            "max_filter_depth": 12,
+            "max_filter_nodes": 100,
+            "max_filter_values": 1000,
+            "max_polygon_points": 100,
+            "max_export_rows": 50000,
+            "max_export_bytes": 268435456,
+            "export_deadline_seconds": 180,
+            "max_concurrent_exports": 2,
+            "max_map_groups": 5000
+          },
+          "evidence_level": "elastic_execution",
+          "operations": [
+            "records",
+            "aggregate",
+            "compare_periods"
+          ],
+          "analysis_guide": {
+            "schema_version": "1",
+            "workflow": [
+              "describe_dataset",
+              "validate_analysis",
+              "run_analysis",
+              "get_result",
+              "export_csv or create_map_link"
+            ],
+            "rules": {
+              "required": [
+                "dataset_version",
+                "operation"
+              ],
+              "unknown_keys": "rejected; do not submit raw Elasticsearch DSL",
+              "dataset_version": "nyc311-real-2025-v1",
+              "operation": {
+                "records": "Matching requests; no group_by, aggregate metrics, or minimum_count.",
+                "aggregate": "Counts/metrics; empty group_by computes one overall group.",
+                "compare_periods": "Two non-overlapping creation-date periods; use periods instead of time; no date grouping."
+              },
+              "fields": {
+                "unique_key": "keyword",
+                "complaint_type": "keyword",
+                "descriptor": "keyword",
+                "agency": "keyword",
+                "agency_name": "keyword",
+                "status": "keyword",
+                "borough": "keyword",
+                "incident_zip": "keyword",
+                "nta2020": "keyword",
+                "ntaname": "keyword",
+                "community_board": "keyword",
+                "council_district": "keyword",
+                "police_precinct": "keyword",
+                "created_date": "date",
+                "closed_date": "date",
+                "closure_hours": "number",
+                "is_closed": "boolean",
+                "location": "geo"
+              },
+              "dates": {
+                "format": "ISO 8601 datetime with explicit offset; normalized to UTC",
+                "bounds": {
+                  "gte": "inclusive start",
+                  "lt": "exclusive end"
+                },
+                "timezone": "IANA timezone; default America/New_York; governs calendar buckets and exposure days",
+                "as_of": "Defaults to request time; anchors relative dates, not snapshot history or a data cutoff",
+                "time": {
+                  "field": [
+                    "created_date",
+                    "closed_date"
+                  ],
+                  "forms": [
+                    {
+                      "field": "created_date",
+                      "gte": "2025-12-01T00:00:00-05:00",
+                      "lt": "2026-01-01T00:00:00-05:00"
+                    },
+                    {
+                      "field": "created_date",
+                      "preset": "last_month"
+                    }
+                  ]
+                },
+                "last_month": "Previous complete calendar month relative to as_of; do not anchor to latest dataset record",
+                "periods": {
+                  "baseline": "{gte, lt}",
+                  "current": "{gte, lt}"
+                },
+                "coverage": "Comparisons and date histograms require complete declared coverage or a validated comparison_qualification for a reconciled observed snapshot. Disclose comparison_scope and warnings; observed reporting growth is not proof of worsening underlying conditions. Unobserved dates are not zero counts"
+              },
+              "filters": {
+                "combine": {
+                  "all": "nonempty array of filters",
+                  "any": "nonempty array of filters",
+                  "not": "one filter"
+                },
+                "predicate": {
+                  "field": "known field",
+                  "op": [
+                    "eq",
+                    "in",
+                    "range",
+                    "exists"
+                  ],
+                  "value": "typed operand"
+                },
+                "eq": "One exact typed value; keyword matching is case-sensitive",
+                "in": "Nonempty array of exact typed values",
+                "range": "Date/number only; value has gt or gte and/or lt or lte",
+                "exists": "Boolean value; false selects missing fields; null is not an equality value",
+                "category_family": "{category_family: name}; use catalog.families; expands approved complaint_type values",
+                "limits": "Use describe_dataset.limits for filter depth/node/value budgets"
+              },
+              "geo": {
+                "forms": [
+                  {
+                    "type": "radius",
+                    "lat": 40.68,
+                    "lon": -73.95,
+                    "distance_m": 1500
+                  },
+                  {
+                    "type": "bbox",
+                    "top_left": {
+                      "lat": 40.75,
+                      "lon": -74.0
+                    },
+                    "bottom_right": {
+                      "lat": 40.6,
+                      "lon": -73.85
+                    }
+                  },
+                  {
+                    "type": "polygon",
+                    "points": [
+                      {
+                        "lat": 40.65,
+                        "lon": -73.98
+                      },
+                      {
+                        "lat": 40.72,
+                        "lon": -73.98
+                      },
+                      {
+                        "lat": 40.72,
+                        "lon": -73.9
+                      }
+                    ]
+                  }
+                ],
+                "coordinates": "WGS84 latitude [-90,90], longitude [-180,180]; distance in meters",
+                "restrictions": "One geometry; positive radius <=20040000m; simple nonzero-area polygon; no dateline-crossing bbox/polygon",
+                "missing_location": "Excluded from geographic queries; disclose map exclusions"
+              },
+              "group_by": {
+                "forms": [
+                  {
+                    "field": "borough"
+                  },
+                  {
+                    "field": "created_date",
+                    "interval": "week"
+                  }
+                ],
+                "maximum_dimensions": 3,
+                "field_types": [
+                  "keyword",
+                  "boolean",
+                  "date"
+                ],
+                "date_intervals": [
+                  "day",
+                  "week",
+                  "month"
+                ],
+                "date_rule": "At most one date dimension; requires bounded time on the same field; weeks start Monday",
+                "missing_values": "Preserved as null groups",
+                "zero_fill": "Only covered calendar buckets; categorical combinations must be observed in the selected cohort"
+              },
+              "metrics": {
+                "allowed": [
+                  "count",
+                  "closed_count",
+                  "open_count",
+                  "mean_closure_hours",
+                  "median_closure_hours",
+                  "p90_closure_hours"
+                ],
+                "default": [
+                  "count"
+                ],
+                "definitions": "See catalog.metric_definitions; closure is administrative time to closure, not first response",
+                "missing_durations": "Excluded from closure-duration metrics; closed_count still includes closed requests without a duration",
+                "percentiles": "Elasticsearch median/p90 are approximate; inspect result.approximate"
+              },
+              "minimum_count": {
+                "integer_range": [
+                  0,
+                  1000000
+                ],
+                "default": 0,
+                "aggregate": "Retain groups with count >= minimum_count",
+                "compare_periods": "Retain groups with baseline_count + current_count >= minimum_count",
+                "order": "Applied across complete groups before ranking; no significance claim"
+              },
+              "output_limits": {
+                "preview_limit": "Records preview 1..100, further bounded by configured max_preview_rows; default 5. Exact totals and full-cohort exports are independent of preview size.",
+                "top_n": "Aggregate/comparison first-page rows 1..100; default 20; not the full export cohort",
+                "rank_order": [
+                  "asc",
+                  "desc"
+                ],
+                "rank_order_default": "desc",
+                "rank_by_aggregate": [
+                  "count"
+                ],
+                "rank_by_compare_periods": [
+                  "count",
+                  "absolute_change",
+                  "relative_change",
+                  "rate_change"
+                ],
+                "rank_by_compare_default": "absolute_change",
+                "comparison_count": "Current-period count",
+                "absolute_change": "current_count - baseline_count",
+                "relative_change": "(current_count - baseline_count) / baseline_count; fraction, null for zero baseline",
+                "rate_change": "current_count/current_calendar_days - baseline_count/baseline_calendar_days; requests/day"
+              },
+              "artifacts": "Use saved result_id; explicitly choose all_matching or selected_groups and saved group_ids. Record exports use the full selected cohort, not the preview."
+            },
+            "examples_note": "Illustrative historical dates and request parameters only; check actual snapshot coverage and catalog before execution. No expected findings are supplied.",
+            "examples": {
+              "records": {
+                "schema_version": "1",
+                "dataset_version": "nyc311-real-2025-v1",
+                "timezone": "America/New_York",
+                "as_of": "2026-01-02T12:00:00-05:00",
+                "operation": "records",
+                "time": {
+                  "field": "created_date",
+                  "preset": "last_month"
+                },
+                "filters": {
+                  "all": [
+                    {
+                      "field": "borough",
+                      "op": "eq",
+                      "value": "BROOKLYN"
+                    },
+                    {
+                      "category_family": "noise"
+                    }
+                  ]
+                },
+                "preview_limit": 10
+              },
+              "aggregate": {
+                "schema_version": "1",
+                "dataset_version": "nyc311-real-2025-v1",
+                "timezone": "America/New_York",
+                "as_of": "2026-01-02T12:00:00-05:00",
+                "operation": "aggregate",
+                "time": {
+                  "field": "created_date",
+                  "gte": "2025-12-01T00:00:00-05:00",
+                  "lt": "2026-01-01T00:00:00-05:00"
+                },
+                "filters": {
+                  "category_family": "noise"
+                },
+                "group_by": [
+                  {
+                    "field": "created_date",
+                    "interval": "week"
+                  },
+                  {
+                    "field": "borough"
+                  }
+                ],
+                "metrics": [
+                  "count",
+                  "closed_count",
+                  "mean_closure_hours"
+                ],
+                "minimum_count": 5,
+                "top_n": 10,
+                "rank_by": "count",
+                "rank_order": "desc"
+              },
+              "compare_periods": {
+                "schema_version": "1",
+                "dataset_version": "nyc311-real-2025-v1",
+                "timezone": "America/New_York",
+                "as_of": "2026-01-02T12:00:00-05:00",
+                "operation": "compare_periods",
+                "periods": {
+                  "baseline": {
+                    "gte": "2025-11-01T00:00:00-04:00",
+                    "lt": "2025-12-01T00:00:00-05:00"
+                  },
+                  "current": {
+                    "gte": "2025-12-01T00:00:00-05:00",
+                    "lt": "2026-01-01T00:00:00-05:00"
+                  }
+                },
+                "filters": {
+                  "category_family": "rodent"
+                },
+                "group_by": [
+                  {
+                    "field": "nta2020"
+                  }
+                ],
+                "metrics": [
+                  "count",
+                  "mean_closure_hours"
+                ],
+                "minimum_count": 20,
+                "top_n": 10,
+                "rank_by": "rate_change",
+                "rank_order": "desc"
+              }
+            }
+          }
+        },
+        "elapsed_seconds": 0.000158,
+        "model_context": {
+          "projection": "discovery-rules-v2",
+          "content": "{\"analysis_guide\":{\"rules\":{\"artifacts\":\"Use saved result_id; explicitly choose all_matching or selected_groups and saved group_ids. Record exports use the full selected cohort, not the preview.\",\"dates\":{\"as_of\":\"Defaults to request time; anchors relative dates, not snapshot history or a data cutoff\",\"bounds\":{\"gte\":\"inclusive start\",\"lt\":\"exclusive end\"},\"coverage\":\"Comparisons and date histograms require complete declared coverage or a validated comparison_qualification for a reconciled observed snapshot. Disclose comparison_scope and warnings; observed reporting growth is not proof of worsening underlying conditions. Unobserved dates are not zero counts\",\"format\":\"ISO 8601 datetime with explicit offset; normalized to UTC\",\"last_month\":\"Previous complete calendar month relative to as_of; do not anchor to latest dataset record\",\"periods\":{\"baseline\":\"{gte, lt}\",\"current\":\"{gte, lt}\"},\"time\":{\"field\":[\"created_date\",\"closed_date\"],\"forms\":[{\"field\":\"created_date\",\"gte\":\"2025-12-01T00:00:00-05:00\",\"lt\":\"2026-01-01T00:00:00-05:00\"},{\"field\":\"created_date\",\"preset\":\"last_month\"}]},\"timezone\":\"IANA timezone; default America/New_York; governs calendar buckets and exposure days\"},\"filters\":{\"category_family\":\"{category_family: name}; use catalog.families; expands approved complaint_type values\",\"combine\":{\"all\":\"nonempty array of filters\",\"any\":\"nonempty array of filters\",\"not\":\"one filter\"},\"eq\":\"One exact typed value; keyword matching is case-sensitive\",\"exists\":\"Boolean value; false selects missing fields; null is not an equality value\",\"in\":\"Nonempty array of exact typed values\",\"limits\":\"Use describe_dataset.limits for filter depth/node/value budgets\",\"predicate\":{\"field\":\"known field\",\"op\":[\"eq\",\"in\",\"range\",\"exists\"],\"value\":\"typed operand\"},\"range\":\"Date/number only; value has gt or gte and/or lt or lte\"},\"geo\":{\"coordinates\":\"WGS84 latitude [-90,90], longitude [-180,180]; distance in meters\",\"forms\":[{\"distance_m\":1500,\"lat\":40.68,\"lon\":-73.95,\"type\":\"radius\"},{\"bottom_right\":{\"lat\":40.6,\"lon\":-73.85},\"top_left\":{\"lat\":40.75,\"lon\":-74.0},\"type\":\"bbox\"},{\"points\":[{\"lat\":40.65,\"lon\":-73.98},{\"lat\":40.72,\"lon\":-73.98},{\"lat\":40.72,\"lon\":-73.9}],\"type\":\"polygon\"}],\"missing_location\":\"Excluded from geographic queries; disclose map exclusions\",\"restrictions\":\"One geometry; positive radius <=20040000m; simple nonzero-area polygon; no dateline-crossing bbox/polygon\"},\"group_by\":{\"date_intervals\":[\"day\",\"week\",\"month\"],\"date_rule\":\"At most one date dimension; requires bounded time on the same field; weeks start Monday\",\"field_types\":[\"keyword\",\"boolean\",\"date\"],\"forms\":[{\"field\":\"borough\"},{\"field\":\"created_date\",\"interval\":\"week\"}],\"maximum_dimensions\":3,\"missing_values\":\"Preserved as null groups\",\"zero_fill\":\"Only covered calendar buckets; categorical combinations must be observed in the selected cohort\"},\"metrics\":{\"allowed\":[\"count\",\"closed_count\",\"open_count\",\"mean_closure_hours\",\"median_closure_hours\",\"p90_closure_hours\"],\"default\":[\"count\"],\"definitions\":\"See catalog.metric_definitions; closure is administrative time to closure, not first response\",\"missing_durations\":\"Excluded from closure-duration metrics; closed_count still includes closed requests without a duration\",\"percentiles\":\"Elasticsearch median/p90 are approximate; inspect result.approximate\"},\"minimum_count\":{\"aggregate\":\"Retain groups with count >= minimum_count\",\"compare_periods\":\"Retain groups with baseline_count + current_count >= minimum_count\",\"default\":0,\"integer_range\":[0,1000000],\"order\":\"Applied across complete groups before ranking; no significance claim\"},\"operation\":{\"aggregate\":\"Counts/metrics; empty group_by computes one overall group.\",\"compare_periods\":\"Two non-overlapping creation-date periods; use periods instead of time; no date grouping.\",\"records\":\"Matching requests; no group_by, aggregate metrics, or minimum_count.\"},\"output_limits\":{\"absolute_change\":\"current_count - baseline_count\",\"comparison_count\":\"Current-period count\",\"preview_limit\":\"Records preview 1..100, further bounded by configured max_preview_rows; default 5. Exact totals and full-cohort exports are independent of preview size.\",\"rank_by_aggregate\":[\"count\"],\"rank_by_compare_default\":\"absolute_change\",\"rank_by_compare_periods\":[\"count\",\"absolute_change\",\"relative_change\",\"rate_change\"],\"rank_order\":[\"asc\",\"desc\"],\"rank_order_default\":\"desc\",\"rate_change\":\"current_count/current_calendar_days - baseline_count/baseline_calendar_days; requests/day\",\"relative_change\":\"(current_count - baseline_count) / baseline_count; fraction, null for zero baseline\",\"top_n\":\"Aggregate/comparison first-page rows 1..100; default 20; not the full export cohort\"},\"required\":[\"dataset_version\",\"operation\"],\"unknown_keys\":\"rejected; do not submit raw Elasticsearch DSL\"},\"schema_version\":\"1\"},\"backend\":\"elastic\",\"catalog\":{\"description\":\"Explicit starter category families. Validate against each real snapshot vocabulary before making completeness claims.\",\"families\":{\"noise\":[\"Noise - Residential\",\"Noise - Street/Sidewalk\",\"Noise - Commercial\",\"Noise - Vehicle\",\"Noise - Park\",\"Noise - Helicopter\",\"Noise\",\"Noise - House of Worship\"],\"rodent\":[\"Rodent\"],\"sanitation\":[\"Dirty Conditions\",\"Sanitation Condition\",\"Missed Collection (All Materials)\",\"Missed Collection\",\"Illegal Dumping\",\"Overflowing Litter Baskets\",\"Derelict Vehicles\"]},\"metric_definitions\":{\"closed_count\":\"Requests with is_closed=true, including records whose closure duration is invalid or absent.\",\"count\":\"Number of matching service requests; exact when execution is complete.\",\"mean_closure_hours\":\"Arithmetic mean of valid nonnegative created-to-closed hours in closed requests; excludes missing durations.\",\"median_closure_hours\":\"50th percentile of valid closure hours. Elasticsearch percentiles are approximate.\",\"open_count\":\"Requests with is_closed=false. Administrative non-closed status, not proof that a case remains actionable.\",\"p90_closure_hours\":\"90th percentile of valid closure hours. Elasticsearch percentiles are approximate.\"},\"residential_nta2020\":[\"BK0101\",\"BK0102\",\"BK0103\",\"BK0104\",\"BK0201\",\"BK0202\",\"BK0203\",\"BK0204\",\"BK0301\",\"BK0302\",\"BK0401\",\"BK0402\",\"BK0501\",\"BK0502\",\"BK0503\",\"BK0504\",\"BK0505\",\"BK0601\",\"BK0602\",\"BK0701\",\"BK0702\",\"BK0703\",\"BK0801\",\"BK0802\",\"BK0901\",\"BK0902\",\"BK1001\",\"BK1002\",\"BK1101\",\"BK1102\",\"BK1103\",\"BK1201\",\"BK1202\",\"BK1203\",\"BK1204\",\"BK1301\",\"BK1302\",\"BK1303\",\"BK1401\",\"BK1402\",\"BK1403\",\"BK1501\",\"BK1502\",\"BK1503\",\"BK1601\",\"BK1602\",\"BK1701\",\"BK1702\",\"BK1703\",\"BK1704\",\"BK1801\",\"BK1802\",\"BK1803\",\"BX0101\",\"BX0102\",\"BX0201\",\"BX0202\",\"BX0301\",\"BX0302\",\"BX0303\",\"BX0401\",\"BX0402\",\"BX0403\",\"BX0501\",\"BX0502\",\"BX0503\",\"BX0601\",\"BX0602\",\"BX0603\",\"BX0701\",\"BX0702\",\"BX0703\",\"BX0801\",\"BX0802\",\"BX0803\",\"BX0901\",\"BX0902\",\"BX0903\",\"BX0904\",\"BX1001\",\"BX1002\",\"BX1003\",\"BX1004\",\"BX1101\",\"BX1102\",\"BX1103\",\"BX1104\",\"BX1201\",\"BX1202\",\"BX1203\",\"MN0101\",\"MN0102\",\"MN0201\",\"MN0202\",\"MN0203\",\"MN0301\",\"MN0302\",\"MN0303\",\"MN0401\",\"MN0402\",\"MN0501\",\"MN0502\",\"MN0601\",\"MN0602\",\"MN0603\",\"MN0604\",\"MN0701\",\"MN0702\",\"MN0703\",\"MN0801\",\"MN0802\",\"MN0803\",\"MN0901\",\"MN0902\",\"MN0903\",\"MN1001\",\"MN1002\",\"MN1101\",\"MN1102\",\"MN1201\",\"MN1202\",\"MN1203\",\"QN0101\",\"QN0102\",\"QN0103\",\"QN0104\",\"QN0105\",\"QN0201\",\"QN0202\",\"QN0203\",\"QN0301\",\"QN0302\",\"QN0303\",\"QN0401\",\"QN0402\",\"QN0501\",\"QN0502\",\"QN0503\",\"QN0504\",\"QN0601\",\"QN0602\",\"QN0701\",\"QN0702\",\"QN0703\",\"QN0704\",\"QN0705\",\"QN0706\",\"QN0707\",\"QN0801\",\"QN0802\",\"QN0803\",\"QN0804\",\"QN0805\",\"QN0901\",\"QN0902\",\"QN0903\",\"QN0904\",\"QN0905\",\"QN1001\",\"QN1002\",\"QN1003\",\"QN1101\",\"QN1102\",\"QN1103\",\"QN1104\",\"QN1201\",\"QN1202\",\"QN1203\",\"QN1204\",\"QN1205\",\"QN1206\",\"QN1301\",\"QN1302\",\"QN1303\",\"QN1304\",\"QN1305\",\"QN1306\",\"QN1307\",\"QN1401\",\"QN1402\",\"QN1403\",\"SI0101\",\"SI0102\",\"SI0103\",\"SI0104\",\"SI0105\",\"SI0106\",\"SI0107\",\"SI0201\",\"SI0202\",\"SI0203\",\"SI0204\",\"SI0301\",\"SI0302\",\"SI0303\",\"SI0304\",\"SI0305\"],\"semantics\":{\"closure\":\"Administrative time to closure; not first response, confirmed resolution, or repair time.\",\"last_month\":\"Previous complete calendar month in the requested timezone, anchored to as_of.\",\"minimum_count\":\"Aggregate threshold uses group count; comparison threshold uses combined baseline/current count. Applied before ranking; not statistical significance.\",\"neighborhood\":\"nta2020 and ntaname require versioned official NTA polygon enrichment; never substitute ZIP codes.\",\"relative_change\":\"(current - baseline) / baseline; null when baseline is zero.\",\"trend\":\"Descriptive reported-request counts and rates; not incidence, causality, or statistical significance.\"},\"version\":\"nyc311-v1\"},\"dataset\":{\"comparison_qualification\":{\"gte\":\"2025-04-01T04:00:00+00:00\",\"index\":\"nyc311-real-2025-v1\",\"index_uuid\":\"0PWTIqhOTJuVbFYt8kC_lg\",\"lt\":\"2025-11-01T04:00:00+00:00\",\"population_complete\":false,\"row_count\":2133268,\"scope\":\"reconciled_observed_snapshot\",\"stage\":\"frozen_index\",\"transactional_source_snapshot\":false,\"version\":1,\"warning\":\"Comparisons describe the reconciled observed public-data snapshot only; provider transaction isolation and complete citywide reporting are not established. Complaint growth is reporting growth, not proof that underlying conditions worsened.\"},\"coverage\":{\"complete\":false,\"gte\":\"2025-04-01T04:00:00+00:00\",\"lt\":\"2025-11-01T04:00:00+00:00\"},\"dataset_version\":\"nyc311-real-2025-v1\",\"extracted_at\":\"2026-10-10T20:56:08.220349+00:00\",\"geography\":{\"nta_version\":\"5049760a4d0936e1d3dbf70d745e2cee4286bd163b11c702f15fa28db46a001e\"},\"immutable\":true,\"index\":\"nyc311-real-2025-v1\",\"index_uuid\":\"0PWTIqhOTJuVbFYt8kC_lg\",\"ingestion\":{\"byte_offset\":1582275376,\"checkpoint_version\":2,\"complete\":true,\"index\":\"nyc311-real-2025-v1\",\"index_uuid\":\"0PWTIqhOTJuVbFYt8kC_lg\",\"normalized_input\":true,\"processed_rows\":2133268,\"quality_counts\":{\"ambiguous_closed_date\":14,\"closed_date_without_closed_status\":1981,\"closed_without_valid_duration\":2524,\"missing_closed_date\":35944,\"missing_geometry\":32843,\"negative_closure_duration\":415,\"nta_missing_geometry\":32843,\"nta_unmatched\":474},\"quarantined\":false,\"source_lines\":2133268},\"kind\":\"reconciled_public_capture\",\"provenance\":{\"bytes\":1582275376,\"comparison_qualification\":{\"gte\":\"2025-04-01T00:00:00-04:00\",\"lt\":\"2025-11-01T00:00:00-04:00\",\"population_complete\":false,\"row_count\":2133268,\"scope\":\"reconciled_observed_snapshot\",\"stage\":\"normalized\",\"transactional_source_snapshot\":false,\"version\":1,\"warning\":\"Comparisons describe the reconciled observed public-data snapshot only; provider transaction isolation and complete citywide reporting are not established. Complaint growth is reporting growth, not proof that underlying conditions worsened.\"},\"coverage\":{\"complete\":false},\"dataset_version\":\"normalized-70ceb22b8f9f\",\"geography\":{\"$ref\":\"#/dataset/geography\"},\"kind\":{\"$ref\":\"#/dataset/kind\"},\"normalization_limits\":{\"max_output_bytes\":8589934592,\"min_free_bytes\":2147483648},\"provenance\":{\"bytes\":1306911416,\"capture_started_at\":\"2026-10-07T21:35:39.997632+00:00\",\"coverage\":{\"complete\":false,\"gte\":\"2025-04-01T00:00:00-04:00\",\"lt\":\"2025-11-01T00:00:00-04:00\",\"observed_complete\":true,\"reason\":\"Observed counts/revisions reconcile; provider point-in-time isolation is not established.\"},\"dataset_version\":\"capture-ea0bfc5fb517f086c078\",\"extraction_complete\":true,\"kind\":{\"$ref\":\"#/dataset/kind\"},\"observed_complete\":true,\"reconciled_at\":\"2026-10-07T23:40:53.619783+00:00\",\"reconciliation\":{\"captured_max_updated_at\":\"2026-10-07T01:33:31.682000+00:00\",\"final_count\":{\"max_updated_at\":\"2026-10-07T01:33:31.682000+00:00\",\"revision_headers\":{\"x-soda2-secondary-last-modified\":\"2026-10-07T02:28:09+00:00\",\"x-soda2-truth-last-modified\":\"2026-10-07T02:28:09+00:00\"},\"row_count\":2133268,\"unique_count\":2133268},\"final_metadata\":{\"id\":\"erm2-nwe9\",\"rowsUpdatedAt\":1791337130,\"schema\":{\"agency\":\"text\",\"agency_name\":\"text\",\"borough\":\"text\",\"closed_date\":\"calendar_date\",\"community_board\":\"text\",\"complaint_type\":\"text\",\"council_district\":\"text\",\"created_date\":\"calendar_date\",\"descriptor\":\"text\",\"incident_zip\":\"text\",\"latitude\":\"number\",\"location\":\"point\",\"longitude\":\"number\",\"police_precinct\":\"text\",\"status\":\"text\",\"unique_key\":\"text\"},\"viewLastModified\":1767021900},\"initial_count\":{\"$ref\":\"#/dataset/provenance/provenance/reconciliation/final_count\"},\"initial_metadata\":{\"$ref\":\"#/dataset/provenance/provenance/reconciliation/final_metadata\"},\"pages\":2135},\"row_count\":2133268,\"selected_fields\":[\"unique_key\",\"created_date\",\"closed_date\",\"complaint_type\",\"descriptor\",\"agency\",\"agency_name\",\"status\",\"borough\",\"incident_zip\",\"community_board\",\"council_district\",\"police_precinct\",\"latitude\",\"longitude\",\"location\",\"source_row_id\",\"source_updated_at\"],\"source\":\"https://data.cityofnewyork.us/resource/erm2-nwe9.json\",\"source_dataset\":\"erm2-nwe9\",\"source_date_bounds\":{\"gte\":\"2025-04-01T00:00:00\",\"lt\":\"2025-11-01T00:00:00\"},\"source_kind\":\"real_public_records\",\"transactional_source_snapshot\":false,\"unique_key_count\":2133268,\"warnings\":[\"Complete observed enumeration is not a transactional source snapshot or certified citywide temporal coverage.\",\"No operator flag can turn this capture into complete analysis coverage.\",\"Keep provenance and pass the separate coverage-certification gate before comparative population claims.\"]},\"quality_counts\":{\"ambiguous_closed_date\":14,\"closed_date_without_closed_status\":1981,\"closed_without_valid_duration\":2524,\"missing_closed_date\":35944,\"missing_geometry\":32843,\"negative_closure_duration\":415,\"nta_missing_geometry\":32843,\"nta_unmatched\":474,\"written\":2133268},\"row_count\":2133268,\"source\":\"april-october-2025.jsonl\",\"warnings\":{\"$ref\":\"#/dataset/warnings\"}},\"row_count\":2133268,\"source\":\"normalized.jsonl\",\"warnings\":[\"Normalization does not establish complete source coverage.\",\"Complete observed enumeration is not a transactional source snapshot or certified citywide temporal coverage.\",\"No operator flag can turn this capture into complete analysis coverage.\",\"Keep provenance and pass the separate coverage-certification gate before comparative population claims.\"]},\"evidence_level\":\"elastic_execution\",\"fields\":{\"agency\":\"keyword\",\"agency_name\":\"keyword\",\"borough\":\"keyword\",\"closed_date\":\"date\",\"closure_hours\":\"number\",\"community_board\":\"keyword\",\"complaint_type\":\"keyword\",\"council_district\":\"keyword\",\"created_date\":\"date\",\"descriptor\":\"keyword\",\"incident_zip\":\"keyword\",\"is_closed\":\"boolean\",\"location\":\"geo\",\"nta2020\":\"keyword\",\"ntaname\":\"keyword\",\"police_precinct\":\"keyword\",\"status\":\"keyword\",\"unique_key\":\"keyword\"},\"limits\":{\"deadline_seconds\":120,\"export_deadline_seconds\":180,\"max_concurrent_exports\":2,\"max_export_bytes\":268435456,\"max_export_rows\":50000,\"max_filter_depth\":12,\"max_filter_nodes\":100,\"max_filter_values\":1000,\"max_fixture_rows\":100000,\"max_groups\":50000,\"max_map_groups\":5000,\"max_polygon_points\":100,\"max_preview_rows\":100,\"page_size\":500},\"operations\":[\"records\",\"aggregate\",\"compare_periods\"]}",
+          "sha256": "94ccb38d19dd9d13cae71c8d6f96f4deb911ec14e8e703828f99530137cf6bc8",
+          "utf8_bytes": 14801,
+          "full_output_utf8_bytes": 19120,
+          "full_output_sha256": "8c2266148146a60017e8b87e4fa23d97f906b30f4b8d1de3a4add3f1b20c6491"
+        }
+      },
+      {
+        "kind": "model",
+        "message": {
+          "role": "assistant",
+          "content": "",
+          "tool_calls": [
+            {
+              "type": "function",
+              "function": {
+                "name": "validate_analysis",
+                "arguments": "{\"spec\": {\"dataset_version\": \"nyc311-real-2025-v1\", \"operation\": \"aggregate\", \"filters\": {\"category_family\": \"rodent\"}, \"geo\": {\"points\": [{\"lat\": 40.65, \"lon\": -73.98}, {\"lat\": 40.72, \"lon\": -73.98}, {\"lat\": 40.72, \"lon\": -73.9}], \"type\": \"polygon\"}, \"group_by\": [{\"field\": \"borough\", \"interval\": \"day\"}], \"metrics\": [\"count\", \"mean_closure_hours\"], \"minimum_count\": 20, \"periods\": {\"baseline\": {\"gte\": \"2025-06-01T00:00:00-04:00\", \"lt\": \"2025-10-01T00:00:00-04:00\"}, \"current\": {\"gte\": \"2025-10-01T00:00:00-04:00\", \"lt\": \"2025-11-01T00:00:00-04:00\"}}}}"
+              },
+              "id": "ie5JaY2PWZnIxPPLxKPCrxG9cPrMbbz5"
+            }
+          ]
+        },
+        "usage": {
+          "completion_tokens": 292,
+          "prompt_tokens": 10248,
+          "total_tokens": 10540
+        },
+        "server_timings": {
+          "cache_n": 10153,
+          "prompt_n": 95,
+          "prompt_ms": 5984.133,
+          "prompt_per_token_ms": 62.99087368421053,
+          "prompt_per_second": 15.875315605451952,
+          "predicted_n": 292,
+          "predicted_ms": 49745.546,
+          "predicted_per_token_ms": 170.94689347079037,
+          "predicted_per_second": 5.849769947243116
+        },
+        "elapsed_seconds": 56.719324
+      },
+      {
+        "kind": "tool",
+        "name": "validate_analysis",
+        "arguments": {
+          "spec": {
+            "dataset_version": "nyc311-real-2025-v1",
+            "operation": "aggregate",
+            "filters": {
+              "category_family": "rodent"
+            },
+            "geo": {
+              "points": [
+                {
+                  "lat": 40.65,
+                  "lon": -73.98
+                },
+                {
+                  "lat": 40.72,
+                  "lon": -73.98
+                },
+                {
+                  "lat": 40.72,
+                  "lon": -73.9
+                }
+              ],
+              "type": "polygon"
+            },
+            "group_by": [
+              {
+                "field": "borough",
+                "interval": "day"
+              }
+            ],
+            "metrics": [
+              "count",
+              "mean_closure_hours"
+            ],
+            "minimum_count": 20,
+            "periods": {
+              "baseline": {
+                "gte": "2025-06-01T00:00:00-04:00",
+                "lt": "2025-10-01T00:00:00-04:00"
+              },
+              "current": {
+                "gte": "2025-10-01T00:00:00-04:00",
+                "lt": "2025-11-01T00:00:00-04:00"
+              }
+            }
+          }
+        },
+        "initiated_by": "model",
+        "output": {
+          "error": {
+            "code": "invalid_spec",
+            "allowed_spec_keys": [
+              "as_of",
+              "dataset_version",
+              "filters",
+              "geo",
+              "group_by",
+              "metrics",
+              "minimum_count",
+              "operation",
+              "periods",
+              "preview_limit",
+              "rank_by",
+              "rank_order",
+              "schema_version",
+              "time",
+              "timezone",
+              "top_n"
+            ],
+            "required_spec_keys": [
+              "dataset_version",
+              "operation"
+            ],
+            "recovery": "The spec object must follow analysis_guide.rules and exact dataset_version from discovery; correct your arguments without inventing fields or values."
+          }
+        },
+        "elapsed_seconds": 56.720098,
+        "identical_invalid_count": 1
+      },
+      {
+        "kind": "model",
+        "message": {
+          "role": "assistant",
+          "content": "",
+          "tool_calls": [
+            {
+              "type": "function",
+              "function": {
+                "name": "validate_analysis",
+                "arguments": "{\"spec\": {\"dataset_version\": \"nyc311-real-2025-v1\", \"operation\": \"aggregate\", \"filters\": {\"category_family\": \"rodent\"}, \"geo\": {\"points\": [{\"lat\": 40.65, \"lon\": -73.98}, {\"lat\": 40.72, \"lon\": -73.98}, {\"lat\": 40.72, \"lon\": -73.9}], \"type\": \"polygon\"}, \"group_by\": [{\"field\": \"borough\", \"interval\": \"day\"}], \"metrics\": [\"count\", \"mean_closure_hours\"], \"minimum_count\": 20, \"periods\": {\"baseline\": {\"gte\": \"2025-06-01T00:00:00-04:00\", \"lt\": \"2025-10-01T00:00:00-04:00\"}, \"current\": {\"gte\": \"2025-10-01T00:00:00-04:00\", \"lt\": \"2025-11-01T00:00:00-04:00\"}}}}"
+              },
+              "id": "m9OxjKbjCGzZfTVs4Glzo1vYmbRPM22E"
+            }
+          ]
+        },
+        "usage": {
+          "completion_tokens": 292,
+          "prompt_tokens": 10644,
+          "total_tokens": 10936
+        },
+        "server_timings": {
+          "cache_n": 10244,
+          "prompt_n": 400,
+          "prompt_ms": 19649.742,
+          "prompt_per_token_ms": 49.124354999999994,
+          "prompt_per_second": 20.356501372893344,
+          "predicted_n": 292,
+          "predicted_ms": 50142.3,
+          "predicted_per_token_ms": 172.31030927835053,
+          "predicted_per_second": 5.803483286566431
+        },
+        "elapsed_seconds": 126.554471
+      },
+      {
+        "kind": "tool",
+        "name": "validate_analysis",
+        "arguments": {
+          "spec": {
+            "dataset_version": "nyc311-real-2025-v1",
+            "operation": "aggregate",
+            "filters": {
+              "category_family": "rodent"
+            },
+            "geo": {
+              "points": [
+                {
+                  "lat": 40.65,
+                  "lon": -73.98
+                },
+                {
+                  "lat": 40.72,
+                  "lon": -73.98
+                },
+                {
+                  "lat": 40.72,
+                  "lon": -73.9
+                }
+              ],
+              "type": "polygon"
+            },
+            "group_by": [
+              {
+                "field": "borough",
+                "interval": "day"
+              }
+            ],
+            "metrics": [
+              "count",
+              "mean_closure_hours"
+            ],
+            "minimum_count": 20,
+            "periods": {
+              "baseline": {
+                "gte": "2025-06-01T00:00:00-04:00",
+                "lt": "2025-10-01T00:00:00-04:00"
+              },
+              "current": {
+                "gte": "2025-10-01T00:00:00-04:00",
+                "lt": "2025-11-01T00:00:00-04:00"
+              }
+            }
+          }
+        },
+        "initiated_by": "model",
+        "output": {
+          "error": {
+            "code": "invalid_spec",
+            "allowed_spec_keys": [
+              "as_of",
+              "dataset_version",
+              "filters",
+              "geo",
+              "group_by",
+              "metrics",
+              "minimum_count",
+              "operation",
+              "periods",
+              "preview_limit",
+              "rank_by",
+              "rank_order",
+              "schema_version",
+              "time",
+              "timezone",
+              "top_n"
+            ],
+            "required_spec_keys": [
+              "dataset_version",
+              "operation"
+            ],
+            "recovery": "The spec object must follow analysis_guide.rules and exact dataset_version from discovery; correct your arguments without inventing fields or values."
+          }
+        },
+        "elapsed_seconds": 126.555307,
+        "identical_invalid_count": 2
+      }
+    ],
+    "final": null,
+    "status": "failed",
+    "calls": 3,
+    "fresh_context": true,
+    "semantic_review": "pending",
+    "context_projection": "discovery-rules-v2",
+    "format_repairs": 0,
+    "result_context_projection": "matching-dataset-reference-v1",
+    "max_format_repairs": 2,
+    "adapter_calls": 1,
+    "model_calls": 2,
+    "discovery_initiated_by": "adapter",
+    "max_identical_invalid_calls": 3,
+    "error": {
+      "code": "model_timeout"
+    },
+    "cleanup": [],
+    "elapsed_seconds": 160.002347
+  },
+  "grade": {
+    "automatic_pass": false,
+    "checks": {
+      "finished": false,
+      "status": false,
+      "answer_present": false,
+      "numeric_evidence": false,
+      "discover_first": true,
+      "step_1_query_and_numbers": false,
+      "step_2_query_and_numbers": false,
+      "chain_order": false,
+      "citations": true,
+      "numeric_evidence_per_step": true,
+      "artifact_1_neighborhood_trends_map": false,
+      "artifact_2_aggregates_csv": false
+    },
+    "hard_failures": [],
+    "semantic_review": "pending",
+    "end_to_end_pass": false,
+    "visual_parity_verified": false
+  }
+}

@@ -1,0 +1,470 @@
+{
+  "name": "analytics311",
+  "version": "0.7.0",
+  "distribution": "core+extras",
+  "target": {
+    "os": "Windows",
+    "architecture": "ARM64",
+    "python_implementation": "CPython",
+    "python_version": "3.12.14",
+    "python_platform": "win-amd64",
+    "python_cache_tag": "cpython-312",
+    "dependency_target": "current interpreter and platform only"
+  },
+  "install_requirement": "analytics311[geo,mcp]==0.7.0",
+  "requires_python": ">=3.11",
+  "artifacts": [
+    {
+      "file": "analytics311-0.7.0-py3-none-any.whl",
+      "sha256": "1599f8821adc82b000a8e5157f564647f66aa27683be684967b2a0962eefae6d",
+      "bytes": 93877,
+      "wheel_tags": {
+        "python": "py3",
+        "abi": "none",
+        "platform": "any"
+      }
+    },
+    {
+      "file": "dependencies/annotated_types-0.8.0-py3-none-any.whl",
+      "sha256": "f072f4d804ea359e4eaf198b1af7a8b0943881a87f31bb764f8bf219bb9419e0",
+      "bytes": 13427,
+      "wheel_tags": {
+        "python": "py3",
+        "abi": "none",
+        "platform": "any"
+      }
+    },
+    {
+      "file": "dependencies/anyio-4.15.1-py3-none-any.whl",
+      "sha256": "6152fdbbf9a77fdec97731721bebf7c4c44f7c29b424b0065826173efc7ed101",
+      "bytes": 132079,
+      "wheel_tags": {
+        "python": "py3",
+        "abi": "none",
+        "platform": "any"
+      }
+    },
+    {
+      "file": "dependencies/attrs-26.1.0-py3-none-any.whl",
+      "sha256": "c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309",
+      "bytes": 67548,
+      "wheel_tags": {
+        "python": "py3",
+        "abi": "none",
+        "platform": "any"
+      }
+    },
+    {
+      "file": "dependencies/certifi-2026.7.22-py3-none-any.whl",
+      "sha256": "62f22742b58a1a33014a2b6b706588a8d7e2a88ae7bd1a6ebe8c992928483775",
+      "bytes": 136983,
+      "wheel_tags": {
+        "python": "py3",
+        "abi": "none",
+        "platform": "any"
+      }
+    },
+    {
+      "file": "dependencies/cffi-2.1.1-cp312-cp312-win_amd64.whl",
+      "sha256": "f53e442b08449d42821fa4a4fba000095af9f62742a500f978a9f557ec44339a",
+      "bytes": 185919,
+      "wheel_tags": {
+        "python": "cp312",
+        "abi": "cp312",
+        "platform": "win_amd64"
+      }
+    },
+    {
+      "file": "dependencies/click-8.5.0-py3-none-any.whl",
+      "sha256": "255bc9599cf7748b4b1a446ccc735421bd08a2ae529a8b88597d3de5664ee360",
+      "bytes": 125251,
+      "wheel_tags": {
+        "python": "py3",
+        "abi": "none",
+        "platform": "any"
+      }
+    },
+    {
+      "file": "dependencies/cryptography-50.0.2-cp311-abi3-win_amd64.whl",
+      "sha256": "7afa5a6602a9f29af1f3a2965f831bae7c9d5d597b7cbb716d41ab3b7d89879c",
+      "bytes": 3824692,
+      "wheel_tags": {
+        "python": "cp311",
+        "abi": "abi3",
+        "platform": "win_amd64"
+      }
+    },
+    {
+      "file": "dependencies/h11-0.16.0-py3-none-any.whl",
+      "sha256": "63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86",
+      "bytes": 37515,
+      "wheel_tags": {
+        "python": "py3",
+        "abi": "none",
+        "platform": "any"
+      }
+    },
+    {
+      "file": "dependencies/httpcore-1.0.9-py3-none-any.whl",
+      "sha256": "2d400746a40668fc9dec9810239072b40b4484b640a8c38fd654a024c7a1bf55",
+      "bytes": 78784,
+      "wheel_tags": {
+        "python": "py3",
+        "abi": "none",
+        "platform": "any"
+      }
+    },
+    {
+      "file": "dependencies/httpx-0.28.1-py3-none-any.whl",
+      "sha256": "d909fcccc110f8c7faf814ca82a9a4d816bc5a6dbfea25d6591d6985b8ba59ad",
+      "bytes": 73517,
+      "wheel_tags": {
+        "python": "py3",
+        "abi": "none",
+        "platform": "any"
+      }
+    },
+    {
+      "file": "dependencies/httpx_sse-0.4.3-py3-none-any.whl",
+      "sha256": "0ac1c9fe3c0afad2e0ebb25a934a59f4c7823b60792691f779fad2c5568830fc",
+      "bytes": 8960,
+      "wheel_tags": {
+        "python": "py3",
+        "abi": "none",
+        "platform": "any"
+      }
+    },
+    {
+      "file": "dependencies/idna-3.20-py3-none-any.whl",
+      "sha256": "ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c",
+      "bytes": 69583,
+      "wheel_tags": {
+        "python": "py3",
+        "abi": "none",
+        "platform": "any"
+      }
+    },
+    {
+      "file": "dependencies/jsonschema-4.26.0-py3-none-any.whl",
+      "sha256": "d489f15263b8d200f8387e64b4c3a75f06629559fb73deb8fdfb525f2dab50ce",
+      "bytes": 90630,
+      "wheel_tags": {
+        "python": "py3",
+        "abi": "none",
+        "platform": "any"
+      }
+    },
+    {
+      "file": "dependencies/jsonschema_specifications-2025.9.1-py3-none-any.whl",
+      "sha256": "98802fee3a11ee76ecaca44429fda8a41bff98b00a0f2838151b113f210cc6fe",
+      "bytes": 18437,
+      "wheel_tags": {
+        "python": "py3",
+        "abi": "none",
+        "platform": "any"
+      }
+    },
+    {
+      "file": "dependencies/mcp-1.30.0-py3-none-any.whl",
+      "sha256": "666edb5009503e1047c9d60346a756f94b261f05cc2625f23d41c728ffc484d0",
+      "bytes": 234581,
+      "wheel_tags": {
+        "python": "py3",
+        "abi": "none",
+        "platform": "any"
+      }
+    },
+    {
+      "file": "dependencies/numpy-2.5.3-cp312-cp312-win_amd64.whl",
+      "sha256": "0a59a421a32580a009e8a1751345bf829631b990dc1794b80514ab722b435def",
+      "bytes": 12567828,
+      "wheel_tags": {
+        "python": "cp312",
+        "abi": "cp312",
+        "platform": "win_amd64"
+      }
+    },
+    {
+      "file": "dependencies/pycparser-3.0-py3-none-any.whl",
+      "sha256": "b727414169a36b7d524c1c3e31839a521725078d7b2ff038656844266160a992",
+      "bytes": 48172,
+      "wheel_tags": {
+        "python": "py3",
+        "abi": "none",
+        "platform": "any"
+      }
+    },
+    {
+      "file": "dependencies/pydantic-2.13.5-py3-none-any.whl",
+      "sha256": "346a034f080da3755d8e9cb5e00e8b07de1d39e4f6e2c87d8ab7cafa0b269a73",
+      "bytes": 472589,
+      "wheel_tags": {
+        "python": "py3",
+        "abi": "none",
+        "platform": "any"
+      }
+    },
+    {
+      "file": "dependencies/pydantic_core-2.46.5-cp312-cp312-win_amd64.whl",
+      "sha256": "5e81740c09e310f5aa5cbd3e434a01c154d4bef93241c7877b39f211d2b78ba8",
+      "bytes": 2043140,
+      "wheel_tags": {
+        "python": "cp312",
+        "abi": "cp312",
+        "platform": "win_amd64"
+      }
+    },
+    {
+      "file": "dependencies/pydantic_settings-2.15.0-py3-none-any.whl",
+      "sha256": "0ba092c291c94baceb5eff768aa0d56400a457585bc0175925a5a5510303da42",
+      "bytes": 69413,
+      "wheel_tags": {
+        "python": "py3",
+        "abi": "none",
+        "platform": "any"
+      }
+    },
+    {
+      "file": "dependencies/pyjwt-2.15.1-py3-none-any.whl",
+      "sha256": "42d59d631f7768a1028a64c7ff581a9bf7519804daf91fc5b6c56e30eec5e193",
+      "bytes": 33860,
+      "wheel_tags": {
+        "python": "py3",
+        "abi": "none",
+        "platform": "any"
+      }
+    },
+    {
+      "file": "dependencies/python_dotenv-1.2.4-py3-none-any.whl",
+      "sha256": "42269a8a5b3fd54ffa6f3d84b18abed50064717576b4ecf03dc4a55d8aa04fdc",
+      "bytes": 23266,
+      "wheel_tags": {
+        "python": "py3",
+        "abi": "none",
+        "platform": "any"
+      }
+    },
+    {
+      "file": "dependencies/python_multipart-0.0.32-py3-none-any.whl",
+      "sha256": "ff6d3f776f16878c894e52e107296ffc890e913c611b1a4ec6c44e2821fe2e23",
+      "bytes": 30042,
+      "wheel_tags": {
+        "python": "py3",
+        "abi": "none",
+        "platform": "any"
+      }
+    },
+    {
+      "file": "dependencies/pywin32-312-cp312-cp312-win_amd64.whl",
+      "sha256": "b457f6d628a47e8a7346ce22acb7e1a46a4a78b52e1d17e1af56871bd19a93bc",
+      "bytes": 6914841,
+      "wheel_tags": {
+        "python": "cp312",
+        "abi": "cp312",
+        "platform": "win_amd64"
+      }
+    },
+    {
+      "file": "dependencies/referencing-0.37.0-py3-none-any.whl",
+      "sha256": "381329a9f99628c9069361716891d34ad94af76e461dcb0335825aecc7692231",
+      "bytes": 26766,
+      "wheel_tags": {
+        "python": "py3",
+        "abi": "none",
+        "platform": "any"
+      }
+    },
+    {
+      "file": "dependencies/rpds_py-2026.9.1-cp312-cp312-win_amd64.whl",
+      "sha256": "5ce8943f79c2210f7abcc28e86367b03b28d95027fd01c46d2472373ae70c86f",
+      "bytes": 222923,
+      "wheel_tags": {
+        "python": "cp312",
+        "abi": "cp312",
+        "platform": "win_amd64"
+      }
+    },
+    {
+      "file": "dependencies/shapely-2.1.2-cp312-cp312-win_amd64.whl",
+      "sha256": "743044b4cfb34f9a67205cee9279feaf60ba7d02e69febc2afc609047cb49179",
+      "bytes": 1722861,
+      "wheel_tags": {
+        "python": "cp312",
+        "abi": "cp312",
+        "platform": "win_amd64"
+      }
+    },
+    {
+      "file": "dependencies/sse_starlette-3.5.0-py3-none-any.whl",
+      "sha256": "3e6e1070df3f0f5d9cea81496de92dbb72f6721871d99748ece67441dd8b7997",
+      "bytes": 17407,
+      "wheel_tags": {
+        "python": "py3",
+        "abi": "none",
+        "platform": "any"
+      }
+    },
+    {
+      "file": "dependencies/starlette-1.7.0-py3-none-any.whl",
+      "sha256": "67f8e99895493dd2911a03f11314af6ceebeae4e704bb9f43dfc6a9db151c93e",
+      "bytes": 78980,
+      "wheel_tags": {
+        "python": "py3",
+        "abi": "none",
+        "platform": "any"
+      }
+    },
+    {
+      "file": "dependencies/typing_extensions-4.16.0-py3-none-any.whl",
+      "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8",
+      "bytes": 45571,
+      "wheel_tags": {
+        "python": "py3",
+        "abi": "none",
+        "platform": "any"
+      }
+    },
+    {
+      "file": "dependencies/typing_inspection-0.4.4-py3-none-any.whl",
+      "sha256": "65b8397ba37ccbce054456aaccddfc91e6e3083c92824df348d96ca832f3f147",
+      "bytes": 14750,
+      "wheel_tags": {
+        "python": "py3",
+        "abi": "none",
+        "platform": "any"
+      }
+    },
+    {
+      "file": "dependencies/tzdata-2026.5-py2.py3-none-any.whl",
+      "sha256": "b683bd1b6659ddcd810ff02ad09ba821d4bf1065072805063eb35c49617905ac",
+      "bytes": 347996,
+      "wheel_tags": {
+        "python": "py2.py3",
+        "abi": "none",
+        "platform": "any"
+      }
+    },
+    {
+      "file": "dependencies/uvicorn-0.54.0-py3-none-any.whl",
+      "sha256": "505bdb0f318731d45f1f712071fc781a8981f6847a31c902c9f5e652d4f67faf",
+      "bytes": 87427,
+      "wheel_tags": {
+        "python": "py3",
+        "abi": "none",
+        "platform": "any"
+      }
+    }
+  ],
+  "bundled_assets_sha256": {
+    "config/development.json": "ebeeb4cd9f05c2aae513b4f6b2395ac542e60de56cfcb0f50503e97529190988",
+    "config/catalog.json": "589b4dd202aa5d69315dc920499bcc0d75e130e8d164e1dfb927c3f2c1d66736",
+    "config/mapping.json": "3c1d6db8fa1fe597ca43a23a8e00df168beffe4f2ecbc0b99165d8b0a0ccca95",
+    "fixtures/manifest.json": "f2e3831e6a350f7fabb0a1f3eaa44c5dbff46684ce9baf6721b831f66b7b6668",
+    "fixtures/requests.jsonl": "e34bba882616d4e04d9994642c2cc66effed110e3fa544039ef967d6da36997c"
+  },
+  "build_network_disabled": true,
+  "verification": {
+    "status": "passed",
+    "fresh_venv": true,
+    "outside_checkout": true,
+    "installation": "pip --no-index",
+    "network_audit_guard": true,
+    "network_guard_scope": "Python audit hook; not an OS sandbox",
+    "network_guard_exception": "stdlib socketpair only; Windows uses loopback TCP internally",
+    "package_version": "0.7.0",
+    "dataset_version": "fixture-v1",
+    "evidence_level": "fixture_only",
+    "matching_records": 4,
+    "preview_records": 2,
+    "export_rows": 4,
+    "export_sha256": "ba7c22b1effcd036aea35031df3d0c6edfe8274a8d9aa911a7ddd0c461b29381",
+    "capacity_plan": {
+      "status": "passed",
+      "target_rows": 1000,
+      "evidence_kind": "modeled_capacity",
+      "ready_for_production": false
+    },
+    "default_output": "work/runs",
+    "installed_assets_unchanged": true,
+    "handoff": {
+      "status": "passed",
+      "live_parity": "argument parsing only; no server",
+      "capacity_scenarios": 9,
+      "reference_benchmark": {
+        "records": 100,
+        "cases": 5,
+        "evidence_level": "generated_reference_only"
+      },
+      "export_stress": {
+        "status": "passed",
+        "owned_processes_started": 7,
+        "peak_owned_processes_alive": 2,
+        "seconds": 2.36,
+        "crash_method": "parent_gate_then_worker_os._exit",
+        "worker_exit_code": 86,
+        "evidence_level": "measured_bounded_local_process_only"
+      }
+    },
+    "mcp_tested": true,
+    "geo_tested": true,
+    "mcp": {
+      "status": "passed",
+      "transport": "stdio",
+      "tools": [
+        "cancel_export",
+        "create_map_link",
+        "describe_dataset",
+        "export_csv",
+        "get_result",
+        "run_analysis",
+        "validate_analysis"
+      ],
+      "successful_calls": 4,
+      "rejected_invalid_calls": 1,
+      "matching_records": 4
+    },
+    "geo": {
+      "status": "passed",
+      "shapely_version": "2.1.2",
+      "scope": "installed native geometry dependency; synthetic polygon only"
+    },
+    "elastic_kibana_tested": false
+  },
+  "extras_bundled": [
+    "geo",
+    "mcp"
+  ],
+  "handoff_files": [
+    {
+      "file": "tools/live_parity.py",
+      "sha256": "53a705dce5019df25347abfc1951dc078f3389848585b924ba3bbbd167afd5be",
+      "bytes": 20786
+    },
+    {
+      "file": "tools/capacity_scenarios.py",
+      "sha256": "2bade6d08d0b75a63fad23e931e13d0d495933e472efcdbe07e2ae3a01ad6cd3",
+      "bytes": 5789
+    },
+    {
+      "file": "tools/benchmark_fixture.py",
+      "sha256": "8fc9c4a95d5ca2d0107a553c1955a36433c90408e7607a8f1ee151f1895e4477",
+      "bytes": 6462
+    },
+    {
+      "file": "tools/stress_exports.py",
+      "sha256": "71a6e213da6feff1c5303f990c79156cb0ecb298f66bd1a937ff7df1852d80ed",
+      "bytes": 19792
+    },
+    {
+      "file": "examples/capacity/scenarios.json",
+      "sha256": "bfb89a53e4524260090b3b423ea956a3f7cc86fe27eea3c5878a30886b22c299",
+      "bytes": 2123
+    }
+  ],
+  "limits": [
+    "Only selected extras are bundled; dependency wheels target the recorded Python/platform.",
+    "Python socket audit instrumentation is not an OS network sandbox.",
+    "Fixture execution is software evidence, not live Elasticsearch/Kibana or real NYC evidence.",
+    "Install wheels with pip; direct zip-import execution is not a supported deployment."
+  ]
+}

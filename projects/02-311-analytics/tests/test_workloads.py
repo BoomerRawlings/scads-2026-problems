@@ -62,7 +62,7 @@ class WorkloadTests(unittest.TestCase):
             source, destination = Path(directory) / "raw.jsonl", Path(directory) / "normalized.jsonl"
             generate(source, 10)
             with patch("analytics311.workloads.file_hash", wraps=file_hash) as hashing:
-                result = normalize_file(source, destination)
+                result = normalize_file(source, destination, min_free_bytes=0)
             paths = [Path(call.args[0]) for call in hashing.call_args_list]
             # Additional source passes remain pre/post guards. The processing
             # pass also hashes actual bytes; staged metadata adds no full scan.
@@ -88,7 +88,7 @@ class WorkloadTests(unittest.TestCase):
             source = Path(directory) / "raw.jsonl"
             source.write_text('\n'.join([json.dumps({"unique_key": "1", "created_date": "2025-12-01T12:00:00", "status": "Open"}),
                                          json.dumps({"created_date": "2025-12-01T12:00:00"}), "not json"]))
-            result = normalize_file(source, Path(directory) / "normalized.jsonl")
+            result = normalize_file(source, Path(directory) / "normalized.jsonl", min_free_bytes=0)
             self.assertEqual(result["row_count"], 1)
             self.assertEqual(result["quality_counts"]["rejected"], 1)
             self.assertEqual(result["quality_counts"]["invalid_json"], 1)

@@ -1,0 +1,407 @@
+{
+  "schema_version": 1,
+  "evidence_kind": "actual_model_development_candidate_failure",
+  "source_run": {
+    "id": 37707420685,
+    "url": "https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/37707420685"
+  },
+  "passed": false,
+  "actual_agent_trials": 1,
+  "held_out_evaluation": false,
+  "real_data_acceptance": false,
+  "model_alias": "analytics311-qwen3-1-7b",
+  "runtime_spec_sha256": "661569ca45a1e2eaaa7e178209d3349dc27cab86351444cbea5be1d3d3c49937",
+  "code_sha256": {
+    "analytics311/__init__.py": "010dabac662e1135b14a8a5fa508468aaf641a4980262b3c34524ca312cd545d",
+    "analytics311/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "analytics311/capacity.py": "35d9ff679dffc7d02c314d4f71984240341bb42e1983d2029cfe00bd7bd00224",
+    "analytics311/capture.py": "8897af4c877c206cddb92707b973d5f7fe5f62b558c4eb625a8f382c43fadf02",
+    "analytics311/cli.py": "c2c0c9299220ee81dc931cfe7529dce7b5843aa94b67dea4b642584deeb4a389",
+    "analytics311/compiler.py": "d64685b83ddb6727145c8166f87586226d10f348147e094da124d780572390b2",
+    "analytics311/contracts.py": "77380332b2dd25e2aa367cc9f08680b5ece02d29bfe5bd9cd9eb22b77b58e596",
+    "analytics311/elastic.py": "4bbbe82d73038c3fff69cbcdae1f1ed4d86292b57706158c0bebe5f1cac1bcc7",
+    "analytics311/errors.py": "d61e9b5d5b14716720477a9cf1005f377ca79ab4b61f6ca61d6822c7d51d5414",
+    "analytics311/fixture.py": "b4f303e4fa7e53e9974491964c9524187ba485283d75e12a5c3d48ae5b8a6487",
+    "analytics311/geography.py": "b066038c1105047fbb1025cba4efb2ca82e35679fd27afadb51e30734621baf5",
+    "analytics311/guide.py": "45d4d9b54e6e662d9268c4dcbd333711d3b16007b58e97d6eb86481d156962aa",
+    "analytics311/ingest.py": "632caee86a4230d4ba50c05d782902d7d1f7782fe348526f63872ded7a7585e4",
+    "analytics311/jobs.py": "93ce4a241abe484408ce1f606a120b6cd614c8f8757e2cedb3a9155d28da7b75",
+    "analytics311/maps.py": "f97d2dfda8fc7b1fa410a5ad0f7751ca1c9c55bfb81d79415e1bb12ce5b0f287",
+    "analytics311/mcp_server.py": "72d7794ec72782b1b0198327a20ff20210abe1febeef7736a22edccefcc55526",
+    "analytics311/metadata_io.py": "7a765bd91b5275f76e743a78c869a99c7c3d3736a21c15b7ed789c73c71ba556",
+    "analytics311/qualification.py": "31161ced2c85089ce643bae30845b29a340eb47d2e7c8f6fbf430a673cfe2582",
+    "analytics311/resources.py": "b89b3e2b8561593561d72b31994ff4072b149c8f9df764b26161e972511aa6b3",
+    "analytics311/service.py": "c3b34b4547151a04760ab0925dd8ea318add316c068d04fcda603b339a874663",
+    "analytics311/settings.py": "70a9422e36659bcd9f2e6b9e00615b098e147bc55e06497a8abc3c898c5eb3d4",
+    "analytics311/trend_maps.py": "8d0fe301a0a6f0165998965d2660ae2a5bee5cf4ba9bc59065dfb8f43698393b",
+    "analytics311/workloads.py": "3782154b92087ecdb87a8a25cfaaf2b5810cb762635fcf14d885a7369f034819",
+    "tools/agent_evaluation.py": "4a3ed2177f52ec420ce74ddccfa443143d9c437456f121df31ffb1325a02c36f",
+    "tools/local_agent.py": "bcf97e42a881ba900b1b66dfd6312355ab2a74a40f5a9dd63c844285118ba3e0"
+  },
+  "trial": {
+    "elapsed_seconds": 57.033222,
+    "status": "finished",
+    "error": null,
+    "final": {
+      "status": "unsupported",
+      "answer": "The dataset is synthetic as indicated in the dataset description.",
+      "result_ids": [],
+      "facts": [],
+      "artifacts": [],
+      "limitations": [
+        "The dataset is synthetic; no real NYC service requests exist."
+      ]
+    },
+    "tool_calls": 6,
+    "checks": {
+      "finished": true,
+      "answered": false,
+      "discovered_first": true,
+      "executed_unfiltered_count": false,
+      "numeric_evidence": false,
+      "cited_result": false,
+      "synthetic_label": true
+    },
+    "model_timings": [
+      {
+        "usage": {
+          "completion_tokens": 20,
+          "prompt_tokens": 1205,
+          "total_tokens": 1225
+        },
+        "server_timings": {
+          "cache_n": 0,
+          "prompt_n": 1205,
+          "prompt_ms": 8773.934,
+          "prompt_per_token_ms": 7.281273029045643,
+          "prompt_per_second": 137.3386214211322,
+          "predicted_n": 20,
+          "predicted_ms": 670.573,
+          "predicted_per_token_ms": 35.29331578947368,
+          "predicted_per_second": 28.333977061408678
+        },
+        "elapsed_seconds": 9.457767
+      },
+      {
+        "usage": {
+          "completion_tokens": 16,
+          "prompt_tokens": 1310,
+          "total_tokens": 1326
+        },
+        "server_timings": {
+          "cache_n": 1201,
+          "prompt_n": 109,
+          "prompt_ms": 1372.995,
+          "prompt_per_token_ms": 12.596284403669724,
+          "prompt_per_second": 79.38849012560134,
+          "predicted_n": 16,
+          "predicted_ms": 543.95,
+          "predicted_per_token_ms": 36.263333333333335,
+          "predicted_per_second": 27.576063976468422
+        },
+        "elapsed_seconds": 11.390439
+      },
+      {
+        "usage": {
+          "completion_tokens": 21,
+          "prompt_tokens": 3200,
+          "total_tokens": 3221
+        },
+        "server_timings": {
+          "cache_n": 1306,
+          "prompt_n": 1894,
+          "prompt_ms": 19047.227,
+          "prompt_per_token_ms": 10.05661404435058,
+          "prompt_per_second": 99.43704666301295,
+          "predicted_n": 21,
+          "predicted_ms": 962.289,
+          "predicted_per_token_ms": 48.11445,
+          "predicted_per_second": 20.783777015013165
+        },
+        "elapsed_seconds": 31.420008
+      },
+      {
+        "usage": {
+          "completion_tokens": 35,
+          "prompt_tokens": 3312,
+          "total_tokens": 3347
+        },
+        "server_timings": {
+          "cache_n": 3196,
+          "prompt_n": 116,
+          "prompt_ms": 1918.004,
+          "prompt_per_token_ms": 16.53451724137931,
+          "prompt_per_second": 60.479540188654454,
+          "predicted_n": 35,
+          "predicted_ms": 1752.024,
+          "predicted_per_token_ms": 51.53011764705882,
+          "predicted_per_second": 19.40612685670973
+        },
+        "elapsed_seconds": 35.109034
+      },
+      {
+        "usage": {
+          "completion_tokens": 35,
+          "prompt_tokens": 3438,
+          "total_tokens": 3473
+        },
+        "server_timings": {
+          "cache_n": 3308,
+          "prompt_n": 130,
+          "prompt_ms": 2584.936,
+          "prompt_per_token_ms": 19.88412307692308,
+          "prompt_per_second": 50.29138052160672,
+          "predicted_n": 35,
+          "predicted_ms": 1761.59,
+          "predicted_per_token_ms": 51.811470588235295,
+          "predicted_per_second": 19.300745349371876
+        },
+        "elapsed_seconds": 39.474996
+      },
+      {
+        "usage": {
+          "completion_tokens": 35,
+          "prompt_tokens": 3564,
+          "total_tokens": 3599
+        },
+        "server_timings": {
+          "cache_n": 3434,
+          "prompt_n": 130,
+          "prompt_ms": 2493.675,
+          "prompt_per_token_ms": 19.182115384615386,
+          "prompt_per_second": 52.13189369103832,
+          "predicted_n": 35,
+          "predicted_ms": 1786.414,
+          "predicted_per_token_ms": 52.541588235294114,
+          "predicted_per_second": 19.032542288629624
+        },
+        "elapsed_seconds": 43.775715
+      },
+      {
+        "usage": {
+          "completion_tokens": 94,
+          "prompt_tokens": 3690,
+          "total_tokens": 3784
+        },
+        "server_timings": {
+          "cache_n": 3560,
+          "prompt_n": 130,
+          "prompt_ms": 2401.58,
+          "prompt_per_token_ms": 18.473692307692307,
+          "prompt_per_second": 54.131030404983385,
+          "predicted_n": 94,
+          "predicted_ms": 5121.258,
+          "predicted_per_token_ms": 55.06729032258065,
+          "predicted_per_second": 18.15960062937661
+        },
+        "elapsed_seconds": 51.319228
+      },
+      {
+        "usage": {
+          "completion_tokens": 45,
+          "prompt_tokens": 3881,
+          "total_tokens": 3926
+        },
+        "server_timings": {
+          "cache_n": 3686,
+          "prompt_n": 195,
+          "prompt_ms": 3243.068,
+          "prompt_per_token_ms": 16.63111794871795,
+          "prompt_per_second": 60.12824892971717,
+          "predicted_n": 45,
+          "predicted_ms": 2449.696,
+          "predicted_per_token_ms": 55.67490909090909,
+          "predicted_per_second": 17.961412354839133
+        },
+        "elapsed_seconds": 57.032819
+      }
+    ],
+    "tool_outcomes": [
+      {
+        "name": "describe_dataset",
+        "arguments": {
+          "field": "total"
+        },
+        "error": {
+          "code": "invalid_spec",
+          "argument_schema": {
+            "type": "object",
+            "properties": {
+              "field": {
+                "type": "string",
+                "description": "Optional exact field name from prior discovery; omit for the complete descriptor."
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          },
+          "recovery": "Call describe_dataset with {} for complete discovery; field is optional and must be an exact returned field name."
+        }
+      },
+      {
+        "name": "describe_dataset",
+        "arguments": {},
+        "error": null
+      },
+      {
+        "name": "get_result",
+        "arguments": {
+          "result_id": "1"
+        },
+        "error": {
+          "code": "foreign_result_id",
+          "argument_schema": {
+            "type": "object",
+            "properties": {
+              "result_id": {
+                "type": "string"
+              },
+              "cursor": {
+                "type": "string"
+              },
+              "page_size": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 100
+              }
+            },
+            "required": [
+              "result_id"
+            ],
+            "additionalProperties": false
+          },
+          "recovery": "Only use result_id or job_id values returned by successful tools in this conversation."
+        }
+      },
+      {
+        "name": "get_result",
+        "arguments": {
+          "result_id": "1",
+          "cursor": "0",
+          "page_size": 50
+        },
+        "error": {
+          "code": "foreign_result_id",
+          "argument_schema": {
+            "type": "object",
+            "properties": {
+              "result_id": {
+                "type": "string"
+              },
+              "cursor": {
+                "type": "string"
+              },
+              "page_size": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 100
+              }
+            },
+            "required": [
+              "result_id"
+            ],
+            "additionalProperties": false
+          },
+          "recovery": "Only use result_id or job_id values returned by successful tools in this conversation."
+        }
+      },
+      {
+        "name": "get_result",
+        "arguments": {
+          "result_id": "1",
+          "cursor": "0",
+          "page_size": 50
+        },
+        "error": {
+          "code": "foreign_result_id",
+          "argument_schema": {
+            "type": "object",
+            "properties": {
+              "result_id": {
+                "type": "string"
+              },
+              "cursor": {
+                "type": "string"
+              },
+              "page_size": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 100
+              }
+            },
+            "required": [
+              "result_id"
+            ],
+            "additionalProperties": false
+          },
+          "recovery": "Only use result_id or job_id values returned by successful tools in this conversation."
+        }
+      },
+      {
+        "name": "get_result",
+        "arguments": {
+          "result_id": "1",
+          "cursor": "0",
+          "page_size": 50
+        },
+        "error": {
+          "code": "foreign_result_id",
+          "argument_schema": {
+            "type": "object",
+            "properties": {
+              "result_id": {
+                "type": "string"
+              },
+              "cursor": {
+                "type": "string"
+              },
+              "page_size": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 100
+              }
+            },
+            "required": [
+              "result_id"
+            ],
+            "additionalProperties": false
+          },
+          "recovery": "Only use result_id or job_id values returned by successful tools in this conversation."
+        }
+      }
+    ]
+  },
+  "source_files": {
+    "runs\\model-smoke-37707420685\\summary.json": {
+      "bytes": 4000,
+      "sha256": "be1a29b01357d8d149f58d55ad5d9b45ead5e392e78eb462b8e31c1aa756f282"
+    },
+    "runs\\model-smoke-37707420685\\trace.json": {
+      "bytes": 39980,
+      "sha256": "927c5d9d29498bd226768f2edce9d0f0594b569eaac1dd2171079da3ecfea125"
+    },
+    "runs\\model-smoke-37707420685\\runtime\\model-assets.json": {
+      "bytes": 3085,
+      "sha256": "aebab66a394c1fb367f0271eb51ca541be3da89e74a4725eae743c617d80a540"
+    },
+    "runs\\model-smoke-37707420685\\runtime\\native-build.json": {
+      "bytes": 219,
+      "sha256": "68499baa2bd859d46e7c654e09d65f962d2899192e520561f62b28dd89996d44"
+    },
+    "runs\\model-smoke-37707420685\\runtime\\release-benchmark.json": {
+      "bytes": 2351,
+      "sha256": "efffdd5489153cd6c343b86f1a35cf062756845bd12112dcbdb4263519e893a2"
+    },
+    "runs\\model-smoke-37707420685\\runtime\\native-benchmark.json": {
+      "bytes": 2361,
+      "sha256": "36f82cdf63e95d169b4e6020d07ea6b87b02125e7e719c4477c71d401ee23348"
+    }
+  },
+  "limits": [
+    "One authored development question over 32 synthetic records; no held-out evaluation.",
+    "The model recovered from an invalid discovery field but never called run_analysis.",
+    "Repeated invented result IDs were denied by per-trial ownership checks; the final unsupported answer was unsuccessful.",
+    "Adapter discovery bootstrap and generic run_analysis/get_result guidance were implemented after this run; this receipt preserves the earlier source identity.",
+    "Measured development timing does not establish real-corpus agent quality or million-record end-to-end latency."
+  ]
+}

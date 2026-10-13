@@ -1,0 +1,371 @@
+{
+  "sha256": "3361f4cad3d6d03c8595f47c7744d798599ec945a2be575dfadb0ff3cae238e5",
+  "receipt": {
+    "schema_version": 1,
+    "evidence_kind": "pretrial_local_model_runtime",
+    "created_at": "2026-10-10T06:42:45.400445+00:00",
+    "freeze_sha256": "080e76a2e1635bba36ace74a398097f3d7be2789fa8fdb609929c0970c228490",
+    "runtime_spec_sha256": "2ff41f3779e8c2e342281239f06a22130474f622ab487ffdc2530e5e510a37d9",
+    "model_alias": "analytics311-qwen3-1-7b",
+    "execution_runtime": {
+      "kind": "native_source_build",
+      "repository": "ggml-org/llama.cpp",
+      "source_commit": "5ad1c5da0ad7f6176256b823925aad19134f0263",
+      "cmake_flags": [
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DGGML_BACKEND_DL=OFF",
+        "-DGGML_NATIVE=ON",
+        "-DGGML_BLAS=ON",
+        "-DGGML_BLAS_VENDOR=OpenBLAS",
+        "-DLLAMA_CURL=OFF",
+        "-DLLAMA_BUILD_TESTS=OFF"
+      ],
+      "blas_threads": 4
+    },
+    "endpoint": "http://127.0.0.1:8080/v1",
+    "budgets": {
+      "seconds": 160,
+      "request_seconds": 120,
+      "max_calls": 24
+    },
+    "owned_server_pid": 19964,
+    "launch_argv": [
+      "/home/runner/work/scads-2026-problems/scads-2026-problems/projects/02-311-analytics/data/local-model/native/bin/llama-server",
+      "-m",
+      "data/local-model/Qwen3-1.7B-Q4_K_M.gguf",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "8080",
+      "--alias",
+      "analytics311-qwen3-1-7b",
+      "--threads",
+      "4",
+      "--threads-batch",
+      "4",
+      "--batch-size",
+      "2048",
+      "--ubatch-size",
+      "512",
+      "--ctx-size",
+      "24576",
+      "--parallel",
+      "1",
+      "--gpu-layers",
+      "0",
+      "--jinja",
+      "--reasoning",
+      "off",
+      "--reasoning-budget",
+      "0",
+      "--no-context-shift"
+    ],
+    "files": [
+      {
+        "role": "model",
+        "path": "/home/runner/work/scads-2026-problems/scads-2026-problems/projects/02-311-analytics/data/local-model/Qwen3-1.7B-Q4_K_M.gguf",
+        "bytes": 1107409472,
+        "sha256": "b139949c5bd74937ad8ed8c8cf3d9ffb1e99c866c823204dc42c0d91fa181897"
+      },
+      {
+        "role": "server",
+        "path": "/home/runner/work/scads-2026-problems/scads-2026-problems/projects/02-311-analytics/data/local-model/native/bin/llama-server",
+        "bytes": 17888,
+        "sha256": "31cbfa9ede4c9041c647ced30cf7142282976a294d812f8752f83f9e0a1ee6dc"
+      },
+      {
+        "role": "build_configuration",
+        "path": "/home/runner/work/scads-2026-problems/scads-2026-problems/projects/02-311-analytics/data/local-model/native/CMakeCache.txt",
+        "bytes": 38172,
+        "sha256": "ced5bb961568e1914eb52b9fee4beebe1c1294d4137fd3310810750d7909a91c"
+      },
+      {
+        "role": "source_revision",
+        "path": "/home/runner/work/scads-2026-problems/scads-2026-problems/projects/02-311-analytics/runs/runtime/native-source-commit.txt",
+        "bytes": 41,
+        "sha256": "745e93fc6b095ea32b15d6c327a06c10f7cdd2b33b4e994266abd9ece82a3c56"
+      },
+      {
+        "role": "runtime_library",
+        "path": "/home/runner/work/scads-2026-problems/scads-2026-problems/projects/02-311-analytics/data/local-model/native/bin/libggml-base.so.0.26.0",
+        "bytes": 951312,
+        "sha256": "3a11c51edd1f96151ecb041930dc4ccedb51cea8803311ffd0bae6b30761a579"
+      },
+      {
+        "role": "runtime_library",
+        "path": "/home/runner/work/scads-2026-problems/scads-2026-problems/projects/02-311-analytics/data/local-model/native/bin/libggml-blas.so.0.26.0",
+        "bytes": 64512,
+        "sha256": "a5ae914e260d96bc9680a875cba9638c0d408c33aa24b54956deb8aa65e527b7"
+      },
+      {
+        "role": "runtime_library",
+        "path": "/home/runner/work/scads-2026-problems/scads-2026-problems/projects/02-311-analytics/data/local-model/native/bin/libggml-cpu.so.0.26.0",
+        "bytes": 1418328,
+        "sha256": "e1d3e88f84b95756d45eb2bc3eca66a5514e54aebf81ca1cad7a46d1eeb74c80"
+      },
+      {
+        "role": "runtime_library",
+        "path": "/home/runner/work/scads-2026-problems/scads-2026-problems/projects/02-311-analytics/data/local-model/native/bin/libggml.so.0.26.0",
+        "bytes": 60360,
+        "sha256": "23e8398407b92f564b18cf2caaa50eaeb755248dac8e607c1afc806bc3290059"
+      },
+      {
+        "role": "runtime_library",
+        "path": "/home/runner/work/scads-2026-problems/scads-2026-problems/projects/02-311-analytics/data/local-model/native/bin/libllama-common.so.0.6.0",
+        "bytes": 6351472,
+        "sha256": "1a1e3df9a2b6ac7d64b23be6cca00920e0afbe7cc58d93531902da53bbf84666"
+      },
+      {
+        "role": "runtime_library",
+        "path": "/home/runner/work/scads-2026-problems/scads-2026-problems/projects/02-311-analytics/data/local-model/native/bin/libllama-server-impl.so",
+        "bytes": 7359072,
+        "sha256": "5cabc5166f6c0ec86090f8217a748c52e1eb2d1b8636e180830dd1ffe32a1761"
+      },
+      {
+        "role": "runtime_library",
+        "path": "/home/runner/work/scads-2026-problems/scads-2026-problems/projects/02-311-analytics/data/local-model/native/bin/libllama.so.0.6.0",
+        "bytes": 4939504,
+        "sha256": "92b3bfd091f8e76a459fff9262515cb18b58f58a6d059e92fb03bf4f3ea36900"
+      },
+      {
+        "role": "runtime_library",
+        "path": "/home/runner/work/scads-2026-problems/scads-2026-problems/projects/02-311-analytics/data/local-model/native/bin/libmtmd.so.0.6.0",
+        "bytes": 1975408,
+        "sha256": "3695db5e2e5465fea0114f3f313b96fe8070e00b2878bbb9c0380068b1d9058a"
+      },
+      {
+        "role": "runtime_library",
+        "path": "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+        "bytes": 236616,
+        "sha256": "c20a2dc8917c755f02b94049356320fe1f62ac7d9f8994731f807d9df39302da"
+      },
+      {
+        "role": "runtime_library",
+        "path": "/usr/lib/x86_64-linux-gnu/libc.so.6",
+        "bytes": 2129424,
+        "sha256": "3a15d66867d83762c7f2f1e37359cb8f6c5743edb369c65285cb0b1c4f7498bf"
+      },
+      {
+        "role": "runtime_library",
+        "path": "/usr/lib/x86_64-linux-gnu/libcrypto.so.3",
+        "bytes": 5309400,
+        "sha256": "6866ed711dab8927e1bf82bf1cd30e828bdfc34f3cc1e83b1c9eb01ce6c37d9a"
+      },
+      {
+        "role": "runtime_library",
+        "path": "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1",
+        "bytes": 183024,
+        "sha256": "d93224d2b0dab4247598be683adca02f5cf00586f99c187579cd7e92058fb7cb"
+      },
+      {
+        "role": "runtime_library",
+        "path": "/usr/lib/x86_64-linux-gnu/libgfortran.so.5.0.0",
+        "bytes": 3263912,
+        "sha256": "342618ccfebe840446e4ef2b7893f4161b2084845e570f42d68a70bfde58a58d"
+      },
+      {
+        "role": "runtime_library",
+        "path": "/usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0",
+        "bytes": 352304,
+        "sha256": "135f3c8f006d2fe5e68e51281c7974cb991a03de3bfb3593d68d174dfcf854d1"
+      },
+      {
+        "role": "runtime_library",
+        "path": "/usr/lib/x86_64-linux-gnu/libm.so.6",
+        "bytes": 952616,
+        "sha256": "fce00b6f25f459cf4ae0b7fae4257909a1a8a86f9149e7c029a5d617baf1ccd0"
+      },
+      {
+        "role": "runtime_library",
+        "path": "/usr/lib/x86_64-linux-gnu/libssl.so.3",
+        "bytes": 696512,
+        "sha256": "a40e7b67489bbd257e432c700ff8f6a1ad796425b5eccecdc2930127fdd86624"
+      },
+      {
+        "role": "runtime_library",
+        "path": "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33",
+        "bytes": 2592224,
+        "sha256": "1fd75fe70354a416d75aef22bcae68c47bd25d20e2d0568c30b1a9838cf62f11"
+      },
+      {
+        "role": "runtime_library",
+        "path": "/usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.26.so",
+        "bytes": 37555760,
+        "sha256": "bfc7492adbf84a8f567720a9e1fae2afc18f3d817da233e7f4d453683485308e"
+      }
+    ]
+  },
+  "receipt_json": "{\n  \"schema_version\": 1,\n  \"evidence_kind\": \"pretrial_local_model_runtime\",\n  \"created_at\": \"2026-10-10T06:42:45.400445+00:00\",\n  \"freeze_sha256\": \"080e76a2e1635bba36ace74a398097f3d7be2789fa8fdb609929c0970c228490\",\n  \"runtime_spec_sha256\": \"2ff41f3779e8c2e342281239f06a22130474f622ab487ffdc2530e5e510a37d9\",\n  \"model_alias\": \"analytics311-qwen3-1-7b\",\n  \"execution_runtime\": {\n    \"kind\": \"native_source_build\",\n    \"repository\": \"ggml-org/llama.cpp\",\n    \"source_commit\": \"5ad1c5da0ad7f6176256b823925aad19134f0263\",\n    \"cmake_flags\": [\n      \"-DCMAKE_BUILD_TYPE=Release\",\n      \"-DGGML_BACKEND_DL=OFF\",\n      \"-DGGML_NATIVE=ON\",\n      \"-DGGML_BLAS=ON\",\n      \"-DGGML_BLAS_VENDOR=OpenBLAS\",\n      \"-DLLAMA_CURL=OFF\",\n      \"-DLLAMA_BUILD_TESTS=OFF\"\n    ],\n    \"blas_threads\": 4\n  },\n  \"endpoint\": \"http://127.0.0.1:8080/v1\",\n  \"budgets\": {\n    \"seconds\": 160,\n    \"request_seconds\": 120,\n    \"max_calls\": 24\n  },\n  \"owned_server_pid\": 19964,\n  \"launch_argv\": [\n    \"/home/runner/work/scads-2026-problems/scads-2026-problems/projects/02-311-analytics/data/local-model/native/bin/llama-server\",\n    \"-m\",\n    \"data/local-model/Qwen3-1.7B-Q4_K_M.gguf\",\n    \"--host\",\n    \"127.0.0.1\",\n    \"--port\",\n    \"8080\",\n    \"--alias\",\n    \"analytics311-qwen3-1-7b\",\n    \"--threads\",\n    \"4\",\n    \"--threads-batch\",\n    \"4\",\n    \"--batch-size\",\n    \"2048\",\n    \"--ubatch-size\",\n    \"512\",\n    \"--ctx-size\",\n    \"24576\",\n    \"--parallel\",\n    \"1\",\n    \"--gpu-layers\",\n    \"0\",\n    \"--jinja\",\n    \"--reasoning\",\n    \"off\",\n    \"--reasoning-budget\",\n    \"0\",\n    \"--no-context-shift\"\n  ],\n  \"files\": [\n    {\n      \"role\": \"model\",\n      \"path\": \"/home/runner/work/scads-2026-problems/scads-2026-problems/projects/02-311-analytics/data/local-model/Qwen3-1.7B-Q4_K_M.gguf\",\n      \"bytes\": 1107409472,\n      \"sha256\": \"b139949c5bd74937ad8ed8c8cf3d9ffb1e99c866c823204dc42c0d91fa181897\"\n    },\n    {\n      \"role\": \"server\",\n      \"path\": \"/home/runner/work/scads-2026-problems/scads-2026-problems/projects/02-311-analytics/data/local-model/native/bin/llama-server\",\n      \"bytes\": 17888,\n      \"sha256\": \"31cbfa9ede4c9041c647ced30cf7142282976a294d812f8752f83f9e0a1ee6dc\"\n    },\n    {\n      \"role\": \"build_configuration\",\n      \"path\": \"/home/runner/work/scads-2026-problems/scads-2026-problems/projects/02-311-analytics/data/local-model/native/CMakeCache.txt\",\n      \"bytes\": 38172,\n      \"sha256\": \"ced5bb961568e1914eb52b9fee4beebe1c1294d4137fd3310810750d7909a91c\"\n    },\n    {\n      \"role\": \"source_revision\",\n      \"path\": \"/home/runner/work/scads-2026-problems/scads-2026-problems/projects/02-311-analytics/runs/runtime/native-source-commit.txt\",\n      \"bytes\": 41,\n      \"sha256\": \"745e93fc6b095ea32b15d6c327a06c10f7cdd2b33b4e994266abd9ece82a3c56\"\n    },\n    {\n      \"role\": \"runtime_library\",\n      \"path\": \"/home/runner/work/scads-2026-problems/scads-2026-problems/projects/02-311-analytics/data/local-model/native/bin/libggml-base.so.0.26.0\",\n      \"bytes\": 951312,\n      \"sha256\": \"3a11c51edd1f96151ecb041930dc4ccedb51cea8803311ffd0bae6b30761a579\"\n    },\n    {\n      \"role\": \"runtime_library\",\n      \"path\": \"/home/runner/work/scads-2026-problems/scads-2026-problems/projects/02-311-analytics/data/local-model/native/bin/libggml-blas.so.0.26.0\",\n      \"bytes\": 64512,\n      \"sha256\": \"a5ae914e260d96bc9680a875cba9638c0d408c33aa24b54956deb8aa65e527b7\"\n    },\n    {\n      \"role\": \"runtime_library\",\n      \"path\": \"/home/runner/work/scads-2026-problems/scads-2026-problems/projects/02-311-analytics/data/local-model/native/bin/libggml-cpu.so.0.26.0\",\n      \"bytes\": 1418328,\n      \"sha256\": \"e1d3e88f84b95756d45eb2bc3eca66a5514e54aebf81ca1cad7a46d1eeb74c80\"\n    },\n    {\n      \"role\": \"runtime_library\",\n      \"path\": \"/home/runner/work/scads-2026-problems/scads-2026-problems/projects/02-311-analytics/data/local-model/native/bin/libggml.so.0.26.0\",\n      \"bytes\": 60360,\n      \"sha256\": \"23e8398407b92f564b18cf2caaa50eaeb755248dac8e607c1afc806bc3290059\"\n    },\n    {\n      \"role\": \"runtime_library\",\n      \"path\": \"/home/runner/work/scads-2026-problems/scads-2026-problems/projects/02-311-analytics/data/local-model/native/bin/libllama-common.so.0.6.0\",\n      \"bytes\": 6351472,\n      \"sha256\": \"1a1e3df9a2b6ac7d64b23be6cca00920e0afbe7cc58d93531902da53bbf84666\"\n    },\n    {\n      \"role\": \"runtime_library\",\n      \"path\": \"/home/runner/work/scads-2026-problems/scads-2026-problems/projects/02-311-analytics/data/local-model/native/bin/libllama-server-impl.so\",\n      \"bytes\": 7359072,\n      \"sha256\": \"5cabc5166f6c0ec86090f8217a748c52e1eb2d1b8636e180830dd1ffe32a1761\"\n    },\n    {\n      \"role\": \"runtime_library\",\n      \"path\": \"/home/runner/work/scads-2026-problems/scads-2026-problems/projects/02-311-analytics/data/local-model/native/bin/libllama.so.0.6.0\",\n      \"bytes\": 4939504,\n      \"sha256\": \"92b3bfd091f8e76a459fff9262515cb18b58f58a6d059e92fb03bf4f3ea36900\"\n    },\n    {\n      \"role\": \"runtime_library\",\n      \"path\": \"/home/runner/work/scads-2026-problems/scads-2026-problems/projects/02-311-analytics/data/local-model/native/bin/libmtmd.so.0.6.0\",\n      \"bytes\": 1975408,\n      \"sha256\": \"3695db5e2e5465fea0114f3f313b96fe8070e00b2878bbb9c0380068b1d9058a\"\n    },\n    {\n      \"role\": \"runtime_library\",\n      \"path\": \"/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2\",\n      \"bytes\": 236616,\n      \"sha256\": \"c20a2dc8917c755f02b94049356320fe1f62ac7d9f8994731f807d9df39302da\"\n    },\n    {\n      \"role\": \"runtime_library\",\n      \"path\": \"/usr/lib/x86_64-linux-gnu/libc.so.6\",\n      \"bytes\": 2129424,\n      \"sha256\": \"3a15d66867d83762c7f2f1e37359cb8f6c5743edb369c65285cb0b1c4f7498bf\"\n    },\n    {\n      \"role\": \"runtime_library\",\n      \"path\": \"/usr/lib/x86_64-linux-gnu/libcrypto.so.3\",\n      \"bytes\": 5309400,\n      \"sha256\": \"6866ed711dab8927e1bf82bf1cd30e828bdfc34f3cc1e83b1c9eb01ce6c37d9a\"\n    },\n    {\n      \"role\": \"runtime_library\",\n      \"path\": \"/usr/lib/x86_64-linux-gnu/libgcc_s.so.1\",\n      \"bytes\": 183024,\n      \"sha256\": \"d93224d2b0dab4247598be683adca02f5cf00586f99c187579cd7e92058fb7cb\"\n    },\n    {\n      \"role\": \"runtime_library\",\n      \"path\": \"/usr/lib/x86_64-linux-gnu/libgfortran.so.5.0.0\",\n      \"bytes\": 3263912,\n      \"sha256\": \"342618ccfebe840446e4ef2b7893f4161b2084845e570f42d68a70bfde58a58d\"\n    },\n    {\n      \"role\": \"runtime_library\",\n      \"path\": \"/usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0\",\n      \"bytes\": 352304,\n      \"sha256\": \"135f3c8f006d2fe5e68e51281c7974cb991a03de3bfb3593d68d174dfcf854d1\"\n    },\n    {\n      \"role\": \"runtime_library\",\n      \"path\": \"/usr/lib/x86_64-linux-gnu/libm.so.6\",\n      \"bytes\": 952616,\n      \"sha256\": \"fce00b6f25f459cf4ae0b7fae4257909a1a8a86f9149e7c029a5d617baf1ccd0\"\n    },\n    {\n      \"role\": \"runtime_library\",\n      \"path\": \"/usr/lib/x86_64-linux-gnu/libssl.so.3\",\n      \"bytes\": 696512,\n      \"sha256\": \"a40e7b67489bbd257e432c700ff8f6a1ad796425b5eccecdc2930127fdd86624\"\n    },\n    {\n      \"role\": \"runtime_library\",\n      \"path\": \"/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33\",\n      \"bytes\": 2592224,\n      \"sha256\": \"1fd75fe70354a416d75aef22bcae68c47bd25d20e2d0568c30b1a9838cf62f11\"\n    },\n    {\n      \"role\": \"runtime_library\",\n      \"path\": \"/usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.26.so\",\n      \"bytes\": 37555760,\n      \"sha256\": \"bfc7492adbf84a8f567720a9e1fae2afc18f3d817da233e7f4d453683485308e\"\n    }\n  ]\n}\n",
+  "identity": {
+    "runtime_spec_sha256": "2ff41f3779e8c2e342281239f06a22130474f622ab487ffdc2530e5e510a37d9",
+    "execution_runtime": {
+      "kind": "native_source_build",
+      "repository": "ggml-org/llama.cpp",
+      "source_commit": "5ad1c5da0ad7f6176256b823925aad19134f0263",
+      "cmake_flags": [
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DGGML_BACKEND_DL=OFF",
+        "-DGGML_NATIVE=ON",
+        "-DGGML_BLAS=ON",
+        "-DGGML_BLAS_VENDOR=OpenBLAS",
+        "-DLLAMA_CURL=OFF",
+        "-DLLAMA_BUILD_TESTS=OFF"
+      ],
+      "blas_threads": 4
+    },
+    "model_alias": "analytics311-qwen3-1-7b",
+    "endpoint": [
+      "127.0.0.1",
+      8080,
+      "/v1"
+    ],
+    "budgets": {
+      "seconds": 160,
+      "request_seconds": 120,
+      "max_calls": 24
+    },
+    "launch_arguments": [
+      "<server>",
+      "-m",
+      "<model>",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "8080",
+      "--alias",
+      "analytics311-qwen3-1-7b",
+      "--threads",
+      "4",
+      "--threads-batch",
+      "4",
+      "--batch-size",
+      "2048",
+      "--ubatch-size",
+      "512",
+      "--ctx-size",
+      "24576",
+      "--parallel",
+      "1",
+      "--gpu-layers",
+      "0",
+      "--jinja",
+      "--reasoning",
+      "off",
+      "--reasoning-budget",
+      "0",
+      "--no-context-shift"
+    ],
+    "files": [
+      {
+        "role": "model",
+        "bytes": 1107409472,
+        "sha256": "b139949c5bd74937ad8ed8c8cf3d9ffb1e99c866c823204dc42c0d91fa181897"
+      },
+      {
+        "role": "runtime_library",
+        "bytes": 1418328,
+        "sha256": "e1d3e88f84b95756d45eb2bc3eca66a5514e54aebf81ca1cad7a46d1eeb74c80"
+      },
+      {
+        "role": "server",
+        "bytes": 17888,
+        "sha256": "31cbfa9ede4c9041c647ced30cf7142282976a294d812f8752f83f9e0a1ee6dc"
+      },
+      {
+        "role": "runtime_library",
+        "bytes": 183024,
+        "sha256": "d93224d2b0dab4247598be683adca02f5cf00586f99c187579cd7e92058fb7cb"
+      },
+      {
+        "role": "runtime_library",
+        "bytes": 1975408,
+        "sha256": "3695db5e2e5465fea0114f3f313b96fe8070e00b2878bbb9c0380068b1d9058a"
+      },
+      {
+        "role": "runtime_library",
+        "bytes": 2129424,
+        "sha256": "3a15d66867d83762c7f2f1e37359cb8f6c5743edb369c65285cb0b1c4f7498bf"
+      },
+      {
+        "role": "runtime_library",
+        "bytes": 236616,
+        "sha256": "c20a2dc8917c755f02b94049356320fe1f62ac7d9f8994731f807d9df39302da"
+      },
+      {
+        "role": "runtime_library",
+        "bytes": 2592224,
+        "sha256": "1fd75fe70354a416d75aef22bcae68c47bd25d20e2d0568c30b1a9838cf62f11"
+      },
+      {
+        "role": "runtime_library",
+        "bytes": 3263912,
+        "sha256": "342618ccfebe840446e4ef2b7893f4161b2084845e570f42d68a70bfde58a58d"
+      },
+      {
+        "role": "runtime_library",
+        "bytes": 352304,
+        "sha256": "135f3c8f006d2fe5e68e51281c7974cb991a03de3bfb3593d68d174dfcf854d1"
+      },
+      {
+        "role": "runtime_library",
+        "bytes": 37555760,
+        "sha256": "bfc7492adbf84a8f567720a9e1fae2afc18f3d817da233e7f4d453683485308e"
+      },
+      {
+        "role": "build_configuration",
+        "bytes": 38172,
+        "sha256": "ced5bb961568e1914eb52b9fee4beebe1c1294d4137fd3310810750d7909a91c"
+      },
+      {
+        "role": "source_revision",
+        "bytes": 41,
+        "sha256": "745e93fc6b095ea32b15d6c327a06c10f7cdd2b33b4e994266abd9ece82a3c56"
+      },
+      {
+        "role": "runtime_library",
+        "bytes": 4939504,
+        "sha256": "92b3bfd091f8e76a459fff9262515cb18b58f58a6d059e92fb03bf4f3ea36900"
+      },
+      {
+        "role": "runtime_library",
+        "bytes": 5309400,
+        "sha256": "6866ed711dab8927e1bf82bf1cd30e828bdfc34f3cc1e83b1c9eb01ce6c37d9a"
+      },
+      {
+        "role": "runtime_library",
+        "bytes": 60360,
+        "sha256": "23e8398407b92f564b18cf2caaa50eaeb755248dac8e607c1afc806bc3290059"
+      },
+      {
+        "role": "runtime_library",
+        "bytes": 6351472,
+        "sha256": "1a1e3df9a2b6ac7d64b23be6cca00920e0afbe7cc58d93531902da53bbf84666"
+      },
+      {
+        "role": "runtime_library",
+        "bytes": 64512,
+        "sha256": "a5ae914e260d96bc9680a875cba9638c0d408c33aa24b54956deb8aa65e527b7"
+      },
+      {
+        "role": "runtime_library",
+        "bytes": 696512,
+        "sha256": "a40e7b67489bbd257e432c700ff8f6a1ad796425b5eccecdc2930127fdd86624"
+      },
+      {
+        "role": "runtime_library",
+        "bytes": 7359072,
+        "sha256": "5cabc5166f6c0ec86090f8217a748c52e1eb2d1b8636e180830dd1ffe32a1761"
+      },
+      {
+        "role": "runtime_library",
+        "bytes": 951312,
+        "sha256": "3a11c51edd1f96151ecb041930dc4ccedb51cea8803311ffd0bae6b30761a579"
+      },
+      {
+        "role": "runtime_library",
+        "bytes": 952616,
+        "sha256": "fce00b6f25f459cf4ae0b7fae4257909a1a8a86f9149e7c029a5d617baf1ccd0"
+      }
+    ]
+  }
+}

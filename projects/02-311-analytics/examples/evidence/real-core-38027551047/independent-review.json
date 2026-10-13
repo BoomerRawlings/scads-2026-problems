@@ -1,0 +1,273 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-10T05:51:42.574979+00:00",
+  "review_source_sha256": "689a946339dcf3c75016d873195db365ca4d12e9cc138561932673c852cb3ce5",
+  "method": "Offline independent arithmetic, nested numerical comparisons, identity/hash reconciliation, and actual retained CSV set comparisons. No service, model, raw-corpus or SQLite recomputation.",
+  "workflow": {
+    "run_id": 38027551047,
+    "url": "https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/38027551047",
+    "head_sha": "6c39592ab00c2271203141ede36a25c98104e6da",
+    "conclusion": "failure"
+  },
+  "checks": {
+    "raw_normalized_index_counts_reconcile": true,
+    "hash_provenance_chain": true,
+    "qualification_seals": true,
+    "official_nta_identity_and_residential_codes": true,
+    "five_api_cases_match_retained_independent_oracle": true,
+    "thirty_five_performance_results_match_checked_api_cases": true,
+    "latency_summary_arithmetic": true,
+    "four_full_exports_match_exact_independent_ids": true,
+    "point_and_selected_all_trend_csv_parity": true,
+    "failed_streaming_job_matches_recovery": true,
+    "provision_receipt_matches_generated_profile": true,
+    "three_browser_map_failures_preserved": true,
+    "browser_search_records_and_screenshots_reviewed": true
+  },
+  "maximum_absolute_numeric_difference": 2.842170943040401e-14,
+  "review_relative_tolerance": 1e-10,
+  "review_absolute_tolerance": 1e-09,
+  "record_reconciliation": {
+    "captured": 2133268,
+    "normalized": 2133268,
+    "ingested": 2133268,
+    "frozen_index": 2133268,
+    "oracle": 2133268
+  },
+  "export_artifacts": [
+    {
+      "job_id": "177215b3fdbc4bab806c5ea2d6ca1226",
+      "bytes": 1139937,
+      "rows": 9728,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c",
+      "exact_membership_equal": true
+    },
+    {
+      "job_id": "a8eadfa0fe4b471d828bd046b838add6",
+      "bytes": 1139937,
+      "rows": 9728,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c",
+      "exact_membership_equal": true
+    },
+    {
+      "job_id": "c7fadc83c7ee4bf081e82ce1a3d37fa6",
+      "bytes": 1139937,
+      "rows": 9728,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c",
+      "exact_membership_equal": true
+    },
+    {
+      "job_id": "f1a412bdb5bf4b32b4b4014b9753b2b2",
+      "bytes": 1139937,
+      "rows": 9728,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c",
+      "exact_membership_equal": true
+    }
+  ],
+  "maps": {
+    "provision_passed": true,
+    "rendered_parity_verified": false,
+    "render_failures": {
+      "points": {
+        "stage": "browser",
+        "browser_stage": "inspector_map_details",
+        "code": "acceptance_failed",
+        "type": "TimeoutError",
+        "csv_rows": 242,
+        "browser_reached": true,
+        "saved_map_path_verified": true,
+        "captured_initial_data_searches": 1,
+        "captured_async_search_polls": 0,
+        "captured_metadata_searches": 1,
+        "captured_request_index_and_filters_checked": true,
+        "screenshot_observation": "Named saved map and visible point/polygon geometry; Requests Inspector reports242 point hits or262 boundary hits. Map-details adapter verification timed out; rendered IDs and join metric values were not extracted or verified."
+      },
+      "trends": {
+        "stage": "browser",
+        "browser_stage": "inspector_map_details",
+        "code": "acceptance_failed",
+        "type": "TimeoutError",
+        "csv_rows": 196,
+        "browser_reached": true,
+        "saved_map_path_verified": true,
+        "captured_initial_data_searches": 2,
+        "captured_async_search_polls": 1,
+        "captured_metadata_searches": 1,
+        "captured_request_index_and_filters_checked": true,
+        "screenshot_observation": "Named saved map and visible point/polygon geometry; Requests Inspector reports242 point hits or262 boundary hits. Map-details adapter verification timed out; rendered IDs and join metric values were not extracted or verified."
+      },
+      "selected_trends": {
+        "stage": "browser",
+        "browser_stage": "inspector_map_details",
+        "code": "acceptance_failed",
+        "type": "TimeoutError",
+        "csv_rows": 3,
+        "browser_reached": true,
+        "saved_map_path_verified": true,
+        "captured_initial_data_searches": 2,
+        "captured_async_search_polls": 1,
+        "captured_metadata_searches": 1,
+        "captured_request_index_and_filters_checked": true,
+        "screenshot_observation": "Named saved map and visible point/polygon geometry; Requests Inspector reports242 point hits or262 boundary hits. Map-details adapter verification timed out; rendered IDs and join metric values were not extracted or verified."
+      }
+    }
+  },
+  "sampled_memory": {
+    "samples": 6,
+    "runner_max_rss_bytes": 127008768,
+    "node_heap_max_observed_bytes": 1071525576,
+    "node_heap_configured_bytes": 2147483648,
+    "worker_max_sampled_rss_bytes": 33148928,
+    "workers_max_sampled_total_rss_bytes": 59101184,
+    "fault_worker_self_reported_rss_bytes": 33738752
+  },
+  "preserved_originals": [
+    {
+      "file": "acceptance.json",
+      "source": "runs/real-core-38027551047/real-v1/acceptance.json",
+      "bytes": 3271,
+      "sha256": "bb56de832d7e3ed089640f3d14d911109c0ab7dcdde58ea7e0e806deea8d5f3f"
+    },
+    {
+      "file": "normalized.manifest.json",
+      "source": "runs/real-core-38027551047/real-v1/normalized.manifest.json",
+      "bytes": 5154,
+      "sha256": "a110e9f0f3223877fbf29cfa4aba106d34864684ce7cbcc1f9d08df191547bc1"
+    },
+    {
+      "file": "index.manifest.json",
+      "source": "runs/real-core-38027551047/real-v1/index.manifest.json",
+      "bytes": 7578,
+      "sha256": "38438ec7be9404bfafa8fc60c9d07e5e12f3eb4867b3535e8fd52830f88c5fd5"
+    },
+    {
+      "file": "ingest.json",
+      "source": "runs/real-core-38027551047/real-v1/ingest.json",
+      "bytes": 750,
+      "sha256": "7c8c3e39b57e91e8f9020a580b901a283069942ad509ef0c3c3a6c9c3bfabc71"
+    },
+    {
+      "file": "measurement-suite.json",
+      "source": "runs/real-core-38027551047/real-v1/measurement-suite.json",
+      "bytes": 4369,
+      "sha256": "9affb148b108e27e56eba2b2fd629a78ca6822a065927cc43aa6d8def0ac07ea"
+    },
+    {
+      "file": "measurements.json",
+      "source": "runs/real-core-38027551047/real-v1/measurements.json",
+      "bytes": 29572,
+      "sha256": "449bb4f449551216a13bfa3574f3e62fe04e158e152b31d6f279284a7a68504f"
+    },
+    {
+      "file": "maps-provision.json",
+      "source": "runs/real-core-38027551047/real-v1/maps-provision.json",
+      "bytes": 779,
+      "sha256": "7ec6f939c2e9948bf235c3cd76e2052b20d1dcbaf0f29d26ea2c81e4ea6a6bcd"
+    },
+    {
+      "file": "catalog.json",
+      "source": "runs/real-core-38027551047/real-v1/catalog.json",
+      "bytes": 3704,
+      "sha256": "220926b186aa38f0292d7e2f789e8186a026b27a6e6c366297cf0a472ec7629b"
+    },
+    {
+      "file": "host.json",
+      "source": "runs/real-core-38027551047/runtime/host.json",
+      "bytes": 1364,
+      "sha256": "85c8f3d4710f984be93b59d4e057554a3feb2e8bba52e203f6a1fc959180d5bb"
+    },
+    {
+      "file": "elasticsearch-version.json",
+      "source": "runs/real-core-38027551047/runtime/elasticsearch-version.json",
+      "bytes": 540,
+      "sha256": "2da2eae28b62f5fcedd43f23817e00f7017dff74a9b2af48017b2e37241007c3"
+    },
+    {
+      "file": "kibana-status.json",
+      "source": "runs/real-core-38027551047/runtime/kibana-status.json",
+      "bytes": 23134,
+      "sha256": "fe8ea68120ddcdceac8140d473d349e76b7dd34a289119abe795fd4f4f09d723"
+    },
+    {
+      "file": "render-points.json",
+      "source": "runs/real-core-38027551047/real-v1/render-points/receipt.json",
+      "bytes": 999,
+      "sha256": "640478d365ff61c25965e040e944bfd7cfd7bd4abc015874cbcd0b53749ddf7b"
+    },
+    {
+      "file": "render-trends.json",
+      "source": "runs/real-core-38027551047/real-v1/render-trends/receipt.json",
+      "bytes": 1010,
+      "sha256": "6e3765c6f0823abbda1586a00e468d86ae5825105aea5370dadf8b50ad7c3dfe"
+    },
+    {
+      "file": "render-selected_trends.json",
+      "source": "runs/real-core-38027551047/real-v1/render-selected_trends/receipt.json",
+      "bytes": 1011,
+      "sha256": "82dc83d7bdd97586829ffb218c2ca3438578ee3fc210d62ee824707711ebbadd"
+    },
+    {
+      "file": "browser-searches-points.json",
+      "source": "runs/real-core-38027551047/real-v1/render-points/browser-searches.json",
+      "bytes": 1127,
+      "sha256": "5858ad0e9257549bbc878ceca2c1080b5100018ef05b539e42a2a41128de1542"
+    },
+    {
+      "file": "render-points-failure.png",
+      "source": "runs/real-core-38027551047/real-v1/render-points/failure.png",
+      "bytes": 106305,
+      "sha256": "ffda107702dc666b9fabf020397ed2874401bbcb52778fc600182cc3af842cfc"
+    },
+    {
+      "file": "browser-searches-trends.json",
+      "source": "runs/real-core-38027551047/real-v1/render-trends/browser-searches.json",
+      "bytes": 2286,
+      "sha256": "6b9004ff4b94b0430d58585685b6f1c32657a747798e060bb3f1d1685355d4e3"
+    },
+    {
+      "file": "render-trends-failure.png",
+      "source": "runs/real-core-38027551047/real-v1/render-trends/failure.png",
+      "bytes": 129878,
+      "sha256": "b91749ddc5c4226b0e3cd997f24236945ad2f84f9f893779f14aef03f90f7648"
+    },
+    {
+      "file": "browser-searches-selected_trends.json",
+      "source": "runs/real-core-38027551047/real-v1/render-selected_trends/browser-searches.json",
+      "bytes": 2359,
+      "sha256": "49f116b2d6660d97c1d31bcf428a812d62c23923e2297982aa04eb0c339872d0"
+    },
+    {
+      "file": "render-selected_trends-failure.png",
+      "source": "runs/real-core-38027551047/real-v1/render-selected_trends/failure.png",
+      "bytes": 95233,
+      "sha256": "ffb2bbf6884050d449a31a7400ff916e815dd1c1b9dbee8290f8ec3941b2dfb6"
+    }
+  ],
+  "excluded_artifacts": [
+    "raw or normalized record files",
+    "individual oracle IDs and point expectation",
+    "saved record previews",
+    "CSV record bodies",
+    "locks",
+    "unexecuted agent freeze"
+  ],
+  "limitations": [
+    "Local review validates retained evidence, not a rerun of Elasticsearch or complete re-normalization.",
+    "SQLite oracle shares normalization and NTA assignments; this does not independently prove spatial assignment correctness.",
+    "Five analytical cases, 25 serial repeats and two batches of five queries; total measured workload 4.585 seconds with previously queried index and uncontrolled caches.",
+    "Nine-column exports checked complete IDs, headers and byte stability; non-ID cells lack an independent cell-by-cell real-corpus oracle.",
+    "Sampled heap and RSS are not peak capacity; node process metric is virtual memory, not RSS; Kibana and ingestion peak memory unmeasured.",
+    "Recovery is one abrupt local export worker exit at first-row streaming; not server/index/node or mid-bulk-ingestion recovery.",
+    "Maps provisioning and saved-map navigation completed. All three checks timed out at inspector_map_details. Screenshots show visible points/polygons and Requests Inspector with242 point or262 boundary hits. Retained request indices/filter DSL match the saved cohort and selected group codes; this is request-side agreement, not verified rendered source membership or joined values. Local review does not repeat the browser session or establish the eventual defect cause.",
+    "Frozen questions are not model trials. No held-out model outcome or end-to-end conversational latency.",
+    "Source before/after reconciliation is observed-corpus qualification, not transactional isolation or complete citywide reporting."
+  ],
+  "audit_summary_correction": {
+    "reason": "Earlier review generator reused count for a three-group map cohort and serialized captured=3 despite successful2133268 source reconciliation assertions.",
+    "previous_summary_sha256": "dfb3eeb9f74b7ea7d5e98a3922316e4b2f67d3f2a6a40839eec040e8e1edf05e",
+    "previous_captured": 3,
+    "corrected_captured": 2133268,
+    "actual_execution_receipts_changed": false,
+    "full_offline_checks_reexecuted": true
+  }
+}

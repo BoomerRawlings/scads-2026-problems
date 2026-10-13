@@ -27,7 +27,7 @@ Only scheduling suggestions change with available CPU/RAM: `budgets.page_size`, 
 
 ## Transparent storage estimate
 
-Defaults per record: raw JSON 1,200 bytes; SQLite capture staging 2,000; normalized JSON 900; primary index 1,600; fixture resident memory 4,096. These are estimates awaiting corpus measurements. Raw and normalized copies each default to one. `full-demo` and `scale-lab` assume one replica; other profiles assume zero.
+Defaults per record: raw JSON 1,200 bytes; SQLite capture staging 2,000; normalized JSON 900; primary index 1,600; fixture resident memory 4,096. These remain planning assumptions, not calibrated capacity guarantees. The [executed study](acceptance.md) now retains actual bytes and bounded measurements for 2,133,268 real records; it does not validate these defaults for other datasets, hardware or billion-row deployments. Raw and normalized copies each default to one. `full-demo` and `scale-lab` assume one replica; other profiles assume zero.
 
 ```text
 raw       = rows × raw_bytes_per_record × raw_copies

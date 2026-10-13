@@ -1,0 +1,190 @@
+{
+  "schema_version": 1,
+  "kind": "historical_incidental_workflow_status",
+  "workflow_run_id": 38117973762,
+  "source_commit": "4668139874139b597157d01daf475eeacbededfe",
+  "trigger": "Historical source/evidence push on October11; no workflow launched during October13 closure.",
+  "conclusion": "failure",
+  "run_metadata": {
+    "conclusion": "failure",
+    "createdAt": "2026-10-11T06:24:49Z",
+    "databaseId": 38117973762,
+    "headSha": "4668139874139b597157d01daf475eeacbededfe",
+    "jobs": [
+      {
+        "completedAt": "2026-10-11T06:27:22Z",
+        "conclusion": "failure",
+        "databaseId": 114406640704,
+        "name": "live",
+        "startedAt": "2026-10-11T06:24:52Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-10-11T06:24:55Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-10-11T06:24:53Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-11T06:27:03Z",
+            "conclusion": "success",
+            "name": "Initialize containers",
+            "number": 2,
+            "startedAt": "2026-10-11T06:24:55Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-11T06:27:06Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@v4",
+            "number": 3,
+            "startedAt": "2026-10-11T06:27:03Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-11T06:27:06Z",
+            "conclusion": "success",
+            "name": "Run actions/setup-python@v5",
+            "number": 4,
+            "startedAt": "2026-10-11T06:27:06Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-11T06:27:12Z",
+            "conclusion": "success",
+            "name": "Install core and geography",
+            "number": 5,
+            "startedAt": "2026-10-11T06:27:06Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-11T06:27:13Z",
+            "conclusion": "success",
+            "name": "Record actual runner and service versions",
+            "number": 6,
+            "startedAt": "2026-10-11T06:27:12Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-11T06:27:15Z",
+            "conclusion": "success",
+            "name": "Verify authored real-engine parity",
+            "number": 7,
+            "startedAt": "2026-10-11T06:27:13Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-11T06:27:16Z",
+            "conclusion": "failure",
+            "name": "Run actions/download-artifact@v4",
+            "number": 8,
+            "startedAt": "2026-10-11T06:27:15Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-11T06:27:16Z",
+            "conclusion": "skipped",
+            "name": "Diagnose source record transport on actual runner",
+            "number": 9,
+            "startedAt": "2026-10-11T06:27:16Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-11T06:27:16Z",
+            "conclusion": "skipped",
+            "name": "Capture complete April through October source window",
+            "number": 10,
+            "startedAt": "2026-10-11T06:27:16Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-11T06:27:16Z",
+            "conclusion": "success",
+            "name": "Record persisted capture outcome",
+            "number": 11,
+            "startedAt": "2026-10-11T06:27:16Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-11T06:27:16Z",
+            "conclusion": "skipped",
+            "name": "Preserve successful real capture",
+            "number": 12,
+            "startedAt": "2026-10-11T06:27:16Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-11T06:27:17Z",
+            "conclusion": "success",
+            "name": "Run actions/upload-artifact@v4",
+            "number": 13,
+            "startedAt": "2026-10-11T06:27:16Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-11T06:27:17Z",
+            "conclusion": "skipped",
+            "name": "Run actions/upload-artifact@v4",
+            "number": 14,
+            "startedAt": "2026-10-11T06:27:17Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-11T06:27:17Z",
+            "conclusion": "success",
+            "name": "Run actions/upload-artifact@v4",
+            "number": 15,
+            "startedAt": "2026-10-11T06:27:17Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-11T06:27:17Z",
+            "conclusion": "skipped",
+            "name": "Post Run actions/setup-python@v5",
+            "number": 28,
+            "startedAt": "2026-10-11T06:27:17Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-11T06:27:18Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v4",
+            "number": 29,
+            "startedAt": "2026-10-11T06:27:17Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-11T06:27:20Z",
+            "conclusion": "success",
+            "name": "Stop containers",
+            "number": 30,
+            "startedAt": "2026-10-11T06:27:18Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-11T06:27:20Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 31,
+            "startedAt": "2026-10-11T06:27:20Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/38117973762/job/114406640704"
+      }
+    ],
+    "updatedAt": "2026-10-11T06:27:22Z",
+    "url": "https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/38117973762"
+  },
+  "error_lines": [
+    "live\tUNKNOWN STEP\t2026-10-11T06:27:16.2769181Z ##[error]Unable to download artifact(s): Artifact not found for name: analytics311-capture-checkpoint"
+  ],
+  "retrieved_log_bytes": 549520,
+  "retrieved_log_sha256": "c2d413256e9406d8d2e52491e5ea367bc4db011988386e55b457c98b6d4f8517",
+  "raw_log_retained_locally": true,
+  "no_new_data_capture_or_model_trial": true,
+  "basis": "Job metadata records authored parity success; capture transport and capture steps skipped after artifact download failed.",
+  "action": "Preserve failure; no retry. Documentation closure commits use [skip ci] to avoid repeating heavy jobs."
+}

@@ -16,6 +16,7 @@ FIELDS = {
 }
 METRICS = ("count", "closed_count", "open_count", "mean_closure_hours",
            "median_closure_hours", "p90_closure_hours")
+DEFAULT_PREVIEW_ROWS = 5
 _KEYS = {"schema_version", "dataset_version", "operation", "timezone", "as_of", "time",
          "filters", "geo", "group_by", "metrics", "periods", "preview_limit", "top_n",
          "rank_by", "rank_order", "minimum_count"}
@@ -331,7 +332,7 @@ def normalize_spec(spec: dict, catalog: dict, limits: dict | None = None) -> dic
             _error("minimum_count is valid only for aggregate or compare_periods", "unsupported_operation")
     else:
         normalized["minimum_count"] = _integer(spec.get("minimum_count", 0), 0, 1_000_000, "minimum_count")
-    normalized["preview_limit"] = _integer(spec.get("preview_limit", min(100, limits.get("max_preview_rows", 100))), 1,
+    normalized["preview_limit"] = _integer(spec.get("preview_limit", min(DEFAULT_PREVIEW_ROWS, limits.get("max_preview_rows", 100))), 1,
                                            min(100, limits.get("max_preview_rows", 100)), "preview_limit")
     normalized["top_n"] = _integer(spec.get("top_n", 20), 1, 100, "top_n")
     ranking = spec.get("rank_by", "absolute_change" if operation == "compare_periods" else "count")

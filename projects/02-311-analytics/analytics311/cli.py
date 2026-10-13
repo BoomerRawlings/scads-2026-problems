@@ -103,6 +103,7 @@ def parser():
     command.add_argument("--max-seconds", type=int, default=3600)
     command.add_argument("--min-free-bytes", type=int, default=1000000000)
     command.add_argument("--retries", type=int, default=3)
+    command.add_argument("--request-timeout-seconds", type=int, default=30, help="Per-source-request timeout (1–180), capped by remaining invocation budget")
     command = commands.add_parser("capture-status", help="Read persisted capture progress without network access")
     command.add_argument("output")
     command = commands.add_parser("generate")
@@ -152,7 +153,8 @@ def main(argv=None):
                 output = capture_window(args.start, args.end, args.output, source_id=args.source_id,
                     page_size=args.page_size, max_rows=args.max_rows, max_bytes=args.max_bytes,
                     max_storage_bytes=args.max_storage_bytes, max_pages=args.max_pages,
-                    max_seconds=args.max_seconds, min_free_bytes=args.min_free_bytes, retries=args.retries)
+                    max_seconds=args.max_seconds, min_free_bytes=args.min_free_bytes, retries=args.retries,
+                    request_timeout_seconds=args.request_timeout_seconds)
         elif args.command in ("fetch", "generate", "benchmark", "normalize"):
             from .workloads import fetch_sample, generate, benchmark, normalize_file
             if args.command == "fetch":
@@ -193,6 +195,10 @@ def main(argv=None):
                 if args.freeze and (not args.coverage_start or not args.coverage_end):
                     raise AnalyticsError("invalid_spec", "Freeze requires explicit coverage-start and coverage-end")
                 staged = source_manifest(args.source)
+                from .qualification import comparison_qualification
+                qualified = comparison_qualification(staged)
+                if qualified and (qualified["stage"] != "normalized" or not args.normalized_input):
+                    raise AnalyticsError("qualification_failed", "Qualified staged input requires its normalized artifact and --normalized-input")
                 coverage = None
                 if args.freeze:
                     coverage = normalize_spec({"dataset_version": config["index"], "operation": "records",
@@ -207,6 +213,8 @@ def main(argv=None):
                             valid = False
                         if not valid:
                             raise AnalyticsError("coverage_gap", "Complete coverage requires a hash-matched reconciled source manifest covering these bounds; samples cannot qualify")
+                    if qualified and (coverage["complete"] or not instant(qualified["gte"]) <= instant(coverage["gte"]) < instant(coverage["lt"]) <= instant(qualified["lt"])):
+                        raise AnalyticsError("qualification_failed", "Freeze bounds must stay inside the qualified observation and keep complete=false")
                 client = ElasticClient(config["elastic_url"], allow_insecure_local=config.get("allow_insecure_local", False))
                 if args.create_index:
                     create_index(client, config["index"], args.mapping)
@@ -214,9 +222,9 @@ def main(argv=None):
                 if args.freeze:
                     if staged and staged["sha256"] != output["source_sha256"]:
                         raise AnalyticsError("source_changed", "Source changed after provenance validation; index not frozen")
-                    expected = staged.get("row_count") if args.complete_coverage else None
-                    if args.complete_coverage and (type(expected) is not int or expected != output["processed_rows"]):
-                        raise AnalyticsError("coverage_gap", "Complete snapshot requires source and processed counts to reconcile")
+                    expected = staged.get("row_count") if staged else None
+                    if staged and (type(expected) is not int or expected < 0 or expected != output["processed_rows"]):
+                        raise AnalyticsError("source_count_mismatch", "Source and processed counts must reconcile before any snapshot is frozen")
                     if args.complete_coverage and any(output.get("quality_counts", {}).get(f"{flag}_created_date", 0) for flag in ("missing", "invalid", "ambiguous", "nonexistent")):
                         raise AnalyticsError("coverage_gap", "Unusable creation timestamps prevent complete temporal coverage; inspect ingestion quality counts")
                     snapshot = freeze_index(client, config["index"], expected_count=expected)
@@ -228,6 +236,9 @@ def main(argv=None):
                         manifest["warnings"] = staged.get("warnings", [])
                         if args.normalized_input and staged.get("geography"):
                             manifest["geography"] = staged["geography"]
+                        if staged.get("comparison_qualification") is not None:
+                            from .qualification import qualify_frozen_index
+                            manifest["comparison_qualification"] = qualify_frozen_index(staged, output, snapshot, coverage)
                     target = (config_path.parent / config["manifest_path"]).resolve()
                     atomic_json(target, manifest)
                     output = {"ingestion": output, "snapshot": snapshot, "manifest": str(target)}

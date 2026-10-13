@@ -58,59 +58,169 @@ RESEARCH = {
   ('p','The prototype demonstrates an auditable organizational investigation with actual graph, record and media tools. Its strongest result is preserving claim scope and unresolved evidence through a complete recorded workflow. Establishing broader analytic value requires the controlled evaluations above; the current contribution is the implemented method and its inspectable development evidence.'),
  ]},
 },
-'02-311-analytics': {
- 'refs':[
-  ('Yu et al. (2018). Spider: A Large-Scale Human-Labeled Dataset for Complex and Cross-Domain Semantic Parsing and Text-to-SQL Task. EMNLP.','https://arxiv.org/abs/1809.08887'),
-  ('Elastic. Paginate search results. Elasticsearch reference, accessed October 7, 2026.','https://www.elastic.co/docs/reference/elasticsearch/rest-apis/paginate-search-results'),
-  ('Project verification and live-evaluation requirements','docs/acceptance.md'),
-  ('Reproducible export and ingestion recovery','docs/reliability.md'),
- ],
- 'formal': {'title':'1. Research framing and semantics','blocks':[
-  ('p','Text-to-query research distinguishes understanding a question from executing its program. Spider evaluates transfer to new databases and complex query structures; it motivates keeping natural-language interpretation separate from deterministic backend correctness. This project targets a fixed civic catalog and Elasticsearch, so it is not a Spider reproduction or cross-domain accuracy claim. [8]'),
-  ('p','Elastic documents search_after with point-in-time contexts to preserve a stable view across deep pagination. That guidance motivates the adapter\'s snapshot and cursor semantics. It does not establish that the local implementation has passed a live-engine performance evaluation. [9] [10]'),
-  ('h','Formal analytical object'),
-  ('p','Let D_v be the immutable dataset version and q=(v,F,I,G,M,Z) a validated specification: version, non-time filter, half-open interval, grouping, metric definitions and timezone. Let C(q)={r in D_v: F(r) and time(r) in I}. Preview, CSV and map are projections of this saved cohort, not independent reconstructions from the user\'s natural language. [2]'),
-  ('code','n(g,I) = number of cohort records in group g\nrate(g,I) = n(g,I) / calendar_exposure_days(I,Z)\nchange(g) = rate(g,I_after) - rate(g,I_before)\nmean_closure(g) = sum(valid durations) / count(valid durations)'),
-  ('p','The denominator of mean closure is neither all requests nor all closed requests when usable timestamps are missing. Calendar exposure uses the requested timezone; elapsed hours are a different quantity. The cohort is descriptive of reported requests, so neither incident incidence nor causal agency performance follows from these expressions. [2] [3]'),
-  ('note','Prospective research question: can a bounded analytical contract improve end-to-end semantic correctness and artifact agreement across different agents without unacceptable interaction cost? Current fixture outcomes establish selected behaviors, not a population-level answer.'),
- ]},
- 'algorithm': {'title':'3. Execution and artifact invariants','blocks':[
-  ('p','The service records the normalized specification, catalog and dataset identity together with its result. This supports a useful invariant: a later artifact must refer to the same analytical selection, even if the initial result was truncated for display. The following pseudocode summarizes that contract. [2]'),
-  ('code','discover catalog and immutable dataset identity\nvalidate specification, supported operation and coverage\ncompile typed filters, grouping and metric definitions\nexecute under declared limits; save result envelope\nfor export or map:\n  load saved result and verify version compatibility\n  require all_matching or explicit selected group IDs\n  compute exact planned cohort size; check admission\n  stream with stable ordering and source-identity guards\n  verify membership/counts; publish artifact and manifest'),
-  ('h','Failure is a typed outcome'),
-  ('p','Invalid requests, insufficient coverage, unsupported operations, exceeded budgets and partial execution are distinct errors. An empty complete result is valid evidence of no matching records within the selected data; a timeout or unobserved date is not. Artifact status counters describe persisted progress and must not be read as proof that a worker is currently alive. [2] [11]'),
-  ('h','Why admission and streaming both matter'),
-  ('p','Exact row admission prevents a known oversized task from consuming a worker slot, but byte size still depends on encoded fields. Stream-time limits are therefore necessary after admission. Disk observations can prevent obvious exhaustion without reserving the space; cooperative deadlines can overrun a blocked I/O call. These distinctions shape how the interface describes pending and failed artifacts. [6] [11]'),
-  ('p','For N selected rows and k projected columns, serialization work is proportional to encoded output bytes, not merely N x k. Backend aggregation costs depend on cardinality and index layout, while agent latency includes tool planning and synthesis. Separating these costs avoids extrapolating a small fixture benchmark into physical cluster capacity.'),
- ]},
- 'evaluation': {'title':'6. Proposed end-to-end evaluation','blocks':[
-  ('note','PROPOSED STUDY. The real-data and agent evaluation below is a research plan, not a claim that the million-record or live visualization gates have been passed.'),
-  ('table',['Layer','Independent reference','Evaluation unit'],[
-   ['Dataset integrity','Unique keys, frozen revisions, date coverage and geometry versions','Qualified immutable capture'],
-   ['Deterministic analytics','Separately calculated counts, rates and valid-duration statistics','Query and complete result cohort'],
-   ['Agent interpretation','Human-authored questions with accepted/clarify specifications','Question across repeated runs and agent hosts'],
-   ['Artifacts','CSV key set and map cohort/metric comparison','Saved result, export and rendered map'],
-   ['Resources','Measured hardware, index size, latency and failure recovery','Workload profile and concurrent task count'],
-  ],[110,235,143]),
-  ('p','The project acceptance design specifies at least two million real unique requests and a held-out set of 40 questions repeated three times, with a second agent comparison. These are planned gates, not achieved measurements. Query families should include dates, multiple filters, geography, grouping, comparisons and clarification cases, with final prompts hidden from implementation tuning. [1] [10]'),
-  ('p','Score intent correctness separately from execution correctness. Count a question as artifact-consistent only when narrative numbers, saved result, full CSV selection and requested map metric agree. For geography, report both matched and unmapped counts. Preserve all attempted runs, errors and unsupported questions in denominators; selective success-only timing would bias the result.'),
-  ('p','Use paired question-level comparisons between agent hosts and report uncertainty at the question level, with repeated outputs nested within questions. Resource experiments should vary row count, filter selectivity, group cardinality and export width independently. Measure actual cold/warm conditions and sustained concurrency rather than deriving tail latency from three observations.'),
- ]},
- 'roadmap': {'title':'7. Roadmap and analytical validity','blocks':[
-  ('table',['Phase','Research artifact','Progression criterion'],[
-   ['Qualify data','Frozen real capture, uniqueness audit and versioned geography','Coverage claims independently justified.'],
-   ['Verify parity','Live backend, full CSV and rendered Maps comparisons','Agreement across declared query families.'],
-   ['Evaluate agents','Held-out question set, repeated runs and second host','Intent/answer/artifact scores reported together.'],
-   ['Measure operations','Hardware-specific scale and recovery report','Capacity claims tied to observed workloads.'],
-  ],[110,220,158]),
-  ('p','The present implementation is In progress. The roadmap strengthens evidence for an existing service and does not project performance numbers or a completion date. Static reasoning can improve admission and storage safeguards before expensive workloads, but only execution on a qualified target can support a measured capacity claim. [6] [10]'),
-  ('h','Threats to validity'),
-  ('p','Data capture is a source of uncertainty independent of query correctness. A provider\'s count and sampled records may be internally consistent without proving a transactionally complete local population. Complaint rates reflect reporting behavior and access as well as underlying conditions. Administrative closure is a process field, not a direct observation of first response or resolution. [3] [10]'),
-  ('p','Agent demonstrations may benefit from examples exposed by tool discovery, while development fixtures make difficult cases unusually legible. Final questions should test unseen combinations and realistic ambiguity. Engine metrics that approximate percentiles must retain that approximation rather than borrowing the fixture engine\'s exactness. [2] [3]'),
-  ('h','Conclusion'),
-  ('p','The implemented service makes the analytical specification and selected population durable objects. The recorded fixture demonstrates how this protects rates, missingness, coverage and full exports. Its research value lies in a reproducible architecture and falsifiable evaluation plan; broad conversational and physical-scale claims remain tied to future measured evidence.'),
- ]},
-},
+'02-311-analytics': {'refs': [('Yu et al. (2018). Spider. EMNLP.', 'https://arxiv.org/abs/1809.08887'),
+          ('Elastic. Paginate search results. Accessed October 9, 2026.',
+           'https://www.elastic.co/docs/reference/elasticsearch/rest-apis/paginate-search-results'),
+          ('Acceptance ledger: executed outcomes and qualification limits', 'docs/acceptance.md'),
+          ('Official NTA2020 release 26b provenance', 'examples/evidence/official-nta2020-26b.json'),
+          ('Three real-corpus startups with zero question exposure',
+           'examples/evidence/agent-startup-failure-38029812736/independent-review.json'),
+          ('Prospective three-replica agent campaign protocol', 'docs/agent-campaign-v1.json'),
+          ('Independent raw-to-CSV nine-column cell audit',
+           'examples/evidence/csv-cell-audit-38029812736.json'),
+          ('Completed 120-trial campaign: strict automatic and semantic merge',
+           'examples/evidence/agent-campaign-38084773557/final-review.json'),
+          ('Actual trial failures, whole-trial latency and per-host diagnostics',
+           'examples/evidence/agent-campaign-38084773557/actual-diagnostics.json')],
+ 'formal': {'title': '1. Research framing and semantics',
+            'blocks': [('p',
+                        'Text-to-query research separates understanding a question from executing its program. '
+                        'Spider evaluates complex queries and generalization across database schemas. This '
+                        'project instead uses a fixed civic catalog and Elasticsearch; the reported study is '
+                        'not a Spider reproduction or a cross-domain accuracy claim. [9]'),
+                       ('p',
+                        'Elastic documents search_after with point-in-time contexts for stable deep '
+                        'pagination. The adapter follows that model for bounded record retrieval; actual '
+                        'correctness and performance evidence is supplied by the separate retained execution '
+                        'receipts. Documentation alone is not empirical validation. [4] [5] [10]'),
+                       ('h', 'Formal analytical object'),
+                       ('p',
+                        'Let D_v be an immutable observed dataset and q=(v,F,I,G,M,Z) its validated '
+                        'specification: version, non-time filter, half-open interval, grouping, metric '
+                        'definitions and timezone. Let C(q) contain the records in D_v satisfying F and I. '
+                        'Preview, CSV and map derive from that saved cohort, rather than independently '
+                        'reconstructing the natural-language question. [2]'),
+                       ('code',
+                        'n(g,I) = cohort records in group g\n'
+                        'rate(g,I) = n(g,I) / calendar_exposure_days(I,Z)\n'
+                        'change(g) = rate(g,I_after) - rate(g,I_before)\n'
+                        'mean_closure(g) = sum(valid durations) / count(valid durations)'),
+                       ('p',
+                        'Mean closure is administrative created-to-closed elapsed time, not first response or '
+                        'verified resolution. Its denominator can differ from both total and closed-request '
+                        'counts. Exposure days use the requested timezone, whereas closure uses elapsed hours. '
+                        'Reporting rates describe observed requests and reporting behavior, not causal agency '
+                        'performance. [2] [11]'),
+                       ('note',
+                        'Research question: can a bounded analytical contract support correct conversational '
+                        'answers and matching artifacts across agents at usable interaction cost? Real-corpus '
+                        'backend agreement answers only one part of that question.')]},
+ 'algorithm': {'title': '3. Execution and artifact invariants',
+               'blocks': [('p',
+                           'The service stores specification, catalog and dataset identity with the result. '
+                           'Later artifacts must retain the same selected population even when the '
+                           'conversational preview was truncated. Dataset qualification is checked before '
+                           'comparative execution. [2]'),
+                          ('code',
+                           'discover catalog and immutable dataset identity\n'
+                           'validate specification, qualified periods and limits\n'
+                           'execute compiled query; save result envelope\n'
+                           'load saved result; verify identity and explicit scope\n'
+                           'CSV branch:\n'
+                           '  check exact row admission; reserve background worker\n'
+                           '  stream stable rows; verify counts; publish CSV + manifest\n'
+                           'Maps branch:\n'
+                           '  verify exact-index data view without implicit time filter\n'
+                           '  points: use saved DSL; count located / missing rows\n'
+                           '  trends: publish bounded saved NTA metrics for polygon join\n'
+                           '  obtain configured Kibana locator\nDemo validation: verify actual rendering'),
+                          ('h', 'Different outputs, different evidence'),
+                          ('p',
+                           'Maps processing does not use the CSV worker. Reusable maps use exact-index data '
+                           'views without implicit time filters. Run 38083900641 verified 242 rendered point '
+                           'IDs. For all 196 represented NTA groups and a selected three-group subset, '
+                           'rendered values matched saved DSL, CSVs and all five joined metrics. Both polygon '
+                           'layers matched all 262 original official geometries. Complete map-validation '
+                           'stages took 13.484, 74.912 and 71.870 s; each browser check respected the '
+                           'unchanged 120 s bound. Eight preceding core failures remain archived. [4] [11]'),
+                          ('h', 'Interpretation and failure boundaries'),
+                          ('p',
+                           'All three selected daily-rate changes were positive. The cohort-relative '
+                           'green-to-red palette therefore marks a smaller positive increase in green, not '
+                           'improvement; it is not a zero-centered trend legend. Screenshots and inspected '
+                           'source values provide different evidence. Unsupported requests, unavailable '
+                           'observations and complete zero-count cohorts remain distinct. Missing geography, '
+                           'partial results and failed renders cannot be reported as complete artifacts. [2] '
+                           '[4]')]},
+ 'evaluation': {'title': '6. Completed agent evaluation: negative result',
+                'blocks': [('note',
+                            'All 120 trials executed and received semantic review. One passed automatic and '
+                            'end-to-end checks (0.83%): Q38, repetition 1, correctly refused an unsupported '
+                            'forecast. No other question achieved a pass; the fixed 90% and every-question '
+                            'gates failed. [16]'),
+                           ('p',
+                            'Only 56 trials delivered finals; 52 timed out, 11 stopped after repeated invalid '
+                            'calls and one produced an invalid final. All nine neighborhood-to-agency chains '
+                            'failed. Reviewers identified unsupported claims or false completion in 32 trials; '
+                            'a separate automatic numeric-evidence check recorded eight hard failures. Two '
+                            'refusal answers passed semantic review, but repetition 2 failed its required '
+                            'automatic status. [16] [17]'),
+                           ('h', 'Frozen execution and retained failures'),
+                           ('p',
+                            'Before question exposure, development run 38028703734 failed a 32-record count; '
+                            'the first real-corpus campaign then timed out on all three metadata-only startups '
+                            'at 300 s, exposing no questions. Those failures remain archived. The '
+                            'prospectively amended startup cap was 900 s. The final campaign used Qwen3-1.7B '
+                            'Q4_K_M, native OpenBLAS, 24,576-token context and unchanged 160 s trial, 120 s '
+                            'request and 24-call limits. [8] [13] [14]'),
+                           ('p',
+                            'Three host jobs each ran the same 40 AI-authored questions in fresh contexts, '
+                            'without reference answers. The merger required equal source, normalized/database '
+                            'hashes, cases, catalog, candidate code and policy; each trial retained its own '
+                            'qualified index, runtime and warmup identity. Reviewers worked from unscored '
+                            'cards, then combined semantic judgments with frozen automatic checks. [14] [16]'),
+                           ('p',
+                            'Whole-trial median was 126.159 s and maximum 160.006 s across all 120 attempts, '
+                            'including failures and model/tool/adapter work. Startup, download and build are '
+                            'excluded. Separate metadata warmups took 295.782, 256.061 and 289.676 s. These '
+                            'are attempt timings, not generation-only latency or a successful-answer SLA; host '
+                            'differences prevent attributing warmup success solely to the budget change. '
+                            '[17]')]},
+ 'roadmap': {'title': '7. Validity, qualification and remaining work',
+             'blocks': [('table',
+                         ['Gate', 'Recorded outcome', 'Qualification boundary'],
+                         [['Acquire and reconcile',
+                           '2,133,268 observed requests; nine pre-study cores',
+                           'Three additional study core preflights also passed'],
+                          ['Backend and CSV',
+                           'Five families; 350,208 exact CSV cells; worker recovery',
+                           'Cell audit covers one cohort; finite workload only'],
+                          ['Maps and actual agent',
+                           'Three Maps cases pass; agent 1/120 (0.83%)',
+                           'All nine chains fail; conversational release unqualified'],
+                          ['Capacity and deployment',
+                           'Finite Linux workload; Windows r4 installs',
+                           'No broader-device, sustained-load or billion-row claim']],
+                         [105, 189, 194]),
+                        ('h', 'Threats to validity'),
+                        ('p',
+                         'Matching source counts, revisions and local hashes qualify an observed public-data '
+                         'window; they do not establish provider transaction isolation or complete city '
+                         'reporting. Complaint rates reflect access and reporting behavior. Closure timestamps '
+                         'are administrative records, and their later capture does not reconstruct a '
+                         'historical status snapshot. Missing geometry limits spatial inclusion. [3] [4] [12]'),
+                        ('p',
+                         'The SQL oracle shares normalization and polygon assignments. The separate raw-to-CSV '
+                         'audit narrows that dependence for one 9,728-row cohort, sharing GIS/timezone '
+                         'libraries; no observed DST ambiguity, invalid or negative closure, escaping or '
+                         'boundary-edge cases occurred. Five analytical families and the 5.034-second workload '
+                         'do not establish sustained load or tail latency. Sampled memory can miss peaks; '
+                         'worker recovery is narrower than node recovery. [4] [5] [15]'),
+                        ('p',
+                         'Development fixes and the startup amendment preceded question exposure; candidate '
+                         'code, cases and thresholds then stayed frozen. Three seeds on three hosts are '
+                         'repeated observations of 40 questions, not 120 independent questions; host and seed '
+                         'are confounded. The three AI reviewers contributed infrastructure, but did not '
+                         'generate the answering-model completions. Independent human labels, blinded model '
+                         'selection, a second agent and user-time comparisons remain absent. [7] [14] [16]'),
+                        ('h', 'Conclusion'),
+                        ('p',
+                         'The service demonstrated reproducible execution on over two million real requests, '
+                         'independently checked export cells, local-worker recovery and three matching '
+                         'rendered Maps cases. The tested local agent failed severely: 1/120 end-to-end passes '
+                         'and no successful analytical question. Reliable conversational use needs a different '
+                         'qualified agent or subsequent development followed by a new evaluation; these '
+                         'results do not qualify the current release. [16] [17]')]}},
 '03-semantic-discovery': {
  'refs':[
   ('Pfitzmann et al. (2022). DocLayNet: A Large Human-Annotated Dataset for Document-Layout Analysis. KDD; arXiv:2206.01062.','https://arxiv.org/abs/2206.01062'),

@@ -169,9 +169,12 @@ class AnalyticsService:
         return spec
 
     def _coverage(self, spec):
+        from .qualification import comparison_qualification
         coverage = self.manifest.get("coverage", {})
+        qualified = comparison_qualification(self.manifest)
         spans = list(spec["periods"].values()) if spec["operation"] == "compare_periods" else [spec.get("time")]
         complete = coverage.get("complete") is True
+        within_observation = qualified is not None
         def date_predicate(node):
             if not isinstance(node, dict):
                 return False
@@ -182,24 +185,29 @@ class AnalyticsService:
             # Date filters can select beyond the captured population, including
             # through OR/NOT. Require an explicit enclosing creation window.
             complete = False
+            within_observation = False
         for span in spans:
             if not span:
                 continue
             # Dataset coverage is creation-date coverage, not closure-date coverage.
             if span.get("field", "created_date") != "created_date":
                 complete = False
+                within_observation = False
                 continue
             if not coverage.get("gte") or not coverage.get("lt"):
                 complete = False
             elif instant(span["gte"]) < instant(coverage["gte"]) or instant(span["lt"]) > instant(coverage["lt"]):
                 complete = False
-        if not complete and (spec["operation"] == "compare_periods" or any("interval" in dim for dim in spec.get("group_by", []))):
-            raise AnalyticsError("coverage_gap", "Comparisons and calendar buckets require complete creation-date coverage; unobserved dates cannot become zeros")
-        return complete
+            if qualified and (instant(span["gte"]) < instant(qualified["gte"]) or instant(span["lt"]) > instant(qualified["lt"])):
+                within_observation = False
+        if not (complete or within_observation) and (spec["operation"] == "compare_periods" or any("interval" in dim for dim in spec.get("group_by", []))):
+            raise AnalyticsError("coverage_gap", "Comparisons and calendar buckets require complete creation-date coverage or a reconciled observed-corpus qualification; unobserved dates cannot become zeros")
+        return complete, qualified if within_observation else None
 
     def validate_analysis(self, spec):
         spec = self._normalized(spec)
-        covered = self._coverage(spec)
+        covered, qualified = self._coverage(spec)
+        from .qualification import WARNING
         queries = []
         if spec["operation"] == "compare_periods":
             for name in ("baseline", "current"):
@@ -207,7 +215,8 @@ class AnalyticsService:
         else:
             queries.append({"body": compile_search(spec)})
         return {"normalized_spec": spec, "compiled_queries": queries, "coverage_complete": covered,
-                "warnings": [] if covered else ["Results cover only the available snapshot, not the full requested population."]}
+                "comparison_scope": qualified["scope"] if qualified else ("complete_declared_corpus" if covered else "unqualified_snapshot"),
+                "warnings": ([WARNING] if qualified else []) + ([] if covered else ["Results cover only the available snapshot, not the full requested population."])}
 
     @staticmethod
     def _period_spec(spec, name):
@@ -328,6 +337,7 @@ class AnalyticsService:
                  "total": {"value": result["total"], "relation": "eq"},
                  "group_count": len(rows) if spec["operation"] != "records" else None,
                  "execution_complete": True, "coverage_complete": validated["coverage_complete"],
+                 "comparison_scope": validated["comparison_scope"],
                  "approximate": result.get("approximate", False), "warnings": list(dict.fromkeys(warnings)),
                  "evidence_level": "fixture_only" if self.config["backend"] == "fixture" else "elastic_execution",
                  "dataset": self.manifest, "catalog_sha256": fingerprint(self.catalog),
@@ -474,12 +484,19 @@ class AnalyticsService:
             self.run_export_job(job_id)
         else:
             kwargs = {"stdin": subprocess.DEVNULL, "stdout": subprocess.DEVNULL, "stderr": subprocess.DEVNULL}
+            # The detached worker must use this package's code and bundled asset
+            # identity, even when a different wheel is installed in the interpreter.
+            environment = os.environ.copy()
+            import_root = str(Path(__file__).resolve().parents[1])
+            environment["PYTHONPATH"] = os.pathsep.join(
+                [import_root, environment["PYTHONPATH"]] if environment.get("PYTHONPATH") else [import_root])
+            kwargs["env"] = environment
             if os.name == "nt":
                 kwargs["creationflags"] = subprocess.CREATE_NO_WINDOW
             else:
                 kwargs["start_new_session"] = True
             try:
-                subprocess.Popen([sys.executable, "-m", "analytics311.cli", "--config", str(self.config_path), "_export-job", job_id], cwd=str(self.runs.parent), **kwargs)
+                subprocess.Popen([sys.executable, "-P", "-m", "analytics311.cli", "--config", str(self.config_path), "_export-job", job_id], cwd=str(self.runs.parent), **kwargs)
             except OSError as exc:
                 finished = datetime.now(timezone.utc).isoformat()
                 job.update(status="failed", stage="failed", stopped_stage="queued", finished_at=finished,

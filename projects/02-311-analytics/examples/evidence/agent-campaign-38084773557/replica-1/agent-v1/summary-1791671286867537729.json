@@ -1,0 +1,541 @@
+{
+  "required_trials": 120,
+  "attempted_trials": 40,
+  "automatic_passes": 1,
+  "minimum_passes_per_question": 1,
+  "automatic_pass_rate": 0.008333333333333333,
+  "missing_trials": [
+    [
+      "Q01",
+      2
+    ],
+    [
+      "Q01",
+      3
+    ],
+    [
+      "Q02",
+      2
+    ],
+    [
+      "Q02",
+      3
+    ],
+    [
+      "Q03",
+      2
+    ],
+    [
+      "Q03",
+      3
+    ],
+    [
+      "Q04",
+      2
+    ],
+    [
+      "Q04",
+      3
+    ],
+    [
+      "Q05",
+      2
+    ],
+    [
+      "Q05",
+      3
+    ],
+    [
+      "Q06",
+      2
+    ],
+    [
+      "Q06",
+      3
+    ],
+    [
+      "Q07",
+      2
+    ],
+    [
+      "Q07",
+      3
+    ],
+    [
+      "Q08",
+      2
+    ],
+    [
+      "Q08",
+      3
+    ],
+    [
+      "Q09",
+      2
+    ],
+    [
+      "Q09",
+      3
+    ],
+    [
+      "Q10",
+      2
+    ],
+    [
+      "Q10",
+      3
+    ],
+    [
+      "Q11",
+      2
+    ],
+    [
+      "Q11",
+      3
+    ],
+    [
+      "Q12",
+      2
+    ],
+    [
+      "Q12",
+      3
+    ],
+    [
+      "Q13",
+      2
+    ],
+    [
+      "Q13",
+      3
+    ],
+    [
+      "Q14",
+      2
+    ],
+    [
+      "Q14",
+      3
+    ],
+    [
+      "Q15",
+      2
+    ],
+    [
+      "Q15",
+      3
+    ],
+    [
+      "Q16",
+      2
+    ],
+    [
+      "Q16",
+      3
+    ],
+    [
+      "Q17",
+      2
+    ],
+    [
+      "Q17",
+      3
+    ],
+    [
+      "Q18",
+      2
+    ],
+    [
+      "Q18",
+      3
+    ],
+    [
+      "Q19",
+      2
+    ],
+    [
+      "Q19",
+      3
+    ],
+    [
+      "Q20",
+      2
+    ],
+    [
+      "Q20",
+      3
+    ],
+    [
+      "Q21",
+      2
+    ],
+    [
+      "Q21",
+      3
+    ],
+    [
+      "Q22",
+      2
+    ],
+    [
+      "Q22",
+      3
+    ],
+    [
+      "Q23",
+      2
+    ],
+    [
+      "Q23",
+      3
+    ],
+    [
+      "Q24",
+      2
+    ],
+    [
+      "Q24",
+      3
+    ],
+    [
+      "Q25",
+      2
+    ],
+    [
+      "Q25",
+      3
+    ],
+    [
+      "Q26",
+      2
+    ],
+    [
+      "Q26",
+      3
+    ],
+    [
+      "Q27",
+      2
+    ],
+    [
+      "Q27",
+      3
+    ],
+    [
+      "Q28",
+      2
+    ],
+    [
+      "Q28",
+      3
+    ],
+    [
+      "Q29",
+      2
+    ],
+    [
+      "Q29",
+      3
+    ],
+    [
+      "Q30",
+      2
+    ],
+    [
+      "Q30",
+      3
+    ],
+    [
+      "Q31",
+      2
+    ],
+    [
+      "Q31",
+      3
+    ],
+    [
+      "Q32",
+      2
+    ],
+    [
+      "Q32",
+      3
+    ],
+    [
+      "Q33",
+      2
+    ],
+    [
+      "Q33",
+      3
+    ],
+    [
+      "Q34",
+      2
+    ],
+    [
+      "Q34",
+      3
+    ],
+    [
+      "Q35",
+      2
+    ],
+    [
+      "Q35",
+      3
+    ],
+    [
+      "Q36",
+      2
+    ],
+    [
+      "Q36",
+      3
+    ],
+    [
+      "Q37",
+      2
+    ],
+    [
+      "Q37",
+      3
+    ],
+    [
+      "Q38",
+      2
+    ],
+    [
+      "Q38",
+      3
+    ],
+    [
+      "Q39",
+      2
+    ],
+    [
+      "Q39",
+      3
+    ],
+    [
+      "Q40",
+      2
+    ],
+    [
+      "Q40",
+      3
+    ]
+  ],
+  "invalid_or_duplicate_trials": [],
+  "hard_failures": [
+    "fabricated_or_mismatched_numeric_evidence"
+  ],
+  "by_question": {
+    "Q01": {
+      "attempted": 1,
+      "automatic_passes": 0
+    },
+    "Q02": {
+      "attempted": 1,
+      "automatic_passes": 0
+    },
+    "Q03": {
+      "attempted": 1,
+      "automatic_passes": 0
+    },
+    "Q04": {
+      "attempted": 1,
+      "automatic_passes": 0
+    },
+    "Q05": {
+      "attempted": 1,
+      "automatic_passes": 0
+    },
+    "Q06": {
+      "attempted": 1,
+      "automatic_passes": 0
+    },
+    "Q07": {
+      "attempted": 1,
+      "automatic_passes": 0
+    },
+    "Q08": {
+      "attempted": 1,
+      "automatic_passes": 0
+    },
+    "Q09": {
+      "attempted": 1,
+      "automatic_passes": 0
+    },
+    "Q10": {
+      "attempted": 1,
+      "automatic_passes": 0
+    },
+    "Q11": {
+      "attempted": 1,
+      "automatic_passes": 0
+    },
+    "Q12": {
+      "attempted": 1,
+      "automatic_passes": 0
+    },
+    "Q13": {
+      "attempted": 1,
+      "automatic_passes": 0
+    },
+    "Q14": {
+      "attempted": 1,
+      "automatic_passes": 0
+    },
+    "Q15": {
+      "attempted": 1,
+      "automatic_passes": 0
+    },
+    "Q16": {
+      "attempted": 1,
+      "automatic_passes": 0
+    },
+    "Q17": {
+      "attempted": 1,
+      "automatic_passes": 0
+    },
+    "Q18": {
+      "attempted": 1,
+      "automatic_passes": 0
+    },
+    "Q19": {
+      "attempted": 1,
+      "automatic_passes": 0
+    },
+    "Q20": {
+      "attempted": 1,
+      "automatic_passes": 0
+    },
+    "Q21": {
+      "attempted": 1,
+      "automatic_passes": 0
+    },
+    "Q22": {
+      "attempted": 1,
+      "automatic_passes": 0
+    },
+    "Q23": {
+      "attempted": 1,
+      "automatic_passes": 0
+    },
+    "Q24": {
+      "attempted": 1,
+      "automatic_passes": 0
+    },
+    "Q25": {
+      "attempted": 1,
+      "automatic_passes": 0
+    },
+    "Q26": {
+      "attempted": 1,
+      "automatic_passes": 0
+    },
+    "Q27": {
+      "attempted": 1,
+      "automatic_passes": 0
+    },
+    "Q28": {
+      "attempted": 1,
+      "automatic_passes": 0
+    },
+    "Q29": {
+      "attempted": 1,
+      "automatic_passes": 0
+    },
+    "Q30": {
+      "attempted": 1,
+      "automatic_passes": 0
+    },
+    "Q31": {
+      "attempted": 1,
+      "automatic_passes": 0
+    },
+    "Q32": {
+      "attempted": 1,
+      "automatic_passes": 0
+    },
+    "Q33": {
+      "attempted": 1,
+      "automatic_passes": 0
+    },
+    "Q34": {
+      "attempted": 1,
+      "automatic_passes": 0
+    },
+    "Q35": {
+      "attempted": 1,
+      "automatic_passes": 0
+    },
+    "Q36": {
+      "attempted": 1,
+      "automatic_passes": 0
+    },
+    "Q37": {
+      "attempted": 1,
+      "automatic_passes": 0
+    },
+    "Q38": {
+      "attempted": 1,
+      "automatic_passes": 1
+    },
+    "Q39": {
+      "attempted": 1,
+      "automatic_passes": 0
+    },
+    "Q40": {
+      "attempted": 1,
+      "automatic_passes": 0
+    }
+  },
+  "automatic_gate_passed": false,
+  "semantic_review": "pending",
+  "end_to_end_pass_rate": null,
+  "release_verified": false,
+  "model_latency_seconds": {
+    "samples": 40,
+    "median": 128.848692,
+    "maximum": 160.004536
+  },
+  "limitations": [
+    "Automatic checks do not certify conversational prose, needed clarification wording or rendered map parity.",
+    "Three repetitions are not three independent questions; all missing/failing attempts remain in 120-denominator.",
+    "Independent second-client subset and semantic review remain separate evidence."
+  ],
+  "freeze_sha256": "55554130880e9d0cc47a56dba4d87761e6aa80f1872c350a7d444cd546a97381",
+  "model_identity": {
+    "model_id": "analytics311-qwen3-1-7b",
+    "advertised_ids": [
+      "analytics311-qwen3-1-7b"
+    ]
+  },
+  "execution_sha256": "ee73df656d251b728ec1af0441e8738e25986f3ad3bdb59e52bd6957ae35623b",
+  "runtime_receipt_sha256": "0aa12c0183f923f204cb45443ad68c017834f6e32cfb41bd4bc24e336182ad99",
+  "requested_repetitions": [
+    1
+  ],
+  "requested_trials": 40,
+  "execution_complete": true,
+  "development_only": false,
+  "finished_at": "2026-10-10T22:28:06.866890+00:00",
+  "prefix_warmup": {
+    "performed": true,
+    "receipt_count": 1,
+    "receipts": [
+      {
+        "sha256": "95c5b0f0e9d17cfcb70dfd29f8749cfd4e5bcab7ef97fb70e4952e5e17faaf8a",
+        "file": "metadata-prefix-warmup-0aa12c0183f923f204cb45443ad68c017834f6e32cfb41bd4bc24e336182ad99.json",
+        "passed": true,
+        "runtime_receipt_sha256": "0aa12c0183f923f204cb45443ad68c017834f6e32cfb41bd4bc24e336182ad99",
+        "elapsed_seconds": 295.781533
+      }
+    ],
+    "startup_seconds_total": 295.781533,
+    "excluded_from_trial_latency": true,
+    "limitation": "Metadata-only startup is reported separately; completion does not itself prove cache reuse or cold-request latency."
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "purpose": "Prospective Qwen3-1.7B Unsloth Q4_K_M native CPU candidate with measured metadata-only startup after the cold full-schema development request timed out. Weights, source build and analytical tool schemas unchanged. No held-out trial observed or scored during development; agent quality remains unqualified.",
+  "target": "Linux x86_64",
+  "model_alias": "analytics311-qwen3-1-7b",
+  "execution_runtime": {
+    "kind": "native_source_build",
+    "repository": "ggml-org/llama.cpp",
+    "source_commit": "5ad1c5da0ad7f6176256b823925aad19134f0263",
+    "cmake_flags": [
+      "-DCMAKE_BUILD_TYPE=Release",
+      "-DGGML_BACKEND_DL=OFF",
+      "-DGGML_NATIVE=ON",
+      "-DGGML_BLAS=ON",
+      "-DGGML_BLAS_VENDOR=OpenBLAS",
+      "-DLLAMA_CURL=OFF",
+      "-DLLAMA_BUILD_TESTS=OFF"
+    ],
+    "blas_threads": 4
+  },
+  "runtime": {
+    "repository": "ggml-org/llama.cpp",
+    "version": "b11457",
+    "license": "MIT",
+    "source": "https://api.github.com/repos/ggml-org/llama.cpp/releases/tags/b11457",
+    "filename": "llama-b11457-bin-ubuntu-x64.tar.gz",
+    "size": 17733249,
+    "sha256": "210eaa41a16e0d24fa44071cb62f95702ef903c84d86506d6482ac919bcee078",
+    "url": "https://github.com/ggml-org/llama.cpp/releases/download/b11457/llama-b11457-bin-ubuntu-x64.tar.gz"
+  },
+  "model": {
+    "repository": "unsloth/Qwen3-1.7B-GGUF",
+    "revision": "d7f544eead698dbd1f15126ef60b45a1e1933222",
+    "original_model": "Qwen/Qwen3-1.7B",
+    "conversion_publisher": "Unsloth",
+    "quantization": "Q4_K_M",
+    "license": "Apache-2.0",
+    "license_url": "https://huggingface.co/unsloth/Qwen3-1.7B-GGUF/blob/d7f544eead698dbd1f15126ef60b45a1e1933222/README.md",
+    "source": "https://huggingface.co/api/models/unsloth/Qwen3-1.7B-GGUF/revision/d7f544eead698dbd1f15126ef60b45a1e1933222?blobs=true",
+    "filename": "Qwen3-1.7B-Q4_K_M.gguf",
+    "size": 1107409472,
+    "sha256": "b139949c5bd74937ad8ed8c8cf3d9ffb1e99c866c823204dc42c0d91fa181897",
+    "url": "https://huggingface.co/unsloth/Qwen3-1.7B-GGUF/resolve/d7f544eead698dbd1f15126ef60b45a1e1933222/Qwen3-1.7B-Q4_K_M.gguf"
+  },
+  "inference": {
+    "bind": "127.0.0.1",
+    "port": 8080,
+    "threads": 4,
+    "context_tokens": 24576,
+    "parallel_slots": 1,
+    "gpu_layers": 0,
+    "thinking": false,
+    "network": "Only loopback model calls; downloads needed during staging. No paid inference provider.",
+    "limitation": "CPU resource limits and this one model are experimental, not a universal hardware minimum. Before each owned-server campaign, one metadata-only request may populate an identical prompt-prefix cache; startup cost is measured separately. Timed trials still begin with fresh conversations; cache reuse is not guaranteed or proof of cold latency.",
+    "prefix_warmup": {
+      "policy": "metadata-prefix-v1",
+      "request_seconds": 300,
+      "max_output_tokens": 1,
+      "seed": 0
+    },
+    "context_shift": false
+  },
+  "downloaded_and_hash_verified": true,
+  "staged_assets": [
+    {
+      "kind": "runtime",
+      "filename": "llama-b11457-bin-ubuntu-x64.tar.gz",
+      "bytes": 17733249,
+      "sha256": "210eaa41a16e0d24fa44071cb62f95702ef903c84d86506d6482ac919bcee078"
+    },
+    {
+      "kind": "model",
+      "filename": "Qwen3-1.7B-Q4_K_M.gguf",
+      "bytes": 1107409472,
+      "sha256": "b139949c5bd74937ad8ed8c8cf3d9ffb1e99c866c823204dc42c0d91fa181897"
+    }
+  ]
+}

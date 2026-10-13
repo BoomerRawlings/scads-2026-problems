@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "original_inventory_sha256": "8f39f31b3659600039708d3b3a28e5d80a00f5f3f6adb661e3a7beba3c04772c",
+  "files": [
+    {
+      "path": "actual-diagnostics.json",
+      "bytes": 29721,
+      "sha256": "217365f6d8a41366a6745cc11fd5978d6f8546a7eb6a3ee7ad6c5fead61c8011"
+    },
+    {
+      "path": "archive-diagnostics-independent-review.json",
+      "bytes": 1311,
+      "sha256": "aa19af3e57879df4de839a829e101c0b9da5372dcd827c96214636a7e5d6270a"
+    },
+    {
+      "path": "automatic-artifact.json",
+      "bytes": 813,
+      "sha256": "16f09f888fbf211ce0f5eaa18d41159a786cecc64d0de5bead740185a3d41720"
+    },
+    {
+      "path": "core-comparison.json",
+      "bytes": 32732,
+      "sha256": "5516d09a70cbfd1b261a8fc03dbe6570fa0996bc68811eb0b0ff8391200df6dc"
+    },
+    {
+      "path": "final-review-independent-check.json",
+      "bytes": 2373,
+      "sha256": "4145b00527c0de07836ccec58a7abe0b80e506dbf3054d0626407e7f66bbab3e"
+    },
+    {
+      "path": "final-review.json",
+      "bytes": 42342,
+      "sha256": "81cd4cec6118c6a4b67519ca919a470ce3cd7ac0b38c08d06bd06fcf88a3c8e7"
+    },
+    {
+      "path": "offline-automatic-reproduction.json",
+      "bytes": 590,
+      "sha256": "8f16d984f3ab62dd5a3939a5719c4a12460bb5f1b6496a8bfd63b8ee2e92feb2"
+    },
+    {
+      "path": "original-files.json",
+      "bytes": 100334,
+      "sha256": "8f39f31b3659600039708d3b3a28e5d80a00f5f3f6adb661e3a7beba3c04772c"
+    },
+    {
+      "path": "replica-1-artifact.json",
+      "bytes": 806,
+      "sha256": "c7739d140dca8c16398ab0eb68f175178a2dfdd87afdd51249827ac9484975da"
+    },
+    {
+      "path": "replica-2-artifact.json",
+      "bytes": 806,
+      "sha256": "4386944380df71282e747407414771ac02858101f1fc019dba9f99153db9faf4"
+    },
+    {
+      "path": "replica-3-artifact.json",
+      "bytes": 806,
+      "sha256": "86ff73e5600c6a8717059c8bb68519538dce13923221cff8e87480bffbf12f9c"
+    },
+    {
+      "path": "result-summary.json",
+      "bytes": 2804,
+      "sha256": "95dbf6e776738ea55bc1c3d39caec4e8667a1fb38023f397a1fbfcd8a6917788"
+    },
+    {
+      "path": "review-observations.py",
+      "bytes": 2944,
+      "sha256": "266b001db93e8665e5be773f0090257da1bd6ca05a3a015462c262131535b648"
+    },
+    {
+      "path": "semantic-review-plan.json",
+      "bytes": 3051,
+      "sha256": "ae527e97a42909eb261c5fb73b3382fb3bdf6a20594d58ffbe6d51d14c2fcd6d"
+    },
+    {
+      "path": "semantic-review-r1-provenance.json",
+      "bytes": 4824,
+      "sha256": "e96f835f81b7e354525fcd19dc5abfadcd037d2e26acdd395062c9d8e2be7f20"
+    },
+    {
+      "path": "semantic-review-r1-v2-provenance.json",
+      "bytes": 5632,
+      "sha256": "f22c128634defdbef6fcc87718dc3a51bd89780ddf74e5f94aeebc98936157e3"
+    },
+    {
+      "path": "semantic-review-r1-v2.json",
+      "bytes": 38028,
+      "sha256": "3fb65cdb37c70159409e29cdf37a4e588c7a5961c8bd1a9593a851694e02ff24"
+    },
+    {
+      "path": "semantic-review-r1.json",
+      "bytes": 34530,
+      "sha256": "fefb51cebf0202df3d00e9df93331286f34a223d8d7bb4639b5b50bab061525a"
+    },
+    {
+      "path": "semantic-review-r2-report.json",
+      "bytes": 12264,
+      "sha256": "7ca59658eebbc41c2d20b422e5c23acd8853ad85ad45a360a0ad9a967e2b4492"
+    },
+    {
+      "path": "semantic-review-r2.json",
+      "bytes": 35279,
+      "sha256": "a19650d6059d327083bd3c1cae1a6b9e8a6f8308bd40df88e95b22dd81894481"
+    },
+    {
+      "path": "semantic-review-r3-input-validation.json",
+      "bytes": 9452,
+      "sha256": "e7caaf79712748c90bbebaaa0ff951d26ded2a4cd43e3f88b28c955014235f2e"
+    },
+    {
+      "path": "semantic-review-r3-summary.json",
+      "bytes": 1739,
+      "sha256": "d9dafff14a10e334557ddf56f0b0eae508550cdf1adfa2da0cf2cc932d462f9d"
+    },
+    {
+      "path": "semantic-review-r3.json",
+      "bytes": 103856,
+      "sha256": "deb432a2d06f889efef7a9307cbbad4391f693bffce2c84905048c112eba0bab"
+    },
+    {
+      "path": "summarize-actual.py",
+      "bytes": 5701,
+      "sha256": "34238bd0600eb84f5039d7bfbc8584ba3ac9266031cdd29305a0dae0ca804d39"
+    }
+  ],
+  "notes": [
+    "Original files have their own exact inventory. This inventory covers additional artifact metadata, reviews, methods and derived summaries; it excludes itself. Historical pending/empty review objects are unchanged. final-review.json and result-summary.json contain final outcomes."
+  ]
+}

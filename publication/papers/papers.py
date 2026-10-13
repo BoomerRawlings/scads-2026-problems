@@ -84,83 +84,346 @@ PAPERS = [
  ]},
  ]
 },
-{
- 'number':'02','slug':'02-311-analytics','short':'NYC 311 ANALYTICS',
- 'title':'A conversation backed by calculations',
- 'subtitle':'Reproducible civic analytics through an agent-neutral tool service',
- 'refs':[
-   ('Implemented service and current version','README.md'),
-   ('Analysis and artifact tool contract','docs/tool-contract.md'),
-   ('Authored CLI demonstration results','examples/agent-demo/answer.md'),
-   ('Generated 100,000-record measurements','examples/evidence/generated-100000-benchmark.json'),
-   ('Version 0.6 focused verification receipt','examples/evidence/test-report-v0.6-focused.json'),
-   ('Static scale review and version 0.6 changes','docs/forecast-v0.6.md'),
-   ('Local runtime and ingestion instructions','docs/runtime.md'),
- ],
- 'pages':[
- {'title':'','blocks':[
-   ('h','Abstract'),
-   ('p','Natural-language civic questions often hide analytical choices: date boundaries, complaint families, geographic units, cohort selection and missing values. This implementation places those choices in a strict analytical contract. A compatible agent handles conversation, while a Python service owns validation, deterministic calculations, saved results and derived artifacts. The same operations are available through JSON CLI and seven MCP tools. [1] [2]'),
-   ('p','The service implements record filtering, grouped statistics, geographic predicates, period comparisons and background CSV exports, with Elasticsearch and Kibana adapters. Its local demonstration uses 32 authored synthetic requests. This case study reports that demonstration, historical generated-data measurements and the focused engineering verification for version 0.6.0. These evidence classes are kept separate. [1] [3-5]'.replace('[3-5]','[3] [4] [5]')),
-   ('h','Problem and design objective'),
-   ('p','The SCADS problem asks for conversational access to large civic datasets. The design objective is to make the analytical answer inspectable and reusable across agents: every reported number should resolve to a saved specification, dataset identity and result. A small preview must not silently redefine an export, and an uncovered date must not become a zero-count day. [1] [2]'),
-   ('h','Implemented contribution'),
-   ('p','The core contribution is a provider-neutral analytical boundary. The model need not implement arithmetic, invent query semantics or carry an entire result table in context. Version 0.6 adds bounded normalization, exact export admission and requested-field retrieval, grounded in a static scale review rather than a newly executed scale experiment. [1] [6]'),
-   ('note','Evidence class: synthetic fixture analyses, generated local workload observations and focused deterministic tests. One billion records is a design target, not a measured capacity result. [1]'),
- ]},
- {'title':'1. Analytical contract','blocks':[
-   ('p','A request selects records, aggregate or compare_periods and binds that operation to a dataset version. Filters can express bounded Boolean predicates, category families, geographic regions and explicit time intervals. Unsupported combinations return a typed error instead of a silently simplified query. [2]'),
-   ('table',['Phase','Service responsibility'],[
-      ['Discover','Return the catalog, field meanings, coverage, limits and supported request examples.'],
-      ['Validate','Resolve absolute time boundaries, check schema and reject unsupported or uncovered analyses.'],
-      ['Execute','Compute the selected records or aggregates and save normalized specification, dataset identity and execution flags.'],
-      ['Inspect','Return bounded pages with exact matching totals and explicit truncation or approximation.'],
-      ['Publish artifact','Derive CSV or map from the saved cohort; retain scope, excluded geography and artifact hashes.'],
-   ],[100,388]),
-   ('h','Time, rates and missingness'),
-   ('p','Time intervals are start-inclusive and end-exclusive. Relative presets resolve through a shared timezone library and are saved as absolute boundaries. Period comparisons use the same non-time filters and grouping domain; they report counts, exposure days, daily rates, absolute differences and nullable relative change. Complete creation-date coverage is required for both periods. [2]'),
-   ('p','Closure duration measures administrative created-to-closed time. Missing usable durations remain null and are excluded from duration statistics while closed-request counts retain those records. A null value therefore cannot be interpreted as zero hours. These definitions travel with results instead of depending on the agent to recall them. [2] [3]'),
-   ('h','Artifacts retain analytical scope'),
-   ('p','CSV and map tools consume a saved result ID. They require an explicit all-matching or selected-groups scope. A records export reproduces the full selected cohort rather than the preview. Version 0.6 checks exact planned rows before reserving a worker and limits backend source retrieval to selected CSV fields while retaining selection and ordering semantics. [2] [6]'),
- ]},
- {'title':'2. Worked fixture analysis','blocks':[
-   ('p','The authored demonstration interprets Brooklyn noise last month relative to January 2, 2026. The saved window is December 2025 in America/New_York. It finds four matching synthetic requests, previews two and exports all four. The example shows why preview size and cohort size must be different fields. [3]'),
-   ('table',['Question','Observed fixture result','Meaning'],[
-      ['December Brooklyn noise','4 requests; 2-row preview; 4-row CSV','Export preserves full selection.'],
-      ['November-December rodent comparison','17 requests across 6 groups','Rates use 30 versus 31 days.'],
-      ['Brooklyn DOHMH closure','7 requests; 6 closed; mean 31.2 h','Mean uses 5 usable durations.'],
-      ['Brooklyn NYPD closure','7 requests; 5 closed; mean 3.6 h','Different request mixes prevent causal comparison.'],
-   ],[158,160,170]),
-   ('h','Why unchanged counts can have changed rates'),
-   ('p','A fixture neighborhood with one request in each month has November rate 1/30 and December rate 1/31 requests per day. December minus November is -0.0010752688 requests per day. The count is unchanged; exposure differs. This arithmetic is descriptive reported-request activity, not incident prevalence, statistical significance or a causal effect. [3]'),
-   ('h','Unknown is an analytical result'),
-   ('p','The same demonstration asks for January-February 2026 rodent trends, outside the fixture coverage. The service returns coverage_gap rather than filling unobserved dates with zeros. The behavior protects the meaning of a comparison before any model-generated narrative is written. [3]'),
-   ('p','Neighborhood labels in this demonstration are explicitly synthetic. Real neighborhood analyses require versioned official geometry and a defined assignment policy. A map of underlying complaint points is also analytically different from a neighborhood trend layer; the artifact contract preserves that distinction. [2] [3]'),
-   ('note','Table 1. All numerical results on this page describe the 32-record fixture. They are not findings about actual New York City residents or agencies.'),
- ]},
- {'title':'3. Engineering evidence','blocks':[
-   ('table',['Evidence','Recorded result','Scope'],[
-      ['Version 0.6 focused checks','119 passed; no failures, errors or skips','Selected deterministic checks; tiny authored records and fake transports. [5]'],
-      ['Generated local workload','100,000 rows; 3 runs','Fixture backend, 15 returned groups per run. [4]'],
-      ['Historical run times','13.0741, 4.5881, 15.2276 s','Median 13.0741 s; cache states uncontrolled. [4]'],
-      ['Current scale review','Static reasoning and implementation','No scale simulation or live engine run for v0.6. [6]'],
-   ],[139,143,206]),
-   ('p','The historical generated workload exercised tool execution, not model latency or natural-language accuracy. With only three runs and uncontrolled caches, its maximum is an observed maximum rather than a stable tail-latency estimate. The fixture backend cannot establish Elasticsearch or Kibana capacity. [4]'),
-   ('h','Resource-aware implementation'),
-   ('p','Version 0.6 limits normalization output bytes, checks observed free disk, uses portable UTF-8/LF output and records limits in the manifest. Known oversized CSV cohorts are rejected before worker admission. Streaming row, byte, deadline and source-identity guards remain active after admission: a planned row count is not a promise of successful completion. [2] [6]'),
-   ('h','Interpretation'),
-   ('p','These results support a narrower but useful conclusion: analytical semantics can be implemented independently of an agent and tested through inspectable inputs and outputs. The worked example verifies distinctions that conversational systems often blur, including missing durations, full cohorts, exposure-normalized rates and date coverage. It does not estimate how often an arbitrary agent chooses the correct specification.'),
-   ('p','The service defines a path from small local fixtures to self-hosted indexing. Its capacity claims remain tied to the measured backend and workload. Real-city analytical validity requires a qualified immutable dataset and independent reference answers; the synthetic numbers presented here are deliberately interpreted only within their authored environment. [1] [3]'),
- ]},
- {'title':'4. Reproducibility and sources','blocks':[
-   ('p','The README and runtime guide describe installation, dataset configuration, ingestion and MCP connection. Begin with the local fixture before selecting an external backend. Use describe_dataset to obtain the current catalog and request rules; save the returned result identity before deriving artifacts. [1] [7]'),
-   ('code','python -m pip install -e ".[mcp,geo]"\npython -m analytics311 doctor\npython -m analytics311 run examples/brooklyn-noise.json\npython -m analytics311 mcp'),
-   ('p','Commands run from the nested project directory in an appropriate Python environment. The bundled fixture operates locally after dependency installation. The original authored demonstration includes its CLI trace, request specifications and exported CSV fingerprint. The v0.6 focused receipt identifies its source/test selection; it should be read as focused verification for that version. [1] [3] [5]'),
-   ('h','Evidence-linked references'),('refs',),
-   ('note','The PDF summarizes retained source records; publication did not rerun the historical benchmark or launch a live Elasticsearch workload. Refer to the evidence manifest for source hashes.'),
- ]},
- ]
-},
+{'number': '02',
+ 'slug': '02-311-analytics',
+ 'short': 'NYC 311 ANALYTICS',
+ 'title': 'Reproducible agentic analytics for civic records',
+ 'subtitle': 'Verified million-record backend, failed local-agent evaluation',
+ 'local_revision': False,
+ 'evidence_scope': {'kind': 'actual_empirical_backend_qualification_and_negative_agent_evaluation',
+                    'version': '0.7.0',
+                    'real_core_runs': [{'run': 37705537519,
+                                        'commit': '40a52917373bc54a0685b3b8ae35d261967c504f',
+                                        'index_uuid': 'JVlj8cmQQWmf-7R8ESy3IA',
+                                        'review_sha256': 'ed6d24e55253ae1044ce11b70c0dfaa6abcd37b1d3cf7ef7635bd685e199556a'},
+                                       {'run': 38004540380,
+                                        'commit': '78bae7eac0e33d28deb0cb404295f6f900a85db7',
+                                        'index_uuid': '7FQfb9nTR2S2JB0E7tIsmQ',
+                                        'review_sha256': '49d6c24af71db65a54662fa68b9176df23a4558b54cb6401b3a72a1c5c101c21'},
+                                       {'run': 38025638157,
+                                        'commit': '03fd0c094f99396f9af1106823811c3a5c5d1c55',
+                                        'index_uuid': '_U8LIYhTRiSH69BdO3yTBw',
+                                        'review_sha256': '22de2939dd977b9eb5ff4fad670e248f5194b8fe6c87c9abd81e6b88d5f44c68'},
+                                       {'run': 38027551047,
+                                        'commit': '6c39592ab00c2271203141ede36a25c98104e6da',
+                                        'index_uuid': 'WiMgFvI_Sp2pbTgsL05Zhw',
+                                        'review_sha256': 'c735eebbb972346bd38d73891a1c432c9a8240a48c926af99c263e4eaec3f9ec'},
+                                       {'run': 38028955870,
+                                        'commit': '868168ef480bd0574bc2440fa8a3f0d4aea5c62f',
+                                        'index_uuid': '2R2S_pEhRtqPpjj2dM8ZsQ',
+                                        'review_sha256': '5e2a4f59e4a4fab3f63595428dfb5f2081a8b2516b6d57f60feba3e2dd059ebc'},
+                                       {'run': 38029812736,
+                                        'commit': '663a5b16fa8ddeec08970bc5cf71f0eb2e71582e',
+                                        'index_uuid': 'YX0M5BTATcGCaHqCfJXxfQ',
+                                        'review_sha256': 'f39228d178e27bfd7470bfbc39ba1fe41d8f9c869b59a8ae4626b77dca2904d4'},
+                                       {'run': 38030378224,
+                                        'commit': '8c692cb13565a62a18782302eb1d4c82ca26c8a1',
+                                        'index_uuid': 'EPAp0NR1SSW4bMFNLedg0g',
+                                        'review_sha256': 'c6d9f21d1c57823d45a3d65d777517d5d3e0bcc06ff5730661f8e3c3afce435e'},
+                                       {'run': 38031560273,
+                                        'commit': '2ab96473fd927d5a5bae4bc48e2c50e372150ab4',
+                                        'index_uuid': 'QDCkdPdnQLK_QEB5bzFUvQ',
+                                        'review_sha256': '975c2315c7f408ec0c86cb2d3735da37cd317b33d06c609dfabf0da928f1f3ee'},
+                                       {'run': 38083900641,
+                                        'commit': 'b20a06e166e65f71d6aaf4cc1a0c1220c55853c5',
+                                        'index_uuid': 'PQndJQDUQb2LV_upGfu0pQ',
+                                        'review_sha256': '778c76a818bab6ce0f0c0affc986a1aaff7ec01c83a505d137c3504f0c66f0bd'}],
+                    'performance_table_run': 38031560273,
+                    'software_regression_current': 'examples/evidence/test-report-v0.7-matrix.json',
+                    'software_regression_final': 'examples/evidence/test-report-v0.7-matrix.json',
+                    'offline_bundle_revision': 'r4',
+                    'model_development_run': 38028703734,
+                    'model_development_commit': 'ffbbd5811c2b6ca949417b926dd56e3807e1e34d',
+                    'zero_trial_startup_campaign': 38029812736,
+                    'prospective_matrix_protocol_sha256': '9194c713896130a598c160d3ffe5b541b21ac40f467d5454c3cf6f2e9a33c8d6',
+                    'scope': 'Nine archived pre-study cores reconcile 2,133,268 captured requests; the ninth '
+                             'passes all three Maps checks. Four sixth-run exports pass independent '
+                             'raw-to-nine-column reconstruction for one 9,728-row cohort. Three additional '
+                             'matrix core preflights pass. All 120 model trials execute and receive semantic '
+                             'review; one passes both automatic and semantic checks (0.8333%), so agent '
+                             'quality and overall release fail. Eight earlier core failures and three '
+                             'zero-question startup failures remain retained. Qualification is bounded to the '
+                             'observed corpus, cohorts, workloads and runtime tested.',
+                    'final_maps_run': 38083900641,
+                    'csv_cell_audit': {'path': 'examples/evidence/csv-cell-audit-38029812736.json',
+                                       'sha256': 'd644bfe6bc1250bd15046242255264ea4bf6071f222c737601e382036f848c53',
+                                       'original_export_run': 38029812736,
+                                       'logical_rows': 9728,
+                                       'logical_cells': 87552,
+                                       'artifact_cells': 350208,
+                                       'passed': True},
+                    'software_regression_platform': {'os': 'Windows',
+                                                     'tests': 576,
+                                                     'passed': 575,
+                                                     'skipped': 1,
+                                                     'seconds': 66.672,
+                                                     'skipped_test': 'test_jobs.JobLeaseTests.test_symlink_lock_is_refused',
+                                                     'reason': 'Windows unprivileged symbolic-link creation '
+                                                               'denied; not the Linux CI skip'},
+                    'maps_ci_regression': {'run': 38083900641,
+                                           'commit': 'b20a06e166e65f71d6aaf4cc1a0c1220c55853c5',
+                                           'os': 'Linux',
+                                           'tests': 559,
+                                           'passed': 558,
+                                           'skipped': 1,
+                                           'seconds': 7.174,
+                                           'source': 'examples/evidence/real-core-38083900641/maps-independent-review.json',
+                                           'skip_identity': 'Not named in retained quiet CI summary; do not '
+                                                            'relabel it as Windows symlink denial'},
+                    'matrix_core_preflight': {'run': 38084773557,
+                                              'actual_core_receipts': [{'replica': 1,
+                                                                        'path': 'runs/agent-campaign-38084773557/corpus-r1/real-v1/acceptance.json',
+                                                                        'sha256': 'f250d4f1687bd20a48f65a4ce56ae3a86a416d3ea8430d8b6c2b56c334ddd604',
+                                                                        'passed': True,
+                                                                        'index_uuid': '0PWTIqhOTJuVbFYt8kC_lg',
+                                                                        'overall_release_verified': False},
+                                                                       {'replica': 2,
+                                                                        'path': 'runs/agent-campaign-38084773557/corpus-r2/real-v1/acceptance.json',
+                                                                        'sha256': '9215d1873b1f5734f59491c34adeed88e7f07469bf0008a8182a0357e228aa07',
+                                                                        'passed': True,
+                                                                        'index_uuid': 'q5_UOUK2Qry44_FXGkueAQ',
+                                                                        'overall_release_verified': False},
+                                                                       {'replica': 3,
+                                                                        'path': 'runs/agent-campaign-38084773557/corpus-r3/real-v1/acceptance.json',
+                                                                        'sha256': '62aecf4bc0b3354e48cbf99856cb58549ebbd925259fc6d0b43b0375211e1ef5',
+                                                                        'passed': True,
+                                                                        'index_uuid': 'bt3nXTUPT6uH-HQOwbDoEg',
+                                                                        'overall_release_verified': False}],
+                                              'excluded_from_nine_pre_study_core_count': True,
+                                              'all_three_passed': True},
+                    'prepared_date_utc': '2026-10-11',
+                    'agent_matrix': {'run': 38084773557,
+                                     'commit': 'd3be88e72cf5e7920f2861eaa7c21f6dd26abdb3',
+                                     'execution_complete': True,
+                                     'required_trials': 120,
+                                     'executed_trials': 120,
+                                     'reviewed_trials': 120,
+                                     'automatic_passes': 1,
+                                     'end_to_end_passes': 1,
+                                     'pass_rate': 0.008333333333333333,
+                                     'passing_trial': 'Q38-r1',
+                                     'semantic_only_passes': 2,
+                                     'semantic_only_passing_trials': ['Q38-r1', 'Q38-r2'],
+                                     'semantic_unsupported_claim_or_false_completion_trials': 32,
+                                     'automatic_numeric_evidence_hard_failure_trials': 8,
+                                     'chained_trial_passes': 0,
+                                     'chained_trials': 9,
+                                     'delivered_finals': 56,
+                                     'timeouts': 52,
+                                     'repeated_invalid_tool_call_failures': 11,
+                                     'invalid_final_answer_failures': 1,
+                                     'trial_elapsed_seconds': {'samples': 120,
+                                                               'minimum': 14.539215,
+                                                               'median': 126.15948900000001,
+                                                               'maximum': 160.006379,
+                                                               'sum': 14018.248296},
+                                     'latency_scope': 'Whole trial including model/tool/adapter and failed '
+                                                      'attempts; excludes startup/download/build; not '
+                                                      'generation-only or successful-answer latency.',
+                                     'warmup_by_replica': [{'repetition': 1, 'seconds': 295.781533},
+                                                           {'repetition': 2, 'seconds': 256.060538},
+                                                           {'repetition': 3, 'seconds': 289.675959}],
+                                     'final_report': {'path': 'examples/evidence/agent-campaign-38084773557/final-review.json',
+                                                      'sha256': '81cd4cec6118c6a4b67519ca919a470ce3cd7ac0b38c08d06bd06fcf88a3c8e7'},
+                                     'diagnostics': {'path': 'examples/evidence/agent-campaign-38084773557/actual-diagnostics.json',
+                                                     'sha256': '217365f6d8a41366a6745cc11fd5978d6f8546a7eb6a3ee7ad6c5fead61c8011'},
+                                     'archive_diagnostics_review_sha256': 'aa19af3e57879df4de839a829e101c0b9da5372dcd827c96214636a7e5d6270a',
+                                     'agent_quality_gate_passed': False,
+                                     'overall_release_verified': False,
+                                     'semantic_review_scope': 'Three AI infrastructure contributors reviewed a '
+                                                              'separate answering-model session; exact trial '
+                                                              'hashes; initial cards hid automatic grades. Not '
+                                                              'independent human gold or blinded model '
+                                                              'selection.'}},
+ 'refs': [('Implemented service and version', 'IMPLEMENTATION.md'),
+          ('Analytical and artifact contract', 'docs/tool-contract.md'),
+          ('Actual capture: local streaming verification',
+           'examples/evidence/captured-local-verification.json'),
+          ('Ninth real-corpus execution: independent Maps and core review',
+           'examples/evidence/real-core-38083900641/independent-review.json'),
+          ('Eighth Elasticsearch workload: actual measurements',
+           'examples/evidence/real-core-38031560273/measurements.json'),
+          ('Final v0.7 software regression: 575 passed, one Windows skip',
+           'examples/evidence/test-report-v0.7-matrix.json'),
+          ('Verified offline distributions and transfer limits', 'docs/distribution.md'),
+          ('Actual local-model development quality failure',
+           'examples/evidence/model-smoke-38028703734/independent-review.json')],
+ 'pages': [{'title': '',
+            'blocks': [('h', 'Abstract'),
+                       ('p',
+                        'Natural-language civic questions hide choices about time boundaries, complaint '
+                        'families, geography and missing values. This implementation places those choices in a '
+                        'strict analytical contract. An agent handles conversation; a Python service validates '
+                        'specifications, computes results and derives artifacts through JSON CLI and seven MCP '
+                        'tools. [1] [2]'),
+                       ('p',
+                        'Version 0.7 acquired 2,133,268 unique NYC 311 requests. Nine pre-study executions '
+                        'reconciled that count through normalization, immutable Elasticsearch 9.5.5 indexes '
+                        'and independent SQLite references. Five analytical families and complete CSV '
+                        'selections agreed. The eighth finite workload measured query medians of 29-77 ms and '
+                        'a 9,728-row export in 1.060 s. These are backend observations, not conversational '
+                        'latency or maximum capacity. [3] [4] [5]'),
+                       ('h', 'Contribution and result boundary'),
+                       ('p',
+                        'The ninth run verified all three Maps cases after eight retained failures. An '
+                        'independent raw-capture audit matched every cell in four 9,728-row exports. However, '
+                        'the frozen Qwen3-1.7B candidate passed only one of 120 executed and reviewed trials '
+                        '(0.83%); all nine chained analyses failed. Three additional study core preflights '
+                        'passed, isolating backend qualification from agent reliability. [4] [15] [16] [17]'),
+                       ('note',
+                        'Backend and Maps checks passed within the measured scope. Agent quality FAILED the '
+                        'fixed 90% and every-question requirements; the sole passing answer was an '
+                        'unsupported-request refusal. The conversational release is unqualified. '
+                        'Billion-record capacity remains a design target.')]},
+           {'title': '1. Analytical contract',
+            'blocks': [('p',
+                        'A request selects records, aggregate or compare_periods and binds it to a dataset '
+                        'version. Bounded Boolean filters, category families, geographic predicates and '
+                        'explicit time ranges are supported. Unsupported combinations return typed errors. A '
+                        'saved result carries the normalized specification, exact index identity and execution '
+                        'flags. [2]'),
+                       ('table',
+                        ['Phase', 'Service responsibility'],
+                        [['Discover',
+                          'Expose catalog, field meanings, observed scope, limits and request examples.'],
+                         ['Validate',
+                          'Resolve time boundaries; reject unsupported operations and unqualified '
+                          'comparisons.'],
+                         ['Execute',
+                          'Compile filters and aggregations; persist result, provenance and completeness.'],
+                         ['Inspect',
+                          'Return bounded previews with full matching totals and approximation labels.'],
+                         ['Derive artifact',
+                          'Preserve saved cohort and selected groups; record excluded geography and hashes.']],
+                        [100, 388]),
+                       ('h', 'Time, coverage and missingness'),
+                       ('p',
+                        'Intervals are start-inclusive and end-exclusive. The captured window covers April 1 '
+                        'to November 1, 2025 in America/New_York. Reconciled capture, normalization and '
+                        'frozen-index counts qualify comparison periods within that observed corpus; no '
+                        'captured records were dropped. The certificate explicitly retains '
+                        'population_complete=false and transactional_source_snapshot=false; a provider '
+                        'revision match is not proof of either stronger property. [3] [4]'),
+                       ('p',
+                        'Administrative closure is elapsed creation-to-closure time, not first response or '
+                        'verified resolution. Missing or invalid durations remain null and are excluded from '
+                        'duration means while affected requests remain counted. Status and closure values '
+                        'reflect the October 2026 capture, not reconstructed status at the historical question '
+                        'date. [2] [11]'),
+                       ('h', 'Resource-aware execution'),
+                       ('p',
+                        'Exact row admission precedes CSV-worker reservation. Streaming still enforces byte, '
+                        'row, deadline and identity limits. Normalization bounds output and checks free disk; '
+                        'these observations are not resource reservations. A preview never silently becomes '
+                        'the full export population. [2]')]},
+           {'title': '2. Real-corpus analysis',
+            'blocks': [('p',
+                        'Capture run 37700939902 retained 1,306,911,416 raw JSONL bytes for 2,133,268 unique '
+                        'requests. Nine core executions reproduced the same 1,582,275,376 normalized bytes and '
+                        'full hash. Captured, normalized, ingested, frozen-index and independent-reference '
+                        'counts all equal 2,133,268. Each execution retains its own index UUID, timings and '
+                        'failures; no records were dropped. [3] [4] [11]'),
+                       ('table',
+                        ['Real-data case', 'Observed selection', 'Independent agreement'],
+                        [['Brooklyn residential noise, October 1',
+                          '242 requests',
+                          'Count, ordered preview and full CSV IDs'],
+                         ['All October, borough / agency',
+                          '336,612 requests; 81 groups',
+                          'Complete group counts and status totals'],
+                         ['October rodent closure, agency',
+                          '1,935 requests',
+                          'Count, closed count and valid-duration mean'],
+                         ['October, 1 km downtown radius',
+                          '3,286 requests',
+                          'Radius selection count and grouping'],
+                         ['June / October residential-NTA rodent',
+                          '3,680 / 1,928 requests; 196 groups',
+                          'Counts, 30/31-day rates, closure means and ranking']],
+                        [151, 141, 196]),
+                       ('h', 'Official geography and analytical scope'),
+                       ('p',
+                        'The pinned NTA2020 release 26b supplies 262 polygons and 197 residential codes. The '
+                        'comparison contains 196 represented residential areas. Across the full corpus, 32,843 '
+                        'requests lack geometry and 474 coordinates match no supplied polygon. Those records '
+                        'remain visible in quality counts instead of being silently assigned a neighborhood. '
+                        '[4] [12]'),
+                       ('p',
+                        'The SQL reference shares normalized records and NTA assignments. A separate '
+                        'raw-capture reconstruction additionally verified 9,705 official-polygon assignments '
+                        'and 23 missing locations in the 9,728-row export cohort, using all 262 original '
+                        'polygons. This shares GEOS and timezone libraries, and does not independently qualify '
+                        'every corpus assignment. The ninth run verified all 196 and three selected rendered '
+                        'trend groups; model-led chaining remains a separate outcome. [4] [15]'),
+                       ('note',
+                        'Table 1. These are observations of the captured public-request corpus. Reporting '
+                        'growth is not incident prevalence, statistical significance or proof that '
+                        'neighborhood conditions worsened.')]},
+           {'title': '3. Recorded engineering results',
+            'blocks': [('p',
+                        'Run 38031560273 used Elasticsearch 9.5.5 on a Linux host with four logical CPUs and '
+                        '16.77 GB RAM. Normalization took 282.763 s; ingestion and freeze took 337.796 s. '
+                        'Query timings include service initialization and saved results, excluding model and '
+                        'browser work. Other retained runs used different host conditions; their timings are '
+                        'not a controlled optimization comparison. [5] [11]'),
+                       ('table',
+                        ['Query family', 'Median / maximum', 'Serial repetitions'],
+                        [['Filter and preview', '28.574 / 31.957 ms', '5'],
+                         ['Borough / agency aggregation', '53.787 / 109.474 ms', '5'],
+                         ['Administrative closure mean', '32.736 / 57.581 ms', '5'],
+                         ['Geographic radius', '33.002 / 41.906 ms', '5'],
+                         ['Neighborhood period comparison', '77.207 / 141.573 ms', '5']],
+                        [208, 172, 108]),
+                       ('p',
+                        'Five-query batches took 0.201 s at concurrency one and 0.157 s at concurrency two. A '
+                        'full-month Brooklyn residential-noise CSV held 9,728 rows, nine columns and 1,139,937 '
+                        'bytes: 1.060 s individually and 1.112 s for two exports together. Separately, four '
+                        'retained sixth-run exports matched 350,208 exact cells against independently selected '
+                        'raw records, with zero closure error. The files are byte-identical: 87,552 unique '
+                        'logical cells, not four independent samples. [5] [15]'),
+                       ('p',
+                        'An actual worker exited 86 at first-row streaming. Recovery protected its live lease, '
+                        'then removed abandoned partial output and allowed exact re-export. The recovery call '
+                        'took 0.0181 s; fresh re-export took 0.770 s. This covers one local export-worker '
+                        'failure, not Elasticsearch node or mid-ingestion recovery. [5]'),
+                       ('p',
+                        'Six samples observed runner RSS up to 127.6 MB, combined worker RSS 58.7 MB and '
+                        'Elasticsearch heap use 1,474.3 MB within a configured 2 GiB heap. These are sampled '
+                        'observations, not guaranteed peaks; node virtual memory is not RSS. Kibana and '
+                        'ingestion peak memory remain unmeasured. [5]'),
+                       ('note',
+                        'Table 2. This workload lasted 5.034 s after prior index queries, with uncontrolled '
+                        'caches. Five repeats and two short batches establish neither tail latency, sustained '
+                        'throughput, maximum scale nor an SLA.')]},
+           {'title': '4. Reproducibility and sources',
+            'blocks': [('p',
+                        'Nine archived pre-study cores retain separate commits, index identities and failures; '
+                        'Table 2 fixes run 38031560273 as its measured condition. Three additional matrix '
+                        'cores, later regression, r4 installations and agent receipts bind their own sources. '
+                        'Published 488c57c remains the historical edition. Final citations bind the evidence '
+                        "commit recorded in this paper's provenance. [4] [6] [7] [11] [16]"),
+                       ('p',
+                        'The final Windows suite collected 576 tests: 575 passed, one unprivileged-symlink '
+                        'test skipped, in 66.672 s. Fresh offline core/MCP/geometry r4 installations checked '
+                        '36 wheels, 3,959 RECORD entries, 23 modules and five resources. Target: CPython 3.12 '
+                        'Windows x64 on an ARM64 host; other-device qualification is unclaimed. [6] [7]'),
+                       ('p',
+                        'Default-five previews preserve explicit larger requests, exact totals and full CSV '
+                        'membership. The r4 wheels pin packaged core; later repository-only Maps and study '
+                        'tools are separate. Local installation success does not establish million-record '
+                        'laptop performance or agent quality. [7] [8]'),
+                       ('code',
+                        'python -m analytics311 describe\n'
+                        'python -m analytics311 mcp\n'
+                        'python tools/run_real_acceptance.py --help\n'
+                        'python -m tools.agent_campaign --help'),
+                       ('p',
+                        'Transfer ZIPs include core and five historical harness files. New evaluation scripts '
+                        'require the matching repository plus separate data, browser, model and server '
+                        'runtimes. [7]')]}],
+ 'external_source_dates': {'https://arxiv.org/abs/1809.08887': '2026-10-09',
+                           'https://www.elastic.co/docs/reference/elasticsearch/rest-apis/paginate-search-results': '2026-10-09'},
+ 'evidence_commit': '4668139874139b597157d01daf475eeacbededfe'},
 {
  'number':'03','slug':'03-semantic-discovery','short':'TECHNICAL DOCUMENT DISCOVERY',
  'title':'Search the released knowledge',

@@ -1,0 +1,179 @@
+{
+  "freeze_sha256": "080e76a2e1635bba36ace74a398097f3d7be2789fa8fdb609929c0970c228490",
+  "model": "analytics311-qwen3-1-7b",
+  "seconds": 160,
+  "request_seconds": 120,
+  "max_calls": 24,
+  "runtime": {
+    "runtime_spec_sha256": "2ff41f3779e8c2e342281239f06a22130474f622ab487ffdc2530e5e510a37d9",
+    "execution_runtime": {
+      "kind": "native_source_build",
+      "repository": "ggml-org/llama.cpp",
+      "source_commit": "5ad1c5da0ad7f6176256b823925aad19134f0263",
+      "cmake_flags": [
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DGGML_BACKEND_DL=OFF",
+        "-DGGML_NATIVE=ON",
+        "-DGGML_BLAS=ON",
+        "-DGGML_BLAS_VENDOR=OpenBLAS",
+        "-DLLAMA_CURL=OFF",
+        "-DLLAMA_BUILD_TESTS=OFF"
+      ],
+      "blas_threads": 4
+    },
+    "model_alias": "analytics311-qwen3-1-7b",
+    "endpoint": [
+      "127.0.0.1",
+      8080,
+      "/v1"
+    ],
+    "budgets": {
+      "seconds": 160,
+      "request_seconds": 120,
+      "max_calls": 24
+    },
+    "launch_arguments": [
+      "<server>",
+      "-m",
+      "<model>",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "8080",
+      "--alias",
+      "analytics311-qwen3-1-7b",
+      "--threads",
+      "4",
+      "--threads-batch",
+      "4",
+      "--batch-size",
+      "2048",
+      "--ubatch-size",
+      "512",
+      "--ctx-size",
+      "24576",
+      "--parallel",
+      "1",
+      "--gpu-layers",
+      "0",
+      "--jinja",
+      "--reasoning",
+      "off",
+      "--reasoning-budget",
+      "0",
+      "--no-context-shift"
+    ],
+    "files": [
+      {
+        "role": "model",
+        "bytes": 1107409472,
+        "sha256": "b139949c5bd74937ad8ed8c8cf3d9ffb1e99c866c823204dc42c0d91fa181897"
+      },
+      {
+        "role": "runtime_library",
+        "bytes": 1418328,
+        "sha256": "e1d3e88f84b95756d45eb2bc3eca66a5514e54aebf81ca1cad7a46d1eeb74c80"
+      },
+      {
+        "role": "server",
+        "bytes": 17888,
+        "sha256": "31cbfa9ede4c9041c647ced30cf7142282976a294d812f8752f83f9e0a1ee6dc"
+      },
+      {
+        "role": "runtime_library",
+        "bytes": 183024,
+        "sha256": "d93224d2b0dab4247598be683adca02f5cf00586f99c187579cd7e92058fb7cb"
+      },
+      {
+        "role": "runtime_library",
+        "bytes": 1975408,
+        "sha256": "3695db5e2e5465fea0114f3f313b96fe8070e00b2878bbb9c0380068b1d9058a"
+      },
+      {
+        "role": "runtime_library",
+        "bytes": 2129424,
+        "sha256": "3a15d66867d83762c7f2f1e37359cb8f6c5743edb369c65285cb0b1c4f7498bf"
+      },
+      {
+        "role": "runtime_library",
+        "bytes": 236616,
+        "sha256": "c20a2dc8917c755f02b94049356320fe1f62ac7d9f8994731f807d9df39302da"
+      },
+      {
+        "role": "runtime_library",
+        "bytes": 2592224,
+        "sha256": "1fd75fe70354a416d75aef22bcae68c47bd25d20e2d0568c30b1a9838cf62f11"
+      },
+      {
+        "role": "runtime_library",
+        "bytes": 3263912,
+        "sha256": "342618ccfebe840446e4ef2b7893f4161b2084845e570f42d68a70bfde58a58d"
+      },
+      {
+        "role": "runtime_library",
+        "bytes": 352304,
+        "sha256": "135f3c8f006d2fe5e68e51281c7974cb991a03de3bfb3593d68d174dfcf854d1"
+      },
+      {
+        "role": "runtime_library",
+        "bytes": 37555760,
+        "sha256": "bfc7492adbf84a8f567720a9e1fae2afc18f3d817da233e7f4d453683485308e"
+      },
+      {
+        "role": "build_configuration",
+        "bytes": 38172,
+        "sha256": "ced5bb961568e1914eb52b9fee4beebe1c1294d4137fd3310810750d7909a91c"
+      },
+      {
+        "role": "source_revision",
+        "bytes": 41,
+        "sha256": "745e93fc6b095ea32b15d6c327a06c10f7cdd2b33b4e994266abd9ece82a3c56"
+      },
+      {
+        "role": "runtime_library",
+        "bytes": 4939504,
+        "sha256": "92b3bfd091f8e76a459fff9262515cb18b58f58a6d059e92fb03bf4f3ea36900"
+      },
+      {
+        "role": "runtime_library",
+        "bytes": 5309400,
+        "sha256": "6866ed711dab8927e1bf82bf1cd30e828bdfc34f3cc1e83b1c9eb01ce6c37d9a"
+      },
+      {
+        "role": "runtime_library",
+        "bytes": 60360,
+        "sha256": "23e8398407b92f564b18cf2caaa50eaeb755248dac8e607c1afc806bc3290059"
+      },
+      {
+        "role": "runtime_library",
+        "bytes": 6351472,
+        "sha256": "1a1e3df9a2b6ac7d64b23be6cca00920e0afbe7cc58d93531902da53bbf84666"
+      },
+      {
+        "role": "runtime_library",
+        "bytes": 64512,
+        "sha256": "a5ae914e260d96bc9680a875cba9638c0d408c33aa24b54956deb8aa65e527b7"
+      },
+      {
+        "role": "runtime_library",
+        "bytes": 696512,
+        "sha256": "a40e7b67489bbd257e432c700ff8f6a1ad796425b5eccecdc2930127fdd86624"
+      },
+      {
+        "role": "runtime_library",
+        "bytes": 7359072,
+        "sha256": "5cabc5166f6c0ec86090f8217a748c52e1eb2d1b8636e180830dd1ffe32a1761"
+      },
+      {
+        "role": "runtime_library",
+        "bytes": 951312,
+        "sha256": "3a11c51edd1f96151ecb041930dc4ccedb51cea8803311ffd0bae6b30761a579"
+      },
+      {
+        "role": "runtime_library",
+        "bytes": 952616,
+        "sha256": "fce00b6f25f459cf4ae0b7fae4257909a1a8a86f9149e7c029a5d617baf1ccd0"
+      }
+    ]
+  }
+}

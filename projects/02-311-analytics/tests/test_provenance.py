@@ -44,7 +44,7 @@ class ProvenanceTests(unittest.TestCase):
         destination=self.root/'changed.jsonl'
         with patch('analytics311.workloads.source_manifest',return_value=self.manifest), patch('analytics311.workloads.file_hash',return_value='new-content-hash'):
             with self.assertRaises(AnalyticsError) as error:
-                normalize_file(self.source,destination)
+                normalize_file(self.source,destination,min_free_bytes=0)
         self.assertEqual(error.exception.code,'source_changed')
         self.assertFalse(destination.exists())
 
@@ -122,24 +122,24 @@ class ProvenanceTests(unittest.TestCase):
 
     def test_normalization_keeps_sample_provenance_and_does_not_hide_system_errors(self):
         self.stage()
-        result = normalize_file(self.source, self.root / "out.jsonl")
+        result = normalize_file(self.source, self.root / "out.jsonl", min_free_bytes=0)
         self.assertEqual(result["provenance"]["sha256"], self.manifest["sha256"])
         self.assertFalse(result["coverage"]["complete"])
         with patch("analytics311.ingest.normalize_record", side_effect=AnalyticsError("missing_dependency", "timezone data missing")):
             with self.assertRaises(AnalyticsError):
-                normalize_file(self.source, self.root / "failure.jsonl")
+                normalize_file(self.source, self.root / "failure.jsonl", min_free_bytes=0)
         self.assertFalse((self.root / "failure.jsonl").exists())
 
     def test_complete_coverage_requires_no_dropped_rows(self):
         self.manifest["coverage"]["complete"] = True
         self.manifest["kind"] = "reconciled_capture"
         self.stage()
-        result = normalize_file(self.source, self.root / "complete.jsonl")
+        result = normalize_file(self.source, self.root / "complete.jsonl", min_free_bytes=0)
         self.assertTrue(result["coverage"]["complete"])
         self.source.write_text(self.source.read_text() + 'not json\n')
         self.manifest.update(sha256=file_hash(self.source), row_count=2)
         self.stage()
-        result = normalize_file(self.source, self.root / "incomplete.jsonl")
+        result = normalize_file(self.source, self.root / "incomplete.jsonl", min_free_bytes=0)
         self.assertFalse(result["coverage"]["complete"])
 
     def test_retained_but_unmapped_creation_dates_downgrade_coverage(self):
@@ -147,7 +147,7 @@ class ProvenanceTests(unittest.TestCase):
         self.manifest.update(sha256=file_hash(self.source), kind='reconciled_capture')
         self.manifest['coverage']={'complete':True,'gte':'2025-11-01T00:00:00-04:00','lt':'2025-12-01T00:00:00-05:00'}
         self.stage()
-        result=normalize_file(self.source,self.root/'dst.jsonl')
+        result=normalize_file(self.source,self.root/'dst.jsonl',min_free_bytes=0)
         self.assertEqual(result['row_count'],1)
         self.assertEqual(result['quality_counts']['ambiguous_created_date'],1)
         self.assertFalse(result['coverage']['complete'])

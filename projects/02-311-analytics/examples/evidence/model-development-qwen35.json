@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "evidence_kind": "actual_local_model_development_fixture_smoke",
+  "passed": false,
+  "actual_agent_trials": 1,
+  "held_out_evaluation": false,
+  "real_data_acceptance": false,
+  "live_elasticsearch_verified": false,
+  "kibana_verified": false,
+  "overall_release_verified": false,
+  "started_at": "2026-10-07T23:22:07.076259+00:00",
+  "checks": {
+    "finished": false,
+    "answered": false,
+    "discovered_first": true,
+    "executed_unfiltered_count": false,
+    "numeric_evidence": false,
+    "cited_result": false,
+    "synthetic_label": false
+  },
+  "limitations": [
+    "One authored development question and 32 synthetic records; not the 40-question benchmark.",
+    "No Elasticsearch or Kibana service runs in this workflow.",
+    "Model/runtime asset verification is not a quality or performance acceptance result."
+  ],
+  "fixture": {
+    "kind": "synthetic_fixture",
+    "rows": 32,
+    "sha256": "e34bba882616d4e04d9994642c2cc66effed110e3fa544039ef967d6da36997c"
+  },
+  "model_identity": {
+    "model_id": "analytics311-qwen35-4b",
+    "advertised_ids": [
+      "analytics311-qwen35-4b"
+    ]
+  },
+  "count_result": {
+    "expected": 32,
+    "observed": [],
+    "result_ids": []
+  },
+  "elapsed_seconds": 147.622704,
+  "finished_at": "2026-10-07T23:24:34.710095+00:00",
+  "workflow_run_id": 37701776921,
+  "hypothesis": "The candidate did not meet this CPU/request-budget configuration. No held-out outcome or isolated cause inferred."
+}

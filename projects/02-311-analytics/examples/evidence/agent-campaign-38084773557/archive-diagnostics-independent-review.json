@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "evidence_kind": "independent_original_archive_diagnostics_check",
+  "passed": true,
+  "workflow_run_id": 38084773557,
+  "files_verified_against_exact_zip_entries": 531,
+  "original_bytes_verified": 60714165,
+  "inventory_sha256": "8f39f31b3659600039708d3b3a28e5d80a00f5f3f6adb661e3a7beba3c04772c",
+  "diagnostics_sha256": "217365f6d8a41366a6745cc11fd5978d6f8546a7eb6a3ee7ad6c5fead61c8011",
+  "method_sha256": "34238bd0600eb84f5039d7bfbc8584ba3ac9266031cdd29305a0dae0ca804d39",
+  "diagnostic_groups_independently_recomputed": [
+    "all120",
+    "replica1",
+    "replica2",
+    "replica3",
+    "adversarial",
+    "ambiguity",
+    "analysis",
+    "chained",
+    "coverage",
+    "unsupported"
+  ],
+  "all120_memory_samples_available": true,
+  "findings": [],
+  "scope": "Read-only independent ZIP byte/file membership audit and standalone stdlib recomputation of every reported aggregate/category/replica diagnostic. No inference, original mutation or grading changes. Trial timing includes failed attempts; HWM is per-process lifetime. Current real data has no missing memory samples; generic method defaults for missing samples were not exercised.",
+  "reviewer": "codex-agent-eval-audit-38084773557",
+  "reviewed_at": "2026-10-11T06:13:30.705287+00:00"
+}

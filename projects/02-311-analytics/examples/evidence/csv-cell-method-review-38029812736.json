@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-10T21:05:10.855452+00:00",
+  "kind": "independent_csv_cell_method_review",
+  "passed": true,
+  "findings": [],
+  "full_source_scan_rerun": false,
+  "method": "Read-only source/receipt/documentation review, AST syntax inspection, exact original/public method byte comparison, SHA256 and receipt arithmetic checks. No execution of the audit method, application, normalizer, exporter or GIS operations.",
+  "reviewer_role": "AI coding subagent reviewing another subagent's audit method. Reviewer also contributed to this project's infrastructure, performance and Maps work; this is not blinded or independent-human validation.",
+  "inspected_files": [
+    {
+      "path": "tools/csv_cell_audit_38029812736.py",
+      "bytes": 19882,
+      "sha256": "9d888346d4f0525d4fde175940eb921402ae1daf8712f815a4e9f83dda47a16e"
+    },
+    {
+      "path": "runs/csv-cell-audit-38029812736.py",
+      "bytes": 19882,
+      "sha256": "9d888346d4f0525d4fde175940eb921402ae1daf8712f815a4e9f83dda47a16e"
+    },
+    {
+      "path": "examples/evidence/csv-cell-audit-38029812736.json",
+      "bytes": 7041,
+      "sha256": "d644bfe6bc1250bd15046242255264ea4bf6071f222c737601e382036f848c53"
+    },
+    {
+      "path": "docs/csv-cell-audit.md",
+      "bytes": 4011,
+      "sha256": "200927fc9a199dde8837b5157cac1848105afe012cfbbac8fc34d6bff835f7a6"
+    }
+  ],
+  "reviewed_claims": {
+    "raw_selection_without_exported_ids": true,
+    "correct_october_new_york_half_open_utc_bounds": true,
+    "pinned_whole_raw_count_bytes_hash_and_unique_order": true,
+    "exact_nine_decoded_cells_and_complete_unique_membership": true,
+    "original_262_polygon_covers_multiple_hits_rejected": true,
+    "administrative_closure_at_capture_not_first_response": true,
+    "no_application_or_oracle_imports": true,
+    "public_method_identical_to_executed_original": true,
+    "receipt_9728_times_9_times_4_equals_350208": true,
+    "bounded_documented_claims": true
+  },
+  "dependencies_and_limits": [
+    "Contract-aware source review, not a blinded independent specification.",
+    "Separate assignment implementation shares Shapely/GEOS and Python timezone data with the product; no independent GIS-library or human boundary truth.",
+    "One 9728-row cohort has87552 unique logical cells repeated across four byte-identical actual export/recovery artifacts.",
+    "Actual cohort has9705 assigned locations and23 missing locations; no observed DST/invalid/null/negative closure, formula escaping or exact polygon-boundary edge cases.",
+    "Closure reflects captured administrative status/date, not historical status at analysis as_of or first response.",
+    "No new raw scan, model inference, service execution, performance measurement or broader dataset qualification occurred during this method review."
+  ]
+}

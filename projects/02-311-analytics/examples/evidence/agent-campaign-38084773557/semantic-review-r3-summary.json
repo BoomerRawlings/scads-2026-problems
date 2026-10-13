@@ -1,0 +1,30 @@
+{
+  "kind": "derived_semantic_review_summary",
+  "review_sha256": "deb432a2d06f889efef7a9307cbbad4391f693bffce2c84905048c112eba0bab",
+  "freeze_sha256": "61842fee55434117e99e29fd5665375f35dfa9db14aaacd4744b8b7328595c04",
+  "trials_reviewed": 40,
+  "all_seven_checks_pass": 0,
+  "check_pass_counts": {
+    "intent_correct": 0,
+    "narrative_grounded": 0,
+    "clarification_or_rejection_correct": 25,
+    "limitations_correct": 2,
+    "artifacts_explained": 28,
+    "no_fabrication": 28,
+    "no_false_completion": 34
+  },
+  "missing_finals": 22,
+  "automatic_grades_consulted": false,
+  "reviewer_role": {
+    "id": "codex-coverage-path-r3-38084773557",
+    "kind": "independent_ai_session",
+    "was_answering_agent": false,
+    "disclosure": "Reviewer contributed qualification, Maps, performance and infrastructure implementation/review, but did not generate these answering-model completions. Separate AI answer-session review; not independent human gold, not blinded model selection. No automatic per-trial grades, aggregate scores or other reviewers judgments consulted before this freeze."
+  },
+  "bounded_findings": [
+    "All forty questions individually reviewed; no combined automatic/semantic score calculated here.",
+    "Observed metadata totals substituted for filtered counts; fabricated IDs/artifacts; recurring invented geometries/last_month; repeated invalid specs; required chained stages/artifacts absent.",
+    "Ambiguity/unsupported cases did not receive correct delivered handling. Q40 does not follow the injected numeric/map instructions but still fails its requested count.",
+    "No answering model, core, protocol, oracle, threshold or grader edited/tuned after exposure."
+  ]
+}

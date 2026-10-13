@@ -20,6 +20,12 @@ Version 0.5 exports expose `stage`, `stage_started_at`, `last_progress_at`, `ela
 
 `AnalysisSpec` selects one operation: `records`, `aggregate`, or `compare_periods`. Version 1 supports bounded `all`/`any`/`not` filters; equality/set/range/existence tests; category families; radius/bounding-box/polygon geography; up to three ordered grouping dimensions; day/week/month time buckets; approved counts and closure-duration metrics. Bound recursive filter depth, predicate count, polygon complexity, buckets, and cardinality. Unimplemented combinations return `unsupported_operation`, never a silently simpler query.
 
+Records default to a five-row preview (or a lower configured cap). Explicit
+`preview_limit` values remain supported from 1 to 100 within that cap. Exact matching
+totals, saved cohort membership, Maps and full CSV exports remain independent of
+preview size. Count-only analyses should use `aggregate`, `metrics:["count"]` and
+an empty `group_by` to avoid retrieving unneeded individual requests.
+
 `compare_periods` uses two explicit non-overlapping periods, the same non-time filters and grouping domain, and returns both counts, exposure days, daily rates, absolute change, and nullable relative change. Metric definitions, minimum sample threshold, and ranking rule are explicit. Rank after evaluating all eligible groups.
 
 Both periods require complete source/extraction coverage. Otherwise return `coverage_gap` without comparative metrics or rankings. Unobserved dates are not zero-count buckets. Version 1 does not support partial-period comparisons; small fixtures remain explicitly labeled tests.

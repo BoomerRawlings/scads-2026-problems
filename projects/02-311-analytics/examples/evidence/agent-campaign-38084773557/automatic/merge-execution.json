@@ -1,0 +1,14 @@
+{
+  "evidence_kind": "campaign_merge_execution",
+  "exit_code": 1,
+  "quality_denominator": 120,
+  "report_written": true,
+  "protocol_sha256": "9194c713896130a598c160d3ffe5b541b21ac40f467d5454c3cf6f2e9a33c8d6",
+  "report_sha256": "0ed443221a91d5e0db31b19fc5829e162b684308a19e38da2ea675ea0167bd5a",
+  "replica_directories": [
+    "runs/replicas/analytics311-agent-replica-1",
+    "runs/replicas/analytics311-agent-replica-2",
+    "runs/replicas/analytics311-agent-replica-3"
+  ],
+  "failure_policy": "Supplied incomplete or corrupt evidence fails closed; no existing replica is silently omitted."
+}

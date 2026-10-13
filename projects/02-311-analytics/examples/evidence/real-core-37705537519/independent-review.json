@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-08T00:26:16.966107+00:00",
+  "method": "Offline independent arithmetic, nested numerical comparisons, identity/hash reconciliation, and actual retained CSV set comparisons. No service, model, raw-corpus or SQLite recomputation.",
+  "workflow": {
+    "run_id": 37705537519,
+    "url": "https://github.com/BoomerRawlings/scads-2026-problems/actions/runs/37705537519",
+    "head_sha": "40a52917373bc54a0685b3b8ae35d261967c504f",
+    "conclusion": "failure"
+  },
+  "checks": {
+    "raw_normalized_index_counts_reconcile": true,
+    "hash_provenance_chain": true,
+    "qualification_seals": true,
+    "official_nta_identity_and_residential_codes": true,
+    "five_api_cases_match_retained_independent_oracle": true,
+    "thirty_five_performance_results_match_checked_api_cases": true,
+    "latency_summary_arithmetic": true,
+    "four_full_exports_match_exact_independent_ids": true,
+    "point_and_selected_all_trend_csv_parity": true,
+    "failed_streaming_job_matches_recovery": true
+  },
+  "maximum_absolute_numeric_difference": 2.842170943040401e-14,
+  "review_relative_tolerance": 1e-10,
+  "review_absolute_tolerance": 1e-09,
+  "record_reconciliation": {
+    "captured": 2133268,
+    "normalized": 2133268,
+    "ingested": 2133268,
+    "frozen_index": 2133268,
+    "oracle": 2133268
+  },
+  "export_artifacts": [
+    {
+      "job_id": "6735c4bbc8cf484bbe43f9adb132db0c",
+      "bytes": 1139937,
+      "rows": 9728,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c",
+      "exact_membership_equal": true
+    },
+    {
+      "job_id": "789850f3d6cc41b28a2a4905086d58e8",
+      "bytes": 1139937,
+      "rows": 9728,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c",
+      "exact_membership_equal": true
+    },
+    {
+      "job_id": "d42d79160cff45bca76c38b28efcc0c8",
+      "bytes": 1139937,
+      "rows": 9728,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c",
+      "exact_membership_equal": true
+    },
+    {
+      "job_id": "e1e6f2b3438d4bd98208c4037ba3b896",
+      "bytes": 1139937,
+      "rows": 9728,
+      "sha256": "edb145176437c7d5eeb59c99a90553af2631deaf19662e4f55ed32596b40284c",
+      "exact_membership_equal": true
+    }
+  ],
+  "sampled_memory": {
+    "samples": 6,
+    "runner_max_rss_bytes": 105132032,
+    "node_heap_max_observed_bytes": 783136704,
+    "node_heap_configured_bytes": 2147483648,
+    "worker_max_sampled_rss_bytes": 33099776,
+    "workers_max_sampled_total_rss_bytes": 57856000,
+    "fault_worker_self_reported_rss_bytes": 33693696
+  },
+  "preserved_originals": [
+    {
+      "file": "acceptance.json",
+      "source": "runs/real-core-37705537519/real-v1/acceptance.json",
+      "bytes": 2872,
+      "sha256": "31b18fa368ac889336a12401cb810705fed8bbbf461414ce1052bdd422541864"
+    },
+    {
+      "file": "normalized.manifest.json",
+      "source": "runs/real-core-37705537519/real-v1/normalized.manifest.json",
+      "bytes": 5154,
+      "sha256": "a110e9f0f3223877fbf29cfa4aba106d34864684ce7cbcc1f9d08df191547bc1"
+    },
+    {
+      "file": "index.manifest.json",
+      "source": "runs/real-core-37705537519/real-v1/index.manifest.json",
+      "bytes": 7578,
+      "sha256": "e198fb320a3e7ec1153241b3b14d36012def7c6f417148bbc02dccdb9cdbd83c"
+    },
+    {
+      "file": "ingest.json",
+      "source": "runs/real-core-37705537519/real-v1/ingest.json",
+      "bytes": 750,
+      "sha256": "6e5bd7395dee3c5a06e9d4ed6c9c394a3159f0b994a828b2f02fb612188c4bb5"
+    },
+    {
+      "file": "measurement-suite.json",
+      "source": "runs/real-core-37705537519/real-v1/measurement-suite.json",
+      "bytes": 4369,
+      "sha256": "9affb148b108e27e56eba2b2fd629a78ca6822a065927cc43aa6d8def0ac07ea"
+    },
+    {
+      "file": "measurements.json",
+      "source": "runs/real-core-37705537519/real-v1/measurements.json",
+      "bytes": 29530,
+      "sha256": "686d94f32b52087ec5a1957328e12d7b65f1b6e126c95965cf43f4f1f5d9802c"
+    },
+    {
+      "file": "maps-provision.json",
+      "source": "runs/real-core-37705537519/real-v1/maps-provision.json",
+      "bytes": 324,
+      "sha256": "d99bbc3b6f10cd0877190026db2bddf3e8d7191790523ac760ccf5df9e036081"
+    },
+    {
+      "file": "catalog.json",
+      "source": "runs/real-core-37705537519/real-v1/catalog.json",
+      "bytes": 3704,
+      "sha256": "220926b186aa38f0292d7e2f789e8186a026b27a6e6c366297cf0a472ec7629b"
+    },
+    {
+      "file": "host.json",
+      "source": "runs/real-core-37705537519/runtime/host.json",
+      "bytes": 1364,
+      "sha256": "e90b94a1e8119ea35e5045f8c525761993797385a80bb2458f306e02f83f71eb"
+    },
+    {
+      "file": "elasticsearch-version.json",
+      "source": "runs/real-core-37705537519/runtime/elasticsearch-version.json",
+      "bytes": 540,
+      "sha256": "31d8aa19a5e96b8db5674004cc85e9f11ded9f765609c162dcebb30eaf845673"
+    },
+    {
+      "file": "kibana-status.json",
+      "source": "runs/real-core-37705537519/runtime/kibana-status.json",
+      "bytes": 44,
+      "sha256": "274d1213b6bccaeb89de033f6b90d142230509fe71570be3103674b85aabf066"
+    }
+  ],
+  "excluded_artifacts": [
+    "raw or normalized record files",
+    "individual oracle IDs and point expectation",
+    "saved record previews",
+    "CSV record bodies",
+    "locks",
+    "unexecuted agent freeze"
+  ],
+  "limitations": [
+    "Local review validates retained evidence, not a rerun of Elasticsearch or complete re-normalization.",
+    "SQLite oracle shares normalization and NTA assignments; this does not independently prove spatial assignment correctness.",
+    "Five analytical cases, 25 serial repeats and two batches of five queries; total performance stage 4.607 seconds with previously queried index and uncontrolled caches.",
+    "Nine-column exports checked complete IDs, headers and byte stability; non-ID cells lack an independent cell-by-cell real-corpus oracle.",
+    "Sampled heap and RSS are not peak capacity; node process metric is virtual memory, not RSS; Kibana and ingestion peak memory unmeasured.",
+    "Recovery is one abrupt local export worker exit at first-row streaming; not server/index/node or mid-bulk-ingestion recovery.",
+    "Maps provisioning failed before saved maps or browser rendering; health payload omits version, so failure does not establish an actual version mismatch.",
+    "Frozen questions are not model trials. No held-out model outcome or end-to-end conversational latency.",
+    "Source before/after reconciliation is observed-corpus qualification, not transactional isolation or complete citywide reporting."
+  ]
+}

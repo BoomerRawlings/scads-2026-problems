@@ -2,7 +2,7 @@
 %ìåãû ReportLab Generated PDF document (opensource)
 1 0 obj
 <<
-/F1 2 0 R /F2+0 83 0 R /F3+0 87 0 R /F4+0 91 0 R /F5+0 95 0 R
+/F1 2 0 R /F2+0 103 0 R /F3+0 107 0 R /F4+0 111 0 R /F5+0 115 0 R
 >>
 endobj
 2 0 obj
@@ -13,84 +13,69 @@ endobj
 3 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/IMPLEMENTATION.md)
->> /Border [ 0 0 0 ] /Rect [ 116.6984 442.58 128.0234 454.1 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/IMPLEMENTATION.md)
+>> /Border [ 0 0 0 ] /Rect [ 93.4625 457.18 104.7875 468.7 ] /Subtype /Link /Type /Annot
 >>
 endobj
 4 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/docs/tool-contract.md)
->> /Border [ 0 0 0 ] /Rect [ 130.3391 442.58 142.9016 454.1 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/docs/tool-contract.md)
+>> /Border [ 0 0 0 ] /Rect [ 107.1031 457.18 119.6656 468.7 ] /Subtype /Link /Type /Annot
 >>
 endobj
 5 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/IMPLEMENTATION.md)
->> /Border [ 0 0 0 ] /Rect [ 456.6031 375.18 467.9281 386.7 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/captured-local-verification.json)
+>> /Border [ 0 0 0 ] /Rect [ 153.3359 375.18 165.8328 386.7 ] /Subtype /Link /Type /Annot
 >>
 endobj
 6 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/examples/agent-demo/answer.md)
->> /Border [ 0 0 0 ] /Rect [ 470.2437 375.18 482.7406 386.7 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/real-core-38083900641/independent-review.json)
+>> /Border [ 0 0 0 ] /Rect [ 168.1484 375.18 180.7719 386.7 ] /Subtype /Link /Type /Annot
 >>
 endobj
 7 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/examples/evidence/generated-100000-benchmark.json)
->> /Border [ 0 0 0 ] /Rect [ 485.0562 375.18 497.6797 386.7 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/real-core-38031560273/measurements.json)
+>> /Border [ 0 0 0 ] /Rect [ 183.0875 375.18 195.3594 386.7 ] /Subtype /Link /Type /Annot
 >>
 endobj
 8 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/examples/evidence/test-report-v0.6-focused.json)
->> /Border [ 0 0 0 ] /Rect [ 499.9953 375.18 512.2672 386.7 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/real-core-38083900641/independent-review.json)
+>> /Border [ 0 0 0 ] /Rect [ 328.2969 286.78 340.9203 298.3 ] /Subtype /Link /Type /Annot
 >>
 endobj
 9 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/IMPLEMENTATION.md)
->> /Border [ 0 0 0 ] /Rect [ 238.9062 286.78 250.2312 298.3 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/csv-cell-audit-38029812736.json)
+>> /Border [ 0 0 0 ] /Rect [ 343.2359 286.78 359.6328 298.3 ] /Subtype /Link /Type /Annot
 >>
 endobj
 10 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/docs/tool-contract.md)
->> /Border [ 0 0 0 ] /Rect [ 252.5469 286.78 265.1094 298.3 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/agent-campaign-38084773557/final-review.json)
+>> /Border [ 0 0 0 ] /Rect [ 361.9484 286.78 378.7063 298.3 ] /Subtype /Link /Type /Annot
 >>
 endobj
 11 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/IMPLEMENTATION.md)
->> /Border [ 0 0 0 ] /Rect [ 144.3922 198.38 155.7172 209.9 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/agent-campaign-38084773557/actual-diagnostics.json)
+>> /Border [ 0 0 0 ] /Rect [ 381.0219 286.78 397.1703 298.3 ] /Subtype /Link /Type /Annot
 >>
 endobj
 12 0 obj
 <<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/docs/forecast-v0.6.md)
->> /Border [ 0 0 0 ] /Rect [ 158.0328 198.38 170.6656 209.9 ] /Subtype /Link /Type /Annot
->>
-endobj
-13 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/IMPLEMENTATION.md)
->> /Border [ 0 0 0 ] /Rect [ 284.2559 155.08 293.2616 164.8 ] /Subtype /Link /Type /Annot
->>
-endobj
-14 0 obj
-<<
-/Annots [ 3 0 R 4 0 R 5 0 R 6 0 R 7 0 R 8 0 R 9 0 R 10 0 R 11 0 R 12 0 R 
-  13 0 R ] /Contents 99 0 R /MediaBox [ 0 0 612 792 ] /Parent 98 0 R /Resources <<
+/Annots [ 3 0 R 4 0 R 5 0 R 6 0 R 7 0 R 8 0 R 9 0 R 10 0 R 11 0 R ] /Contents 119 0 R /MediaBox [ 0 0 612 792 ] /Parent 118 0 R /Resources <<
 /Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
 >> /Rotate 0 
   /Trans <<
@@ -98,482 +83,427 @@ endobj
 >> /Type /Page
 >>
 endobj
-15 0 obj
+13 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://arxiv.org/abs/1809.08887)
->> /Border [ 0 0 0 ] /Rect [ 327.7625 620.68 340.6859 632.2 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 476.5719 635.28 489.2047 646.8 ] /Subtype /Link /Type /Annot
+>>
+endobj
+14 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/real-core-38083900641/independent-review.json)
+>> /Border [ 0 0 0 ] /Rect [ 396.5984 582.48 409.2219 594 ] /Subtype /Link /Type /Annot
+>>
+endobj
+15 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/real-core-38031560273/measurements.json)
+>> /Border [ 0 0 0 ] /Rect [ 411.5375 582.48 423.8094 594 ] /Subtype /Link /Type /Annot
 >>
 endobj
 16 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://www.elastic.co/docs/reference/elasticsearch/rest-apis/paginate-search-results)
->> /Border [ 0 0 0 ] /Rect [ 348.4766 567.88 361.1094 579.4 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 426.125 582.48 443.3422 594 ] /Subtype /Link /Type /Annot
 >>
 endobj
 17 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/docs/acceptance.md)
->> /Border [ 0 0 0 ] /Rect [ 363.425 567.88 380.6422 579.4 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/docs/tool-contract.md)
+>> /Border [ 0 0 0 ] /Rect [ 264.2797 494.08 276.8422 505.6 ] /Subtype /Link /Type /Annot
 >>
 endobj
 18 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/docs/tool-contract.md)
->> /Border [ 0 0 0 ] /Rect [ 144.1156 479.48 156.6781 491 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/docs/tool-contract.md)
+>> /Border [ 0 0 0 ] /Rect [ 187.3625 368.68 199.925 380.2 ] /Subtype /Link /Type /Annot
 >>
 endobj
 19 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/docs/tool-contract.md)
->> /Border [ 0 0 0 ] /Rect [ 122.5531 354.08 135.1156 365.6 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/docs/acceptance.md)
+>> /Border [ 0 0 0 ] /Rect [ 202.2406 368.68 217.6906 380.2 ] /Subtype /Link /Type /Annot
 >>
 endobj
 20 0 obj
 <<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/examples/agent-demo/answer.md)
->> /Border [ 0 0 0 ] /Rect [ 137.4312 354.08 149.9281 365.6 ] /Subtype /Link /Type /Annot
->>
-endobj
-21 0 obj
-<<
-/Annots [ 15 0 R 16 0 R 17 0 R 18 0 R 19 0 R 20 0 R ] /Contents 100 0 R /MediaBox [ 0 0 612 792 ] /Parent 98 0 R /Resources <<
+/Annots [ 13 0 R 14 0 R 15 0 R 16 0 R 17 0 R 18 0 R 19 0 R ] /Contents 120 0 R /MediaBox [ 0 0 612 792 ] /Parent 118 0 R /Resources <<
 /Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
 >> /Rotate 0 
   /Trans <<
 
 >> /Type /Page
+>>
+endobj
+21 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/docs/tool-contract.md)
+>> /Border [ 0 0 0 ] /Rect [ 135.9453 620.68 148.5078 632.2 ] /Subtype /Link /Type /Annot
 >>
 endobj
 22 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/docs/tool-contract.md)
->> /Border [ 0 0 0 ] /Rect [ 431.0937 635.28 443.6562 646.8 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/captured-local-verification.json)
+>> /Border [ 0 0 0 ] /Rect [ 174.8562 331.88 187.3531 343.4 ] /Subtype /Link /Type /Annot
 >>
 endobj
 23 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/docs/tool-contract.md)
->> /Border [ 0 0 0 ] /Rect [ 287.3937 349.28 299.9562 360.8 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/real-core-38083900641/independent-review.json)
+>> /Border [ 0 0 0 ] /Rect [ 189.6687 331.88 202.2922 343.4 ] /Subtype /Link /Type /Annot
 >>
 endobj
 24 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/docs/tool-contract.md)
->> /Border [ 0 0 0 ] /Rect [ 94.90156 281.88 107.4641 293.4 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/docs/tool-contract.md)
+>> /Border [ 0 0 0 ] /Rect [ 91.20781 264.48 103.7703 276 ] /Subtype /Link /Type /Annot
 >>
 endobj
 25 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/examples/agent-demo/answer.md)
->> /Border [ 0 0 0 ] /Rect [ 109.7797 281.88 122.2766 293.4 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/docs/acceptance.md)
+>> /Border [ 0 0 0 ] /Rect [ 106.0859 264.48 121.5359 276 ] /Subtype /Link /Type /Annot
 >>
 endobj
 26 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/docs/tool-contract.md)
->> /Border [ 0 0 0 ] /Rect [ 212.3375 193.48 224.9 205 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/docs/tool-contract.md)
+>> /Border [ 0 0 0 ] /Rect [ 315.0219 190.68 327.5844 202.2 ] /Subtype /Link /Type /Annot
 >>
 endobj
 27 0 obj
 <<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/docs/forecast-v0.6.md)
->> /Border [ 0 0 0 ] /Rect [ 227.2156 193.48 239.8484 205 ] /Subtype /Link /Type /Annot
->>
-endobj
-28 0 obj
-<<
-/Annots [ 22 0 R 23 0 R 24 0 R 25 0 R 26 0 R 27 0 R ] /Contents 101 0 R /MediaBox [ 0 0 612 792 ] /Parent 98 0 R /Resources <<
+/Annots [ 21 0 R 22 0 R 23 0 R 24 0 R 25 0 R 26 0 R ] /Contents 121 0 R /MediaBox [ 0 0 612 792 ] /Parent 118 0 R /Resources <<
 /Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
 >> /Rotate 0 
   /Trans <<
 
 >> /Type /Page
+>>
+endobj
+28 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/docs/tool-contract.md)
+>> /Border [ 0 0 0 ] /Rect [ 168.8187 635.28 181.3812 646.8 ] /Subtype /Link /Type /Annot
 >>
 endobj
 29 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/docs/tool-contract.md)
->> /Border [ 0 0 0 ] /Rect [ 404.9844 635.28 417.5469 646.8 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/real-core-38083900641/independent-review.json)
+>> /Border [ 0 0 0 ] /Rect [ 514.8922 360.78 526.3145 372.3 ] /Subtype /Link /Type /Annot
 >>
 endobj
 30 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/docs/tool-contract.md)
->> /Border [ 0 0 0 ] /Rect [ 227.0891 412.88 239.6516 424.4 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/docs/acceptance.md)
+>> /Border [ 0 0 0 ] /Rect [ 529.8312 360.78 544.0801 372.3 ] /Subtype /Link /Type /Annot
 >>
 endobj
 31 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/docs/reliability.md)
->> /Border [ 0 0 0 ] /Rect [ 241.9672 412.88 257.4172 424.4 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/docs/tool-contract.md)
+>> /Border [ 0 0 0 ] /Rect [ 198.9641 257.78 211.5266 269.3 ] /Subtype /Link /Type /Annot
 >>
 endobj
 32 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/docs/forecast-v0.6.md)
->> /Border [ 0 0 0 ] /Rect [ 385.5359 324.48 398.1687 336 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/real-core-38083900641/independent-review.json)
+>> /Border [ 0 0 0 ] /Rect [ 213.8422 257.78 226.4656 269.3 ] /Subtype /Link /Type /Annot
 >>
 endobj
 33 0 obj
 <<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/docs/reliability.md)
->> /Border [ 0 0 0 ] /Rect [ 400.4844 324.48 415.9344 336 ] /Subtype /Link /Type /Annot
->>
-endobj
-34 0 obj
-<<
-/Annots [ 29 0 R 30 0 R 31 0 R 32 0 R 33 0 R ] /Contents 102 0 R /MediaBox [ 0 0 612 792 ] /Parent 98 0 R /Resources <<
+/Annots [ 28 0 R 29 0 R 30 0 R 31 0 R 32 0 R ] /Contents 122 0 R /MediaBox [ 0 0 612 792 ] /Parent 118 0 R /Resources <<
 /Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
 >> /Rotate 0 
   /Trans <<
 
 >> /Type /Page
+>>
+endobj
+34 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/captured-local-verification.json)
+>> /Border [ 0 0 0 ] /Rect [ 268.2687 620.68 280.7656 632.2 ] /Subtype /Link /Type /Annot
 >>
 endobj
 35 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/examples/agent-demo/answer.md)
->> /Border [ 0 0 0 ] /Rect [ 465.0547 635.28 477.5516 646.8 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/real-core-38083900641/independent-review.json)
+>> /Border [ 0 0 0 ] /Rect [ 283.0812 620.68 295.7047 632.2 ] /Subtype /Link /Type /Annot
 >>
 endobj
 36 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/examples/agent-demo/answer.md)
->> /Border [ 0 0 0 ] /Rect [ 195.8984 365.28 208.3953 376.8 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/docs/acceptance.md)
+>> /Border [ 0 0 0 ] /Rect [ 298.0203 620.68 313.4703 632.2 ] /Subtype /Link /Type /Annot
 >>
 endobj
 37 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/examples/agent-demo/answer.md)
->> /Border [ 0 0 0 ] /Rect [ 345.4109 291.48 357.9078 303 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/real-core-38083900641/independent-review.json)
+>> /Border [ 0 0 0 ] /Rect [ 132.4391 334.68 145.0625 346.2 ] /Subtype /Link /Type /Annot
 >>
 endobj
 38 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/docs/tool-contract.md)
->> /Border [ 0 0 0 ] /Rect [ 499.8641 238.68 512.4266 250.2 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/official-nta2020-26b.json)
+>> /Border [ 0 0 0 ] /Rect [ 147.3781 334.68 164.0656 346.2 ] /Subtype /Link /Type /Annot
 >>
 endobj
 39 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/examples/agent-demo/answer.md)
->> /Border [ 0 0 0 ] /Rect [ 514.7422 238.68 527.2391 250.2 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/real-core-38083900641/independent-review.json)
+>> /Border [ 0 0 0 ] /Rect [ 230.6234 252.68 243.2469 264.2 ] /Subtype /Link /Type /Annot
 >>
 endobj
 40 0 obj
 <<
-/Annots [ 35 0 R 36 0 R 37 0 R 38 0 R 39 0 R ] /Contents 103 0 R /MediaBox [ 0 0 612 792 ] /Parent 98 0 R /Resources <<
+/A <<
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/csv-cell-audit-38029812736.json)
+>> /Border [ 0 0 0 ] /Rect [ 245.5625 252.68 261.9594 264.2 ] /Subtype /Link /Type /Annot
+>>
+endobj
+41 0 obj
+<<
+/Annots [ 34 0 R 35 0 R 36 0 R 37 0 R 38 0 R 39 0 R 40 0 R ] /Contents 123 0 R /MediaBox [ 0 0 612 792 ] /Parent 118 0 R /Resources <<
 /Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
 >> /Rotate 0 
   /Trans <<
 
 >> /Type /Page
->>
-endobj
-41 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/examples/evidence/test-report-v0.6-focused.json)
->> /Border [ 0 0 0 ] /Rect [ 431.8413 618.68 440.847 628.4 ] /Subtype /Link /Type /Annot
 >>
 endobj
 42 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/examples/evidence/generated-100000-benchmark.json)
->> /Border [ 0 0 0 ] /Rect [ 520.9927 590.88 529.9984 600.6 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/real-core-38031560273/measurements.json)
+>> /Border [ 0 0 0 ] /Rect [ 298.7656 620.68 311.0375 632.2 ] /Subtype /Link /Type /Annot
 >>
 endobj
 43 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/examples/evidence/generated-100000-benchmark.json)
->> /Border [ 0 0 0 ] /Rect [ 523.255 563.08 532.2607 572.8 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/docs/acceptance.md)
+>> /Border [ 0 0 0 ] /Rect [ 313.3531 620.68 328.8031 632.2 ] /Subtype /Link /Type /Annot
 >>
 endobj
 44 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/docs/forecast-v0.6.md)
->> /Border [ 0 0 0 ] /Rect [ 526.3835 535.28 535.3892 545 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/real-core-38031560273/measurements.json)
+>> /Border [ 0 0 0 ] /Rect [ 163.2547 361.88 175.5266 373.4 ] /Subtype /Link /Type /Annot
 >>
 endobj
 45 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/examples/evidence/generated-100000-benchmark.json)
->> /Border [ 0 0 0 ] /Rect [ 458.9844 462.68 471.6078 474.2 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/csv-cell-audit-38029812736.json)
+>> /Border [ 0 0 0 ] /Rect [ 177.8422 361.88 194.2391 373.4 ] /Subtype /Link /Type /Annot
 >>
 endobj
 46 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/docs/tool-contract.md)
->> /Border [ 0 0 0 ] /Rect [ 213.35 374.28 225.9125 385.8 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/real-core-38031560273/measurements.json)
+>> /Border [ 0 0 0 ] /Rect [ 445.4703 309.08 457.7422 320.6 ] /Subtype /Link /Type /Annot
 >>
 endobj
 47 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/docs/forecast-v0.6.md)
->> /Border [ 0 0 0 ] /Rect [ 228.2281 374.28 240.8609 385.8 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/real-core-38031560273/measurements.json)
+>> /Border [ 0 0 0 ] /Rect [ 396.7484 256.28 409.0203 267.8 ] /Subtype /Link /Type /Annot
 >>
 endobj
 48 0 obj
 <<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/IMPLEMENTATION.md)
->> /Border [ 0 0 0 ] /Rect [ 191.0984 218.48 202.4234 230 ] /Subtype /Link /Type /Annot
+/Annots [ 42 0 R 43 0 R 44 0 R 45 0 R 46 0 R 47 0 R ] /Contents 124 0 R /MediaBox [ 0 0 612 792 ] /Parent 118 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 
+  /Trans <<
+
+>> /Type /Page
 >>
 endobj
 49 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/examples/agent-demo/answer.md)
->> /Border [ 0 0 0 ] /Rect [ 204.7391 218.48 217.2359 230 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/agent-campaign-38084773557/final-review.json)
+>> /Border [ 0 0 0 ] /Rect [ 525.6225 644.78 538.0629 654.5 ] /Subtype /Link /Type /Annot
 >>
 endobj
 50 0 obj
 <<
-/Annots [ 41 0 R 42 0 R 43 0 R 44 0 R 45 0 R 46 0 R 47 0 R 48 0 R 49 0 R ] /Contents 104 0 R /MediaBox [ 0 0 612 792 ] /Parent 98 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 
-  /Trans <<
-
->> /Type /Page
+/A <<
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/agent-campaign-38084773557/final-review.json)
+>> /Border [ 0 0 0 ] /Rect [ 429.9031 571.68 446.6609 583.2 ] /Subtype /Link /Type /Annot
 >>
 endobj
 51 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/IMPLEMENTATION.md)
->> /Border [ 0 0 0 ] /Rect [ 387.2609 335.88 398.5859 347.4 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/agent-campaign-38084773557/actual-diagnostics.json)
+>> /Border [ 0 0 0 ] /Rect [ 448.9766 571.68 465.125 583.2 ] /Subtype /Link /Type /Annot
 >>
 endobj
 52 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/docs/acceptance.md)
->> /Border [ 0 0 0 ] /Rect [ 400.9016 335.88 418.1187 347.4 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/model-smoke-38028703734/independent-review.json)
+>> /Border [ 0 0 0 ] /Rect [ 68 468.68 80.92344 480.2 ] /Subtype /Link /Type /Annot
 >>
 endobj
 53 0 obj
 <<
-/Annots [ 51 0 R 52 0 R ] /Contents 105 0 R /MediaBox [ 0 0 612 792 ] /Parent 98 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 
-  /Trans <<
-
->> /Type /Page
+/A <<
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/agent-startup-failure-38029812736/independent-review.json)
+>> /Border [ 0 0 0 ] /Rect [ 83.23906 468.68 99.86094 480.2 ] /Subtype /Link /Type /Annot
 >>
 endobj
 54 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/docs/forecast-v0.6.md)
->> /Border [ 0 0 0 ] /Rect [ 96.11562 424.48 108.7484 436 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/docs/agent-campaign-v1.json)
+>> /Border [ 0 0 0 ] /Rect [ 102.1766 468.68 118.925 480.2 ] /Subtype /Link /Type /Annot
 >>
 endobj
 55 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/docs/acceptance.md)
->> /Border [ 0 0 0 ] /Rect [ 111.0641 424.48 128.2812 436 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/docs/agent-campaign-v1.json)
+>> /Border [ 0 0 0 ] /Rect [ 328.4609 401.28 345.2094 412.8 ] /Subtype /Link /Type /Annot
 >>
 endobj
 56 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/examples/agent-demo/answer.md)
->> /Border [ 0 0 0 ] /Rect [ 324.3031 336.08 336.8 347.6 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/agent-campaign-38084773557/final-review.json)
+>> /Border [ 0 0 0 ] /Rect [ 347.525 401.28 364.2828 412.8 ] /Subtype /Link /Type /Annot
 >>
 endobj
 57 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/docs/acceptance.md)
->> /Border [ 0 0 0 ] /Rect [ 339.1156 336.08 356.3328 347.6 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/agent-campaign-38084773557/actual-diagnostics.json)
+>> /Border [ 0 0 0 ] /Rect [ 390.6875 333.88 406.8359 345.4 ] /Subtype /Link /Type /Annot
 >>
 endobj
 58 0 obj
 <<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/docs/tool-contract.md)
->> /Border [ 0 0 0 ] /Rect [ 113.5109 268.68 126.0734 280.2 ] /Subtype /Link /Type /Annot
+/Annots [ 49 0 R 50 0 R 51 0 R 52 0 R 53 0 R 54 0 R 55 0 R 56 0 R 57 0 R ] /Contents 125 0 R /MediaBox [ 0 0 612 792 ] /Parent 118 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 
+  /Trans <<
+
+>> /Type /Page
 >>
 endobj
 59 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/examples/agent-demo/answer.md)
->> /Border [ 0 0 0 ] /Rect [ 128.3891 268.68 140.8859 280.2 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/captured-local-verification.json)
+>> /Border [ 0 0 0 ] /Rect [ 359.6281 394.48 372.125 406 ] /Subtype /Link /Type /Annot
 >>
 endobj
 60 0 obj
 <<
-/Annots [ 54 0 R 55 0 R 56 0 R 57 0 R 58 0 R 59 0 R ] /Contents 106 0 R /MediaBox [ 0 0 612 792 ] /Parent 98 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 
-  /Trans <<
-
->> /Type /Page
+/A <<
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/real-core-38083900641/independent-review.json)
+>> /Border [ 0 0 0 ] /Rect [ 374.4406 394.48 387.0641 406 ] /Subtype /Link /Type /Annot
 >>
 endobj
 61 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/IMPLEMENTATION.md)
->> /Border [ 0 0 0 ] /Rect [ 422.9328 635.28 434.2578 646.8 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/official-nta2020-26b.json)
+>> /Border [ 0 0 0 ] /Rect [ 389.3797 394.48 406.0672 406 ] /Subtype /Link /Type /Annot
 >>
 endobj
 62 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/docs/runtime.md)
->> /Border [ 0 0 0 ] /Rect [ 436.5734 635.28 448.5969 646.8 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/real-core-38083900641/independent-review.json)
+>> /Border [ 0 0 0 ] /Rect [ 195.6359 312.48 208.2594 324 ] /Subtype /Link /Type /Annot
 >>
 endobj
 63 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/IMPLEMENTATION.md)
->> /Border [ 0 0 0 ] /Rect [ 307.6578 509.88 318.9828 521.4 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/real-core-38031560273/measurements.json)
+>> /Border [ 0 0 0 ] /Rect [ 210.575 312.48 222.8469 324 ] /Subtype /Link /Type /Annot
 >>
 endobj
 64 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/examples/agent-demo/answer.md)
->> /Border [ 0 0 0 ] /Rect [ 321.2984 509.88 333.7953 521.4 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/csv-cell-audit-38029812736.json)
+>> /Border [ 0 0 0 ] /Rect [ 225.1625 312.48 241.5594 324 ] /Subtype /Link /Type /Annot
 >>
 endobj
 65 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/examples/evidence/test-report-v0.6-focused.json)
->> /Border [ 0 0 0 ] /Rect [ 336.1109 509.88 348.3828 521.4 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/docs/distribution.md)
+>> /Border [ 0 0 0 ] /Rect [ 309.2797 230.48 321.3031 242 ] /Subtype /Link /Type /Annot
 >>
 endobj
 66 0 obj
 <<
-/Annots [ 61 0 R 62 0 R 63 0 R 64 0 R 65 0 R ] /Contents 107 0 R /MediaBox [ 0 0 612 792 ] /Parent 98 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 
-  /Trans <<
-
->> /Type /Page
+/A <<
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/docs/agent-campaign-v1.json)
+>> /Border [ 0 0 0 ] /Rect [ 323.6187 230.48 340.3672 242 ] /Subtype /Link /Type /Annot
 >>
 endobj
 67 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/IMPLEMENTATION.md)
->> /Border [ 0 0 0 ] /Rect [ 79.25615 628.08 225.5743 637.8 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/agent-campaign-38084773557/final-review.json)
+>> /Border [ 0 0 0 ] /Rect [ 342.6828 230.48 359.4406 242 ] /Subtype /Link /Type /Annot
 >>
 endobj
 68 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/docs/tool-contract.md)
->> /Border [ 0 0 0 ] /Rect [ 79.25615 596.68 198.1142 606.4 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/agent-campaign-38084773557/final-review.json)
+>> /Border [ 0 0 0 ] /Rect [ 152.0375 127.48 168.7953 139 ] /Subtype /Link /Type /Annot
 >>
 endobj
 69 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/examples/agent-demo/answer.md)
->> /Border [ 0 0 0 ] /Rect [ 79.25615 565.28 206.6729 575 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/agent-campaign-38084773557/actual-diagnostics.json)
+>> /Border [ 0 0 0 ] /Rect [ 171.1109 127.48 187.2594 139 ] /Subtype /Link /Type /Annot
 >>
 endobj
 70 0 obj
 <<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/examples/evidence/generated-100000-benchmark.json)
->> /Border [ 0 0 0 ] /Rect [ 79.25615 533.88 230.5418 543.6 ] /Subtype /Link /Type /Annot
->>
-endobj
-71 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/examples/evidence/test-report-v0.6-focused.json)
->> /Border [ 0 0 0 ] /Rect [ 79.25615 502.48 218.38 512.2 ] /Subtype /Link /Type /Annot
->>
-endobj
-72 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/docs/forecast-v0.6.md)
->> /Border [ 0 0 0 ] /Rect [ 79.25615 471.08 236.8423 480.8 ] /Subtype /Link /Type /Annot
->>
-endobj
-73 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/docs/runtime.md)
->> /Border [ 0 0 0 ] /Rect [ 79.25615 439.68 221.5361 449.4 ] /Subtype /Link /Type /Annot
->>
-endobj
-74 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://arxiv.org/abs/1809.08887)
->> /Border [ 0 0 0 ] /Rect [ 79.25615 408.28 505.6215 418 ] /Subtype /Link /Type /Annot
->>
-endobj
-75 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://arxiv.org/abs/1809.08887)
->> /Border [ 0 0 0 ] /Rect [ 68 396.58 166.5724 406.3 ] /Subtype /Link /Type /Annot
->>
-endobj
-76 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://www.elastic.co/docs/reference/elasticsearch/rest-apis/paginate-search-results)
->> /Border [ 0 0 0 ] /Rect [ 79.25615 365.18 382.7095 374.9 ] /Subtype /Link /Type /Annot
->>
-endobj
-77 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/docs/acceptance.md)
->> /Border [ 0 0 0 ] /Rect [ 83.76099 333.78 269.2542 343.5 ] /Subtype /Link /Type /Annot
->>
-endobj
-78 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/tree/main/projects/02-311-analytics/docs/reliability.md)
->> /Border [ 0 0 0 ] /Rect [ 83.76099 302.38 240.0024 312.1 ] /Subtype /Link /Type /Annot
->>
-endobj
-79 0 obj
-<<
-/Annots [ 67 0 R 68 0 R 69 0 R 70 0 R 71 0 R 72 0 R 73 0 R 74 0 R 75 0 R 76 0 R 
-  77 0 R 78 0 R ] /Contents 108 0 R /MediaBox [ 0 0 612 792 ] /Parent 98 0 R /Resources <<
+/Annots [ 59 0 R 60 0 R 61 0 R 62 0 R 63 0 R 64 0 R 65 0 R 66 0 R 67 0 R 68 0 R 
+  69 0 R ] /Contents 126 0 R /MediaBox [ 0 0 612 792 ] /Parent 118 0 R /Resources <<
 /Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
 >> /Rotate 0 
   /Trans <<
@@ -581,7 +511,217 @@ endobj
 >> /Type /Page
 >>
 endobj
+71 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/real-core-38083900641/independent-review.json)
+>> /Border [ 0 0 0 ] /Rect [ 298.2453 620.68 310.8687 632.2 ] /Subtype /Link /Type /Annot
+>>
+endobj
+72 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/test-report-v0.7-matrix.json)
+>> /Border [ 0 0 0 ] /Rect [ 313.1844 620.68 325.8172 632.2 ] /Subtype /Link /Type /Annot
+>>
+endobj
+73 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/docs/distribution.md)
+>> /Border [ 0 0 0 ] /Rect [ 328.1328 620.68 340.1562 632.2 ] /Subtype /Link /Type /Annot
+>>
+endobj
+74 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/docs/acceptance.md)
+>> /Border [ 0 0 0 ] /Rect [ 342.4719 620.68 357.9219 632.2 ] /Subtype /Link /Type /Annot
+>>
+endobj
+75 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/agent-campaign-38084773557/final-review.json)
+>> /Border [ 0 0 0 ] /Rect [ 360.2375 620.68 376.9953 632.2 ] /Subtype /Link /Type /Annot
+>>
+endobj
+76 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/test-report-v0.7-matrix.json)
+>> /Border [ 0 0 0 ] /Rect [ 68 553.28 80.63281 564.8 ] /Subtype /Link /Type /Annot
+>>
+endobj
+77 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/docs/distribution.md)
+>> /Border [ 0 0 0 ] /Rect [ 82.94844 553.28 94.97187 564.8 ] /Subtype /Link /Type /Annot
+>>
+endobj
+78 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/docs/distribution.md)
+>> /Border [ 0 0 0 ] /Rect [ 329.0609 500.48 341.0844 512 ] /Subtype /Link /Type /Annot
+>>
+endobj
+79 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/model-smoke-38028703734/independent-review.json)
+>> /Border [ 0 0 0 ] /Rect [ 343.4 500.48 356.3234 512 ] /Subtype /Link /Type /Annot
+>>
+endobj
 80 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/docs/distribution.md)
+>> /Border [ 0 0 0 ] /Rect [ 353.5812 404.28 365.6047 415.8 ] /Subtype /Link /Type /Annot
+>>
+endobj
+81 0 obj
+<<
+/Annots [ 71 0 R 72 0 R 73 0 R 74 0 R 75 0 R 76 0 R 77 0 R 78 0 R 79 0 R 80 0 R ] /Contents 127 0 R /MediaBox [ 0 0 612 792 ] /Parent 118 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 
+  /Trans <<
+
+>> /Type /Page
+>>
+endobj
+82 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/IMPLEMENTATION.md)
+>> /Border [ 0 0 0 ] /Rect [ 79.25615 628.08 198.1142 637.8 ] /Subtype /Link /Type /Annot
+>>
+endobj
+83 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/docs/tool-contract.md)
+>> /Border [ 0 0 0 ] /Rect [ 79.25615 596.68 187.3089 606.4 ] /Subtype /Link /Type /Annot
+>>
+endobj
+84 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/captured-local-verification.json)
+>> /Border [ 0 0 0 ] /Rect [ 79.25615 565.28 230.9769 575 ] /Subtype /Link /Type /Annot
+>>
+endobj
+85 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/real-core-38083900641/independent-review.json)
+>> /Border [ 0 0 0 ] /Rect [ 79.25615 533.88 308.4371 543.6 ] /Subtype /Link /Type /Annot
+>>
+endobj
+86 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/real-core-38031560273/measurements.json)
+>> /Border [ 0 0 0 ] /Rect [ 79.25615 502.48 269.2462 512.2 ] /Subtype /Link /Type /Annot
+>>
+endobj
+87 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/test-report-v0.7-matrix.json)
+>> /Border [ 0 0 0 ] /Rect [ 79.25615 471.08 303.4695 480.8 ] /Subtype /Link /Type /Annot
+>>
+endobj
+88 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/docs/distribution.md)
+>> /Border [ 0 0 0 ] /Rect [ 79.25615 439.68 242.2291 449.4 ] /Subtype /Link /Type /Annot
+>>
+endobj
+89 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/model-smoke-38028703734/independent-review.json)
+>> /Border [ 0 0 0 ] /Rect [ 79.25615 408.28 244.0445 418 ] /Subtype /Link /Type /Annot
+>>
+endobj
+90 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://arxiv.org/abs/1809.08887)
+>> /Border [ 0 0 0 ] /Rect [ 79.25615 376.88 197.2124 386.6 ] /Subtype /Link /Type /Annot
+>>
+endobj
+91 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://www.elastic.co/docs/reference/elasticsearch/rest-apis/paginate-search-results)
+>> /Border [ 0 0 0 ] /Rect [ 83.76099 345.48 298.9726 355.2 ] /Subtype /Link /Type /Annot
+>>
+endobj
+92 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/docs/acceptance.md)
+>> /Border [ 0 0 0 ] /Rect [ 83.76099 314.08 307.0884 323.8 ] /Subtype /Link /Type /Annot
+>>
+endobj
+93 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/official-nta2020-26b.json)
+>> /Border [ 0 0 0 ] /Rect [ 83.76099 282.68 234.1489 292.4 ] /Subtype /Link /Type /Annot
+>>
+endobj
+94 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/agent-startup-failure-38029812736/independent-review.json)
+>> /Border [ 0 0 0 ] /Rect [ 83.76099 251.28 281.859 261 ] /Subtype /Link /Type /Annot
+>>
+endobj
+95 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/docs/agent-campaign-v1.json)
+>> /Border [ 0 0 0 ] /Rect [ 83.76099 219.88 264.3103 229.6 ] /Subtype /Link /Type /Annot
+>>
+endobj
+96 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/csv-cell-audit-38029812736.json)
+>> /Border [ 0 0 0 ] /Rect [ 83.76099 188.48 253.505 198.2 ] /Subtype /Link /Type /Annot
+>>
+endobj
+97 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/agent-campaign-38084773557/final-review.json)
+>> /Border [ 0 0 0 ] /Rect [ 83.76099 157.08 326.4208 166.8 ] /Subtype /Link /Type /Annot
+>>
+endobj
+98 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://github.com/BoomerRawlings/scads-2026-problems/blob/4668139874139b597157d01daf475eeacbededfe/projects/02-311-analytics/examples/evidence/agent-campaign-38084773557/actual-diagnostics.json)
+>> /Border [ 0 0 0 ] /Rect [ 83.76099 125.68 309.77 135.4 ] /Subtype /Link /Type /Annot
+>>
+endobj
+99 0 obj
+<<
+/Annots [ 82 0 R 83 0 R 84 0 R 85 0 R 86 0 R 87 0 R 88 0 R 89 0 R 90 0 R 91 0 R 
+  92 0 R 93 0 R 94 0 R 95 0 R 96 0 R 97 0 R 98 0 R ] /Contents 128 0 R /MediaBox [ 0 0 612 792 ] /Parent 118 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 
+  /Trans <<
+
+>> /Type /Page
+>>
+endobj
+100 0 obj
 <<
 /Filter [ /FlateDecode ] /Length 673
 >>
@@ -597,7 +737,7 @@ xúu’Àj€PÖ·πûB√ñRÏ„}K¡ri É¥•…8≤úbŸ»Œ oﬂΩºLz(≠¿ﬁøê˙f{r}ws7léÌ‰«∏Î˙cªﬁ´±?Ï^«
 ø“Ø˝ø—o˝ø—o˝ø—o˝ø—o˝ø—o˝ø—o˝ø—o˝ø—o;˝ø”Ô;˝ø”Ô;˝ø”Ô;˝ø”Ô;˝ø”Ô;˝ø”Ô;˝ø”Ô;˝ø”Ô˝–˝–˝–˝–˝–˝–˝–˝–ﬁÁMÄ]Åm˜æÖ∫◊qÃuZâß≈Éï≥˙˜≠πﬂÌq
 øﬂ üÀendstream
 endobj
-81 0 obj
+101 0 obj
 <<
 /Filter [ /FlateDecode ] /Length 29568 /Length1 48644
 >>
@@ -725,16 +865,16 @@ BÑBvöV¯˝bûÃÚ'Ñ\)••¡‰—bVâß=>:ÛózD~Å*Í,∫Á£ŒJàf£ŒNàûç:áÏn5>ÖúdVÑüÀ=ÒÒ®˝
 ]ı/|µø………πL∫BµEJz⁄"K…a≥<E6@Zy<çei⁄	µ∫yvÓ,d∫†8Lä#êì#5∞Í‚ôiÂ4œê•Bx∆ñSÂFù`«LE+ËÚôôö…+$ÎóL≈)ÜÂ*â£∂‹*rêO-êí∏PäEs ˚˜óÌØù.ú.õÆ%GÓù:
 âˆ£d(çVeQÿä+¿ í~# ˚~4;á<M ók¿¢ái°+UÌíÏ•'íπÜ(˚p‹ RzHfñêJüåìM D4síIL§ªƒe˛/<IX}B/˝ø ı"–\endstream
 endobj
-82 0 obj
+102 0 obj
 <<
-/Ascent 728.0273 /CapHeight 715.8203 /Descent -210.4492 /Flags 262148 /FontBBox [ -627.9297 -376.4648 2000 1055.664 ] /FontFile2 81 0 R 
+/Ascent 728.0273 /CapHeight 715.8203 /Descent -210.4492 /Flags 262148 /FontBBox [ -627.9297 -376.4648 2000 1055.664 ] /FontFile2 101 0 R 
   /FontName /AAAAAA+Arial-BoldMT /ItalicAngle 0 /MissingWidth 750 /StemV 165 /Type /FontDescriptor
 >>
 endobj
-83 0 obj
+103 0 obj
 <<
-/BaseFont /AAAAAA+Arial-BoldMT /FirstChar 0 /FontDescriptor 82 0 R /LastChar 127 /Name /F2+0 /Subtype /TrueType 
-  /ToUnicode 80 0 R /Type /Font /Widths [ 750 750 750 750 750 750 750 750 750 750 
+/BaseFont /AAAAAA+Arial-BoldMT /FirstChar 0 /FontDescriptor 102 0 R /LastChar 127 /Name /F2+0 /Subtype /TrueType 
+  /ToUnicode 100 0 R /Type /Font /Widths [ 750 750 750 750 750 750 750 750 750 750 
   750 750 750 750 750 750 750 750 750 750 
   750 750 750 750 750 750 750 750 750 750 
   750 750 277.832 333.0078 474.1211 556.1523 556.1523 889.1602 722.168 237.793 
@@ -749,7 +889,7 @@ endobj
   556.1523 556.1523 500 389.1602 279.7852 389.1602 583.9844 750 ]
 >>
 endobj
-84 0 obj
+104 0 obj
 <<
 /Filter [ /FlateDecode ] /Length 675
 >>
@@ -757,7 +897,7 @@ stream
 xúm’Õja∆ÒΩW1Àñ.ÙùÛïÇ˘h ã¥•…òqLÖ8 hπ˚û«Gí∑•Çûˇ¯Œ»\úÈı›Õ›∞96”ü„Æ{ËèÕz3¨∆˛∞{ªæyÍü7√§¥Õj”œWßœnª‹O¶˘√€·ÿoÔÜın2ü7”_yx8éoÕßÀ”ÎÀÂ∏Yæ‹?~ûLå´~‹œˇ9zx›Ô_˙m?õŸd±hV˝:¸~πˇæ‹ˆÕÙÔ˚?Nﬂˆ}”ûÆq›n’ˆÀÆó√s?ôœfãf∑ãI?¨˛9+ÌüyZwøó„˘ﬁYæŸ%ªùÕÆ–mıΩT≠U[’^uT}Qı◊™/´æ™˙∫Íõ™øU}˚—•ÚóRuÂ/ïøT˛R˘KÂ/ïøT˛R˘KÂ/ïøT˛R˘KÂ/ïø•ø=5˝9≤ÈœëMél˙sd”ü#õ˛ŸÙÁ»¶?G6˝9≤ÈœëMãˇΩ•?G6˝9≤ÈœëMé…\Ë¯Ö~Å_Ë¯Ö~Å_Ë¯Ö~Å_Ë¯Ö~Å_Ë¯Ö~Å_Ë¯Ö~Å_Ë¯Ö~Å_Ë¯Ö~Å_ÈW¯ï~Ö_ÈW¯ï~Ö_ÈW¯ï~Ö_ÈW¯ï~Ö_ÈW¯ï~Ö_ÈW¯ï~Ö_ÈW¯ï~Ö_ÈW¯ï~ÖﬂË7¯ç~ÉﬂË7¯ç~ÉﬂË7¯ç~ÉﬂË7¯ç~ÉﬂË7¯ç~ÉﬂË7¯ç~ÉﬂË7¯ç~ÉﬂË7¯ç~ÉﬂÈw¯ù~áﬂÈw¯ù~áﬂÈw¯ù~áﬂÈw¯ù~áﬂÈw¯ù~áﬂÈw¯ù~áﬂÈw¯ù~áﬂÈw¯ù~á?Ë¯É˛Ä?Ë¯É˛Ä?Ë¯É˛Ä?Ë¯É˛Ä?Ë¯É˛Ä?Ë¯É˛Ä?Ë¯É˛Ä?Ë¯É˛ÛÜ8oÏ
 ¨∑˜‘ΩécÓ¶”<-¨úÕ–øØ…˝nèß˛òªö’endstream
 endobj
-85 0 obj
+105 0 obj
 <<
 /Filter [ /FlateDecode ] /Length 37632 /Length1 65800
 >>
@@ -917,16 +1057,16 @@ q5≥èìœÄ>Néó:p§∂ûÏ¶vylÜëÀ8j2ﬁ5Î„ú.õtÒﬂ‰Ú?‰èÉ{ñ?∆?˝ˇÚ⁄îåÓÛı©ˇÛ÷ß˛˜≠}æ"Û˘äÃÁ
 ‹∏√{˜œcŸÓ»Tµã;∏ã¿µ\∏pk¡›N‰ésô£]7DÚyŸB ‰(˘ ÔèìG-$∂9À] ®≤KÓ‹´ ÇÀ>u_.À}».π˜ﬁª‰ﬁz@Ïí˚Öõbó‹ﬁù ±Kn◊fÄÿ%wıZÄÿ%∑° ∏åsﬂ9öù)oÿB’j'∑∞¥∞¥∞¥ã‹.ˆ#	,oﬂ-,å}3-(å£√œ”·&:¸(Ó¶√7“·õÈp%æéGÈpòß”·~éŒT”ÿ°iè± ~ôˇÄ“·\:úCá≥È∞JÀc„\∆h])ﬁjÒ6VÕ‹Ø∫∏èìÀ åf Õg O8◊W¡M·S©ôZ‡`:ªgéViœ3ÊñÙAÛy>|™·Ú.8*Ë £ í '\´¿≠w‹á‡¶¿â:2~^ùp-Wn-∏õ¿}NƒÏ|é#}z`∆X¶ãıå7Ä∏‡ó	ø.#ñ¶Ñï®≤òø/LùÈ¥!}*ù+'>∞l∑À‚ßˆ#ˇiˇ«⁄âT-q˜r˜1÷ÕÌ’Ô˜ç~¨õ>4ö˚\§:Ö~ù§@y¥Ç‰“∏œ!É¯<ãÑ-Ï^F¬‹˜·^2nÖœú£πEëc‘¡æ:˘(|:ÚAxú˝së_´„çº>ﬂ?y-|g‰g≈„y>wú¬ÌòäAüœâ¸‡ez3º¯Êh‰Fv;˘RxQdK_tk/ÆÑßò3“îª:≤‚´	Øèƒ!Œ#ë™uëJ-‘,ˆÕë»L»BT!≥aL4+|Ef≠XQ>N7≈äÃöWôÃ≥Õ%Ê"sÜ9bN3áÃ^ã€¢XõE∂X,¢E∞pbÒ≤ÕêQ∂ +‚^A∂kça˜µr⁄ÆBéZ8rÒK∏%ÕÛÈíëùd…zu‰|s÷8ïóØ1eÕß#Ó%dIÀ¸ë9—%„Ê©¶ëÚËís„µ´Rzo¯épwåS“≤júN1Ø€B#ÓÏaÍ∫Ì+!vœøÌ+mm$‡€Y®r_Ì™XXsôÀ:˝ö¥{>0Nõ?Ú‡íÊU£≥ûz*m~€H	¬SS /˘Z≥∫f’≥ÙoÙlmÕ≥Ù?ÿ≠m’≥¸’ÙoµMÃüø∫¶≠m…8m≈pD•ˇ·Ät˛√Y@J≥pDµ§k·æ©ÖÀÅÔ!\6ªA8I"9.Gí0ú@Y∏ÉÉŸµ5≥≥1åNf–Ø&áy9¬‰‰`ﬂ0y√ºÏfaFÆ∆ ·0IcöJ¬$LS1Hk"H±‰Œxê;1%û&¬Ñµ0ˆSF˚)Û&a¶ˇuœèFÈÿº∂Œ5µ›YµÎ≤jª¡≠π{Á¶¿»zU=ÿŸ∆^®#|Ó∫ıùõÿΩ£{§-´ªf§3´F=8oÕe^ØaØÁe’$kj[V\ÎÆùõWõ’Q”6∂®±¨|ZZw∆”*kºLdç,≤2ñ÷¢ÚÀº.gØ±¥ YZÂ,≠E±EòARo\u–BÊ∑-X£›«8´dª.î—6ﬂßÙ_ç4</#pcËt]û ÷h€à-k˛à{uEı’Ï4-ˆ ﬁN˝U‡∆y°cÙ	˝ïﬁÆ¨˘$:¥cp	‘ˆ‘hˇÉ^C;¬µkt”˛‡]ÌH¨£fpàê%#ÖÕKF™ñØ^u–lﬂu¨H#s?´µv|ÍÑÊ9<Á2Oûèd~ïÃOíÙÄó÷ˇ˝é&ÜπÁ∆h,ùë¡6~$}I°e5îuÕÍU«†c≈d≈`pêFÈ†áûmÕ8ª±2nháÈ∏“Ô⁄ó…†Åí¯CV4é±!å—]≥™⁄¡œÊãa†·g¬˝
 ∏_˜∏ó≈1wnÑÁ #í•<bïk"f±&∑´%ˇÅ¶gnendstream
 endobj
-86 0 obj
+106 0 obj
 <<
-/Ascent 728.0273 /CapHeight 716.3086 /Descent -210.4492 /Flags 4 /FontBBox [ -664.5508 -324.707 2000 1039.551 ] /FontFile2 85 0 R 
+/Ascent 728.0273 /CapHeight 716.3086 /Descent -210.4492 /Flags 4 /FontBBox [ -664.5508 -324.707 2000 1039.551 ] /FontFile2 105 0 R 
   /FontName /AAAAAA+ArialMT /ItalicAngle 0 /MissingWidth 750 /StemV 87 /Type /FontDescriptor
 >>
 endobj
-87 0 obj
+107 0 obj
 <<
-/BaseFont /AAAAAA+ArialMT /FirstChar 0 /FontDescriptor 86 0 R /LastChar 127 /Name /F3+0 /Subtype /TrueType 
-  /ToUnicode 84 0 R /Type /Font /Widths [ 750 0 750 750 750 750 750 750 750 750 
+/BaseFont /AAAAAA+ArialMT /FirstChar 0 /FontDescriptor 106 0 R /LastChar 127 /Name /F3+0 /Subtype /TrueType 
+  /ToUnicode 104 0 R /Type /Font /Widths [ 750 0 750 750 750 750 750 750 750 750 
   750 750 750 750 750 750 750 750 750 750 
   750 750 750 750 750 750 750 750 750 750 
   750 750 277.832 277.832 354.9805 556.1523 556.1523 889.1602 666.9922 190.918 
@@ -941,14 +1081,14 @@ endobj
   500 500 500 333.9844 259.7656 333.9844 583.9844 750 ]
 >>
 endobj
-88 0 obj
+108 0 obj
 <<
 /Filter [ /FlateDecode ] /Length 667
 >>
 stream
 xúm’Àn⁄PÖ·9O·a´»aﬂZ	!•ISe–ãöæ 1äT2dê∑Ô^,îúVµ˚∑ém}≥=ΩπøΩ∂ßn˙}‹˜ı‘≠∑√j¨«˝”ÿ◊Ó±n∂√§Ã∫’∂?]ÓŒˇ˝nyòLÛÂáÁ„©ÓÓáı~2üw”yx<çœ›õÎÛıÓs›èõÌÚÌd˙m\’q;l˛sÙt8¸Æª:ú∫´…b—≠Í:?˛ey¯∫‹’n˙˜ÛØß?üµõùÔq˝~Uèáe_«Â∞©ì˘’’¢õ«›bRá’?geˆûÔ<Æ˚_ÀÒÚÏU^ãÏ“Ù¨iiZõ∂¶ΩÈh˙}”öæn˙c”7Mﬂ6˝©Èª◊.çø4˛“¯K„/çø4˛“¯K„/çø4˛“¯K„/çø4˛“¯K„ü—?;7˝9≤ÈœëMél˙sd”ü#õ˛ŸÙÁ»¶?G6˝9≤ÈœëMél˙sd”ü#õ˛ŸÙÁòÃÖ~Å_Ë¯Ö~Å_Ë¯Ö~Å_Ë¯Ö~Å_Ë¯Ö~Å_Ë¯Ö~Å_Ë¯Ö~Å_Ë¯Ö~Å_Ë¯ï~Ö_ÈW¯ï~Ö_ÈW¯ï~Ö_ÈW¯ï~Ö_ÈW¯ï~Ö_ÈW¯ï~Ö_ÈW¯ï~Ö_ÈW¯ï~Ö_ÈW¯ç~ÉﬂË7¯ç~ÉﬂË7¯ç~ÉﬂË7¯ç~ÉﬂË7¯ç~ÉﬂË7¯ç~ÉﬂË7¯ç~ÉﬂË7¯ç~ÉﬂË7¯ù~áﬂÈw¯ù~áﬂÈw¯ù~áﬂÈw¯ù~áﬂÈw¯ù~áﬂÈw¯ù~áﬂÈw¯ù~áﬂÈw¯ù~áﬂÈw¯É˛Ä?Ë¯É˛Ä?Ë¯É˛Ä?Ë¯É˛Ä?Ë¯É˛Ä?Ë¯É˛Ä?Ë¯É˛Ä?Ë¯É˛Ä?ËølàÀ&¿Æ¿z{Y@˝”8Ên:Ô¿Û‚¡ ŸıeMˆºÖﬂ?©õ]endstream
 endobj
-89 0 obj
+109 0 obj
 <<
 /Filter [ /FlateDecode ] /Length 29248 /Length1 43696
 >>
@@ -1057,16 +1197,16 @@ Q:'Ø◊Èn”i^»vû[=Eà\{äp–¸-Œ#N y´Õç4õ!¨π^«pùP†°Uí"R@ìÉµTƒËPîäb„yXMÖÊúºßHk(
 5GmGG„Gôè√∑√Üg√«Cı!¯Â!®æ~yd_Éc§î¯76ñn.Yt
 åéí¸¿¯(yKÁC˘ß®ÜSp’Ü˘Nˇ-CËendstream
 endobj
-90 0 obj
+110 0 obj
 <<
-/Ascent 756.3477 /CapHeight 692.8711 /Descent -216.7969 /Flags 4 /FontBBox [ -173.3398 -303.2227 1166.504 949.707 ] /FontFile2 89 0 R 
+/Ascent 756.3477 /CapHeight 692.8711 /Descent -216.7969 /Flags 4 /FontBBox [ -173.3398 -303.2227 1166.504 949.707 ] /FontFile2 109 0 R 
   /FontName /AAAAAA+Georgia /ItalicAngle 0 /MissingWidth 1000 /StemV 87 /Type /FontDescriptor
 >>
 endobj
-91 0 obj
+111 0 obj
 <<
-/BaseFont /AAAAAA+Georgia /FirstChar 0 /FontDescriptor 90 0 R /LastChar 127 /Name /F4+0 /Subtype /TrueType 
-  /ToUnicode 88 0 R /Type /Font /Widths [ 1000 1000 1000 1000 1000 1000 1000 1000 1000 1000 
+/BaseFont /AAAAAA+Georgia /FirstChar 0 /FontDescriptor 110 0 R /LastChar 127 /Name /F4+0 /Subtype /TrueType 
+  /ToUnicode 108 0 R /Type /Font /Widths [ 1000 1000 1000 1000 1000 1000 1000 1000 1000 1000 
   1000 1000 1000 1000 1000 1000 1000 1000 1000 1000 
   1000 1000 1000 1000 1000 1000 1000 1000 1000 1000 
   1000 1000 241.2109 331.0547 411.6211 643.0664 609.8633 817.3828 710.4492 215.332 
@@ -1081,7 +1221,7 @@ endobj
   504.8828 492.1875 443.8477 430.1758 375 430.1758 643.0664 1000 ]
 >>
 endobj
-92 0 obj
+112 0 obj
 <<
 /Filter [ /FlateDecode ] /Length 668
 >>
@@ -1090,7 +1230,7 @@ xúm’MkQ∆Ò˝|äY∂t°◊Û÷Çi“@}°È0„ò
 qF≥»∑Ôy|$πÑË˘◊+ø›ô]ﬂ›‹ªS;˚5∫˚˛‘nw√fÍèáÁ©Î€á˛q74e—nv›ÈÚv˛ÓˆÎ±ôÂÂ˚ó„©ﬂﬂ€C≥\∂≥ﬂyx<M/Ìá´ÛÛÈ˙0OÎ„«fˆs⁄Ù”nx¸ﬂŸ˝Û8>ı˚~8µÛfµj7˝6ˇ˛˚z¸±ﬁ˜ÌÏ›Ö∑„?/cﬂ.ŒÔÖæÓ∞Èè„∫Îßıÿ7À˘|’.„v’Ù√Ê›YY|Êùám˜w=]~;œgï]™^T-Uk’VµWUÆ˙K’WU≠˙∫Íõ™øU}˚÷•Úó _*©¸•Úó _*©¸•Úó _*©¸•Úó _*©¸˙Á¶?G6˝9≤ÈœëMél˙sd”ü#õ˛ŸÙÁ»¶?G6˝9≤ÈœëMél˙sd”ü#õ˛ÕRË¯Ö~Å_Ë¯Ö~Å_Ë¯Ö~Å_Ë¯Ö~Å_Ë¯Ö~Å_Ë¯Ö~Å_Ë¯Ö~Å_Ë¯Ö~Å_ÈW¯ï~Ö_ÈW¯ï~Ö_ÈW¯ï~Ö_ÈW¯ï~Ö_ÈW¯ï~Ö_ÈW¯ï~Ö_ÈW¯ï~Ö_ÈW¯ï~ÖﬂË7¯ç~ÉﬂË7¯ç~ÉﬂË7¯ç~ÉﬂË7¯ç~ÉﬂË7¯ç~ÉﬂË7¯ç~ÉﬂË7¯ç~ÉﬂË7¯ç~ÉﬂÈw¯ù~áﬂÈw¯ù~áﬂÈw¯ù~áﬂÈw¯ù~áﬂÈw¯ù~áﬂÈw¯ù~áﬂÈw¯ù~áﬂÈw¯ù~á?Ë¯É˛Ä?Ë¯É˛Ä?Ë¯É˛Ä?Ë¯É˛Ä?Ë¯É˛Ä?Ë¯É˛Ä?Ë¯É˛Ä?Ë¯É˛ÀÜ∏lÏ
 l∏◊‘=OS.ßÛ</¨ú›–øn Ò0‚>ˇ G˙úÈendstream
 endobj
-93 0 obj
+113 0 obj
 <<
 /Filter [ /FlateDecode ] /Length 19639 /Length1 32948
 >>
@@ -1168,16 +1308,16 @@ Z∑`©ø84¸ii≠oÖ1ß¸ÔË ’Ä‘∆¶Ê∫ÖbWJ]g˚úä|W–Ñ~±Ô@˘Ó∑(ô€I6ü‹.∏ˇ:ΩÓrmáª•í+∑ >ç
 âæ<‚¿« ú¯¿á  ú x‡=Äwﬁ¯#¿€ «ﬁËx‡Äc Ó-Ø√ı5ÄW^x‡(¿K G z^8p‡ ¿ /@èÆ>¬∞`¿ ˆº†+çxÔûx`¿3 ª~∞‡∑ ;v l¯¿6ÄßzπuÓf]dƒVm[ƒS [ ûÿ¿„ õ ÿ∞`=¿£öÓàG 0⁄pªmïçkY¬•ZÛ¨S≠|Ñ%’íg·wXˆ[8∑≈QºÜÖ˛´aÚï«®2qbØb†|¢GY:√É◊yb*»’]6›#_ÁA”¶œ®Ó¡¯—˙ü∂<‰üß—ÙöGAa=a’^~ÁŒ∞ÇöâûUÑvª)=@hEj»€VÌ¶U¶?ôæ0…V·ùF‹;˙cRZ1`wî1"™∏›Ä_3‡ı˙˙˝z~ø˛5=˜ö˛C˝Ázﬁ≠SPúÿŸµ∞sabbggßΩ'v.ÏÍÏÏBâˇˇˇ‡ˇØˇÃXﬂÈ'A$]  ∫∫&vºDßˇ”ER]4I
 w&≤Âñ?¿Ò∞«‡ 0 Bçx ¿–p‡¿œˇ´X˚j…Ä¬ Ï˜/¸A©iéã ¡VJeÎÀ“2°≠M∞=)I•a©ÿ¥i€lX6‹∂ó∂lYyŸ£!¡œπ>7Á¿á~˛ÚáﬂÙÒãü¸‡;ﬂËÂ+_¯Ã'>“C7xœ;ﬁÚÜ◊º‚%/xŒ3∫Ë§Év⁄h•ÖfûÚÑ«<¢âá<†ë˚‹„.wh‡6ı‹‚&7∏Œ5ÆrÖ:.sâã\‡<Á®Â,g8Õ)NrÇ™©¢í„£Ç£·0á(ßåRR¬ˆ˛{˚ÿÀv≥ãùÏ`;€ÿ 6SLõ(§ Y8êœF$·¿÷≥éµ‰≈Ù\rX√¿∑â‘»f+…bô,g§≥î%§±ò ãX»Ê3èTÊ2áŸ§êÃ,f2É$¶3ç©La2â$0ââƒG,1L`<„àf,cà"í—DN£ûÕ™JÓ˛∑Ô÷Í°!ˇ ,çHœendstream
 endobj
-94 0 obj
+114 0 obj
 <<
-/Ascent 742.6758 /CapHeight 638.1836 /Descent -257.3242 /Flags 5 /FontBBox [ -432.1289 -302.2461 677.2461 1011.23 ] /FontFile2 93 0 R 
+/Ascent 742.6758 /CapHeight 638.1836 /Descent -257.3242 /Flags 5 /FontBBox [ -432.1289 -302.2461 677.2461 1011.23 ] /FontFile2 113 0 R 
   /FontName /AAAAAA+Consolas /ItalicAngle 0 /MissingWidth 549.8047 /StemV 87 /Type /FontDescriptor
 >>
 endobj
-95 0 obj
+115 0 obj
 <<
-/BaseFont /AAAAAA+Consolas /FirstChar 0 /FontDescriptor 94 0 R /LastChar 127 /Name /F5+0 /Subtype /TrueType 
-  /ToUnicode 92 0 R /Type /Font /Widths [ 549.8047 549.8047 549.8047 549.8047 549.8047 549.8047 549.8047 549.8047 549.8047 549.8047 
+/BaseFont /AAAAAA+Consolas /FirstChar 0 /FontDescriptor 114 0 R /LastChar 127 /Name /F5+0 /Subtype /TrueType 
+  /ToUnicode 112 0 R /Type /Font /Widths [ 549.8047 549.8047 549.8047 549.8047 549.8047 549.8047 549.8047 549.8047 549.8047 549.8047 
   549.8047 549.8047 549.8047 549.8047 549.8047 549.8047 549.8047 549.8047 549.8047 549.8047 
   549.8047 549.8047 549.8047 549.8047 549.8047 549.8047 549.8047 549.8047 549.8047 549.8047 
   549.8047 549.8047 549.8047 549.8047 549.8047 549.8047 549.8047 549.8047 549.8047 549.8047 
@@ -1192,213 +1332,233 @@ endobj
   549.8047 549.8047 549.8047 549.8047 549.8047 549.8047 549.8047 549.8047 ]
 >>
 endobj
-96 0 obj
+116 0 obj
 <<
-/PageMode /UseNone /Pages 98 0 R /Type /Catalog
+/PageMode /UseNone /Pages 118 0 R /Type /Catalog
 >>
 endobj
-97 0 obj
+117 0 obj
 <<
-/Author (Boomer Rawlings) /CreationDate (D:20261007084729-07'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20261007084729-07'00') /Producer (ReportLab PDF Library - \(opensource\)) 
-  /Subject (Reproducible civic analytics through an agent-neutral tool service) /Title (Reproducible agentic analytics for civic records) /Trapped /False
+/Author (Boomer Rawlings) /CreationDate (D:20261010232752-07'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20261010232752-07'00') /Producer (ReportLab PDF Library - \(opensource\)) 
+  /Subject (Verified million-record backend, failed local-agent evaluation) /Title (Reproducible agentic analytics for civic records) /Trapped /False
 >>
 endobj
-98 0 obj
+118 0 obj
 <<
-/Count 10 /Kids [ 14 0 R 21 0 R 28 0 R 34 0 R 40 0 R 50 0 R 53 0 R 60 0 R 66 0 R 79 0 R ] /Type /Pages
+/Count 10 /Kids [ 12 0 R 20 0 R 27 0 R 33 0 R 41 0 R 48 0 R 58 0 R 70 0 R 81 0 R 99 0 R ] /Type /Pages
 >>
 endobj
-99 0 obj
+119 0 obj
 <<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 2277
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 2160
 >>
 stream
-Gau`TgN)=4&q0LUoV4?\1V?B'S*bH5STnt3Ue3,%aob$u'#l2j!2O2(o'q&F]L_V;-rZO-D5h>C+Fqr)5(1#9J:,!2pHL0b0'DloIf]sDRP-+G]pRrkF?Mkar?NM(1'rSDK_J?2`"Oo,PKGIN0mtkba[fTaF5iB"NT2FCa\2RE54M&-)g"n*-7@HT"B,#5T>h9snPVh;]tD+0HTe4i`Qu"PGAh(]h\+2:0#!rTk_JE;B`=UchloCQ1u[94M^)>hP*bs[,Rn'g`?X7Z-^/e1(qiDOqrN^0+J=Y)Mq_V$2cm>6&3`U;'9@bk*<Tj5:.3Pi-Wn($nbFlD:F.<DmlhIC47Pe81`jJA8a@eN\KTmBiSgd:_#5`A*07_Fn::fTr>%i66]AZTH]6=jkk+jhIX_[UZ(IQ@VUr0?Ms8cAl0%s.O)QF/>Wgq)5J"D#L["aVbh,/I*``pLhC)!V!X@:+nFtMKF"HR7*Ri)*]EG%IkiW,mVo[VROr$(j#2"Y"@.E@GoimkjK;7L_#KX*QdjQ9ArCIt3^^^pl&?uZ>/bor>D4tH)LQ3NTk]!G?@s$R<C/IM7.p:CP,>j<W"Wo9I[HT8'c.!Du)4>3&gS=K<BlDm9V$j6[NH\][45/I`5;]NshjINKNG_d4N3mc#=0efb.&b_.+=dnub@>-2A,dVZi2,#$1c,s%6<,O/J'q&VbDjHTW[:a-0L'J`hH$,dULp@=5K^(rjc_7f7ckt^2(Yi\P-e(:"](:u(8\<;BfNB?Bk9[BlR<XXZl[J,;)e21S:hH0Q''XD7no&^f(?_C(?d6T+<H.e:'t=r'ML]_64ois(YlghD_1AFoG7lC;IoGTZf0^]lsS_Xo.);Ej5[&$Xii8n]$"O]koJOa7\1Ej=u@F:a5PnpBkt66P"%hh>,tm<`(!S/[0Cd4G7F^,FAq;<-u%!Ue)dG<$A;T?;AF(c,nV$"=fZA[e>?-OS%[CM7Of*-X8<I?E$N:sU1cO+o<km"YcTHB<8ls?"8H8][^*@H'IH+bVTS0e@s@42/*CT,/tA?^Boj$4"1c2gR.MY`FXUn0>q;L4%kg2JqNN;>KkFebb.Dr0"E-q5.<o]R8:Y>IiMPP7<]krl?t`Kgef?T67e)j"[9CF$G?0QW,p5+oZn(Y`-9MT7#WB..PojW4GB@tSj*%`LTPD8jHhH;B#5bs9O7AE/IgpjJ:QKJWo]Z/@[ptY^7Np4X6d!F/<_iZQAY"aj5Ra`uSa+[%'aP!,"5:Rg/1QrG_gsh@,4n4ai()$#KsR&i>?2SPS_'oiE9KW!O1ZDoI5UnYjRWSW`NlVGf5t:(\%*2">J"SHW"u$JM-Ok)$_hSBq[1T)PKOT.f553#Z!\QoS7k/@Qnn`rQO4p=]40oCYtp!GJFBpaneXE.<e(aU52>l@q.a[n-mO?"bTrUKK<0Ys.;WKTT<YZ:).8dlK1S)F$JI#$)[Y2jQL#tW(r_dGS/V92lM6IF0M/!\a9iO$i!hjbPP.jk34IjEi.##b7UNYhrke?MnQ^ktI4fnMX`uN<)GkVB@F_A%]m.lWq/j!+#fdOga01_dmJUGARq<aJ;g+h0i1\47d9s#P6C=In0IO!hQ1+C.8@\o#Ga&Fqh5`r<Z<O[EWj3SFE=0h50s\(OQcs-Y3fuqGJkhauF[5T!.2Q*'f=EE$2X:FCJ/#+jmh-8F%r$"6RnZTQ>1G8H-;-F%(L)ck@"ET$E_BtRCT93h!QCk7$c^NS&fJ][@4N[;D?kQ+W_C=M4_Ro+LHQE7\WTV6+4BBE%%;k1(GGeaV%6M>-eF]iqkdG9a\n(,XVMBCq\XQ38\F8&0cLir*a$:4'MNY84#?O#H[P1+TpM(lV9WX<OODnfD^\\K8!K$s(&i"TZpMLb&bI+Y[B^L3]1$Zg$"I9]=YKuB>,G.iGB>uaU3m1<IbJKlb"lnZEu_al-e0:ZJ*$9._g0s6&.A1NmB5rODCh&paT4%c1d,\aFh;f+Qf(2AEI,(;;'(>(G)\UkI;o0;82$THf$sRWj]2@$'o&:MFZGs5iGaUWO*V^iPP-?]1!g1bK?8)/iCcHnEHd"U]_B1Mn>kZ]qsDCI4::h3\S5J+P^\:b@,/[T[CZosqF^F;ldPMmmJW&gc,3FBUV6+WGMBRc>rU.',CJ#l[)erOgf*kd-fX%X!XGhZeSQs[&+*Q!U=`,ae*brGVF[WG2+p*NNQFEW*_:1R&K/c(0:AFEpqsoGJA:hK06(uUM*mfe>9#i65P),>gEHT)`8=:'+!.M1pCZeL3mtZ&Tp,KW;qPs\~>endstream
+Gatm;gN)&W(4GpYm$H"r4Vg][.\8cEMNbVoI$$8QFAD]5PE:TT(Bkq`W,k0%/-)Cg];a4WG<C^r&AZ#^[Itpl+$\!KT@ZII9D\>k,8SXH74e!R>$f\>o'F73,;74A(8pqu#'#li>+[\G@"Rc[(6B09qW?!L0:YERMo\Qh'Mi<cmU^`D#r]i6[t^a;?Tq2CWQ\"oV:!9LmCUP%c)3d3?erA#&:I3YQq^p@..DlMCKg^,bAW>,?C7/8abrK1Q&lgZ/5+VO>>a[4P;nIa=U^p,]_QhB+_*@BR9op+]UCF4NL2[l6p+mt14bS;7RZjWB/mRnpa2BLVjcVt[nd_jcFbu.U(dol?(sHN#%il!:JW\^*_tDMBX5A\%qb?GhSSb\&?2#-0EPIRdHtaqH\'\74P@*d0,Ku(q<U3>l$!%.P"BlH41mMUY&<H@IesmBNh\bC'o0MiL@Iif$o]p@kkr+_akk\WV1.dM!#8Q7>-WG^^#LSfb^tr8(1Rjr?X-sPUW"N58q-9Jnh]#l(`dGi=i;.n1K6%n/HbSprhJl!R>tZ9YQtO;CNhBhW\+'P5#d./=u;eoM)W*$iBbqm<J)Zo>X%/<&p^MbIF:>E)>s@E>lY%HngQ([LZ>7!muKfWPnXDPZDqHiN1Fs7i;%`I'^)j_ZGPq-c$;1ThNN3F<R3bn53669nc-Gb?*nH#'[?H^P0I1ZJ*Es^`!.h4O(;03F%+D*g:$;F8[f?+O.tpIGSF/i6&PH;K83_]W)[ji;..iN6S5]8VGQc6eqt:5SdO<\mEqZg?*F9f8-fK(/"s@pde,#-Y('STTW-:hBEFu3)0gTDbPjPM65/T+[`g[[)/6S-:EO\VGi#!34,P9DbSkg8bDF-uf_66SP8*;d2(c]Io?URKVjNb,eRALA#.[]`BZ6H`&"JgCdYD.BK2bRA/?i6b1)HDS6ech7a]]7IRY!%=oJu#M]rALEU/i7eY\S$*ddTuAZR*!?Ct:td^@?JZpg=H?/>X\M.mshG>)!UV1BtIseXt&Yi.6tMR<Jl^!*o*'Z.\b_g,Pq%&k4CA^oKu![(Z&Gn\ID0kPIQ6=Z>blYgSUK$BY^J=4/:PoL@nLH#?FH_sGVU5d%:OD'LR("HOleWfnqm@=2*m^FndJ`U+,ZY-71M%D4XlDKbb2"^Tk`aFIRo*2I9?+82a`H_Rg@PNRR*:SB=5K?p8CfsCEk!t,HM$&jU.4TEc$"g/*n/.Bi,f^0UaN6s<_-t*^C<8>PaJCe83]=up[paG^i+jihsP?V2W9&?6]I</fCBZPMKWYuWMh%oAtYc@S\Rhg$IEG[ali$pD=Y3D)\5T"HoPXiU#\A+?#JAmdMU<*j8hk8*s@n5Gr&9%$A6kD=<>Ps;?=!DjkF/Y<O%+5:c\LtLW<jFG,N:'^u#=AXG]u^j!Tm$4;O;oY&e\Pp\NC!9l=lP[:VnloFg+@?PBpDP:@\04eA18h?)ii$ZhiXjc0E<2fgpGlNDBP#JQuDO9*VIsOJ!>(_;pI<aQeh'd:r=(N21"6Wpb^?mC]O=T[!QE77QspNg/9mf(^+i&b)'L=Je!:5l$o1>#$;<;\0TT`oJfMl]W-o1#sn%T#&;5e!NL"H(5D=lK5P1sR9'AQD)LsQ$ArcBW'@irnC/8[4$lH(QT,=`"(60N>CbY3mF<;_M/0kA[q=[2mIVpZrXLs$hhia#1G?FlCR@PLm*^W(NEb/7!Z%I5/]%o+oBs[+Jr.aLr_\QT&HjD*V<O<Y^,s38Ieii*%D=K"P*[dfb?5Ln)pJd]9O`6tQlH3uia@eQ!jnt$L(<8)aS?!.d4M;+k)k3u+##r#qLj^-hKL+h.`ibT%pu'V9;0\kQX5cdoRc]<qZ7+V#kPAA+#>iuH,`a>.4dQ>O(JBM%GT)02RZE!\#oIG/@FBW^.!NjoTec:@4D$PVUQ_K3But*Cr#0]</UUe*^I<%>m\^o80@J.k87u#,DuO0NG_7)VH;B9Y9!>u8*nCrYO&*O4QBl*3e5KI6Zc!X&*[0h(f9D*@??8iYQ]fkgb]-*;Vc7"bsX;C2cA,9HHdtlEh4^C?jUHLOGor]n:D2VitkM+Ba47N\JeG!8IRacXq<ToCXIQJq#2?7IQKQ/8,Ikl<nYaQp<e;OS*ILPs2g.J]ZIj9G4tnkWlt+o]0E'srrGqtXqq~>endstream
 endobj
-100 0 obj
+120 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 2089
+>>
+stream
+Gau0CD0+H"&H88.YoaG-Wa>W*__>enQ9a33M$F4jP;u8`qhh1JFf-MQYNOT&/3BD1(`4T`83,MoZS0Ymm02S2-ZFRaP3D_)T"PO\#\f]*&:6,`?dniAjPrfshI7'$aUHKuR)BAIegH^rS7;A3&Q0i&s74)U0:KpY&<f'GB6`Hrcl;UR;f#4%[ffV(PtuIU>'Nt8)EkjJHuja*=/S9t^3KP?RckX:p"ASfCC:#Zq?8H8d.0gfaGUh8S\-q6<E&H$5?LU3c`lDsn'.%b]LRoE7st3W)+?hVVf,@<s0B9s]06@+59b>7&!H/s+>`0m?+i:MoKCuBB4@K*8eU$p'm+l`c">FLL4CRUTKF$FJAoCG;?;;l;JnLdpU]k2MiZm67=-CohQ1cCF?(7FSh2Uf,BOnQ(UgC9lgrT+Zg[/AbGu]s9R:pZ%c@*2`ERY4FnlA+%_Y$@8g</^7EJEB&=N\#5lSH,8T3scVMbG=_OBX@iZLLd!lQc\1dc^;T;B].Ur/(@'a>']Fr:WL\roO?-J_MTLf.5g&lhCjQD1Z7232SKgkmNP_Tn03?r;koi.9nujfa[19lbX'L]+!EI'=9b-QcRGCdJ$V5U1'l#V-@l<@/Yp@Au&MYgHRL/,5c1Oq0<b/UpXK:u1=m4S.dJ<feMN-]44tls(L+\uZ;8^fhW[m2UYaXCNO_ogq-V,&O\APR/j@_FQHH"q`U3/N:g<I#t<R<>d;U7]g)NPcG%W;6'%`8gu"nm=IFXSeo7_N1G1MOPNJ&>3j0pb1JW,&p.4/6<.qc4uYN<;eM;3nA3d8a`JsG>FDpZ8@Og!6G[/eoMj/0d;Os#O/4b&/^U-hLXc#];l8$PPSNc<\UQ,M$O?-ch,(4RALFLH=B.scF_/Ao6TH,Uc<#^q9Zif=Yu[,_&#V^Va@+96Ea9CUhB8E,%^@X/-4?_\V3sIa@[ZM9*u7EQ-b_nACb#hm2Y^l7Bf[`nZ@O"\+dF/\o"Zp"N+qUh:scT']%l]:3FG02Z@WNK+d"Q/QE%A9cAOjd4hh>0a^)Jh=fY#g0El'fXEX2:1?1!T8$Xj1.\HW/q7o5?VI[8Je)-^(TU;)4&$Wk4s-Q$24YJf+"gT>0X`Y6(/$?Npi:3sO5!k+hhY]SMq6dU%iqAC5+C7L:/DH2RH=^W.LST!p0\F;XqY9I&k\g<=Hng(-IP^urjpTe/qWr71f.p>d*9'qI9m:8gGSu,C>nIL0b#JJ"O(fhrI%kB_A5l&$9k.?c\ujBQ``+^k;.D@_Q"$"!O]g-\nB<+8rp47h&Vb7MEUW,&&!qs#:3LIS2)*57>AgAmSY?LQhDH\bGsA14l^us9.;Ai@l:uLsR&c:,i(0YiK;LOR'ZUFNM(`[g-=K)qaVNW`MLde-2Vd8A`\sO-dF3tE+f]Z8eoL!Ia"&>r9#ru<lJ.7!5)-n1O@f1*S4InWnKQ#1IfH@X)6Lpq#jSn4c\E*Tl(PL@X)f&Uh[9jucYuo!Ll?"bj[6.EgW8,CCsC5gJsis3:D(W)CN/is[]Yg'D/ukhP%\:p:qDmc\kNR1J#C2k-$[S6U^TP5bipZFca6Jq3YpahR\3XZLWXrGbGht@>GfIq[OA?a<e5[5,Is[rIc*rUILB$EPPIFd*B$ud*dFofiJ-EW'IAM9FN9!\7GAF@_X<0^0NFHehI(C3"#?/)I+U.)<uS!&e^h.*N&oT_,99dri1]2'pXph;-I2sGc+.,#?_69Yo,d!;Kc-D'F2cFoNG]]Qiu:c&>V4cFPY%&sC3@mZHA&F+1rK$Pgk\%g)]+Y8/0nE:DIEI[*-#rirM+E1pBO6.Ug>dG#I>G;]L@$?n/,koHc'=&SFDLe>(C"%Rc(`g1@\.aaLLQ&hj*QEjf=$MdLP7Yh1'fajPo+[j12ue#l8-ebgj=[osNh>(^?(S;iI2""ukj[$LSl3%)O+]0Q?^IfOaL@Dr5MN\oHa`nsMktoMb%:926\7=qJ`F:%#(oh=R(LA%r+mcrpHN[t[p-r<%HQ\Sn;)d:@dV<O!hk:b^g0dWsI"LIV20k'k,7LSK(+f\P+`_Fg.M]Q@44%WAi;5?dUO>IolVjPE,KJc))smn`0.:U$^&3<~>endstream
+endobj
+121 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 2309
+>>
+stream
+Gatm;gN)=4&q0LUoV4>qF*Q09VXbjV]X(?[[Nd4m9r5:''F@C!+UJVaqNA&>df;hY/rt#jQ-2&lJETJsl-fk<q=k9_hm=Xi?dbGD";HNrbUJ@]R$JiXEd@6;,Tq"d%>3UVs2X(PSs!EP<;+3AQB.peBgMQ=-U)h',`[JD]TGFu'/.;<6"aqc`C&ur_G^/IT-eAhlAaHEl1rTK:R?-kc[Pb1Fo?bToS.%!0mgC&cjrYHU?*b+I`DqDd?Ji&094u@LqKE'9Llo,>OgA?-GsQ1ZP^B_Gl@/aU*-,^p$BT:jjh=Zh[#i!_MKYVE&<-.Yrr]Dhk/im#99?H'DkbWE9Q&SJef`jGW^l(#h[K-b-PL^pp9Jc<ri_J^TtcIUtZ7f4SV$V;7&F'fGhG4KJl>u2]'Z,F+fS6AA^=?>[5S:(]U>hDWX/-QukF%`B6q%?.83=julc3T6AQ30_2ns1d#G*_G5Zsp\iDR-(V@U)GL<!$=fYlNIq51$4t)dd1#j.n3s@))EM(WCkVnZ$=/BQO+%^RUG>HAN+?'-U(ik)Gh;1L)NgIhMeA'_F<qbK?e1WX(?:61@A<h62>))f423=[np^Q%%%.(CMT/I;$M`$,4]OOY#*c4@>-&A^881[r=XRD.eNuoo2>/.C=lDpj15Z^e&sG/hd(Rec<0]u:Wi\%HnQ`%[,h;U5Vn">eedNtGhJ8s[-r3H<8:dJB:huWO)jsU+74*;:1F=1/6DeQmQ@a3VXa'sOgU)+*1kOu>03/&#>D(u*1GNj*c\=\dA=dQ2-+$^anRtBdEfYDrR^Op>8o+2gAg=6P\kEJ,#A0H/UbZS<YgWU?,cMpi5Wk4ROA'A[f[&EWGSFl8CFLp"29a^@f;OBuIh2R'./@j&+Nk7O;cg^TVg45IT(\tr9GWRV=;am]F;Bo,[,j+CEF?30kZ\=GHd(\i9n8/,1\><"kYoFMe5N#QnK+p0%'/+lYjg1!"oe$C/VLj)WSm-n8?lD#8`o9<VI;Fa!W9XBmN%*iET!C(;?bDh54+Jl?9Zr?&R7UnU"0=gV'n)K;.d+;UQ3j(6!P88WN*pf$<^!]$>E`55VNjKiuNs+1dM('T%C`OQ9Z+=JT54iF4$rG?9$Y@0dS,NhJX!]:Z+<LGFUr)Q0t#k,Loh%>'Q"YAf^on#'5P$2N"q"IAA\UM&_Q-O\K0?TX"Q930q"(fQI=VbZh*8huOt@QNIdVi*RcFMNAWqU^CNu-(9I[MM=9n*Q.?HMAb+f%+UJ7c<WA3FaX`/lX#I(L*!/D:u2rkQ&.eVYL_p!.+Bl:2$3J"9,gVUP*IF*`p&j3^I.`b/L9&k4Sb1K*RjF.Yeke;FkTf3:iJ<2:3Br\X]8T[Z=Nb3G"R[YUUjG.[_!1+b3!ihq>n@'%dMlT<NbgLRR3`hPN4)AG9I[43Og&HBC3#=[Q%.f>&k;MEB??(UAWfVIGBk;rp.Skj*'5H#+]<(q3>h>Fl!&Y\3JZ@pTLsJiN?_r5/4AdZcQ=$#pI$mB-h=pZ__IV^m%LcO:[8chM#Un7N@M.;5%&&_tr4j#V.q<J=aji#\Ybo=oMFSRDf;iGdQ7Fo;c"PB;i9h;\/:a%F&W>$b-@;HB"&-,r>c-^/YT8f6Vj'.o?[go&a+<gjN/uZU]'ZY=cWZfll[I0*#:_Z6Qn\Iu*C6.DHRnO1+?-`7&%VTM?m/k*Qf-PijAJ]B0Ntf.A[`WSLuDq+VA$OiXo0CK@n;]Rn>X9&a.d(Jh,H'3X]ReZ*KplgNYqMSIIL=r0[2jkQO$0qB#&NG<Scm[>W)RuK1@h-5\\k&e[J:!@<&k8fhMCuDDRBpFn)GA7r7_s56T"_"QZ!?tpC%a3_Makd,=3Bd.cHr)_VUL$M3q9G4iZ9ee,XT3UCKkc]1Nf>Fu85?6%2?RS]SSb9a/N\u!0"#Je/6M<,$G^d>6aKt$f*5It>u>(F&$rA*=[H!:lMa7O,5Y>Z\$=aXM]I!CX(B&sW^G]Z_qdJtF%<j5)XKDgL^)jbP7*SAeoe._8`0]b_&#+Q\%O3GUdf?tft7,fob`VM$F+?J\Ye-+IC2?P'j"g0edH`UgLZrNQS)#4(d10((d?>X$_M@t>?7D%AnT5<b>*794CgRA]RJb!@^MqL_="/5[qa9$P$-@KY!S.:L5]FiIQ`#X(YZH5N_19((C#+:)2lQJJ0q:$iBRjSSda&+h$0+#,V*Ee=Cun)m^)0G+!)8ET22S0C.Pb0DOhb<2^84U!4W*k-_&G#)(/Z6X54lK,94'q@/$5RqtuH]SKah$gbUqkp_>UI$BQgN)nqSO?rPW$46HI1[rjb-5;]'dci~>endstream
+endobj
+122 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 1990
+>>
+stream
+Gau0B>>s9G'Ro4HS4D:B79<j5'*4OW+cp0BR80XjCM@X(OgN:!b(TcjIV0tM5Ubmh1<^kD]BB0AkF@>pr'gU7?4jkRd&ZU[MIKbj-q],V(70-W3;@S,;)"KY;)Z73&ngHfbke"+Jn&&Xb[N>j<o4sO'I;-aM,F]#i<4(H&UL5/e/4N.kcJ5Ar[suqS!jLj[WM<,qYL0d%GdP%]Y(b#4"#>C1d=,`Ro:<Hj)8W$4"\0XLOs'Vg*oQ+GVu?@$_uB7H=ACqKY]L7V0e-B;i=_lS5KtgFE2MEq9.dWFT0Vma,qM(Bp=UT0J`/1dEUDJ8DbS<%OMXaU+?]N>=nF=?nrUt'-o-p&f(0u6nB*<QAT'p-fmRjdp<hspuCDI--8?,8MKDGLjb6mY>5tdDid$*P>BrXq>C0Ok4AoTG^]/naeTFp+)oLq(K^7fk5$ZI4H/ubXXjd28Wpc#0SQAPHm&Ha7nN19PfC$8OM\ILS>B)9;FSZ8N,6N3aI\VGUo^nf_H%Y]WOT!*'%$GeRC>rURRCGC0M\`<mRYl4@?d^]IH8CH8!5if4'*KV92^.l8\j+#qJ/<BY<6>r_u7Kl7Zs$KX)^=n2U[b*A?Jr_([UK#i@.C4p0JP[[h;FPZ?FCHe"(LuEmOj'[WDOU$7F(0SY`?o%YmfXg>B62P.NsiXXn&OA3l2mg="_#\Wo&.D.IiRfC`/_l]4G*NKIEkn*!MKEi,ttRk+V%leVEeMK83VPbiaPo3:Ecaq[5^m,kloKYadm,e5Eu5lU[AlI4^qnS^(G-QN;)c]fg"G4g]Em&Tg$R+FX`ldO`U/<nC:;XgUnWiB5MQDOMR+Po[3iteW0WI.mp5"D,bBp:6Of3#%Foa(3<>uirb<MN/krmXP]IuNr8GI8cSdZh>*H`9o$_I"bg43%KUe`qSo(cE^*2l4Z^,D>ber,hoo/WH_#c0P<u?UBQ&=,aj<;,k\AKQ>9pJ6YZ=Ol*=$DP?o%Rp0V#daf9b.NmJY$hAI[.>NGkc_b!6b&3$;In,d&eOj#S=7KTRp.Ml@-/PhfWXJXUf7H&.Jebjc<N85ZV^fn*<P!t"2-RhIf@4!W-gb`!H//3aV=rP2J+DRLC[_1-(ie(0KQl9+3IJB\rmg"].d;o7/HP\*=*_Ob-%:Wk]ahaJZinEMC>BfL]i.R$MpAh]i9H`32"cYkl<j"#Lu8:]@UJVu?GFRDA?t7:f>]?;>*/-LCD?=mDH`VEB54i;0^/j'DH^\6W#.^l56,H/I*%QtRlnmFE>#)IWgS131e-Z6.p8Rn:2B6EM7K03`]An[F<b#U;-C.<hfoo1p3AJ(]rXSdKtb!mA/\4,=W!1JW%/JO4AOqN6GCnMFEDL,JaWUJ;3lm+"6U-"WHLFLQqgB-)?fH]oO--bN0GQ:LMXRj"$5.?!)-RL>mUc$(40R6EV-q:=C#q<AN\tZLMB(m1rdWIXJNEs@"Zjt65GTd88+dLMMHdiTt;bdXJPWZ,W)'dEL"uJm#Le\j\E%7G>@I.MGWbUHA(Z3Qsor'cR)LCSV1O7G@j?R&5GULdM@%?M]rDVR#0U\I:kn#RVmq$JME<GU0ck]'LPSb9?_jmhDh*5\L\R7\`Q%RW3YN9CLkCH'IM][.E0J_..%5d$eRRh;*Kkl8JZ>?cOp@r`IC5)$NS=+4T:,TViSF4N8S0Y6riTFrsr+*J0GNa!SsE=.dol^B4b45:_/?d*j+F%+eXPH82f23Oca4a5HLQR*]ZCSlk7+(o3=5'jT,5&/O7'XGq.`RRR&Cr^DnK@nk5nHaEJ&Sh-fYPT]@hYo;ZROK)Uj$O)eh^)t[Wj9"C5rZ['h'lpa(_Zb`T?G8Ra!2;%PINj8tub@fOA5X3f-D&S)mLH3Ahj[S"U@Z*)=^87/YIXPcLS'-$2l[8BsX@q;uFf[G1O^hgIhiB^XGATaS\N`CrYs/#h_E3Dk@,jE//q_,<e=;Q\^(6rjFj=GR*#oghd(d!DrF8U!:R=F0p_/-F4nJ~>endstream
+endobj
+123 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 2400
+>>
+stream
+Gau0DgN)%.&q0LUoV6Vr@L-:.ZLXeNhQ4%i/!2ZXRbF28LkI%6.71q1($4cU1e:KLb>t-i[Tp'L&AW#Pkpllsp^uY4Z6jlVUGr2a,[?ci8GKVhZWk#4?2SskaGsb3"<mc!DW&Q7/h[R<EJW^blr'frn]QVR[MSb2nAu_4+\'*UkDBaaLrBD?>m&4I]0d/t`V,CU0&MZ/s1Y)OAG#!Wk3g-OkRGr3C@lsIY2^#l7^G<mp'V7=HSM-f[dQM^+k_Dkih:UKjbJj:"gNPBoU[8`rH:W$&2^s;h>T=E\XFRln3&nh3"j%]!_@!B7$A,tfY,8sq(fZOCC1-`N,k@nfO6c36RXL!'kJ=A#i=]-hB`07hdr\`W&k@hSp[UucT>AU[);SUY2SSbHo2kXKBcQ77W"@Tl1J_1ohYE>T)8u=Ueda]ps,LLmc`,1quJ=.DgR-PG`Eej_+DEB-OJsLs(>gfSZi\8@f_e1SF+8/&>2W\LG#sunt4hH<=T0aQ4GNJ0U1<IjP0;qQhMsUoi8.R\U&r)'NKgZ`o'$AglLfXc\G5a;dU<?'>`>AU0iCq,r]rK$SS!$]J+GtfSa6pNP:]]!TA^n3C>;4_X_,rV;0M>l1j\4k.=es[*U,0QLI#[Kp5;orRp*[L#5m9flVuo.+)UU[nHBo,u'rpU;F31WRE0p8A.o#agD1R&@iQ%[_-QMKeCt4cb<gV$R^js(/:CL8ldI33oO$'BVe.#Ylm*W4m8Wihc)>OMH#!]BCKT0n>iJmV-9fq'aY9%'K&-p5&MM7_p*#/QH>#1iB-^3P[V8^(=XE(l`W89&#aWZL+&V>1<UhTobN^"1K9N<Zir(YV;?#fC6R?F>a1r*s*DGLY:%u94LsALao+R(I`a^"cfog$DBk"_3$?S.qs_QZ<J1t.cAs.f\029)+'JE;FW2!j*Fkf2;2fCT+qaq2]7Kfb4EeeUcgJ]UD1#+bp(uB[7*0h<b$%[eX-[*f"S!?qa7Dog&$Y1gjXO\+H4eeNS216(*:06WZ;bRud>QZ(ZhK)<Y"/5X6%;sNI@ou\CT<>)aP^9Vc73DQ32uRUPpB+'E)q6hhsFq'B`cQeHc=s_,.Ki75,CuQ*\t,d`3cT0J*?%nb7]@Aa0XSX8i-Ta7t=$L?0Z%46Mcm=KYuV[6I%-=k7'#G\+[2AV+ArG!c>Zhd$a"*d[Z/0eRJ7j!>JPAXIG)^?-E-[7q$r5npCN+r<&INSN"Z5KfihXL8-Ot,-2WXe#WE/bfH@8nD3%^L(cqr"#><d8=NMGS@hnnj`lY.eQ5T1,f[^Dq_b2u!bs=j8ss;9bM$B2c7B5.'\)WUioSD*'6Dbm1-;5M\.>U3'7<24-A`#pi+5bL2CLE>o\&:Rd1#GTUV8!h^$$_'B,/UrL69@_Kb_5I;/em"eB@KA.!J^[N&O`P%Y!FEPX%=_/8As9+'X[GR@&1pRk4!"-hAS^rGf-:$r(NY6D8$\(Wb-64#T5J6;%".p%D`IC-+qm.fmM64)K`Lq-f'be'=HAIbs,aVO]Z`rOgTR[QWm<B1c:XPd!qq]f:Cfr=p=;0B)F#\BSbu`F=rU>kBS4?C#W<g)29#L!4a`QJb,qkfq3Rd.>2t#&rMQcHu='QtG*fh@7cWLV[i<mt9Afk=/_emm`"iY'!K>Ze=CWqCi^kqaTb\V/@jg"s#n-mLhJtqEI.s5t[DR<gi_ZZu+9SrAuS"-23"k_Iao4T-I!ZgGDMp>udar1o1i]VbP&elro.%cESdaaZV/"Xm34BYob/'C"-Bj_,a<H=XU9,YgJDPG=qW(@A/frqBi=DCPYXp=d@6QKgq-529b@A^,WoVC*cg,$^rSj#ut+<l#Yca<OQFDaoe<ZQ7Gp</$6S8o)3[Rk+6DB>X*\gSq`j(s3uZ&;a1/-98Bse>(OZX\=)7?Q3i/6Fc,1MKXjQ=J\cjgIVfoIqZdJpJYpWQ;;]<(+2oGpN"sGkc1ieMp`2Mr10ZH;Yn];#k\5Had.)JlC'<MjP@4q0juSXl)[5G;UVd[]1ar$_eCT[4;2=BNr`G5@\1sKKq1/E2Qe<!@QhQNWQBbHsFaU\?:CV34Xjo@ioTa(\&rsi&R-.CbPZAkj<o@0$qA+M@GH#Q-?0;bhGA;Q0aGP:ThKF3^Y]t-%(4([8YfkpYQD/4jC*%NZpKLh=Qh*MG%f%5M_'SlZX`FL:^mT(TGeEl;)g?8<\6X-G5$39s7Dau;k6V"a_8cgTm3,g/B'Z[Z`6Y:AT_08GiC+U?&:S"3Us3sHB8HmICl+]E+C$eq4A,lakj&YmVMSdZA8XZi(?B+T,>(X+2/T88feG)-dq"`c5WuSm5d6J@ZKpcgla;;02&uoTNodCL<OC:&6FTSS^Jl?N>lap4p5/[#[(W)O%SPN:O7k`#gdU#O_rhE=p`JSm(p!~>endstream
+endobj
+124 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 2440
+>>
+stream
+Gau0D=a/UY(4Q"]\;tMt636N@4NSYbPGr%>Oub`hF8A.[OG&?6<06a8?U#XJ`Ck'YMfNhN1"a3e^O'r:#ibV(gqTnQk[[9B]b;YR>-:F"/>2).SLonO3tfK[e.Z8Lhq/<hPg&9gEZ65SO&M*uV"M2eS=#oO^'KN`4N<^nLiYuq'k)*<F%[X$s59,DW0B^dl1j?)lGM;Fk-L[4hHuj-LqY*;SBh,A+HLls2miLJQJYksR%N*]M$6)=MMQskUlfnV'uZUg@2_6NqTfa,Im,/c#b#&E/q.-@5@$AUZ$Q2l3"]S`!$l_+dJWnJ]5OCW<@6X';AaHK<RB`]`GlU1+=ul8@ZCY$[s:bn#lkLJgi/AIBAp`<53:&`+-_Rago96m)]`:V0!A#8S`Ru@2EtE9c/tr(VOt$R5CcH(3;\MW48&T950g@WZ/W$sO0CsCZe,f_!_,.@n43@?3A9WN9diU;>RFu"Vh#C5PlQR\f_"N+prl^-_@A'rQ7"5Jf3'M41m]_0EgahalF(A@b,Ut2eO[#&ZH4#]X!`K](Ic9HQP8Kf@Z[h4K#5nUeE`:kE]L%#O6_kiD+/ojICKOV@\;?m17f4`h5F=*1UGeE9?9HJ'kMK\WqMI]\o-_42-X8Meki&!C6]NUqXMU$/J5gKkkkRMhuaq*3kj+@bR4$^kt6rdT?0_g32B@C5=*7Xeo&L!YVoC.Okh5=LY^C7C.=h!C$qrt-!&XMZ7=R5;D$.Q>"SX!2/5MrEUA$oG4RutK]J][M*n5k\L\`][F)HCM/K`sbil([inIX+<H`"ZeK$NX>-Fcb<R\4WdT*G$*)s]hAOb<<ap^#$dLF:8g;`?N^aXSBVgBmo]%gjde[f5N[_EN+kkKYd05broM3%E!(ZLd0/f"Qk^=;t*g-l<[O^^_<F::l%?A^/Jarj8hlG`N:U8In<>mV<u\T9Ur;>fgc&pRd=!PK4^3ViBoNe*M,>:$ADep0?,=D+H[mU&u=`n!KXIZV+_.YNd:]2N9F^'a-QLXU8e%GVjQmpsoCg8hFX'aS`-/o$C(rX7ZQ<.PnJD?p<oNKUdJM*<W+QQQG8+P[ba7HQ40fA0;Q@/+[Oe#>TLEB'm1D03DC6IflsX49@^2F_TXB*M$)J`R.lS&?p8VCV`ADbtmrpcXR+rf@3m!]A.5TiKncE-rmE<Tq"_-nAl;TC;r@i?JU([M0$X(+/#m^(61:O)I6&'>boccDBBbCq!Cp10Ld6fCcL%*uNf-)<W&C7[?\moG5UT7c28W+`T-2g2*t#fkQLkNP'h7L[nn-hhMmjNg[pn$j#*+Wld9Qrn:?O#Ch6ZgC)!'X24=TMY>#T2YP>%6>.S>3FI*LXS_FS*m!7a#'L[JEu5ETgsp;tI1G;?C?igpk:k3Y_60@*oKnQ"pGL[2EBd,$Iso15A>T)`mD1kP`p%EEbdu)geQ17,;9iTX6)\[,$+t#4EB-ZndZk00ff&_Oe'5",1o#1t'[m]Fn<QfX:+Pa&f:6m$]ccF@jXhLJ?ro@'D3R968ul.Dl/KIbPsnI4,kb&[U1U#oKc1sk79`f@"#>H#-7NbZIG`-BHP29-S8?B1WuI>5=]*su/"&YV>,.37<k:R*mbm3_:7K7<]TKWE@'l$*8m*BsqaoE:N#b6em[EMWI0'ki9#k!Cg[L%)L#cOJ!ZeQp+QNa=cos]9<-=JVnY(OtY%8bXNGUb_>9MS<&R)c#l\dTGbZ*"-%AB(leDI9f?*@ZoSp%3/.Jo^"GS5`P[?Z=]a'R#I0l`20eRO8],S6EAEedT.E`3V=D+]3T;V14>\9reHX_2<'<t3s#[<nijjdi]1,:^K?f?2Uf'Y[!a%V02K\?:CtZ1hX=FOQXJ_9.H`*=A4bEag!'$MGsWD)S_9p_W?c5&q%_Z(=Y#D0BdVg^ek4Dm?hD%3qdAo5llJ"!S.S%+gLIPR(q\d37,rLE49S*-9j_0=P\T\B"$%g>1"?>N9p3VS29\9GR&oc5E3srY<"S_TaK/5(.+k#J'hqA%Z8P%qVX42(Z@9GD"q=^:$f>?2Iqoe+mH=m1**h/%*\P+&4.@4'oN,gp:G@+IL09F;B0paAun7q[P<#.jc[,R;Z0]ql-TucX3^^.*]l/F*6Jc3KkY;fdkduQhU']$GX?6RhjtZC8A5i48TFJ3tpBtA"@a1/`C4/$WXf5&=LoV$N?@aY=aGDll";+L0l.e+:b'Y[F$6!lfRf[j5JX'm=-WO(3L,kq#-E&";i$ah*:O0b,l>Q0,4\bo8I7(>tFOtbMgZNkU\)s?dKfKmKYX[X_k\^6fhi`FM8uhrKJ9'E*GJO``Zk2,;QQ-de2d+s0.8X6M8pdb<B^%VLrG&LVhlLUiMMi80A)3BP`En:u0]N7VT<6+[i8r%*oA^j8.Km,hnF0iaTq,;R$o-"jL08oVKk%99<S85:l%GTBpou:_@F1+J4\Xkl8V'm,\~>endstream
+endobj
+125 0 obj
 <<
 /Filter [ /ASCII85Decode /FlateDecode ] /Length 2184
 >>
 stream
-Gau0CCN%rs(B*Z.EPJX(Po)^X8.cPrlD392A&f@nB^<MP;-+B/P!dQWZJB!iqjomF*d4l)d@r<-e+:)QF7*N>o'mC's3lS`c&>uC%4DKr[\P&>@[b!.Ze<IV8O2-C&dHG`^IM]F:WTV48p>92j.f1:L2$J&M,.G7Nh[^DDs38O,mPSPkYr"23.]idR_jRN1_s()D^_'#D_<ZV4hIGhe*l.cIs?03oTJEaHM[:lKml"/6*j?Dqa(_^U5;Dg090GjOM&LB-H"c0Y'B#Sj(&ek2+GnLIe\@a;%V+=LXZ"Tcd&H?LJ#LG#Tf%ZA2o=,On4C3hOWTu4kpid@\4!"'&S-!FFE/.7`0J(J0f'*4;W`;Y(]Yi"]2kFjd+qH-OV$%pbZkc[!-!?NES8-LJdML3kKWhcq0a4fWNN&cVC[@hp?Q`=8t`Dl14HZqm(ADJM+,YhVlDH[g0L-aS//$E`?HQ8V)A1s.a'qBC)"?P5piaRcdK++95@A@Mg;XU&7NS602%nlAD8c$q++J+r#9D`Klc\f<dB7aN>6sE^?!!<Rt;fT@iYgMI6RcS/kCi`FEg;qS7*Kjo6:QRH4.Kgn!oYpn8bYH>qK?Gm*e%!uIB-@:5;P2-Xh<"WL[`>%]\N0Xc*15BK3h^hG$k.B>%#7^(a@8(Uaq>JqJG2lc#2HbJ.3dOqe)CF].O(91DVAYDW2Om8[`q12_%Ci,WJDID(_OA:M4Z],6cT:%3,=Xrd<I#oj\X&_ns=gP(9f1IUL.NS;U+%9[2T6oj+Y*=L)f)>j5#2g&Z;jscZB6JG8_eED^[3!TDRIfbY<iB&2`UHjS14*E!bVltt_M_[.OIkQ+A@8]/PLZmcCPhL2J@JM/&CEqg0VgA[W^Ki+8r^9&YgA*H8lB@1+4E_PF-RoS:=SIl'D6eos)a2haY3p+IS6Fap;4R4UX!@Qkd2eK7!)VqDq,K:V>I?#;l,&i+=d\><\WM@TH8%`/?"5GB#BE0=>nKn2Aq=E>SM]!=&c/!<]Wdb*KarL<>.@':h@cSgo/hdZqqJorr\"?Wj6CH[\2=kMt$.TcD0tL7WSqB471rg6pS-#a`XWSS]4@5.K2>#BW]&WAM$HG.*je6i"BWW<G[uT'[Ej6!Q=Q(aA#k!NeG,joR>^?LHZ3Vd/REf"!>0dhq8'<rXuFUe8N=2*77a],=72^4dWf@VE>n/d=_IRo(ASiqYGA&F*;5.7FAIFP+lEj\O#0eW!*%1f/LB;s)%eKs/uB=s+d'[5RlY%5;a"Z'rT^t%LH+<[MSf`7`X.mQ@i'5*?!EX?Oh1sAQs3uWD>%>)lZJY._%C"&A1DB&WppU'1ot&P!'H,V`2<$Rhr8X2%Up[]V;ko4X5](8)(e_H2c\amk5,CIe7?#r?$6h:_bF</R='Nb4H;Y6(+um,;i)s[Aj%`jVb'YXBpFsW&r)<[`H$aXrp=^)_9%:;q[F=g6UFP<"=sE0h*hn//\M'bofA%I/=p>,Vf@FOX!5;^/s1`<rI*XlSXr%0h:%c&6dDNULmp\PR\pA3>7s)dL$JeDEhL&VWWc!1:R0XBo=Tc]24R^VKXZRg##TWLl+`BpNP'>g5!)P_:kDV)#3TD_5b.BF!lGf__q[s.b(6tipO$b/^d?rIqJ"K]V?bI>:'TZ"<>jDe7J#V/Zqq5$;$.ce:#-*nf.Y>WBgl.]--:Pbh`-o)O])WQb>_6eDd4._Wr3MMp,?MQUfL7(to$9Hu07@-]e#$p*F^=(4_[X7eq7rU+kOW0nW",gbmLfl:5R[]]DepkPg'MC9e3&KuHWjC)f4;gbnl/X'(j&0!i,"1]VMT<U^DcF+on"-gb?Ao3C2A1XGLFKl^pd;MFHZb-sUk3hdkp)H&O$OC7Ga4DA.4SgYN9,r+(9=6'gU8>h9a@iDk\m6aKpg(*-aAU^,U#>_X+'pcECpQ*"F0OIISftW;)2f8jd<t6i;4]G;h2nU5K\"i7>5_?.(F"P;siinuqA:ee/&/H[m\.#CZLs-+AqVc\_9!C'n[T*,VfMa<<DH,8J0g!5Y$\\"WN,EB(f,4"eCAX<4-*!L<;f1j(B\F;I$cAhM_LsG,OhpbiZsl%N/b!5pCUM9kZ260(NgZ08RbSX96-^F8p209OGb;hN?hjB[kaO;MYJ1S8_?''ggZP2Zdk:Jm<rBj&mImlu++IM,_K!W0O!f&?5;sC0]D~>endstream
+Gau0CgMYcc(4GpYm$@cg/()":l6k74:"-UQC^CB)e"R\C,Dc`K@E>-RpZp/Z1V1/SF+Bo;*&>F"I9gX5[RVs!4S*Jt'4!6Sr+D'QT,()j678SJ28*1`I6-u@aYMb3&j-gl$8^sJB8nng@saC7e4EjCE9<;sUg`28jMYqf2r4hPhUY\cbn9<nnDsW5;Tc-t-Y?/LbLu6k=*JaFI=M4Xk4P8.S7m@/rQh!]f8m\E`<TTE^]?G]`n&6<"%3lf'=hEbHd@(nM<gs7(*5RBcTU._IRShNdI_$srVPU!ebn&+k7Jise;N<#:(ia&h7Z"ikmc)(A3uVtMB^Zb<AZp]OsCMN'J-PDE_I?553AK/o&+b:at/>4eeVS:n[*1"E(D0m&t=VoH8M'r/S:=t*S8DtmI&O&eb&:p(OA<XH])@]]BMD)k>-#6khY(]20KsPHfQ[a>UKiP(EFj,jLIeDD[f=I_57oZ*[$.oa3?rs6`W?!cposAIRMLcj\fW;L%+2Nm)ldXMB09+F^%Eh$PFuCBT`n#)MB_Co+O!%Ksq9nq"7"N:BEQ`aeouhZls"hOUamITX!/k4UgQt6iBrPi46`^s4Di25?u):s+h]H$'o&diZpB8.HBbWc\_G@QdNEtW+.<]gHV--'l:LX]2DTka[_a0VAr<]&9E^+$gM:T)I;K-GpqdoTiiV>'n+CI#H_aW+8L_/MMY@I4=FR[r*rNPN51\9]0F%0M/Irf$kobm-!-JHnZJ`&f5Y:b$PCjB7_.gB>$"MP]GuloL5)QIg/`>9gf!+Ckd<c:MNhGjN]moX2b$6M/gU`S9S=48ca55FZ')ZTfcVAIpGCQq5aQ%X92S`qE6*_)3N8_"J%bX'?,S?cH3Aq/nb_96?AF9/"p;8!!F@<?\X@W_4]ub8>O9CoF19J(#\Ni9L<im4M=WaoKW1.Rm"AEE^.bFVH&T$\p\RIe"tb_l*Hhcm!A,>dVeiSV6'4sSXKeE&4U1&If;`\u2bT.%0bacbZYVn=&s*\?lu7js"0>G?OPB2AGO2=o1*.EEoJS#h2R6Simo?htaoIOVS3I%,U21=Q]ef/C>u,#4[[5/MerPBI=/)dC;B:cs^"g6CX\:EPb(]tIS+6_Jf#q*9aPr!]btuTdbU;la2n?:p?ok9iJ/=5GdopjIM/7^V3.R3uE#7']X_<"om?VM5BK2md5p,^?h^1slm]lb*.(^.Ep0-[Rs8O5@!Z4B[)bBu+Z;La_@C--sfC!^qhh_ip\``P`(k)[:5BlC2fk^i8&Dnn%7`4>]XtPJA`mJFE&I2)+9t\!#/5QRCP)la1&^;.,H'";+CVFPp!D#gg5>BoU$,U!:"Q2/B:n_,'NSZ*df5n8e28Q26kRZ;[FXtU7_qUU^hhXo,HK]K!-.OD;+gdUbjt)&0l(J:21^1$TrRf+l2CiOl5&a!Q>4qG.eJr]s,)@@&M!Y:#CU#dFm9Ad4<o?=f8I#(C(V&;L7e@7#pp126M.n'H;>T%,Ck@N,,aWjj\)C\4s8$S+NP1<aX_]VnVt2Y=iAaG=d/>1%cW-b%UGaeC)A'Yd_42=ZRq:p<giJbuaNn\p_[1)g<FlWb3!XI'/@<lEV+0sV#/V1e'kF<(ru4;>0Gjj*1jr3pQkFA[;C;n6W(3`lUZV3n"B)R,X>tV1Z!8o4SFs$LJD-m=/u)ZEg_QuP>FdRKfXDk>\h]Vj<la\4>'`&J3LJ<pY/ZIj[k,fBfCo>#?&O.`i;fX(I:uKW'u)Ro=g1BYWfX+JXfBPAl,%%Ai,OG;XbO';W_GkIf3T1<&H+S#jtb2?ToJ8NT\J<NqW[d8fr4<`92VU%^1;7_R2i5ffU/_[\')JT\/4oN6a:*_kY8>7"DcgZamEp;'dXC*'lEKaBYu6jrYoNt^K-ViR&3-XM@qmYiUHctnY2!/J5D0EZ6!a-\Dt.TYNF3(hImrD?"bhUQLS!6Gr6;;D*&bJ$cf$?RjS'B#=d#X!3+8O;Umf"ZK3NhgZ[#>aquBDOJnDJ'Cu)u<d98Lb=?`m;E3PC"?Xla@K\H^e49)9a@T9ZHnn6Qr$]Pflrd1X;%``n@/0e-Zi+`%XRF6+B*)b`O<ZjYf8A,O$>t.U_>Jo$AB8iFpWK8!=FSZqH?s"%]LQ:*0"2h=OFaB_mj35D8k^"*YV!GqVEhkQV-PT=r-NrnC9gb7'eK>o.%mpH!H2(h[K~>endstream
 endobj
-101 0 obj
+126 0 obj
 <<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 2311
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 2670
 >>
 stream
-Gau0DgN)&W(4GpYlpnP*@X/]bl'(,:WS97QAMp#RkKFg"Jg;VS'd2ll?f/6lP*.u:P"p/>@uCC[m+^600/t'r5Crd&'h#5@o\C#Y"X,JK'Z=<OMmmf93;`"m+E':MK-\EK)CG!=o]E6^095RI3XnYR>(:n]P8?sQ.#>taq^J]C60oP4VT*j?_7g((L&^[W_PX3eQn=lD]".XuC/4BRmr,De]t#BaNp,nOpA0e959,/?M\!2iQ6#Oj.IU#<*5S[1H&3V:a2&EnEU%n7A/ang7SbVMqr<j6+J@E"g"S_,f9^]:7Q?D6&Pn!h4FrXE7RZi,B6a:SiH$]X:B`&$Dm+2m47gmB*2c>0iY(A+1^*_[q"UrkLASIHE]iU[_?DSVc<D"MK1N]*Kb<#WS_m[)DI+K/S0sf7q:4<OCju1)rI-R&)9J]/fe)X`Xm:1Q426&n-Oun7Ya%VjQU](oK+W86r.F`n[4(:0S^;U"!)cqjr+R,R-rkd;L<*uJ+3B^Eq33jC0l2OERgNGT6B?SXc*gf<-s*4%3gYOO)i=#EgT!_T9rmA#8"R:)KjNu5H"8XeYmdB-\i'/dVk%012!a,ro,07^="@!47cs3Xi-SMhQ+8$Bfk@o.NMK0F<Y`$hnpe'sW`g8ZaAS;5C:9k1$L=E`<ConRJl\TX7Q,?A[DAS-5H)62FW]Ug-;'GnC+YF=A_!(sjPj0>jV$l]?)\6Ui<+RG._VUb-rd?oBd9[<(A1^>E-6fhSMSnM=.*g%;2$9Lm-8q[)fIG+>A;g&Xu*$sdD1%n0F*R'QghT>e[R!77_G`XN>*nCf!o-fNcO5C>bH7TXmd0jVKX*7m@PU33r_#6n$/%q1"X5"C[/LZj5Qp!dcj"#bYLMc_3=D"6DH7--3Hp2O+X*:4Ppo44Q&;6CI1<B_/%WOQadKdi[u+Ic*KA>!kciu\_X!_01H]OVmLT%$E?cD>Z7CmC'aks],-IEFS$+@FYFn#A,`kk=TndIO7o@rk73?n<\j/5?>V;#@*;VNTJ9EViJq<<`("'0XpW]=nF)LqGI.2mQtH'eIkG)We<A$Hgj^ttL!K]"5#,p9/kqVg9+jmF[NI*Ts-?T:[Y0c[AbM5p4pk`)V<%q9*OQ-*J<"P@Rp%0#;WKo\4EkK@AT>:0Y!0t/rBfYddD-Q*Bei5ljCOgITQHYW^s/"V`K+S[:<:6N*QA5f>ZSF$Ps=;#;p,SKQrt3<(aran5aCP3IV7SFBuB!$Yg15MBO[a4ViR#ep:=d!S"kg'Z,s/,qls1s=UdNmB$3mTg_HR"cn@<pQ0@b9dn9duDN]#Hl<78]<+-T'AaP`]hmU^5R4Yd;UXnE4\N?YHf?b;Kf]Cq9NkGu]X`[W'Hie[X[^Tr%ms/@M<MH<54"cW,/8mPt]eZhE)r)g"XR5W(r"FND*7`-0<P.$XOPpbZ4G;OuQ,sT)h>K%mn)DKH@>M#g<9KS7A\Xf^k[_/?0DflRh;,ZUm+;2RdE1`^T@"9KV^7q;,Ic^:+3)EO(^E6SA"dR/ZN-t2O<2K9:rWLP-1oqHN>':kB4Yl&)WBSpf#8krLKXd(%4XP>-,<n*7^fGAe]>U[=$2qp*1_b0/3KcZ\o)aL>@"Y+/PEdZi"<aljE"<n%,%HmH;GXF%Ttq;L"XeCrQ+NmeuIe+1b6HnZS`cPMLoQL*8*?[G.Q<e]7CJMo>7LW!:T@]Rs8cT=*[bRbI23qK>+Js%Lq@PSRM4lOJgfhk/!mZ>-B[.b,hXIg#fhIjt*LC6tBM!DNGa-"hED!T^tiM90+:=k_&(AAZWaFS>.s1FBO1G\hh1;&]8$<W5d9fjYH;Qe9:!g-n/If6<8diQ"b?,#nC(?7SPb_n4n`>*8DO^;*UP\INQi;=39U3iu<7tmlF(H"?+m:6lT6-)<SaNB*r[F7_NJV`U2n!#=]s8JaCe.R0)5LM^0lO!#CH'=Uc@!^?jPT#]C\J5>,;0[V@\n=F^YhK3TXA(Bq[jQan&2a@_r>rk[9#-#<,aa'Ui4$4rF2+7e?VaR_cX(1.5q,8E=*qL3N+5Y:NBNZBc/h5hP76Q)sD7*S-f#0nqVJuRYN_@sg(1XYbGL15dVZ2muK?bmkZUEWc%\peLs]^+=:gd0\O$P[D6W"3ugYPL_SHAmam8/nS_X$L>:O:O<A=0%YOKX%an4:]N]%;4fG@$CU@huEj%hCJE[d<kW&!:kCZYp;9!*ia9H=RO/&Xr\!'*P.Z:E=.B2JfZE?&Nb%P\tdSLA03*j;kVkd'H>CP)MIW@pr05=LT%rO>[=Vt@*q-\cLL%Q(k`*W"s%#j\,Ll.4am`S3r9l\\"&l~>endstream
+Gau0DgN)%<&q/A5oZL8a=VA`>!*2lNI9Gs[OtF!!8o=,Q"GS+0!(15r;Y8T0klD&f.LD+[V0!jdbY7bQT@82m%b^Vsbl=I]H9J0-mi6@QRP2eQ/YD0loQG]Sou&"(Na4"<nJSoh+&d</;OWFU$kHj7.S7gU:Md>LaS-[HXGItWM?dTrV_^3HhuN'YYiPf4VMIsceq>WG^:q>\nFhTSc9GZB>eQaA]crn>celsf[GAr#2#i3j5I3_C(\?p&q&[2;O;6DC4E2FpnjD/hK%N:ioH%2KqK5E%j3[VPq;ngOMs9T\#k,[KN[#p=6nf7B*RW./'?o<Bqn*g(VLjE82HMo`:96.>p`T\S["5MV(`].0hOioFn:$\6m75u9\DWkNj5tWB9nZR"DSn=l3k_-1Y?rMr*%)E.S%#`5k;Uk>e*$%ds!!j&nbaW'o:q3oqKR)[*[?\hHXnYrCb,.06%]bMEpTRsT+"=QB-Wk`%NpIPQ6#j_K2ajeTo3Tqr"2%^PtaP[bD.\$@8h'5U!TN@7%U5X]c5AN#+*La&TssC&nMF"'d>07ns6_aqJsoS#9N\<CdjmjELTOX>mleJ\;(T)g5.-l-R5@j)e.)6g&0=1D-16dQFKF)Bl-<"9IA\X1%d[nf]7$_HTG8@mu@LV]_hGtQ;;D@EP*)EFX%Q"V(s@Ie;5ZH2XB&a$_%$90;T',Pc:U):Du`B]a49-+`-f]G`Oh'SpYB1UprilU<4b)^Ct[4dNe!PHJep,n?`SkaRQp*$]qBBQISI1-XRglCOJYP\"n-ma1?0:4trm*QINf4qTFF.gQil4IL'b.T5](iW[)&>JsXQJaN8ZslkMUobd6&(X\%SWd9:38e%MqC0D\4Gj7ieAqH>.O,SJ6kS^)[%9P5&km4XjOGM*0(6PN[p8`\2*m#c'R,k"-!ZSRie4N@OV=L.3*b1PIi!U+T"?Sk;Ppd(W?$H\[dU]@ejX]/;md1U#uQH%*Q$'^-!+/3<XmgI!jq"@"T[E0JAL'g6+<gNDd)IM-J(?!2l6tiP/MU,HjaEcmW2Z7e+IGt.b\"<k'k(c1D_I7\[,AF#%,V*t#%A[S2)7!:`#"?SP9'-ampY]f/Y&te1pdbm%[&?^<=sW=cSAj?G<3C;M/&%?C-iVKp4.+38/X.opZFT9%I7Bj810%OQPtqZr/\oNF9YP1bXqWH;\07nm.Q:KS8#.(`J]t"OQ>dQjZ91WDa-G@"$@a\6iXnETK>0VT7;HSt-T`)p.YU_ZmBt?D:jh)?-aKKFF*$.e<2`(G^[?Z`gu%j.:Ug)Cjo3!Mh/"t:Vaj-XfOap<rLe)6In!cJ#CYR`r/Haj4cKU`;6=N\aiGWfkf(i]MVL#HEti!aLE[s9T>j-o@Eeg_foJWdX-4:A<3;T=i@<TH[2smtRnP'GD6_8a!qNLI?D6;aN+Mu.AAPi[jB46574i1gi-Rrd9("*-<2uNhViVAi,P;Dg=D]gdN9X$")V('`<i/mR$8-i;@W.f1nADK<P&$;3G\YWj*rqB[<KNp4$/2sY%hhMY[I+/r2nHK2O=RTX</'SIdLG8&SJCKd_$-BP<a($6)Xc,1-n?N(&IDbR>KJ@HC[a7pl^F`L$Dt);<h*T)__1TT<`hso=^iY4W#JIB7+#>?g7f+Gef=9c#sDKo43FlR!uUYK[P8pUPJ#l<>@c<3$u0n\5OWgfF<KbEKCf%Sc?J($#;L#7O(*:l=oP`]4'tRJIC]PN7$:3k/#85);&')n\&0)"Xn(:"?R+:6,o:cB&Pptu/JpOacZWQo0oMZ)Dj6ur\Fe?&;'._%BJs"F*_YFS`CN)uh2'6]-VHqK$dS#6MqKUMei+Y9B8[,+=`0Mi^m6pc3Jh4-h)=EfR$FNO?pD?H;Vni99NnZ\888-c%<2.1:*X8:hTARtW$H)W8u<@ASL;d$GI<"Z?LmKG9S$c%r`Csm%iqn+;_;MD^sp*re%Yb?CMqd$-9I,tJpEe_+U\H)-`@CV!)@;Y^@ZH/p+d7#5O?fdRqoeHP=h+_Ib6@FT8VL_\]>9cOmh:SrjO$MNSMT[XVo:._08C07>e+V=T_]TWd0WR:*TMhC^t:*$$j!<?om<fV-1qL8.bDj#GGWn<22[O=QLuQ6'f1_%VmXHohCar,$(C@b*9k*e`Q0il+4!n.)4t`HtG=!2jD7r-2D`Q%SA83%"blGMT4%@XZd.T1[CKhZ9>NXOLo$50\i)CXo7i!e$e>'Nslk'=4s<V0=#V$M7,_i0&c5Lg`R[8!W=QD:#K]Z,@M1gD-S2Iq7[TK3u2*AH+@Ys+?()ER:AJ>$i<?Z,V?PW@F")8/[VVFj>ub/6%Hs[0T6SX$dGA[?QYCqpr[oM$fQ03r9Q<q)(("'s2Z^YV^9ekmG$W^3QLgm^95@]L*WW1V62XQ_7UD3Q:[Pk>G)kU4..q-K#-o1CYMm`*ZD_NU#ld5^-^eqh]jR?iEXLcbMaF_b&jcNp/F4j-.r!$0l?1$i%OdjY2TW4#`d2d*D'X<m^6:-5X(q`=k"iQ32,a=eK#p?'":A[@:A#X[,hL_9K,FU/Xu[JdHi;td>c@+_;TWXqubTN1dsbO&TG:6<C?TM.+ig#:88a^!:/WKH<g>HStg;$Zp4o$ig(inBOf7'iMj?lkpAn`lM=Y]>)s"1]]5$o19s'.%eFKIo=rS7n0(TkjSt6CU<N~>endstream
 endobj
-102 0 obj
+127 0 obj
 <<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 2076
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 2449
 >>
 stream
-Gau0Bmr-r=&H/38i]^s[W`ZRf+75sO9tOe=dNo*T@Mf;QU22_%WJQiQpTNI9b-mHiF#Oe%J4QP.hVGefmk1I<ro3E3YD>qdFSn%o32'JHE>kZ1HV`h2K>.q+MPeiJcGk*hP:W8&ZT'Yti!A)XdtAW2jbn`l7Dh\XN)PU'K/)5-,OUOMVFK4.iSFp-P+Mt9@8kWg`0Lm/YHE=9^S^=\O7+_Shq\ha'A]1L]Xa_HOGnX_fk6be@#(K8P]*HJ*Q"ih7G/fTNoDFpdd\HKACIop3.,K2o$\Hcj-WRo:YpSi?(B_51r=5@&b.-l7M?UVLPY0jh#U:.+aabH*Df1-2@+5iD@WE2Ga+3h=OmKf"W1]4Q97>G_smA!=AC65]C<[qO)Z*Kq]No+\-jMf3BFf6RpDQd3lWVaG("g\IWBl1$[o\!rY8hhLQ`8DcCZ^Al,32E47%2/m/pSGE"J"afj9:[DMeZ0cMnqfZ>k%SUM1-/@4`Bkdl9gs@UPQ'c%I1lP>hu>lYNE%Q,IJgkqY)SkkncLX]O)80Em<QX&A#MPZ`i4$00hd2kE&c9VS>(jcR5bMIi.Xc%D^>pN,@pTM2oNIlLY)EjAiI>_;j`D$icSCW88td-?N?aON%IV9/s'ImeMgD&4@Q!q/l.LdE#`r0k9(8/uR3:AH1bmr57A[?#"0<4`DH?!Gph_,iq)P@^eA(g^WF$]cf]&65k(\>R96\%t-R.L??5?@2ID&V66nkFPpM6`LRLPYkcGF6CHdqOKm19kt:H_CKIjKlXR:C\AD6Dmd#tat0K7Z7Tm1$Wq5G$4_NI%$0nB>N6Y^(K%^93PhB+5E\8*,rM5gSkWr>O-lidC(b+8b\G.4&.M!-2u=*t:Ms7LlX@(u<OH/W[JVLk_8u]%$9?..q)%?*KE3]0b=:i3*3=sMlu0s^<@c_kl^GXi)Q@gKZtO8[1T#Q"P.jdR's\5cZGuS#ALJ3`XXW1X+`f4R>bk@'2SDTB=)sL#P%H!tr94`50',6C8pIC)rMompXXM'V@XF\PJbuHPo>>QAloh)4/,]a>7fM3nZj*5s?^:-VOsB4-BpC3`+X!otERMfFpD=L&8DZ.j_)#RH,I_2B*@UTLntjQK8JIG1lpcKUq*p7AX!ZFE%j_RT2b6!a2S"4GX1q(R:r*\5fnEMLC5rRdW]n^FCDb.(SSR>QI?fN)#bt#Vr*Is7ZRot-eL$tc;:]s5Geh'rHicms$DgsWW`THd]%GR9/\0L2?lDb2.@P@1jmQ'`$PUTWS81@ic77l.&iH<^mZ-O%@-08qJF2nkQa4Ed]Ife./g+=R^5sJjX+.I6O6b:G"7TmNfZ$@%@RsNW'$6rsddO[UO?3-sMN\LW[O">1G&5rk2cE/5:*mBFjEc;M@V=8m8cia>E,4g1otT5rP$on@m:8itYg0_<!c:1G<2@\V24%9`aZ.#KDX7FBFo_iQ`YC=ChbeEgQ[N\WAZ)/PmVHs&$AZI1D&P[@f;L@1P5e*OpS@P&n+es"X3&9$BM5PtA,"%*\hE9M<^SH[Y3$M]N6D=L]tPaHL=[M4p%+hENP0\s@GPnc$n_;+fK2GYBHdreBGS'V2R_VJLIN-!B:D,`XZlmKOmk7&%@f\Z8o$,WQDWlP%jN4"/OE['\cCQ)![KFeNuNf9nmM$_h-7N0R=eV9!L@;a$+Bh&oL?ZtNkAX$U=nqNk`*khb(@D!IOW'+Ng)&Ifal6ri.GE(Z.'t1-+9;+7[khl?`f:RDIu!b1a)A"[eVML\2_4>(TkU-i4cAZi07H'>1+$cG7t:W5[DK;*B@Sn[X)7H'4jBK])B#jqQ[GY_>jO0^KY/2capTIS',-&5eg&KDHT4gGDj#^D8ftAe0pnQ]2=3k`_(fA/A,):Ugb+pnd4Q^2[mW-W6[(4'po,4\YOS`NTa=aEBJY&+BXQimbC.q2e466N=Mt-5I])q2IR0-a%3drOX%GAno04FJ<mu\Wl`lFOm<eYm.Jn4h)5%7T3`J4+*n7=9Cr@SmWdpU`W<?MWaME-XK8Pl2@+>j_DUW?hK,`f_ql#IkUdIi;S?<sSpts=iJ7#5liW^h5kH>8FRTh#o6DD~>endstream
+Gau0DD0+E%')q<+dGN6Y#;UTmYk^[,-gTL)p0m5aHWO:J5oO,D8Y_56`r,^\H6`O"A++8[[o*rokam6MqWT'u1r;K7rLXinD\mNhhBtO\`JXT7MeMXC/f#hl:OM`1e%h"XHmV-!:!'J48uFY'GVT`L86Yt61*SBA7%k]b2]a8i@R6OMGG`@kNcAq;9>Nh^1gs<]Dp4MBhd0Z>\sUropA*b1eV@A'1SWXqft1Gq7`"lg[.m7OT@b;?SFYq*73T;^P8B;Xl.CJr.nW:f,b@I1MrA0(=21;)kkd3KRXP*NEI!"[CkUgS&b3f#`tK:]>XUFKE!#DY_WP=$&JZ##,PRGOm>7/Tj![41i\jZ*97tQ*_*]drL3kNH3gt/'iIP?"bZbo*Jk3PM%3ogL3k[^a>e`_m3);/Do8D@]g&1aaqKtI+(!38@faWDnT.[>2Aq'[Z'$&B@fo!\0Q\=me#,aH&+!'VGe"NRYG!b5g%nPZM2k!4MO&Gep@=W.ur"2.CeVN59<WlWXc_c<&65,FBZ8+IV;RKK7Z9&\1#.2oYQumt9<1E6*,EH.#'@b2co>"flnKr&d5^0)spU'P8JS)<V5J9sk,^)N1ac%\oLUD!)*Pin%__EZ@8[YXQ&Q[n.;(,WZ8<oUU-^Dg%.]X]6nZ7Dd)lUHDKimK#!a;RM5,B_*fM9?+-j15S5n]?Z$&;A$71HX5VjA8re"oQmNKN]\CVPdt$=Sq*Dqu=.%VH3_>N8osJH;/E51N]pp^&UD6[PS;%6lkr;H5E\K_K"9;Amne7&Lufb1`V[Aso]G"&GZ5,`S!%.L"h8=dV+I[b@YocH+kepPOAlQ0jP(-grY143g^WB<J9l/0Lu/-W26?C&Wi_U[M_B+R5*<rXfIal$oH-\mJgCoBD20j&bLnYLN=Ff,i:-n4]U-H+`(=BTrZCY]Ak)N$@S)9m*499B<WW/P6p/A$WDKp!7lA;;&OHfmkmtX=5ZpmSkgj1)nfV,$3kb-VO+k<E1RS5`Eb?3!lPWp@*><HuDQZ<]RW<KE(;eq9@Srl9\[\H]%ZA,L^T#,m:bsUs.4:iF!R"_56>Ho65jO0T%q?#cReGjmliXX?Zm3979GaKNUtF1S*Filpd<UHC0qF!q+)@U4YYSk+D.UdC"Bi)Yc8/%*/\?^Gd?<.l7^I8&0IMVR]NWbk=@%[6T-E-IFZdB(-K]@0H58"t&g"8i4(!\jV-Fn!)UJGD#/ihT5RD=5XH?(_Y"+p:XnU%.K0G/Qn'BG&5mn3M#(,$iF*XV5ZDR@U>:(oX;2-W<9D+,5h_;b8a.2ll!+W[/t44L:YTQoLW$Li@W/UXk=Q"St=n(qP]h@N_otQVZ9(YR0HheD%Gt;+\.r"W'#k!YiRfGYH4l4e@*f&?reLhW23o-$+kPPk$C\:PF&<l:4?=DaQF!5eIT=fGH2hW*p/0ZqOROueTT'=5a"RMZRW)&1Ws=")RXD%6<gQ6$PmIL7)fu+$o@O6OWsfL:lEK-5uI#_38DUQW=I3rC7\)oQW+Za;![[Sr41=9r#bL-mstBUr\U@N=2<n305iQ=5m'j4;Hf!%m['[\]+LoNbcO.!i1V[3-$^m/VF)WWaci7L8)XTBce&f5`K][O3Y1/H.W=Ui(6]%T#.-5F0PLa8K/.AWJpZ#:^1'B*p&>3CBCZldP<P&BGF\a"Gk'`NiK*aQB?oUU`_G6jNk,'44(AOu:B&lIgJ>rS7ps:t;G*mIFo.p4MW*0h:qXSH[kF_Tb%1V;\T/.p*,3;tgEk/a:gMnZ^oW(<QkqO0'am0-Sm'i`/[tE1Y>sKr[Gj4#VPC$C?Y71u*qQ<7^LHJoYQPR_.?LplO^%:VZA1m8Le#9b*aRQR5C(s%$.,u[RbFaC&[a(kU[$c7c2<;V%;pr]Q0G/f0^]&3nc3c?)T!tNoY>:X;SH,W+GtO"qK!!)_iV-*]b)MD:\@19H.Jh?oi+#;g>*KDPa*d[n%5p/7?26c]YRR,7H7j0`])CmV:LW?$[00maRW(D?#j*QD.gH6#]"!K=U,>K(?icT0T,n2PSJbi,WBY]mpYCXSQA8sI8*i^[J>Q4?#O[AnjX4of''"`SYd?'nsFe1;8.qoTR(s4$0gnp:-c!*;!XD&o"9'kep\a)BWMF<E60hGqhCAk'o+B!NbQ3cft%WAM-Oqg],?tH';B28)0`i1PDtMZ5WM=!;W]XM,7&U?]TR:R$k]sf\:!_6*3!]<QTX3@Xo+%FI&g+o6Z]M$kH4'A,@oA3S[KGn6_^eeB8oQs=RjhW^r7!j]4JZnQA'@'6l4&#L^[qd#]T)]7+9/C,M$;1`)u+'=0k)6R(Fn0'CNln.ddlOLTleWFOkM:GK80**[i$n4LjlDfX\:'_+3+s(,,WhLqmC8ZV2G=aT-7\`ndDtW's_mXG9jq&aH53G('s,^jP<)Ud:Ju-_e?e!^%=fcZRu&LKd%41#2!RIjQe3'`~>endstream
 endobj
-103 0 obj
+128 0 obj
 <<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 2285
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 1984
 >>
 stream
-Gatm<gN)%,&:O:Sm%`=T%)KQq:Q"OEg-e\H[@'^dPCZ7q@RCb85[%%"^'C<%8Zo-?NQ.0<!WhXscgJVP0llg)m/LckoP?iiT/0pt9kM<F-_SRs\s](:5%EX^"s+.^I)]J0$qSXh._@COoQ];V&iBL]bU(;*!hTYW6uIr21D0MiNN!2I6gS$oP4sl-M(pl,,%Km8g$S0rRk]nXmpEgJ]so;58p#87]Y5W:oqJ'lni'9l2@_bH_!Ffki5;UOSBti"LcqsW`3,;WK4&KBIqWioiJN$&BK-pEr\/V?Fgl/)SAWC(',F%DN5YEX1k'G!eLMWs*%#X(UbHoX;aGV?:)lbiN.?V!TH"mTAsR`>Wu)7hX6aeeD"b_u);L:Bmr&^K4)oTUcXM!FHSr?^L<u>Jfs$HSmV[d>X-`JXG5N;28T0B&n_Up)257S?gD?6^HeKKEU$k%I+!*9V@OL=+XFFlhAE.Jmd=<C:0]oltJ2'=.&46uUoZTi#!%O>PelDcT*]'\+(88O;pJQDP)2U#Z>S^epk!Q2`kBO,b^!6KU_q6%kD0LE`WJq9D5A'llo>s<1DsE$UE$Q*nXE:RhS]co]WYT?K7'5^AP4DPVY,IMo(0#6Y';j=g'M!`-pO[-O^[eD`C/*Ou$^X4mF3X/BefF.*PujAY;6K.eUnX@dAYt3d7Di$%4QT@/@eK6n!oqY.RV%qjBdOcf-*Pcd?Hl'F@9D$)$KI`tTkjU[i9#G?<gr<=,[P<sMD%W%Dus>[G+7'^9uKUV,hB%4lYZgQq*2`45cI.FlLoSXi4MuS=[&;],q@rA-o11O[<%-Bkkn6VY@E@mOUDHK9H(;2k8<PpeDm2THG`-%nh;jj'"[RA-gCHJr3aXY\]qOlH99@%g.D@RLLo&df2rG!Aa5s:0umlW@p!ZTjdc]:EoYQ"Yp_Z,\_F)!$L*1^J#OBW>7'+"oqU)dn!)D\#[S\3*jpa<ZLIb$TXX)+Yh)spI^L2Wogq:PqMMj0mm<^E2e?u#Jc0n;pW)g^T@BDN>J%l[Rg.f%#$%`n+]=MWc4OUH&9n%rH,;lqI,(!L]XQNuoH5TNJI$Rn8S,Hn.bA%,N?mq*r$2k`EK:t,<(X2@U:HH3;BNmB`,:NZ%<NND%),C/6Kps,Hr.i7qA;ahgb[k;]]dQ$qY'$?Q]r7`K/8P)EFKI<Sbe2E"!Y@Q&j1bb+QA<STUaXP6XL$2%0b0n5/hZ22=8qC'GWOiq"(kkN'=nfr[(H:m(b5%i<)mfnDfm`V^'5RjLUZg)iprA^Ao?CZ=YrT^o9:Y.>QjX('"7s.ck.jb2F%&U=%jf6+"s=bsM_ShRde%(/M&E8,![L6/,iFfT#bt6+5hIYo@mGK<=EgG<kYN)o;,bh!=S2>;#8]HXS_^Ho#6_LA*iA>Z7I,?Hn2ODbUC99EF_d&sTtIA[q#m0_;'W;EIDXN'AGmLV8YG6p=sOV-6EXd40p1QBgZt!a8^qFKlG1$a-J@IB<%YSq:O57,?]gRpjn2:4FcFnJXOVCaYQpea.)Y.=U5:XpaS`01llRmo#pJD)ff$5/NY5)V\6a7NZEP!],tNoqJf[*T&WG;jB"QYFpQZfL9u2*LYqS^X)6='1a/XJ2B3OX"=`dLaj-88CsLeLsL1@6?GDpnem09K;9^*.3T>n,HZG`T)2&rmhAq#HhFA$X3-(qWQ6SrXR.1FVIe_=QR&,Z3ITASGpsdkHsD.V]p@q%\VoW[WnNKYFPj4[Tc+?*U#hG3XT9*/([D_r791j$(H,p70L<D6WIZ(R.c&GI39Nqu]*flfNMOEL7:A6iVNRM@c`FLX2=cfY^hL,p.T"SS4C'F>")2Vc./*oB\X](HkZJV#E&c>&X\i;j-naYV&uKh-WjkrD*t+T>8DIBJ5E\4%+*OH'>3JGfe5>_7.'t.VH=9H_%o$X3gguVGH!RM\?*cn.Jb7^W+IeZd.[Yh3\+fL)&TcS5&X"pa>)n;X+]6`[$:@*!7a\!k4kHPL93\h;7_p$2o^#4%"J2#X`S*Rmi$`hfBB=l@9jJH:p(k+P!iL5\DC%qXg[j-2,(d$7lI%!Z=*6\/QbZ4I0Vl=o!tq]TIUJ8;m2h:^la>ptJ`lr\B88u.M8-=ipBPQqO3d92q_?Tgpnlp_?'AcN6fKD.3Q!=;##s!&<DE@#9ug]](Kd/Z9@WWhl_c<npuitl.TPBFgCdiIr%r5.Ic<Y*+:Y3@'QY!GfQSTAA:=]V.pNHDf:'-,K=5TWnkF1F:s=Ao*<dDTK?/4Njq02oNO[^lmE<1c#8@],j%f-kftYu?c#N~>endstream
-endobj
-104 0 obj
-<<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 2385
->>
-stream
-Gatm<?$G$]&q0MXQq)(11B]p1C&?u$:?kPgVj=bO4["4D84Z'@!X_6I<e())!@:A3Z*eSHj-,9#6-dNa1NO^*+o[/p5Hfn":?]qa5pE&FN'n:(2#0ZYPG><OJqDAu&o!*H/4u*<eak$G*un[82N"G62#H5[U`^^*Yt-8[KGgq;,Mjs%V?Y\Cik6'X76cM`A5f72^m:#<?=3_YEC2ZtT0HXg]cRp$+W?uFrB-r*N!B<VaVUED^^^P<Lu1rn'#UaN"_fAS"7a<1P(g_+*@4pJnPb?IJ"0Fg"J&hhIJdSqGs:(B_K!MMGUV"V&4SDs&`()a_UJ5bT7]^%W[LS/IoXql.*/\[Os+7JQ`.]t61AC3j/3"gDk?OCa`.22>k$b5]Z'D!Lb-WY0HuS*nb)_=qCPUcH1G[]\JS\Dh44L3T<E/s+IVldlkAgYXii6kFE@C%4*ICTZ'E=;ON$HjK*/bXKKIN[k#o!5G"@7J!2Zn8KVLp@5UDN0#hb13,CKVn882]eJZVJIWMi04%Hp:C[OtM[MRg03*(a(j2N=`'[;'6IXa0!K'3A'DK?9Z?UCP.kIEDQSW94VR=UZJsRgb'o)J-ahV_nErrqc0kI<e4B`R3?WU1PT3k"Yfh63o%&PkK52pn3>Vo,RJCSM$/KeVf!8,Wh[0-RjMlC,?8.BQ]j"ji\5[SK`J&M0`t-1Y."V[0'DW"NE6e[gqBZ$^KV\rCILZ+F9Rt+q;ter=EF+9Bfj`-Sh!";O8u`IR:';D=,Eq)h3n(X^8a.SHiZjh6S_MXM4&t$XSinWU^6B.MN5ldRLi<kNdg"7#a)TP&7P0[:]rtVt]hN$Zm_6'fEBUDJAFV"m#,9`u$l:1];)"%C3@Eha?nk]eZUR**R&t=jk!cDbDU=]du.I%jDEX_@U"lhBSFZ6>Q;T]X@d0Oai>\48mNVHo.,aXYRj%GQTY)A<<C.D;1n^V5i4`r;\2A!),/4gu4Fj$`I`Sc.Kic:pEpq9DH<r0i,Y;&LWeGl#8%1BgEGASEu#Mlbu.5r)FJ8)Ho3kTMmI?V;s<JQ(upkehjcd93$?EKOV=Qq$0LMH!AnC1unY2!or^U]&*nS.uj#d^ge,h3Qt*.NAbhn'RfGueZr-hSD,\JI.Q`hE_o0-loHdp=)I3X^eg\%h^MH8Y)W"bT4.*s_e_Q;KBH)0&,q"1.r[9t<=r#s"KY3u'Qr#6j$Fc0pICnUqR40*Zn+rU)>[@BmOpNb0e;^1h-Y'N_t@K:L4=P>`J&(BpLHEY8'dN%!cJp0Um(Y%;..r=Ns)e<s7$4L[+KPjGs=/Eo7GJEWcQE?U9V/fYBe<!SRANX<7sU'"Sa,"<fEZ5kc;!O/Z"lEEiqsq3>V0ccu\Z^DAHbW\Y<\5.h?^!G'C!sX)I2*%4PQ(#EY`*c25RWSZ;._A[;f+(MM^N!]MF7KPB*IY2]`/j)j=S_K`8'*=rH>HTW*PdVqn&^HoI8?'LNFJ5`c!(ED694dAKGj&5$N=oIA]_iVlj%A_l*0[m/>'Hqs9&D*r5fs]2VWP"Q'jr5fi*lOIk<`LG50%',1eZK*.Fi=V)>?A,[J$81ND3f$+doF9kGA:n$l\nD4BQneiOKTMG:f[uRrHIi#FSP"Y]?TrZ%;d]B2YJsS-4m>Ud50\ucj+(L@JGjgq\r#Ma1kPj(G+9rdoNM&SJ%GBZlJ3'%o16@dZ/qdB\]8G66a^a2XUI"&)m`g;&1JP/EZI@%mJ`)?jWM<fX4m_&q7s8i>s@Zc0kK/%H]9?1b;5f?MN)\EbOX:9_Kg"[D`6*m#52=kK:><>@KC@hKV!R0f&#2\HgLAf=0EbT0Sq1&<+@$k#61TN*\TN2sc!u+$.po_-OZ`nc9XREGW/j?rQP)XR*61o!2PRB4SPfHk1@Mfl5R$IKDQI.oPng^/.Jp)LO&:4fUc2>M#Ca!YYiN_4/gnD*)+_+h%S7I19ilk'-3uWrgoG1='%ierm-IGckZt`Dc8_`oNX\`uVHMocD#!Xp1M.G'aC^(!7*#K\JJgU%`SX"`"@h;LB8Djo/O5KG9Z?'#LpA@;-aNl05(nRE&X'Z)\&2Fpu8@JdpqLTu*gij."Un$a@BeJoagc23(c2C7UoC@4h3V/oD@cWZL^<a[*/AG:_B>(\.D(j1@Ao,J`,.kNH/cL.:+2ShZSYc"ofY.4NjrZ1ZU4$rB3hS=M:6gJHo23Td]YI`,&h8mV,7UX=N%F8UGM.k&&r&#bsX`Ym[XDuO/Oj4M+]LST-EW8P'eI;O,oh>Q&:EQ/3)<OEk'!1\/rEN@pS0HQjcRX`2j%Yso=6Smn7AamP,e$RX>bCjnZ>mXn</)PB@*;%b(%7l'LQS.Xog>F#%6(@6Y?RT2ucf3+&l.R&YWr4MFHtUW\T=-jCqB+i+f\Q~>endstream
-endobj
-105 0 obj
-<<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 2386
->>
-stream
-Gatm<gN)&W(4GpYlpnJ(U3R>BER'd.\7n^ep`eg117^VE,U=Sm/HBHQq>)^o'IA#U-15G'2B`XIhUlW2Rlk`]na-:_,^M>GMr-YfI$u_0RlD(M^SC,jg"/$@S0[X<0ZGpB_b!18GuiUX&XLIo:Qj2df/&b`?oeV,#s"+e@q6A7>d"qY@<%*E91\XRj3lG58t<sn)SN_mq=FHSmOpf=Hi*feN9Gk,G'3V,7_\1Y^X2m7c$qSX3C.+L-YF&WX,*:moodCC,&7h'c883A>D^0pM=3Z7;;c_Aq>Ts@Vto)Jfrbm-NrV,1H=8XaOP&EGmbaOCpBoM2Q^P?_;Acug<7(!UM;r7^_dHnc.*%dm1Y_j+>oj,eG1l-%Zp+p#1V%G5+P:!EG2hp.^;Xc-F#C^X"k+>N=gQpkc`SqiYC<C12tqg;Qum\#MtcAag\5f:J+EjpG&Ou;.h#Z1%`4tBA";Vj48\It96t0I'I=eKKfR1J-CtI@4P8#921>'%T0VL9fZBRIQL>\gIYUb\d&jC=>4IPrQ&ToL`e4%2.pAf=?1$m\VhInYi9Ra@3p[i]9FNJ9JM;ht5m!6GBoM50`obb7BO/K_0&c7Y6mi+9;(pq,39_?r8p8kNfZST4'ADaRRG44aokU#@5J7!VcogJfM&#'0BgrLiB1lRqSbpk<0Bs8Y71:[]B/7`2.9L^f<NS!D(/0sgF/JJg;^mS*gW#DS[EPS8</=&YZ/XtEW0S1XH[#1HBs&jsNuVVR71E/q_Kj/`s23aWUHUK=m'jteXgp1MW,GAY9t>U,mWM1rEc9jk;nTq-hr=TFG2dh.s&2&LrQpsU<:FCV?:]f"r3'bNO5_:bAisf6K*)R[Q3Qg1R`g?-2Z@eJ8T1Yg2t/4_.`iK3ng``+,mRjt1<J-P$Fc;I#A$ZPMl-Z-58d3#ah]cr?c/3Ef-DijQW!&?;+l75"R`up\edEd@IYEhn[7KNKs0#e/S+f#N[6\*&#R,N4IoDS5B7'3[k>GVFih$rDk3+c]D*dLVmb<MM$j]B3%W4Xea/u[R]Oo=4NnUD0:4fJ.C%p%b>M;+Bp$7nXB8tOfFerc5Jlh%+unTlPCTW7_ZE9\()U]"XK=;ZPW!1ni4s;oNO)[RAZCm@po]XWD#lc(l0__-f2f)^/t2os1^Tp/1qr.\4Q_2dE^DoAD$DfA-QC2#nLSRR:#hQQq)Ec:[jA)pXOXg<E.]qrUP#;+coJ?fjUL^l5iS#;Z1U0.n.Z@o>(r#)GA<-+H53-DXH`j)%C_jkD.T\).+sjjH*-^I%Asme0+DX9&X?NN=F*B2&TM9R=0qpr(eQ-<)cE$(l%sdrU*ZOdTfF5p8*FO"R`$k%ZQDR?PY50J>3Ei=2,MD0-r$9:is)`\o!-Q0]JO@D[F[QCFXpDiK33D&Tmq*[>2s-RPM(gbILaEEpbu+142rUd<bWA7(/,EE8u=:2JifKeXb3/WY`H3i;Ud7m7b.rEn30<BBe'5;&/Rj8)SU;jra-DUEF/]magA6^c,fU;kdL>3i=o&8^U<)r6&]S?_`g0=]SY%$oe5ZN1EVu:G>g8,pjB@F9GnirIDPi'54CMlfX("aBERRp[BWH\@9!(5caM_h@K"8h3O&HpT'AN;1/ss3E@$ncol8UE<)!N%KgoZSD]0MJ*gmA`e5VUc@,>I%7QE--ESY@K,O,FnJH<r2clZ_rc6_YL7EL\1]2X<?i5);Tg;Xf\QmiRMHo8T<L$c<MlC4q5(]8:)d5s98EJee89>h3m)jjj/]P\*V<E350)7T8\c7'>g"L9k8OiWcS5oI1sXNB'2b.;FX[63?oBg3,MafA3<W)D,aWJ*UbAB\=;0N9Y[eGc<R/Q(+cT$agtUg_bfl&\("\RM1#IsHOu[mpuO*T->bICOhuQP5'+bo%HU50pSRRU0lI%uVh544P'97TJ3+cJ!l"j([9$DS+&b/*$Td`Rc7V_sDgF)hTUIFe(P(Y)7)TYf^D5MFg_NU6Db6o"bC-p(G?=/IF7):%8;Um,9j:=BW:0E.)>.92O04hpB(*YQ@MT.H<l.2:*tD:31508$s(lBSK.0r3?A:9;ocORVC$iAlDYOECj;+eSeE(A'Wr3QGg5+"bg\*j\01)IlA1Z\Z1?B.lB6I0V/G3dE8cn6,7M%hise[rM2-O^kBfCEo7$>[p`aToG\Tcf4*'o*k5OET0.9(WZD\?cW^N#W>V)1VZ)pIJJ7a]cJ&O2%8d>gW+g6PeU_HNM/$g+LGjG3<"<.?)`'B,ifPC'aElA[Gi$Jq_;K!<qq/-4"3A*oiJ$^*CgW4(6j@[fD=_,9*U8hG_O!`q#8osRJXg#7>aU?XFE<1OQ+8p48Wr>(m9k2LSTN.,6uWI7!'8[I6ajH6ej\?i_%<iOW1S*\cMdjFfC'=~>endstream
-endobj
-106 0 obj
-<<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 2386
->>
-stream
-Gau0D?$"c/&q0MXfXIl_c1"Z-jut5oPIO?H7+S`o\^Le>KHqli_#gDIpXe</+=Sb2R(&Zej0;#d+1p/gHhK]G\bP^]hm=YT\Y9nD4S!l'D9**UOB-;aH?Jc@Kh'F)k'Ksace+;q)<pNWAJ\)r4eDJF-#J+@E6/EL0^qDLVJ_>?Sqqg.hUE7',OAXOP5h:M$(IAD;mnN.H$fGVH:c<UDf9RN^V1q=6$0T's)^cFlVG9neL+Q!^^`B@N-?Ws%,f[#SB1A8;t#jN0Qs!4RY=7i_./DlIpZ%1Gr1"8J,B-.AoW$0K[17g`/,:)',ZSnM.l_]!iu&T4s)+nWMCq_m8H;p(JYrG_\`E4\j/86$m%(n^L$$<n?C'L%[2>p4RgOtit_d<6c;aT*Q,?HRbTMr[kA=SNfsq,o(qd#^0J=Ehendq+IMe0rW2%AFRu(f/8nm*`p%25Cdip@`'H4p0YpMUHa<XG77lra6IV>-8E$-"c9fiEW]\5H7l5YnL`WD8V5U^8_NsYq.DO&&m*JXeX;!OK.`8G<*h#2+"l5(\cgp5W.jlCK&LK:]koH17l#YLL)!RP20Z-0LP,Z>:8Ee3WZ"AMBs)c!/dVs&;pa:dCfh0>T:/N^reGh$#QN@Z[T`uK`@*aI.54XK"0_3=aEA5^OCFP5W3o,qF9th3Ro;(1b39qHig1k=qXt!%dhFNX(-Z-bAOJ(g/KrBY&i#DAS[Qr1$JMPW/nPK,3"+pNL@4uYqV_,[3l7Z9@?\!)FlDE,&P1hDcZ]u7,6D=X^/_9Bek4m#6E,`+JLmk8d:Li6nl.dmE'O25S8SK@=dSO7]ZBk8a29!Csaf!\i6Fk=1OZ^p$B2%<g5Rha9$U$r]D!%g2hraZreft'O&7!Y\/IG\:rG#9.3@\3EoM3nj;H:#@7TF%W@7^mm3Ffec-nSRG4![_+J>l3dF6jZ-VN2VLLb^W(BuUc$c%_*?9C/gtg9#$6!DZYdFBI2BR8(GY7<YN]L4]K%Jp<5j/s3GC_BJ!CXc,uKOf?4<:76)[%--MKdWjJ`WWk2'+Y'gbqSb_@A5WT.A3Z>s:<9)*>M8A=*m:-6HS,tjL@C`J#(/k>"s7di`tN]0lYhI%p42[uWFZF68J)k<aM..A-E2ba9]P5X<c/VZ83oHB2`;dDC)!YTOo#&&?$iD4(JlmEXL=bkqe9#L``>1,2[QLYZq@0A[\=FUXWR9M-Q0qkF!iUai?7"R!W+jh%p06an*T0)hX+Zn!qkS4`)YUUp[NUf)[c>?5_eV7!f<D#eTO_9TGN2\V/Hk8-``f6)R[B)QBu`&3R6WGE^Mc##!5iD&5UiiDDVf9H&GQdIEVL-D(C=M;]<Fpq'?7^<*S?uj_4ss9Z[C@-^AFkhbOl]#hWWm.<pKF/_=[_`;<Z60;S7DMF'@Ga*sl?jh^r/IgT]T=TbK'\+3;j=Lr2\2qN[J,;sSs!pbTl'':I07(5&/FUfP*Uc"N5<Q,&0A_L>:]HPpeQ&S5+csR,pfsEW'"bt4'KJV1#(:XU](;LF5s1bDuB_('F+*M`OEKefCT)6Qq=q>5eF6$nSPa@ubs"RK!THN``iB$lu[tF`?SUU[C5=&K`&s!&CaJ`,A3bec5QV-(i]E3/Ea=/194W9.)i3]AeBV%!])7fT*<Y]K%#t-!TF[q<t&nKXZiW7EB^6$mT0,;,=n7/uAcouAkg]d)*!2cDYUZJ/t!(-Wp$YDtaid4_.lF*osk0S^8f^#;,^n$tDVVhO?fU''QbFQ/hD3<f.QDR^:)VRi_-%*/&PDTTL)/-IhD'h4j.\hTjgg0>ND^of6*ZX<JNp7o\6banL:I/./dHXlDUBH6jPAA'2R2W\1/lb$7U?rFHL=G/=7Ck^C#46A9bfs9k61:'uE7=RF*Y4Oki*rt=WWZm8j;;JEAO$Ic#LnV\&4Y.Ad7`3^EqIpVhTJ79<_RE%0+;FKn+2+5Y$CbcLHaMMdj3*qkf[hZXCENR\M^Jm<?\jI\c=P#b(6jN"uBe?`WB\)s"W>#gl2<L2.h!k?$AdR)^\O8O_p#&G3HNkk1.9Yf@hlhU[o1R^Crk$%ENq=99u&TmM'<Tq9W\g6,D+GGTu/P;1kn.Oc%_g6FCHjinY.GP1K2J7joRQ6`H)s_Z,Ca$H=e8q?*Vo)1*u8PnpJ>]9'q#(I.fJ18+O/mXFBb1-9Sg7[p[Q5Pak_OFUWZ3n;LaKQTf!U9)lHTE?cbqsJ"2,IYOB+g&ebJ\@W._^:0EctIYYg%UhD>BdL:CgU($gl0ngHP>ItdVS3'QOMcSn?(keRI=BgB@%Fh;QHln\MT+Tk%osHYoAS;i/mX<ZF`*dWPH="Iq[*tL<5Xo-4h2CgK!q7_/P@93d'6BdZ[Ur(AGL9h6bbe5nsh)kcm[TMuNfq60"4~>endstream
-endobj
-107 0 obj
-<<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 2271
->>
-stream
-Gau0CgN)%<&q/A5FQH)`'d6fgZLUE2MPH._.26u)WK_16#Rne:!"=G[,\t/D:CdH^U<oBe[o>9-_9DQ=SF-K?>l8m@s.gdK>12O,*dKq$1\*j[Uu_im?Cq+=k)hHjqHalr1\RS_9(i%^Zj4Y(*`%3a-"Yu*\`<mW0^qDL`bp`R]Fjma]r<_E8%?$Y-3*Ed:"[tF)7-12X1Q!)f*bd+If=;-qu201P3?=<HhTe>l];'8b=>`bb76PKP]%os%,f['SB1B#A+.K>(q\'=RYEn^_6Lu6?fi&I*mJS8++@ALbTHP<E#\m&Sp8Y-![Ft0L_fI*E;BasF"j:\"\"Ph^ZG*,k/?dLN01?C99`r8i:/Q%n<=0q_^W2;:AVTlKbk9k('M5l@OLT\n8401n)hg*/#83sACIusI^kt$k!.5=GDdQ*9Y-kPj#K?8\Y]2Bh0\M@O*8iM'Y$mX6miF=EKfSRSc?g+Uj$uKj/E8S@EieiU$&+K*cgHhRm)<i8#:5Tl>20Yja1gdmj^/6BHaE[Ver//.TakFM)#7gN"gE?_3[RAl%()"XouK!GKq11$plM_."H20rNW96?PYKOG5qAY,E_0B]8tR795W@\6INGFWMEL^UfK!;W\f^VF3uCA?;N*i@:V`^/i0nQl[E!%CMERE^$4STSi;lhi?`+Bmef\[<CnjDfh_e*\P>OfRJP^G+Q#e')BVH2I&pT5-Bau?=dRdJ'$6=g;ht?dG-:djE2M$Y=,k#OHu7<_[4IfLeHEL)^$aAK>73q5CG*kUAAkg]B5._p8nmV>jp`I98-WhZH^2`W4^4iL7V*cXN'l13>Q'0!J+Z"YV^G)WIe%maknG>93-Z)KTuSPd,((d7+sJ6!,u.h[dI0<'?CMC=3%Ck)ePLN08c$I&[7I<U[FCh_Z(BXmm^<K;l*XBFiF\>>Us\iO[fLCqYUCucic8%7rKP'_UJ`TeSO]Hu04"X>:1hTg4-R.Z1r8`iiQYUD"i+Yb"Bhi7$_\3C!e<Q/7f\oS"_JtgY=Km*=]BWDeOhZ]m^m^Sq5e=:(4_i@9ZC(:VE+)..Bu=GXsAfM9uiV@*@(_?!6PY=OCe!/5go'Q>q;!Ge.F9ke[RK%KuUQ]Z8e!-/XSr+0f8oL6[4^6Mlk6T.Ai8bb#DhG)+u1L\^E@U3e-o@Hj01Y"?$DQllo/l:0M/lPXnd`I*,E,cfhf4jCMg1FG/9-G?`f/WuKmW.HlO;6qY=4YC$Nh#Cis[,Pe(m<F]P=J$Lj)Ms$iKXN'mk-3ISFBfE%42ABYC:Ug1N78#<<LaP$rkFc#RY8^&6!P'5Qp[h6o##""5`;_)K>Xn[6:OG-F[Wu3:0Y$'8n%L0uJeGKf&*f'RMGB*sF[b^'*1C`pY4A9(WCj/>keiQD`:V_2"1BVL#V//dKBo*/@`h,t?R.%$kge:q0MHsX41BH[dIgG@7EVA`"#2J?pe(A+Y_*<kX3)8p%%#hQNA);cS2UfG&,^c:WLcGWK5;P8>7#]A6kF"5>B16Tgte:aiPE'sIc%fTYQr)9\fVA(q3"^29deXD<R9c6gr=0lB#son960i@oLLZZOb#_CNeWksa#^!ua)Md[CBZ<+QpU9"@DVn_:a>01r"DSF:X+O&TCY2O;u%tc>o!6g@),4_YP)E#Hc5R?V2$.),<m+8[l\*Y,R'@^.@J"V`VrsoU<M2%-.'RN\fMP[bt)DMkj#0q@a*h4T`0)k,Jt5B)>]o@R78NmdSaT]][&ss'7"WNI^j#kVWpF!]i@mY)LTeMc7!J1U?fnVGOdAK*A9XP:+04AW9.Q-MHp]!Zr^V%(9B'f[cuIkE@<oZd^qbg_t8P\]JWu+7+93Y",K7ZP=N(k%&<GZ8m0PFQ?KR2]FI#j9X5;Dd`qI!U3tVe,>l/b#"PiVL?P"4dgJ"p7K=7h&O:VX$"3U`rU(&uI2fC0FG:5oB?c?"_NKmPSkrX!Jt!u3[k;Vs2tI9cDInB7/IO%M.W]oPdrcK)Y'm22W=[3hB<"ERLL_X)/MN4Q\rul'E5_0GBfB(HQjmRPB6-^b,cW^LmCS=XY6`H)NV_86&22ttg'eugVNs3[Z\/tq\Y$<W@]S26<2Nq9b*_.9B3gF[?OfsLBjFe#H3n#e6rAmlcSZZ9LUin;F0S43m14(H"G[>@UnpFKA,\/[=%:ceI<Xne%,(&8_S/6W!)C#GoFNYeDeLc'6!u67Ff3[ak)Ycs-T^]I@\OX4Ep-OK6JY\;hX:gkYY7Q6C$>6(IG`Hm!^%<:mnIhr$4aP\\RW.sfma#)1Dbi~>endstream
-endobj
-108 0 obj
-<<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 1586
->>
-stream
-GauI6>BALX'Z],,'^(U%CIL"mG+U0odnC'E@()9PmXm1peG;LC)3SpQ7fp.F,gLL0G*i;?9DTb/c:,b^."7Q^:,7?D1V!4<!HV\X"Qg:,Acq8C>2NNm80#7c&+MT#I4kf4C?9VJJA]:W"XRRP\j_0l,-SmH+9;rAapc42fg.+'_*5#kTp#9XKucg(,VVjXGGEQ.Ifbi%kJ>^<EXHad0^X#?:VilFn-Wc7@J8Cl6oqSU*Ji<5WraD-AT>L,BR(aIOWSp7'fup@LGqB[0F$?AGAo@Ml:m=.bW\(tj,!LsKHd,G&POf]3.$G82k0=cADm@7?DT>mOY@3V&:sY(:rHgNAt"'r(.7&,QG)ZSLUHWggq:t8e+pP2OG*LJ\CO1;;/\@=LZf-oMf$n7p:HOF#P^EMHpj>UmZ-hJH#tosnRQ`u,E?tpUuf2hnaNSVO\oAAdA%F?ff2!Z)aP#k$nAn[B^@I.c=0>l7@p[XnK0`KK"i,n:s<K?bME&/,*kQP4;$[<Z%m@+5b_U!A2Xd0:&DtcI4`&[8uW2@LS8!X!-06'/XL[Sf)inAr(R;nV-(O=;"h'92Q=c:(tZ(7J`dDGTWD$#8]kUF&f<-eEEkGf=t$O(-0h&/bA+@4PV2>q3)+@WXC8)Q-M,c[+S!RNR]!GrMgF%h39FORB]*&E3Nk8'dKQcrENgq,MF<XtF>hZ$])-l&@KV-8j8/j>c*^:u@f9>gDu[`S"Y9LQ<IjdC%1;JSL"]-EBkSfX6J<?d6Bt*gY0`hY[e4`.5ags.TRYc>cFU?_d?%ms-5M'[3=?/&O[M.kl!9/61>Ct!",nTGI9<;,'Y.9>n"g^678dIE7G;)sAc"!Qi7&+[Oms<$`];[nRb:Yd>pp,DhV\_V+tN3sc*aNnM#Wg9&\$O`i[Gq__D$(jk38YRg^3Wn17&XJ/BGInA="K!FTn0f9&EH;*@6k8/Kb_>`+ie&mX3OLWd+)B<L`*C=iRI%%U3Ehr'nDdLHL'<U_cIBFoT]3rC2s"mn43g%/jb"fK,()8M4RPLL;=ek/H$LlS,^p27h<X(=!]?Et7=qO4"Qb<:,<-PZ)WE-;Z$O2(.-ZMOc>CgEXYYRcc3kim<([f&?-M&mk!?4d3CIH_*hG2A-oBa9GUt%7[cj$)O>(j%PoA=!d#*4Eq@Ac[b7J/r:Z9K*Jso9[j@1V?2>)9hO>:gSHItnqt5)K8H;Y65Ki2Xb8L<EV6$JGjZ"8>bmadn%%R,c8;(pY:p9+CU*S4;3oN),3(G6WPBr01<1@:0jg=\5MEB1\CHTlSEZpPb]rrC5lZ-i(mC;t@'0+!I!ak+dpkl'at5'llL`3re;#TL0qhGYKoJ:7KA8[aGfPeMm&-5!1;W[NY@N[V!$&T)__I0fpEP.B5'5V!J1&urS(]qrF>4R=_Dh0gkC<*@DRUkM@"34N%6U4Z[Jd!lrHOrqbekXD2tD(0blO?@TBR?i5>O9Y>7btLhOZWOHb=ju\:7\Nj@eT83+C([W]i_`=7S<C,`hf<"OBPYFMouSc,D"S4:eLT(En1V<5kS(j;^g[\2@pqKCWsW2^EZmT$f8iala;o7dj(Y60g`>X+!P~>endstream
+Gb!#\gN)%,&:O:Sm%]c!%)G$]-cK(`:Me.<1s'9s5/7jX+X%/HJ0_a6hZZOtZK4nsD)r]^8/)Bs0$[eK/dXN4+m(l2!FF%/j_Fq9L"QN`Du24MLZ.U`b7Ob:8R)lrp`$bpT0TeH.a5mDQUcl?'naKs,6r$<p-%Df*BFd=l%LOP1o`lI*2)(,27^I]&8P:&*GS<hYK#U\i<1K[pZH1a2cG6n!7TE5Dc:Tq2gbh9:G@-u%C3Z89*a5Gd&IZD^`c9?mca3da,Yejs/+2UX)[dj'Ke]i0H-I2R%9dCGEqB5G^/58"C[6],'+rq]K*jb><KV`N:0"A6/\-2%&QO<'SV!hJ-@f,[Xj"nD=6ds";SDXb\]R^ADr6VGoJ]gqf[e:Np:,a`^e)0e(OL26DnfYYYBl$iF$^&41lY2hBJ>+3Om#jqU*t%/go[<\753>41YJP[!hl;e4:RD7@YA)J!`30b`*c>#R2%#Z^o#^"J%sm72PK9ohTPI=UkSB1*;dl7-el/+&1C><NJ`Z]VXtt3^:"3J#ABq-tmal5:5`$[AAsiM<Y:4]<qY6S/$o7DEt<@Y`8XO10@1-LP;\N?(RB#bAeD">SKG]3=:l69L5+ESkC"T/"T\(RrQCsWn%o#:Ne;@ALT)TN?m<!BU,`.;:1mMb?oh\PB)):EOfP\=:#[_Y7M&>;AHrM.t",q9&R4h&t`:+lqZb<WZ1/>itL&l!!pud5DS^fg8:0Qr78#8rfd6`7e(n,!KPK0T[7#eWXVHD2-Lr"8OUkjm*M_moDM"+i\)q1LDRkUCbRpiO6h8NKg?8s]cc6V+ttEYG,':S1NRM=@;+%&"%<p(_Ma190Gg^9BnRIUF<"1c.3UIIeSke[J7(G1!K>V>9WHYL8kMaI*@HpTNKI0T1PqblKJ*lqoa#QSY,MoLIA#<dhL!V:27JNIeugb$-eVVo4[`SrG'cO)mmM99$amj/6+-0^E\2iJZZN<d4oo!6=ih"VgYd[LdR5<4dj8\Fg%OYRD@L0C(H\mg3)8\$]i@.;>IC:4nb;(RjbZLI5Np%8aHnE!^bDMr'>CI3>>]go"J).bXTLb"<+9D&U*tLHkT4n1NZ37jX*/>B%!N9U`%>CFgoi`(<nKCA>)J$f;A75HA5$\]5![dIQ,q]55SOX`@jm29"SnIP:Ck*I;?sF<IS8F3jV4-\qCoKu5K,YJ`:fb$G=^FsZ,enV2s7Ja4:p5XFs+7.&t:4aEH;'J:qi::G-rBa0e`'DU9XJ`BWS(f>g-=TF1,MF.!>7!(OX<S%4ipRg*Z;\j3F$&a]s3O.IY9=j$fR>(j4C;]q0I$l%JuP)AmY7R117!?&-??T@knMnbeX]_i)q<V>X5X=%\bKA.PHK)mm3=)d?:br?k\D4sI7qfM3F,;(&@bl&!*0dnO1,DrL%LQWRE+K8.73)8q7qMXut%K>sl'=.&j+$T!f,);a-8en0o0WRrj?pXPA/PML]5lk8tSqljJWP4)$p)gn`5Vq'_Sku>^fC]<T?^pM9W7J-eQZ2'P_-V[O<C\q;3,%l$Y2he8KEVlj%oW(Cc._6QGr?0ZSY`0HT!lpIa;^DXWKAiG242fL;.m7Zd=J:_(qFW@Y_lQ1%D4$"]*N[Yk(\L1SUjKbDXX_>.%3nd0n@Q]^A';,MrgQmhK+=)=`uDWCL&<Ct8=,e8)V_?JV@?HN0u;^+HjlloSZjK=,i'^(AL1m/;T1R'PkKoN5r6`*0^$I?4"i$i(-8[b84D**ar?:D?.O`M"H5`t?R48e_k$1RaVEW88m&"?G>MZXN,bAio)_gUAO+jgrnquZs5CA=gfRapAb>GGl![,2Y:g7JT$pGg5,9MFJjg(EH1TUbNeJ/F_M>&Ac)m8HM28'aN$QS\U&X2T>5kn'n24VHq[#KE]HE%(Q7heDqP/1`OIiI;pGCLG-oLWkM3BT#]+Pus*0O_p;ku>VrK:138k=Y'+'fZ!oLT!t+4P40X;uBNo)p'3"*3#7m/~>endstream
 endobj
 xref
-0 109
+0 129
 0000000000 65535 f 
 0000000061 00000 n 
-0000000144 00000 n 
-0000000251 00000 n 
-0000000505 00000 n 
-0000000763 00000 n 
-0000001017 00000 n 
-0000001283 00000 n 
-0000001569 00000 n 
-0000001853 00000 n 
-0000002107 00000 n 
-0000002366 00000 n 
-0000002621 00000 n 
-0000002880 00000 n 
-0000003135 00000 n 
-0000003416 00000 n 
-0000003596 00000 n 
-0000003829 00000 n 
-0000004084 00000 n 
-0000004341 00000 n 
-0000004600 00000 n 
-0000004867 00000 n 
-0000005118 00000 n 
-0000005377 00000 n 
-0000005636 00000 n 
-0000005895 00000 n 
-0000006162 00000 n 
-0000006416 00000 n 
-0000006673 00000 n 
-0000006924 00000 n 
-0000007183 00000 n 
-0000007442 00000 n 
-0000007699 00000 n 
-0000007956 00000 n 
-0000008211 00000 n 
-0000008455 00000 n 
-0000008722 00000 n 
-0000008989 00000 n 
-0000009254 00000 n 
-0000009513 00000 n 
-0000009780 00000 n 
-0000010024 00000 n 
-0000010308 00000 n 
-0000010595 00000 n 
-0000010881 00000 n 
-0000011138 00000 n 
-0000011425 00000 n 
-0000011682 00000 n 
-0000011941 00000 n 
-0000012194 00000 n 
-0000012459 00000 n 
-0000012731 00000 n 
-0000012986 00000 n 
-0000013242 00000 n 
-0000013465 00000 n 
-0000013722 00000 n 
-0000013976 00000 n 
-0000014240 00000 n 
-0000014496 00000 n 
-0000014755 00000 n 
-0000015022 00000 n 
-0000015273 00000 n 
-0000015528 00000 n 
-0000015781 00000 n 
-0000016036 00000 n 
-0000016303 00000 n 
-0000016588 00000 n 
-0000016832 00000 n 
-0000017087 00000 n 
-0000017346 00000 n 
-0000017611 00000 n 
-0000017898 00000 n 
-0000018181 00000 n 
-0000018440 00000 n 
-0000018693 00000 n 
-0000018871 00000 n 
-0000019045 00000 n 
-0000019278 00000 n 
-0000019534 00000 n 
-0000019791 00000 n 
-0000020087 00000 n 
-0000020836 00000 n 
-0000050497 00000 n 
-0000050755 00000 n 
-0000051928 00000 n 
-0000052679 00000 n 
-0000090404 00000 n 
-0000090650 00000 n 
-0000091778 00000 n 
-0000092521 00000 n 
-0000121862 00000 n 
-0000122113 00000 n 
-0000123297 00000 n 
-0000124041 00000 n 
-0000143773 00000 n 
-0000144029 00000 n 
-0000145392 00000 n 
-0000145462 00000 n 
-0000145831 00000 n 
-0000145956 00000 n 
-0000148325 00000 n 
-0000150602 00000 n 
-0000153006 00000 n 
-0000155175 00000 n 
-0000157553 00000 n 
-0000160031 00000 n 
-0000162510 00000 n 
-0000164989 00000 n 
-0000167353 00000 n 
+0000000148 00000 n 
+0000000255 00000 n 
+0000000544 00000 n 
+0000000838 00000 n 
+0000001161 00000 n 
+0000001497 00000 n 
+0000001827 00000 n 
+0000002163 00000 n 
+0000002485 00000 n 
+0000002821 00000 n 
+0000003163 00000 n 
+0000003429 00000 n 
+0000003609 00000 n 
+0000003944 00000 n 
+0000004273 00000 n 
+0000004503 00000 n 
+0000004798 00000 n 
+0000005092 00000 n 
+0000005384 00000 n 
+0000005643 00000 n 
+0000005938 00000 n 
+0000006262 00000 n 
+0000006599 00000 n 
+0000006892 00000 n 
+0000007182 00000 n 
+0000007477 00000 n 
+0000007729 00000 n 
+0000008024 00000 n 
+0000008361 00000 n 
+0000008653 00000 n 
+0000008948 00000 n 
+0000009285 00000 n 
+0000009530 00000 n 
+0000009854 00000 n 
+0000010191 00000 n 
+0000010483 00000 n 
+0000010820 00000 n 
+0000011137 00000 n 
+0000011474 00000 n 
+0000011797 00000 n 
+0000012056 00000 n 
+0000012387 00000 n 
+0000012679 00000 n 
+0000013010 00000 n 
+0000013333 00000 n 
+0000013664 00000 n 
+0000013995 00000 n 
+0000014247 00000 n 
+0000014583 00000 n 
+0000014919 00000 n 
+0000015260 00000 n 
+0000015593 00000 n 
+0000015942 00000 n 
+0000016242 00000 n 
+0000016543 00000 n 
+0000016878 00000 n 
+0000017220 00000 n 
+0000017493 00000 n 
+0000017814 00000 n 
+0000018149 00000 n 
+0000018464 00000 n 
+0000018799 00000 n 
+0000019127 00000 n 
+0000019448 00000 n 
+0000019740 00000 n 
+0000020039 00000 n 
+0000020373 00000 n 
+0000020707 00000 n 
+0000021047 00000 n 
+0000021337 00000 n 
+0000021674 00000 n 
+0000021994 00000 n 
+0000022288 00000 n 
+0000022580 00000 n 
+0000022916 00000 n 
+0000023230 00000 n 
+0000023524 00000 n 
+0000023816 00000 n 
+0000024150 00000 n 
+0000024444 00000 n 
+0000024724 00000 n 
+0000025015 00000 n 
+0000025310 00000 n 
+0000025632 00000 n 
+0000025969 00000 n 
+0000026300 00000 n 
+0000026620 00000 n 
+0000026914 00000 n 
+0000027251 00000 n 
+0000027431 00000 n 
+0000027664 00000 n 
+0000027956 00000 n 
+0000028273 00000 n 
+0000028619 00000 n 
+0000028920 00000 n 
+0000029242 00000 n 
+0000029578 00000 n 
+0000029918 00000 n 
+0000030250 00000 n 
+0000031000 00000 n 
+0000060662 00000 n 
+0000060922 00000 n 
+0000062098 00000 n 
+0000062850 00000 n 
+0000100576 00000 n 
+0000100824 00000 n 
+0000101955 00000 n 
+0000102699 00000 n 
+0000132041 00000 n 
+0000132294 00000 n 
+0000133481 00000 n 
+0000134226 00000 n 
+0000153959 00000 n 
+0000154217 00000 n 
+0000155583 00000 n 
+0000155655 00000 n 
+0000156021 00000 n 
+0000156147 00000 n 
+0000158400 00000 n 
+0000160582 00000 n 
+0000162984 00000 n 
+0000165067 00000 n 
+0000167560 00000 n 
+0000170093 00000 n 
+0000172370 00000 n 
+0000175133 00000 n 
+0000177675 00000 n 
 trailer
 <<
 /ID 
-[<3b17f26a1618c7b3b9f726befb472a01><3b17f26a1618c7b3b9f726befb472a01>]
+[<6b100f7c5c86443d46e1cbb74ef5b52f><6b100f7c5c86443d46e1cbb74ef5b52f>]
 % ReportLab generated PDF document -- digest (opensource)
 
-/Info 97 0 R
-/Root 96 0 R
-/Size 109
+/Info 117 0 R
+/Root 116 0 R
+/Size 129
 >>
 startxref
-169032
+179752
 %%EOF

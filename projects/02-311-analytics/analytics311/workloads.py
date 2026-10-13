@@ -227,6 +227,15 @@ def normalize_file(source, output, boundaries=None, *, max_output_bytes=8 * 1024
         manifest["warnings"] += staged.get("warnings", [])
     if enricher:
         manifest["geography"] = {"nta_version": enricher.boundary_sha256}
+    if staged.get("kind") == "reconciled_public_capture":
+        from .qualification import qualify_normalized_capture
+        try:
+            manifest["comparison_qualification"] = qualify_normalized_capture(staged, manifest)
+        except AnalyticsError as exc:
+            if exc.code != "qualification_failed":
+                raise
+            manifest["comparison_qualification_error"] = exc.as_dict()
+            manifest["warnings"].append("Observed-corpus comparisons remain unqualified: " + str(exc))
     atomic_json(path.with_suffix(".manifest.json"), manifest)
     return {"file": str(path), "manifest": str(path.with_suffix(".manifest.json")), **manifest}
 
