@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "evidence_kind": "independent_paper_source_factual_review",
+  "reviewed_at": "2026-10-11T06:27:43.959118+00:00",
+  "reviewer": "codex-agent-eval-audit-38084773557",
+  "scope": "Final P2 source prose and metadata reviewed against frozen final campaign/diagnostics and previously independently verified Maps/CSV/core receipts. No PDF rendering or pixel review performed.",
+  "reviewed_draft_sha256": "c1df9b0e612e3e435bb7c382e102ec252e3dfbd640de9c4fd87812688c86f5b2",
+  "reviewed_replacements_sha256": "b72e8dc9559c6f295ac808defa967b0e18ff394dd6a413d6a58dabdb8fe81f2a",
+  "evidence_commit": "4668139874139b597157d01daf475eeacbededfe",
+  "final_agent_report_sha256": "81cd4cec6118c6a4b67519ca919a470ce3cd7ac0b38c08d06bd06fcf88a3c8e7",
+  "actual_diagnostics_sha256": "217365f6d8a41366a6745cc11fd5978d6f8546a7eb6a3ee7ad6c5fead61c8011",
+  "verified_claims": [
+    "120 executed and reviewed trials;1 end-to-end pass, Q38-r1;0/9 chained successes; agent quality fails.",
+    "32 broader semantic unsupported-claim/false-completion flags are distinguished from8 automatic numeric-evidence failures.",
+    "56 finals;52 model timeouts,11 repeated-invalid-call stops,1 invalid-final failure.",
+    "126.159s median/160.006s maximum cover whole attempts including failures and tools/adapter; separate295.782/256.061/289.676s metadata startups.",
+    "Observed corpus and comparison qualification do not assert transactional snapshot/population completeness or historical status reconstruction.",
+    "Closure is administrative created-to-closed elapsed time, not first response or verified resolution.",
+    "Nine pre-study cores, three additional matrix preflights, scoped real Maps/CSV verification and finite performance are not general agent or billion-record qualification."
+  ],
+  "required_corrections": [
+    {
+      "page": 4,
+      "issue": "Algorithm currently places browser rendering verification within the Maps service branch.",
+      "correction": "End service branch at configured Kibana locator; label rendering check separately as demo validation.",
+      "status": "Accepted by parent; source/build correction pending verification."
+    }
+  ],
+  "clarity_corrections": [
+    {
+      "page": 7,
+      "issue": "semantics alone can read as exclusive of automatic success although Q38-r1 passes both.",
+      "correction": "Two refusal answers passed semantic review.",
+      "status": "Accepted by parent; source/build correction pending verification."
+    }
+  ],
+  "other_material_factual_findings": [],
+  "numeric_source_checks": {
+    "end_to_end": true,
+    "semantic_flags": true,
+    "numeric_evidence": true,
+    "report_hash": true,
+    "maps_observer_wording_present": true,
+    "semantic_alone_wording_present": true
+  },
+  "no_candidate_changes": true,
+  "no_render_qualification_claim": true
+}

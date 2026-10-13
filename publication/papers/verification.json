@@ -81,80 +81,83 @@
     },
     {
       "file": "pdf/02-311-analytics.pdf",
-      "sha256": "be55692ea0cb39821f3574697dd6acf6d440e50ee3c01f91144bf07512957def",
+      "sha256": "a63c5464114b589f9b5f90bfd9821f3cded0926bfe072810bfd621e1db4c33cd",
       "pages": [
         {
           "page": 1,
-          "words": 313,
-          "links": 11,
+          "words": 263,
+          "links": 9,
           "geometry_issues": [],
           "glyph_issues": []
         },
         {
           "page": 2,
-          "words": 283,
-          "links": 6,
+          "words": 264,
+          "links": 7,
           "geometry_issues": [],
           "glyph_issues": []
         },
         {
           "page": 3,
-          "words": 314,
+          "words": 276,
           "links": 6,
           "geometry_issues": [],
           "glyph_issues": []
         },
         {
           "page": 4,
-          "words": 336,
+          "words": 291,
           "links": 5,
           "geometry_issues": [],
           "glyph_issues": []
         },
         {
           "page": 5,
-          "words": 301,
-          "links": 5,
+          "words": 296,
+          "links": 7,
           "geometry_issues": [],
           "glyph_issues": []
         },
         {
           "page": 6,
-          "words": 301,
-          "links": 9,
-          "geometry_issues": [],
-          "glyph_issues": []
-        },
-        {
-          "page": 7,
-          "words": 281,
-          "links": 2,
-          "geometry_issues": [],
-          "glyph_issues": []
-        },
-        {
-          "page": 8,
-          "words": 290,
+          "words": 322,
           "links": 6,
           "geometry_issues": [],
           "glyph_issues": []
         },
         {
+          "page": 7,
+          "words": 303,
+          "links": 9,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
+          "page": 8,
+          "words": 352,
+          "links": 11,
+          "geometry_issues": [],
+          "glyph_issues": []
+        },
+        {
           "page": 9,
-          "words": 319,
-          "links": 5,
+          "words": 359,
+          "links": 10,
           "geometry_issues": [],
           "glyph_issues": []
         },
         {
           "page": 10,
-          "words": 143,
-          "links": 12,
+          "words": 187,
+          "links": 17,
           "geometry_issues": [],
           "glyph_issues": []
         }
       ],
-      "words": 2881
+      "words": 2913,
+      "evidence_commit": "4668139874139b597157d01daf475eeacbededfe",
+      "checked_at": "2026-10-13T07:14:37.152865+00:00",
+      "qa_receipt": "projects/02-311-analytics/examples/evidence/paper-qa-v0.7-final.json"
     },
     {
       "file": "pdf/03-semantic-discovery.pdf",
